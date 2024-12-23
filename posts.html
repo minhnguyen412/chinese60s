@@ -331,7 +331,7 @@
           }
 
          // Wait for the page to load
-         document.addEventListener('DOMContentLoaded', () => {
+         window.addEventListener('load', () => {
                // Get start-id and end-id from the URL
                const startId = getQueryParam('quizStartId');
                const endId = getQueryParam('quizEndId');
