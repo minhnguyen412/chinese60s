@@ -333,22 +333,22 @@
          // Wait for the page to load
          window.addEventListener('load', () => {
                // Get start-id and end-id from the URL
-               const startId = getQueryParam('quizStartId');
-               const endId = getQueryParam('quizEndId');
+               const quizStartId = getQueryParam('quizStartId');
+               const quizEndId = getQueryParam('quizEndId');
 
               //If start-id and end-id are provided in the URL, update the data attributes
                const quizContainer = document.getElementById('quiz-container');
     
-               if (startId) {
-      quizContainer.setAttribute('data-start-id', startId);
+               if (quizStartId) {
+      quizContainer.setAttribute('data-start-id', quizStartId);
                }
-               if (endId) {
-      quizContainer.setAttribute('data-end-id', endId);
+               if (quizEndId) {
+      quizContainer.setAttribute('data-end-id', quizEndId);
                }
 
               // Optionally, you can log the values to the console for debugging
-              console.log('Start ID:', startId || 'default');
-              console.log('End ID:', endId || 'default');
+              console.log('Quiz Start ID:', quizStartId || 'default');
+              console.log('Quiz End ID:', quizEndId || 'default');
          });
       </script>
      
