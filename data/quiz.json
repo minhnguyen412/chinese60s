@@ -99,7 +99,7 @@
         {
             "id": 10,
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673352/%E8%BF%9B_ldhyvd.mp3",
-            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672831/%E8%BF%9B_yvpsep.png", ": ___"],
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672831/%E8%BF%9B_yvpsep.png", ": ___"],
             "blanks": [
                 { "answer": "进" }
             ],
@@ -108,7 +108,7 @@
         {
             "id": 11,
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673260/%E5%9D%90_of9mvo.mp3",
-            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672815/%E5%9D%90_v3qgxh.png", ": ___"],
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672815/%E5%9D%90_v3qgxh.png", ": ___"],
             "blanks": [
                 { "answer": "坐" }
             ],
@@ -119,45 +119,45 @@
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673255/%E5%96%9D_d7eazr.mp3",
             "sentence": "喝 : ___",
             "blanks": [
-                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672814/%E5%96%9D_ohxgv5.png" }
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672814/%E5%96%9D_ohxgv5.png" }
             ],
-            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672815/%E5%9D%90_v3qgxh.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672814/%E5%96%9D_ohxgv5.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672829/%E8%AF%B7_ow5lc2.gif"]
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672815/%E5%9D%90_v3qgxh.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672814/%E5%96%9D_ohxgv5.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672829/%E8%AF%B7_ow5lc2.gif"]
         },
         {
             "id": 13,
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673336/%E8%8C%B6_qjl60i.mp3",
             "sentence": "茶 : ___",
             "blanks": [
-                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672827/%E8%8C%B6_wqnz2r.png" }
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672827/%E8%8C%B6_wqnz2r.png" }
             ],
-            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672815/%E5%A4%A9_f0dh1g.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672827/%E8%8C%B6_wqnz2r.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672812/%E5%8F%96_srztqx.png"]
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672815/%E5%A4%A9_f0dh1g.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672827/%E8%8C%B6_wqnz2r.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672812/%E5%8F%96_srztqx.png"]
         },
         {
             "id": 14,
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673274/%E5%AE%A2%E6%B0%94_n00npd.mp3",
             "sentence": "客气 : ___",
             "blanks": [
-                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672818/%E5%AE%A2%E6%B0%94_bafdxn.png" }
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672818/%E5%AE%A2%E6%B0%94_bafdxn.png" }
             ],
-            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672818/%E5%AE%A2%E6%B0%94_bafdxn.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672815/%E5%9B%9E_hwrdue.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672817/%E5%AD%A6_ohlrfe.png"]
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672818/%E5%AE%A2%E6%B0%94_bafdxn.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672815/%E5%9B%9E_hwrdue.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672817/%E5%AD%A6_ohlrfe.png"]
         },
         {
             "id": 15,
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673280/%E5%B7%A5%E4%BD%9C_dhayvb.mp3",
             "sentence": "工作 : ___",
             "blanks": [
-                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672818/%E5%B7%A5%E4%BD%9C_vym8um.png" }
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672818/%E5%B7%A5%E4%BD%9C_vym8um.png" }
             ],
-            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672816/%E5%A5%BD_cktmxb.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672818/%E5%B7%A5%E4%BD%9C_vym8um.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672820/%E6%82%A8_ndcupj.png"]
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672816/%E5%A5%BD_cktmxb.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672818/%E5%B7%A5%E4%BD%9C_vym8um.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672820/%E6%82%A8_ndcupj.png"]
         },
         {
             "id": 16,
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673348/%E8%BA%AB%E4%BD%93_psl9ep.mp3",
             "sentence": "身体 : ___",
             "blanks": [
-                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672830/%E8%BA%AB%E4%BD%93_gyl84l.png" }
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672830/%E8%BA%AB%E4%BD%93_gyl84l.png" }
             ],
-            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672823/%E6%9C%8B%E5%8F%8B_pwkkse.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672809/%E4%B9%A6_f3edw3.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672830/%E8%BA%AB%E4%BD%93_gyl84l.png"]
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672823/%E6%9C%8B%E5%8F%8B_pwkkse.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672809/%E4%B9%A6_f3edw3.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672830/%E8%BA%AB%E4%BD%93_gyl84l.png"]
         },
         {
             "id": 17,
@@ -209,7 +209,7 @@
         {
             "id": 21,
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673272/%E5%AD%A6%E4%B9%A0_zn9smo.mp3",
-            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672817/%E5%AD%A6%E4%B9%A0_tvsnpv.png", ": ___"],
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672817/%E5%AD%A6%E4%B9%A0_tvsnpv.png", ": ___"],
             "blanks": [
                 { "answer": "学习" }
             ],
@@ -218,7 +218,7 @@
         {
             "id": 22,
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673242/%E5%8F%91%E9%9F%B3_mvaakh.mp3",
-            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672812/%E5%8F%91%E9%9F%B3_ov2vxu.png", ": ___"],
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672812/%E5%8F%91%E9%9F%B3_ov2vxu.png", ": ___"],
             "blanks": [
                 { "answer": "发音" }
             ],
@@ -229,9 +229,9 @@
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673312/%E6%B1%89%E5%AD%97_ix9xku.mp3",
             "sentence": "汉字 : ___",
             "blanks": [
-                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672824/%E6%B1%89%E5%AD%97_zqikwg.png" }
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672824/%E6%B1%89%E5%AD%97_zqikwg.png" }
             ],
-            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672824/%E6%B1%89%E5%AD%97_zqikwg.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672824/%E6%9D%82%E5%BF%97_adnplb.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672815/%E5%9B%BD_fca15m.png"]
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672824/%E6%B1%89%E5%AD%97_zqikwg.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672824/%E6%9D%82%E5%BF%97_adnplb.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672815/%E5%9B%BD_fca15m.png"]
         },
         {
             "id": 24,
@@ -258,7 +258,7 @@
         {
             "id": 26,
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673163/%E4%B9%A6_jjihr5.mp3",
-            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672809/%E4%B9%A6_f3edw3.png", ": ___"],
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672809/%E4%B9%A6_f3edw3.png", ": ___"],
             "blanks": [
                 { "answer": "书" }
             ],
@@ -282,9 +282,9 @@
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673161/%E4%B8%AD%E6%96%87_vbkj3r.mp3",
             "sentence": "中文 : ___",
             "blanks": [
-                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672808/%E4%B8%AD%E6%96%87_ceposq.png" }
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672808/%E4%B8%AD%E6%96%87_ceposq.png" }
             ],
-            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672833/%E9%9F%A9%E6%96%87_ipmlxt.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672821/%E6%97%A5%E6%96%87_lnpilr.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672808/%E4%B8%AD%E6%96%87_ceposq.png"]
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672833/%E9%9F%A9%E6%96%87_ipmlxt.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672821/%E6%97%A5%E6%96%87_lnpilr.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672808/%E4%B8%AD%E6%96%87_ceposq.png"]
         },
         {
             "id": 29,
@@ -302,7 +302,7 @@
         {
             "id": 30,
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673345/%E8%B0%81_ueab1g.mp3",
-            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672830/%E8%B0%81_o4ejhr.gif", ": ___"],
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672830/%E8%B0%81_o4ejhr.gif", ": ___"],
             "blanks": [
                 { "answer": "谁" }
             ],
@@ -335,7 +335,7 @@
         {
             "id": 33,
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673311/%E6%9D%82%E5%BF%97_axn4uh.mp3",
-            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672824/%E6%9D%82%E5%BF%97_adnplb.png", ": ___"],
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672824/%E6%9D%82%E5%BF%97_adnplb.png", ": ___"],
             "blanks": [
                 { "answer": "杂志" }
             ],
@@ -358,9 +358,9 @@
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673333/%E8%8B%B1%E6%96%87_kjsarw.mp3",
             "sentence": "英文 : ___",
             "blanks": [
-                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672827/%E8%8B%B1%E6%96%87_vr4hh3.png" }
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672827/%E8%8B%B1%E6%96%87_vr4hh3.png" }
             ],
-            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672827/%E8%8B%B1%E6%96%87_vr4hh3.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672832/%E9%98%BF%E6%8B%89%E4%BC%AF%E6%96%87_zso60r.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672819/%E5%BE%B7%E6%96%87_raeko0.png"]
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672827/%E8%8B%B1%E6%96%87_vr4hh3.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672832/%E9%98%BF%E6%8B%89%E4%BC%AF%E6%96%87_zso60r.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672819/%E5%BE%B7%E6%96%87_raeko0.png"]
         },
         {
             "id": 36,
@@ -392,7 +392,7 @@
         {
             "id": 38,
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673310/%E6%9C%8B%E5%8F%8B_r32byy.mp3",
-            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672823/%E6%9C%8B%E5%8F%8B_pwkkse.png", ": ___"],
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672823/%E6%9C%8B%E5%8F%8B_pwkkse.png", ": ___"],
             "blanks": [
                 { "answer": "朋友" }
             ],
