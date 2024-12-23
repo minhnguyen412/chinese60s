@@ -2,7 +2,7 @@
     "questions": [
         {
             "id": 1,
-            "audio": "sentences/这是王老师这是我爸爸.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673138/%E8%BF%99%E6%98%AF%E7%8E%8B%E8%80%81%E5%B8%88%E8%BF%99%E6%98%AF%E6%88%91%E7%88%B8%E7%88%B8_m1wpqh.mp3",
             "sentence": "___ ___ ___, ___ ___ ___ ___.",
             "blanks": [
                 { "answer": "zhè" },
@@ -17,7 +17,7 @@
         },
         {
             "id": 2,
-            "audio": "sentences/王老师您好.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673115/%E7%8E%8B%E8%80%81%E5%B8%88%E6%82%A8%E5%A5%BD_gmcnzg.mp3",
             "sentence": "___, ___ ___!",
             "blanks": [
                 { "answer": "wáng lǎoshī" },
@@ -28,7 +28,7 @@
         },
         {
             "id": 3,
-            "audio": "sentences/您好请进请坐请喝茶.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673099/%E6%82%A8%E5%A5%BD%E8%AF%B7%E8%BF%9B%E8%AF%B7%E5%9D%90%E8%AF%B7%E5%96%9D%E8%8C%B6_tx8mtv.mp3",
             "sentence": "nín hǎo! qǐng ___! qǐng ___! qǐng ___ ___!",
             "blanks": [
                 { "answer": "jìn" },
@@ -40,7 +40,7 @@
         },
         {
             "id": 4,
-            "audio": "sentences/不客气.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673084/%E4%B8%8D%E5%AE%A2%E6%B0%94_yyqayx.mp3",
             "sentence": "xièxie! ___!",
             "blanks": [
                 { "answer": "bú kèqi" }
@@ -49,7 +49,7 @@
         },
         {
             "id": 5,
-            "audio": "sentences/不太忙.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673083/%E4%B8%8D%E5%A4%AA%E5%BF%99_u5zgbz.mp3",
             "sentence": "gōngzuò máng ma? ___ ___ ___.",
             "blanks": [
                 { "answer": "bú" },
@@ -60,7 +60,7 @@
         },
         {
             "id": 6,
-            "audio": "sentences/身体好吗.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673122/%E8%BA%AB%E4%BD%93%E5%A5%BD%E5%90%97_j1pg0s.mp3",
             "sentence": "___ ___ ___? hěn hǎo.",
             "blanks": [
                 { "answer": "shēntǐ" },
@@ -71,8 +71,8 @@
         },
         {
             "id": 7,
-            "audio": "audio/老师.mp3",
-            "sentence": ["images/老师.png", ": ___"],
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673331/%E8%80%81%E5%B8%88_uml35p.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672827/%E8%80%81%E5%B8%88_yp4q3u.png", ": ___"],
             "blanks": [
                 { "answer": "老师" }
             ],
@@ -80,8 +80,8 @@
         },
         {
             "id": 8,
-            "audio": "audio/您.mp3",
-            "sentence": ["images/您.png", ": ___"],
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673288/%E6%82%A8_p8k1sj.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672820/%E6%82%A8_ndcupj.png", ": ___"],
             "blanks": [
                 { "answer": "您" }
             ],
@@ -89,8 +89,8 @@
         },
         {
             "id": 9,
-            "audio": "audio/请.mp3",
-            "sentence": ["images/请.gif", ": ___"],
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673343/%E8%AF%B7_gfbu7q.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672829/%E8%AF%B7_ow5lc2.gif", ": ___"],
             "blanks": [
                 { "answer": "请" }
             ],
@@ -98,8 +98,8 @@
         },
         {
             "id": 10,
-            "audio": "audio/进.mp3",
-            "sentence": ["images/进.png", ": ___"],
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673352/%E8%BF%9B_ldhyvd.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672831/%E8%BF%9B_yvpsep.png", ": ___"],
             "blanks": [
                 { "answer": "进" }
             ],
@@ -107,8 +107,8 @@
         },
         {
             "id": 11,
-            "audio": "audio/坐.mp3",
-            "sentence": ["images/坐.png", ": ___"],
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673260/%E5%9D%90_of9mvo.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672815/%E5%9D%90_v3qgxh.png", ": ___"],
             "blanks": [
                 { "answer": "坐" }
             ],
@@ -116,52 +116,52 @@
         },
         {
             "id": 12,
-            "audio": "audio/喝.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673255/%E5%96%9D_d7eazr.mp3",
             "sentence": "喝 : ___",
             "blanks": [
-                { "answer": "images/喝.png" }
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672814/%E5%96%9D_ohxgv5.png" }
             ],
-            "words": ["images/坐.png", "images/喝.png", "images/请.gif"]
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672815/%E5%9D%90_v3qgxh.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672814/%E5%96%9D_ohxgv5.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672829/%E8%AF%B7_ow5lc2.gif"]
         },
         {
             "id": 13,
-            "audio": "audio/茶.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673336/%E8%8C%B6_qjl60i.mp3",
             "sentence": "茶 : ___",
             "blanks": [
-                { "answer": "images/茶.png" }
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672827/%E8%8C%B6_wqnz2r.png" }
             ],
-            "words": ["images/天.png", "images/茶.png", "images/取.png"]
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672815/%E5%A4%A9_f0dh1g.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672827/%E8%8C%B6_wqnz2r.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672812/%E5%8F%96_srztqx.png"]
         },
         {
             "id": 14,
-            "audio": "audio/客气.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673274/%E5%AE%A2%E6%B0%94_n00npd.mp3",
             "sentence": "客气 : ___",
             "blanks": [
-                { "answer": "images/客气.png" }
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672818/%E5%AE%A2%E6%B0%94_bafdxn.png" }
             ],
-            "words": ["images/客气.png", "images/回.png", "images/学.png"]
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672818/%E5%AE%A2%E6%B0%94_bafdxn.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672815/%E5%9B%9E_hwrdue.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672817/%E5%AD%A6_ohlrfe.png"]
         },
         {
             "id": 15,
-            "audio": "audio/工作.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673280/%E5%B7%A5%E4%BD%9C_dhayvb.mp3",
             "sentence": "工作 : ___",
             "blanks": [
-                { "answer": "images/工作.png" }
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672818/%E5%B7%A5%E4%BD%9C_vym8um.png" }
             ],
-            "words": ["images/好.png", "images/工作.png", "images/您.png"]
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672816/%E5%A5%BD_cktmxb.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672818/%E5%B7%A5%E4%BD%9C_vym8um.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672820/%E6%82%A8_ndcupj.png"]
         },
         {
             "id": 16,
-            "audio": "audio/身体.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673348/%E8%BA%AB%E4%BD%93_psl9ep.mp3",
             "sentence": "身体 : ___",
             "blanks": [
-                { "answer": "images/身体.png" }
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672830/%E8%BA%AB%E4%BD%93_gyl84l.png" }
             ],
-            "words": ["images/朋友.png", "images/书.png", "images/身体.png"]
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672823/%E6%9C%8B%E5%8F%8B_pwkkse.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672809/%E4%B9%A6_f3edw3.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672830/%E8%BA%AB%E4%BD%93_gyl84l.png"]
         },
         {
             "id": 17,
-            "audio": "sentences/请问你贵姓.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673118/%E8%AF%B7%E9%97%AE%E4%BD%A0%E8%B4%B5%E5%A7%93_e22nk8.mp3",
             "sentence": "___ ___ ___?",
             "blanks": [
                 { "answer": "请问" },
@@ -172,7 +172,7 @@
         },
         {
             "id": 18,
-            "audio": "sentences/我姓张.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673104/%E6%88%91%E5%A7%93%E5%BC%A0_o7ewjh.mp3",
             "sentence": "My surname is Zhang. ___ ___ ___.",
             "blanks": [
                 { "answer": "我" },
@@ -183,7 +183,7 @@
         },
         {
             "id": 19,
-            "audio": "sentences/你叫什么名字.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673086/%E4%BD%A0%E5%8F%AB%E4%BB%80%E4%B9%88%E5%90%8D%E5%AD%97_gq6ngu.mp3",
             "sentence": "你叫什么名字？___ ___ ___ ___?",
             "blanks": [
                 { "answer": "What" },
@@ -195,7 +195,7 @@
         },
         {
             "id": 20,
-            "audio": "sentences/你是哪国人.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673093/%E4%BD%A0%E6%98%AF%E5%93%AA%E5%9B%BD%E4%BA%BA_ob0jxo.mp3",
             "sentence": "___ ___ ___ ___ ___?",
             "blanks": [
                 { "answer": "你" },
@@ -208,8 +208,8 @@
         },
         {
             "id": 21,
-            "audio": "audio/学习.mp3",
-            "sentence": ["images/学习.png", ": ___"],
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673272/%E5%AD%A6%E4%B9%A0_zn9smo.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672817/%E5%AD%A6%E4%B9%A0_tvsnpv.png", ": ___"],
             "blanks": [
                 { "answer": "学习" }
             ],
@@ -217,8 +217,8 @@
         },
         {
             "id": 22,
-            "audio": "audio/发音.mp3",
-            "sentence": ["images/发音.png", ": ___"],
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673242/%E5%8F%91%E9%9F%B3_mvaakh.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672812/%E5%8F%91%E9%9F%B3_ov2vxu.png", ": ___"],
             "blanks": [
                 { "answer": "发音" }
             ],
@@ -226,16 +226,16 @@
         },
         {
             "id": 23,
-            "audio": "audio/汉字.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673312/%E6%B1%89%E5%AD%97_ix9xku.mp3",
             "sentence": "汉字 : ___",
             "blanks": [
-                { "answer": "images/汉字.png" }
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672824/%E6%B1%89%E5%AD%97_zqikwg.png" }
             ],
-            "words": ["images/汉字.png", "images/杂志.png", "images/国.png"]
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672824/%E6%B1%89%E5%AD%97_zqikwg.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672824/%E6%9D%82%E5%BF%97_adnplb.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672815/%E5%9B%BD_fca15m.png"]
         },
         {
             "id": 24,
-            "audio": "sentences/这是什么.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673133/%E8%BF%99%E6%98%AF%E4%BB%80%E4%B9%88_lho2uy.mp3",
             "sentence": "What is this? <br> ___ ___ ___?",
             "blanks": [
                 { "answer": "这" },
@@ -246,7 +246,7 @@
         },
         {
             "id": 25,
-            "audio": "sentences/这是书.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673131/%E8%BF%99%E6%98%AF%E4%B9%A6_lebbej.mp3",
             "sentence": "This is a book. <br> ___ ___ ___.",
             "blanks": [
                 { "answer": "这" },
@@ -257,8 +257,8 @@
         },
         {
             "id": 26,
-            "audio": "audio/书.mp3",
-            "sentence": ["images/书.png", ": ___"],
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673163/%E4%B9%A6_jjihr5.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672809/%E4%B9%A6_f3edw3.png", ": ___"],
             "blanks": [
                 { "answer": "书" }
             ],
@@ -266,7 +266,7 @@
         },
         {
             "id": 27,
-            "audio": "sentences/这是什么书.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673134/%E8%BF%99%E6%98%AF%E4%BB%80%E4%B9%88%E4%B9%A6_zl0i7l.mp3",
             "sentence": "___ ___ ___ ___?",
             "blanks": [
                 { "answer": "这" },
@@ -279,16 +279,16 @@
         },
         {
             "id": 28,
-            "audio": "audio/中文.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673161/%E4%B8%AD%E6%96%87_vbkj3r.mp3",
             "sentence": "中文 : ___",
             "blanks": [
-                { "answer": "images/中文.png" }
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672808/%E4%B8%AD%E6%96%87_ceposq.png" }
             ],
-            "words": ["images/韩文.png", "images/日文.png", "images/中文.png"]
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672833/%E9%9F%A9%E6%96%87_ipmlxt.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672821/%E6%97%A5%E6%96%87_lnpilr.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672808/%E4%B8%AD%E6%96%87_ceposq.png"]
         },
         {
             "id": 29,
-            "audio": "sentences/这是谁的书.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673140/%E8%BF%99%E6%98%AF%E8%B0%81%E7%9A%84%E4%B9%A6_l4mna3.mp3",
             "sentence": "Whose book is this? <br> ___ ___ ___ ___ ___?",
             "blanks": [
                 { "answer": "这" },
@@ -301,8 +301,8 @@
         },
         {
             "id": 30,
-            "audio": "audio/谁.mp3",
-            "sentence": ["images/谁.gif", ": ___"],
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673345/%E8%B0%81_ueab1g.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672830/%E8%B0%81_o4ejhr.gif", ": ___"],
             "blanks": [
                 { "answer": "谁" }
             ],
@@ -310,7 +310,7 @@
         },
         {
             "id": 31,
-            "audio": "sentences/这是老师的书.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673139/%E8%BF%99%E6%98%AF%E8%80%81%E5%B8%88%E7%9A%84%E4%B9%A6_ry6pfu.mp3",
             "sentence": "___ ___ ___ ___ ___.",
             "blanks": [
                 { "answer": "这" },
@@ -323,7 +323,7 @@
         },
         {
             "id": 32,
-            "audio": "sentences/那是什么.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673142/%E9%82%A3%E6%98%AF%E4%BB%80%E4%B9%88_vhyyi4.mp3",
             "sentence": "What is that? <br> ___ ___ ___?",
             "blanks": [
                 { "answer": "那" },
@@ -334,8 +334,8 @@
         },
         {
             "id": 33,
-            "audio": "audio/杂志.mp3",
-            "sentence": ["images/杂志.png", ": ___"],
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673311/%E6%9D%82%E5%BF%97_axn4uh.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672824/%E6%9D%82%E5%BF%97_adnplb.png", ": ___"],
             "blanks": [
                 { "answer": "杂志" }
             ],
@@ -343,7 +343,7 @@
         },
         {
             "id": 34,
-            "audio": "sentences/那是什么杂志.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673144/%E9%82%A3%E6%98%AF%E4%BB%80%E4%B9%88%E6%9D%82%E5%BF%97_cj6lqe.mp3",
             "sentence": "___ ___ ___ ___?",
             "blanks": [
                 { "answer": "那" },
@@ -355,16 +355,16 @@
         },
         {
             "id": 35,
-            "audio": "audio/英文.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673333/%E8%8B%B1%E6%96%87_kjsarw.mp3",
             "sentence": "英文 : ___",
             "blanks": [
-                { "answer": "images/英文.png" }
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672827/%E8%8B%B1%E6%96%87_vr4hh3.png" }
             ],
-            "words": ["images/英文.png", "images/阿拉伯文.png", "images/德文.png"]
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672827/%E8%8B%B1%E6%96%87_vr4hh3.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672832/%E9%98%BF%E6%8B%89%E4%BC%AF%E6%96%87_zso60r.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672819/%E5%BE%B7%E6%96%87_raeko0.png"]
         },
         {
             "id": 36,
-            "audio": "sentences/那是谁的杂志.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673148/%E9%82%A3%E6%98%AF%E8%B0%81%E7%9A%84%E6%9D%82%E5%BF%97_pq9pbq.mp3",
             "sentence": "___ ___ ___ ___ ___？",
             "blanks": [
                 { "answer": "那" },
@@ -377,7 +377,7 @@
         },
         {
             "id": 37,
-            "audio": "sentences/那是我朋友的杂志.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673145/%E9%82%A3%E6%98%AF%E6%88%91%E6%9C%8B%E5%8F%8B%E7%9A%84%E6%9D%82%E5%BF%97_va0ugf.mp3",
             "sentence": "That's my friend's magazine. <br> ___ ___ ___ ___ ___ ___.",
             "blanks": [
                 { "answer": "那" },
@@ -391,8 +391,8 @@
         },
         {
             "id": 38,
-            "audio": "audio/朋友.mp3",
-            "sentence": ["images/朋友.png", ": ___"],
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673310/%E6%9C%8B%E5%8F%8B_r32byy.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672823/%E6%9C%8B%E5%8F%8B_pwkkse.png", ": ___"],
             "blanks": [
                 { "answer": "朋友" }
             ],
