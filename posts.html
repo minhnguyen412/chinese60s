@@ -299,19 +299,19 @@
         <ul class="content-list" id="itemList"></ul>
       </div>
       <script>
-        function savePostRange(startId, endId) {
-          const postData = { startId, endId };
+        function savePostRange(starptId, endpId) {
+          const postData = { startpId, endpId };
           localStorage.setItem('postRange', JSON.stringify(postData));
         }
 
         function loadPostRange() {
           const savedData = localStorage.getItem('postRange');
-          return savedData ? JSON.parse(savedData) : { startId: 0, endId: 0 };
+          return savedData ? JSON.parse(savedData) : { startpId: 0, endpId: 0 };
         }
 
         document.addEventListener('DOMContentLoaded', () => {
           const { startId, endId } = loadPostRange();
-          loadPosts(startId, endId, 'itemList');
+          loadPosts(startpId, endpId, 'itemList');
         });
 
         // Example: Save range
