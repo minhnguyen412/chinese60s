@@ -1,9 +1,8 @@
 let currentQuestionIndex = 0;
 
 // Chọn khoảng id mà bạn muốn hiển thị
-const qContainer = document.querySelector('.qcontainer');
-const startId = parseInt(qContainer.dataset.startId);
-const endId = parseInt(qContainer.dataset.endId);
+function loadPosts(startpId, endpId, listId) {
+    const itemList = document.getElementById(listId);
 
 fetch('../data/quiz.json')
     .then(response => response.json())
