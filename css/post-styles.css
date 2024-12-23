@@ -1,0 +1,342 @@
+
+.qcontainer {
+    
+    padding: 50px;
+    
+        
+
+}
+
+.sentence {
+    margin: 20px 0;
+    font-size: 30px;
+    line-height: 1.6;
+    font-weight: bold;
+}
+
+.blank {
+    display: inline-block;
+    width: 100px;
+    border-bottom: 2px solid #333;
+    text-align: center;
+    margin: 0 5px;
+    color: #555;
+}
+
+.options {
+    margin: 20px 0;
+}
+
+.word {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    background-color: #fc9ad3;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.word:hover {
+    background-color: #ff75c6;
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
+
+button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    
+}
+
+.next {
+    background-color: #28a745;
+}
+
+.retry {
+    background-color: #dc3545;
+}
+
+button:disabled {
+    background-color: #6c757d;
+}
+.content-image {
+    max-width: 150px; /* Adjust as necessary */
+    height: auto;
+    display: block; /* Ensures images are not inline */
+    
+}
+.image-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+#start-button {
+    padding: 10px 20px;
+    font-size: 2rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#start-button:hover {
+    background-color: #218838;
+}
+
+@media (max-width: 768px) {
+    .qcontainer {
+        width: 70%; /* Thu nhỏ chiều rộng */
+        padding: 15px; /* Giảm padding khi màn hình nhỏ */
+    }
+
+    .sentence {
+        font-size: 24px; /* Giảm kích thước chữ */
+    }
+
+    .word {
+        font-size: 20px; /* Điều chỉnh kích thước nút */
+    }
+}
+
+@media (max-width: 480px) {
+    .qcontainer {
+        width: 80%; /* Chiếm toàn bộ chiều rộng */
+        padding: 10px; /* Giảm thêm padding */
+    }
+
+    .sentence {
+        font-size: 18px; /* Kích thước chữ nhỏ hơn */
+    }
+
+    .word {
+        font-size: 16px; /* Kích thước nút nhỏ hơn */
+    }
+}
+
+.pcontainer {
+    max-width: 1005; /* Giới hạn chiều rộng của container */
+    margin: 0 auto; /* Căn giữa container */
+    display: flex; /* Sử dụng flexbox */
+    flex-direction: column; /* Sắp xếp theo cột */
+    gap: 25px;
+    padding: 20px 10px;
+    
+}
+
+.content-list {
+    list-style-type: none; /* Bỏ dấu đầu dòng */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Thêm display flex */
+    flex-direction: column; /* Sắp xếp theo cột */
+    align-items: center; /* Căn giữa theo chiều ngang */
+}
+
+.content-list li {
+    display: flex; /* Sử dụng flexbox cho li */
+    align-items: left; /* Căn giữa theo chiều dọc */
+    background-color: #ffffff; /* Màu nền trắng cho item */
+    border: 1px solid #ddd; /* Đường viền nhẹ */
+    border-radius: 20px; /* Bo góc */
+    padding: 15px; /* Padding cho item */
+    transition: transform 0.3s, opacity 0.3s; /* Hiệu ứng chuyển tiếp cho transform và opacity */
+    opacity: 0; /* Khởi tạo độ trong suốt */
+    transform: translateY(20px); /* Đẩy hộp xuống */
+    width: 90%; /* Chiều rộng 100% của container */
+    box-sizing: border-box; /* Đảm bảo box model được tính toán chính xác */
+    justify-content: flex-start; /* Căn chỉnh nội dung về bên trái */
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.content-list li.visible {
+    opacity: 1; /* Hiện hộp */
+    transform: translateY(0); /* Đưa hộp về vị trí ban đầu */
+}
+
+.content-list li:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Hiệu ứng bóng khi hover */
+}
+
+/* Cấu trúc của row chứa avatar và user */
+.row {
+    display: flex;
+    width: 100%;
+    gap: 15px; /* Khoảng cách giữa avatar và user */
+    justify-content: space-between;
+    align-items: center;
+}
+/* Căn lề cho các hộp lẻ và chẵn */
+.content-list li:nth-child(odd) .row {
+    justify-content: flex-start; /* Căn lề trái cho hộp lẻ */
+}
+
+.content-list li:nth-child(even) .row {
+    justify-content: flex-start; /* Căn lề phải cho hộp chẵn */
+}
+.avatar-1 {
+    display: flex; /* Đảm bảo span có kích thước */
+    width: 50px; /* Kích thước avatar */
+    height: 50px; /* Kích thước avatar */
+    background-color: #007BFF; /* Màu nền cho avatar */
+    border-radius: 50%; /* Bo tròn để tạo hình tròn */
+    background-size: cover; /* Đảm bảo hình ảnh sẽ bao phủ toàn bộ diện tích của avatar */
+    margin-bottom: 10px; /* Khoảng cách giữa avatar và tiêu đề */
+}
+
+
+h2 {
+    margin: 0; /* Bỏ margin cho tiêu đề */
+    font-size: 1.5em; /* Kích thước chữ cho tiêu đề */
+    color: #333; /* Màu chữ cho tiêu đề */
+    margin-left: 20px; /* Đẩy mô tả vào trong */
+    margin-right: 20px; /* Đẩy mô tả vào trong */
+}
+
+.description {
+    display: none; /* Ẩn mô tả mặc định */
+    color: #666; /* Màu chữ cho mô tả */
+    margin-top: 5px; /* Khoảng cách cho mô tả */
+    margin-left: 20px; /* Đẩy mô tả vào trong */
+    margin-right: 20px; /* Đẩy mô tả vào trong */
+    font-size: 1.2em;
+}
+
+.content-list li:hover .description {
+    display: block; /* Hiện mô tả khi hover */
+}
+
+/* Căn lề xen kẽ cho các hộp */
+.content-list li:nth-child(odd) {
+    align-self: center; /* Căn lề trái cho hộp lẻ */
+    text-align: left; /* Căn trái cho text trong hộp lẻ */
+    
+
+}
+
+.content-list li:nth-child(even) {
+    align-self: center; /* Căn lề phải cho hộp chẵn */
+    text-align: left; /* Căn phải cho text trong hộp chẵn */
+    
+    
+}
+.user {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    font-size: 1.2em;
+    font-weight: bold;
+}   
+.audio {
+    position: absolute;
+    font-size: 24px; /* Kích thước chữ */
+    top: 10px; /* Cách từ trên */
+    font-weight: bold; /* Để chữ đậm */
+}
+
+.content-list li:nth-child(odd) .audio {
+    right: 15px; /* Căn text góc trên bên phải cho hộp lẻ */
+}
+
+.content-list li:nth-child(even) .audio {
+    right: 15px; /* Căn text góc trên bên trái cho hộp chẵn */
+}
+/* Nền overlay cho card hình ảnh */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Màu đen với độ trong suốt */
+    z-index: 999; /* Đặt trên tất cả các phần tử khác */
+}
+
+/* Kiểu cho card hình ảnh */
+.image-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Đặt trên overlay */
+    width: 300px;
+    text-align: center;
+}
+
+/* Hình ảnh trong card */
+.image-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.image-card h3 {
+    margin: 10px 0;
+}
+
+.image-card p {
+    margin: 5px 0;
+}
+
+/* Kiểu cho nút đóng */
+.image-card .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 30px;
+    color: #aaa;
+}
+
+.image-card .close:hover {
+    color: black;
+}
+#writer-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+.toggle-description {
+    margin: 0 30px; /* Khoảng cách giữa các phần tử */
+    padding: 0;
+    font-size: 1.2em;
+    color: black; /* Màu chữ mặc định */
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease; /* Thêm hiệu ứng chuyển màu mượt mà */
+    margin-left: auto;
+}
+
+.toggle-description:hover {
+    color: red; /* Màu chữ khi hover */
+}

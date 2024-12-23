@@ -1,0 +1,290 @@
+[
+    {
+        "id": 1, 
+        "user": "A", 
+        "title": "这是王老师，这是我爸爸。",
+        "segments": ["这", "是", "王", "老师", "，", "这", "是", "我", "爸爸", "。"],
+        "description": "zhè shì wáng lǎoshī zhè shì wǒ bàba<br>This is teacher Wang, this is my father.", 
+        "avatar": "avatar/chamu-1.png", 
+        "audioSrc": "sentences/这是王老师这是我爸爸.mp3"
+    },
+    {
+        "id": 2, 
+        "user": "B", 
+        "title": "王老师，您好！", 
+        "segments": ["王", "老师", "，", "您", "好", "！"],
+        "description": "wáng lǎoshī nín hǎo<br>Teacher Wang, hello!", 
+        "avatar": "avatar/gdguan.png", 
+        "audioSrc": "sentences/王老师您好.mp3"
+    },
+    {
+        "id": 3, 
+        "user": "C", 
+        "title": "您好！请进！请坐！请喝茶！", 
+        "segments": ["您", "好", "！", "请", "进", "！", "请", "坐", "！", "请", "喝", "茶", "！"],
+        "description": "nín hǎo qǐng jìn qǐng zuò qǐng hē chá<br>Hello! Please come in! Have a seat! Have some tea!", 
+        "avatar": "avatar/thaywang.png", 
+        "audioSrc": "sentences/您好请进请坐请喝茶.mp3"
+    },
+    {
+        "id": 4, 
+        "user": "B", 
+        "title": "谢谢！", 
+        "segments": ["谢谢", "！"],
+        "description": "xièxie<br>Thank you!", 
+        "avatar": "avatar/gdguan.png", 
+        "audioSrc": "sentences/谢谢.mp3"
+    },
+    {
+        "id": 5, 
+        "user": "C", 
+        "title": "不客气！",
+        "segments": ["不", "客气", "！"],
+        "description": "bú kèqi<br>You're welcome!", 
+        "avatar": "avatar/thaywang.png", 
+        "audioSrc": "sentences/不客气.mp3"
+    },
+    {
+        "id": 6, 
+        "user": "C", 
+        "title": "工作忙吗？", 
+        "segments": ["工作", "忙", "吗", "？"],
+        "description": "gōngzuò máng ma<br>Is your work busy?", 
+        "avatar": "avatar/thaywang.png", 
+        "audioSrc": "sentences/工作忙吗.mp3"
+    },
+    {
+        "id": 7, 
+        "user": "B", 
+        "title": "不太忙。",
+        "segments": ["不", "太", "忙", "。"],
+        "description": "bú tài máng<br>Not too busy.", 
+        "avatar": "avatar/gdguan.png", 
+        "audioSrc": "sentences/不太忙.mp3"
+    },
+    {
+        "id": 8, 
+        "user": "C", 
+        "title": "身体好吗？", 
+        "segments": ["身体", "好", "吗", "？"],
+        "description": "shēntǐ hǎo ma<br>How is your health?", 
+        "avatar": "avatar/thaywang.png", 
+        "audioSrc": "sentences/身体好吗.mp3"
+    },
+    {
+        "id": 9, 
+        "user": "B", 
+        "title": "很好！", 
+        "segments": ["很", "好", "！"],
+        "description": "hěn hǎo<br>Very good!", 
+        "avatar": "avatar/gdguan.png", 
+        "audioSrc": "sentences/很好.mp3"
+    },
+    {
+        "id": 10, 
+        "user": "麦克", 
+        "title": "请问，你贵姓？", 
+        "segments": ["请问", "，", "你", "贵姓", "？"],
+        "description": "qǐngwèn nǐ guìxìng<br>Excuse me! What’s your surname?", 
+        "avatar": "avatar/maike.png", 
+        "audioSrc": "sentences/请问你贵姓.mp3"
+    },
+    {
+        "id": 11, 
+        "user": "张东", 
+        "title": "我姓张。", 
+        "segments": ["我", "姓", "张", "。"],
+        "description": "wǒ xìng zhāng<br>My surname is Zhang.", 
+        "avatar": "avatar/zhangdong.png", 
+        "audioSrc": "sentences/我姓张.mp3"
+    },
+    {
+        "id": 12, 
+        "user": "麦克", 
+        "title": "你叫什么名字？", 
+        "segments": ["你", "叫", "什么", "名字", "？"],
+        "description": "nǐ jiào shénme míngzi<br>What is your full name?", 
+        "avatar": "avatar/maike.png", 
+        "audioSrc": "sentences/你叫什么名字.mp3"
+    },
+    {
+        "id": 13, 
+        "user": "张东", 
+        "title": "我叫张东。", 
+        "segments": ["我", "叫", "张东", "。"],
+        "description": "wǒ jiào zhāng dōng<br>My full name is Zhang Dong.", 
+        "avatar": "avatar/zhangdong.png", 
+        "audioSrc": "sentences/我叫张东.mp3"
+    },
+    {
+        "id": 14, 
+        "user": "麦克", 
+        "title": "你是哪国人？", 
+        "segments": ["你", "是", "哪", "国", "人", "？"],
+        "description": "nǐ shì nǎ guó rén<br>What nationality are you?", 
+        "avatar": "avatar/maike.png", 
+        "audioSrc": "sentences/你是哪国人.mp3"
+    },
+    {
+        "id": 15, 
+        "user": "张东", 
+        "title": "我是中国人，你是哪国人？", 
+        "segments": ["我", "是", "中国", "人", "，", "你", "是", "哪", "国", "人", "？"],
+        "description": "wǒ shì zhōngguó rén nǐ shì nǎ guó rén<br>I’m Chinese, what nationality are you?", 
+        "avatar": "avatar/zhangdong.png", 
+        "audioSrc": "sentences/我是中国人你是哪国人.mp3"
+    },
+    {
+        "id": 16, 
+        "user": "麦克", 
+        "title": "我是美国人。", 
+        "segments": ["我", "是", "美国", "人", "。"],
+        "description": "wǒ shì měiguó rén<br>I'm American.", 
+        "avatar": "avatar/maike.png", 
+        "audioSrc": "sentences/我是美国人.mp3"
+    },
+    {
+        "id": 17, 
+        "user": "张东", 
+        "title": "你学习什么？", 
+        "segments": ["你", "学习", "什么", "？"],
+        "description": "nǐ xuéxí shénme<br>What do you study?", 
+        "avatar": "avatar/zhangdong.png", 
+        "audioSrc": "sentences/你学习什么.mp3"
+    },
+    {
+        "id": 18, 
+        "user": "麦克", 
+        "title": "我学习汉语。", 
+        "segments": ["我", "学习", "汉语", "。"],
+        "description": "wǒ xuěxí hànyǔ<br>I study Chinese.", 
+        "avatar": "avatar/maike.png", 
+        "audioSrc": "sentences/我学习汉语.mp3"
+    },
+    {
+        "id": 19, 
+        "user": "张东", 
+        "title": "汉语难吗？", 
+        "segments": ["汉语", "难", "吗", "？"],
+        "description": "hànyǔ nán ma<br>Is Chinese difficult?", 
+        "avatar": "avatar/zhangdong.png", 
+        "audioSrc": "sentences/汉语难吗.mp3"
+    },
+    {
+        "id": 20, 
+        "user": "麦克", 
+        "title": "汉字很难，发音不太难。", 
+        "segments": ["汉字", "很", "难", "，", "发音", "不", "太", "难", "。"],
+        "description": "hànzi hěn nán fāyīn bú tài nán<br>Chinese characters are very difficult, but pronunciation is not too difficult.", 
+        "avatar": "avatar/maike.png", 
+        "audioSrc": "sentences/汉字很难发音不太难.mp3"
+    },
+    {
+        "id": 21, 
+        "user": "A", 
+        "title": "这是什么？", 
+        "segments": ["这", "是", "什么", "？"],
+        "description": "zhè shì shénme<br>What is this?", 
+        "avatar": "avatar/lana.png", 
+        "audioSrc": "sentences/这是什么.mp3"
+    },
+    {
+        "id": 22, 
+        "user": "B", 
+        "title": "这是书。", 
+        "segments": ["这", "是", "书", "。"],
+        "description": "zhè shì shū <br>This is a book.", 
+        "avatar": "avatar/nate.png", 
+        "audioSrc": "sentences/这是书.mp3"
+    },
+    {
+        "id": 23, 
+        "user": "A", 
+        "title": "这是什么书？", 
+        "segments": ["这", "是", "什么", "书", "？"],
+        "description": "zhè shì shénme shū<br>What kind of book is this?", 
+        "avatar": "avatar/lana.png", 
+        "audioSrc": "sentences/这是什么书.mp3"
+    },
+    {
+        "id": 24, 
+        "user": "B", 
+        "title": "这是中文书。", 
+        "segments": ["这", "是", "中文", "书", "。"],
+        "description": "zhè shì zhōngwén shū<br>This is a Chinese book.", 
+        "avatar": "avatar/nate.png", 
+        "audioSrc": "sentences/这是中文书.mp3"
+    },
+    {
+        "id": 25, 
+        "user": "A", 
+        "title": "这是谁的书？", 
+        "segments": ["这", "是", "谁", "的", "书", "？"],
+        "description": "zhè shì shéi de shū<br>Whose book is this?", 
+        "avatar": "avatar/lana.png", 
+        "audioSrc": "sentences/这是谁的书.mp3"
+    },
+    {
+        "id": 26, 
+        "user": "B", 
+        "title": "这是老师的书。", 
+        "segments": ["这", "是", "老师", "的", "书", "。"],
+        "description": "zhè shì lǎoshī de shū<br>This is the teacher's book.", 
+        "avatar": "avatar/nate.png", 
+        "audioSrc": "sentences/这是老师的书.mp3"
+    },
+    {
+        "id": 27, 
+        "user": "A", 
+        "title": "那是什么？", 
+        "segments": ["那", "是", "什么", "？"],
+        "description": "nà shì shénme<br>What is that?", 
+        "avatar": "avatar/lana.png", 
+        "audioSrc": "sentences/那是什么.mp3"
+    },
+    {
+        "id": 28, 
+        "user": "B", 
+        "title": "那是杂志。", 
+        "segments": ["那", "是", "杂志", "。"],
+        "description": "nà shì zázhì<br>That is a magazine.", 
+        "avatar": "avatar/nate.png", 
+        "audioSrc": "sentences/那是杂志.mp3"
+    },
+    {
+        "id": 29, 
+        "user": "A", 
+        "title": "那是什么杂志？", 
+        "segments": ["那", "是", "什么", "杂志", "？"],
+        "description": "nà shì shénme zázhì<br>What kind of magazine is that?", 
+        "avatar": "avatar/lana.png", 
+        "audioSrc": "sentences/那是什么杂志.mp3"
+    },
+    {
+        "id": 30, 
+        "user": "B", 
+        "title": "那是英文杂志。", 
+        "segments": ["那", "是", "英文", "杂志", "。"],
+        "description": "nà shì yīngwén zázhì<br>That is an English magazine.", 
+        "avatar": "avatar/nate.png", 
+        "audioSrc": "sentences/那是英文杂志.mp3"
+    },
+    {
+        "id": 31, 
+        "user": "A", 
+        "title": "那是谁的杂志？", 
+        "segments": ["那", "是", "谁", "的", "杂志", "？"],
+        "description": "nà shì shéi de zázhì<br>Whose magazine is that?", 
+        "avatar": "avatar/lana.png", 
+        "audioSrc": "sentences/那是谁的杂志.mp3"
+    },
+    {
+        "id": 32, 
+        "user": "B", 
+        "title": "那是我朋友的杂志。", 
+        "segments": ["那", "是", "我", "朋友", "的", "杂志", "。"],
+        "description": "nà shì wǒ péngyou de zázhì<br>That's my friend's magazine.", 
+        "avatar": "avatar/nate.png", 
+        "audioSrc": "sentences/那是我朋友的杂志.mp3"
+    }
+]

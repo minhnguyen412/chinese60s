@@ -1,0 +1,402 @@
+{
+    "questions": [
+        {
+            "id": 1,
+            "audio": "sentences/这是王老师这是我爸爸.mp3",
+            "sentence": "___ ___ ___, ___ ___ ___ ___.",
+            "blanks": [
+                { "answer": "zhè" },
+                { "answer": "shì" },
+                { "answer": "wáng lǎoshī" },
+                { "answer": "zhè" },
+                { "answer": "shì" },
+                { "answer": "wǒ" },
+                { "answer": "bàba" }
+            ],
+            "words": ["zhè", "wǒ", "shì", "zhè", "wáng lǎoshī", "shì", "bàba"]
+        },
+        {
+            "id": 2,
+            "audio": "sentences/王老师您好.mp3",
+            "sentence": "___, ___ ___!",
+            "blanks": [
+                { "answer": "wáng lǎoshī" },
+                { "answer": "nín" },
+                { "answer": "hǎo" }
+            ],
+            "words": ["nín", "wáng lǎoshī", "hǎo"]
+        },
+        {
+            "id": 3,
+            "audio": "sentences/您好请进请坐请喝茶.mp3",
+            "sentence": "nín hǎo! qǐng ___! qǐng ___! qǐng ___ ___!",
+            "blanks": [
+                { "answer": "jìn" },
+                { "answer": "zuò" },
+                { "answer": "hē" },
+                { "answer": "chá" }
+            ],
+            "words": ["zuò", "hē", "jìn", "chá"]
+        },
+        {
+            "id": 4,
+            "audio": "sentences/不客气.mp3",
+            "sentence": "xièxie! ___!",
+            "blanks": [
+                { "answer": "bú kèqi" }
+            ],
+            "words": ["bù zhīdào", "bú kèqi", "méi shénme", "duì bu qǐ"]
+        },
+        {
+            "id": 5,
+            "audio": "sentences/不太忙.mp3",
+            "sentence": "gōngzuò máng ma? ___ ___ ___.",
+            "blanks": [
+                { "answer": "bú" },
+                { "answer": "tài" },
+                { "answer": "máng" }
+            ],
+            "words": ["bú", "máng", "tài"]
+        },
+        {
+            "id": 6,
+            "audio": "sentences/身体好吗.mp3",
+            "sentence": "___ ___ ___? hěn hǎo.",
+            "blanks": [
+                { "answer": "shēntǐ" },
+                { "answer": "hǎo" },
+                { "answer": "ma?" }
+            ],
+            "words": ["ma?", "hǎo", "shēntǐ"]
+        },
+        {
+            "id": 7,
+            "audio": "audio/老师.mp3",
+            "sentence": ["images/老师.png", ": ___"],
+            "blanks": [
+                { "answer": "老师" }
+            ],
+            "words": ["律师", "老师", "医生"]
+        },
+        {
+            "id": 8,
+            "audio": "audio/您.mp3",
+            "sentence": ["images/您.png", ": ___"],
+            "blanks": [
+                { "answer": "您" }
+            ],
+            "words": ["您", "我", "你"]
+        },
+        {
+            "id": 9,
+            "audio": "audio/请.mp3",
+            "sentence": ["images/请.gif", ": ___"],
+            "blanks": [
+                { "answer": "请" }
+            ],
+            "words": ["好", "对", "请"]
+        },
+        {
+            "id": 10,
+            "audio": "audio/进.mp3",
+            "sentence": ["images/进.png", ": ___"],
+            "blanks": [
+                { "answer": "进" }
+            ],
+            "words": ["喝", "去", "进"]
+        },
+        {
+            "id": 11,
+            "audio": "audio/坐.mp3",
+            "sentence": ["images/坐.png", ": ___"],
+            "blanks": [
+                { "answer": "坐" }
+            ],
+            "words": ["坐", "吃", "站"]
+        },
+        {
+            "id": 12,
+            "audio": "audio/喝.mp3",
+            "sentence": "喝 : ___",
+            "blanks": [
+                { "answer": "images/喝.png" }
+            ],
+            "words": ["images/坐.png", "images/喝.png", "images/请.gif"]
+        },
+        {
+            "id": 13,
+            "audio": "audio/茶.mp3",
+            "sentence": "茶 : ___",
+            "blanks": [
+                { "answer": "images/茶.png" }
+            ],
+            "words": ["images/天.png", "images/茶.png", "images/取.png"]
+        },
+        {
+            "id": 14,
+            "audio": "audio/客气.mp3",
+            "sentence": "客气 : ___",
+            "blanks": [
+                { "answer": "images/客气.png" }
+            ],
+            "words": ["images/客气.png", "images/回.png", "images/学.png"]
+        },
+        {
+            "id": 15,
+            "audio": "audio/工作.mp3",
+            "sentence": "工作 : ___",
+            "blanks": [
+                { "answer": "images/工作.png" }
+            ],
+            "words": ["images/好.png", "images/工作.png", "images/您.png"]
+        },
+        {
+            "id": 16,
+            "audio": "audio/身体.mp3",
+            "sentence": "身体 : ___",
+            "blanks": [
+                { "answer": "images/身体.png" }
+            ],
+            "words": ["images/朋友.png", "images/书.png", "images/身体.png"]
+        },
+        {
+            "id": 17,
+            "audio": "sentences/请问你贵姓.mp3",
+            "sentence": "___ ___ ___?",
+            "blanks": [
+                { "answer": "请问" },
+                { "answer": "你" },
+                { "answer": "贵姓" }
+            ],
+            "words": ["贵姓", "请问", "你"]
+        },
+        {
+            "id": 18,
+            "audio": "sentences/我姓张.mp3",
+            "sentence": "My surname is Zhang. ___ ___ ___.",
+            "blanks": [
+                { "answer": "我" },
+                { "answer": "姓" },
+                { "answer": "张" }
+            ],
+            "words": ["张", "我", "姓"]
+        },
+        {
+            "id": 19,
+            "audio": "sentences/你叫什么名字.mp3",
+            "sentence": "你叫什么名字？___ ___ ___ ___?",
+            "blanks": [
+                { "answer": "What" },
+                { "answer": "is" },
+                { "answer": "your" },
+                { "answer": "name" }
+            ],
+            "words": ["is", "name", "What", "your"]
+        },
+        {
+            "id": 20,
+            "audio": "sentences/你是哪国人.mp3",
+            "sentence": "___ ___ ___ ___ ___?",
+            "blanks": [
+                { "answer": "你" },
+                { "answer": "是" },
+                { "answer": "哪" },
+                { "answer": "国" },
+                { "answer": "人" }
+            ],
+            "words": ["人", "哪", "是", "你", "国"]
+        },
+        {
+            "id": 21,
+            "audio": "audio/学习.mp3",
+            "sentence": ["images/学习.png", ": ___"],
+            "blanks": [
+                { "answer": "学习" }
+            ],
+            "words": ["工作", "学习", "睡觉"]
+        },
+        {
+            "id": 22,
+            "audio": "audio/发音.mp3",
+            "sentence": ["images/发音.png", ": ___"],
+            "blanks": [
+                { "answer": "发音" }
+            ],
+            "words": ["汉字", "课文", "发音"]
+        },
+        {
+            "id": 23,
+            "audio": "audio/汉字.mp3",
+            "sentence": "汉字 : ___",
+            "blanks": [
+                { "answer": "images/汉字.png" }
+            ],
+            "words": ["images/汉字.png", "images/杂志.png", "images/国.png"]
+        },
+        {
+            "id": 24,
+            "audio": "sentences/这是什么.mp3",
+            "sentence": "What is this? <br> ___ ___ ___?",
+            "blanks": [
+                { "answer": "这" },
+                { "answer": "是" },
+                { "answer": "什么" }
+            ],
+            "words": ["什么", "这", "是"]
+        },
+        {
+            "id": 25,
+            "audio": "sentences/这是书.mp3",
+            "sentence": "This is a book. <br> ___ ___ ___.",
+            "blanks": [
+                { "answer": "这" },
+                { "answer": "是" },
+                { "answer": "书" }
+            ],
+            "words": ["书", "是", "这"]
+        },
+        {
+            "id": 26,
+            "audio": "audio/书.mp3",
+            "sentence": ["images/书.png", ": ___"],
+            "blanks": [
+                { "answer": "书" }
+            ],
+            "words": ["电视", "书", "椅子"]
+        },
+        {
+            "id": 27,
+            "audio": "sentences/这是什么书.mp3",
+            "sentence": "___ ___ ___ ___?",
+            "blanks": [
+                { "answer": "这" },
+                { "answer": "是" },
+                { "answer": "什么" },
+                { "answer": "书" }
+                
+            ],
+            "words": ["什么", "书", "是", "这"]
+        },
+        {
+            "id": 28,
+            "audio": "audio/中文.mp3",
+            "sentence": "中文 : ___",
+            "blanks": [
+                { "answer": "images/中文.png" }
+            ],
+            "words": ["images/韩文.png", "images/日文.png", "images/中文.png"]
+        },
+        {
+            "id": 29,
+            "audio": "sentences/这是谁的书.mp3",
+            "sentence": "Whose book is this? <br> ___ ___ ___ ___ ___?",
+            "blanks": [
+                { "answer": "这" },
+                { "answer": "是" },
+                { "answer": "谁" },
+                { "answer": "的" },
+                { "answer": "书" }
+            ],
+            "words": ["谁", "这", "是", "书", "的"]
+        },
+        {
+            "id": 30,
+            "audio": "audio/谁.mp3",
+            "sentence": ["images/谁.gif", ": ___"],
+            "blanks": [
+                { "answer": "谁" }
+            ],
+            "words": ["那", "在", "谁"]
+        },
+        {
+            "id": 31,
+            "audio": "sentences/这是老师的书.mp3",
+            "sentence": "___ ___ ___ ___ ___.",
+            "blanks": [
+                { "answer": "这" },
+                { "answer": "是" },
+                { "answer": "老师" },
+                { "answer": "的" },
+                { "answer": "书" }
+            ],
+            "words": ["是", "老师", "书", "这", "的"]
+        },
+        {
+            "id": 32,
+            "audio": "sentences/那是什么.mp3",
+            "sentence": "What is that? <br> ___ ___ ___?",
+            "blanks": [
+                { "answer": "那" },
+                { "answer": "是" },
+                { "answer": "什么" }
+            ],
+            "words": ["什么", "那", "是"]
+        },
+        {
+            "id": 33,
+            "audio": "audio/杂志.mp3",
+            "sentence": ["images/杂志.png", ": ___"],
+            "blanks": [
+                { "answer": "杂志" }
+            ],
+            "words": ["杂志", "学校", "身体"]
+        },
+        {
+            "id": 34,
+            "audio": "sentences/那是什么杂志.mp3",
+            "sentence": "___ ___ ___ ___?",
+            "blanks": [
+                { "answer": "那" },
+                { "answer": "是" },
+                { "answer": "什么" },
+                { "answer": "杂志" }
+            ],
+            "words": ["是", "什么", "杂志", "那"]
+        },
+        {
+            "id": 35,
+            "audio": "audio/英文.mp3",
+            "sentence": "英文 : ___",
+            "blanks": [
+                { "answer": "images/英文.png" }
+            ],
+            "words": ["images/英文.png", "images/阿拉伯文.png", "images/德文.png"]
+        },
+        {
+            "id": 36,
+            "audio": "sentences/那是谁的杂志.mp3",
+            "sentence": "___ ___ ___ ___ ___？",
+            "blanks": [
+                { "answer": "那" },
+                { "answer": "是" },
+                { "answer": "谁" },
+                { "answer": "的" },
+                { "answer": "杂志" }
+            ],
+            "words": ["是", "谁", "杂志", "那", "的"]
+        },
+        {
+            "id": 37,
+            "audio": "sentences/那是我朋友的杂志.mp3",
+            "sentence": "That's my friend's magazine. <br> ___ ___ ___ ___ ___ ___.",
+            "blanks": [
+                { "answer": "那" },
+                { "answer": "是" },
+                { "answer": "我" },
+                { "answer": "朋友" },
+                { "answer": "的" },
+                { "answer": "杂志" }
+            ],
+            "words": ["那", "我", "的", "朋友", "是", "杂志"]
+        },
+        {
+            "id": 38,
+            "audio": "audio/朋友.mp3",
+            "sentence": ["images/朋友.png", ": ___"],
+            "blanks": [
+                { "answer": "朋友" }
+            ],
+            "words": ["老师", "父母", "朋友"]
+        }
+    ]
+}

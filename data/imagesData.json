@@ -1,0 +1,1170 @@
+[
+    {
+        "id": "1",
+        "imageSrc": "images/你.png",
+        "character": "你",
+        "meaning": "You",
+        "pinyin": "nǐ",
+        "audioSrc": "audio/你.mp3"
+    },
+    {
+        "id": "2",
+        "imageSrc": "images/好.png",
+        "character": "好",
+        "meaning": "Good",
+        "pinyin": "hǎo",
+        "audioSrc": "audio/好.mp3"
+    },
+    {
+        "id": "3",
+        "imageSrc": "images/你好.png",
+        "character": "你好",
+        "meaning": "Hello",
+        "pinyin": "nǐ hǎo",
+        "audioSrc": "audio/你好.mp3"
+    },
+    {
+        "id": "4",
+        "imageSrc": "images/一.png",
+        "character": "一",
+        "meaning": "One",
+        "pinyin": "yī",
+        "audioSrc": "audio/一.mp3"
+    },
+    {
+        "id": "5",
+        "imageSrc": "images/五.png",
+        "character": "五",
+        "meaning": "Five",
+        "pinyin": "wǔ",
+        "audioSrc": "audio/五.mp3"
+    },
+    {
+        "id": "6",
+        "imageSrc": "images/八.png",
+        "character": "八",
+        "meaning": "Eight",
+        "pinyin": "bā",
+        "audioSrc": "audio/八.mp3"
+    },
+    {
+        "id": "7",
+        "imageSrc": "images/大.png",
+        "character": "大",
+        "meaning": "Big",
+        "pinyin": "dà",
+        "audioSrc": "audio/大.mp3"
+    },
+    {
+        "id": "8",
+        "imageSrc": "images/不.gif",
+        "character": "不",
+        "meaning": "No",
+        "pinyin": "bù",
+        "audioSrc": "audio/不.mp3"
+    },
+    {
+        "id": "9",
+        "imageSrc": "images/口.png",
+        "character": "口",
+        "meaning": "Mouth",
+        "pinyin": "kǒu",
+        "audioSrc": "audio/口.mp3"
+    },
+    {
+        "id": "10",
+        "imageSrc": "images/白.png",
+        "character": "白",
+        "meaning": "White",
+        "pinyin": "bái",
+        "audioSrc": "audio/白.mp3"
+    },
+    {
+        "id": "11",
+        "imageSrc": "images/女.png",
+        "character": "女",
+        "meaning": "Female",
+        "pinyin": "nǚ",
+        "audioSrc": "audio/女.mp3"
+    },
+    {
+        "id": "12",
+        "imageSrc": "images/马.png",
+        "character": "马",
+        "meaning": "Horse",
+        "pinyin": "mǎ",
+        "audioSrc": "audio/马.mp3"
+    },
+    {
+        "id": "13",
+        "imageSrc": "images/忙.png",
+        "character": "忙",
+        "meaning": "Busy",
+        "pinyin": "máng",
+        "audioSrc": "audio/忙.mp3"
+    },
+    {
+        "id": "14",
+        "imageSrc": "images/吗.png",
+        "character": "吗",
+        "meaning": "吗：a particle used at the end of a question",
+        "pinyin": "ma",
+        "audioSrc": "audio/吗.mp3"
+    },
+    {
+        "id": "15",
+        "imageSrc": "images/很.png",
+        "character": "很",
+        "meaning": "很：Very",
+        "pinyin": "hěn",
+        "audioSrc": "audio/很.mp3"
+    },
+    {
+        "id": "16",
+        "imageSrc": "images/汉语.png",
+        "character": "汉语",
+        "meaning": "Chinese language",
+        "pinyin": "hànyǔ",
+        "audioSrc": "audio/汉语.mp3"
+    },
+    {
+        "id": "17",
+        "imageSrc": "images/难.png",
+        "character": "难",
+        "meaning": "Hard; difficult",
+        "pinyin": "nán",
+        "audioSrc": "audio/难.mp3"
+    },
+    {
+        "id": "18",
+        "imageSrc": "images/太.png",
+        "character": "太",
+        "meaning": "too; excessively; over",
+        "pinyin": "tài",
+        "audioSrc": "audio/太.mp3"
+    },
+    {
+        "id": "19",
+        "imageSrc": "images/爸爸.png",
+        "character": "爸爸",
+        "meaning": "Dad",
+        "pinyin": "bàba",
+        "audioSrc": "audio/爸爸.mp3"
+    },
+    {
+        "id": "20",
+        "imageSrc": "images/妈妈.png",
+        "character": "妈妈",
+        "meaning": "Mom",
+        "pinyin": "māma",
+        "audioSrc": "audio/妈妈.mp3"
+    },
+    {
+        "id": "21",
+        "imageSrc": "images/哥哥.png",
+        "character": "哥哥",
+        "meaning": "Elder brother",
+        "pinyin": "gēge",
+        "audioSrc": "audio/哥哥.mp3"
+    },
+    {
+        "id": "22",
+        "imageSrc": "images/弟弟.png",
+        "character": "弟弟",
+        "meaning": "Younger brother",
+        "pinyin": "dìdi",
+        "audioSrc": "audio/弟弟.mp3"
+    },
+    {
+        "id": "23",
+        "imageSrc": "images/妹妹.png",
+        "character": "妹妹",
+        "meaning": "Younger sister",
+        "pinyin": "mèimei",
+        "audioSrc": "audio/妹妹.mp3"
+    },
+    {
+        "id": "24",
+        "imageSrc": "images/他她.png",
+        "character": "他/她",
+        "meaning": "He/She",
+        "pinyin": "tā/tā",
+        "audioSrc": "audio/他她.mp3"
+    },
+    {
+        "id": "25",
+        "imageSrc": "images/男.png",
+        "character": "男",
+        "meaning": "Male",
+        "pinyin": "nán",
+        "audioSrc": "audio/男.mp3"
+    },
+    {
+        "id": "26",
+        "imageSrc": "images/学.png",
+        "character": "学",
+        "meaning": "to learn; to study",
+        "pinyin": "xué",
+        "audioSrc": "audio/学.mp3"
+    },
+    {
+        "id": "27",
+        "imageSrc": "images/英语.png",
+        "character": "英语",
+        "meaning": "English - language",
+        "pinyin": "Yīngyǔ",
+        "audioSrc": "audio/英语.mp3"
+    },
+    {
+        "id": "28",
+        "imageSrc": "images/阿拉伯语.png",
+        "character": "阿拉伯语",
+        "meaning": "Arabic - language",
+        "pinyin": "Ālābóyǔ",
+        "audioSrc": "audio/阿拉伯语.mp3"
+    },
+    {
+        "id": "29",
+        "imageSrc": "images/德语.png",
+        "character": "德语",
+        "meaning": "German - language",
+        "pinyin": "Déyǔ",
+        "audioSrc": "audio/德语.mp3"
+    },
+    {
+        "id": "30",
+        "imageSrc": "images/俄语.png",
+        "character": "俄语",
+        "meaning": "Russian - language",
+        "pinyin": "Éyǔ",
+        "audioSrc": "audio/俄语.mp3"
+    },
+    {
+        "id": "31",
+        "imageSrc": "images/法语.png",
+        "character": "法语",
+        "meaning": "French - language",
+        "pinyin": "Fǎyǔ",
+        "audioSrc": "audio/法语.mp3"
+    },
+    {
+        "id": "32",
+        "imageSrc": "images/韩国语.png",
+        "character": "韩国语",
+        "meaning": "Korean - language",
+        "pinyin": "Hánguóyǔ",
+        "audioSrc": "audio/韩国语.mp3"
+    },
+    {
+        "id": "33",
+        "imageSrc": "images/日语.png",
+        "character": "日语",
+        "meaning": "Japanese - language",
+        "pinyin": "Rìyǔ",
+        "audioSrc": "audio/日语.mp3"
+    },
+    {
+        "id": "34",
+        "imageSrc": "images/西班牙语.png",
+        "character": "西班牙语",
+        "meaning": "Spanish - language",
+        "pinyin": "Xībānyáyǔ",
+        "audioSrc": "audio/西班牙语.mp3"
+    },
+    {
+        "id": "35",
+        "imageSrc": "images/对.png",
+        "character": "对",
+        "meaning": "Right; OK; Correct; True",
+        "pinyin": "duì",
+        "audioSrc": "audio/对.mp3"
+    },
+    {
+        "id": "36",
+        "imageSrc": "images/明天.png",
+        "character": "明天",
+        "meaning": "Tomorrow",
+        "pinyin": "míngtiān",
+        "audioSrc": "audio/明天.mp3"
+    },
+    {
+        "id": "37",
+        "imageSrc": "images/见.png",
+        "character": "见",
+        "meaning": "to see",
+        "pinyin": "jiàn",
+        "audioSrc": "audio/见.mp3"
+    },
+    {
+        "id": "38",
+        "imageSrc": "images/去.png",
+        "character": "去",
+        "meaning": "to go",
+        "pinyin": "qù",
+        "audioSrc": "audio/去.mp3"
+    },
+    {
+        "id": "39",
+        "imageSrc": "images/邮局.png",
+        "character": "邮局",
+        "meaning": "Post office",
+        "pinyin": "yóujú",
+        "audioSrc": "audio/邮局.mp3"
+    },
+    {
+        "id": "40",
+        "imageSrc": "images/寄.png",
+        "character": "寄",
+        "meaning": "to post; to mail; to send by mail",
+        "pinyin": "jì",
+        "audioSrc": "audio/寄.mp3"
+    },
+    {
+        "id": "41",
+        "imageSrc": "images/信.png",
+        "character": "信",
+        "meaning": "Letter; Mail",
+        "pinyin": "xìn",
+        "audioSrc": "audio/信.mp3"
+    },
+    {
+        "id": "42",
+        "imageSrc": "images/银行.png",
+        "character": "银行",
+        "meaning": "Bank",
+        "pinyin": "yínháng",
+        "audioSrc": "audio/银行.mp3"
+    },
+    {
+        "id": "43",
+        "imageSrc": "images/取.png",
+        "character": "取",
+        "meaning": "to draw",
+        "pinyin": "qǔ",
+        "audioSrc": "audio/取.mp3"
+    },
+    {
+        "id": "44",
+        "imageSrc": "images/钱.png",
+        "character": "钱",
+        "meaning": "Money",
+        "pinyin": "qián",
+        "audioSrc": "audio/钱.mp3"
+    },
+    {
+        "id": "45",
+        "imageSrc": "images/六.png",
+        "character": "六",
+        "meaning": "Six",
+        "pinyin": "liù",
+        "audioSrc": "audio/六.mp3"
+    },
+    {
+        "id": "46",
+        "imageSrc": "images/七.png",
+        "character": "七",
+        "meaning": "Seven",
+        "pinyin": "qī",
+        "audioSrc": "audio/七.mp3"
+    },
+    {
+        "id": "47",
+        "imageSrc": "images/九.png",
+        "character": "九",
+        "meaning": "Nine",
+        "pinyin": "jiǔ",
+        "audioSrc": "audio/九.mp3"
+    },
+    {
+        "id": "48",
+        "imageSrc": "images/今天.png",
+        "character": "今天",
+        "meaning": "Today",
+        "pinyin": "jīntiān",
+        "audioSrc": "audio/今天.mp3"
+    },
+    {
+        "id": "49",
+        "imageSrc": "images/天.png",
+        "character": "天",
+        "meaning": "Day",
+        "pinyin": "tiān",
+        "audioSrc": "audio/天.mp3"
+    },
+    {
+        "id": "50",
+        "imageSrc": "images/昨天.png",
+        "character": "昨天",
+        "meaning": "Yesterday",
+        "pinyin": "zuótiān",
+        "audioSrc": "audio/昨天.mp3"
+    },
+    {
+        "id": "51",
+        "imageSrc": "images/星期.png",
+        "character": "星期",
+        "meaning": "Week",
+        "pinyin": "xīngqī",
+        "audioSrc": "audio/星期.mp3"
+    },
+    {
+        "id": "52",
+        "imageSrc": "images/星期一.png",
+        "character": "星期一",
+        "meaning": "Monday",
+        "pinyin": "xīngqīyī",
+        "audioSrc": "audio/星期一.mp3"
+    },
+    {
+        "id": "53",
+        "imageSrc": "images/星期二.png",
+        "character": "星期二",
+        "meaning": "Tuesday",
+        "pinyin": "xīngqī’èr",
+        "audioSrc": "audio/星期二.mp3"
+    },
+    {
+        "id": "54",
+        "imageSrc": "images/星期三.png",
+        "character": "星期三",
+        "meaning": "Wednesday",
+        "pinyin": "xīngqīsān",
+        "audioSrc": "audio/星期三.mp3"
+    },
+    {
+        "id": "55",
+        "imageSrc": "images/星期四.png",
+        "character": "星期四",
+        "meaning": "Thursday",
+        "pinyin": "xīngqīsì",
+        "audioSrc": "audio/星期四.mp3"
+    },
+    {
+        "id": "56",
+        "imageSrc": "images/星期五.png",
+        "character": "星期五",
+        "meaning": "Friday",
+        "pinyin": "xīngqīwǔ",
+        "audioSrc": "audio/星期五.mp3"
+    },
+    {
+        "id": "57",
+        "imageSrc": "images/星期六.png",
+        "character": "星期六",
+        "meaning": "Saturday",
+        "pinyin": "xīngqīliù",
+        "audioSrc": "audio/星期六.mp3"
+    },
+    {
+        "id": "58",
+        "imageSrc": "images/星期天.png",
+        "character": "星期天",
+        "meaning": "Sunday",
+        "pinyin": "xīngqītiān",
+        "audioSrc": "audio/星期天.mp3"
+    },
+    {
+        "id": "59",
+        "imageSrc": "images/几.png",
+        "character": "几",
+        "meaning": "How many; what; several",
+        "pinyin": "jǐ",
+        "audioSrc": "audio/几.mp3"
+    },
+    {
+        "id": "60",
+        "imageSrc": "images/二.png",
+        "character": "二",
+        "meaning": "Two",
+        "pinyin": "èr",
+        "audioSrc": "audio/二.mp3"
+    },
+    {
+        "id": "61",
+        "imageSrc": "images/三.png",
+        "character": "三",
+        "meaning": "Three",
+        "pinyin": "sān",
+        "audioSrc": "audio/三.mp3"
+    },
+    {
+        "id": "62",
+        "imageSrc": "images/四.png",
+        "character": "四",
+        "meaning": "Four",
+        "pinyin": "sì",
+        "audioSrc": "audio/四.mp3"
+    },
+    {
+        "id": "63",
+        "imageSrc": "images/哪儿.png",
+        "character": "哪儿",
+        "meaning": "Where",
+        "pinyin": "nǎr",
+        "audioSrc": "audio/哪儿.mp3"
+    },
+    {
+        "id": "64",
+        "imageSrc": "images/那儿.png",
+        "character": "那儿",
+        "meaning": "There",
+        "pinyin": "nàr",
+        "audioSrc": "audio/那儿.mp3"
+    },
+    {
+        "id": "65",
+        "imageSrc": "images/我.png",
+        "character": "我",
+        "meaning": "I; me",
+        "pinyin": "wǒ",
+        "audioSrc": "audio/我.mp3"
+    },
+    {
+        "id": "66",
+        "imageSrc": "images/回.png",
+        "character": "回",
+        "meaning": "to go back to",
+        "pinyin": "huí",
+        "audioSrc": "audio/回.mp3"
+    },
+    {
+        "id": "67",
+        "imageSrc": "images/学校.png",
+        "character": "学校",
+        "meaning": "School",
+        "pinyin": "xuéxiào",
+        "audioSrc": "audio/学校.mp3"
+    },
+    {
+        "id": "68",
+        "imageSrc": "images/再见.png",
+        "character": "再见",
+        "meaning": "Goodbye",
+        "pinyin": "zàijiàn",
+        "audioSrc": "audio/再见.mp3"
+    },
+    {
+        "id": "69",
+        "imageSrc": "images/对不起-没关系.png",
+        "character": "对不起",
+        "meaning": "I'm sorry; Excuse me",
+        "pinyin": "duì bu qǐ",
+        "audioSrc": "audio/对不起.mp3"
+    },
+    {
+        "id": "70",
+        "imageSrc": "images/对不起-没关系.png",
+        "character": "没关系",
+        "meaning": "Male",
+        "pinyin": "méi guānxi",
+        "audioSrc": "audio/没关系.mp3"
+    },
+    {
+        "id": "71",
+        "imageSrc": "images/这.png",
+        "character": "这",
+        "meaning": "This",
+        "pinyin": "zhè",
+        "audioSrc": "audio/这.mp3"
+    },
+    {
+        "id": "72",
+        "imageSrc": "images/是.png",
+        "character": "是",
+        "meaning": "to be - am, are, is...",
+        "pinyin": "shì",
+        "audioSrc": "audio/是.mp3"
+    },
+    {
+        "id": "73",
+        "imageSrc": "images/老师.png",
+        "character": "老师",
+        "meaning": "Teacher",
+        "pinyin": "lǎoshī",
+        "audioSrc": "audio/老师.mp3"
+    },
+    {
+        "id": "74",
+        "imageSrc": "images/您.png",
+        "character": "您",
+        "meaning": "You - honorific",
+        "pinyin": "nín",
+        "audioSrc": "audio/您.mp3"
+    },
+    {
+        "id": "75",
+        "imageSrc": "images/请.gif",
+        "character": "请",
+        "meaning": "Please",
+        "pinyin": "qǐng",
+        "audioSrc": "audio/请.mp3"
+    },
+    {
+        "id": "76",
+        "imageSrc": "images/进.png",
+        "character": "进",
+        "meaning": "to enter; to come in",
+        "pinyin": "jìn",
+        "audioSrc": "audio/进.mp3"
+    },
+    {
+        "id": "77",
+        "imageSrc": "images/坐.png",
+        "character": "坐",
+        "meaning": "to sit",
+        "pinyin": "zuò",
+        "audioSrc": "audio/坐.mp3"
+    },
+    {
+        "id": "78",
+        "imageSrc": "images/喝.png",
+        "character": "喝",
+        "meaning": "to drink",
+        "pinyin": "hē",
+        "audioSrc": "audio/喝.mp3"
+    },
+    {
+        "id": "79",
+        "imageSrc": "images/茶.png",
+        "character": "茶",
+        "meaning": "Tea",
+        "pinyin": "chá",
+        "audioSrc": "audio/茶.mp3"
+    },
+    {
+        "id": "80",
+        "imageSrc": "images/谢谢-不客气.png",
+        "character": "谢谢",
+        "meaning": "to thank",
+        "pinyin": "xièxie",
+        "audioSrc": "audio/谢谢.mp3"
+    },
+    {
+        "id": "81",
+        "imageSrc": "images/客气.png",
+        "character": "客气",
+        "meaning": "Polite; courteous",
+        "pinyin": "kèqi",
+        "audioSrc": "audio/客气.mp3"
+    },
+    {
+        "id": "82",
+        "imageSrc": "images/工作.png",
+        "character": "工作",
+        "meaning": "Work; to work",
+        "pinyin": "gōngzuò",
+        "audioSrc": "audio/工作.mp3"
+    },
+    {
+        "id": "83",
+        "imageSrc": "images/身体.png",
+        "character": "身体",
+        "meaning": "Health; body",
+        "pinyin": "shēntǐ",
+        "audioSrc": "audio/身体.mp3"
+    },
+    {
+        "id": "84",
+        "imageSrc": "images/十.png",
+        "character": "十",
+        "meaning": "Ten",
+        "pinyin": "shí",
+        "audioSrc": "audio/十.mp3"
+    },
+    {
+        "id": "85",
+        "imageSrc": "images/日.png",
+        "character": "日",
+        "meaning": "Sun; day",
+        "pinyin": "rì",
+        "audioSrc": "audio/日.mp3"
+    },
+    {
+        "id": "86",
+        "imageSrc": "images/王.png",
+        "character": "王",
+        "meaning": "Wang - a family name of Chinese",
+        "pinyin": "Wáng",
+        "audioSrc": "audio/王.mp3"
+    },
+    {
+        "id": "87",
+        "imageSrc": "images/请问.gif",
+        "character": "请问",
+        "meaning": "Excuse me",
+        "pinyin": "qǐngwèn",
+        "audioSrc": "audio/请问.mp3"
+    },
+    {
+        "id": "88",
+        "imageSrc": "images/问.png",
+        "character": "问",
+        "meaning": "to ask; to enquire",
+        "pinyin": "wèn",
+        "audioSrc": "audio/问.mp3"
+    },
+    {
+        "id": "89",
+        "imageSrc": "images/贵姓.png",
+        "character": "贵姓",
+        "meaning": "May I know your name?",
+        "pinyin": "guìxìng",
+        "audioSrc": "audio/贵姓.mp3"
+    },
+    {
+        "id": "90",
+        "imageSrc": "images/姓.png",
+        "character": "姓",
+        "meaning": "Family name",
+        "pinyin": "xìng",
+        "audioSrc": "audio/姓.mp3"
+    },
+    {
+        "id": "91",
+        "imageSrc": "images/叫.png",
+        "character": "叫",
+        "meaning": "to call; to name",
+        "pinyin": "jiào",
+        "audioSrc": "audio/叫.mp3"
+    },
+    {
+        "id": "92",
+        "imageSrc": "images/名字.gif",
+        "character": "名字",
+        "meaning": "Name",
+        "pinyin": "míngzi",
+        "audioSrc": "audio/名字.mp3"
+    },
+    {
+        "id": "93",
+        "imageSrc": "images/哪.png",
+        "character": "哪",
+        "meaning": "Which; where",
+        "pinyin": "nǎ",
+        "audioSrc": "audio/哪.mp3"
+    },
+    {
+        "id": "94",
+        "imageSrc": "images/国.png",
+        "character": "国",
+        "meaning": "Country; Nationality",
+        "pinyin": "guó",
+        "audioSrc": "audio/国.mp3"
+    },
+    {
+        "id": "95",
+        "imageSrc": "images/中国.png",
+        "character": "中国",
+        "meaning": "China",
+        "pinyin": "zhōngguó",
+        "audioSrc": "audio/中国.mp3"
+    },
+    {
+        "id": "96",
+        "imageSrc": "images/德国.png",
+        "character": "德国",
+        "meaning": "Germany",
+        "pinyin": "déguó",
+        "audioSrc": "audio/德国.mp3"
+    },
+    {
+        "id": "97",
+        "imageSrc": "images/俄国.png",
+        "character": "俄国",
+        "meaning": "Russia",
+        "pinyin": "éguó",
+        "audioSrc": "audio/俄国.mp3"
+    },
+    {
+        "id": "98",
+        "imageSrc": "images/法国.png",
+        "character": "法国",
+        "meaning": "France",
+        "pinyin": "fǎguó",
+        "audioSrc": "audio/法国.mp3"
+    },
+    {
+        "id": "99",
+        "imageSrc": "images/韩国.png",
+        "character": "韩国",
+        "meaning": "The Republic of Korea",
+        "pinyin": "hánguó",
+        "audioSrc": "audio/韩国.mp3"
+    },
+    {
+        "id": "100",
+        "imageSrc": "images/美国.png",
+        "character": "美国",
+        "meaning": "The United States",
+        "pinyin": "měiguó",
+        "audioSrc": "audio/美国.mp3"
+    },
+    {
+        "id": "101",
+        "imageSrc": "images/日本国.png",
+        "character": "日本国",
+        "meaning": "Japan",
+        "pinyin": "rìběn guó",
+        "audioSrc": "audio/日本国.mp3"
+    },
+    {
+        "id": "102",
+        "imageSrc": "images/英国.png",
+        "character": "英国",
+        "meaning": "Britain",
+        "pinyin": "yīngguó",
+        "audioSrc": "audio/英国.mp3"
+    },
+    {
+        "id": "103",
+        "imageSrc": "images/人.png",
+        "character": "人",
+        "meaning": "Human being; man or women",
+        "pinyin": "rén",
+        "audioSrc": "audio/人.mp3"
+    },
+    {
+        "id": "104",
+        "imageSrc": "images/学习.png",
+        "character": "学习",
+        "meaning": "to study; to learn",
+        "pinyin": "xuéxí",
+        "audioSrc": "audio/学习.mp3"
+    },
+    {
+        "id": "105",
+        "imageSrc": "images/汉字.png",
+        "character": "汉字",
+        "meaning": "Chinese characters",
+        "pinyin": "hànzì",
+        "audioSrc": "audio/汉字.mp3"
+    },
+    {
+        "id": "106",
+        "imageSrc": "images/发音.png",
+        "character": "发音",
+        "meaning": "Pronunciation; pronounce",
+        "pinyin": "fāyīn",
+        "audioSrc": "audio/发音.mp3"
+    },
+    {
+        "id": "107",
+        "imageSrc": "images/什么.png",
+        "character": "什么",
+        "meaning": "What",
+        "pinyin": "shénme",
+        "audioSrc": "audio/什么.mp3"
+    },
+    {
+        "id": "108",
+        "imageSrc": "images/书.png",
+        "character": "书",
+        "meaning": "Book",
+        "pinyin": "shū",
+        "audioSrc": "audio/书.mp3"
+    },
+    {
+        "id": "109",
+        "imageSrc": "images/谁.gif",
+        "character": "谁",
+        "meaning": "Who",
+        "pinyin": "shéi/shuí",
+        "audioSrc": "audio/谁.mp3"
+    },
+    {
+        "id": "110",
+        "imageSrc": "images/的.png",
+        "character": "的",
+        "meaning": "a particle used after an attribute to indicate possession",
+        "pinyin": "de",
+        "audioSrc": "audio/的.mp3"
+    },
+    {
+        "id": "111",
+        "imageSrc": "images/那.png",
+        "character": "那",
+        "meaning": "that",
+        "pinyin": "nà",
+        "audioSrc": "audio/那.mp3"
+    },
+    {
+        "id": "112",
+        "imageSrc": "images/杂志.png",
+        "character": "杂志",
+        "meaning": "Magazine",
+        "pinyin": "zázhì",
+        "audioSrc": "audio/杂志.mp3"
+    },
+    {
+        "id": "113",
+        "imageSrc": "images/文.png",
+        "character": "文",
+        "meaning": "Language",
+        "pinyin": "wén",
+        "audioSrc": "audio/文.mp3"
+    },
+    {
+        "id": "114",
+        "imageSrc": "images/中文.png",
+        "character": "中文",
+        "meaning": "Chinese",
+        "pinyin": "zhōngwén",
+        "audioSrc": "audio/中文.mp3"
+    },
+    {
+        "id": "115",
+        "imageSrc": "images/阿拉伯文.png",
+        "character": "阿拉伯文",
+        "meaning": "Arabic",
+        "pinyin": "ālābówén",
+        "audioSrc": "audio/阿拉伯文.mp3"
+    },
+    {
+        "id": "116",
+        "imageSrc": "images/德文.png",
+        "character": "德文",
+        "meaning": "German",
+        "pinyin": "déwén",
+        "audioSrc": "audio/德文.mp3"
+    },
+    {
+        "id": "117",
+        "imageSrc": "images/俄文.png",
+        "character": "俄文",
+        "meaning": "Russian",
+        "pinyin": "éwén",
+        "audioSrc": "audio/俄文.mp3"
+    },
+    {
+        "id": "118",
+        "imageSrc": "images/法文.png",
+        "character": "法文",
+        "meaning": "French",
+        "pinyin": "fǎwén",
+        "audioSrc": "audio/法文.mp3"
+    },
+    {
+        "id": "119",
+        "imageSrc": "images/韩文.png",
+        "character": "韩文",
+        "meaning": "Korean",
+        "pinyin": "hánwén",
+        "audioSrc": "audio/韩文.mp3"
+    },
+    {
+        "id": "120",
+        "imageSrc": "images/日文.png",
+        "character": "日文",
+        "meaning": "Japanese",
+        "pinyin": "rìwén",
+        "audioSrc": "audio/日文.mp3"
+    },
+    {
+        "id": "121",
+        "imageSrc": "images/西班牙文.png",
+        "character": "西班牙文",
+        "meaning": "Spanish",
+        "pinyin": "xībānyáwén",
+        "audioSrc": "audio/西班牙文.mp3"
+    },
+    {
+        "id": "122",
+        "imageSrc": "images/英文.png",
+        "character": "英文",
+        "meaning": "English",
+        "pinyin": "yīngwén",
+        "audioSrc": "audio/英文.mp3"
+    },
+    {
+        "id": "123",
+        "imageSrc": "images/朋友.png",
+        "character": "朋友",
+        "meaning": "Friend",
+        "pinyin": "péngyou",
+        "audioSrc": "audio/朋友.mp3"
+    },
+    {
+        "id": "124",
+        "imageSrc": "images/中午.png",
+        "character": "中午",
+        "meaning": "Noon",
+        "pinyin": "zhōngwǔ",
+        "audioSrc": "audio/中午.mp3"
+    },
+    {
+        "id": "125",
+        "imageSrc": "images/吃.gif",
+        "character": "吃",
+        "meaning": "to eat",
+        "pinyin": "chī",
+        "audioSrc": "audio/吃.mp3"
+    },
+    {
+        "id": "126",
+        "imageSrc": "images/饭.png",
+        "character": "饭",
+        "meaning": "Meal",
+        "pinyin": "fàn",
+        "audioSrc": "audio/饭.mp3"
+    },
+    {
+        "id": "127",
+        "imageSrc": "images/食堂.png",
+        "character": "食堂",
+        "meaning": "Dining hall",
+        "pinyin": "shítáng",
+        "audioSrc": "audio/食堂mp3"
+    },
+    {
+        "id": "128",
+        "imageSrc": "images/馒头.png",
+        "character": "馒头",
+        "meaning": "Sweet steamed bun",
+        "pinyin": "mántou",
+        "audioSrc": "audio/馒头.mp3"
+    },
+    {
+        "id": "129",
+        "imageSrc": "images/米饭.png",
+        "character": "米饭",
+        "meaning": "Steamed rice",
+        "pinyin": "mǐfàn",
+        "audioSrc": "audio/米饭.mp3"
+    },
+    {
+        "id": "130",
+        "imageSrc": "images/米.png",
+        "character": "米",
+        "meaning": "Rice",
+        "pinyin": "mǐ",
+        "audioSrc": "audio/米.mp3"
+    },
+    {
+        "id": "131",
+        "imageSrc": "images/要.png",
+        "character": "要",
+        "meaning": "to want; to desire",
+        "pinyin": "yào",
+        "audioSrc": "audio/要.mp3"
+    },
+    {
+        "id": "132",
+        "imageSrc": "images/个.png",
+        "character": "个",
+        "meaning": "a classifier basically used before nouns without a special classifier of their own",
+        "pinyin": "gè",
+        "audioSrc": "audio/个.mp3"
+    },
+    {
+        "id": "133",
+        "imageSrc": "images/碗.png",
+        "character": "碗",
+        "meaning": "Bowl",
+        "pinyin": "wǎn",
+        "audioSrc": "audio/碗.mp3"
+    },
+    {
+        "id": "134",
+        "imageSrc": "images/鸡蛋.png",
+        "character": "鸡蛋",
+        "meaning": "Egg",
+        "pinyin": "jīdàn",
+        "audioSrc": "audio/鸡蛋.mp3"
+    },
+    {
+        "id": "135",
+        "imageSrc": "images/鸡.png",
+        "character": "鸡",
+        "meaning": "Chicken",
+        "pinyin": "jī",
+        "audioSrc": "audio/鸡.mp3"
+    },
+    {
+        "id": "136",
+        "imageSrc": "images/蛋.png",
+        "character": "蛋",
+        "meaning": "Egg",
+        "pinyin": "dàn",
+        "audioSrc": "audio/蛋.mp3"
+    },
+    {
+        "id": "137",
+        "imageSrc": "images/汤.png",
+        "character": "汤",
+        "meaning": "Soup",
+        "pinyin": "tāng",
+        "audioSrc": "audio/汤.mp3"
+    },
+    {
+        "id": "138",
+        "imageSrc": "images/啤酒.png",
+        "character": "啤酒",
+        "meaning": "Beer",
+        "pinyin": "píjiǔ",
+        "audioSrc": "audio/啤酒.mp3"
+    },
+    {
+        "id": "139",
+        "imageSrc": "images/酒.png",
+        "character": "酒",
+        "meaning": "Alcoholic drink",
+        "pinyin": "jiǔ",
+        "audioSrc": "audio/酒.mp3"
+    },
+    {
+        "id": "140",
+        "imageSrc": "images/这些.png",
+        "character": "这些",
+        "meaning": "These",
+        "pinyin": "zhèxiē",
+        "audioSrc": "audio/这些.mp3"
+    },
+    {
+        "id": "141",
+        "imageSrc": "images/些.png",
+        "character": "些",
+        "meaning": "classifier - some",
+        "pinyin": "xiē",
+        "audioSrc": "audio/些.mp3"
+    },
+    {
+        "id": "142",
+        "imageSrc": "images/一些.png",
+        "character": "一些",
+        "meaning": "some; a few; a little",
+        "pinyin": "yìxiē",
+        "audioSrc": "audio/一些.mp3"
+    },
+    {
+        "id": "143",
+        "imageSrc": "images/那些.png",
+        "character": "那些",
+        "meaning": "Those",
+        "pinyin": "nàxiē",
+        "audioSrc": "audio/那些.mp3"
+    },
+    {
+        "id": "144",
+        "imageSrc": "images/饺子.png",
+        "character": "饺子",
+        "meaning": "Dumpling",
+        "pinyin": "jiǎozi",
+        "audioSrc": "audio/饺子.mp3"
+    },
+    {
+        "id": "145",
+        "imageSrc": "images/包子.png",
+        "character": "包子",
+        "meaning": "Steamed bun",
+        "pinyin": "bāozi",
+        "audioSrc": "audio/包子.mp3"
+    },
+    {
+        "id": "146",
+        "imageSrc": "images/面条.png",
+        "character": "面条",
+        "meaning": "Noodle",
+        "pinyin": "miàntiáo",
+        "audioSrc": "audio/面条.mp3"
+    }
+]
