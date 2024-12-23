@@ -338,14 +338,7 @@
             qContainer.setAttribute('data-start-id', startId);
             qContainer.setAttribute('data-end-id', endId);
 
-            // Lấy ID từ data-* và sử dụng cho quiz.js
-            let currentQuestionIndex = 0;
-            const parsedStartId = parseInt(qContainer.dataset.startId);
-            const parsedEndId = parseInt(qContainer.dataset.endId);
-
-            // Sử dụng parsedStartId và parsedEndId trong mã của bạn
-            console.log(`Quiz Start ID: ${parsedStartId}, Quiz End ID: ${parsedEndId}`);
-        });
+      });
       </script>
       <script src="js/quiz.js"></script>
     </div>
