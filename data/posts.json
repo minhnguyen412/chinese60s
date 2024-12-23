@@ -5,8 +5,8 @@
         "title": "这是王老师，这是我爸爸。",
         "segments": ["这", "是", "王", "老师", "，", "这", "是", "我", "爸爸", "。"],
         "description": "zhè shì wáng lǎoshī zhè shì wǒ bàba<br>This is teacher Wang, this is my father.", 
-        "avatar": "avatar/chamu-1.png", 
-        "audioSrc": "sentences/这是王老师这是我爸爸.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673138/%E8%BF%99%E6%98%AF%E7%8E%8B%E8%80%81%E5%B8%88%E8%BF%99%E6%98%AF%E6%88%91%E7%88%B8%E7%88%B8_m1wpqh.mp3"
     },
     {
         "id": 2, 
@@ -14,8 +14,8 @@
         "title": "王老师，您好！", 
         "segments": ["王", "老师", "，", "您", "好", "！"],
         "description": "wáng lǎoshī nín hǎo<br>Teacher Wang, hello!", 
-        "avatar": "avatar/gdguan.png", 
-        "audioSrc": "sentences/王老师您好.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673379/gdguan_t6axau.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673115/%E7%8E%8B%E8%80%81%E5%B8%88%E6%82%A8%E5%A5%BD_gmcnzg.mp3"
     },
     {
         "id": 3, 
@@ -23,8 +23,8 @@
         "title": "您好！请进！请坐！请喝茶！", 
         "segments": ["您", "好", "！", "请", "进", "！", "请", "坐", "！", "请", "喝", "茶", "！"],
         "description": "nín hǎo qǐng jìn qǐng zuò qǐng hē chá<br>Hello! Please come in! Have a seat! Have some tea!", 
-        "avatar": "avatar/thaywang.png", 
-        "audioSrc": "sentences/您好请进请坐请喝茶.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673099/%E6%82%A8%E5%A5%BD%E8%AF%B7%E8%BF%9B%E8%AF%B7%E5%9D%90%E8%AF%B7%E5%96%9D%E8%8C%B6_tx8mtv.mp3"
     },
     {
         "id": 4, 
@@ -32,8 +32,8 @@
         "title": "谢谢！", 
         "segments": ["谢谢", "！"],
         "description": "xièxie<br>Thank you!", 
-        "avatar": "avatar/gdguan.png", 
-        "audioSrc": "sentences/谢谢.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673379/gdguan_t6axau.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673119/%E8%B0%A2%E8%B0%A2_onqpdc.mp3"
     },
     {
         "id": 5, 
@@ -41,8 +41,8 @@
         "title": "不客气！",
         "segments": ["不", "客气", "！"],
         "description": "bú kèqi<br>You're welcome!", 
-        "avatar": "avatar/thaywang.png", 
-        "audioSrc": "sentences/不客气.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673084/%E4%B8%8D%E5%AE%A2%E6%B0%94_yyqayx.mp3"
     },
     {
         "id": 6, 
@@ -50,8 +50,8 @@
         "title": "工作忙吗？", 
         "segments": ["工作", "忙", "吗", "？"],
         "description": "gōngzuò máng ma<br>Is your work busy?", 
-        "avatar": "avatar/thaywang.png", 
-        "audioSrc": "sentences/工作忙吗.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673096/%E5%B7%A5%E4%BD%9C%E5%BF%99%E5%90%97_ff0umi.mp3"
     },
     {
         "id": 7, 
@@ -59,8 +59,8 @@
         "title": "不太忙。",
         "segments": ["不", "太", "忙", "。"],
         "description": "bú tài máng<br>Not too busy.", 
-        "avatar": "avatar/gdguan.png", 
-        "audioSrc": "sentences/不太忙.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673379/gdguan_t6axau.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673083/%E4%B8%8D%E5%A4%AA%E5%BF%99_u5zgbz.mp3"
     },
     {
         "id": 8, 
@@ -68,8 +68,8 @@
         "title": "身体好吗？", 
         "segments": ["身体", "好", "吗", "？"],
         "description": "shēntǐ hǎo ma<br>How is your health?", 
-        "avatar": "avatar/thaywang.png", 
-        "audioSrc": "sentences/身体好吗.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673122/%E8%BA%AB%E4%BD%93%E5%A5%BD%E5%90%97_j1pg0s.mp3"
     },
     {
         "id": 9, 
@@ -77,8 +77,8 @@
         "title": "很好！", 
         "segments": ["很", "好", "！"],
         "description": "hěn hǎo<br>Very good!", 
-        "avatar": "avatar/gdguan.png", 
-        "audioSrc": "sentences/很好.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673379/gdguan_t6axau.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673097/%E5%BE%88%E5%A5%BD_iefyxe.mp3"
     },
     {
         "id": 10, 
@@ -86,8 +86,8 @@
         "title": "请问，你贵姓？", 
         "segments": ["请问", "，", "你", "贵姓", "？"],
         "description": "qǐngwèn nǐ guìxìng<br>Excuse me! What’s your surname?", 
-        "avatar": "avatar/maike.png", 
-        "audioSrc": "sentences/请问你贵姓.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673381/maike_vi6wyv.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673118/%E8%AF%B7%E9%97%AE%E4%BD%A0%E8%B4%B5%E5%A7%93_e22nk8.mp3"
     },
     {
         "id": 11, 
@@ -95,8 +95,8 @@
         "title": "我姓张。", 
         "segments": ["我", "姓", "张", "。"],
         "description": "wǒ xìng zhāng<br>My surname is Zhang.", 
-        "avatar": "avatar/zhangdong.png", 
-        "audioSrc": "sentences/我姓张.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673385/zhangdong_llur8t.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673104/%E6%88%91%E5%A7%93%E5%BC%A0_o7ewjh.mp3"
     },
     {
         "id": 12, 
@@ -104,8 +104,8 @@
         "title": "你叫什么名字？", 
         "segments": ["你", "叫", "什么", "名字", "？"],
         "description": "nǐ jiào shénme míngzi<br>What is your full name?", 
-        "avatar": "avatar/maike.png", 
-        "audioSrc": "sentences/你叫什么名字.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673381/maike_vi6wyv.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673086/%E4%BD%A0%E5%8F%AB%E4%BB%80%E4%B9%88%E5%90%8D%E5%AD%97_gq6ngu.mp3"
     },
     {
         "id": 13, 
@@ -113,8 +113,8 @@
         "title": "我叫张东。", 
         "segments": ["我", "叫", "张东", "。"],
         "description": "wǒ jiào zhāng dōng<br>My full name is Zhang Dong.", 
-        "avatar": "avatar/zhangdong.png", 
-        "audioSrc": "sentences/我叫张东.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673385/zhangdong_llur8t.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673102/%E6%88%91%E5%8F%AB%E5%BC%A0%E4%B8%9C_bqs2hg.mp3"
     },
     {
         "id": 14, 
@@ -122,8 +122,8 @@
         "title": "你是哪国人？", 
         "segments": ["你", "是", "哪", "国", "人", "？"],
         "description": "nǐ shì nǎ guó rén<br>What nationality are you?", 
-        "avatar": "avatar/maike.png", 
-        "audioSrc": "sentences/你是哪国人.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673381/maike_vi6wyv.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673093/%E4%BD%A0%E6%98%AF%E5%93%AA%E5%9B%BD%E4%BA%BA_ob0jxo.mp3"
     },
     {
         "id": 15, 
@@ -131,8 +131,8 @@
         "title": "我是中国人，你是哪国人？", 
         "segments": ["我", "是", "中国", "人", "，", "你", "是", "哪", "国", "人", "？"],
         "description": "wǒ shì zhōngguó rén nǐ shì nǎ guó rén<br>I’m Chinese, what nationality are you?", 
-        "avatar": "avatar/zhangdong.png", 
-        "audioSrc": "sentences/我是中国人你是哪国人.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673385/zhangdong_llur8t.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673106/%E6%88%91%E6%98%AF%E4%B8%AD%E5%9B%BD%E4%BA%BA%E4%BD%A0%E6%98%AF%E5%93%AA%E5%9B%BD%E4%BA%BA_v28mm0.mp3"
     },
     {
         "id": 16, 
@@ -140,8 +140,8 @@
         "title": "我是美国人。", 
         "segments": ["我", "是", "美国", "人", "。"],
         "description": "wǒ shì měiguó rén<br>I'm American.", 
-        "avatar": "avatar/maike.png", 
-        "audioSrc": "sentences/我是美国人.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673381/maike_vi6wyv.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673108/%E6%88%91%E6%98%AF%E7%BE%8E%E5%9B%BD%E4%BA%BA_tcpxrs.mp3"
     },
     {
         "id": 17, 
@@ -149,8 +149,8 @@
         "title": "你学习什么？", 
         "segments": ["你", "学习", "什么", "？"],
         "description": "nǐ xuéxí shénme<br>What do you study?", 
-        "avatar": "avatar/zhangdong.png", 
-        "audioSrc": "sentences/你学习什么.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673385/zhangdong_llur8t.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673091/%E4%BD%A0%E5%AD%A6%E4%B9%A0%E4%BB%80%E4%B9%88_gfsrgk.mp3"
     },
     {
         "id": 18, 
@@ -158,8 +158,8 @@
         "title": "我学习汉语。", 
         "segments": ["我", "学习", "汉语", "。"],
         "description": "wǒ xuěxí hànyǔ<br>I study Chinese.", 
-        "avatar": "avatar/maike.png", 
-        "audioSrc": "sentences/我学习汉语.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673381/maike_vi6wyv.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673105/%E6%88%91%E5%AD%A6%E4%B9%A0%E6%B1%89%E8%AF%AD_jhzfom.mp3"
     },
     {
         "id": 19, 
@@ -167,8 +167,8 @@
         "title": "汉语难吗？", 
         "segments": ["汉语", "难", "吗", "？"],
         "description": "hànyǔ nán ma<br>Is Chinese difficult?", 
-        "avatar": "avatar/zhangdong.png", 
-        "audioSrc": "sentences/汉语难吗.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673385/zhangdong_llur8t.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673112/%E6%B1%89%E8%AF%AD%E9%9A%BE%E5%90%97_m1wdjy.mp3"
     },
     {
         "id": 20, 
@@ -176,8 +176,8 @@
         "title": "汉字很难，发音不太难。", 
         "segments": ["汉字", "很", "难", "，", "发音", "不", "太", "难", "。"],
         "description": "hànzi hěn nán fāyīn bú tài nán<br>Chinese characters are very difficult, but pronunciation is not too difficult.", 
-        "avatar": "avatar/maike.png", 
-        "audioSrc": "sentences/汉字很难发音不太难.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673381/maike_vi6wyv.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673110/%E6%B1%89%E5%AD%97%E5%BE%88%E9%9A%BE%E5%8F%91%E9%9F%B3%E4%B8%8D%E5%A4%AA%E9%9A%BE_ro8hyr.mp3"
     },
     {
         "id": 21, 
@@ -185,8 +185,8 @@
         "title": "这是什么？", 
         "segments": ["这", "是", "什么", "？"],
         "description": "zhè shì shénme<br>What is this?", 
-        "avatar": "avatar/lana.png", 
-        "audioSrc": "sentences/这是什么.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673133/%E8%BF%99%E6%98%AF%E4%BB%80%E4%B9%88_lho2uy.mp3"
     },
     {
         "id": 22, 
@@ -194,8 +194,8 @@
         "title": "这是书。", 
         "segments": ["这", "是", "书", "。"],
         "description": "zhè shì shū <br>This is a book.", 
-        "avatar": "avatar/nate.png", 
-        "audioSrc": "sentences/这是书.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673131/%E8%BF%99%E6%98%AF%E4%B9%A6_lebbej.mp3"
     },
     {
         "id": 23, 
@@ -203,8 +203,8 @@
         "title": "这是什么书？", 
         "segments": ["这", "是", "什么", "书", "？"],
         "description": "zhè shì shénme shū<br>What kind of book is this?", 
-        "avatar": "avatar/lana.png", 
-        "audioSrc": "sentences/这是什么书.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673134/%E8%BF%99%E6%98%AF%E4%BB%80%E4%B9%88%E4%B9%A6_zl0i7l.mp3"
     },
     {
         "id": 24, 
@@ -212,8 +212,8 @@
         "title": "这是中文书。", 
         "segments": ["这", "是", "中文", "书", "。"],
         "description": "zhè shì zhōngwén shū<br>This is a Chinese book.", 
-        "avatar": "avatar/nate.png", 
-        "audioSrc": "sentences/这是中文书.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673128/%E8%BF%99%E6%98%AF%E4%B8%AD%E6%96%87%E4%B9%A6_aatlxb.mp3"
     },
     {
         "id": 25, 
@@ -221,8 +221,8 @@
         "title": "这是谁的书？", 
         "segments": ["这", "是", "谁", "的", "书", "？"],
         "description": "zhè shì shéi de shū<br>Whose book is this?", 
-        "avatar": "avatar/lana.png", 
-        "audioSrc": "sentences/这是谁的书.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673140/%E8%BF%99%E6%98%AF%E8%B0%81%E7%9A%84%E4%B9%A6_l4mna3.mp3"
     },
     {
         "id": 26, 
@@ -230,8 +230,8 @@
         "title": "这是老师的书。", 
         "segments": ["这", "是", "老师", "的", "书", "。"],
         "description": "zhè shì lǎoshī de shū<br>This is the teacher's book.", 
-        "avatar": "avatar/nate.png", 
-        "audioSrc": "sentences/这是老师的书.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673139/%E8%BF%99%E6%98%AF%E8%80%81%E5%B8%88%E7%9A%84%E4%B9%A6_ry6pfu.mp3"
     },
     {
         "id": 27, 
@@ -239,8 +239,8 @@
         "title": "那是什么？", 
         "segments": ["那", "是", "什么", "？"],
         "description": "nà shì shénme<br>What is that?", 
-        "avatar": "avatar/lana.png", 
-        "audioSrc": "sentences/那是什么.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673142/%E9%82%A3%E6%98%AF%E4%BB%80%E4%B9%88_vhyyi4.mp3"
     },
     {
         "id": 28, 
@@ -248,8 +248,8 @@
         "title": "那是杂志。", 
         "segments": ["那", "是", "杂志", "。"],
         "description": "nà shì zázhì<br>That is a magazine.", 
-        "avatar": "avatar/nate.png", 
-        "audioSrc": "sentences/那是杂志.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673146/%E9%82%A3%E6%98%AF%E6%9D%82%E5%BF%97_mwrqdw.mp3"
     },
     {
         "id": 29, 
@@ -257,8 +257,8 @@
         "title": "那是什么杂志？", 
         "segments": ["那", "是", "什么", "杂志", "？"],
         "description": "nà shì shénme zázhì<br>What kind of magazine is that?", 
-        "avatar": "avatar/lana.png", 
-        "audioSrc": "sentences/那是什么杂志.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673144/%E9%82%A3%E6%98%AF%E4%BB%80%E4%B9%88%E6%9D%82%E5%BF%97_cj6lqe.mp3"
     },
     {
         "id": 30, 
@@ -266,8 +266,8 @@
         "title": "那是英文杂志。", 
         "segments": ["那", "是", "英文", "杂志", "。"],
         "description": "nà shì yīngwén zázhì<br>That is an English magazine.", 
-        "avatar": "avatar/nate.png", 
-        "audioSrc": "sentences/那是英文杂志.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673147/%E9%82%A3%E6%98%AF%E8%8B%B1%E6%96%87%E6%9D%82%E5%BF%97_rsb9j4.mp3"
     },
     {
         "id": 31, 
@@ -275,8 +275,8 @@
         "title": "那是谁的杂志？", 
         "segments": ["那", "是", "谁", "的", "杂志", "？"],
         "description": "nà shì shéi de zázhì<br>Whose magazine is that?", 
-        "avatar": "avatar/lana.png", 
-        "audioSrc": "sentences/那是谁的杂志.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673148/%E9%82%A3%E6%98%AF%E8%B0%81%E7%9A%84%E6%9D%82%E5%BF%97_pq9pbq.mp3"
     },
     {
         "id": 32, 
@@ -284,7 +284,7 @@
         "title": "那是我朋友的杂志。", 
         "segments": ["那", "是", "我", "朋友", "的", "杂志", "。"],
         "description": "nà shì wǒ péngyou de zázhì<br>That's my friend's magazine.", 
-        "avatar": "avatar/nate.png", 
-        "audioSrc": "sentences/那是我朋友的杂志.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673145/%E9%82%A3%E6%98%AF%E6%88%91%E6%9C%8B%E5%8F%8B%E7%9A%84%E6%9D%82%E5%BF%97_va0ugf.mp3"
     }
 ]
