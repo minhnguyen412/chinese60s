@@ -313,7 +313,7 @@
       </script>
 
 
-      <div class="qcontainer" data-start-id="" data-end-id="">
+      <div class="qcontainer" data-start-id="1" data-end-id="10">
         <h1>LET'S PRACTICE!</h1>
         <div id="start-container">
           <button id="start-button">Start</button>
@@ -324,22 +324,7 @@
         <div id="buttons" style="display: none;"></div>
         
       </div>
-      <script>
-          document.addEventListener('DOMContentLoaded', () => {
-              const urlParams = new URLSearchParams(window.location.search);
-
-              // Lấy các ID từ URL cho quiz hoặc sử dụng giá trị mặc định
-              const startId = parseInt(urlParams.get('quizStartId')) || 24; // Giá trị mặc định
-              const endId = parseInt(urlParams.get('quizEndId')) || 38; // Giá trị mặc định
-
-              // Cập nhật data-start-id và data-end-id cho qcontainer
-              const qContainer = document.querySelector('.qcontainer');
-              qContainer.setAttribute('data-start-id', startId);
-              qContainer.setAttribute('data-end-id', endId);
-
-              console.log(`Updated data-start-id: ${startId}, data-end-id: ${endId}`); // Kiểm tra giá trị cập nhật
-          });
-      </script>
+     
       <script src="js/quiz.js"></script>
     </div>
 
