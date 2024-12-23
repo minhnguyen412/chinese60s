@@ -298,27 +298,15 @@
       <div class="pcontainer">
         <ul class="content-list" id="itemList"></ul>
       </div>
-      <script>
-        function savePostRange(startpId, endpId) {
-          const postData = { startpId, endpId };
-          localStorage.setItem('postRange', JSON.stringify(postData));
-        }
-
-        function loadPostRange() {
-          const savedData = localStorage.getItem('postRange');
-          return savedData ? JSON.parse(savedData) : { startpId: 0, endpId: 0 };
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-          const { startpId, endpId } = loadPostRange();
-          loadPosts(startpId, endpId, 'itemList');
-        });
-
-        
-      </script>
       <script src="js/posts-loader.js"></script>
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          loadPosts(21, 32, 'itemList');
+        });
+      </script>
 
-      <div class="qcontainer">
+
+      <div class="qcontainer" data-start-id="24" data-end-id="38">
         <h1>LET'S PRACTICE!</h1>
         <div id="start-container">
           <button id="start-button">Start</button>
