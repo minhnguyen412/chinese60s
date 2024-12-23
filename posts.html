@@ -301,12 +301,19 @@
       <script src="js/posts-loader.js"></script>
       <script>
         document.addEventListener('DOMContentLoaded', () => {
-          loadPosts(21, 32, 'itemList');
+            const urlParams = new URLSearchParams(window.location.search);
+        
+            // Lấy các ID từ URL hoặc sử dụng giá trị mặc định
+            const startpId = urlParams.get('postStartId') || '21'; // Giá trị mặc định
+            const endpId = urlParams.get('postEndId') || '32'; // Giá trị mặc định
+
+            // Load posts với các ID đã lấy
+            loadPosts(startpId, endpId, 'itemList');
         });
       </script>
 
 
-      <div class="qcontainer" data-start-id="24" data-end-id="38">
+      <div class="qcontainer">
         <h1>LET'S PRACTICE!</h1>
         <div id="start-container">
           <button id="start-button">Start</button>
@@ -318,6 +325,28 @@
       </div>
       
       <script src="js/quiz.js"></script>
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+
+            // Lấy các ID từ URL cho quiz hoặc sử dụng giá trị mặc định
+            const startId = urlParams.get('quizStartId') || '24'; // Giá trị mặc định
+            const endId = urlParams.get('quizEndId') || '38'; // Giá trị mặc định
+
+            // Cập nhật data-start-id và data-end-id cho qcontainer
+            const qContainer = document.querySelector('.qcontainer');
+            qContainer.setAttribute('data-start-id', startId);
+            qContainer.setAttribute('data-end-id', endId);
+
+            // Lấy ID từ data-* và sử dụng cho quiz.js
+            let currentQuestionIndex = 0;
+            const parsedStartId = parseInt(qContainer.dataset.startId);
+            const parsedEndId = parseInt(qContainer.dataset.endId);
+
+            // Sử dụng parsedStartId và parsedEndId trong mã của bạn
+            console.log(`Quiz Start ID: ${parsedStartId}, Quiz End ID: ${parsedEndId}`);
+        });
+      </script>
     </div>
 
     <!-- Thumbnails -->
