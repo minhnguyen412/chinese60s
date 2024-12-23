@@ -1,38 +1,9 @@
 let currentQuestionIndex = 0;
+// Chọn khoảng id mà bạn muốn hiển thị
+const qContainer = document.querySelector('.qcontainer');
+const startId = parseInt(qContainer.dataset.startId);
+const endId = parseInt(qContainer.dataset.endId);
 
-// Lấy phạm vi từ URL nếu có
-function getQuizRangeFromURL() {
-  const params = new URLSearchParams(window.location.search);
-  const startId = parseInt(params.get('startId'));
-  const endId = parseInt(params.get('endId'));
-  return { startId, endId };
-}
-
-// Lấy phạm vi từ localStorage
-function loadQuizRange() {
-  const savedData = localStorage.getItem('quizRange');
-  return savedData ? JSON.parse(savedData) : { startId: 0, endId: 0 };
-}
-
-// Lưu phạm vi vào localStorage
-function saveQuizRange(startId, endId) {
-  const quizData = { startId, endId };
-  localStorage.setItem('quizRange', JSON.stringify(quizData));
-}
-
-// Kết hợp lấy phạm vi từ URL và localStorage
-function getQuizRange() {
-  const rangeFromURL = getQuizRangeFromURL();
-  if (!isNaN(rangeFromURL.startId) && !isNaN(rangeFromURL.endId)) {
-    return rangeFromURL; // Ưu tiên URL
-  }
-  return loadQuizRange(); // Nếu không, dùng localStorage
-}
-
-// Xử lý quiz khi trang đã tải
-document.addEventListener('DOMContentLoaded', () => {
-  const { startId, endId } = getQuizRange();
-  console.log(`Quiz Range Loaded: Start ID - ${startId}, End ID - ${endId}`);
 
   fetch('../data/quiz.json')
     .then(response => response.json())
