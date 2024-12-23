@@ -355,7 +355,7 @@
 
   <!-- Logos and Title Section -->
   <div class="logos-and-title">
-      <img src="Web/homepage.png" alt="Logo" class="logo">
+      <img src="assets/homepage.png" alt="Logo" class="logo">
       
   </div>
 
@@ -411,7 +411,7 @@
       const container = document.getElementById('thumbnails-container');
 
       try {
-        const response = await fetch('Thumbnail/thumbnail.json'); 
+        const response = await fetch('data/thumbnail.json'); 
         const data = await response.json();
 
         data.forEach(item => {
