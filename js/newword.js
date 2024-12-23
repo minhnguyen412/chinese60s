@@ -1,5 +1,5 @@
 // Fetch data from GitHub JSON file and display
-fetch('imagesData.json')
+fetch('data/imagesData.json')
     .then(response => response.json())
     .then(data => {
         const imageGrid = document.getElementById('imageGrid');
