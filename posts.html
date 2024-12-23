@@ -312,8 +312,7 @@
         });
       </script>
 
-
-      <div class="qcontainer" data-start-id="1" data-end-id="10">
+      <div class="qcontainer" id="quiz-container" data-start-id="1" data-end-id="10">
         <h1>LET'S PRACTICE!</h1>
         <div id="start-container">
           <button id="start-button">Start</button>
@@ -324,6 +323,34 @@
         <div id="buttons" style="display: none;"></div>
         
       </div>
+     <script>
+          // Function to get the value of a query parameter from the URL
+          function getQueryParam(param) {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(param);
+          }
+
+         // Wait for the page to load
+         document.addEventListener('DOMContentLoaded', () => {
+               // Get start-id and end-id from the URL
+               const startId = getQueryParam('quizStartId');
+               const endId = getQueryParam('quizEndId');
+
+              //If start-id and end-id are provided in the URL, update the data attributes
+               const quizContainer = document.getElementById('quiz-container');
+    
+               if (startId) {
+      quizContainer.setAttribute('data-start-id', startId);
+               }
+               if (endId) {
+      quizContainer.setAttribute('data-end-id', endId);
+               }
+
+              // Optionally, you can log the values to the console for debugging
+              console.log('Start ID:', startId || 'default');
+              console.log('End ID:', endId || 'default');
+         });
+      </script>
      
       <script src="js/quiz.js"></script>
     </div>
