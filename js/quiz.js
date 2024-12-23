@@ -3,7 +3,7 @@ let currentQuestionIndex = 0;
 const qContainer = document.querySelector('.qcontainer');
 const startId = parseInt(qContainer.dataset.startId);
 const endId = parseInt(qContainer.dataset.endId);
-console.log(`Start ID: ${startId}, End ID: ${endId}`);
+
 
   fetch('../data/quiz.json')
     .then(response => response.json())
