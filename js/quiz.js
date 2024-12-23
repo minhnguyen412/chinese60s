@@ -44,10 +44,10 @@ fetch('../data/quiz.json')
         });
         
         const initialAudio = new Audio();
-        const clickAudio = new Audio('Soundfx/click.mp3');
-        const correctAudio = new Audio('Soundfx/correct.mp3');
-        const incorrectAudio = new Audio('Soundfx/incorrect.mp3');
-        const completionAudio = new Audio('Soundfx/victory.mp3');
+        const clickAudio = new Audio('../assets/click.mp3');
+        const correctAudio = new Audio('../assets/correct.mp3');
+        const incorrectAudio = new Audio('../assets/incorrect.mp3');
+        const completionAudio = new Audio('../assets/victory.mp3');
 
         // Hiển thị câu hỏi
         function displayQuestion(questionIndex) {
