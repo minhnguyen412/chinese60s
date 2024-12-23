@@ -84,7 +84,7 @@ function loadPosts(startpId, endpId, listId) {
     const itemList = document.getElementById(listId);
 
     // Tải dữ liệu hình ảnh
-    fetch('../imagesData.json')
+    fetch('../data/imagesData.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -92,7 +92,7 @@ function loadPosts(startpId, endpId, listId) {
             return response.json();
         })
         .then(imagesData => {
-            fetch('../posts.json')
+            fetch('../data/posts.json')
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
