@@ -5,7 +5,7 @@ const qContainer = document.querySelector('.qcontainer');
 const startId = parseInt(qContainer.dataset.startId);
 const endId = parseInt(qContainer.dataset.endId);
 
-fetch('../quiz.json')
+fetch('../data/quiz.json')
     .then(response => response.json())
     .then(data => {
         // Lọc câu hỏi trong khoảng id mong muốn
