@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Post Page</title>
-  <link rel="stylesheet" href="../post-styles.css">
+  <link rel="stylesheet" href="css/post-styles.css">
   <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
   <style>
     body {
@@ -271,7 +271,7 @@
 <body>
   <!-- Header -->
   <header>
-    <h1><a href="../../index.html" class="homepage-link">CHINESE 60s</a></h1>
+    <h1><a href="index.html" class="homepage-link">CHINESE 60s</a></h1>
     <button class="menu-toggle" aria-label="Toggle navigation">
       &#9776;
     </button>
@@ -286,7 +286,7 @@
 
   <!-- Logos and Title Section -->
   <div class="logos-and-title">
-    <img src="../../web/banner.png" alt="Logo" class="logo">
+    <img src="assets/banner.png" alt="Logo" class="logo">
   </div>
 
   <div class="container">
@@ -317,7 +317,7 @@
         // Example: Save range
         savePostRange(21, 32); // You can change this dynamically if needed
       </script>
-      <script src="../posts-loader.js"></script>
+      <script src="js/posts-loader.js"></script>
 
       <div class="qcontainer">
         <h1>LET'S PRACTICE!</h1>
@@ -348,7 +348,7 @@
         // Example: Save range
         saveQuizRange(24, 38); // You can change this dynamically if needed
       </script>
-      <script src="../quiz.js"></script>
+      <script src="js/quiz.js"></script>
     </div>
 
     <!-- Thumbnails -->
@@ -360,7 +360,7 @@
 
   <script>
     const maxVideosToShow = 5;
-    fetch('../../Thumbnail/thumbnail.json')
+    fetch('data/thumbnail.json')
       .then(response => response.json())
       .then(videos => {
         videos.sort((a, b) => b.id - a.id);
@@ -389,7 +389,7 @@
   </div>
   <!-- New Words Tag -->
   <div class="new-words">
-    <a href="../../newword.html">New Words</a>
+    <a href="newword.html">New Words</a>
   </div>
 
   <!-- Footer -->
