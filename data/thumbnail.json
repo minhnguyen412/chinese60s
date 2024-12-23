@@ -5,7 +5,7 @@
         "description": "Lesson 1: Hello!",
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734941420/hyjc-1-1_bjq7nu.png",
         "videoLink": "https://www.youtube.com/embed/ng-E83Dg-KU?si=gRoOVlE1cVSvf7ud",
-        "htmlLink": "posts.html?startId=21&endId=32&quizStartId=24&quizEndId=38"
+        "htmlLink": "posts.html?startpId=21&endpId=32&quizStartId=24&quizEndId=38"
     },
     {
         "id": 2,
@@ -13,7 +13,7 @@
         "description": "Lesson 2: Chinese is not too difficult",
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734941423/hyjc-1-2_lkcjmf.png",
         "videoLink": "https://www.youtube.com/embed/VIDEO_ID_1",
-        "htmlLink": "posts.html?startId=21&endId=32&quizStartId=24&quizEndId=38"
+        "htmlLink": "posts.html?startpId=21&endpId=32&quizStartId=24&quizEndId=38"
     },
     {
         "id": 3,
@@ -21,7 +21,7 @@
         "description": "Lesson 3: See you tomorrow!",
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734941448/hyjc-1-3_ndzqok.png",
         "videoLink": "https://www.youtube.com/embed/VIDEO_ID_1",
-        "htmlLink": "posts.html?startId=21&endId=32&quizStartId=24&quizEndId=38"
+        "htmlLink": "posts.html?startpId=21&endpId=32&quizStartId=24&quizEndId=38"
     },
       {
         "id": 4,
@@ -29,7 +29,7 @@
         "description": "Lesson 4: Where are you going?",
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734941430/hyjc-1-4_x0rj2g.png",
         "videoLink": "https://www.youtube.com/embed/VIDEO_ID_1",
-        "htmlLink": "posts.html?startId=21&endId=32&quizStartId=24&quizEndId=38"
+        "htmlLink": "posts.html?startpId=21&endpId=32&quizStartId=24&quizEndId=38"
     },
       {
         "id": 5,
@@ -37,7 +37,7 @@
         "description": "Lesson 5: This is Teacher Wang",
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734941436/hyjc-1-5_npzxth.png",
         "videoLink": "https://www.youtube.com/embed/VIDEO_ID_1",
-        "htmlLink": "posts.html?startId=21&endId=32&quizStartId=24&quizEndId=38"
+        "htmlLink": "posts.html?startpId=21&endpId=32&quizStartId=24&quizEndId=38"
     },
       {
         "id": 6,
@@ -45,7 +45,7 @@
         "description": "Lesson 6 (1): I study Chinese",
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734941454/hyjc-1-6-1_ga8j9u.png",
         "videoLink": "https://www.youtube.com/embed/VIDEO_ID_1",
-        "htmlLink": "posts.html?startId=21&endId=32&quizStartId=24&quizEndId=38"
+        "htmlLink": "posts.html?startpId=21&endpId=32&quizStartId=24&quizEndId=38"
     },
       {
         "id": 7,
@@ -53,6 +53,6 @@
         "description": "Lesson 6 (2): What book is this?",
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734941442/hyjc-1-6-2_xxbwoz.png",
         "videoLink": "https://www.youtube.com/embed/VIDEO_ID_1",
-        "htmlLink": "posts.html?startId=21&endId=32&quizStartId=24&quizEndId=38"
+        "htmlLink": "posts.html?startpId=21&endpId=32&quizStartId=24&quizEndId=38"
     }
 ]
