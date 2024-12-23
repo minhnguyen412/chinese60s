@@ -299,7 +299,7 @@
         <ul class="content-list" id="itemList"></ul>
       </div>
       <script>
-        function savePostRange(starptId, endpId) {
+        function savePostRange(startpId, endpId) {
           const postData = { startpId, endpId };
           localStorage.setItem('postRange', JSON.stringify(postData));
         }
@@ -310,7 +310,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-          const { startId, endId } = loadPostRange();
+          const { startpId, endpId } = loadPostRange();
           loadPosts(startpId, endpId, 'itemList');
         });
 
