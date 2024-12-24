@@ -122,9 +122,7 @@ button:disabled {
     .word {
         font-size: 20px; /* Điều chỉnh kích thước nút */
     }
-    .image-wrapper {
-        max-width: 30%; /* Điều chỉnh kích thước hình ảnh khi màn hình nhỏ hơn */
-    }
+    
 }
 
 @media (max-width: 480px) {
@@ -140,10 +138,7 @@ button:disabled {
     .word {
         font-size: 16px; /* Kích thước nút nhỏ hơn */
     }
-    .image-wrapper {
-        max-width: 25%; /* Tiếp tục giảm kích thước hình ảnh trên màn hình rất nhỏ */
-    }
-
+    
     
 }
 
