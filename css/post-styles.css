@@ -145,6 +145,25 @@ button:disabled {
         display: block; /* Ensures images are not inline */
     }
 }
+@media (max-width: 1024px) {
+    .qcontainer {
+        
+        padding: 15px; /* Giảm padding khi màn hình nhỏ */
+    }
+
+    .sentence {
+        font-size: 24px; /* Giảm kích thước chữ */
+    }
+
+    .word {
+        font-size: 20px; /* Điều chỉnh kích thước nút */
+    }
+    .content-image {
+        max-width: 70px; /* Adjust as necessary */
+        height: auto;
+        display: block; /* Ensures images are not inline */
+    }
+}
 
 .pcontainer {
     max-width: 1005; /* Giới hạn chiều rộng của container */
