@@ -120,7 +120,7 @@ button:disabled {
         font-size: 20px; /* Điều chỉnh kích thước nút */
     }
     .content-image {
-        max-width: 100px; /* Adjust as necessary */
+        max-width: 70px; /* Adjust as necessary */
         height: auto;
         display: block; /* Ensures images are not inline */
     }
