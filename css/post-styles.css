@@ -82,7 +82,7 @@ button:disabled {
     background-color: #6c757d;
 }
 .content-image {
-    max-width: 250px /* Adjust as necessary */
+    max-width: 150x /* Adjust as necessary */
     height: auto;
     display: block; /* Ensures images are not inline */
     
@@ -120,7 +120,7 @@ button:disabled {
         font-size: 20px; /* Điều chỉnh kích thước nút */
     }
     .content-image {
-        max-width: 150px; /* Adjust as necessary */
+        max-width: 100px; /* Adjust as necessary */
         height: auto;
         display: block; /* Ensures images are not inline */
     }
@@ -140,7 +140,7 @@ button:disabled {
         font-size: 16px; /* Kích thước nút nhỏ hơn */
     }
     .content-image {
-        max-width: 90px; /* Adjust as necessary */
+        max-width: 60px; /* Adjust as necessary */
         height: auto;
         display: block; /* Ensures images are not inline */
     }
