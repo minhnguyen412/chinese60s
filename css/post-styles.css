@@ -8,8 +8,6 @@
 }
 
 .sentence {
-    display: flex; /* Sử dụng flexbox cho câu */
-    flex-wrap: nowrap; /* Không cho phép xuống dòng */
     margin: 20px 0;
     font-size: 30px;
     line-height: 1.6;
@@ -26,7 +24,10 @@
 }
 
 .options {
-    margin: 20px 0;
+    display: flex; /* Kích hoạt Flexbox */
+    
+    justify-content: center; /* Căn giữa các hình ảnh */
+    gap: 10px;
 }
 
 .word {
@@ -84,17 +85,14 @@ button:disabled {
     background-color: #6c757d;
 }
 .content-image {
-    max-width: 33%; /* Adjust as necessary */
+    width: 100%; /* Adjust as necessary */
     height: auto;
     display: block; /* Ensures images are not inline */
     
 }
 .image-wrapper {
-    display: inline-flex; /* Sử dụng flexbox */
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 1; /* Cho phép co lại khi cần */
-    max-width: 33%; /* Mỗi hình ảnh chiếm 1/3 chiều rộng */
+    flex: 1 1 calc(33.33% - 20px); /* Mỗi hình chiếm 1/3 chiều rộng container, trừ khoảng cách */
+    max-width: calc(33.33% - 20px); /* Giới hạn tối đa để không vượt quá 1/3 container */
     box-sizing: border-box; 
 }
 #start-button {
@@ -146,9 +144,7 @@ button:disabled {
         max-width: 25%; /* Tiếp tục giảm kích thước hình ảnh trên màn hình rất nhỏ */
     }
 
-    .sentence {
-        gap: 5px; /* Giảm khoảng cách giữa các hình ảnh */
-    }
+    
 }
 
 .pcontainer {
