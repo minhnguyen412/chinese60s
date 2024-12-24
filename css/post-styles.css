@@ -82,7 +82,7 @@ button:disabled {
     background-color: #6c757d;
 }
 .content-image {
-    max-width: 150px /* Adjust as necessary */
+    max-width: 150px; /* Adjust as necessary */
     height: auto;
     display: block; /* Ensures images are not inline */
     
