@@ -10,9 +10,10 @@
 .sentence {
     display: flex; /* Sử dụng flexbox cho câu */
     flex-wrap: nowrap; /* Không cho phép xuống dòng */
-    gap: 10px; /* Khoảng cách giữa các hình ảnh */
-    justify-content: center; /* Căn giữa nếu hình ảnh không đầy đủ */
-    align-items: center; 
+    margin: 20px 0;
+    font-size: 30px;
+    line-height: 1.6;
+    font-weight: bold;
 }
 
 .blank {
@@ -83,13 +84,13 @@ button:disabled {
     background-color: #6c757d;
 }
 .content-image {
-    max-width: 100%; /* Adjust as necessary */
+    max-width: 33%; /* Adjust as necessary */
     height: auto;
     display: block; /* Ensures images are not inline */
     
 }
 .image-wrapper {
-    display: flex; /* Sử dụng flexbox */
+    display: inline-flex; /* Sử dụng flexbox */
     align-items: center;
     justify-content: center;
     flex-shrink: 1; /* Cho phép co lại khi cần */
