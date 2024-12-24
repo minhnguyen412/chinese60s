@@ -140,7 +140,7 @@ button:disabled {
         font-size: 16px; /* Kích thước nút nhỏ hơn */
     }
     .content-image {
-        max-width: 60px; /* Adjust as necessary */
+        max-width: 65px; /* Adjust as necessary */
         height: auto;
         display: block; /* Ensures images are not inline */
     }
