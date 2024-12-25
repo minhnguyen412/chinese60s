@@ -36,23 +36,23 @@
         "title": "第五课：这是王老师",
         "description": "Lesson 5: This is Teacher Wang",
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734941436/hyjc-1-5_npzxth.png",
-        "videoLink": "https://www.youtube.com/embed/VIDEO_ID_1",
-        "htmlLink": "posts.html?startpId=21&endpId=32&startId=24&endId=38"
+        "videoLink": "https://www.youtube.com/embed/5U0J6_hVmA8?si=ZDoSSeM4pA8YKwTq",
+        "htmlLink": "posts.html?postStartId=1&postEndId=9&quizStartId=1&quizEndId=16&id=5"
     },
       {
         "id": 6,
         "title": "第六课（一)：我学习汉语",
         "description": "Lesson 6 (1): I study Chinese",
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734941454/hyjc-1-6-1_ga8j9u.png",
-        "videoLink": "https://www.youtube.com/embed/VIDEO_ID_1",
-        "htmlLink": "posts.html?startpId=21&endpId=32&startId=24&endId=38"
+        "videoLink": "https://www.youtube.com/embed/d84tgGgLcX0?si=ju2cuO6VtSO7ubYg",
+        "htmlLink": "posts.html?postStartId=10&postEndId=20&quizStartId=17&quizEndId=23&id=6"
     },
       {
         "id": 7,
         "title": "第六课（二)：这是什么书？",
         "description": "Lesson 6 (2): What book is this?",
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734941442/hyjc-1-6-2_xxbwoz.png",
-        "videoLink": "https://www.youtube.com/embed/VIDEO_ID_1",
-        "htmlLink": "posts.html?startpId=21&endpId=32&startId=24&endId=38"
+        "videoLink": "https://www.youtube.com/embed/MpPAY0yn8RQ?si=mmBk2DjeRT8amQcm",
+        "htmlLink": "posts.html?postStartId=21&postEndId=32&quizStartId=24&quizEndId=38&id=7"
     }
 ]
