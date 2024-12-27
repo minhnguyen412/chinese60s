@@ -3,7 +3,7 @@
         "id": 1,
         "title": "第一课：你好!",
         "description": "Lesson 1: Hello!",
-        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734941420/hyjc-1-1_bjq7nu.png",
+        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734941420/hyjc-1-1_bjq7nu.png",
         "videoLink": "https://www.youtube.com/embed/ng-E83Dg-KU?si=gRoOVlE1cVSvf7ud",
         "htmlLink": "posts.html?postStartId=21&postEndId=32&quizStartId=24&quizEndId=38"
     },
@@ -11,7 +11,7 @@
         "id": 2,
         "title": "第二课：汉语不太难",
         "description": "Lesson 2: Chinese is not too difficult",
-        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734941423/hyjc-1-2_lkcjmf.png",
+        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734941423/hyjc-1-2_lkcjmf.png",
         "videoLink": "https://www.youtube.com/embed/VIDEO_ID_1",
         "htmlLink": "posts.html?postStartId=21&postEndId=32&quizStartId=24&quizEndId=38"
     },
@@ -19,7 +19,7 @@
         "id": 3,
         "title": "第三课：明天见!",
         "description": "Lesson 3: See you tomorrow!",
-        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734941448/hyjc-1-3_ndzqok.png",
+        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734941448/hyjc-1-3_ndzqok.png",
         "videoLink": "https://www.youtube.com/embed/VIDEO_ID_1",
         "htmlLink": "posts.html?startpId=21&endpId=32&startId=24&endId=38"
     },
@@ -27,7 +27,7 @@
         "id": 4,
         "title": "第四课：你去哪儿？",
         "description": "Lesson 4: Where are you going?",
-        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734941430/hyjc-1-4_x0rj2g.png",
+        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734941430/hyjc-1-4_x0rj2g.png",
         "videoLink": "https://www.youtube.com/embed/VIDEO_ID_1",
         "htmlLink": "posts.html?startpId=21&endpId=32&startId=24&endId=38"
     },
@@ -35,7 +35,7 @@
         "id": 5,
         "title": "第五课：这是王老师",
         "description": "Lesson 5: This is Teacher Wang",
-        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734941436/hyjc-1-5_npzxth.png",
+        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734941436/hyjc-1-5_npzxth.png",
         "videoLink": "https://www.youtube.com/embed/5U0J6_hVmA8?si=ZDoSSeM4pA8YKwTq",
         "htmlLink": "posts.html?postStartId=1&postEndId=9&quizStartId=1&quizEndId=16&id=5"
     },
@@ -43,7 +43,7 @@
         "id": 6,
         "title": "第六课（一)：我学习汉语",
         "description": "Lesson 6 (1): I study Chinese",
-        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734941454/hyjc-1-6-1_ga8j9u.png",
+        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734941454/hyjc-1-6-1_ga8j9u.png",
         "videoLink": "https://www.youtube.com/embed/d84tgGgLcX0?si=ju2cuO6VtSO7ubYg",
         "htmlLink": "posts.html?postStartId=10&postEndId=20&quizStartId=17&quizEndId=23&id=6"
     },
@@ -51,7 +51,7 @@
         "id": 7,
         "title": "第六课（二)：这是什么书？",
         "description": "Lesson 6 (2): What book is this?",
-        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734941442/hyjc-1-6-2_xxbwoz.png",
+        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734941442/hyjc-1-6-2_xxbwoz.png",
         "videoLink": "https://www.youtube.com/embed/MpPAY0yn8RQ?si=mmBk2DjeRT8amQcm",
         "htmlLink": "posts.html?postStartId=21&postEndId=32&quizStartId=24&quizEndId=38&id=7"
     }
