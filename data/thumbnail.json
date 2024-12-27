@@ -21,7 +21,7 @@
         "description": "Lesson 3: See you tomorrow!",
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734941448/hyjc-1-3_ndzqok.png",
         "videoLink": "https://www.youtube.com/embed/VIDEO_ID_1",
-        "htmlLink": "posts.html?startpId=21&endpId=32&startId=24&endId=38"
+        "htmlLink": "posts.html?postStartId=39&postEndId=47&quizStartId=1&quizEndId=16&id=5"
     },
       {
         "id": 4,
@@ -29,7 +29,7 @@
         "description": "Lesson 4: Where are you going?",
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734941430/hyjc-1-4_x0rj2g.png",
         "videoLink": "https://www.youtube.com/embed/VIDEO_ID_1",
-        "htmlLink": "posts.html?startpId=21&endpId=32&startId=24&endId=38"
+        "htmlLink": "posts.html?postStartId=48&postEndId=57&quizStartId=1&quizEndId=16&id=5"
     },
       {
         "id": 5,
