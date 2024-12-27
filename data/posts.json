@@ -340,5 +340,176 @@
         "description": "bú tài nán<br>Not too difficult.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277868/%E4%B8%8D%E5%A4%AA%E9%9A%BE_jgvqf2.mp3"
+    },
+    {
+        "id": 39, 
+        "user": "A", 
+        "title": "你学英语吗？", 
+        "segments": ["你", "学", "英语", "吗", "？"],
+        "description": "nǐ xué yīngyǔ ma<br>Do you study English?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277874/%E4%BD%A0%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%90%97_wafg5e.mp3"
+    },
+    {
+        "id": 40, 
+        "user": "B", 
+        "title": "不，学汉语。", 
+        "segments": ["不", "，", "学", "汉语", "。"],
+        "description": "bù xué hànyǔ<br>No, I study Chinese.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277868/%E4%B8%8D%E5%AD%A6%E6%B1%89%E8%AF%AD_aptckw.mp3"
+    },
+    {
+        "id": 41, 
+        "user": "A", 
+        "title": "去北京吗？", 
+        "segments": ["去", "北京", "吗", "？"],
+        "description": "qù běijīng ma<br>Are you going to Beijing?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277878/%E5%8E%BB%E5%8C%97%E4%BA%AC%E5%90%97_epufzz.mp3"
+    },
+    {
+        "id": 42, 
+        "user": "B", 
+        "title": "对。", 
+        "segments": ["对", "。"],
+        "description": "duì<br>Yes.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277879/%E5%AF%B9_jmgtfe.mp3"
+    },
+    {
+        "id": 43, 
+        "user": "A", 
+        "title": "你去邮局寄信吗？", 
+        "segments": ["你", "去", "邮局", "寄", "信", "吗", "？"],
+        "description": "nǐ qù yóujú jì xìn ma<br>Are you going to the post office to send a letter?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277870/%E4%BD%A0%E5%8E%BB%E9%82%AE%E5%B1%80%E5%AF%84%E4%BF%A1%E5%90%97_p2pcho.mp3"
+    },
+    {
+        "id": 44, 
+        "user": "B", 
+        "title": "不去。", 
+        "segments": ["不", "去", "。"],
+        "description": "bú qù<br>No", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277868/%E4%B8%8D%E5%8E%BB_zw3vh2.mp3"
+    },
+    {
+        "id": 45, 
+        "user": "B", 
+        "title": "去银行取钱。", 
+        "segments": ["去", "银行", "取", "银行", "取", "钱", "。"],
+        "description": "qù yínháng qǔ qián<br>I'm going to the bank to withdraw money.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277878/%E5%8E%BB%E9%93%B6%E8%A1%8C%E5%8F%96%E9%92%B1_nj3s21.mp3"
+    },
+    {
+        "id": 46, 
+        "user": "A", 
+        "title": "明天见！", 
+        "segments": ["明天", "见", "！"],
+        "description": "míngtiān jiàn<br>See you tomorrow!", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277880/%E6%98%8E%E5%A4%A9%E8%A7%811_hicaru.mp3"
+    },
+    {
+        "id": 47, 
+        "user": "B", 
+        "title": "明天见！", 
+        "segments": ["明天", "见", "！"],
+        "description": "míngtiān jiàn<br>See you tomorrow!", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277883/%E6%98%8E%E5%A4%A9%E8%A7%812_ojmsox.mp3"
+    },
+    {
+        "id": 48, 
+        "user": "A", 
+        "title": "今天星期几？", 
+        "segments": ["今天", "星期", "几", "？"],
+        "description": "jīntiān xīngqī jǐ<br>What day is it today?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277868/%E4%BB%8A%E5%A4%A9%E6%98%9F%E6%9C%9F%E5%87%A0_hs2h4w.mp3"
+    },
+    {
+        "id": 49, 
+        "user": "B", 
+        "title": "今天星期二。", 
+        "segments": ["今天", "星期", "二", "。"],
+        "description": "jīntiān xīngqī èr<br>Today is Tuesday.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277868/%E4%BB%8A%E5%A4%A9%E6%98%9F%E6%9C%9F%E4%BA%8C_shyieq.mp3"
+    },
+    {
+        "id": 50, 
+        "user": "A", 
+        "title": "你去哪儿？", 
+        "segments": ["你", "去", "哪儿", "？"],
+        "description": "nǐ qù nǎr<br>Where are you going?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277869/%E4%BD%A0%E5%8E%BB%E5%93%AA%E5%84%BF_s6wvro.mp3"
+    },
+    {
+        "id": 51, 
+        "user": "B", 
+        "title": "我去天安门。", 
+        "segments": ["我", "去", "天安门", "。"],
+        "description": "wǒ qù tiān ānmén<br>I'm going to Tiananmen Square.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277880/%E6%88%91%E5%8E%BB%E5%A4%A9%E5%AE%89%E9%97%A8_xzai2m.mp3"
+    },
+    {
+        "id": 52, 
+        "user": "B", 
+        "title": "你去不去？", 
+        "segments": ["你", "去", "不", "去", "？"],
+        "description": "nǐ qù bu qù<br>Are you going too?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277869/%E4%BD%A0%E5%8E%BB%E4%B8%8D%E5%8E%BB_a19jse.mp3"
+    },
+    {
+        "id": 53, 
+        "user": "A", 
+        "title": "不去，我回学校。", 
+        "segments": ["不", "去", "，", "我", "回", "学校", "。"],
+        "description": "bú qù wǒ huí xuéxiào<br>No, I'm not going, I'm going back to school.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277869/%E4%B8%8D%E5%8E%BB%E6%88%91%E5%9B%9E%E5%AD%A6%E6%A0%A1_mlfjv9.mp3"
+    },
+    {
+        "id": 54, 
+        "user": "B", 
+        "title": "再见！", 
+        "segments": ["再见", "！"],
+        "description": "zàijiàn<br>Goodbye!", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277875/%E5%86%8D%E8%A7%811_xfrv1f.mp3"
+    },
+    {
+        "id": 55, 
+        "user": "A", 
+        "title": "再见！", 
+        "segments": ["再见", "！"],
+        "description": "zàijiàn<br>Goodbye!", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277876/%E5%86%8D%E8%A7%812_z0l758.mp3"
+    },
+    {
+        "id": 56, 
+        "user": "A", 
+        "title": "对不起！", 
+        "segments": ["对不起", "！"],
+        "description": "duìbuqǐ<br>I'm sorry!", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277879/%E5%AF%B9%E4%B8%8D%E8%B5%B7_pot0kf.mp3"
+    },
+    {
+        "id": 57, 
+        "user": "B", 
+        "title": "没关系！", 
+        "segments": ["没关系", "！"],
+        "description": "méi guānxi<br>It's okay!", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277884/%E6%B2%A1%E5%85%B3%E7%B3%BB_qae9pj.mp3"
     }
 ]
