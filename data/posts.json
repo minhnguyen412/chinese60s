@@ -286,5 +286,59 @@
         "description": "nà shì wǒ péngyou de zázhì<br>That's my friend's magazine.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673145/%E9%82%A3%E6%98%AF%E6%88%91%E6%9C%8B%E5%8F%8B%E7%9A%84%E6%9D%82%E5%BF%97_va0ugf.mp3"
-    }
+    },
+    {
+        "id": 33, 
+        "user": "A", 
+        "title": "你好！", 
+        "segments": ["你", "好", "！"],
+        "description": "nǐ hǎo<br>Hello!", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277870/%E4%BD%A0%E5%A5%BD1-1_vjis3v.mp3"
+    },
+    {
+        "id": 34, 
+        "user": "B", 
+        "title": "你好！", 
+        "segments": ["你", "好", "！"],
+        "description": "nǐ hǎo<br>Hello!", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277870/%E4%BD%A0%E5%A5%BD1-2_zkbl7q.mp3"
+    },
+    {
+        "id": 35, 
+        "user": "A", 
+        "title": "你忙吗？", 
+        "segments": ["你", "忙", "吗", "？"],
+        "description": "nǐ máng ma<br>Are you busy?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277875/%E4%BD%A0%E5%BF%99%E5%90%97_vx67fg.mp3"
+    },
+    {
+        "id": 36, 
+        "user": "B", 
+        "title": "很忙。", 
+        "segments": ["很", "忙", "。"],
+        "description": "hěn máng<br>Very busy.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277880/%E5%BE%88%E5%BF%99_niygxj.mp3"
+    },
+    {
+        "id": 37, 
+        "user": "A", 
+        "title": "汉语难吗？", 
+        "segments": ["汉语", "难", "吗", "？"],
+        "description": "hànyǔ nán ma<br>Is Chinese difficult?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277883/%E6%B1%89%E8%AF%AD%E9%9A%BE%E5%90%97_edj6sq.mp3"
+    },
+    {
+        "id": 38, 
+        "user": "B", 
+        "title": "不太难。", 
+        "segments": ["不", "太", "难", "。"],
+        "description": "bú tài nán<br>Not too difficult.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277868/%E4%B8%8D%E5%A4%AA%E9%9A%BE_jgvqf2.mp3"
+    },
 ]
