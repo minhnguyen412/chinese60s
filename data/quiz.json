@@ -397,6 +397,195 @@
                 { "answer": "朋友" }
             ],
             "words": ["老师", "父母", "朋友"]
+        },
+        {
+            "id": 39,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673150/%E4%B8%80_ccdydi.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "yī" }
+            ],
+            "words": ["yī", "yí", "yǐ", "yì"]
+        },
+        {
+            "id": 40,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673165/%E4%BA%94_durk7r.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "wǔ" }
+            ],
+            "words": ["wū", "wú", "wǔ", "wù"]
+        },
+        {
+            "id": 41,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735354395/yu2_cvh99x.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "yú" }
+            ],
+            "words": ["yū", "yú", "yǔ", "yù"]
+        },
+        {
+            "id": 42,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673233/%E5%85%AB_jwszsy.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "bā" }
+            ],
+            "words": ["bā", "bá", "bǎ", "bà"]
+        },
+        {
+            "id": 43,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673261/%E5%A4%A7_ni23pu.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "dà" }
+            ],
+            "words": ["dā", "dá", "dǎ", "dà"]
+        },
+        {
+            "id": 44,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673155/%E4%B8%8D_p3kqjq.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "bù" }
+            ],
+            "words": ["bū", "bú", "bǔ", "bù"]
+        },
+        {
+            "id": 45,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673265/%E5%A5%B3_kxwjg4.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "nǚ" }
+            ],
+            "words": ["nǖ", "nǘ", "nǚ", "nǜ"]
+        },
+        {
+            "id": 46,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673245/%E5%8F%A3_dxcuqi.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "kǒu" }
+            ],
+            "words": ["kōu", "kóu", "kǒu", "kòu"]
+        },
+        {
+            "id": 47,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673324/%E7%99%BD_kbwum2.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "bái" }
+            ],
+            "words": ["bāi", "bái", "bǎi", "bài"]
+        },
+        {
+            "id": 48,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735354394/hei1_hd4jw1.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "hēi" }
+            ],
+            "words": ["hēi", "héi", "hěi", "hèi"]
+        },
+        {
+            "id": 49,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673375/%E9%A9%AC_zbvgtx.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "mǎ" }
+            ],
+            "words": ["mā", "má", "mǎ", "mà"]
+        },
+        {
+            "id": 50,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673172/%E4%BD%A0_ll3o9t.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "nǐ" }
+            ],
+            "words": ["nī", "ní", "nǐ", "nì"]
+        },
+        {
+            "id": 51,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673266/%E5%A5%BD_lge2io.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "hǎo" }
+            ],
+            "words": ["hāo", "háo", "hǎo", "hào"]
+        },
+        {
+            "id": 52,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735354395/pa_l4o4im.mp3",
+            "sentence": "Which sound do you hear? ___",
+            "blanks": [
+                { "answer": "pa" }
+            ],
+            "words": ["ba", "pa"]
+        },
+        {
+            "id": 53,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735354394/da_gsewdl.mp3",
+            "sentence": "Which sound do you hear? ___",
+            "blanks": [
+                { "answer": "da" }
+            ],
+            "words": ["da", "ta"]
+        },
+        {
+            "id": 54,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735354394/hei_wd8bah.mp3",
+            "sentence": "Which sound do you hear? ___",
+            "blanks": [
+                { "answer": "hei" }
+            ],
+            "words": ["hai", "hei"]
+        },
+        {
+            "id": 55,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735354395/po_gplthh.mp3",
+            "sentence": "Which sound do you hear? ___",
+            "blanks": [
+                { "answer": "po" }
+            ],
+            "words": ["pa", "po"]
+        },
+        {
+            "id": 56,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735354394/gou_g3k7r3.mp3",
+            "sentence": "Which sound do you hear? ___",
+            "blanks": [
+                { "answer": "gou" }
+            ],
+            "words": ["gao", "gou"]
+        },
+        {
+            "id": 57,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735354394/ka_hcewtw.mp3",
+            "sentence": "Which sound do you hear? ___",
+            "blanks": [
+                { "answer": "ka" }
+            ],
+            "words": ["ga", "ka"]
+        },
+        {
+            "id": 58,
+            "audio": "",
+            "sentence": "你: ___",
+            "blanks": [
+                { "answer": "nǐ" }
+            ],
+            "words": ["nī", "wǔ", "yǔ", "mǎ"]
+        },
+        {
+            "id": 59,
+            "audio": "",
+            "sentence": "好: ___",
+            "blanks": [
+                { "answer": "hǎo" }
+            ],
+            "words": ["nǚ", "wǔ", "hǎo", "bǎi"]
         }
     ]
 }
