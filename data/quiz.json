@@ -571,7 +571,7 @@
         },
         {
             "id": 58,
-            "audio": "",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673172/%E4%BD%A0_ll3o9t.mp3",
             "sentence": "你: ___",
             "blanks": [
                 { "answer": "nǐ" }
@@ -580,7 +580,7 @@
         },
         {
             "id": 59,
-            "audio": "",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673266/%E5%A5%BD_lge2io.mp3",
             "sentence": "好: ___",
             "blanks": [
                 { "answer": "hǎo" }
