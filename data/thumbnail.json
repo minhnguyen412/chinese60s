@@ -5,7 +5,7 @@
         "description": "Lesson 1: Hello!",
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734941420/hyjc-1-1_bjq7nu.png",
         "videoLink": "https://www.youtube.com/embed/ng-E83Dg-KU?si=gRoOVlE1cVSvf7ud",
-        "htmlLink": "posts.html?postStartId=33&postEndId=34&quizStartId=39quizEndId=59&id=1"
+        "htmlLink": "posts.html?postStartId=33&postEndId=34&quizStartId=39&quizEndId=59&id=1"
     },
     {
         "id": 2,
