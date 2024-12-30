@@ -586,6 +586,132 @@
                 { "answer": "hǎo" }
             ],
             "words": ["nǚ", "wǔ", "hǎo", "bǎi"]
+        },
+        {
+            "id":60,
+            "audio": "",
+            "sentence": "Are you busy?: ___ ___ ___?",
+            "blanks": [
+                { "answer": "nǐ" }
+            ],
+            "words": ["忙", "你", "吗"]
+        },
+        {
+            "id":61,
+            "audio": "",
+            "sentence": "Very busy: ___",
+            "blanks": [
+                { "answer": "nǐ" }
+            ],
+            "words": ["nǐ", "wǔ", "yǔ", "mǎ"]
+        },
+        {
+            "id":62,
+            "audio": "",
+            "sentence": "Is Chinese difficult?: ___",
+            "blanks": [
+                { "answer": "nǐ" }
+            ],
+            "words": ["nǐ", "wǔ", "yǔ", "mǎ"]
+        },
+        {
+            "id":63,
+            "audio": "",
+            "sentence": "Not too difficult: ___",
+            "blanks": [
+                { "answer": "nǐ" }
+            ],
+            "words": ["nǐ", "wǔ", "yǔ", "mǎ"]
+        },
+        {
+            "id":64,
+            "audio": "",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "tā" }
+            ],
+            "words": ["tā", "tá", "tǎ", "tà"]
+        },
+        {
+            "id":65,
+            "audio": "",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "máng" }
+            ],
+            "words": ["māng", "máng", "mǎng", "màng"]
+        },
+        {
+            "id":66,
+            "audio": "",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "hěn" }
+            ],
+            "words": ["hēn", "hén", "hěn", "hèn"]
+        },
+        {
+            "id":67,
+            "audio": "",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "nán" }
+            ],
+            "words": ["nān", "nán", "nǎn", "nàn"]
+        },
+        {
+            "id":68,
+            "audio": "",
+            "sentence": "汉语: ___",
+            "blanks": [
+                { "answer": "nán" }
+            ],
+            "words": ["nān", "nán", "nǎn", "nàn"]
+        },
+        {
+            "id":69,
+            "audio": "",
+            "sentence": "爸爸: ___",
+            "blanks": [
+                { "answer": "nán" }
+            ],
+            "words": ["nān", "nán", "nǎn", "nàn"]
+        },
+        {
+            "id":70,
+            "audio": "",
+            "sentence": "妈妈: ___",
+            "blanks": [
+                { "answer": "nán" }
+            ],
+            "words": ["nān", "nán", "nǎn", "nàn"]
+        },
+        {
+            "id":71,
+            "audio": "",
+            "sentence": "哥哥: ___",
+            "blanks": [
+                { "answer": "nán" }
+            ],
+            "words": ["nān", "nán", "nǎn", "nàn"]
+        },
+        {
+            "id":72,
+            "audio": "",
+            "sentence": "mèimei: ___",
+            "blanks": [
+                { "answer": "nán" }
+            ],
+            "words": ["nān", "nán", "nǎn", "nàn"]
+        },
+        {
+            "id":73,
+            "audio": "",
+            "sentence": "dìdi: ___",
+            "blanks": [
+                { "answer": "nán" }
+            ],
+            "words": ["nān", "nán", "nǎn", "nàn"]
         }
     ]
 }
