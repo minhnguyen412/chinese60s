@@ -592,40 +592,47 @@
             "audio": "",
             "sentence": "Are you busy?: ___ ___ ___?",
             "blanks": [
-                { "answer": "nǐ" }
+                { "answer": "你" },
+                { "answer": "忙" },
+                { "answer": "吗" }
             ],
             "words": ["忙", "你", "吗"]
         },
         {
             "id":61,
             "audio": "",
-            "sentence": "Very busy: ___",
+            "sentence": "Very busy: ___ ___。",
             "blanks": [
-                { "answer": "nǐ" }
+                { "answer": "很" },
+                { "answer": "忙" }
             ],
-            "words": ["nǐ", "wǔ", "yǔ", "mǎ"]
+            "words": ["忙", "很"]
         },
         {
             "id":62,
             "audio": "",
-            "sentence": "Is Chinese difficult?: ___",
+            "sentence": "Is Chinese difficult?: ___ ___ ___?",
             "blanks": [
-                { "answer": "nǐ" }
+                { "answer": "汉语" },
+                { "answer": "难" },
+                { "answer": "吗" }
             ],
-            "words": ["nǐ", "wǔ", "yǔ", "mǎ"]
+            "words": ["难", "吗", "汉语"]
         },
         {
             "id":63,
             "audio": "",
-            "sentence": "Not too difficult: ___",
+            "sentence": "Not too difficult: ___ ___ ___。",
             "blanks": [
-                { "answer": "nǐ" }
+                { "answer": "不" },
+                { "answer": "太" },
+                { "answer": "难" }
             ],
-            "words": ["nǐ", "wǔ", "yǔ", "mǎ"]
+            "words": ["太", "不", "难"]
         },
         {
             "id":64,
-            "audio": "",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673171/%E4%BB%96%E5%A5%B9_ajweaf.mp3",
             "sentence": "Listen and choose the correct pinyin: ___",
             "blanks": [
                 { "answer": "tā" }
@@ -634,7 +641,7 @@
         },
         {
             "id":65,
-            "audio": "",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673287/%E5%BF%99_ez8ywo.mp3",
             "sentence": "Listen and choose the correct pinyin: ___",
             "blanks": [
                 { "answer": "máng" }
@@ -643,7 +650,7 @@
         },
         {
             "id":66,
-            "audio": "",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673282/%E5%BE%88_h1omcw.mp3",
             "sentence": "Listen and choose the correct pinyin: ___",
             "blanks": [
                 { "answer": "hěn" }
@@ -652,7 +659,7 @@
         },
         {
             "id":67,
-            "audio": "",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673364/%E9%9A%BE_soiuxw.mp3",
             "sentence": "Listen and choose the correct pinyin: ___",
             "blanks": [
                 { "answer": "nán" }
@@ -661,57 +668,57 @@
         },
         {
             "id":68,
-            "audio": "",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673313/%E6%B1%89%E8%AF%AD_n6ho4r.mp3",
             "sentence": "汉语: ___",
             "blanks": [
-                { "answer": "nán" }
+                { "answer": "hànyǔ" }
             ],
-            "words": ["nān", "nán", "nǎn", "nàn"]
+            "words": ["hānyú", "hànyǔ", "hanyǔ", "hányu"]
         },
         {
             "id":69,
-            "audio": "",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673320/%E7%88%B8%E7%88%B8_ktwtw6.mp3",
             "sentence": "爸爸: ___",
             "blanks": [
-                { "answer": "nán" }
+                { "answer": "bàba" }
             ],
-            "words": ["nān", "nán", "nǎn", "nàn"]
+            "words": ["baba", "pàpa", "papa", "bàba"]
         },
         {
             "id":70,
-            "audio": "",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673268/%E5%A6%88%E5%A6%88_cyj7nk.mp3",
             "sentence": "妈妈: ___",
             "blanks": [
-                { "answer": "nán" }
+                { "answer": "māma" }
             ],
-            "words": ["nān", "nán", "nǎn", "nàn"]
+            "words": ["māma", "mama", "máma", "mǎma"]
         },
         {
             "id":71,
-            "audio": "",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673250/%E5%93%A5%E5%93%A5_t3w2af.mp3",
             "sentence": "哥哥: ___",
             "blanks": [
-                { "answer": "nán" }
+                { "answer": "gēge" }
             ],
-            "words": ["nān", "nán", "nǎn", "nàn"]
+            "words": ["gege", "gège", "gége", "gēge"]
         },
         {
             "id":72,
-            "audio": "",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673269/%E5%A6%B9%E5%A6%B9_fm9pax.mp3",
             "sentence": "mèimei: ___",
             "blanks": [
-                { "answer": "nán" }
+                { "answer": "妹妹" }
             ],
-            "words": ["nān", "nán", "nǎn", "nàn"]
+            "words": ["妈妈", "妹妹", "弟弟", "哥哥"]
         },
         {
             "id":73,
-            "audio": "",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673281/%E5%BC%9F%E5%BC%9F_taqkox.mp3",
             "sentence": "dìdi: ___",
             "blanks": [
-                { "answer": "nán" }
+                { "answer": "弟弟" }
             ],
-            "words": ["nān", "nán", "nǎn", "nàn"]
+            "words": ["爸爸", "妹妹", "弟弟", "哥哥"]
         }
     ]
 }
