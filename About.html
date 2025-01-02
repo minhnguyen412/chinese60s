@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    header {
+      background-color: #8bc34a;
+      color: white;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+    /* Hide menu in responsive mode */
+    nav {
+      display: flex;
+    }
+
+    /* Responsive cho màn hình nhỏ hơn 768px */
+    @media screen and (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #8bc34a;
+        width: 100%;
+        padding: 10px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      nav ul li a {
+        font-size: 1rem;
+      }
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      padding: 20px;
+      text-align: left;
+      background-image: url('');
+      background-size: cover; /* Phủ kín khung */
+      background-position: center; /* Căn giữa ảnh */
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: left;
+      margin-bottom: 100px;
+      margin-left: 100px;
+      margin-right: 100px;
+    }
+
+    .main-content img {
+      width: 80px;
+      height: auto;
+    }
+
+    .logos-and-title {
+      
+      display: flex;
+      justify-content: center; /* Phân tách khoảng cách giữa các phần tử */
+      align-items: center;/* Căn giữa theo chiều dọc */
+      width: 100%;
+      
+      
+    }
+
+    .logos-and-title .logo {
+      width: 100%;
+      height: auto;
+      max-height: 800px;
+      object-fit: contain;
+    }
+    p {
+        font-size: 1.1rem;
+    }
+    li {
+        font-size: 1.1rem;
+        font-weight: bold;
+        font-style: italic;
+    }
+    
+    .main-content ul {
+        margin-left: 20px; /* Điều chỉnh khoảng cách thụt vào */
+        padding-left: 20px; /* Khoảng cách bên trong của danh sách */
+    }
+
+    .donation-section {
+        text-align: center; /* Căn giữa hình ảnh */
+        margin-top: 20px; /* Khoảng cách trên */
+    }
+
+    .donation-section img {
+        max-width: 200px; /* Điều chỉnh kích thước hình ảnh */
+        width: 100%;
+        height: auto; /* Tự động thay đổi tỷ lệ hình ảnh */
+        cursor: pointer; /* Hiển thị con trỏ khi hover */
+        transition: transform 0.3s; /* Hiệu ứng khi hover */
+    }
+
+    .donation-section img:hover {
+        transform: scale(1.1); /* Phóng to khi hover */
+    }   
+
+   
+
+    /* Footer */
+    footer {
+      background-color: #8bc34a;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    footer .social-icons {
+      margin-top: 10px;
+    }
+
+    footer .social-icons a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: white;
+    }
+    
+    
+/* Responsive cho màn hình nhỏ hơn 768px */
+@media screen and (max-width: 768px) {
+    /* Header */
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* Logos and Title */
+    .logos-and-title {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .logos-and-title .logo {
+    
+        max-height: 200px;
+        margin: 10px 0;
+        
+    }
+
+    /* Thumbnails */
+    .thumbnails {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .thumbnail {
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 15px;
+    }
+
+    /* Typography */
+    h1 {
+        font-size: 1.5rem;
+    }
+    .main-content {
+        
+        margin-bottom: 100px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    
+}
+
+/* Responsive cho màn hình rất nhỏ */
+@media screen and (max-width: 480px) {
+    header h1 {
+        font-size: 1.3rem;
+    }
+
+    .logos-and-title .logo {
+    
+        
+        max-height: 150px;
+    }
+
+    
+}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>CHINESE 60s</h1>
+    <button class="menu-toggle" aria-label="Toggle navigation">
+      &#9776; <!-- Biểu tượng ba gạch -->
+    </button>
+    <nav>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="shop.html">Shop</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Logos and Title Section -->
+  <div class="logos-and-title">
+      <img src="Web/homepage.png" alt="Logo" class="logo">
+      
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <h2>Hello! This is Chinese60s.</h2>
+    <h3>Chinese is one of the most challenging languages but also offers incredible opportunities for connecting people around the world. That’s why Chinese60s was created—to help more people learn this language easily and enjoyably through visuals, videos, audio, and interactive content.</h3>
+    <p>The dialogue videos from Chinese60s are based on the following textbooks and sources:</p>
+    <ul>
+        <li>Hanyu Jiaocheng</li>
+        <li>Boya Chinese</li>
+        <li>Sutong Hanyu</li>
+        <li>Real-life conversation sources</li>
+    </ul>
+    <p>Currently, Chinese60s focuses on updating dialogues at Elementary Levels 1 and 2. To sustain and expand our content to intermediate and advanced levels, your support is essential.</p>
+    <p>If you find Chinese60s helpful for your Chinese learning journey, consider supporting us with a cup of coffee! 😊</p>
+<!-- Hình ảnh với link -->
+    <div class="donation-section">
+        <a href="https://buymeacoffee.com/chinese60s" target="_blank">
+          <img src="assets/bmc-button.png" alt="Support us on Buy Me a Coffee" />
+        </a>
+    </div>
+  </div>
+  
+  
+  
+  <!-- Footer -->
+  <footer>
+    <p>Chinese60s</p>
+    <p>Learn Mandarin through images and videos</p>
+    <div class="social-icons">
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+      <a href="#">TikTok</a>
+      <a href="#">Instagram</a>
+    </div>
+  </footer>
+  <script>
+    // JavaScript để điều khiển nút hamburger menu
+    document.addEventListener('DOMContentLoaded', function () {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('nav');
+
+      menuToggle.addEventListener('click', function () {
+        nav.classList.toggle('show');
+
+        // Chuyển đổi biểu tượng giữa ba gạch và dấu X
+        if (nav.classList.contains('show')) {
+          menuToggle.innerHTML = '&#10005;'; // Biểu tượng X
+        } else {
+          menuToggle.innerHTML = '&#9776;'; // Biểu tượng ba gạch
+        }
+      });
+    });
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const container = document.getElementById('thumbnails-container');
+
+      try {
+        const response = await fetch('Thumbnail/thumbnail.json'); 
+        const data = await response.json();
+
+        data.forEach(item => {
+          // Tạo thẻ div cho mỗi thumbnail
+          const thumbnail = document.createElement('div');
+          thumbnail.className = 'thumbnail';
+
+          // Nội dung HTML của thumbnail
+          thumbnail.innerHTML = `
+            <a href="${item.htmlLink}">
+              <img src="${item.thumbnail}" alt="${item.title} Thumbnail">
+              <div class="info">
+                <h4>${item.title}</h4>
+                <p>${item.description}</p>
+              </div>
+            </a>
+          `;
+
+          // Thêm thumbnail vào container
+          container.appendChild(thumbnail);
+        });
+      } catch (error) {
+        console.error('Error fetching JSON data:', error);
+        container.innerHTML = '<p>Failed to load thumbnails.</p>';
+      }
+    });
+  </script>
+</body>
+</html>
