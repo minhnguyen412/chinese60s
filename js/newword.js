@@ -96,7 +96,7 @@ fetch('../data/imagesData.json')
 
         // Initial render
         const initialCount = parseInt(countInput.value) || data.length;
-        renderImages(data.slice(-initialCount).reverse());
+        renderImages(data.slice(0, initialCount).reverse());
 
         // Handle OK button click
         okButton.addEventListener('click', () => {
