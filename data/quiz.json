@@ -945,7 +945,7 @@
         {
             "id": 97,
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673271/%E5%AD%A6_uno8r3.mp3",
-            "sentence": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672817/%E5%AD%A6_ohlrfe.png： ___ ",
+            "sentence": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672817/%E5%AD%A6_ohlrfe.png", "： ___ ",
             "blanks": [
                 { "answer": "学" }
                 
