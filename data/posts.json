@@ -399,7 +399,7 @@
         "id": 45, 
         "user": "B", 
         "title": "去银行取钱。", 
-        "segments": ["去", "银行", "取", "银行", "取", "钱", "。"],
+        "segments": ["去", "银行", "取", "钱", "。"],
         "description": "qù yínháng qǔ qián<br>I'm going to the bank to withdraw money.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277878/%E5%8E%BB%E9%93%B6%E8%A1%8C%E5%8F%96%E9%92%B1_nj3s21.mp3"
