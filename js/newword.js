@@ -96,13 +96,15 @@ fetch('../data/imagesData.json')
         }
 
         // Initial render
-        const initialCount = parseInt(countInput.value) || data.length;
-        const initialData = data.slice().reverse(); // Newest first by default
+        console.log('Data before reverse:', data);
+        const initialData = data.slice().reverse(); // Đảo ngược thứ tự
+        console.log('Data after reverse:', initialData);
         renderImages(initialData.slice(0, initialCount));
 
         // Handle OK button click
         okButton.addEventListener('click', () => {
             const count = parseInt(countInput.value) || data.length;
+            console.log('Sort option selected:', sortSelect.value);
             let sortedData;
 
             switch (sortSelect.value) {
