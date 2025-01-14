@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Gộp tất cả các câu hỏi từ các file lại thành một mảng duy nhất
             const allQuestions = allData.flatMap(data => data.questions);
             // Lọc câu hỏi trong khoảng ID
-            const filteredQuestions = data.questions.filter(question =>
+            const filteredQuestions = allQuestions.filter(question =>
                 question.id >= startId && question.id <= endId
             );
 
