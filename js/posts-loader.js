@@ -85,11 +85,10 @@ function showImageCard(imageData) {
 }
 
     
-// Hàm để đóng image card
 function closeImageCard() {
     if (activeImageCard) {
-        document.body.removeChild(activeImageCard); // Xóa card khỏi DOM
-        activeImageCard = null;
+        activeImageCard.style.display = 'none'; // Đóng card
+        activeImageCard = null; // Reset activeImageCard
     }
 }
 
