@@ -1180,7 +1180,7 @@
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673316/%E6%B2%A1%E5%85%B3%E7%B3%BB_xnvmzt.mp3",
             "sentence": "No problem! <br> ___!",
             "blanks": [
-                { "answer": "对不起" }
+                { "answer": "没关系" }
             ],
             "words": ["没关系", "再见", "对不起"]
         },
