@@ -102,9 +102,9 @@ const filesToFetch = [
 
         // Initial render
         console.log('Data before reverse:', data);
-        const initialCount = data.slice().reverse(); // Đảo ngược thứ tự
-        console.log('Data after reverse:', initialCount);
-        renderImages(initialCount.slice(0, initialCount));
+        const initialData = data.slice().reverse(); // Đảo ngược thứ tự
+        console.log('Data after reverse:', initialData);
+        renderImages(initialData); // Gọi renderImages mà không cần slice
 
         // Handle OK button click
         okButton.addEventListener('click', () => {
