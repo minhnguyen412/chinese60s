@@ -25,7 +25,7 @@ function showImageCard(imageData) {
         <div id="writer-container" style="display: flex; gap: 10px;"></div>
     `;
     document.body.appendChild(card);
-
+    activeImageCard = card;
     // Lấy container để chứa các writer
     const writerContainer = card.querySelector('#writer-container');
 
