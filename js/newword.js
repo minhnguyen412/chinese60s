@@ -98,8 +98,7 @@ fetch('../data/imagesData.json')
         // Initial render
         
         const initialCount = parseInt(countInput.value) || data.length;
-        const initialData = data.slice().reverse(); // Newest first by default
-        renderImages(initialData.slice(0, initialCount));
+        renderImages(data.slice(0, initialCount));
 
         // Handle OK button click
         okButton.addEventListener('click', () => {
@@ -116,7 +115,8 @@ fetch('../data/imagesData.json')
                 case 'shuffle':
                     sortedData = data.slice().sort(() => Math.random() - 0.5); // Shuffle
                     break;
-                
+                default:
+                    sortedData = data;
             }
             renderImages(sortedData.slice(0, count));
         });
