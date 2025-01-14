@@ -97,9 +97,8 @@ function closeImageCard() {
 
 // Thêm sự kiện click cho toàn bộ tài liệu
 document.addEventListener('click', (event) => {
-    // Kiểm tra xem click có xảy ra bên trong card không
-    if (activeImageCard && !activeImageCard.contains(event.target)) {
-        closeImageCard(); // Đóng card nếu click bên ngoài
+    if (!isOpeningCard && activeImageCard && !activeImageCard.contains(event.target)) {
+        closeImageCard();
     }
 });
     
