@@ -11,9 +11,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const endId = parseInt(getQueryParam('quizEndId')) || 10;   // Giá trị mặc định là 10
 
     // Load file JSON và xử lý
-    fetch('../data/quiz.json')
-        .then(response => response.json())
-        .then(data => {
+    const filesToFetch = [
+        '../data/quiz.json'
+        
+    ];
+    Promise.all(filesToFetch.map(url => fetch(url).then(res => res.json())))
+        .then(allData => {
+            // Gộp tất cả các câu hỏi từ các file lại thành một mảng duy nhất
+            const allQuestions = allData.flatMap(data => data.questions);
             // Lọc câu hỏi trong khoảng ID
             const filteredQuestions = data.questions.filter(question =>
                 question.id >= startId && question.id <= endId
