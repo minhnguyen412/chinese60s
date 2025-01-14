@@ -122,7 +122,7 @@ function loadPosts(startpId, endpId, listId) {
     .then(allData => {
         // Gộp dữ liệu từ các file cùng loại
         const imagesData = allData.filter((_, index) => filesToFetch[index].includes('imagesData')).flat();
-        const dialogueData = allData.filter((_, index) => filesToFetch[index].includes('posts')).flat();
+        const postsData = allData.filter((_, index) => filesToFetch[index].includes('posts')).flat();
 
         console.log('Images Data:', imagesData);
         console.log('Posts Data:', postsData);
