@@ -104,7 +104,7 @@ const filesToFetch = [
         console.log('Data before reverse:', data);
         const initialData = data.slice().reverse(); // Đảo ngược thứ tự
         console.log('Data after reverse:', initialData);
-        renderImages(initialData.slice(0, initialCount));
+        renderImages(initialData.slice(0, countInput));
 
         // Handle OK button click
         okButton.addEventListener('click', () => {
