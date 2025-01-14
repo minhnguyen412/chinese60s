@@ -3,12 +3,15 @@ function isInViewport(element) {
     const rect = element.getBoundingClientRect();
     return rect.top < window.innerHeight && rect.bottom >= 0;
 }
-let activeImageCard = null; // Biến để theo dõi image card đang mở
+let activeImageCard = null;
+let isOpeningCard = false; // Cờ để theo dõi trạng thái mở card
 
 function showImageCard(imageData) {
-    // Nếu đã có một card đang mở, đóng nó lại
+    isOpeningCard = true; // Đánh dấu đang mở card
+    setTimeout(() => isOpeningCard = false, 100); // Reset cờ sau 100ms
+
     if (activeImageCard) {
-        closeImageCard(); // Gọi hàm để đóng card hiện tại
+        closeImageCard();
     }
     const card = document.createElement('div');
     card.className = 'image-card';
