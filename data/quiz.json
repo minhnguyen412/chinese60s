@@ -723,7 +723,7 @@
         {
             "id": 74,
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277880/%E6%98%8E%E5%A4%A9%E8%A7%811_hicaru.mp3",
-            "sentence": "Goodbye! <br> ___!",
+            "sentence": "See you tomorrow! <br> ___!",
             "blanks": [
                 { "answer": "明天见" }
             ],
@@ -951,6 +951,291 @@
                 
             ],
             "words": ["取", "学", "去"]
+        },
+        {
+            "id": 98,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277869/%E4%BD%A0%E5%8E%BB%E5%93%AA%E5%84%BF_s6wvro.mp3",
+            "sentence": "Where are you going? <br> ___ ___ ___ ___ ?",
+            "blanks": [
+                { "answer": "你" },
+                { "answer": "去" },
+                { "answer": "哪" },
+                { "answer": "儿" }
+            ],
+            "words": ["儿", "哪", "去", "你"]
+        },
+        {
+            "id": 99,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673164/%E4%BA%8C_nvoe5j.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "èr" }
+            ],
+            "words": ["ēr", "ér", "ěr", "èr"]
+        },
+        {
+            "id": 100,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673154/%E4%B8%89_dx0o9r.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "sān" }
+            ],
+            "words": ["sān", "sán", "sǎn", "sàn"]
+        },
+        {
+            "id": 101,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673256/%E5%9B%9B_f14l1u.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "sì" }
+            ],
+            "words": ["sī", "sí", "sǐ", "sì"]
+        },
+        {
+            "id": 102,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673257/%E5%9B%9E_osv0va.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "huí" }
+            ],
+            "words": ["huī", "huí", "huǐ", "huì"]
+        },
+        {
+            "id": 103,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673271/%E5%AD%A6_uno8r3.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "xué" }
+            ],
+            "words": ["xuē", "xué", "xuě", "xuè"]
+        },
+        {
+            "id": 104,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1736839419/xiao4_bfi3tj.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "xiào" }
+            ],
+            "words": ["xiāo", "xiáo", "xiǎo", "xiào"]
+        },
+        {
+            "id": 105,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1736839420/zi2_diqbtt.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "zí" }
+            ],
+            "words": ["zī", "zí", "zǐ", "zì"]
+        },
+        {
+            "id": 106,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1736840194/xi4_x5y2xn.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "xì" }
+            ],
+            "words": ["xī", "xí", "xǐ", "xì"]
+        },
+        {
+            "id": 107,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1736839419/e2rto2ng_bhtre1.mp3",
+            "sentence": "Listen and rearrange: ___ ___ ___ ___ ___",
+            "blanks": [
+                { "answer": "é" },
+                { "answer": "r" },
+                { "answer": "t" },
+                { "answer": "ó" },
+                { "answer": "ng" }
+            ],
+            "words": ["ng", "ó", "r", "é", "t"]
+        },
+        {
+            "id": 108,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1736839420/ha3owa2nr_cd7e23.mp3",
+            "sentence": "Listen and rearrange: ___ ___ ___ ___ ___ ___ ___",
+            "blanks": [
+                { "answer": "h" },
+                { "answer": "ǎ" },
+                { "answer": "o" },
+                { "answer": "w" },
+                { "answer": "ǎ" },
+                { "answer": "n" },
+                { "answer": "r" }
+            ],
+            "words": ["r", "h", "ǎ", "w", "ǎ", "o", "n"]
+        },
+        {
+            "id": 109,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1736839420/ze2_bxcgcd.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "zé" }
+            ],
+            "words": ["zá", "zé"]
+        },
+        {
+            "id": 110,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1736839420/si4_r8tcyt.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "sì" }
+            ],
+            "words": ["sì", "cí"]
+        },
+        {
+            "id": 111,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1736839419/ce1n_wchcnz.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "cēn" }
+            ],
+            "words": ["cēn", "sēn"]
+        },
+        {
+            "id": 112,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1736839419/za1ng_xqnzkz.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "zāng" }
+            ],
+            "words": ["zāng", "sān"]
+        },
+        {
+            "id": 113,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1736839420/zuguo_jkyzou.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "zǔguó" }
+            ],
+            "words": ["zùguó", "zǔguó", "zúguó", "zǔguǒ"]
+        },
+        {
+            "id": 114,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1736839419/caise_uclfzf.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "cǎisè" }
+            ],
+            "words": ["cǎise", "táisè", "tǎisè", "cǎisè"]
+        },
+        {
+            "id": 115,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1736839419/dasao_xm2kzs.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "dǎsǎo" }
+            ],
+            "words": ["dásǎo", "dǎsǎo", "dǎtǎo", "tásǎo"]
+        },
+        {
+            "id": 116,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673289/%E6%88%91_mcexui.mp3",
+            "sentence": "我： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672820/%E6%88%91_zxd8tf.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672834/%E9%A9%AC_ofvub3.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672830/%E8%B0%81_o4ejhr.gif", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672820/%E6%88%91_zxd8tf.png"]
+        },
+        {
+            "id": 117,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673257/%E5%9B%9E_osv0va.mp3",
+            "sentence": "回： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672820/%E6%88%91_zxd8tf.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672818/%E5%AF%B9_kivn0g.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672815/%E5%9B%9E_hwrdue.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672825/%E7%8E%8B_srbudo.png"]
+        },
+        {
+            "id": 118,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673273/%E5%AD%A6%E6%A0%A1_dynqtx.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672817/%E5%AD%A6%E6%A0%A1_efvsfl.png", "： ___ "],
+            "blanks": [
+                { "answer": "学校" }
+                
+            ],
+            "words": ["银行", "学校", "邮局"]
+        },
+        {
+            "id": 119,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277875/%E5%86%8D%E8%A7%811_xfrv1f.mp3",
+            "sentence": "Goodbye! <br> ___!",
+            "blanks": [
+                { "answer": "再见" }
+            ],
+            "words": ["没关系", "再见", "对不起"]
+        },
+        {
+            "id": 120,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277879/%E5%AF%B9%E4%B8%8D%E8%B5%B7_pot0kf.mp3",
+            "sentence": "Sorry! <br> ___!",
+            "blanks": [
+                { "answer": "对不起" }
+            ],
+            "words": ["没关系", "再见", "对不起"]
+        },
+        {
+            "id": 121,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673316/%E6%B2%A1%E5%85%B3%E7%B3%BB_xnvmzt.mp3",
+            "sentence": "No problem! <br> ___!",
+            "blanks": [
+                { "answer": "对不起" }
+            ],
+            "words": ["没关系", "再见", "对不起"]
+        },
+        {
+            "id": 122,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277868/%E4%BB%8A%E5%A4%A9%E6%98%9F%E6%9C%9F%E5%87%A0_hs2h4w.mp3",
+            "sentence": "What day is it today? <br> ___ ___ ___ ___ ___?",
+            "blanks": [
+                { "answer": "今" },
+                { "answer": "天" },
+                { "answer": "星" },
+                { "answer": "期" },
+                { "answer": "几" }
+            ],
+            "words": ["几", "星", "今", "天", "期"]
+        },
+        {
+            "id": 123,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277880/%E6%88%91%E5%8E%BB%E5%A4%A9%E5%AE%89%E9%97%A8_xzai2m.mp3",
+            "sentence": "I'm going to Tiananmen Square. <br> ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "我" },
+                { "answer": "去" },
+                { "answer": "天" },
+                { "answer": "安" },
+                { "answer": "门" }
+            ],
+            "words": ["门", "去", "天", "我", "安"]
+        },
+        {
+            "id": 124,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277869/%E4%BD%A0%E5%8E%BB%E4%B8%8D%E5%8E%BB_a19jse.mp3",
+            "sentence": "Are you going too? <br> ___ ___ ___ ___ ?",
+            "blanks": [
+                { "answer": "你" },
+                { "answer": "去" },
+                { "answer": "不" },
+                { "answer": "去" }
+                
+            ],
+            "words": ["去", "不", "你", "去"]
+        },
+        {
+            "id": 125,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277869/%E4%B8%8D%E5%8E%BB%E6%88%91%E5%9B%9E%E5%AD%A6%E6%A0%A1_mlfjv9.mp3",
+            "sentence": "No, I'm going back to school. <br> ___ ___, ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "不" },
+                { "answer": "去" },
+                { "answer": "我" },
+                { "answer": "回" },
+                { "answer": "学" },
+                { "answer": "校" }
+            ],
+            "words": ["回", "去", "我", "不", "校", "学"]
         }
     ]
 }
