@@ -115,10 +115,9 @@ fetch('../data/imagesData.json')
                 case 'shuffle':
                     sortedData = data.slice().sort(() => Math.random() - 0.5); // Shuffle
                     break;
-                default:
-                    sortedData = data;
+                
             }
-            renderImages(sortedData.slice(0, count));
+            
         });
     })
     .catch(error => console.error('Error fetching JSON:', error));
