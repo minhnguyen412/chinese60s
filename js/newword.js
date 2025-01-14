@@ -6,6 +6,7 @@ fetch('../data/imagesData.json')
         const countInput = document.getElementById('countInput');
         const sortSelect = document.getElementById('sortSelect');
         const okButton = document.getElementById('okButton');
+        sortSelect.value = 'newest';
 
         // Function to render the images
         function renderImages(images) {
@@ -117,7 +118,7 @@ fetch('../data/imagesData.json')
                     break;
                 
             }
-            
+            renderImages(sortedData.slice(0, count));
         });
     })
     .catch(error => console.error('Error fetching JSON:', error));
