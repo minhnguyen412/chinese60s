@@ -428,7 +428,7 @@
         "title": "今天星期几？", 
         "segments": ["今天", "星期", "几", "？"],
         "description": "jīntiān xīngqī jǐ<br>What day is it today?", 
-        "avatar": "", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1737017372/mary-1_sko0cg.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277868/%E4%BB%8A%E5%A4%A9%E6%98%9F%E6%9C%9F%E5%87%A0_hs2h4w.mp3"
     },
     {
@@ -437,7 +437,7 @@
         "title": "今天星期二。", 
         "segments": ["今天", "星期", "二", "。"],
         "description": "jīntiān xīngqī èr<br>Today is Tuesday.", 
-        "avatar": "", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277868/%E4%BB%8A%E5%A4%A9%E6%98%9F%E6%9C%9F%E4%BA%8C_shyieq.mp3"
     },
     {
@@ -446,7 +446,7 @@
         "title": "你去哪儿？", 
         "segments": ["你", "去", "哪儿", "？"],
         "description": "nǐ qù nǎr<br>Where are you going?", 
-        "avatar": "", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1737017372/mary-1_sko0cg.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277869/%E4%BD%A0%E5%8E%BB%E5%93%AA%E5%84%BF_s6wvro.mp3"
     },
     {
@@ -455,7 +455,7 @@
         "title": "我去天安门。", 
         "segments": ["我", "去", "天安门", "。"],
         "description": "wǒ qù tiān ānmén<br>I'm going to Tiananmen Square.", 
-        "avatar": "", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277880/%E6%88%91%E5%8E%BB%E5%A4%A9%E5%AE%89%E9%97%A8_xzai2m.mp3"
     },
     {
@@ -464,7 +464,7 @@
         "title": "你去不去？", 
         "segments": ["你", "去", "不", "去", "？"],
         "description": "nǐ qù bu qù<br>Are you going too?", 
-        "avatar": "", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277869/%E4%BD%A0%E5%8E%BB%E4%B8%8D%E5%8E%BB_a19jse.mp3"
     },
     {
@@ -473,7 +473,7 @@
         "title": "不去，我回学校。", 
         "segments": ["不", "去", "，", "我", "回", "学校", "。"],
         "description": "bú qù wǒ huí xuéxiào<br>No, I'm not going, I'm going back to school.", 
-        "avatar": "", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1737017372/mary-1_sko0cg.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277869/%E4%B8%8D%E5%8E%BB%E6%88%91%E5%9B%9E%E5%AD%A6%E6%A0%A1_mlfjv9.mp3"
     },
     {
@@ -482,7 +482,7 @@
         "title": "再见！", 
         "segments": ["再见", "！"],
         "description": "zàijiàn<br>Goodbye!", 
-        "avatar": "", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277875/%E5%86%8D%E8%A7%811_xfrv1f.mp3"
     },
     {
@@ -491,7 +491,7 @@
         "title": "再见！", 
         "segments": ["再见", "！"],
         "description": "zàijiàn<br>Goodbye!", 
-        "avatar": "", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1737017372/mary-1_sko0cg.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277876/%E5%86%8D%E8%A7%812_z0l758.mp3"
     },
     {
@@ -500,7 +500,7 @@
         "title": "对不起！", 
         "segments": ["对不起", "！"],
         "description": "duìbuqǐ<br>I'm sorry!", 
-        "avatar": "", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277879/%E5%AF%B9%E4%B8%8D%E8%B5%B7_pot0kf.mp3"
     },
     {
@@ -509,7 +509,7 @@
         "title": "没关系！", 
         "segments": ["没关系", "！"],
         "description": "méi guānxi<br>It's okay!", 
-        "avatar": "", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1737017372/mary-2_qzxzd4.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277884/%E6%B2%A1%E5%85%B3%E7%B3%BB_qae9pj.mp3"
     }
 ]
