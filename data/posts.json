@@ -511,5 +511,140 @@
         "description": "méi guānxi<br>It's okay!", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1737017372/mary-2_qzxzd4.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277884/%E6%B2%A1%E5%85%B3%E7%B3%BB_qae9pj.mp3"
+    },
+    {
+        "id": 58, 
+        "user": "麦克", 
+        "title": "中午你去哪儿吃饭？", 
+        "segments": ["中午", "你", "去", "哪儿", "吃", "饭", "？"],
+        "description": "zhōngwǔ nǐ qù nǎr chī fàn<br>Where are you going for lunch?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673381/maike_vi6wyv.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673085/%E4%B8%AD%E5%8D%88%E4%BD%A0%E5%8E%BB%E5%93%AA%E5%84%BF%E5%90%83%E9%A5%AD_ooqmsk.mp3"
+    },
+    {
+        "id": 59, 
+        "user": "玛丽", 
+        "title": "我去食堂。", 
+        "segments": ["我", "去", "食堂", "。"],
+        "description": "wǒ qù shítáng<br>I'm going to the cafeteria.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673100/%E6%88%91%E5%8E%BB%E9%A3%9F%E5%A0%82_tt7tzf.mp3"
+    },
+    {
+        "id": 60, 
+        "user": "麦克", 
+        "title": "你吃什么？", 
+        "segments": ["你", "吃", "什么", "？"],
+        "description": "nǐ chī shénme<br>What would you like to eat?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673381/maike_vi6wyv.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673087/%E4%BD%A0%E5%90%83%E4%BB%80%E4%B9%88_irb48b.mp3"
+    },
+    {
+        "id": 61, 
+        "user": "玛丽", 
+        "title": "我吃馒头。", 
+        "segments": ["我", "吃", "馒头", "。"],
+        "description": "wǒ chī mántou<br>I'd like to eat steamed buns.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673103/%E6%88%91%E5%90%83%E9%A6%92%E5%A4%B4_agj5ov.mp3"
+    },
+    {
+        "id": 62, 
+        "user": "麦克", 
+        "title": "你要几个？", 
+        "segments": ["你", "要", "几", "个", "？"],
+        "description": "nǐ yào jǐ ge<br>How many do you want?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673381/maike_vi6wyv.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673094/%E4%BD%A0%E8%A6%81%E5%87%A0%E4%B8%AA_ek7hrr.mp3"
+    },
+    {
+        "id": 63, 
+        "user": "玛丽", 
+        "title": "一个。你吃吗？", 
+        "segments": ["一", "个", "。", "你", "吃", "吗", "？"],
+        "description": "yí ge nǐ chī ma<br>One. Would you like to eat?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673079/%E4%B8%80%E4%B8%AA%E4%BD%A0%E5%90%83%E5%90%97_xd7tlk.mp3"
+    },
+    {
+        "id": 64, 
+        "user": "麦克", 
+        "title": "不吃，我吃米饭。", 
+        "segments": ["不", "吃", "，", "我", "吃", "米饭", "。"],
+        "description": "bù chī wǒ chī mǐfàn<br>No. I'd like to eat rice.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673381/maike_vi6wyv.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673080/%E4%B8%8D%E5%90%83%E6%88%91%E5%90%83%E7%B1%B3%E9%A5%AD_hlxlwb.mp3"
+    },
+    {
+        "id": 65, 
+        "user": "麦克", 
+        "title": "你喝什么？", 
+        "segments": ["你", "喝", "什么", "？"],
+        "description": "nǐ hē shénme<br>What would you like to drink?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673381/maike_vi6wyv.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673088/%E4%BD%A0%E5%96%9D%E4%BB%80%E4%B9%88_xdq5dj.mp3"
+    },
+    {
+        "id": 66, 
+        "user": "玛丽", 
+        "title": "我要一碗鸡蛋汤。", 
+        "segments": ["我", "要", "一", "晚", "鸡蛋", "汤", "。"],
+        "description": "wǒ yào yì wǎn jīdàn tāng<br>I'd like a bowl of egg soup.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673109/%E6%88%91%E8%A6%81%E4%B8%80%E7%A2%97%E9%B8%A1%E8%9B%8B%E6%B1%A4_a6fju5.mp3"
+    },
+    {
+        "id": 67, 
+        "user": "玛丽", 
+        "title": "你喝吗？", 
+        "segments": ["你", "喝", "吗", "？"],
+        "description": "nǐ hē ma<br>Would you like to drink?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.pngg", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673090/%E4%BD%A0%E5%96%9D%E5%90%97_kepw6m.mp3"
+    },
+    {
+        "id": 68, 
+        "user": "麦克", 
+        "title": "不喝，我喝啤酒。", 
+        "segments": ["不", "喝", "，", "我", "喝", "啤酒", "。"],
+        "description": "bù hē wǒ hē píjiǔ<br>No, I'd like to drink beer.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673381/maike_vi6wyv.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673081/%E4%B8%8D%E5%96%9D%E6%88%91%E5%96%9D%E5%95%A4%E9%85%92_a1eqfl.mp3"
+    },
+    {
+        "id": 69, 
+        "user": "玛丽", 
+        "title": "这些是什么？", 
+        "segments": ["这", "些", "是", "什么", "？"],
+        "description": "zhèxiē shì shénme<br>What are these?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673126/%E8%BF%99%E4%BA%9B%E6%98%AF%E4%BB%80%E4%B9%88_na04t0.mp3"
+    },
+    {
+        "id": 70, 
+        "user": "麦克", 
+        "title": "这是饺子", 
+        "segments": ["这", "是", "饺子"],
+        "description": "zhè shì jiǎozi<br>These are dumplings.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673381/maike_vi6wyv.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673141/%E8%BF%99%E6%98%AF%E9%A5%BA%E5%AD%90_edpclw.mp3"
+    },
+    {
+        "id": 71, 
+        "user": "麦克", 
+        "title": "这是包子", 
+        "segments": ["这", "是", "包子"],
+        "description": "zhè shì bāozi<br>These are steamed buns.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673381/maike_vi6wyv.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673136/%E8%BF%99%E6%98%AF%E5%8C%85%E5%AD%90_cwvwmm.mp3"
+    },
+    {
+        "id": 72, 
+        "user": "麦克", 
+        "title": "那是面条。", 
+        "segments": ["那", "是", "面条", "。"],
+        "description": "nà shì miàntiáo<br>Those are noodles.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673381/maike_vi6wyv.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673149/%E9%82%A3%E6%98%AF%E9%9D%A2%E6%9D%A1_ro38sz.mp3"
     }
 ]
