@@ -23,7 +23,7 @@
         "videoLink": "https://www.youtube.com/embed/XKR7QOmo93I?si=53N3tZwcfHodkSeY",
         "htmlLink": "posts.html?postStartId=39&postEndId=47&quizStartId=74&quizEndId=97&id=3"
     },
-      {
+    {
         "id": 4,
         "title": "第四课：你去哪儿？",
         "description": "Lesson 4: Where are you going?",
@@ -31,7 +31,7 @@
         "videoLink": "https://www.youtube.com/embed/naPFobg_xys?si=ycub8JmYk5_PBato",
         "htmlLink": "posts.html?postStartId=48&postEndId=57&quizStartId=98&quizEndId=125&id=4"
     },
-      {
+    {
         "id": 5,
         "title": "第五课：这是王老师",
         "description": "Lesson 5: This is Teacher Wang",
@@ -39,7 +39,7 @@
         "videoLink": "https://www.youtube.com/embed/5U0J6_hVmA8?si=ZDoSSeM4pA8YKwTq",
         "htmlLink": "posts.html?postStartId=1&postEndId=9&quizStartId=1&quizEndId=16&id=5"
     },
-      {
+    {
         "id": 6,
         "title": "第六课（一)：我学习汉语",
         "description": "Lesson 6 (1): I study Chinese",
@@ -47,12 +47,20 @@
         "videoLink": "https://www.youtube.com/embed/d84tgGgLcX0?si=ju2cuO6VtSO7ubYg",
         "htmlLink": "posts.html?postStartId=10&postEndId=20&quizStartId=17&quizEndId=23&id=6"
     },
-      {
+    {
         "id": 7,
         "title": "第六课（二)：这是什么书？",
         "description": "Lesson 6 (2): What book is this?",
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734941442/hyjc-1-6-2_xxbwoz.png",
         "videoLink": "https://www.youtube.com/embed/MpPAY0yn8RQ?si=mmBk2DjeRT8amQcm",
         "htmlLink": "posts.html?postStartId=21&postEndId=32&quizStartId=24&quizEndId=38&id=7"
+    },
+    {
+        "id": 8,
+        "title": "第七课：你吃什么？",
+        "description": "Lesson 7: What would you like to eat?",
+        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734941442/hyjc-1-6-2_xxbwoz.png",
+        "videoLink": "https://www.youtube.com/embed/MpPAY0yn8RQ?si=mmBk2DjeRT8amQcm",
+        "htmlLink": "posts.html?postStartId=58&postEndId=72&quizStartId=24&quizEndId=38&id=7"
     }
 ]
