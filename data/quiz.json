@@ -1291,23 +1291,9 @@
             ],
             "words": ["什", "你", "喝", "么"]
         },
+        
         {
             "id": 130,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673088/%E4%BD%A0%E5%96%9D%E4%BB%80%E4%B9%88_xdq5dj.mp3",
-            "sentence": "I'd like a bowl of egg soup. <br> ___ ___ ___ ___ ___ ___ ___。",
-            "blanks": [
-                { "answer": "我" },
-                { "answer": "要" },
-                { "answer": "一" },
-                { "answer": "碗" },
-                { "answer": "鸡" },
-                { "answer": "蛋" },
-                { "answer": "汤" }
-            ],
-            "words": ["鸡", "我", "汤", "要", "碗", "汤", "蛋", "一"]
-        },
-        {
-            "id": 131,
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673109/%E6%88%91%E8%A6%81%E4%B8%80%E7%A2%97%E9%B8%A1%E8%9B%8B%E6%B1%A4_a6fju5.mp3",
             "sentence": "I'd like a bowl of egg soup. <br> ___ ___ ___ ___ ___ ___ ___。",
             "blanks": [
@@ -1319,10 +1305,10 @@
                 { "answer": "蛋" },
                 { "answer": "汤" }
             ],
-            "words": ["鸡", "我", "汤", "要", "碗", "汤", "蛋", "一"]
+            "words": ["鸡", "我", "汤", "要", "碗", "蛋", "一"]
         },
         {
-            "id": 132,
+            "id": 131,
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673126/%E8%BF%99%E4%BA%9B%E6%98%AF%E4%BB%80%E4%B9%88_na04t0.mp3",
             "sentence": "What are these? <br> ___ ___ ___ ___ ___？",
             "blanks": [
@@ -1336,7 +1322,7 @@
             "words": ["什", "这", "么", "是", "些"]
         },
         {
-            "id": 133,
+            "id": 132,
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673247/%E5%90%83_lqky04.mp3",
             "sentence": "吃： ___ ",
             "blanks": [
@@ -1346,7 +1332,7 @@
             "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672828/%E8%A6%81_vrtzsu.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672817/%E5%AD%A6_ohlrfe.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672813/%E5%90%83_vfypmt.gif"]
         },
         {
-            "id": 134,
+            "id": 133,
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673373/%E9%A6%92%E5%A4%B4_dnbxzr.mp3",
             "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672834/%E9%A6%92%E5%A4%B4_k2pat0.png", "： ___ "],
             "blanks": [
@@ -1356,7 +1342,7 @@
             "words": ["面条", "馒头", "米饭"]
         },
         {
-            "id": 135,
+            "id": 134,
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673326/%E7%A2%97_mfsllx.mp3",
             "sentence": "碗： ___ ",
             "blanks": [
@@ -1366,7 +1352,7 @@
             "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672821/%E6%98%8E%E5%A4%A9_owm1mr.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672826/%E7%A2%97_fvrxoy.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672831/%E9%85%92_uxad5w.png"]
         },
         {
-            "id": 136,
+            "id": 135,
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673377/%E9%B8%A1%E8%9B%8B_siti7x.mp3",
             "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672834/%E9%B8%A1%E8%9B%8B_x5fmqr.png", "： ___ "],
             "blanks": [
@@ -1376,7 +1362,7 @@
             "words": ["面条", "馒头", "鸡蛋"]
         },
         {
-            "id": 137,
+            "id": 136,
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673254/%E5%95%A4%E9%85%92_gwrn2k.mp3",
             "sentence": "啤酒： ___ ",
             "blanks": [
@@ -1386,7 +1372,7 @@
             "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672814/%E5%95%A4%E9%85%92_su8nvb.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672808/%E4%B8%AD%E5%8D%88_x92kat.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672828/%E8%9B%8B_pjccha.png"]
         },
         {
-            "id": 138,
+            "id": 137,
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673365/%E9%9D%A2%E6%9D%A1_qvegyw.mp3",
             "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672832/%E9%9D%A2%E6%9D%A1_p9jkzq.png", "： ___ "],
             "blanks": [
@@ -1396,7 +1382,7 @@
             "words": ["面条", "馒头", "鸡蛋"]
         },
         {
-            "id": 139,
+            "id": 138,
             "audio": "",
             "sentence": "Modulations of 一: ___ shuāng",
             "blanks": [
@@ -1406,27 +1392,7 @@
             "words": ["yì", "yí"]
         },
         {
-            "id": 140,
-            "audio": "",
-            "sentence": "Modulations of 一: ___ céng",
-            "blanks": [
-                { "answer": "yì" }
-                
-            ],
-            "words": ["yì", "yí"]
-        },
-        {
-            "id": 141,
-            "audio": "",
-            "sentence": "Modulations of 一: ___ diǎn",
-            "blanks": [
-                { "answer": "yì" }
-                
-            ],
-            "words": ["yì", "yí"]
-        },
-        {
-            "id": 142,
+            "id": 139,
             "audio": "",
             "sentence": "Modulations of 一: ___ ge",
             "blanks": [
@@ -1436,7 +1402,27 @@
             "words": ["yì", "yí"]
         },
         {
-            "id": 143,
+            "id": 140,
+            "audio": "",
+            "sentence": "Modulations of 一: ___ diǎn",
+            "blanks": [
+                { "answer": "yì" }
+                
+            ],
+            "words": ["yì", "yí"]
+        },
+        {
+            "id": 141,
+            "audio": "",
+            "sentence": "Modulations of 一: ___ céng",
+            "blanks": [
+                { "answer": "yì" }
+                
+            ],
+            "words": ["yì", "yí"]
+        },
+        {
+            "id": 142,
             "audio": "",
             "sentence": "Modulations of 一: ___ jiàn",
             "blanks": [
@@ -1446,7 +1432,7 @@
             "words": ["yì", "yí"]
         },
         {
-            "id": 144,
+            "id": 143,
             "audio": "",
             "sentence": "Modulations of 不: ___ qù",
             "blanks": [
@@ -1456,7 +1442,7 @@
             "words": ["bù", "bú"]
         },
         {
-            "id": 145,
+            "id": 144,
             "audio": "",
             "sentence": "Modulations of 不: ___ shuō",
             "blanks": [
@@ -1466,7 +1452,7 @@
             "words": ["bù", "bú"]
         },
         {
-            "id": 146,
+            "id": 145,
             "audio": "",
             "sentence": "Modulations of 不: ___ néng",
             "blanks": [
@@ -1476,7 +1462,7 @@
             "words": ["bù", "bú"]
         },
         {
-            "id": 147,
+            "id": 146,
             "audio": "",
             "sentence": "Modulations of 不: ___ zuò",
             "blanks": [
@@ -1486,7 +1472,7 @@
             "words": ["bù", "bú"]
         },
         {
-            "id": 148,
+            "id": 147,
             "audio": "",
             "sentence": "Modulations of 不: ___ hǎo",
             "blanks": [
