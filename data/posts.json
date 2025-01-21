@@ -588,7 +588,7 @@
         "id": 66, 
         "user": "玛丽", 
         "title": "我要一碗鸡蛋汤。", 
-        "segments": ["我", "要", "一", "晚", "鸡蛋", "汤", "。"],
+        "segments": ["我", "要", "一", "碗", "鸡蛋", "汤", "。"],
         "description": "wǒ yào yì wǎn jīdàn tāng<br>I'd like a bowl of egg soup.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673109/%E6%88%91%E8%A6%81%E4%B8%80%E7%A2%97%E9%B8%A1%E8%9B%8B%E6%B1%A4_a6fju5.mp3"
