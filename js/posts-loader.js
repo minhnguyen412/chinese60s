@@ -65,7 +65,7 @@ function showImageCard(imageData) {
                     padding: 5,
                     showOutline: true,
                     strokeAnimationSpeed: 2,
-                    delayBetweenStrokes: 150,
+                    delayBetweenStrokes: 200,
                 });
 
                 writers.push({ writer, writerDiv });
