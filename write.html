@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>Draw Over Text on Canvas</title>
   <style>
+    
     body {
       margin: 0;
       display: flex;
@@ -90,7 +91,7 @@
     // Function to render text on text canvas
     function renderTextOnCanvas() {
       ctxText.clearRect(0, 0, textCanvas.width, textCanvas.height); // Clear text canvas
-      ctxText.font = '200px Arial'; // Set font
+      ctxText.font = '250px Arial'; // Set font
       ctxText.fillStyle = 'rgba(0, 0, 0, 0.2)'; // Black text with 50% opacity
       ctxText.textAlign = 'center'; // Center align text
       ctxText.textBaseline = 'middle'; // Center vertically
@@ -134,7 +135,7 @@
     function calculateLineWidth(distance, timeDiff) {
       const velocity = distance / timeDiff;
       const minLineWidth = 1;
-      const maxLineWidth = 15;
+      const maxLineWidth = 13;
       const speedFactor = 0.05; // Adjust sensitivity
       return Math.max(minLineWidth, Math.min(maxLineWidth, maxLineWidth - velocity * speedFactor));
     }
