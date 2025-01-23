@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Draw Over Text on Canvas</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #controls {
+      margin-bottom: 10px;
+    }
+
+    .canvas-container {
+      position: relative;
+      width: 90vw; /* Width 90% of the viewport */
+      height: 70vh; /* Height 70% of the viewport */
+    }
+
+    #textCanvas,
+    #drawingCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;  /* 100% of the container */
+      height: 100%; /* 100% of the container */
+      touch-action: none;
+    }
+
+    button {
+      margin: 0 5px;
+      padding: 5px 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    button.active {
+      background-color: #007BFF;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div id="controls">
+    <input type="text" id="textInput" placeholder="Enter text here">
+    <button id="submitText">OK</button>
+    <button id="drawButton" class="active">Draw</button>
+    <button id="eraseButton">Erase</button>
+    <button id="clearButton">Clear</button> <!-- Nút Clear -->
+  </div>
+  <div class="canvas-container">
+    <canvas id="textCanvas"></canvas>
+    <canvas id="drawingCanvas"></canvas>
+  </div>
+
+  <script>
+    const textCanvas = document.getElementById('textCanvas');
+    const drawingCanvas = document.getElementById('drawingCanvas');
+    const ctxText = textCanvas.getContext('2d');
+    const ctxDraw = drawingCanvas.getContext('2d');
+    const textInput = document.getElementById('textInput');
+    const submitText = document.getElementById('submitText');
+    const drawButton = document.getElementById('drawButton');
+    const eraseButton = document.getElementById('eraseButton');
+    const clearButton = document.getElementById('clearButton'); // Lấy nút Clear
+
+    function setCanvasDimensions() {
+      textCanvas.width = textCanvas.clientWidth; // Set width
+      textCanvas.height = textCanvas.clientHeight; // Set height
+      drawingCanvas.width = textCanvas.width; // Same as textCanvas
+      drawingCanvas.height = textCanvas.height; // Same as textCanvas
+    }
+    setCanvasDimensions();
+
+    let isDrawing = false;
+    let isErasing = false;
+    let lastX = 0;
+    let lastY = 0;
+    let lastTime = 0;
+    let text = ''; // Store the current text
+
+    // Function to render text on text canvas
+    function renderTextOnCanvas() {
+      ctxText.clearRect(0, 0, textCanvas.width, textCanvas.height); // Clear text canvas
+      ctxText.font = '200px Arial'; // Set font
+      ctxText.fillStyle = 'rgba(0, 0, 0, 0.2)'; // Black text with 50% opacity
+      ctxText.textAlign = 'center'; // Center align text
+      ctxText.textBaseline = 'middle'; // Center vertically
+      ctxText.fillText(text, textCanvas.width / 2, textCanvas.height / 2); // Draw text
+    }
+
+    // Submit button event listener
+    submitText.addEventListener('click', () => {
+      const inputText = textInput.value.trim();
+      if (inputText) {
+        text = inputText; // Update the text variable
+        renderTextOnCanvas(); // Render text on text canvas
+      }
+    });
+
+    // Allow Enter key to submit text
+    textInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        submitText.click();
+      }
+    });
+
+    drawButton.addEventListener('click', () => {
+      isErasing = false;
+      drawButton.classList.add('active');
+      eraseButton.classList.remove('active');
+    });
+
+    eraseButton.addEventListener('click', () => {
+      isErasing = true;
+      eraseButton.classList.add('active');
+      drawButton.classList.remove('active');
+    });
+
+    // Clear button event listener
+    clearButton.addEventListener('click', () => {
+      ctxDraw.clearRect(0, 0, drawingCanvas.width, drawingCanvas.height); // Xóa toàn bộ nét vẽ
+    });
+
+    // Calculate dynamic line width
+    function calculateLineWidth(distance, timeDiff) {
+      const velocity = distance / timeDiff;
+      const minLineWidth = 1;
+      const maxLineWidth = 15;
+      const speedFactor = 0.05; // Adjust sensitivity
+      return Math.max(minLineWidth, Math.min(maxLineWidth, maxLineWidth - velocity * speedFactor));
+    }
+
+    // Drawing functionality
+    drawingCanvas.addEventListener('mousedown', (e) => {
+      isDrawing = true;
+      lastX = e.offsetX;
+      lastY = e.offsetY;
+      lastTime = Date.now();
+      ctxDraw.beginPath(); // Start a new path
+      ctxDraw.moveTo(lastX, lastY);
+    });
+
+    drawingCanvas.addEventListener('mousemove', (e) => {
+      if (!isDrawing) return;
+
+      const currentX = e.offsetX;
+      const currentY = e.offsetY;
+      const currentTime = Date.now();
+
+      const distance = Math.sqrt((currentX - lastX) ** 2 + (currentY - lastY) ** 2);
+      const timeDiff = currentTime - lastTime;
+
+      const lineWidth = calculateLineWidth(distance, timeDiff);
+      ctxDraw.lineWidth = lineWidth; // Set dynamic line width
+
+      if (isErasing) {
+        eraseLine(currentX, currentY);
+      } else {
+        ctxDraw.lineTo(currentX, currentY);
+        ctxDraw.strokeStyle = 'black'; // Set drawing color
+        ctxDraw.lineCap = 'round'; // Make line ends rounded
+        ctxDraw.lineJoin = 'round'; // Smooth corners
+        ctxDraw.stroke();
+      }
+
+      lastX = currentX;
+      lastY = currentY;
+      lastTime = currentTime;
+    });
+
+    drawingCanvas.addEventListener('mouseup', () => {
+      isDrawing = false;
+      ctxDraw.closePath(); // Close the path
+    });
+
+    drawingCanvas.addEventListener('mouseleave', () => {
+      isDrawing = false;
+    });
+
+    // Function to erase lines
+    function eraseLine(x, y) {
+      const eraseRadius = 10;
+      ctxDraw.clearRect(x - eraseRadius, y - eraseRadius, eraseRadius * 2, eraseRadius * 2);
+    }
+
+    // Touch events for mobile devices
+    function getTouchPosition(e) {
+      const rect = drawingCanvas.getBoundingClientRect();
+      const touch = e.touches[0];
+      return {
+        x: touch.clientX - rect.left,
+        y: touch.clientY - rect.top
+      };
+    }
+
+    drawingCanvas.addEventListener('touchstart', (e) => {
+      e.preventDefault(); // Prevent scrolling
+      const { x, y } = getTouchPosition(e);
+      isDrawing = true;
+      lastX = x;
+      lastY = y;
+      lastTime = Date.now();
+      ctxDraw.beginPath();
+      ctxDraw.moveTo(lastX, lastY);
+    });
+
+    drawingCanvas.addEventListener('touchmove', (e) => {
+      if (!isDrawing) return;
+
+      const { x, y } = getTouchPosition(e);
+      const currentTime = Date.now();
+
+      const distance = Math.sqrt((x - lastX) ** 2 + (y - lastY) ** 2);
+      const timeDiff = currentTime - lastTime;
+
+      const lineWidth = calculateLineWidth(distance, timeDiff);
+      ctxDraw.lineWidth = lineWidth; // Set dynamic line width
+
+      if (isErasing) {
+        eraseLine(x, y);
+      } else {
+        ctxDraw.lineTo(x, y);
+        ctxDraw.strokeStyle = 'black'; // Set drawing color
+        ctxDraw.lineCap = 'round';
+        ctxDraw.lineJoin = 'round';
+        ctxDraw.stroke();
+      }
+
+      lastX = x;
+      lastY = y;
+      lastTime = currentTime;
+    });
+
+    drawingCanvas.addEventListener('touchend', () => {
+      isDrawing = false;
+      ctxDraw.closePath();
+    });
+
+    // Resize canvases on window resize
+    window.addEventListener('resize', setCanvasDimensions);
+
+  </script>
+</body>
+</html>
