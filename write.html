@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>Draw Over Text on Canvas</title>
   <style>
-    
+     
+
     body {
       margin: 0;
       display: flex;
@@ -14,6 +15,7 @@
       justify-content: center;
       height: 100vh;
       overflow: hidden;
+      
     }
     header {
       position: fixed;
@@ -74,7 +76,6 @@
       color: #007bff;
       text-decoration: none;
     }
-
     #controls {
       margin-bottom: 10px;
     }
@@ -105,21 +106,24 @@
     button.active {
       background-color: #007BFF;
       color: #fff;
-    }
+    
   </style>
 </head>
 <body>
   <header>
-    <a href="index.html">Chinese60s</a>
+    <a href="/">Chinese60s</a>
     <h1>Learn to Write</h1>
   </header>
-
   <div id="controls">
     <input type="text" id="textInput" placeholder="Enter text here">
     <button id="submitText">OK</button>
     <button id="drawButton" class="active">Draw</button>
     <button id="eraseButton">Erase</button>
     <button id="clearButton">Clear</button> <!-- Nút Clear -->
+    <label for="colorPicker">Color:</label>
+    <input type="color" id="colorPicker" value="#000000">
+    <label for="lineWidth">Size:</label>
+    <input type="range" id="lineWidth" min="1" max="30" value="5">
   </div>
   <div class="canvas-container">
     <canvas id="textCanvas"></canvas>
@@ -132,7 +136,6 @@
       <a href="https://www.amazon.com/shop/studiorum60s/list/DIUTOF1S2BVQ?ref_=aipsflist">Buy Now</a>
     </div>
   </footer>
-
   <script>
     const textCanvas = document.getElementById('textCanvas');
     const drawingCanvas = document.getElementById('drawingCanvas');
@@ -143,7 +146,8 @@
     const drawButton = document.getElementById('drawButton');
     const eraseButton = document.getElementById('eraseButton');
     const clearButton = document.getElementById('clearButton'); // Lấy nút Clear
-
+    const colorPicker = document.getElementById('colorPicker'); // Lấy màu sắc
+    const lineWidthInput = document.getElementById('lineWidth'); // Lấy kích thước nét vẽ
     function setCanvasDimensions() {
       textCanvas.width = textCanvas.clientWidth; // Set width
       textCanvas.height = textCanvas.clientHeight; // Set height
@@ -158,6 +162,8 @@
     let lastY = 0;
     let lastTime = 0;
     let text = ''; // Store the current text
+    let currentColor = colorPicker.value; // Màu hiện tại
+    let currentLineWidth = lineWidthInput.value; // Kích thước nét vẽ hiện tại
 
     // Function to render text on text canvas
     function renderTextOnCanvas() {
@@ -177,7 +183,15 @@
         renderTextOnCanvas(); // Render text on text canvas
       }
     });
+    // Event listeners for color and line width
+    colorPicker.addEventListener('input', (e) => {
+      currentColor = e.target.value;
+    });
 
+    lineWidthInput.addEventListener('input', (e) => {
+      currentLineWidth = e.target.value;
+    });
+    
     // Allow Enter key to submit text
     textInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') {
@@ -231,14 +245,14 @@
       const distance = Math.sqrt((currentX - lastX) ** 2 + (currentY - lastY) ** 2);
       const timeDiff = currentTime - lastTime;
 
-      const lineWidth = calculateLineWidth(distance, timeDiff);
+      const lineWidth = calculateLineWidth(distance, timeDiff)* (currentLineWidth / 5);
       ctxDraw.lineWidth = lineWidth; // Set dynamic line width
 
       if (isErasing) {
         eraseLine(currentX, currentY);
       } else {
         ctxDraw.lineTo(currentX, currentY);
-        ctxDraw.strokeStyle = 'black'; // Set drawing color
+        ctxDraw.strokeStyle = currentColor; // Set drawing color
         ctxDraw.lineCap = 'round'; // Make line ends rounded
         ctxDraw.lineJoin = 'round'; // Smooth corners
         ctxDraw.stroke();
@@ -294,14 +308,14 @@
       const distance = Math.sqrt((x - lastX) ** 2 + (y - lastY) ** 2);
       const timeDiff = currentTime - lastTime;
 
-      const lineWidth = calculateLineWidth(distance, timeDiff);
+      const lineWidth = calculateLineWidth(distance, timeDiff)* (currentLineWidth / 5);
       ctxDraw.lineWidth = lineWidth; // Set dynamic line width
 
       if (isErasing) {
         eraseLine(x, y);
       } else {
         ctxDraw.lineTo(x, y);
-        ctxDraw.strokeStyle = 'black'; // Set drawing color
+        ctxDraw.strokeStyle = currentColor; // Set drawing color
         ctxDraw.lineCap = 'round';
         ctxDraw.lineJoin = 'round';
         ctxDraw.stroke();
@@ -321,5 +335,8 @@
     window.addEventListener('resize', setCanvasDimensions);
 
   </script>
+  
+  
+
 </body>
 </html>
