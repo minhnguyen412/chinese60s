@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>Draw Over Text on Canvas</title>
+  <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
   <style>
      
 
@@ -12,7 +13,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       height: 100vh;
       overflow: hidden;
       
@@ -27,6 +28,7 @@
       padding: 10px 20px;
       background-color: #f8f9fa;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
     }
 
     header a {
@@ -54,6 +56,7 @@
       padding: 10px 20px;
       background-color: #f8f9fa;
       box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
     }
 
     footer img {
@@ -78,12 +81,18 @@
     }
     #controls {
       margin-bottom: 10px;
+      margin-top: 70px;
+      z-index: 1000;
     }
 
     .canvas-container {
       position: relative;
       width: 90vw; /* Width 90% of the viewport */
-      height: 70vh; /* Height 70% of the viewport */
+      height: calc(100vh - 150px);
+*/
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     #textCanvas,
@@ -106,7 +115,20 @@
     button.active {
       background-color: #007BFF;
       color: #fff;
-    
+    }
+    #hanzi-container-wrapper {
+      position: absolute;
+      bottom: 80px; /* Đặt bên dưới header */
+      left: 20px; /* Căn sang góc phải */
+      border: 2px solid #007bff;
+      border-radius: 10px;
+      padding: 10px;
+      background-color: white;
+    }
+    #hanzi-container {
+      width: 50px;
+      height: 50px;
+    }
   </style>
 </head>
 <body>
@@ -124,10 +146,14 @@
     <input type="color" id="colorPicker" value="#000000">
     <label for="lineWidth">Size:</label>
     <input type="range" id="lineWidth" min="1" max="30" value="5">
+    
   </div>
   <div class="canvas-container">
     <canvas id="textCanvas"></canvas>
     <canvas id="drawingCanvas"></canvas>
+  </div>
+  <div id="hanzi-container-wrapper">
+    <div id="hanzi-container"></div>
   </div>
   <footer>
     <img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1737793928/bangve_ecnhnj.png" alt="Placeholder Image">
@@ -148,6 +174,7 @@
     const clearButton = document.getElementById('clearButton'); // Lấy nút Clear
     const colorPicker = document.getElementById('colorPicker'); // Lấy màu sắc
     const lineWidthInput = document.getElementById('lineWidth'); // Lấy kích thước nét vẽ
+    const hanziContainer = document.getElementById('hanzi-container');
     function setCanvasDimensions() {
       textCanvas.width = textCanvas.clientWidth; // Set width
       textCanvas.height = textCanvas.clientHeight; // Set height
@@ -164,6 +191,7 @@
     let text = ''; // Store the current text
     let currentColor = colorPicker.value; // Màu hiện tại
     let currentLineWidth = lineWidthInput.value; // Kích thước nét vẽ hiện tại
+    let writer;
 
     // Function to render text on text canvas
     function renderTextOnCanvas() {
@@ -181,6 +209,17 @@
       if (inputText) {
         text = inputText; // Update the text variable
         renderTextOnCanvas(); // Render text on text canvas
+        // Hiển thị Hanzi Writer
+        hanziContainer.innerHTML = ''; // Clear container
+        writer = HanziWriter.create('hanzi-container', text, {
+          width: 50,
+          height: 50,
+          padding: 5,
+          showOutline: true,
+          strokeAnimationSpeed: 1,
+          delayBetweenStrokes: 200,
+        });
+        writer.animateCharacter();
       }
     });
     // Event listeners for color and line width
