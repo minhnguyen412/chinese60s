@@ -134,6 +134,31 @@
       object-fit: contain;
     }
     
+    /* Buttons Section */
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px; /* Khoảng cách giữa các nút */
+      margin-top: 10px; /* Khoảng cách giữa title và buttons */
+      width: 100%; /* Đảm bảo sử dụng toàn bộ chiều rộng */
+    }
+
+    .button-container button {
+      padding: 10px 15px;
+      background-color: #fff45e;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      flex: 0 1 120px; /* Đặt chiều rộng tối đa cho nút */
+      max-width: 120px; /* Chiều rộng tối đa */
+      text-align: center; /* Căn giữa nội dung */
+      font-weight: bold;
+    }
+
+    .button-container button:hover {
+      background-color: #f7eb3e; /* Màu hover */
+    }
 
     .thumbnail-section {
       margin-top: 30px;
@@ -358,6 +383,11 @@
       <img src="assets/homepage.png" alt="Logo" class="logo">
       
   </div>
+  <!-- Buttons Section -->
+  <div class="button-container">
+    <button onclick="location.href='newword.html'">New Words</button>
+    <button onclick="location.href='write.html'">Learn to write</button>
+  </div>
 
   <!-- Main Content -->
   <div class="main-content">
@@ -374,7 +404,7 @@
   
   <!-- New Words Tag -->
   <div class="new-words">
-    <a href="newword.html">New Words</a>
+    <a href="https://buymeacoffee.com/chinese60s">Donate</a>
   </div>
   
   <!-- Footer -->
