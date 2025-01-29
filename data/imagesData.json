@@ -1166,5 +1166,205 @@
         "meaning": "Noodle",
         "pinyin": "miàntiáo",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673365/%E9%9D%A2%E6%9D%A1_qvegyw.mp3"
+    },
+    {
+        "id": "147",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159624/%E4%B9%B0_cndi9x.png",
+        "character": "买",
+        "meaning": "to buy",
+        "pinyin": "mǎi",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160486/%E4%B9%B0_ykspqu.mp3"
+    },
+    {
+        "id": "148",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159485/%E6%B0%B4%E6%9E%9C_pwl398.png",
+        "character": "水果",
+        "meaning": "fruit",
+        "pinyin": "shuǐguǒ",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160496/%E6%B0%B4%E6%9E%9C_hwrqy5.mp3"
+    },
+    {
+        "id": "149",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159503/%E8%8B%B9%E6%9E%9C_pzyyjz.png",
+        "character": "苹果",
+        "meaning": "apple",
+        "pinyin": "píngguǒ",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160497/%E8%8B%B9%E6%9E%9C_bgivze.mp3"
+    },
+    {
+        "id": "150",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159626/%E6%96%A4_ugin0g.png",
+        "character": "斤",
+        "meaning": "a weight unit in China",
+        "pinyin": "jīn",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160494/%E6%96%A4_gxolln.mp3"
+    },
+    {
+        "id": "151",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159625/%E5%85%AC%E6%96%A4_isl1ka.png",
+        "character": "公斤",
+        "meaning": "kilogram",
+        "pinyin": "gōngjīn",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160487/%E5%85%AC%E6%96%A4_zfaniq.mp3"
+    },
+    {
+        "id": "152",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159543/%E8%B4%B5_wp9sw3.png",
+        "character": "贵",
+        "meaning": "expensive",
+        "pinyin": "guì",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160500/%E8%B4%B5_oygag4.mp3"
+    },
+    {
+        "id": "153",
+        "imageSrc": "",
+        "character": "了",
+        "meaning": "modal particle",
+        "pinyin": "le",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160486/%E4%BA%86_ce3i4u.mp3"
+    },
+    {
+        "id": "154",
+        "imageSrc": "",
+        "character": "吧",
+        "meaning": "a particle used at the end of a sentence, implying soliciting sb.'s advice, suggestion, request or mild command",
+        "pinyin": "ba",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160489/%E5%90%A7_s5wuoz.mp3"
+    },
+    {
+        "id": "155",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159626/%E5%A4%9A%E5%B0%91_jvewsg.png",
+        "character": "多少",
+        "meaning": "how much, how many",
+        "pinyin": "duōshao",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160491/%E5%A4%9A%E5%B0%91_yqc3ks.mp3"
+    },
+    {
+        "id": "156",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159625/%E5%A4%9A_ce42rq.png",
+        "character": "多",
+        "meaning": "many; a lot of",
+        "pinyin": "duō",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160490/%E5%A4%9A_bmjqp8.mp3"
+    },
+    {
+        "id": "157",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159626/%E5%B0%91_z96hs2.png",
+        "character": "少",
+        "meaning": "few; little; less",
+        "pinyin": "shǎo",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160491/%E5%B0%91_cw3er8.mp3"
+    },
+    {
+        "id": "158",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159625/%E5%9D%97%E5%85%83_js1ohw.png",
+        "character": "块",
+        "meaning": "a basic money unit in China",
+        "pinyin": "kuài",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160490/%E5%9D%97_shoee4.mp3"
+    },
+    {
+        "id": "159",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159625/%E5%9D%97%E5%85%83_js1ohw.png",
+        "character": "元",
+        "meaning": "a basic money unit in China",
+        "pinyin": "yuán",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160486/%E5%85%83_zi3mz6.mp3"
+    },
+    {
+        "id": "160",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159525/%E8%A7%92%E6%AF%9B_xcnvoh.png",
+        "character": "角",
+        "meaning": "equal to 10% of one kuai",
+        "pinyin": "jiǎo",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160499/%E8%A7%92_gaxprg.mp3"
+    },
+    {
+        "id": "161",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159525/%E8%A7%92%E6%AF%9B_xcnvoh.png",
+        "character": "毛",
+        "meaning": "equal to 10% of one kuai",
+        "pinyin": "máo",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160496/%E6%AF%9B_wzasww.mp3"
+    },
+    {
+        "id": "162",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159625/%E5%88%86_ptr1gu.png",
+        "character": "分",
+        "meaning": "equal to 1% of one kuai",
+        "pinyin": "fēn",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160488/%E5%88%86_cdko4d.mp3"
+    },
+    {
+        "id": "163",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159623/%E8%BF%98_gefguh.png",
+        "character": "还",
+        "meaning": "also; in addition; still",
+        "pinyin": "hái",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160485/%E8%BF%98_vhougp.mp3"
+    },
+    {
+        "id": "164",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159626/%E5%88%AB%E7%9A%84_jl5co5.gif",
+        "character": "别的",
+        "meaning": "other",
+        "pinyin": "biéde",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160487/%E5%88%AB%E7%9A%84_rdlisb.mp3"
+    },
+    {
+        "id": "165",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159627/%E6%A9%98%E5%AD%90_xtfake.png",
+        "character": "橘子",
+        "meaning": "orange",
+        "pinyin": "júzi",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160495/%E6%A9%98%E5%AD%90_gbiaya.mp3"
+    },
+    {
+        "id": "166",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159626/%E6%80%8E%E4%B9%88_jrtxyx.png",
+        "character": "怎么",
+        "meaning": "how",
+        "pinyin": "zěnme",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160492/%E6%80%8E%E4%B9%88_vumrjs.mp3"
+    },
+    {
+        "id": "167",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159626/%E5%8D%96_w1jftx.png",
+        "character": "卖",
+        "meaning": "to sell",
+        "pinyin": "mài",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160488/%E5%8D%96_lcj7lg.mp3"
+    },
+    {
+        "id": "168",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159624/%E4%B8%A4_hjfdvx.png",
+        "character": "两",
+        "meaning": "two",
+        "pinyin": "liǎng",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160486/%E4%B8%A4_e80udh.mp3"
+    },
+    {
+        "id": "169",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159624/%E4%B8%80%E5%85%B1_jdedky.png",
+        "character": "一共",
+        "meaning": "altogether",
+        "pinyin": "yígòng",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160485/%E4%B8%80%E5%85%B1_w0k83n.mp3"
+    },
+    {
+        "id": "170",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159485/%E7%BB%99_ttmbtg.png",
+        "character": "给",
+        "meaning": "to give",
+        "pinyin": "gěi",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160497/%E7%BB%99_rgzsqq.mp3"
+    },
+    {
+        "id": "171",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159626/%E6%89%BE_1_kx7r6f.png",
+        "character": "找(1)",
+        "meaning": "to give change",
+        "pinyin": "zhǎo",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160493/%E6%89%BE_gv2zoz.mp3"
     }
 ]
