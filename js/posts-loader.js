@@ -81,7 +81,7 @@ function showImageCard(imageData) {
     }
 
     // Tách các ký tự từ chuỗi character
-    const characters = imageData.character.split('').filter(char => /[\u4E00-\u9FFF]/.test(char));
+    const characters = imageData.character.split('').filter(char => /^[\u4E00-\u9FFF]+$/.test(char));
     writerContainer.innerHTML = "";
     // Khởi tạo writer cho từng ký tự
     if (characters.length > 0) {
