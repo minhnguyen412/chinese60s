@@ -803,8 +803,8 @@
     {
         "id": 89, 
         "user": "A", 
-        "title": "这是五十，找您三十四块。", 
-        "segments": ["这", "是", "五", "十", "，", "找", "您", "三", "十", "四", "块", "。"],
+        "title": "这是五十，找(1)您三十四块。", 
+        "segments": ["这", "是", "五", "十", "，", "找(1)", "您", "三", "十", "四", "块", "。"],
         "description": "zhè shì wǔshí zhǎo nín sānshísì kuài<br>This is 50 yuan, here's your change of 34 yuan.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/mama.0001_x8tqfm.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246213/%E8%BF%99%E6%98%AF%E4%BA%94%E5%8D%81%E6%89%BE%E6%82%A8%E4%B8%89%E5%8D%81%E5%9B%9B%E5%9D%97_pdevbu.mp3"
