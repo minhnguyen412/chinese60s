@@ -230,7 +230,7 @@ button:disabled {
     display: flex; /* Đảm bảo span có kích thước */
     width: 50px; /* Kích thước avatar */
     height: 50px; /* Kích thước avatar */
-    background-color: #007BFF; /* Màu nền cho avatar */
+    background-color: #fff047; /* Màu nền cho avatar */
     border-radius: 50%; /* Bo tròn để tạo hình tròn */
     background-size: cover; /* Đảm bảo hình ảnh sẽ bao phủ toàn bộ diện tích của avatar */
     margin-bottom: 10px; /* Khoảng cách giữa avatar và tiêu đề */
