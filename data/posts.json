@@ -646,5 +646,167 @@
         "description": "nà shì miàntiáo<br>Those are noodles.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673381/maike_vi6wyv.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673149/%E9%82%A3%E6%98%AF%E9%9D%A2%E6%9D%A1_ro38sz.mp3"
+    },
+    {
+        "id": 73, 
+        "user": "A", 
+        "title": "你买什么？", 
+        "segments": ["你", "买", "什么", "？"],
+        "description": "nǐ mǎi shénme<br>What do you buy?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/mama.0001_x8tqfm.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246213/%E4%BD%A0%E4%B9%B0%E4%BB%80%E4%B9%88_ub4edo.mp3"
+    },
+    {
+        "id": 74, 
+        "user": "B", 
+        "title": "我买水果。", 
+        "segments": ["我", "买", "水果", "。"],
+        "description": "wǒ mǎi shuǐguǒ<br>I want to buy some fruits.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/nvcodinh.0001_yazunu.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246214/%E6%88%91%E4%B9%B0%E6%B0%B4%E6%9E%9C_asfwbp.mp3"
+    },
+    {
+        "id": 75, 
+        "user": "B", 
+        "title": "苹果一斤多少钱？", 
+        "segments": ["苹果", "一", "斤", "多少", "钱", "？"],
+        "description": "píngguǒ yì jīn duōshao qián<br>How much does half a kilogram of apples cost?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/nvcodinh.0001_yazunu.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246212/%E8%8B%B9%E6%9E%9C%E4%B8%80%E6%96%A4%E5%A4%9A%E5%B0%91%E9%92%B1_pzh5z0.mp3"
+    },
+    {
+        "id": 76, 
+        "user": "A", 
+        "title": "三块。", 
+        "segments": ["三", "块", "。"],
+        "description": "sān kuài<br>Three yuan.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/mama.0001_x8tqfm.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246211/%E4%B8%89%E5%9D%97_lb12hm.mp3"
+    },
+    {
+        "id": 77, 
+        "user": "B", 
+        "title": "三块？", 
+        "segments": ["三", "块", "？"],
+        "description": "sān kuài<br>Three yuan?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/nvcodinh.0001_yazunu.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246212/%E4%B8%89%E5%9D%972_ky81sg.mp3"
+    },
+    {
+        "id": 78, 
+        "user": "B", 
+        "title": "太贵了。", 
+        "segments": ["太", "贵", "了", "。"],
+        "description": "tài guì le<br>That's too expensive.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/nvcodinh.0001_yazunu.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246213/%E5%A4%AA%E8%B4%B5%E4%BA%86_hhzu63.mp3"
+    },
+    {
+        "id": 79, 
+        "user": "B", 
+        "title": "两块五吧。", 
+        "segments": ["两", "块", "五", "吧", "。"],
+        "description": "liǎng kuài wǔ ba<br>How about 2 yuan and 5 mao?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/nvcodinh.0001_yazunu.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246212/%E4%B8%A4%E5%9D%97%E4%BA%94%E5%90%A7_w9kue0.mp3"
+    },
+    {
+        "id": 80, 
+        "user": "A", 
+        "title": "你要几斤？", 
+        "segments": ["你", "要", "几", "斤", "？"],
+        "description": "nǐ yào jǐ jīn<br>How many kilograms do you want?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/mama.0001_x8tqfm.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246213/%E4%BD%A0%E8%A6%81%E5%87%A0%E6%96%A4_yj6uwj.mp3"
+    },
+    {
+        "id": 81, 
+        "user": "B", 
+        "title": "我买五斤。", 
+        "segments": ["我", "买", "五", "斤", "。"],
+        "description": "wǒ mǎi wǔ jīn<br>I'll take 2.5 kilograms.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/nvcodinh.0001_yazunu.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246214/%E6%88%91%E4%B9%B0%E4%BA%94%E6%96%A4_hxgb3w.mp3"
+    },
+    {
+        "id": 82, 
+        "user": "A", 
+        "title": "还要别的吗？", 
+        "segments": ["还", "要", "别的", "吗", "？"],
+        "description": "hái yào biéde ma<br>Do you need anything else?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/mama.0001_x8tqfm.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246212/%E8%BF%98%E8%A6%81%E5%88%AB%E7%9A%84%E5%90%97_iosalu.mp3"
+    },
+    {
+        "id": 83, 
+        "user": "B", 
+        "title": "橘子怎么卖？", 
+        "segments": ["橘子", "怎么", "卖", "？"],
+        "description": "júzi zěnme mài<br>How much are the oranges?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/nvcodinh.0001_yazunu.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246214/%E6%A9%98%E5%AD%90%E6%80%8E%E4%B9%88%E5%8D%96_xhg9i5.mp3"
+    },
+    {
+        "id": 84, 
+        "user": "A", 
+        "title": "两块。", 
+        "segments": ["两", "块", "。"],
+        "description": "liǎng kuài<br>Two yuan.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/mama.0001_x8tqfm.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246212/%E4%B8%A4%E5%9D%97_cvtukv.mp3"
+    },
+    {
+        "id": 85, 
+        "user": "B", 
+        "title": "要两斤。", 
+        "segments": ["要", "两", "斤", "。"],
+        "description": "yào liǎng jīn<br>I'll take one kilogram.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/nvcodinh.0001_yazunu.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246212/%E8%A6%81%E4%B8%A4%E6%96%A4_xvznap.mp3"
+    },
+    {
+        "id": 86, 
+        "user": "B", 
+        "title": "一共多少钱？", 
+        "segments": ["一共", "多少", "钱", "？"],
+        "description": "yígòng duōshao qián<br>How much is it in total?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/nvcodinh.0001_yazunu.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246212/%E4%B8%80%E5%85%B1%E5%A4%9A%E5%B0%91%E9%92%B1_kufi2w.mp3"
+    },
+    {
+        "id": 86, 
+        "user": "A", 
+        "title": "一共十六块五。", 
+        "segments": ["一共", "十", "六", "块", "五", "。"],
+        "description": "yígòng shíliù kuài wǔ<br>It's a total of 16 yuan 5 mao.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/mama.0001_x8tqfm.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246212/%E4%B8%80%E5%85%B1%E5%8D%81%E5%85%AD%E5%9D%97%E4%BA%94_m1n0lg.mp3"
+    },
+    {
+        "id": 87, 
+        "user": "A", 
+        "title": "你给十六块吧。", 
+        "segments": ["你", "给", "十", "六", "块", "吧", "。"],
+        "description": "nǐ gěi shíliù kuài ba<br>But you give me 16 yuan.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/mama.0001_x8tqfm.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246213/%E4%BD%A0%E7%BB%99%E5%8D%81%E5%85%AD%E5%9D%97%E5%90%A7_trv02d.mp3"
+    },
+    {
+        "id": 88, 
+        "user": "B", 
+        "title": "给你钱。", 
+        "segments": ["给", "你", "钱", "。"],
+        "description": "gěi nǐ qián<br>Here's your money.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/nvcodinh.0001_yazunu.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246214/%E7%BB%99%E4%BD%A0%E9%92%B1_uwpsaq.mp3"
+    },
+    {
+        "id": 89, 
+        "user": "A", 
+        "title": "这是五十，找您三十四块。", 
+        "segments": ["这", "是", "五", "十", "，", "找", "您", "三", "十", "四", "块", "。"],
+        "description": "zhè shì wǔshí zhǎo nín sānshísì kuài<br>This is 50 yuan, here's your change of 34 yuan.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/mama.0001_x8tqfm.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246213/%E8%BF%99%E6%98%AF%E4%BA%94%E5%8D%81%E6%89%BE%E6%82%A8%E4%B8%89%E5%8D%81%E5%9B%9B%E5%9D%97_pdevbu.mp3"
     }
 ]
