@@ -81,10 +81,14 @@ function showImageCard(imageData) {
     }
 
     // Tách các ký tự từ chuỗi character
-    const characters = imageData.character.split('');
+    const characters = imageData.character.split('').filter(char => /[\u4E00-\u9FFF]/.test(char));
     
-    initializeWriters(characters);
-    
+    // Khởi tạo writer cho từng ký tự
+    if (characters.length > 0) {
+        initializeWriters(characters);
+    } else {
+        writerContainer.style.display = 'none'; // Ẩn container nếu không có ký tự Hán
+}
 
     
 function closeImageCard() {
