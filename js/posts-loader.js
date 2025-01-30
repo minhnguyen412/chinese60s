@@ -87,7 +87,8 @@ function showImageCard(imageData) {
     if (characters.length > 0) {
         initializeWriters(characters);
     } else {
-        writerContainer.style.display = 'none'; // Ẩn container nếu không có ký tự Hán
+        writerContainer.style.display = 'none';
+    } // Ẩn container nếu không có ký tự Hán
 }
 
     
