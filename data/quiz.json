@@ -1480,6 +1480,243 @@
                 
             ],
             "words": ["bù", "bú"]
+        },
+        {
+            "id": 148,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246212/%E8%8B%B9%E6%9E%9C%E4%B8%80%E6%96%A4%E5%A4%9A%E5%B0%91%E9%92%B1_pzh5z0.mp3",
+            "sentence": "How much does half a kilogram of apples cost? <br> ___ ___ ___ ___ ___?",
+            "blanks": [
+                { "answer": "苹果" },
+                { "answer": "一" },
+                { "answer": "斤" },
+                { "answer": "多少" },
+                { "answer": "钱" }
+            ],
+            "words": ["钱", "一", "多少", "斤", "苹果"]
+        },
+        {
+            "id": 149,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246213/%E4%BD%A0%E4%B9%B0%E4%BB%80%E4%B9%88_ub4edo.mp3",
+            "sentence": "What do you buy? <br> ___ ___ ___?",
+            "blanks": [
+                { "answer": "你" },
+                { "answer": "买" },
+                { "answer": "什么" }
+                
+            ],
+            "words": ["什么", "买", "你"]
+        },
+        {
+            "id": 150,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246214/%E6%88%91%E4%B9%B0%E6%B0%B4%E6%9E%9C_asfwbp.mp3",
+            "sentence": "I buy fruits. <br> ___ ___ ___。",
+            "blanks": [
+                { "answer": "我" },
+                { "answer": "买" },
+                { "answer": "水果" }
+                
+            ],
+            "words": ["买", "水果", "我"]
+        },
+        {
+            "id": 151,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246212/%E4%B8%A4%E5%9D%97%E4%BA%94%E5%90%A7_w9kue0.mp3",
+            "sentence": "How about 2 yuan and 5 mao? <br> ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "两" },
+                { "answer": "块" },
+                { "answer": "五" },
+                { "answer": "吧" }
+            ],
+            "words": ["吧", "五", "两", "块"]
+        },
+        {
+            "id": 152,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246213/%E4%BD%A0%E8%A6%81%E5%87%A0%E6%96%A4_yj6uwj.mp3",
+            "sentence": "How many kilograms do you want? <br> ___ ___ ___ ___？",
+            "blanks": [
+                { "answer": "你" },
+                { "answer": "要" },
+                { "answer": "几" },
+                { "answer": "斤" }
+            ],
+            "words": ["几", "你", "斤", "要"]
+        },
+        {
+            "id": 153,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246212/%E8%BF%98%E8%A6%81%E5%88%AB%E7%9A%84%E5%90%97_iosalu.mp3",
+            "sentence": "Do you need anything else? <br> ___ ___ ___ ___？",
+            "blanks": [
+                { "answer": "还" },
+                { "answer": "要" },
+                { "answer": "别的" },
+                { "answer": "吗" }
+            ],
+            "words": ["别的", "要", "吗", "还"]
+        },
+        {
+            "id": 154,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246214/%E6%A9%98%E5%AD%90%E6%80%8E%E4%B9%88%E5%8D%96_xhg9i5.mp3",
+            "sentence": "How much are the oranges? <br> ___ ___ ___？",
+            "blanks": [
+                { "answer": "橘子" },
+                { "answer": "怎么" },
+                { "answer": "卖" }
+                
+            ],
+            "words": ["橘子", "卖", "怎么"]
+        },
+        {
+            "id": 155,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246212/%E4%B8%80%E5%85%B1%E5%A4%9A%E5%B0%91%E9%92%B1_kufi2w.mp3",
+            "sentence": "How much is it in total? <br> ___ ___ ___？",
+            "blanks": [
+                { "answer": "一共" },
+                { "answer": "多少" },
+                { "answer": "钱" }
+                
+            ],
+            "words": ["多少", "一共", "钱"]
+        },
+        {
+            "id": 156,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246213/%E4%BD%A0%E7%BB%99%E5%8D%81%E5%85%AD%E5%9D%97%E5%90%A7_trv02d.mp3",
+            "sentence": "You just need to give me 16 yuan. <br> ___ ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "你" },
+                { "answer": "给" },
+                { "answer": "十" },
+                { "answer": "六" },
+                { "answer": "块" },
+                { "answer": "吧" }
+                
+            ],
+            "words": ["给", "十", "块", "你", "六", "吧"]
+        },
+        {
+            "id": 157,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246213/%E4%BD%A0%E7%BB%99%E5%8D%81%E5%85%AD%E5%9D%97%E5%90%A7_trv02d.mp3",
+            "sentence": "This is 50 yuan, here's your change of 34 yuan. <br> ___ ___ ___ ___ ___ ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "这" },
+                { "answer": "是" },
+                { "answer": "五" },
+                { "answer": "十" },
+                { "answer": "找" },
+                { "answer": "您" },
+                { "answer": "三" },
+                { "answer": "十" },
+                { "answer": "四" },
+                { "answer": "块" }
+            ],
+            "words": ["三", "块", "是", "你", "十", "这", "十", "找", "五", "四"]
+        },
+        {
+            "id": 158,
+            "audio": "",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1738159626/%E5%8D%96_w1jftx.png", "： ___ "],
+            "blanks": [
+                { "answer": "卖" }
+                
+            ],
+            "words": ["卖", "买"]
+        },
+        {
+            "id": 159,
+            "audio": "",
+            "sentence": "橘子： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159627/%E6%A9%98%E5%AD%90_xtfake.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1738159503/%E8%8B%B9%E6%9E%9C_pzyyjz.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159485/%E6%B0%B4%E6%9E%9C_pwl398.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159627/%E6%A9%98%E5%AD%90_xtfake.png"]
+        },
+        {
+            "id": 160,
+            "audio": "",
+            "sentence": "两 or 二: ___ 个馒头",
+            "blanks": [
+                { "answer": "两" }
+                
+            ],
+            "words": ["两", "二"]
+        },
+        {
+            "id": 161,
+            "audio": "",
+            "sentence": "两 or 二: 星期 ___",
+            "blanks": [
+                { "answer": "二" }
+                
+            ],
+            "words": ["两", "二"]
+        },
+        {
+            "id": 162,
+            "audio": "",
+            "sentence": "两 or 二: 第 ___",
+            "blanks": [
+                { "answer": "二" }
+                
+            ],
+            "words": ["两", "二"]
+        },
+        {
+            "id": 163,
+            "audio": "",
+            "sentence": "两 or 二: ___ 国",
+            "blanks": [
+                { "answer": "两" }
+                
+            ],
+            "words": ["两", "二"]
+        },
+        {
+            "id": 164,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738294099/zhuo1_bo1fvm.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "zhuō" }
+            ],
+            "words": ["shuō", "zhū", "shū", "zhuō"]
+        },
+        {
+            "id": 165,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738294098/huar_umuixa.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "huàr" }
+            ],
+            "words": ["huàr", "huà", "huòr", "huò"]
+        },
+        {
+            "id": 166,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738294099/wa_zypftl.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___",
+            "blanks": [
+                { "answer": "wà" }
+            ],
+            "words": ["huàr", "huà", "hà", "wà"]
+        },
+        {
+            "id": 167,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738294098/touteng_fsfvsv.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___ ___",
+            "blanks": [
+                { "answer": "tóu" },
+                { "answer": "téng" }
+            ],
+            "words": ["téng", "tǒu", "tóu", "těng"]
+        },
+        {
+            "id": 168,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738294098/dongci_jl44hk.mp3",
+            "sentence": "Listen and choose the correct pinyin: ___ ___",
+            "blanks": [
+                { "answer": "dòng" },
+                { "answer": "cí" }
+            ],
+            "words": ["dōng", "dòng", "cǐ", "cí"]
         }
     ]
 }
