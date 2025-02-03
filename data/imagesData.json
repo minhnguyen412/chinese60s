@@ -1366,5 +1366,157 @@
         "meaning": "to give change",
         "pinyin": "zhǎo",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160493/%E6%89%BE_gv2zoz.mp3"
+    },
+    {
+        "id": "172",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568492/%E4%B8%8B%E5%8D%88_s9bey4.png",
+        "character": "下午",
+        "meaning": "afternoon",
+        "pinyin": "xiàwǔ",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569111/%E4%B8%8B%E5%8D%88_ycrkhw.mp3"
+    },
+    {
+        "id": "173",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568493/%E4%B8%8A%E5%8D%88_tvoei1.png",
+        "character": "下午",
+        "meaning": "morning",
+        "pinyin": "shàngwǔ",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569111/%E4%B8%8A%E5%8D%88_uca6fk.mp3"
+    },
+    {
+        "id": "174",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568493/%E5%9B%BE%E4%B9%A6%E9%A6%86_rfvt9q.png",
+        "character": "图书馆",
+        "meaning": "library",
+        "pinyin": "túshūguǎn",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569128/%E5%9B%BE%E4%B9%A6%E9%A6%86_ciwidy.mp3"
+    },
+    {
+        "id": "175",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568493/%E6%8D%A2_g9f9xq.png",
+        "character": "换",
+        "meaning": "to change; to exchange",
+        "pinyin": "huàn",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569129/%E6%8D%A2_ddajzt.mp3"
+    },
+    {
+        "id": "176",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568493/%E5%B0%8F%E5%A7%90_gha0cd.png",
+        "character": "小姐",
+        "meaning": "miss",
+        "pinyin": "xiǎojiě",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569129/%E5%B0%8F%E5%A7%90_xdgpqk.mp3"
+    },
+    {
+        "id": "177",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738569096/%E8%90%A5%E4%B8%9A%E5%91%98_cgccsx.png",
+        "character": "营业员",
+        "meaning": "shop employees",
+        "pinyin": "yíngyèyuán",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569135/%E8%90%A5%E4%B8%9A%E5%91%98_pt5y9f.mp3"
+    },
+    {
+        "id": "178",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568493/%E4%BA%BA%E6%B0%91%E5%B8%81_qveuw5.png",
+        "character": "人民币",
+        "meaning": "RMB",
+        "pinyin": "rénmínbì",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569112/%E4%BA%BA%E6%B0%91%E5%B8%81_oaudyy.mp3"
+    },
+    {
+        "id": "179",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568493/%E4%BA%BA%E6%B0%91_mw35if.png",
+        "character": "人民",
+        "meaning": "people",
+        "pinyin": "rénmín",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569112/%E4%BA%BA%E6%B0%91_myohll.mp3"
+    },
+    {
+        "id": "180",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568544/%E7%99%BE_ywolzb.png",
+        "character": "百",
+        "meaning": "hundred",
+        "pinyin": "bǎi",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569133/%E7%99%BE_w68tvp.mp3"
+    },
+    {
+        "id": "181",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568493/%E5%8D%83_cfp9b6.png",
+        "character": "千",
+        "meaning": "thousand",
+        "pinyin": "qiān",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569128/%E5%8D%83_rp3yuq.mp3"
+    },
+    {
+        "id": "182",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568492/%E4%B8%87_hokuqb.png",
+        "character": "万",
+        "meaning": "ten thousand",
+        "pinyin": "wàn",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569111/%E4%B8%87_jt8yrs.mp3"
+    },
+    {
+        "id": "183",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738569096/%E7%BE%8E%E5%85%83_rfqjkp.png",
+        "character": "美元",
+        "meaning": "US dollar",
+        "pinyin": "měiyuán",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569134/%E7%BE%8E%E5%85%83_qad1wg.mp3"
+    },
+    {
+        "id": "184",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568494/%E6%B8%AF%E5%B8%81_t1qa1e.png",
+        "character": "港币",
+        "meaning": "Hong Kong dollar",
+        "pinyin": "gǎngbì",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569133/%E6%B8%AF%E5%B8%81_asvyia.mp3"
+    },
+    {
+        "id": "185",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568494/%E6%97%A5%E5%85%83_h1g7lw.png",
+        "character": "日元",
+        "meaning": "Japanese yen",
+        "pinyin": "rìyuán",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569130/%E6%97%A5%E5%85%83_fypywe.mp3"
+    },
+    {
+        "id": "186",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568494/%E6%AC%A7%E5%85%83_jwffke.png",
+        "character": "欧元",
+        "meaning": "Euro",
+        "pinyin": "ōuyuán",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569132/%E6%AC%A7%E5%85%83_o98xub.mp3"
+    },
+    {
+        "id": "187",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738569096/%E7%AD%89_m3wa73.png",
+        "character": "等",
+        "meaning": "to wait",
+        "pinyin": "děng",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569133/%E7%AD%89_oplpy0.mp3"
+    },
+    {
+        "id": "188",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568492/%E4%B8%80%E4%BC%9A%E5%84%BF_v9luz2.png",
+        "character": "一会儿",
+        "meaning": "a little while",
+        "pinyin": "yíhuìr",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569111/%E4%B8%80%E4%BC%9A%E5%84%BF_twxd7b.mp3"
+    },
+    {
+        "id": "189",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568492/%E5%85%88%E7%94%9F_r6fbro.png",
+        "character": "先生",
+        "meaning": "Mr.; sir",
+        "pinyin": "xiānshēng",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569113/%E5%85%88%E7%94%9F_ymhpjg.mp3"
+    },
+    {
+        "id": "190",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568494/%E6%95%B0_sylsva.png",
+        "character": "数",
+        "meaning": "to count",
+        "pinyin": "shǔ",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569129/%E6%95%B0_nkqa5w.mp3"
     }
 ]
