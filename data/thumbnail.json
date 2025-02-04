@@ -69,7 +69,7 @@
         "description": "Lesson 8: How much does half a kilogram of apples cost?",
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738308245/hyjc-1-8_xvqzn1.png",
         "videoLink": "https://www.youtube.com/embed/ng-E83Dg-KU?si=lAmjTgpd_KVG1OrK",
-        "htmlLink": "posts.html?postStartId=73&postEndId=89&quizStartId=148&quizEndId=168&id=9"
+        "htmlLink": "posts.html?postStartId=73&postEndId=90&quizStartId=148&quizEndId=168&id=9"
     },
     {
         "id": 10,
@@ -77,6 +77,6 @@
         "description": "Lesson 9: I exchange Chinese yuan",
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738656821/hyjc-1-9_k7q53d.png",
         "videoLink": "https://www.youtube.com/embed/ng-E83Dg-KU?si=lAmjTgpd_KVG1OrK",
-        "htmlLink": "posts.html?postStartId=90&postEndId=101&quizStartId=148&quizEndId=168&id=10"
+        "htmlLink": "posts.html?postStartId=91&postEndId=102&quizStartId=148&quizEndId=168&id=10"
     }
 ]
