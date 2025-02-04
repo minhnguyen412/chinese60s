@@ -882,7 +882,7 @@
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738653785/%E8%AF%B7%E7%AD%89%E4%B8%80%E4%BC%9A%E5%84%BF_z9t0iz.mp3"
     },
     {
-        "id": 99 
+        "id": 99, 
         "user": "营业员", 
         "title": "先生，给您钱。", 
         "segments": ["先生", "，", "给", "您", "钱", "。"],
