@@ -1761,7 +1761,7 @@
             "sentence": "How much do you want to exchange? <br> ___ ___ ___?",
             "blanks": [
                 { "answer": "换" },
-                { "answer": "多 },
+                { "answer": "多" },
                 { "answer": "少" }
                             
             ],
