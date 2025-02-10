@@ -1518,5 +1518,165 @@
         "meaning": "to count",
         "pinyin": "shǔ",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569129/%E6%95%B0_nkqa5w.mp3"
+    },
+    {
+        "id": "191",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174874/%E5%8A%9E%E5%85%AC%E5%AE%A4_terktl.png",
+        "character": "办公室",
+        "meaning": "office",
+        "pinyin": "bàngōngshì",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175244/%E5%8A%9E%E5%85%AC%E5%AE%A4_a0vk13.mp3"
+    },
+    {
+        "id": "192",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174873/%E5%8A%9E%E5%85%AC_cyv89m.png",
+        "character": "办公",
+        "meaning": "to work (in an office)",
+        "pinyin": "bàngōng",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175244/%E5%8A%9E%E5%85%AC_en3c5l.mp3"
+    },
+    {
+        "id": "193",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174873/%E8%81%8C%E5%91%98_hcnl5y.png",
+        "character": "职员",
+        "meaning": "employee; office worker",
+        "pinyin": "zhíyuán",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175398/%E8%81%8C%E5%91%98_tlvb7g.mp3"
+    },
+    {
+        "id": "194",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174875/%E6%89%BE_2_hav8l8.png",
+        "character": "找²",
+        "meaning": "to look for",
+        "pinyin": "zhǎo",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160493/%E6%89%BE_gv2zoz.mp3"
+    },
+    {
+        "id": "195",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174874/%E5%9C%A8_pmhnxl.png",
+        "character": "在",
+        "meaning": "to be in/at; in; at",
+        "pinyin": "zài",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175245/%E5%9C%A8_dadas6.mp3"
+    },
+    {
+        "id": "196",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174874/%E5%AE%B6_tolh5l.png",
+        "character": "家",
+        "meaning": "home; (a classifier for a family, company, shop, etc.)",
+        "pinyin": "jiā",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175247/%E5%AE%B6_zhsqsg.mp3"
+    },
+    {
+        "id": "197",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174874/%E5%91%A2_jpyw03.png",
+        "character": "呢",
+        "meaning": "a modal particle used at the end of a declarative sentence to indicate the continuation of an action or situation",
+        "pinyin": "ne",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175245/%E5%91%A2_fy328k.mp3"
+    },
+    {
+        "id": "198",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174873/%E4%BD%8F_ncefkt.png",
+        "character": "住",
+        "meaning": "to live",
+        "pinyin": "zhù",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175243/%E4%BD%8F_g4tfip.mp3"
+    },
+    {
+        "id": "199",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174875/%E6%A5%BC_c2nmwi.png",
+        "character": "楼",
+        "meaning": "building",
+        "pinyin": "lóu",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175393/%E6%A5%BC_nmzuuj.mp3"
+    },
+    {
+        "id": "200",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174874/%E9%97%A8_zrm3vn.png",
+        "character": "门",
+        "meaning": "door; gate",
+        "pinyin": "mén",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175399/%E9%97%A8_u84ekq.mp3"
+    },
+    {
+        "id": "201",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174875/%E6%88%BF%E9%97%B4_l3rknf.png",
+        "character": "房间",
+        "meaning": "room",
+        "pinyin": "fángjiān",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175248/%E6%88%BF%E9%97%B4_rddugb.mp3"
+    },
+    {
+        "id": "202",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174873/%E5%8F%B7_glddmr.png",
+        "character": "号",
+        "meaning": "number",
+        "pinyin": "hào",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175244/%E5%8F%B7_zgfixg.mp3"
+    },
+    {
+        "id": "203",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174873/%E7%9F%A5%E9%81%93_ox7zkx.png",
+        "character": "知道",
+        "meaning": "to know",
+        "pinyin": "zhīdào",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175398/%E7%9F%A5%E9%81%93_xi3fxc.mp3"
+    },
+    {
+        "id": "204",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174875/%E7%94%B5%E8%AF%9D_gvpcpf.png",
+        "character": "电话",
+        "meaning": "telephone",
+        "pinyin": "diànhuà",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175397/%E7%94%B5%E8%AF%9D_fybbg6.mp3"
+    },
+    {
+        "id": "205",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174875/%E7%94%B5_dxdcqd.png",
+        "character": "电",
+        "meaning": "electricity",
+        "pinyin": "diàn",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175393/%E7%94%B5_ijzbox.mp3"
+    },
+    {
+        "id": "206",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174873/%E8%AF%9D_ewvfjr.png",
+        "character": "话",
+        "meaning": "words; speech",
+        "pinyin": "huà",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175399/%E8%AF%9D_kbbqwo.mp3"
+    },
+    {
+        "id": "207",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174873/%E5%8F%B7%E7%A0%81_sje1nc.png",
+        "character": "号码",
+        "meaning": "number",
+        "pinyin": "hàomǎ",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175244/%E5%8F%B7%E7%A0%81_tzhzds.mp3"
+    },
+    {
+        "id": "208",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174874/%E9%9B%B6_ndrq7n.png",
+        "character": "零",
+        "meaning": "zero",
+        "pinyin": "líng",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175400/%E9%9B%B6_umq1vg.mp3"
+    },
+    {
+        "id": "209",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174875/%E6%89%8B%E6%9C%BA_wgfzgw.png",
+        "character": "手机",
+        "meaning": "mobile phone",
+        "pinyin": "shǒujī",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175291/%E6%89%8B%E6%9C%BA_xckw1m.mp3"
+    },
+    {
+        "id": "210",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174875/%E6%89%8B_yrilev.png",
+        "character": "手",
+        "meaning": "hand",
+        "pinyin": "shǒu",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175248/%E6%89%8B_wwyr4e.mp3"
     }
 ]
