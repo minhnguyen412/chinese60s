@@ -186,9 +186,9 @@
     {
         "id": "24",
         "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672810/%E4%BB%96%E5%A5%B9_ixxred.png",
-        "character": "他/她",
-        "meaning": "He/She",
-        "pinyin": "tā/tā",
+        "character": "他",
+        "meaning": "He",
+        "pinyin": "tā",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673171/%E4%BB%96%E5%A5%B9_ajweaf.mp3"
     },
     {
@@ -1678,5 +1678,13 @@
         "meaning": "hand",
         "pinyin": "shǒu",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175248/%E6%89%8B_wwyr4e.mp3"
+    },
+    {
+        "id": "211",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672810/%E4%BB%96%E5%A5%B9_ixxred.png",
+        "character": "她",
+        "meaning": "She",
+        "pinyin": "tā",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673171/%E4%BB%96%E5%A5%B9_ajweaf.mp3"
     }
 ]
