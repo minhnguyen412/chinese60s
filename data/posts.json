@@ -912,9 +912,126 @@
         "id": 102, 
         "user": "营业员", 
         "title": "不客气！", 
-        "segments": ["不客气", "！"],
+        "segments": ["不", "客气", "！"],
         "description": "bú kèqi<br>You're welcome.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/xiaojie.0001_gjt1qd.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673156/%E4%B8%8D%E5%AE%A2%E6%B0%94_bk2ghd.mp3"
+    },
+    {
+        "id": 103, 
+        "user": "李昌浩", 
+        "title": "请问，这是办公室吗？", 
+        "segments": ["请", "问", "，", "这", "是", "办公室", "吗", "？"],
+        "description": "qǐng wèn zhè shì bàngōngshì ma<br>Excuse me, is this the office?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673381/maike_vi6wyv.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739259446/%E8%AF%B7%E9%97%AE%E8%BF%99%E6%98%AF%E5%8A%9E%E5%85%AC%E5%AE%A4%E5%90%97_sfigcs.mp3"
+    },
+    {
+        "id": 104, 
+        "user": "职员", 
+        "title": "是。你找²谁？", 
+        "segments": ["是", "。", "你", "找²", "谁", "？"],
+        "description": "shì nǐ zhǎo shéi<br>Yes. Who are you looking for?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739260265/dgguan.0001_t3holk.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739259447/%E6%98%AF%E4%BD%A0%E6%89%BE%E8%B0%81_ubb7gi.mp3"
+    },
+    {
+        "id": 105, 
+        "user": "李昌浩", 
+        "title": "王老师在吗？", 
+        "segments": ["王", "老师", "在", "吗", "？"],
+        "description": "wáng lǎoshī zài ma<br>Is teacher Wang here?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673381/maike_vi6wyv.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673156/%E4%B8%8D%E5%AE%A2%E6%B0%94_bk2ghd.mp3"
+    },
+    {
+        "id": 106, 
+        "user": "李昌浩", 
+        "title": "我是他的学生。", 
+        "segments": ["我", "是", "他", "的", "学生", "。"],
+        "description": "wǒ shì tā de xuésheng<br>I'm his student.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673381/maike_vi6wyv.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739259447/%E6%88%91%E6%98%AF%E4%BB%96%E7%9A%84%E5%AD%A6%E7%94%9F_i3mzgv.mp3"
+    },
+    {
+        "id": 107, 
+        "user": "职员", 
+        "title": "他不在。他在家呢。", 
+        "segments": ["他", "不", "在", "。", "他", "在", "家", "呢", "。"],
+        "description": "tā búzài tā zàijiā ne<br>He is not here. He is at home.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739260265/dgguan.0001_t3holk.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739259447/%E4%BB%96%E4%B8%8D%E5%9C%A8%E4%BB%96%E5%9C%A8%E5%AE%B6%E5%91%A2_npjsv3.mp3"
+    },
+    {
+        "id": 108, 
+        "user": "李昌浩", 
+        "title": "他住哪儿？", 
+        "segments": ["他", "住", "哪儿", "？"],
+        "description": "tā zhù nǎr<br>Where does he live?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673381/maike_vi6wyv.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739259446/%E4%BB%96%E4%BD%8F%E5%93%AA%E5%84%BF_viqkwa.mp3"
+    },
+    {
+        "id": 109, 
+        "user": "职员", 
+        "title": "他住十八楼一门，房间号是601。", 
+        "segments": ["他", "住", "十", "八", "楼", "一", "门", "，", "房间", "号", "是", "601", "。"],
+        "description": "tā zhù shíbā lóu yī mén fángjiān hào shì liù líng yāo<br>He lives in Flat 18, door 1, room number is 601.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739260265/dgguan.0001_t3holk.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739259446/%E4%BB%96%E4%BD%8F%E5%8D%81%E5%85%AB%E6%A5%BC%E4%B8%80%E9%97%A8%E6%88%BF%E9%97%B4%E5%8F%B7%E6%98%AF601_mbitjj.mp3"
+    },
+    {
+        "id": 110, 
+        "user": "李昌浩", 
+        "title": "您知道他的电话号码吗？", 
+        "segments": ["您", "知道", "他", "的", "电话", "号码", "吗", "？"],
+        "description": "nín zhīdào tā de diànhuà hàomǎ ma<br>Do you know his phone number?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673381/maike_vi6wyv.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739259447/%E6%82%A8%E7%9F%A5%E9%81%93%E4%BB%96%E7%9A%84%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E5%90%97_j5qpeg.mp3"
+    },
+    {
+        "id": 111, 
+        "user": "职员", 
+        "title": "知道，62931074。", 
+        "segments": ["知道", "62931074", "。"],
+        "description": "zhīdào liù èr jiǔ sān yāo líng qī sì<br>Yes, I do. 62931074.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739260265/dgguan.0001_t3holk.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739259446/%E7%9F%A5%E9%81%9362931074_w3enee.mp3"
+    },
+    {
+        "id": 112, 
+        "user": "李昌浩", 
+        "title": "他的手机号码是多少？", 
+        "segments": ["他", "的", "手机", "号码", "是", "多少", "？"],
+        "description": "tā de shǒujī hàomǎ shì duōshao<br>How about his mobile number?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673381/maike_vi6wyv.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739259447/%E4%BB%96%E7%9A%84%E6%89%8B%E6%9C%BA%E5%8F%B7%E7%A0%81%E6%98%AF%E5%A4%9A%E5%B0%91_bjogw9.mp3"
+    },
+    {
+        "id": 113, 
+        "user": "职员", 
+        "title": "不知道。", 
+        "segments": ["不", "知道", "。"],
+        "description": "bù zhīdào<br>I don't know.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739260265/dgguan.0001_t3holk.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739259445/%E4%B8%8D%E7%9F%A5%E9%81%93_ped1lk.mp3"
+    },
+    {
+        "id": 114, 
+        "user": "李昌浩", 
+        "title": "谢谢您！", 
+        "segments": ["谢谢", "您", "！"],
+        "description": "xièxie nín<br>Thank you!", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673381/maike_vi6wyv.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739259446/%E8%B0%A2%E8%B0%A2%E6%82%A8_oijpz0.mp3"
+    },
+    {
+        "id": 115, 
+        "user": "职员", 
+        "title": "不客气。", 
+        "segments": ["不", "客气", "。"],
+        "description": "bú kèqi<br>You're welcome.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739260265/dgguan.0001_t3holk.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739259446/%E4%B8%8D%E5%AE%A2%E6%B0%94_zawtz4.mp3"
     }
 ]
