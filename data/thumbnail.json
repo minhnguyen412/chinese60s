@@ -78,5 +78,13 @@
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738656821/hyjc-1-9_k7q53d.png",
         "videoLink": "https://www.youtube.com/embed/ng-E83Dg-KU?si=lAmjTgpd_KVG1OrK",
         "htmlLink": "posts.html?postStartId=91&postEndId=102&quizStartId=169&quizEndId=185&id=10"
+    },
+    {
+        "id": 11,
+        "title": "第十课：他住哪儿？",
+        "description": "Lesson 10: Where does he live?",
+        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739261467/hyjc-1-10_a3ocq3.png",
+        "videoLink": "https://www.youtube.com/embed/ng-E83Dg-KU?si=lAmjTgpd_KVG1OrK",
+        "htmlLink": "posts.html?postStartId=103&postEndId=115&quizStartId=169&quizEndId=185&id=11"
     }
 ]
