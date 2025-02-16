@@ -181,10 +181,28 @@
       }
       .video-section iframe {
         width: 100%;
+        height: 500px;
+      }
+    }
+    @media screen and (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      .thumbnails-section {
+        order: 2;
+        margin-top: 20px;
+      }
+      .video-section {
+        order: 1; /* Đảm bảo phần video nằm trên */
+      }
+      .video-section iframe {
+        width: 100%;
         height: 315px;
       }
     }
-    
 
     .logos-and-title {
       display: flex;
