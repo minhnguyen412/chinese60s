@@ -263,9 +263,24 @@
       }
       .buy-coffee {
         top: calc(50% - 50px); /* Đặt ở trên tag New Words */
-    }
+      }
+    @media screen and (max-width: 1024px) {
+      .container {
+        flex-direction: column;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
 
+      .thumbnails-section {
+        margin-top: 20px;
+      }
+
+      .video-section iframe {
+        width: 100%;
+        height: 400px;
+      }
     }
+    
 
   </style>
 </head>
