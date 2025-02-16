@@ -3,7 +3,7 @@
         {
             "id": 1,
             "audio": "",
-            "sentence": "Arrange the sentence according to the following structure: <br>主语（定 + 名）谓语（补语 + 动 + 补 + 定 + 宾/形）<br>___ ___ ___ ___ ___。",
+            "sentence": "1. ___ ___ ___ ___ ___。",
             "blanks": [
                 { "answer": "我" },
                 { "answer": "朋友" },
@@ -17,7 +17,7 @@
         {
             "id": 2,
             "audio": "",
-            "sentence": "Arrange the sentence according to the following structure: <br>主语（定 + 名）谓语（补语 + 动 + 补 + 定 + 宾/形）<br>___ ___ ___。",
+            "sentence": "2. ___ ___ ___。",
             "blanks": [
                 { "answer": "我" },
                 { "answer": "换" },
@@ -28,7 +28,7 @@
         {
             "id": 3,
             "audio": "",
-            "sentence": "Arrange the sentence according to the following structure: <br>主语（定 + 名）谓语（补语 + 动 + 补 + 定 + 宾/形）<br>___ ___ ___ ___。",
+            "sentence": "3. ___ ___ ___ ___。",
             "blanks": [
                 { "answer": "汉语" },
                 { "answer": "不" },
@@ -40,7 +40,7 @@
         {
             "id": 4,
             "audio": "",
-            "sentence": "Arrange the sentence according to the following structure: <br>主语 + 谓语（动词）+ 宾语<br>___ ___ ___。",
+            "sentence": "1. ___ ___ ___。",
             "blanks": [
                 { "answer": "我" },
                 { "answer": "学习" },
@@ -51,7 +51,7 @@
         {
             "id": 5,
             "audio": "",
-            "sentence": "Arrange the sentence according to the following structure: <br>主语 + 谓语（动词）+ 宾语<br>___ ___ ___。",
+            "sentence": "2. ___ ___ ___。",
             "blanks": [
                 { "answer": "他" },
                 { "answer": "吃" },
@@ -62,7 +62,7 @@
         {
             "id": 6,
             "audio": "",
-            "sentence": "Identify 主语 in the following sentence：___ 在十八楼。",
+            "sentence": "3. ___ 在十八楼。",
             "blanks": [
                 { "answer": "王老师" }
                 
@@ -72,7 +72,7 @@
         {
             "id": 7,
             "audio": "",
-            "sentence": "Identify 谓语 in the following sentence：我 ___ 图书馆。",
+            "sentence": "4. 我 ___ 图书馆。",
             "blanks": [
                 { "answer": "不去" }
             ],
@@ -80,48 +80,70 @@
         },
         {
             "id": 8,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673288/%E6%82%A8_p8k1sj.mp3",
-            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672820/%E6%82%A8_ndcupj.png", ": ___"],
+            "audio": "",
+            "sentence": "1. 6 2 3 1 0 8 9 4<br>___ ___ ___ ___ ___ ___ ___ ___",
             "blanks": [
-                { "answer": "您" }
+                { "answer": "liù" },
+                { "answer": "èr" },
+                { "answer": "sān" },
+                { "answer": "yāo" },
+                { "answer": "líng" },
+                { "answer": "bā" },
+                { "answer": "jiǔ" },
+                { "answer": "sì" }
             ],
-            "words": ["您", "我", "你"]
+            "words": ["sì", "liù", "líng", "èr", "bā", "jiǔ", "yāo", "sān"]
         },
         {
             "id": 9,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673343/%E8%AF%B7_gfbu7q.mp3",
-            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672829/%E8%AF%B7_ow5lc2.gif", ": ___"],
+            "audio": "",
+            "sentence": "2. 18 楼 4 门 8 号<br>___ ___ 楼 ___ 门 ___ 号",
             "blanks": [
-                { "answer": "请" }
+                { "answer": "shí" },
+                { "answer": "bā" },
+                { "answer": "sì" },
+                { "answer": "bā" }
+                
             ],
-            "words": ["好", "对", "请"]
+            "words": ["sì", "bā", "bā", "shí"]
         },
         {
             "id": 10,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673352/%E8%BF%9B_ldhyvd.mp3",
-            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672831/%E8%BF%9B_yvpsep.png", ": ___"],
+            "audio": "",
+            "sentence": "3. 181 号<br>___ ___ ___号",
             "blanks": [
-                { "answer": "进" }
+                { "answer": "yāo" },
+                { "answer": "bā" },
+                { "answer": "yāo" }
             ],
-            "words": ["喝", "去", "进"]
+            "words": ["yī", "bā", "yāo", "yī", "yāo"]
         },
         {
             "id": 11,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673260/%E5%9D%90_of9mvo.mp3",
-            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672815/%E5%9D%90_v3qgxh.png", ": ___"],
+            "audio": "",
+            "sentence": "4. 212 号<br>___ ___ ___号",
             "blanks": [
-                { "answer": "坐" }
+                { "answer": "èr" },
+                { "answer": "yāo" },
+                { "answer": "èr" }
             ],
-            "words": ["坐", "吃", "站"]
+            "words": ["èr", "yāo", "liǎng", "èr", "liǎng"]
         },
         {
             "id": 12,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673255/%E5%96%9D_d7eazr.mp3",
-            "sentence": "喝 : ___",
+            "audio": "",
+            "sentence": "5. 6 6 0 0 4 1 1 2 号<br>___ ___ ___ ___ ___ ___ ___ ___号",
             "blanks": [
-                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672814/%E5%96%9D_ohxgv5.png" }
+                { "answer": "liù" },
+                { "answer": "liù" },
+                { "answer": "líng" },
+                { "answer": "líng" },
+                { "answer": "sì" },
+                { "answer": "yāo" },
+                { "answer": "yāo" },
+                { "answer": "èr" }
             ],
-            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672815/%E5%9D%90_v3qgxh.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672814/%E5%96%9D_ohxgv5.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672829/%E8%AF%B7_ow5lc2.gif"]
+            "words": ["sì", "liù", "líng", "èr", "yāo", "líng", "yāo", "liù"]
         },
         {
             "id": 13,
