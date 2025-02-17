@@ -1686,5 +1686,149 @@
         "meaning": "She",
         "pinyin": "tā",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673171/%E4%BB%96%E5%A5%B9_ajweaf.mp3"
+    },
+    {
+        "id": "212",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780290/%E7%A7%98%E4%B9%A6_t5nkd8.png",
+        "character": "秘书",
+        "meaning": "secretary",
+        "pinyin": "mìshù",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780826/%E7%A7%98%E4%B9%A6_lyfgto.mp3"
+    },
+    {
+        "id": "213",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780289/%E5%85%88_cynx74.png",
+        "character": "先",
+        "meaning": "first",
+        "pinyin": "xiān",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780820/%E5%85%88_tbu8qi.mp3"
+    },
+    {
+        "id": "214",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780289/%E4%BB%8B%E7%BB%8D_ehihby.png",
+        "character": "介绍",
+        "meaning": "to introduce",
+        "pinyin": "jièshào",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780792/%E4%BB%8B%E7%BB%8D_n7yjoz.mp3"
+    },
+    {
+        "id": "215",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780288/%E4%B8%80%E4%B8%8B%E5%84%BF_ghvx5e.png",
+        "character": "一下儿",
+        "meaning": "a number measure word used after a verb to indicate one action or one try",
+        "pinyin": "yíxiàr",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780792/%E4%B8%80%E4%B8%8B%E5%84%BF_lmmn23.mp3"
+    },
+    {
+        "id": "216",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780289/%E4%BD%8D_zeun2v.png",
+        "character": "位",
+        "meaning": "a classifier used before people",
+        "pinyin": "wèi",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780793/%E4%BD%8D_fxqro0.mp3"
+    },
+    {
+        "id": "217",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780289/%E6%95%99%E6%8E%88_amzl34.png",
+        "character": "教授",
+        "meaning": "professor",
+        "pinyin": "jiàoshòu",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780823/%E6%95%99%E6%8E%88_krymqm.mp3"
+    },
+    {
+        "id": "218",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780289/%E6%A0%A1%E9%95%BF_hlkfzf.png",
+        "character": "校长",
+        "meaning": "president; principal",
+        "pinyin": "xiàozhǎng",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780824/%E6%A0%A1%E9%95%BF_fkr1ht.mp3"
+    },
+    {
+        "id": "219",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780289/%E6%AC%A2%E8%BF%8E_yk97ds.png",
+        "character": "欢迎",
+        "meaning": "to welcome; to greet",
+        "pinyin": "huānyíng",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780824/%E6%AC%A2%E8%BF%8E_torg1p.mp3"
+    },
+    {
+        "id": "220",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780290/%E7%95%99%E5%AD%A6%E7%94%9F_vpya7n.png",
+        "character": "留学生",
+        "meaning": "overseas student",
+        "pinyin": "liúxuéshēng",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780825/%E7%95%99%E5%AD%A6%E7%94%9F_pbwyoz.mp3"
+    },
+    {
+        "id": "221",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780290/%E7%95%99%E5%AD%A6_g0l30s.png",
+        "character": "留学",
+        "meaning": "to study abroad",
+        "pinyin": "liúxué",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780825/%E7%95%99%E5%AD%A6_p0bey8.mp3"
+    },
+    {
+        "id": "222",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780288/%E4%B9%9F_ywbwyj.png",
+        "character": "也",
+        "meaning": "also; too; either",
+        "pinyin": "yě",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780792/%E4%B9%9F_obgyhn.mp3"
+    },
+    {
+        "id": "223",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780290/%E6%88%91%E4%BB%AC_vuunh7.png",
+        "character": "我们",
+        "meaning": "we; us",
+        "pinyin": "wǒmen",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780823/%E6%88%91%E4%BB%AC_ymvxjs.mp3"
+    },
+    {
+        "id": "224",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780289/%E4%BD%A0%E4%BB%AC_j8awmw.png",
+        "character": "你们",
+        "meaning": "you (pl.)",
+        "pinyin": "nǐmen",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780819/%E4%BD%A0%E4%BB%AC_ia2ihu.mp3"
+    },
+    {
+        "id": "225",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780288/%E4%BB%96%E4%BB%AC_q5l67x.png",
+        "character": "他们",
+        "meaning": "they; them",
+        "pinyin": "tāmen",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780792/%E4%BB%96%E4%BB%AC_se20bo.mp3"
+    },
+    {
+        "id": "226",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780291/%E9%83%BD_e8alze.png",
+        "character": "都",
+        "meaning": "all; both",
+        "pinyin": "dōu",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780826/%E9%83%BD_xcpuvq.mp3"
+    },
+    {
+        "id": "227",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780289/%E4%BF%A9_mtslwd.png",
+        "character": "俩",
+        "meaning": "two",
+        "pinyin": "liǎ",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780819/%E4%BF%A9_tuovmh.mp3"
+    },
+    {
+        "id": "228",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780290/%E5%AD%A6%E7%94%9F_qrgeou.png",
+        "character": "学生",
+        "meaning": "student",
+        "pinyin": "xuésheng",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780822/%E5%AD%A6%E7%94%9F_kkkhiu.mp3"
+    },
+    {
+        "id": "229",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672810/%E4%BB%96%E5%A5%B9_ixxred.png",
+        "character": "没什么",
+        "meaning": "do not matter; never to mind",
+        "pinyin": "méi shénme",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673171/%E4%BB%96%E5%A5%B9_ajweaf.mp3"
     }
 ]
