@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRAMMAR</title>
+    <link rel="stylesheet" href="grammar.css">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html, body {
+        height: 100%;
+      
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        display: flex;
+        flex-direction: column;
+        background-image: url('3.png'); /* Đường dẫn đến ảnh */
+        background-size: cover; /* Ảnh phủ toàn bộ màn hình */
+        background-position: center; /* Căn giữa */
+        background-repeat: no-repeat; /* Không lặp lại ảnh */
+        background-attachment: fixed;
+      }
+      /* Header */
+      header {
+        background-color: #8bc34a;
+        color: white;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 50px;
+        padding-right: 50px;
+      }
+      .homepage-link {
+        text-decoration: none;
+        color: white; /* Giữ nguyên màu sắc của text gốc */
+      }
+      .menu-toggle {
+        display: none;
+        font-size: 24px;
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+      }
+
+      nav ul li a:hover {
+        text-decoration: underline;
+      }
+      /* Hide menu in responsive mode */
+      nav {
+        display: flex;
+      }
+
+      /* Responsive cho màn hình nhỏ hơn 768px */
+      @media screen and (max-width: 768px) {
+        .menu-toggle {
+          display: block;
+          position: absolute;
+          top: 15px;
+          right: 20px;
+        }
+
+        nav {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 60px;
+          right: 0;
+          background-color: #8bc34a;
+          width: 100%;
+          padding: 10px 0;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.show {
+          display: flex;
+        }
+
+        nav ul {
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+        }
+
+        nav ul li a {
+          font-size: 1rem;
+        }
+      }
+
+    
+      .logos-and-title {
+      
+        display: flex;
+        justify-content: center; /* Phân tách khoảng cách giữa các phần tử */
+        align-items: center;/* Căn giữa theo chiều dọc */
+        width: 100%;
+      
+      
+      }
+
+      .logos-and-title .logo {
+        width: 100%;
+        height: auto;
+        max-height: 800px;
+        object-fit: contain;
+      }
+    
+      /* Buttons Section */
+      .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 10px; /* Khoảng cách giữa các nút */
+        margin-top: 10px; /* Khoảng cách giữa title và buttons */
+        width: 100%; /* Đảm bảo sử dụng toàn bộ chiều rộng */
+      }
+
+      .button-container button {
+        padding: 10px 15px;
+        background-color: #fff45e;
+        color: black;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        flex: 0 1 200px; /* Đặt chiều rộng tối đa cho nút */
+        max-width: 200px; /* Chiều rộng tối đa */
+        text-align: center; /* Căn giữa nội dung */
+        font-weight: bold;
+        font-size: 16px;
+      }
+
+      .button-container button:hover {
+        background-color: #f7eb3e; /* Màu hover */
+      }
+
+    
+
+      /* Footer */
+      footer {
+        background-color: #8bc34a;
+        color: white;
+        padding: 15px;
+        text-align: center;
+      }
+
+      footer .social-icons {
+        margin-top: 10px;
+      }
+
+      footer .social-icons a {
+        margin: 0 10px;
+        text-decoration: none;
+        color: white;
+      }
+    
+    
+  /* Responsive cho màn hình nhỏ hơn 768px */
+  @media screen and (max-width: 768px) {
+      /* Header */
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      /* Logos and Title */
+      .logos-and-title {
+        flex-direction: column;
+        padding: 10px;
+      }
+
+      .logos-and-title .logo {
+    
+        max-height: 200px;
+        margin: 10px 0;
+        
+      }
+      .button-container button {
+        flex: 0 1 120px; /* Đặt chiều rộng tối đa cho nút */
+        max-width: 120px; /* Chiều rộng tối đa */
+        font-size: 13px;
+      }
+
+    
+
+      /* Typography */
+      h1 {
+        font-size: 1.5rem;
+      }
+
+    
+  }
+
+  /* Responsive cho màn hình rất nhỏ */
+  @media screen and (max-width: 480px) {
+      header h1 {
+        font-size: 1.3rem;
+      }
+
+      .logos-and-title .logo {
+    
+        
+        max-height: 150px;
+      }
+
+      
+  }
+  </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+      <h1><a href="index.html" class="homepage-link">CHINESE 60s</a></h1>
+      <button class="menu-toggle" aria-label="Toggle navigation">
+        &#9776; <!-- Biểu tượng ba gạch -->
+      </button>
+      <nav>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="shop.html">Shop</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    
+      
+    </div>
+    <!-- Buttons Section -->
+    <div class="button-container">
+      <button onclick="location.href='newword.html'">New Words</button>
+      <button onclick="location.href='write.html'">Learn to write</button>
+    </div>
+    <div class="container">
+        <h1>GRAMMAR</h1>
+        <div class="accordion">
+            <!-- Mục 1 -->
+            <div class="accordion-item" id="[1]">
+                <button class="accordion-header">
+                    <span>[1] 汉语句子的语序 - The grammatical order in Chinese sentences</span> 
+                    <span class="toggle-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <p>There are no morphological changes in the strict sense in Chinese; the word order is the main grammatical constituent of the language.</p>
+                    <p>主语：Subject - 谓语：Predicate - 名词：Noun - 动词：Verb - 形容词：Adjective - 宾语：Object - 定语：Attribute/Modifier - 补语：Complement</p>
+                    <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">主语（定 + 名）谓语（补语 + 动 + 补 + 定 + 宾/形）</p>
+                    
+                    <div id="quiz-container-1" data-start-id="1" data-end-id="3"></div>
+                    <script src="quiz.js"></script>
+                </div>
+            </div>
+
+            <!-- Mục 2 -->
+            <div class="accordion-item" id="[2]">
+                <button class="accordion-header">
+                    <span>[2] 动词谓语句 - The sentence with a verb as its predicate</span> 
+                    <span class="toggle-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <p>A sentence with a verb as its predicate is one in which the verb is the main element of the predicate. The grammatical order is:</p>
+                    <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">主语 + 谓语（动词）+ 宾语</p>
+                    <p style="font-size: 12px;">主语：Subject - 谓语：Predicate - 动词：Verb - 宾语：Object</p>
+                    <div id="quiz-container-2" data-start-id="4" data-end-id="7"></div>
+                    <script src="quiz.js"></script>
+                </div>
+            </div>
+
+            <!-- Mục 2 -->
+            <div class="accordion-item" id="[3]">
+                <button class="accordion-header">
+                    <span>[3] 号码的读法 - How to read numbers</span> 
+                    <span class="toggle-icon">+</span>
+                </button>
+                <div class="accordion-content">
+                    <p>In reading a cardinal number, no matter how many digits there are, they are read out one by one. For example: telephone numbers, house numbers, passport numbers, car numbers, etc</p>
+                    <p>1. "一" is often read as "yāo"</p>
+                    <p>2. "二" is read as "èr", and cannot be read as "liǎng"</p>
+                    <p>3. Identical numbers are read out one by one</p>
+                    <p>When inquiring about numbers, we say "几号" or "...号码是多少?"</p>
+                    <div id="quiz-container-3" data-start-id="8" data-end-id="12"></div>
+                    <script src="quiz.js"></script>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="grammar.js"></script>
+    <!-- Footer -->
+    <footer>
+      <p>Chinese60s</p>
+      <p>Learn Mandarin through images and videos</p>
+      <div class="social-icons">
+        <a href="#">Facebook</a>
+        <a href="#">YouTube</a>
+        <a href="#">TikTok</a>
+        <a href="#">Instagram</a>
+      </div>
+    </footer>
+    <script>
+      // JavaScript để điều khiển nút hamburger menu
+      document.addEventListener('DOMContentLoaded', function () {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('nav');
+
+        menuToggle.addEventListener('click', function () {
+          nav.classList.toggle('show');
+
+          // Chuyển đổi biểu tượng giữa ba gạch và dấu X
+          if (nav.classList.contains('show')) {
+            menuToggle.innerHTML = '&#10005;'; // Biểu tượng X
+          } else {
+            menuToggle.innerHTML = '&#9776;'; // Biểu tượng ba gạch
+          }
+        });
+      });
+    </script>
+</body>
+</html>
