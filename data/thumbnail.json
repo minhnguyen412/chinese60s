@@ -86,5 +86,29 @@
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739261467/hyjc-1-10_a3ocq3.png",
         "videoLink": "https://www.youtube.com/embed/ng-E83Dg-KU?si=lAmjTgpd_KVG1OrK",
         "htmlLink": "posts.html?postStartId=103&postEndId=115&quizStartId=186&quizEndId=205&id=11"
+    },
+    {
+        "id": 12,
+        "title": "第十一课 (一)：这位是王教授",
+        "description": "Lesson 11 (1): This is Professor Wang",
+        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739864691/hyjc-1-11-1_cctuhg.png",
+        "videoLink": "https://www.youtube.com/embed/ng-E83Dg-KU?si=lAmjTgpd_KVG1OrK",
+        "htmlLink": "posts.html?postStartId=116&postEndId=120&quizStartId=186&quizEndId=205&id=11"
+    },
+    {
+        "id": 13,
+        "title": "第十一课 (二)：我们都是留学生",
+        "description": "Lesson 11 (2): We are both international students",
+        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739864691/hyjc-1-11-2_mkoo67.png",
+        "videoLink": "https://www.youtube.com/embed/ng-E83Dg-KU?si=lAmjTgpd_KVG1OrK",
+        "htmlLink": "posts.html?postStartId=121&postEndId=128&quizStartId=186&quizEndId=205&id=11"
+    },
+    {
+        "id": 14,
+        "title": "第十一课 (三)：你也是中国人吗？",
+        "description": "Lesson 11 (3): Are you Chinese too?",
+        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739864698/hyjc-1-11-3_a9jbj4.png",
+        "videoLink": "https://www.youtube.com/embed/ng-E83Dg-KU?si=lAmjTgpd_KVG1OrK",
+        "htmlLink": "posts.html?postStartId=129&postEndId=134&quizStartId=186&quizEndId=205&id=11"
     }
 ]
