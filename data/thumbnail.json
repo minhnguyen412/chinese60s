@@ -93,7 +93,7 @@
         "description": "Lesson 11 (1): This is Professor Wang",
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739864691/hyjc-1-11-1_cctuhg.png",
         "videoLink": "https://www.youtube.com/embed/ng-E83Dg-KU?si=lAmjTgpd_KVG1OrK",
-        "htmlLink": "posts.html?postStartId=116&postEndId=120&quizStartId=186&quizEndId=205&id=11"
+        "htmlLink": "posts.html?postStartId=116&postEndId=120&quizStartId=186&quizEndId=205&id=12"
     },
     {
         "id": 13,
@@ -101,7 +101,7 @@
         "description": "Lesson 11 (2): We are both international students",
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739864691/hyjc-1-11-2_mkoo67.png",
         "videoLink": "https://www.youtube.com/embed/ng-E83Dg-KU?si=lAmjTgpd_KVG1OrK",
-        "htmlLink": "posts.html?postStartId=121&postEndId=128&quizStartId=186&quizEndId=205&id=11"
+        "htmlLink": "posts.html?postStartId=121&postEndId=128&quizStartId=186&quizEndId=205&id=13"
     },
     {
         "id": 14,
@@ -109,6 +109,6 @@
         "description": "Lesson 11 (3): Are you Chinese too?",
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739864698/hyjc-1-11-3_a9jbj4.png",
         "videoLink": "https://www.youtube.com/embed/ng-E83Dg-KU?si=lAmjTgpd_KVG1OrK",
-        "htmlLink": "posts.html?postStartId=129&postEndId=134&quizStartId=186&quizEndId=205&id=11"
+        "htmlLink": "posts.html?postStartId=129&postEndId=134&quizStartId=186&quizEndId=205&id=14"
     }
 ]
