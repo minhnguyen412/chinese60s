@@ -62,8 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 sentenceDiv.style.display = 'block';
                 optionsDiv.style.display = 'block';
                 buttonsDiv.style.display = 'block';
-                // Hiển thị nút Retry
-                retryButton.style.display = 'block'; // Hiện nút Retry khi bắt đầu
+                
                 
                 // Call displayQuestion to show the first question
                 displayQuestion(currentQuestionIndex);
