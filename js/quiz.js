@@ -114,6 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     initialAudio.play();
                 });
                 buttonsDiv.appendChild(replayButton);
+                showRetryButton();
             }
 
             // Hàm kiểm tra nếu một chuỗi là đường dẫn hình ảnh
