@@ -66,7 +66,7 @@ document.querySelectorAll('[id^="quiz-container"]').forEach(quizContainer => {
                     checkButton.textContent = 'Check';
                     checkButton.classList.add('check-button');
                     checkButton.addEventListener('click', function () {
-                checkGrammarQuizAnswers(this, quizContainer, questionIndex, question);
+                checkAnswers(this, quizContainer, questionIndex, question);
                     });
 
                     // Thêm mọi thứ vào giao diện
@@ -104,14 +104,16 @@ function handleWordClick(button, quizContainer) {
 }
 
 // Hàm kiểm tra đáp án
-function checkGrammarQuizAnswers(button, quizContainer, questionIndex, question) {
-    const questionDiv = quizContainer.querySelector(`.quiz-question[data-index="${questionIndex}"]`);
+// Hàm kiểm tra đáp án
+function checkAnswers(button, quizContainer, questionIndex, question) {
+    const questionDiv = quizContainer.querySelectorAll('.quiz-question')[questionIndex];
     const blanks = questionDiv.querySelectorAll('.blank');
     const resultDiv = questionDiv.querySelector('.result');
 
     let correct = true;
+
     blanks.forEach((blank, index) => {
-        if (!blank.dataset.word || normalizeText(blank.dataset.word) !== normalizeText(question.blanks[index].answer)) {
+        if (blank.dataset.word !== question.blanks[index].answer) {
             correct = false;
         }
     });
