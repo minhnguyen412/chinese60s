@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     resultDiv.textContent = 'Incorrect. Try again!';
                     resultDiv.classList.add('incorrect');
                     incorrectAudio.play();
-                    showRetryButton();
+                    retryButton.style.display = 'block';
                 }
             }
 
