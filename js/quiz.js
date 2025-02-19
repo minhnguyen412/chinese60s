@@ -45,16 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
             resultDiv.style.display = 'none';
             buttonsDiv.style.display = 'none';
             
-            // Thêm nút Retry ngay từ đầu
-            const retryButton = document.createElement('button');
-            retryButton.textContent = 'Retry';
-            retryButton.classList.add('retry');
-            retryButton.style.display = 'none'; // Ẩn nút này lúc đầu
-            retryButton.addEventListener('click', () => {
-            displayQuestion(currentQuestionIndex);
-            });
-            buttonsDiv.appendChild(retryButton); // Thêm nút vào buttonsDiv
-
+            
             // Add event listener for the start button
             document.getElementById('start-button').addEventListener('click', () => {
                 // Hide the start button and show the question elements
@@ -190,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     resultDiv.textContent = 'Incorrect. Try again!';
                     resultDiv.classList.add('incorrect');
                     incorrectAudio.play();
-                    retryButton.style.display = 'block';
+                    showRetryButton();
                 }
             }
 
@@ -210,6 +201,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 });
                 buttonsDiv.appendChild(nextButton);
+            }
+            function showRetryButton() {
+                const retryButton = document.createElement('button');
+                retryButton.textContent = 'Retry';
+                retryButton.classList.add('retry');
+                retryButton.addEventListener('click', () => {
+                    displayQuestion(currentQuestionIndex);
+                });
+                buttonsDiv.appendChild(retryButton);
             }
 
             
