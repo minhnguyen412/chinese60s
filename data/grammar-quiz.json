@@ -152,7 +152,7 @@
             "blanks": [
                 { "answer": "你是中国人吗" },
                 { "answer": "是" },
-                { "answer": "我是中国人" },
+                { "answer": "我是中国人" }
                
             ],
             "words": []
