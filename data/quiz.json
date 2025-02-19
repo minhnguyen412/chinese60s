@@ -2160,6 +2160,268 @@
                 
             ],
             "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1739174875/%E7%94%B5%E8%AF%9D_gvpcpf.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672812/%E5%8F%A3_jhvoae.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174875/%E6%89%8B%E6%9C%BA_wgfzgw.png"]
+        },
+        {
+            "id": 206,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860813/%E8%BF%99%E4%BD%8D%E6%98%AF%E7%8E%8B%E6%95%99%E6%8E%88_irpzxf.mp3",
+            "sentence": "This is Professor Wang. <br> ___ ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "这" },
+                { "answer": "位" },
+                { "answer": "是" },
+                { "answer": "王" },
+                { "answer": "教" },
+                { "answer": "授" }
+            ],
+            "words": ["授", "这", "教", "是", "位", "王"]
+        },
+        {
+            "id": 207,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860814/%E6%88%91%E5%85%88%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E5%84%BF_kqxqwj.mp3",
+            "sentence": "First let me introduce you. <br> ___ ___ ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "我" },
+                { "answer": "先" },
+                { "answer": "介" },
+                { "answer": "绍" },
+                { "answer": "一" },
+                { "answer": "下" },
+                { "answer": "儿" }
+            ],
+            "words": ["儿", "先", "介", "我", "下", "一", "绍"]
+        },
+        {
+            "id": 208,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860814/%E8%BF%99%E6%98%AF%E9%A9%AC%E6%A0%A1%E9%95%BF_agwstg.mp3",
+            "sentence": "This is Principal Ma. <br> ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "这" },
+                { "answer": "是" },
+                { "answer": "马" },
+                { "answer": "校" },
+                { "answer": "长" }
+                
+            ],
+            "words": ["马", "校", "这", "长", "是"]
+        },
+        {
+            "id": 209,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860812/%E6%AC%A2%E8%BF%8E%E6%82%A8%E7%8E%8B%E6%95%99%E6%8E%88_vaksg0.mp3",
+            "sentence": "Welcome, Professor Wang. <br> ___ ___ ___， ___ ___ ___。",
+            "blanks": [
+                { "answer": "欢" },
+                { "answer": "迎" },
+                { "answer": "您" },
+                { "answer": "王" },
+                { "answer": "教" },
+                { "answer": "授" }
+            ],
+            "words": ["授", "您", "迎", "王", "欢", "教"]
+        },
+        {
+            "id": 210,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780792/%E4%BB%8B%E7%BB%8D_n7yjoz.mp3",
+            "sentence": "介绍： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780289/%E4%BB%8B%E7%BB%8D_ehihby.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1739780289/%E4%BB%8B%E7%BB%8D_ehihby.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672832/%E9%9A%BE_qifqhi.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672832/%E9%97%AE_dtqubo.png"]
+        },
+        {
+            "id": 211,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780823/%E6%95%99%E6%8E%88_krymqm.mp3",
+            "sentence": "教授： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780289/%E6%95%99%E6%8E%88_amzl34.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1739780290/%E7%A7%98%E4%B9%A6_t5nkd8.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672816/%E5%A5%B3_gvhben.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780289/%E6%95%99%E6%8E%88_amzl34.png"]
+        },
+        {
+            "id": 212,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780824/%E6%A0%A1%E9%95%BF_fkr1ht.mp3",
+            "sentence": "校长： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780289/%E6%A0%A1%E9%95%BF_hlkfzf.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672820/%E5%BF%99_ieenmg.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780289/%E6%A0%A1%E9%95%BF_hlkfzf.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780290/%E5%AD%A6%E7%94%9F_qrgeou.png"]
+        },
+        {
+            "id": 213,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860814/%E6%88%91%E4%BB%AC%E9%83%BD%E6%98%AF%E7%95%99%E5%AD%A6%E7%94%9F_z7bypr.mp3",
+            "sentence": "We are both international students. <br> ___ ___ ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "我" },
+                { "answer": "们" },
+                { "answer": "都" },
+                { "answer": "是" },
+                { "answer": "留" },
+                { "answer": "学" },
+                { "answer": "生" }
+            ],
+            "words": ["是", "们", "留", "我", "生", "学", "都"]
+        },
+        {
+            "id": 214,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860812/%E4%BD%A0%E6%98%AF%E7%95%99%E5%AD%A6%E7%94%9F%E5%90%97_msu6y3.mp3",
+            "sentence": "Are you an international student? <br> ___ ___ ___ ___ ___ ___？",
+            "blanks": [
+                { "answer": "你" },
+                { "answer": "是" },
+                { "answer": "留" },
+                { "answer": "学" },
+                { "answer": "生" },
+                { "answer": "吗" }
+                
+            ],
+            "words": ["是", "吗", "留", "生", "学", "你"]
+        },
+        {
+            "id": 215,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860813/%E7%BD%97%E5%85%B0%E4%B9%9F%E6%98%AF%E7%95%99%E5%AD%A6%E7%94%9F%E5%90%97_gjz5jm.mp3",
+            "sentence": "Is Roland also an international student? <br> ___ ___ ___ ___ ___ ___ ___ ___？",
+            "blanks": [
+                { "answer": "罗" },
+                { "answer": "兰" },
+                { "answer": "也" },
+                { "answer": "是" },
+                { "answer": "留" },
+                { "answer": "学" },
+                { "answer": "生" },
+                { "answer": "吗" }
+            ],
+            "words": ["是", "吗", "留", "生", "学", "罗", "也", "兰"]
+        },
+        {
+            "id": 216,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860814/%E5%BC%A0%E4%B8%9C%E5%92%8C%E7%94%B0%E8%8A%B3%E4%B9%9F%E9%83%BD%E6%98%AF%E7%95%99%E5%AD%A6%E7%94%9F%E5%90%97_tkptm3.mp3",
+            "sentence": "Are Zhang Dong and Tian Fang also international students? <br> ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___？",
+            "blanks": [
+                { "answer": "张" },
+                { "answer": "东" },
+                { "answer": "和" },
+                { "answer": "田" },
+                { "answer": "芳" },
+                { "answer": "也" },
+                { "answer": "都" },
+                { "answer": "是" },
+                { "answer": "留" },
+                { "answer": "学" },
+                { "answer": "生" },
+                { "answer": "吗" }
+            ],
+            "words": ["和", "东", "留", "田", "学", "芳", "也", "张", "都", "吗", "是", "生"]
+        },
+        {
+            "id": 217,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860811/%E4%B8%8D%E4%BB%96%E4%BB%AC%E4%BF%A9%E4%B8%8D%E6%98%AF%E7%95%99%E5%AD%A6%E7%94%9F_vjpgrs.mp3",
+            "sentence": "No, the two of them are not international students. <br> ___, ___ ___ ___ ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "不" },
+                { "answer": "他" },
+                { "answer": "们" },
+                { "answer": "俩" },
+                { "answer": "不" },
+                { "answer": "是" },
+                { "answer": "留" },
+                { "answer": "学" },
+                { "answer": "生" }
+                
+            ],
+            "words": ["俩", "不", "他", "是", "学", "们", "生", "不", "留"]
+        },
+        {
+            "id": 218,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780823/%E6%88%91%E4%BB%AC_ymvxjs.mp3",
+            "sentence": "我们： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780290/%E6%88%91%E4%BB%AC_vuunh7.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1739780289/%E4%BD%A0%E4%BB%AC_j8awmw.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780288/%E4%BB%96%E4%BB%AC_q5l67x.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780290/%E6%88%91%E4%BB%AC_vuunh7.png"]
+        },
+        {
+            "id": 219,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780819/%E4%BD%A0%E4%BB%AC_ia2ihu.mp3",
+            "sentence": "你们： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780289/%E4%BD%A0%E4%BB%AC_j8awmw.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1739780289/%E4%BD%A0%E4%BB%AC_j8awmw.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780288/%E4%BB%96%E4%BB%AC_q5l67x.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780290/%E6%88%91%E4%BB%AC_vuunh7.png"]
+        },
+        {
+            "id": 220,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780792/%E4%BB%96%E4%BB%AC_se20bo.mp3",
+            "sentence": "他们： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780288/%E4%BB%96%E4%BB%AC_q5l67x.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1739780289/%E4%BD%A0%E4%BB%AC_j8awmw.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780288/%E4%BB%96%E4%BB%AC_q5l67x.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780290/%E6%88%91%E4%BB%AC_vuunh7.png"]
+        },
+        {
+            "id": 221,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860812/%E4%BD%A0%E4%B9%9F%E6%98%AF%E4%B8%AD%E5%9B%BD%E4%BA%BA%E5%90%97_zh5wsz.mp3",
+            "sentence": "Are you Chinese too? <br> ___ ___ ___ ___ ___ ___ ___？",
+            "blanks": [
+                { "answer": "你" },
+                { "answer": "也" },
+                { "answer": "是" },
+                { "answer": "中" },
+                { "answer": "国" },
+                { "answer": "人" },
+                { "answer": "吗" }
+                
+                
+            ],
+            "words": ["也", "中", "人", "你", "吗", "国", "是"]
+        },
+        {
+            "id": 222,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860812/%E4%BB%96%E6%98%AF%E4%B8%AD%E5%9B%BD%E4%BA%BA%E5%90%97_cjizly.mp3",
+            "sentence": "Is he Chinese? <br> ___ ___ ___ ___ ___ ___ ___？",
+            "blanks": [
+                { "answer": "他" },
+                { "answer": "是" },
+                { "answer": "中" },
+                { "answer": "国" },
+                { "answer": "人" },
+                { "answer": "吗" }
+                
+                
+                
+            ],
+            "words": ["中", "人", "他", "吗", "国", "是"]
+        },
+        {
+            "id": 223,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860811/%E4%B8%8D%E6%98%AF%E6%88%91%E6%98%AF%E9%9F%A9%E5%9B%BD%E4%BA%BA_ahchq4.mp3",
+            "sentence": "No, I am Korean. <br> ___ ___, ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "不" },
+                { "answer": "是" },
+                { "answer": "我" },
+                { "answer": "是" },
+                { "answer": "韩" },
+                { "answer": "国" },
+                { "answer": "人" }
+                
+                
+            ],
+            "words": ["不", "韩", "我", "人", "国", "是", "是"]
+        },
+        {
+            "id": 224,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780825/%E6%B2%A1%E4%BB%80%E4%B9%88_j0gta9.mp3",
+            "sentence": "没什么： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780290/%E6%B2%A1%E4%BB%80%E4%B9%88_q1shcw.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672816/%E5%A5%BD_cktmxb.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780290/%E6%B2%A1%E4%BB%80%E4%B9%88_q1shcw.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672832/%E9%97%AE_dtqubo.png"]
         }
     ]
 }
