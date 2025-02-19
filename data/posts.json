@@ -1039,7 +1039,7 @@
         "user": "秘书", 
         "title": "我先介绍一下儿。", 
         "segments": ["我", "先", "介绍", "一下儿", "。"],
-        "description": "wǒ xiān jièshào yíxiàr<br>Firstly, let me introduce you.", 
+        "description": "wǒ xiān jièshào yíxiàr<br>First let me introduce you.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/xiaojie.0001_gjt1qd.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860814/%E6%88%91%E5%85%88%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E5%84%BF_kqxqwj.mp3"
     },
@@ -1057,7 +1057,7 @@
         "user": "秘书", 
         "title": "这是马校长。", 
         "segments": ["这", "是", "马", "校长", "。"],
-        "description": "zhè shì mǎ xiàozhǎng<br>And this is Principal Ma.", 
+        "description": "zhè shì mǎ xiàozhǎng<br>This is Principal Ma.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/xiaojie.0001_gjt1qd.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860814/%E8%BF%99%E6%98%AF%E9%A9%AC%E6%A0%A1%E9%95%BF_agwstg.mp3"
     },
@@ -1093,7 +1093,7 @@
         "user": "B", 
         "title": "是。", 
         "segments": ["是", "。"],
-        "description": "shì<br>Yes, I am.", 
+        "description": "shì<br>Yes.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739861164/DEVI.0001_vviafz.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860811/%E6%98%AF_gvjgo0.mp3"
     },
@@ -1111,7 +1111,7 @@
         "user": "B", 
         "title": "她也是留学生。", 
         "segments": ["她", "也", "是", "留学生", "。"],
-        "description": "tā yě shì liúxuéshēng<br>Yes, she is also an international student.", 
+        "description": "tā yě shì liúxuéshēng<br>She is also an international student.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739861164/DEVI.0001_vviafz.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860813/%E5%A5%B9%E4%B9%9F%E6%98%AF%E7%95%99%E5%AD%A6%E7%94%9F_eujgmq.mp3"
     },
@@ -1138,7 +1138,7 @@
         "user": "B", 
         "title": "不，他们俩不是留学生。", 
         "segments": ["不", "，", "他们", "俩", "不", "是", "留学生", "。"],
-        "description": "bù tāmen liǎ bú shì liúxuéshēng<br>No, they are not.", 
+        "description": "bù tāmen liǎ bú shì liúxuéshēng<br>No, the two of them are not international students.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739861164/DEVI.0001_vviafz.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860811/%E4%B8%8D%E4%BB%96%E4%BB%AC%E4%BF%A9%E4%B8%8D%E6%98%AF%E7%95%99%E5%AD%A6%E7%94%9F_vjpgrs.mp3"
     },
@@ -1147,7 +1147,7 @@
         "user": "B", 
         "title": "他们都是中国学生。", 
         "segments": ["他们", "都", "是", "中国", "学生", "。"],
-        "description": "tāmen dōu shì zhōngguó xuésheng<br>They are Chinese students.", 
+        "description": "tāmen dōu shì zhōngguó xuésheng<br>They are both Chinese students.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739861164/DEVI.0001_vviafz.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860813/%E4%BB%96%E4%BB%AC%E9%83%BD%E6%98%AF%E4%B8%AD%E5%9B%BD%E5%AD%A6%E7%94%9F_jicyos.mp3"
     },
