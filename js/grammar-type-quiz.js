@@ -14,19 +14,21 @@ async function loadQuiz() {
 
         // Duyệt qua tất cả các quiz-container
         document.querySelectorAll('[id^="quiz-container"]').forEach(quizContainer => {
-            const startId = parseInt(quizContainer.dataset.startId, 10);
-            const endId = parseInt(quizContainer.dataset.endId, 10);
-            
-            // Lọc câu hỏi theo ID
-            const filteredQuestions = data.questions.filter(q => q.id >= startId && q.id <= endId);
-            displayQuiz(filteredQuestions, quizContainer);
+            // Kiểm tra nếu container có class grammar-type-quiz
+            if (quizContainer.classList.contains('grammar-type-quiz')) {
+                const startId = parseInt(quizContainer.dataset.startId, 10);
+                const endId = parseInt(quizContainer.dataset.endId, 10);
+                
+                // Lọc câu hỏi theo ID
+                const filteredQuestions = data.questions.filter(q => q.id >= startId && q.id <= endId);
+                displayQuiz(filteredQuestions, quizContainer);
+            }
         });
     } catch (error) {
         console.error("Error loading quiz:", error);
         document.getElementById("quizContainer").innerHTML = "<p>Failed to load quiz.</p>";
     }
 }
-
 // Hàm hiển thị quiz
 function displayQuiz(questions, quizContainer) {
     quizContainer.innerHTML = ""; // Xóa nội dung cũ
