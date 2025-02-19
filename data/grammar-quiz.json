@@ -147,30 +147,55 @@
         },
         {
             "id": 13,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673336/%E8%8C%B6_qjl60i.mp3",
-            "sentence": "茶 : ___",
+            "audio": "",
+            "sentence": "A: Are you Chinese? ___ ___ ___ ___?<br>B: Yes. (I am Chinese.) ___。 ___ ___ ___。",
             "blanks": [
-                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672827/%E8%8C%B6_wqnz2r.png" }
+                { "answer": "你" },
+                { "answer": "是" },
+                { "answer": "中国人" },
+                { "answer": "吗" },
+                { "answer": "是" },
+                { "answer": "我" },
+                { "answer": "是" },
+                { "answer": "中国人" }
+               
             ],
-            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672815/%E5%A4%A9_f0dh1g.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672827/%E8%8C%B6_wqnz2r.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672812/%E5%8F%96_srztqx.png"]
+            "words": []
         },
         {
             "id": 14,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673274/%E5%AE%A2%E6%B0%94_n00npd.mp3",
-            "sentence": "客气 : ___",
+            "audio": "",
+            "sentence": "A: Are you a teacher? ___ ___ ___ ___?<br>B: No. I am a student. ___。 ___ ___ ___。",
             "blanks": [
-                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672818/%E5%AE%A2%E6%B0%94_bafdxn.png" }
+                { "answer": "你" },
+                { "answer": "是" },
+                { "answer": "老师" },
+                { "answer": "吗" },
+                { "answer": "不是" },
+                { "answer": "我" },
+                { "answer": "是" },
+                { "answer": "学生" }
+              
+                
             ],
-            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672818/%E5%AE%A2%E6%B0%94_bafdxn.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672815/%E5%9B%9E_hwrdue.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672817/%E5%AD%A6_ohlrfe.png"]
+            "words": []
         },
         {
             "id": 15,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673280/%E5%B7%A5%E4%BD%9C_dhayvb.mp3",
-            "sentence": "工作 : ___",
+            "audio": "",
+            "sentence": "A: Are they all international students? ___ ___ ___ ___ ___?<br>B: They are all international students. ___ ___ ___ ___。",
             "blanks": [
-                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672818/%E5%B7%A5%E4%BD%9C_vym8um.png" }
+                { "answer": "他们" },
+                { "answer": "都" },
+                { "answer": "是" },
+                { "answer": "留学生" },
+                { "answer": "吗" },
+                { "answer": "他们" },
+                { "answer": "都" },
+                { "answer": "是" },
+                { "answer": "留学生" }              
             ],
-            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672816/%E5%A5%BD_cktmxb.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672818/%E5%B7%A5%E4%BD%9C_vym8um.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672820/%E6%82%A8_ndcupj.png"]
+            "words": []
         },
         {
             "id": 16,
