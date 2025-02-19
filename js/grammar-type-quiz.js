@@ -47,7 +47,7 @@ function displayQuiz(questions, quizContainer) {
 
         const questionHTML = `
             <p>${sentenceHTML}</p>
-            <button onclick="checkAnswers(${index}, ${question.blanks.length}, '${quizContainer.id}')">Check</button>
+            <button onclick="checkGrammarTypeQuizAnswers(${index}, ${question.blanks.length}, '${quizContainer.id}')">Check</button>
             <p class="result" id="result-${quizContainer.id}-${index}"></p>
         `;
 
@@ -56,27 +56,27 @@ function displayQuiz(questions, quizContainer) {
 }
 
 // Hàm kiểm tra câu trả lời, chỉ hoạt động trong container có class 'grammar-type-quiz'
-function checkAnswers(questionIndex, numAnswers, containerId) {
+function checkGrammarTypeQuizAnswers(questionIndex, numAnswers, containerId) {
     const quizContainer = document.getElementById(containerId);
 
-    // Đảm bảo chỉ chạy trong container có class 'grammar-type-quiz'
-    if (!quizContainer || !quizContainer.classList.contains("grammar-type-quiz")) return;
+    fetch("https://raw.githubusercontent.com/minhnguyen412/chinese60s/refs/heads/main/data/grammar-quiz.json")
+        .then(response => response.json())
+        .then(data => {
+            const correctAnswers = data.questions[questionIndex].blanks.map(blank => blank.answer);
+            let isCorrect = true;
 
-    // Lấy dữ liệu từ dataset đã lưu trước đó
-    const quizData = JSON.parse(quizContainer.dataset.quizData);
-    const correctAnswers = quizData[questionIndex].blanks.map(blank => blank.answer);
+            for (let i = 0; i < numAnswers; i++) {
+                const userAnswer = quizContainer.querySelector(`#answer${questionIndex}-${i}`).value;
+                if (normalizeText(userAnswer) !== normalizeText(correctAnswers[i])) {
+                    isCorrect = false;
+                }
+            }
 
-    let isCorrect = true;
-    for (let i = 0; i < numAnswers; i++) {
-        const userAnswer = quizContainer.querySelector(`#answer-${containerId}-${questionIndex}-${i}`).value;
-        if (normalizeText(userAnswer) !== normalizeText(correctAnswers[i])) {
-            isCorrect = false;
-        }
-    }
-
-    document.getElementById(`result-${containerId}-${questionIndex}`).textContent = isCorrect
-        ? "✅ Correct! Well done!"
-        : "❌ Incorrect! Try again.";
+            quizContainer.querySelector(`#result${questionIndex}`).textContent = isCorrect
+                ? "✅ Correct! Well done!"
+                : "❌ Incorrect! Try again.";
+        })
+        .catch(error => console.error("Error checking answers:", error));
 }
 
 // Tải quiz khi trang web mở lên
