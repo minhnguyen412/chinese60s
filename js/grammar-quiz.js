@@ -1,84 +1,86 @@
 // Duyệt qua tất cả các quiz-container
 document.querySelectorAll('[id^="quiz-container"]').forEach(quizContainer => {
-    const startId = parseInt(quizContainer.dataset.startId, 10);
-    const endId = parseInt(quizContainer.dataset.endId, 10);
+    if (quizContainer.classList.contains('grammar-quiz')) {
+        const startId = parseInt(quizContainer.dataset.startId, 10);
+        const endId = parseInt(quizContainer.dataset.endId, 10);
 
-    fetch('https://raw.githubusercontent.com/minhnguyen412/chinese60s/refs/heads/main/data/grammar-quiz.json')
-        .then(response => response.json())
-        .then(data => {
-            const filteredQuestions = data.questions.filter(q => q.id >= startId && q.id <= endId);
+        fetch('https://raw.githubusercontent.com/minhnguyen412/chinese60s/refs/heads/main/data/grammar-quiz.json')
+            .then(response => response.json())
+            .then(data => {
+                const filteredQuestions = data.questions.filter(q => q.id >= startId && q.id <= endId);
 
-            if (filteredQuestions.length === 0) {
-                console.error('No questions found in the specified ID range');
-                return;
-            }
+                if (filteredQuestions.length === 0) {
+                    console.error('No questions found in the specified ID range');
+                    return;
+                }
 
-            quizContainer.innerHTML = ''; // Xóa nội dung cũ nếu có
+                quizContainer.innerHTML = ''; // Xóa nội dung cũ nếu có
 
-            filteredQuestions.forEach((question, questionIndex) => {
-                const questionDiv = document.createElement('div');
-                questionDiv.classList.add('quiz-question');
+                filteredQuestions.forEach((question, questionIndex) => {
+                    const questionDiv = document.createElement('div');
+                    questionDiv.classList.add('quiz-question');
 
-                // Tạo vùng chứa câu hỏi + kết quả
-                const sentenceContainer = document.createElement('div');
-                sentenceContainer.classList.add('sentence-container');
+                    // Tạo vùng chứa câu hỏi + kết quả
+                    const sentenceContainer = document.createElement('div');
+                    sentenceContainer.classList.add('sentence-container');
 
-                // Hiển thị câu với chỗ trống
-                let sentenceHTML = question.sentence;
-                question.blanks.forEach(() => {
-                    sentenceHTML = sentenceHTML.replace('___', `<span class="blank"></span>`);
-                });
-
-                sentenceContainer.innerHTML = `<p class="sentence">${sentenceHTML}</p>`;
-
-                // Thêm khu vực hiển thị kết quả bên phải câu hỏi
-                const resultDiv = document.createElement('span');
-                resultDiv.classList.add('result');
-                sentenceContainer.appendChild(resultDiv);
-
-                // Tạo danh sách lựa chọn
-                const optionsDiv = document.createElement('div');
-                optionsDiv.classList.add('options');
-
-                question.words.forEach(word => {
-                    const button = document.createElement('button');
-                    button.classList.add('word');
-                    button.textContent = word;
-                    button.dataset.word = word;
-                    button.dataset.questionIndex = questionIndex;
-                    button.addEventListener('click', function () {
-                        handleWordClick(this, quizContainer);
+                    // Hiển thị câu với chỗ trống
+                    let sentenceHTML = question.sentence;
+                    question.blanks.forEach(() => {
+                        sentenceHTML = sentenceHTML.replace('___', `<span class="blank"></span>`);
                     });
-                    optionsDiv.appendChild(button);
-                });
 
-                // Thêm nút Retry
-                const retryButton = document.createElement('button');
-                retryButton.textContent = 'Retry';
-                retryButton.classList.add('retry-button');
-                retryButton.addEventListener('click', function () {
-                    resetQuestion(this, quizContainer, questionIndex);
-                });
+                    sentenceContainer.innerHTML = `<p class="sentence">${sentenceHTML}</p>`;
 
-                // Thêm nút Check
-                const checkButton = document.createElement('button');
-                checkButton.textContent = 'Check';
-                checkButton.classList.add('check-button');
-                checkButton.addEventListener('click', function () {
-                    checkAnswers(this, quizContainer, questionIndex, question);
-                });
+                    // Thêm khu vực hiển thị kết quả bên phải câu hỏi
+                    const resultDiv = document.createElement('span');
+                    resultDiv.classList.add('result');
+                    sentenceContainer.appendChild(resultDiv);
 
-                // Thêm mọi thứ vào giao diện
-                questionDiv.appendChild(sentenceContainer);
-                questionDiv.appendChild(optionsDiv);
-                questionDiv.appendChild(retryButton);
-                questionDiv.appendChild(checkButton);
-                quizContainer.appendChild(questionDiv);
+                    // Tạo danh sách lựa chọn
+                    const optionsDiv = document.createElement('div');
+                    optionsDiv.classList.add('options');
+
+                    question.words.forEach(word => {
+                        const button = document.createElement('button');
+                        button.classList.add('word');
+                        button.textContent = word;
+                        button.dataset.word = word;
+                        button.dataset.questionIndex = questionIndex;
+                        button.addEventListener('click', function () {
+                            handleWordClick(this, quizContainer);
+                        });
+                        optionsDiv.appendChild(button);
+                    });
+
+                    // Thêm nút Retry
+                    const retryButton = document.createElement('button');
+                    retryButton.textContent = 'Retry';
+                    retryButton.classList.add('retry-button');
+                    retryButton.addEventListener('click', function () {
+                        resetQuestion(this, quizContainer, questionIndex);
+                    });
+
+                    // Thêm nút Check
+                    const checkButton = document.createElement('button');
+                    checkButton.textContent = 'Check';
+                    checkButton.classList.add('check-button');
+                    checkButton.addEventListener('click', function () {
+                        checkAnswers(this, quizContainer, questionIndex, question);
+                    });
+
+                    // Thêm mọi thứ vào giao diện
+                    questionDiv.appendChild(sentenceContainer);
+                    questionDiv.appendChild(optionsDiv);
+                    questionDiv.appendChild(retryButton);
+                    questionDiv.appendChild(checkButton);
+                    quizContainer.appendChild(questionDiv);
+                });
+            })
+            .catch(error => {
+                console.error('Error loading the JSON file:', error);
             });
-        })
-        .catch(error => {
-            console.error('Error loading the JSON file:', error);
-        });
+    }
 });
 
 // Hàm xử lý khi chọn một từ
