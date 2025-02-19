@@ -66,7 +66,7 @@ document.querySelectorAll('[id^="quiz-container"]').forEach(quizContainer => {
                     checkButton.textContent = 'Check';
                     checkButton.classList.add('check-button');
                     checkButton.addEventListener('click', function () {
-                checkAnswers(this, quizContainer, questionIndex, question);
+                checkAnswers1(this, quizContainer, questionIndex, question);
                     });
 
                     // Thêm mọi thứ vào giao diện
@@ -105,7 +105,7 @@ function handleWordClick(button, quizContainer) {
 
 // Hàm kiểm tra đáp án
 // Hàm kiểm tra đáp án
-function checkAnswers(button, quizContainer, questionIndex, question) {
+function checkAnswers1(button, quizContainer, questionIndex, question) {
     const questionDiv = quizContainer.querySelectorAll('.quiz-question')[questionIndex];
     const blanks = questionDiv.querySelectorAll('.blank');
     const resultDiv = questionDiv.querySelector('.result');
