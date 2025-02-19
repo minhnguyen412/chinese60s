@@ -148,16 +148,11 @@
         {
             "id": 13,
             "audio": "",
-            "sentence": "A: Are you Chinese? ___ ___ ___ ___?<br>B: Yes. (I am Chinese.) ___。 ___ ___ ___。",
+            "sentence": "A: Are you Chinese? ___?<br>B: Yes. (I am Chinese.) ___。___。",
             "blanks": [
-                { "answer": "你" },
+                { "answer": "你是中国人吗" },
                 { "answer": "是" },
-                { "answer": "中国人" },
-                { "answer": "吗" },
-                { "answer": "是" },
-                { "answer": "我" },
-                { "answer": "是" },
-                { "answer": "中国人" }
+                { "answer": "我是中国人" },
                
             ],
             "words": []
@@ -165,16 +160,12 @@
         {
             "id": 14,
             "audio": "",
-            "sentence": "A: Are you a teacher? ___ ___ ___ ___?<br>B: No. I am a student. ___。 ___ ___ ___。",
+            "sentence": "A: Are you a teacher? ___?<br>B: No. I am a student. ___。 ___。",
             "blanks": [
-                { "answer": "你" },
-                { "answer": "是" },
-                { "answer": "老师" },
-                { "answer": "吗" },
+                { "answer": "你是老师吗" },
                 { "answer": "不是" },
-                { "answer": "我" },
-                { "answer": "是" },
-                { "answer": "学生" }
+                { "answer": "我是学生" }
+                
               
                 
             ],
@@ -183,17 +174,11 @@
         {
             "id": 15,
             "audio": "",
-            "sentence": "A: Are they all international students? ___ ___ ___ ___ ___?<br>B: They are all international students. ___ ___ ___ ___。",
+            "sentence": "A: Are they all international students? ___?<br>B: They are all international students. ___。",
             "blanks": [
-                { "answer": "他们" },
-                { "answer": "都" },
-                { "answer": "是" },
-                { "answer": "留学生" },
-                { "answer": "吗" },
-                { "answer": "他们" },
-                { "answer": "都" },
-                { "answer": "是" },
-                { "answer": "留学生" }              
+                { "answer": "他们都是留学生吗" },
+                { "answer": "他们都是留学生" }
+                            
             ],
             "words": []
         },
