@@ -184,86 +184,89 @@
         },
         {
             "id": 16,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673348/%E8%BA%AB%E4%BD%93_psl9ep.mp3",
-            "sentence": "身体 : ___",
+            "audio": "",
+            "sentence": "1. ___ ___ ___ ___ ___。",
             "blanks": [
-                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672830/%E8%BA%AB%E4%BD%93_gyl84l.png" }
+                { "answer": "爸爸" },
+                { "answer": "妈妈" },
+                { "answer": "都" },
+                { "answer": "很" },
+                { "answer": "好" }
             ],
-            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672823/%E6%9C%8B%E5%8F%8B_pwkkse.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672809/%E4%B9%A6_f3edw3.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672830/%E8%BA%AB%E4%BD%93_gyl84l.png"]
+            "words": ["爸爸", "好", "很", "妈妈", "都"]
         },
         {
             "id": 17,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673118/%E8%AF%B7%E9%97%AE%E4%BD%A0%E8%B4%B5%E5%A7%93_e22nk8.mp3",
-            "sentence": "___ ___ ___?",
+            "audio": "",
+            "sentence": "2. ___ ___ ___ ___。",
             "blanks": [
-                { "answer": "请问" },
-                { "answer": "你" },
-                { "answer": "贵姓" }
+                { "answer": "汉" },
+                { "answer": "字" },
+                { "answer": "很" },
+                { "answer": "难" }
+                
             ],
-            "words": ["贵姓", "请问", "你"]
+            "words": ["汉", "难", "很", "字"]
         },
         {
             "id": 18,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673104/%E6%88%91%E5%A7%93%E5%BC%A0_o7ewjh.mp3",
-            "sentence": "My surname is Zhang. ___ ___ ___.",
+            "audio": "",
+            "sentence": "3. ___ ___ ___ ___ ___。",
             "blanks": [
-                { "answer": "我" },
-                { "answer": "姓" },
-                { "answer": "张" }
+                { "answer": "语" },
+                { "answer": "法" },
+                { "answer": "不" },
+                { "answer": "太" },
+                { "answer": "难" }
             ],
-            "words": ["张", "我", "姓"]
+            "words": ["太", "不", "法", "难", "语"]
         },
         {
             "id": 19,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673086/%E4%BD%A0%E5%8F%AB%E4%BB%80%E4%B9%88%E5%90%8D%E5%AD%97_gq6ngu.mp3",
-            "sentence": "你叫什么名字？___ ___ ___ ___?",
+            "audio": "",
+            "sentence": "1. (麦克是留学生,) 玛丽 ___ 是留学生。",
             "blanks": [
-                { "answer": "What" },
-                { "answer": "is" },
-                { "answer": "your" },
-                { "answer": "name" }
+                { "answer": "也" }
+                
             ],
-            "words": ["is", "name", "What", "your"]
+            "words": []
         },
         {
             "id": 20,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673093/%E4%BD%A0%E6%98%AF%E5%93%AA%E5%9B%BD%E4%BA%BA_ob0jxo.mp3",
-            "sentence": "___ ___ ___ ___ ___?",
+            "audio": "",
+            "sentence": "2. （麦克是留学生，玛丽也是留学生，）他们 ___ 是留学生。",
             "blanks": [
-                { "answer": "你" },
-                { "answer": "是" },
-                { "answer": "哪" },
-                { "answer": "国" },
-                { "answer": "人" }
+                { "answer": "都" }
+                
             ],
-            "words": ["人", "哪", "是", "你", "国"]
+            "words": []
         },
         {
             "id": 21,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673272/%E5%AD%A6%E4%B9%A0_zn9smo.mp3",
-            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672817/%E5%AD%A6%E4%B9%A0_tvsnpv.png", ": ___"],
+            "audio": "",
+            "sentence": "3. （田芳不是留学生，）张东 ___ 是留学生。",
             "blanks": [
-                { "answer": "学习" }
+                { "answer": "也不" }
             ],
-            "words": ["工作", "学习", "睡觉"]
+            "words": []
         },
         {
             "id": 22,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673242/%E5%8F%91%E9%9F%B3_mvaakh.mp3",
-            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672812/%E5%8F%91%E9%9F%B3_ov2vxu.png", ": ___"],
+            "audio": "",
+            "sentence": "4. （你是老师，他也是老师。）___ 是老师。",
             "blanks": [
-                { "answer": "发音" }
+                { "answer": "你们都" }
             ],
-            "words": ["汉字", "课文", "发音"]
+            "words": []
         },
         {
             "id": 23,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673312/%E6%B1%89%E5%AD%97_ix9xku.mp3",
-            "sentence": "汉字 : ___",
+            "audio": "",
+            "sentence": "5. （他是教授，她也是教授。）___ 是教授。",
             "blanks": [
-                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672824/%E6%B1%89%E5%AD%97_zqikwg.png" }
+                { "answer": "他们都" }
             ],
-            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672824/%E6%B1%89%E5%AD%97_zqikwg.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672824/%E6%9D%82%E5%BF%97_adnplb.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672815/%E5%9B%BD_fca15m.png"]
+            "words": []
         },
         {
             "id": 24,
