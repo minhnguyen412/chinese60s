@@ -192,7 +192,7 @@ function loadPosts(startpId, endpId, listId) {
             // Tạo các phần tử từ segments
             item.segments.forEach(segment => {
                 const span = document.createElement('span');
-                span.textContent = segment;
+                span.innerHTML = segment;
                 span.style.cursor = 'pointer';
 
                 // Thêm sự kiện click vào từng cụm từ
