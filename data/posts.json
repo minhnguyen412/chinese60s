@@ -975,7 +975,7 @@
         "id": 109, 
         "user": "职员", 
         "title": "他住十八楼一门，房间号是601。", 
-        "segments": ["他", "住", "十", "八", "楼", "一", "门", "，", "房间", "号", "是", "601", "。"],
+        "segments": ["他", "住", "十", "八", "楼", "一", "门", "，", "房间", "号", "是", "601", "。", "<a href='grammar.html#grammar-3'>[3]</a>"],
         "description": "tā zhù shíbā lóu yī mén fángjiān hào shì liù líng yāo<br>He lives in Flat 18, door 1, room number is 601.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739260265/dgguan.0001_t3holk.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739259446/%E4%BB%96%E4%BD%8F%E5%8D%81%E5%85%AB%E6%A5%BC%E4%B8%80%E9%97%A8%E6%88%BF%E9%97%B4%E5%8F%B7%E6%98%AF601_mbitjj.mp3"
@@ -993,7 +993,7 @@
         "id": 111, 
         "user": "职员", 
         "title": "知道，62931074。", 
-        "segments": ["知道", "62931074", "。"],
+        "segments": ["知道", "62931074", "。", "<a href='grammar.html#grammar-3'>[3]</a>"],
         "description": "zhīdào liù èr jiǔ sān yāo líng qī sì<br>Yes, I do. 62931074.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739260265/dgguan.0001_t3holk.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739259446/%E7%9F%A5%E9%81%9362931074_w3enee.mp3"
