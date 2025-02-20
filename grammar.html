@@ -360,23 +360,23 @@
         <a href="#">Instagram</a>
       </div>
     </footer>
-    
-      // JavaScript để điều khiển nút hamburger menu
-      document.addEventListener('DOMContentLoaded', function () {
-        const menuToggle = document.querySelector('.menu-toggle');
-        const nav = document.querySelector('nav');
+    <script>
+    // JavaScript để điều khiển nút hamburger menu
+    document.addEventListener('DOMContentLoaded', function () {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('nav');
 
-        menuToggle.addEventListener('click', function () {
-          nav.classList.toggle('show');
+      menuToggle.addEventListener('click', function () {
+        nav.classList.toggle('show');
 
-          // Chuyển đổi biểu tượng giữa ba gạch và dấu X
-          if (nav.classList.contains('show')) {
-            menuToggle.innerHTML = '&#10005;'; // Biểu tượng X
-          } else {
-            menuToggle.innerHTML = '&#9776;'; // Biểu tượng ba gạch
-          }
-        });
+        // Chuyển đổi biểu tượng giữa ba gạch và dấu X
+        if (nav.classList.contains('show')) {
+          menuToggle.innerHTML = '&#10005;'; // Biểu tượng X
+        } else {
+          menuToggle.innerHTML = '&#9776;'; // Biểu tượng ba gạch
+        }
       });
-    </script>
+    });
+  </script>
 </body>
 </html>
