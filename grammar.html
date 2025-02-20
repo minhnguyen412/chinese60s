@@ -361,6 +361,21 @@
       </div>
     </footer>
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const hash = window.location.hash; 
+            if (hash) {
+                const targetAccordion = document.querySelector(hash);
+                if (targetAccordion) {
+                    const content = targetAccordion.querySelector('.accordion-content');
+                    if (content) {
+                        content.classList.add('open'); 
+                        targetAccordion.scrollIntoView({ behavior: 'smooth', block: 'center' }); // Cuộn đến accordion
+                    }
+                }
+            }
+        });
+    </script>
+    <script>
       // JavaScript để điều khiển nút hamburger menu
       document.addEventListener('DOMContentLoaded', function () {
         const menuToggle = document.querySelector('.menu-toggle');
