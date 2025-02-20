@@ -367,14 +367,26 @@
                 const targetAccordion = document.querySelector(hash);
                 if (targetAccordion) {
                     const content = targetAccordion.querySelector('.accordion-content');
+                    const header = targetAccordion.querySelector('.accordion-header');
                     if (content) {
                         content.classList.add('open'); 
-                        targetAccordion.scrollIntoView({ behavior: 'smooth', block: 'center' }); // Cuộn đến accordion
+                        header.querySelector('.toggle-icon').textContent = '-'; // Cập nhật biểu tượng
+                        targetAccordion.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     }
                 }
             }
         });
-    </script>
+
+        // Sự kiện click cho các accordion-header
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                if (content) {
+                    content.classList.toggle('open');
+                    header.querySelector('.toggle-icon').textContent = content.classList.contains('open') ? '-' : '+';
+                }
+            });
+        });
     <script>
       // JavaScript để điều khiển nút hamburger menu
       document.addEventListener('DOMContentLoaded', function () {
