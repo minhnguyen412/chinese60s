@@ -107,7 +107,7 @@
         "id": "14",
         "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672813/%E5%90%97_qmlnoo.png",
         "character": "吗",
-        "meaning": "吗：a particle used at the end of a question",
+        "meaning": "吗：a particle used at the end of a question - <a href='grammar.html#grammar-4'>More</a>",
         "pinyin": "ma",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673249/%E5%90%97_waapj1.mp3"
     },
@@ -115,7 +115,7 @@
         "id": "15",
         "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672819/%E5%BE%88_nxxgce.png",
         "character": "很",
-        "meaning": "很：Very",
+        "meaning": "Very - <a href='grammar.html#grammar-5'>More</a>",
         "pinyin": "hěn",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673282/%E5%BE%88_h1omcw.mp3"
     },
@@ -139,7 +139,7 @@
         "id": "18",
         "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672816/%E5%A4%AA_wszlfh.png",
         "character": "太",
-        "meaning": "too; excessively; over",
+        "meaning": "too; excessively; over - <a href='grammar.html#grammar-5'>More</a>",
         "pinyin": "tài",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673264/%E5%A4%AA_z5ceyp.mp3"
     },
@@ -1771,7 +1771,7 @@
         "id": "222",
         "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780288/%E4%B9%9F_ywbwyj.png",
         "character": "也",
-        "meaning": "also; too; either",
+        "meaning": "also; too; either - <a href='grammar.html#grammar-6'>More</a>",
         "pinyin": "yě",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780792/%E4%B9%9F_obgyhn.mp3"
     },
@@ -1803,7 +1803,7 @@
         "id": "226",
         "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780291/%E9%83%BD_e8alze.png",
         "character": "都",
-        "meaning": "all; both",
+        "meaning": "all; both - <a href='grammar.html#grammar-6'>More</a>",
         "pinyin": "dōu",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780826/%E9%83%BD_xcpuvq.mp3"
     },
