@@ -1,47 +1,38 @@
-// Hàm chuẩn hóa văn bản (bỏ dấu cách thừa, phân biệt chữ hoa/thường)
+// ---------------------- GRAMMAR TYPE QUIZ (Nhập từ) ----------------------
+
 function normalizeText(text) {
     return text.trim().toLowerCase().replace(/\s+/g, " ");
 }
 
-// Hàm tải dữ liệu từ JSON và xử lý từng container có class 'grammar-type-quiz'
-async function loadQuiz() {
+// Tải dữ liệu JSON và hiển thị quiz
+async function loadGrammarTypeQuiz() {
     try {
         const response = await fetch("https://raw.githubusercontent.com/minhnguyen412/chinese60s/refs/heads/main/data/grammar-quiz.json");
-        if (!response.ok) {
-            throw new Error("Network response was not ok");
-        }
+        if (!response.ok) throw new Error("Network response was not ok");
         const data = await response.json();
 
-        // Duyệt qua tất cả các quiz-container
         document.querySelectorAll('[id^="quiz-container"]').forEach(quizContainer => {
-            // Kiểm tra nếu container có class 'grammar-type-quiz'
             if (quizContainer.classList.contains('grammar-type-quiz')) {
                 const startId = parseInt(quizContainer.dataset.startId, 10);
                 const endId = parseInt(quizContainer.dataset.endId, 10);
-
-                // Lọc câu hỏi theo ID
                 const filteredQuestions = data.questions.filter(q => q.id >= startId && q.id <= endId);
 
-                // Hiển thị quiz cho container hiện tại
-                displayQuiz(filteredQuestions, quizContainer);
-
-                // Lưu dữ liệu JSON vào dataset của container để tránh tải lại nhiều lần
                 quizContainer.dataset.quizData = JSON.stringify(filteredQuestions);
+                displayGrammarTypeQuiz(filteredQuestions, quizContainer);
             }
         });
     } catch (error) {
-        console.error("Error loading quiz:", error);
+        console.error("Error loading grammar-type quiz:", error);
     }
 }
 
-// Hàm hiển thị quiz trong container cụ thể
-function displayQuiz(questions, quizContainer) {
-    quizContainer.innerHTML = ""; // Xóa nội dung cũ
+// Hiển thị quiz
+function displayGrammarTypeQuiz(questions, quizContainer) {
+    quizContainer.innerHTML = "";
 
     questions.forEach((question, index) => {
-        let sentenceHTML = String(question.sentence); // Đảm bảo là chuỗi
-        question.blanks.forEach((blank, i) => {
-            // Thay thế từng chỗ trống bằng một input
+        let sentenceHTML = String(question.sentence);
+        question.blanks.forEach((_, i) => {
             sentenceHTML = sentenceHTML.replace("___", `<input type="text" id="answer-${quizContainer.id}-${index}-${i}" placeholder="Type here">`);
         });
 
@@ -55,29 +46,22 @@ function displayQuiz(questions, quizContainer) {
     });
 }
 
-// Hàm kiểm tra câu trả lời, chỉ hoạt động trong container có class 'grammar-type-quiz'
+// Kiểm tra đáp án
 function checkGrammarTypeQuizAnswers(questionIndex, numAnswers, containerId) {
     const quizContainer = document.getElementById(containerId);
+    const questions = JSON.parse(quizContainer.dataset.quizData);
+    const question = questions[questionIndex];
 
-    fetch("https://raw.githubusercontent.com/minhnguyen412/chinese60s/refs/heads/main/data/grammar-quiz.json")
-        .then(response => response.json())
-        .then(data => {
-            const correctAnswers = data.questions[questionIndex].blanks.map(blank => blank.answer);
-            let isCorrect = true;
+    let isCorrect = true;
+    for (let i = 0; i < numAnswers; i++) {
+        const userAnswer = quizContainer.querySelector(`#answer-${containerId}-${questionIndex}-${i}`).value;
+        if (normalizeText(userAnswer) !== normalizeText(question.blanks[i].answer)) {
+            isCorrect = false;
+        }
+    }
 
-            for (let i = 0; i < numAnswers; i++) {
-                const userAnswer = quizContainer.querySelector(`#answer${questionIndex}-${i}`).value;
-                if (normalizeText(userAnswer) !== normalizeText(correctAnswers[i])) {
-                    isCorrect = false;
-                }
-            }
-
-            quizContainer.querySelector(`#result${questionIndex}`).textContent = isCorrect
-                ? "✅ Correct! Well done!"
-                : "❌ Incorrect! Try again.";
-        })
-        .catch(error => console.error("Error checking answers:", error));
+    const resultDiv = quizContainer.querySelector(`#result-${containerId}-${questionIndex}`);
+    resultDiv.textContent = isCorrect ? "✅ Correct! Well done!" : "❌ Incorrect! Try again.";
 }
 
-// Tải quiz khi trang web mở lên
-loadQuiz();
+loadGrammarTypeQuiz(); // Tải quiz khi trang web mở lên
