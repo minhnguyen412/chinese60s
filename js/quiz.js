@@ -182,11 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     resultDiv.textContent = 'Incorrect. Try again!';
                     resultDiv.classList.add('incorrect');
                     incorrectAudio.play();
-                    // Xóa nút retry nếu có
-                    const retryButton = document.querySelector('.retry');
-                    if (retryButton) {
-                        retryButton.remove();
-                    }
+                    
                 }
             }
 
