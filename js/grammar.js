@@ -22,4 +22,22 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+
+    // Xử lý việc mở accordion khi click vào link anchor
+    const hash = window.location.hash; 
+    if (hash) {
+        const targetAccordion = document.querySelector(hash);
+        if (targetAccordion) {
+            const content = targetAccordion.querySelector('.accordion-content');
+            const header = targetAccordion.querySelector('.accordion-header');
+            if (content) {
+                // Mở accordion
+                content.style.display = "block"; 
+                const icon = header.querySelector('.toggle-icon');
+                icon.textContent = "−"; // Cập nhật biểu tượng
+                // Cuộn đến accordion
+                targetAccordion.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+    }
 });
