@@ -369,3 +369,11 @@ h2 {
 .toggle-description:hover {
     color: red; /* Màu chữ khi hover */
 }
+a {
+    color: #007BFF; /* Màu sắc cho link */
+    text-decoration: none; /* Bỏ gạch chân */
+}
+
+a:hover {
+    color: #0056b3; /* Màu sắc khi hover */
+}
