@@ -51,7 +51,7 @@ const filesToFetch = [
                     `<span class="character">${c}</span>`).join('');
 
                 const meaningText = document.createElement('p');
-                meaningText.textContent = `${item.meaning}`;
+                meaningText.innerHTML = item.meaning;
 
                 const pinyinText = document.createElement('p');
                 pinyinText.textContent = `${item.pinyin}`;
