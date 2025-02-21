@@ -91,7 +91,7 @@ const filesToFetch = [
 
                 // Add card flipping logic
                 card.addEventListener('click', (event) => {
-                    if (!event.target.classList.contains('audio-button') && !event.target.classList.contains('character')&& event.target.tagName === 'A') {
+                    if (!event.target.classList.contains('audio-button') && !event.target.classList.contains('character')) {
                         card.classList.toggle('flipped');
                         resetClickedCharacters(cardBack);
                         resetStrokeOrder(item.id, `stroke-order-${item.id}`);
