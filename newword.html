@@ -60,35 +60,7 @@
       <a href="#">Instagram</a>
     </div>
   </footer>
-  <script>
-      document.addEventListener('DOMContentLoaded', function () {
-          const menuToggle = document.querySelector('.menu-toggle');
-          const nav = document.querySelector('nav');
-          menuToggle.addEventListener('click', function () {
-              nav.classList.toggle('show');
-              menuToggle.innerHTML = nav.classList.contains('show') ? '&#10005;' : '&#9776;';
-          });
-
-          // Search functionality
-          const searchInput = document.getElementById('searchInput');
-          const searchButton = document.getElementById('searchButton');
-          const imageGrid = document.getElementById('imageGrid');
-
-          searchButton.addEventListener('click', () => {
-              const searchValue = searchInput.value.trim().toLowerCase();
-              if (searchValue) {
-                  const matchedImages = data.filter(item => 
-                      item.character.includes(searchValue) || 
-                      item.meaning.toLowerCase().includes(searchValue) || 
-                      item.pinyin.toLowerCase().includes(searchValue)
-                  );
-                  renderImages(matchedImages);
-              } else {
-                  renderImages(data);
-              }
-          });
-      });
-  </script>
+  
   <script>
     // JavaScript để điều khiển nút hamburger menu
     document.addEventListener('DOMContentLoaded', function () {
