@@ -309,3 +309,41 @@ footer .social-icons a {
 #searchButton:hover {
     background-color: #005bb5;
 }
+/* CSS cho phần nhập số lượng hình ảnh và chọn sắp xếp */
+div {
+    display: flex; /* Sử dụng Flexbox để căn chỉnh */
+    justify-content: center; /* Căn giữa nội dung */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    margin: 20px; /* Khoảng cách bên ngoài */
+}
+
+#countInput {
+    padding: 10px; /* Padding cho ô nhập số lượng */
+    font-size: 16px; /* Kích thước chữ */
+    border: 1px solid #ccc; /* Đường viền */
+    border-radius: 4px; /* Bo góc */
+    width: 80px; /* Chiều rộng của ô nhập */
+    margin-right: 10px; /* Khoảng cách bên phải */
+}
+
+#sortSelect {
+    padding: 10px; /* Padding cho ô chọn sắp xếp */
+    font-size: 16px; /* Kích thước chữ */
+    border: 1px solid #ccc; /* Đường viền */
+    border-radius: 4px; /* Bo góc */
+    margin-right: 10px; /* Khoảng cách bên phải */
+}
+
+#okButton {
+    padding: 10px 15px; /* Padding cho nút OK */
+    font-size: 16px; /* Kích thước chữ */
+    background-color: #4CAF50; /* Màu nền */
+    color: white; /* Màu chữ */
+    border: none; /* Không có đường viền */
+    border-radius: 4px; /* Bo góc */
+    cursor: pointer; /* Con trỏ khi di chuột */
+}
+
+#okButton:hover {
+    background-color: #45a049; /* Màu nền khi hover */
+}
