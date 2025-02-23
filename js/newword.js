@@ -7,7 +7,7 @@ const filesToFetch = [
     Promise.all(filesToFetch.map(url => fetch(url).then(res => res.json())))
     .then(dataArrays => {
         // Gộp tất cả các mảng dữ liệu thành một mảng duy nhất
-        const data = dataArrays.flat(); 
+        data = dataArrays.flat(); 
         const imageGrid = document.getElementById('imageGrid');
         const countInput = document.getElementById('countInput');
         const sortSelect = document.getElementById('sortSelect');
