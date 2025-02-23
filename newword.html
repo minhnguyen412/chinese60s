@@ -27,6 +27,11 @@
   <div class="logos-and-title">
       <img src="assets/banner.png" alt="Logo" class="logo">
   </div>
+    <!-- Search Section -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search character or meaning...">
+        <button id="searchButton">Search</button>
+    </div>
   <!-- Main Content -->
   <div>
   <input type="number" id="countInput" placeholder="Number of images" min="1" value="100"> <!-- Mặc định là 100 -->
@@ -55,6 +60,35 @@
       <a href="#">Instagram</a>
     </div>
   </footer>
+  <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          const menuToggle = document.querySelector('.menu-toggle');
+          const nav = document.querySelector('nav');
+          menuToggle.addEventListener('click', function () {
+              nav.classList.toggle('show');
+              menuToggle.innerHTML = nav.classList.contains('show') ? '&#10005;' : '&#9776;';
+          });
+
+          // Search functionality
+          const searchInput = document.getElementById('searchInput');
+          const searchButton = document.getElementById('searchButton');
+          const imageGrid = document.getElementById('imageGrid');
+
+          searchButton.addEventListener('click', () => {
+              const searchValue = searchInput.value.trim().toLowerCase();
+              if (searchValue) {
+                  const matchedImages = data.filter(item => 
+                      item.character.toLowerCase().includes(searchValue) || 
+                      item.meaning.toLowerCase().includes(searchValue) || 
+                      item.pinyin.toLowerCase().includes(searchValue)
+                  );
+                  renderImages(matchedImages);
+              } else {
+                  renderImages(data);
+              }
+          });
+      });
+  </script>
   <script>
     // JavaScript để điều khiển nút hamburger menu
     document.addEventListener('DOMContentLoaded', function () {
