@@ -1,10 +1,11 @@
 let data = []; // Khai báo biến data toàn cục
+
 // Fetch data from GitHub JSON file and display
 const filesToFetch = [
-        '../data/imagesData.json'
-        
-    ];
-    Promise.all(filesToFetch.map(url => fetch(url).then(res => res.json())))
+    '../data/imagesData.json'
+];
+
+Promise.all(filesToFetch.map(url => fetch(url).then(res => res.json())))
     .then(dataArrays => {
         // Gộp tất cả các mảng dữ liệu thành một mảng duy nhất
         data = dataArrays.flat(); 
@@ -12,7 +13,6 @@ const filesToFetch = [
         const countInput = document.getElementById('countInput');
         const sortSelect = document.getElementById('sortSelect');
         const okButton = document.getElementById('okButton');
-        
 
         // Function to render the images
         function renderImages(images) {
@@ -68,8 +68,6 @@ const filesToFetch = [
                 card.appendChild(cardFront);
                 card.appendChild(cardBack);
                 imageGrid.appendChild(card);
-                    
-                
 
                 // Initialize stroke order and character interaction
                 let writer = null;
@@ -133,9 +131,17 @@ const filesToFetch = [
             }
             renderImages(sortedData.slice(0, count));
         });
-            // Search functionality
+
+        // Search functionality
         const searchInput = document.getElementById('searchInput');
         const searchButton = document.getElementById('searchButton');
+
+        // Tìm kiếm khi nhấn Enter
+        searchInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                searchButton.click(); // Kích hoạt sự kiện click của nút tìm kiếm
+            }
+        });
 
         searchButton.addEventListener('click', () => {
             const searchValue = searchInput.value.trim().toLowerCase();
@@ -150,7 +156,14 @@ const filesToFetch = [
                 renderImages(data);
             }
         });
-    
+
+        // Nhấn Enter trong ô nhập số lượng
+        countInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                okButton.click(); // Kích hoạt sự kiện click của nút OK
+            }
+        });
+        
     })
     .catch(error => console.error('Error fetching JSON:', error));
 
