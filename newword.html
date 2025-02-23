@@ -78,7 +78,7 @@
               const searchValue = searchInput.value.trim().toLowerCase();
               if (searchValue) {
                   const matchedImages = data.filter(item => 
-                      item.character.toLowerCase().includes(searchValue) || 
+                      item.character.includes(searchValue) || 
                       item.meaning.toLowerCase().includes(searchValue) || 
                       item.pinyin.toLowerCase().includes(searchValue)
                   );
