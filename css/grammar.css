@@ -124,43 +124,7 @@ h1 {
     padding: 5px 10px;
     cursor: pointer;
 }
-/* CSS cho quiz ngữ pháp */
-.quiz-container {
-    background-color: #f9f9f9; /* Màu nền nhẹ */
-    border: 1px solid #ccc; /* Đường viền nhẹ */
-    border-radius: 8px; /* Bo góc */
-    padding: 20px; /* Khoảng cách bên trong */
-    margin: 20px 0; /* Khoảng cách bên ngoài */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng */
-}
 
-.quiz-container p {
-    font-size: 18px; /* Kích thước chữ cho câu hỏi */
-    margin: 10px 0; /* Khoảng cách giữa các câu hỏi */
-}
-
-.quiz-container input[type="text"] {
-    padding: 10px; /* Padding cho ô nhập */
-    font-size: 16px; /* Kích thước chữ */
-    border: 1px solid #ccc; /* Đường viền */
-    border-radius: 4px; /* Bo góc */
-    width: calc(100% - 22px); /* Chiều rộng ô nhập */
-    margin-right: 10px; /* Khoảng cách bên phải */
-}
-
-.quiz-container button {
-    padding: 10px 15px; /* Padding cho nút */
-    font-size: 16px; /* Kích thước chữ */
-    background-color: #4CAF50; /* Màu nền */
-    color: white; /* Màu chữ */
-    border: none; /* Không có đường viền */
-    border-radius: 4px; /* Bo góc */
-    cursor: pointer; /* Con trỏ khi di chuột */
-}
-
-.quiz-container button:hover {
-    background-color: #45a049; /* Màu nền khi hover */
-}
 @media (max-width: 600px) {
     .accordion-header {
         font-size: 15px; /* Giảm kích thước chữ cho màn hình nhỏ */
