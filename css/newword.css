@@ -283,3 +283,29 @@ footer .social-icons a {
 .audio-button:hover {
     background-color: #dee3de;
 }
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+#searchInput {
+    padding: 8px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#searchButton {
+    padding: 8px 15px;
+    background-color: #0078d7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#searchButton:hover {
+    background-color: #005bb5;
+}
