@@ -1,3 +1,4 @@
+let data = []; // Khai báo biến data toàn cục
 // Fetch data from GitHub JSON file and display
 const filesToFetch = [
         '../data/imagesData.json'
@@ -67,6 +68,17 @@ const filesToFetch = [
                 card.appendChild(cardFront);
                 card.appendChild(cardBack);
                 imageGrid.appendChild(card);
+                    
+                // Trong vòng lặp renderImages:
+                const link = document.createElement('a');
+                link.href = item.link; // URL của bạn
+                link.textContent = "Learn More";
+                link.classList.add('card-link');
+                link.addEventListener('click', (event) => {
+                    event.stopPropagation(); // Đảm bảo click vào link không lật thẻ
+                });
+
+                cardBack.appendChild(link);
 
                 // Initialize stroke order and character interaction
                 let writer = null;
