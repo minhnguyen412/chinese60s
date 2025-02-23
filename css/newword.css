@@ -261,7 +261,11 @@ footer .social-icons a {
 
 /* Card Back Interaction */
 .card-back {
-    pointer-events: none;
+    pointer-events: auto;
+    user-select: text;
+}
+.card-back a {
+    pointer-events: auto; /* Đảm bảo rằng liên kết có thể nhấp được */
 }
 .card-back .character {
     pointer-events: auto;
