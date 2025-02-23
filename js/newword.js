@@ -69,11 +69,7 @@ const filesToFetch = [
                 card.appendChild(cardBack);
                 imageGrid.appendChild(card);
                     
-                // Trong vòng lặp renderImages:
-                const link = document.createElement('a');
-                link.href = item.link; // URL của bạn
-                link.classList.add('card-link');
-                cardBack.appendChild(link);
+                
 
                 // Initialize stroke order and character interaction
                 let writer = null;
@@ -137,6 +133,24 @@ const filesToFetch = [
             }
             renderImages(sortedData.slice(0, count));
         });
+            // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+
+        searchButton.addEventListener('click', () => {
+            const searchValue = searchInput.value.trim().toLowerCase();
+            if (searchValue) {
+                const matchedImages = data.filter(item => 
+                    item.character.includes(searchValue) || 
+                    item.meaning.toLowerCase().includes(searchValue) || 
+                    item.pinyin.toLowerCase().includes(searchValue)
+                );
+                renderImages(matchedImages);
+            } else {
+                renderImages(data);
+            }
+        });
+    
     })
     .catch(error => console.error('Error fetching JSON:', error));
 
