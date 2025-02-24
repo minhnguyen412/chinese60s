@@ -786,7 +786,7 @@
         "id": 88, 
         "user": "A", 
         "title": "你给十六块吧。", 
-        "segments": ["你", "给", "十", "六", "块", "吧", "。"],
+        "segments": ["你", "给¹", "十", "六", "块", "吧", "。"],
         "description": "nǐ gěi shíliù kuài ba<br>But you give me 16 yuan.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/mama.0001_x8tqfm.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246213/%E4%BD%A0%E7%BB%99%E5%8D%81%E5%85%AD%E5%9D%97%E5%90%A7_trv02d.mp3"
@@ -795,7 +795,7 @@
         "id": 89, 
         "user": "B", 
         "title": "给你钱。", 
-        "segments": ["给", "你", "钱", "。"],
+        "segments": ["给¹", "你", "钱", "。"],
         "description": "gěi nǐ qián<br>Here's your money.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/nvcodinh.0001_yazunu.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246214/%E7%BB%99%E4%BD%A0%E9%92%B1_uwpsaq.mp3"
@@ -885,7 +885,7 @@
         "id": 99, 
         "user": "营业员", 
         "title": "先生，给您钱。", 
-        "segments": ["先生", "，", "给", "您", "钱", "。"],
+        "segments": ["先生", "，", "给¹", "您", "钱", "。"],
         "description": "xiānsheng gěi nín qián<br>Sir, here is your money.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/xiaojie.0001_gjt1qd.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738653785/%E5%85%88%E7%94%9F%E7%BB%99%E6%82%A8%E9%92%B1_sptwal.mp3"
