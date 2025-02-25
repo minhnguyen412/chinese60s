@@ -110,5 +110,21 @@
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739864698/hyjc-1-11-3_a9jbj4.png",
         "videoLink": "https://www.youtube.com/embed/ng-E83Dg-KU?si=lAmjTgpd_KVG1OrK",
         "htmlLink": "posts.html?postStartId=129&postEndId=134&quizStartId=221&quizEndId=224&id=14"
+    },
+    {
+        "id": 15,
+        "title": "第十二课 (一)：你在哪儿学习汉语？",
+        "description": "Lesson 12 (1): Where do you study Chinese?",
+        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1740468951/hyjc-1-12-1_1_rdnz2m.png",
+        "videoLink": "https://www.youtube.com/embed/ng-E83Dg-KU?si=lAmjTgpd_KVG1OrK",
+        "htmlLink": "posts.html?postStartId=135&postEndId=141&quizStartId=221&quizEndId=224&id=15"
+    },
+    {
+        "id": 16,
+        "title": "第十二课 (二)：你们的老师是谁？",
+        "description": "Lesson 12 (2): Who is your teacher?",
+        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1740469078/hyjc-1-12-2_fgppy0.png",
+        "videoLink": "https://www.youtube.com/embed/ng-E83Dg-KU?si=lAmjTgpd_KVG1OrK",
+        "htmlLink": "posts.html?postStartId=142&postEndId=147&quizStartId=221&quizEndId=224&id=16"
     }
 ]
