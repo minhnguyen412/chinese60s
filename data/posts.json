@@ -1204,5 +1204,122 @@
         "description": "méi shénme<br>It's okay.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1735799749/henry_zju5lb.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860812/%E6%B2%A1%E4%BB%80%E4%B9%88_wwh96h.mp3"
+    },
+    {
+        "id": 135, 
+        "user": "A", 
+        "title": "你在哪儿学习汉语？", 
+        "segments": ["你", "在", "哪儿", "学习", "汉语", "？"],
+        "description": "nǐ zài nǎr xuéxí hànyǔ<br>Where do you study Chinese?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466019/%E4%BD%A0%E5%9C%A8%E5%93%AA%E5%84%BF%E5%AD%A6%E4%B9%A0%E6%B1%89%E8%AF%AD_wdpb1q.mp3"
+    },
+    {
+        "id": 136, 
+        "user": "B", 
+        "title": "在北京语言大学。", 
+        "segments": ["在", "北京", "语言", "大学", "。"],
+        "description": "zài běijīng yǔyán dàxué<br>I study Chinese at Beijing Language and Culture University.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739861165/sheldon.0001_bsonqt.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466023/%E5%9C%A8%E5%8C%97%E4%BA%AC%E8%AF%AD%E8%A8%80%E5%A4%A7%E5%AD%A6_r1z9bq.mp3"
+    },
+    {
+        "id": 137, 
+        "user": "A", 
+        "title": "你们的老师怎么样？", 
+        "segments": ["你们", "的", "老师", "怎么样", "？"],
+        "description": "nǐmen de lǎoshī zěnmeyàng<br>How is your teacher?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466017/%E4%BD%A0%E4%BB%AC%E7%9A%84%E8%80%81%E5%B8%88%E6%80%8E%E4%B9%88%E6%A0%B7_ieovmv.mp3"
+    },
+    {
+        "id": 138, 
+        "user": "B", 
+        "title": "很好。", 
+        "segments": ["很", "好", "。"],
+        "description": "hěn hǎo<br>Very good.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739861165/sheldon.0001_bsonqt.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466024/%E5%BE%88%E5%A5%BD_ktupgb.mp3"
+    },
+    {
+        "id": 139, 
+        "user": "A", 
+        "title": "你觉得学习汉语难吗？", 
+        "segments": ["你", "觉得", "学习", "汉语", "难", "吗", "？"],
+        "description": "nǐ juéde xuéxí hànyǔ nán ma<br>Do you think studying Chinese is difficult?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466020/%E4%BD%A0%E8%A7%89%E5%BE%97%E5%AD%A6%E4%B9%A0%E6%B1%89%E8%AF%AD%E9%9A%BE%E5%90%97_ccaf03.mp3"
+    },
+    {
+        "id": 140, 
+        "user": "B", 
+        "title": "我觉得语法不太难。", 
+        "segments": ["我", "觉得", "语法", "不", "太", "难", "。"],
+        "description": "wǒ juéde yǔfǎ bú tài nán<br>I think the grammar is not too difficult.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739861165/sheldon.0001_bsonqt.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466027/%E6%88%91%E8%A7%89%E5%BE%97%E8%AF%AD%E6%B3%95%E4%B8%8D%E5%A4%AA%E9%9A%BE_yjsg4y.mp3"
+    },
+    {
+        "id": 141, 
+        "user": "B", 
+        "title": "听和说也比较容易，但是读和写很难。", 
+        "segments": ["听", "和", "说", "也", "比较", "容易", "，", "但是", "读", "和", "写", "很", "难", "。"],
+        "description": "tīng hé shuō yě bǐjiào róngyì dànshì dú hé xiě hěn nán<br>Listening and Speaking are relatively easy, but Reading and Writing are very difficult.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739861165/sheldon.0001_bsonqt.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466021/%E5%90%AC%E5%92%8C%E8%AF%B4%E4%B9%9F%E6%AF%94%E8%BE%83%E5%AE%B9%E6%98%93%E4%BD%86%E6%98%AF%E8%AF%BB%E5%92%8C%E5%86%99%E5%BE%88%E9%9A%BE_yfgpqg.mp3"
+    },
+    {
+        "id": 142, 
+        "user": "A", 
+        "title": "我给²你们介绍一下儿", 
+        "segments": ["我", "给²", "你们", "介绍", "一下儿"],
+        "description": "wǒ gěi nǐmen jièshào yíxiàr<br>Let me introduce you guys", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1735799749/henry_zju5lb.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466026/%E6%88%91%E7%BB%99%E4%BD%A0%E4%BB%AC%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E5%84%BF_f5htm6.mp3"
+    },
+    {
+        "id": 143, 
+        "user": "A", 
+        "title": "这位是新同学，是我的同屋。", 
+        "segments": ["这", "位", "是", "新", "同学", "，", "是", "我", "的", "同屋", "。"],
+        "description": "zhè wèi shì xīn tóngxué shì wǒ de tóngwū<br>This person is the new classmate, he is my roommate.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1735799749/henry_zju5lb.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466028/%E8%BF%99%E4%BD%8D%E6%98%AF%E6%96%B0%E5%90%8C%E5%AD%A6%E6%98%AF%E6%88%91%E7%9A%84%E5%90%8C%E5%B1%8B_dnl7cm.mp3"
+    },
+    {
+        "id": 144, 
+        "user": "B", 
+        "title": "你在哪个班学习？", 
+        "segments": ["你", "在", "哪", "个", "班", "学习", "？"],
+        "description": "nǐ zài nǎ ge bān xuéxí<br>Which class are you in?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466018/%E4%BD%A0%E5%9C%A8%E5%93%AA%E4%B8%AA%E7%8F%AD%E5%AD%A6%E4%B9%A0_tpkrcx.mp3"
+    },
+    {
+        "id": 145, 
+        "user": "C", 
+        "title": "在103班。", 
+        "segments": ["在", "103", "班", "。"],
+        "description": "zài yāo líng sān bān<br>I'm in class 103.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466022/%E5%9C%A8103%E7%8F%AD_ba3us0.mp3"
+    },
+    {
+        "id": 146, 
+        "user": "B", 
+        "title": "你们的老师是谁？", 
+        "segments": ["你们", "的", "老师", "是", "谁", "？"],
+        "description": "nǐmen de lǎoshī shì shéi<br>Who is your teacher?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466017/%E4%BD%A0%E4%BB%AC%E7%9A%84%E8%80%81%E5%B8%88%E6%98%AF%E8%B0%81_s8gpba.mp3"
+    },
+    {
+        "id": 147, 
+        "user": "C", 
+        "title": "我们的老师是林老师。", 
+        "segments": ["我们", "的", "老师", "是", "林", "老师", "。"],
+        "description": "wǒmen de lǎoshī shì lín lǎoshī<br>Our teacher is Teacher Lin.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466025/%E6%88%91%E4%BB%AC%E7%9A%84%E8%80%81%E5%B8%88%E6%98%AF%E6%9E%97%E8%80%81%E5%B8%88_jmryf8.mp3"
     }
 ]
