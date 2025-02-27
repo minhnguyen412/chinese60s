@@ -271,7 +271,7 @@
         {
             "id": 24,
             "audio": "",
-            "sentence": "A：你住___？<br> B：我住语言大学十楼。",
+            "sentence": "A：你住___？<br>B：我住语言大学十楼。",
             "blanks": [
                 { "answer": "哪儿" }
                 
@@ -281,9 +281,9 @@
         {
             "id": 25,
             "audio": "",
-            "sentence": "A：你是___国人？B：我是加拿大人。",
+            "sentence": "A：你是___国人？<br>B：我是加拿大人。",
             "blanks": [
-                { "answer": "哪" },
+                { "answer": "哪" }
                 
             ],
             "words": []
@@ -291,7 +291,7 @@
         {
             "id": 26,
             "audio": "",
-            "sentence": "A：___叫玛丽？B：我叫玛丽。",
+            "sentence": "A：___叫玛丽？<br>B：我叫玛丽。",
             "blanks": [
                 { "answer": "谁" }
             ],
@@ -300,7 +300,7 @@
         {
             "id": 27,
             "audio": "",
-            "sentence": "A：你们的老师是___？B：我们的老师是林老师。",
+            "sentence": "A：你们的老师是___？<br>B：我们的老师是林老师。",
             "blanks": [
                 { "answer": "谁" }
                 
@@ -310,7 +310,7 @@
         {
             "id": 28,
             "audio": "",
-            "sentence": "A：你学习___？B：我学习汉语。",
+            "sentence": "A：你学习___？<br>B：我学习汉语。",
             "blanks": [
                 { "answer": "什么" }
             ],
@@ -319,7 +319,7 @@
         {
             "id": 29,
             "audio": "",
-            "sentence": "A：你觉得这个大学___？B：我觉得这个大学很好。",
+            "sentence": "A：你觉得这个大学___？<br>B：我觉得这个大学很好。",
             "blanks": [
                 { "answer": "怎么样" }
                 
