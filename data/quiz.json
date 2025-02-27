@@ -2426,7 +2426,7 @@
         {
             "id": 225,
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466019/%E4%BD%A0%E5%9C%A8%E5%93%AA%E5%84%BF%E5%AD%A6%E4%B9%A0%E6%B1%89%E8%AF%AD_wdpb1q.mp3",
-            "sentence": "Where do you study Chinese? <br> ___ ___ ___ ___ ___ ___ ___ ___ ___？",
+            "sentence": "Where do you study Chinese? <br> ___ ___ ___ ___ ___ ___ ___ ___？",
             "blanks": [
                 { "answer": "你" },
                 { "answer": "在" },
