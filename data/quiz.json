@@ -2422,6 +2422,204 @@
                 
             ],
             "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672816/%E5%A5%BD_cktmxb.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780290/%E6%B2%A1%E4%BB%80%E4%B9%88_q1shcw.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672832/%E9%97%AE_dtqubo.png"]
+        },
+        {
+            "id": 225,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466019/%E4%BD%A0%E5%9C%A8%E5%93%AA%E5%84%BF%E5%AD%A6%E4%B9%A0%E6%B1%89%E8%AF%AD_wdpb1q.mp3",
+            "sentence": "Where do you study Chinese? <br> ___ ___ ___ ___ ___ ___ ___ ___ ___？",
+            "blanks": [
+                { "answer": "你" },
+                { "answer": "在" },
+                { "answer": "哪" },
+                { "answer": "儿" },
+                { "answer": "学" },
+                { "answer": "习" },
+                { "answer": "汉" },
+                { "answer": "语" }
+                
+            ],
+            "words": ["儿", "在", "习", "语", "学", "汉", "你", "哪"]
+        },
+        {
+            "id": 226,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466017/%E4%BD%A0%E4%BB%AC%E7%9A%84%E8%80%81%E5%B8%88%E6%80%8E%E4%B9%88%E6%A0%B7_ieovmv.mp3",
+            "sentence": "How is your teacher? <br> ___ ___ ___ ___ ___ ___ ___ ___？",
+            "blanks": [
+                { "answer": "你" },
+                { "answer": "们" },
+                { "answer": "的" },
+                { "answer": "老" },
+                { "answer": "师" },
+                { "answer": "怎" },
+                { "answer": "么" },
+                { "answer": "样" }
+                
+            ],
+            "words": ["的", "老", "你", "怎", "样", "师", "们", "么"]
+        },
+        {
+            "id": 227,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466020/%E4%BD%A0%E8%A7%89%E5%BE%97%E5%AD%A6%E4%B9%A0%E6%B1%89%E8%AF%AD%E9%9A%BE%E5%90%97_ccaf03.mp3",
+            "sentence": "Do you think studying Chinese is difficult? <br> ___ ___ ___ ___ ___ ___ ___ ___ ___？",
+            "blanks": [
+                { "answer": "你" },
+                { "answer": "觉" },
+                { "answer": "得" },
+                { "answer": "学" },
+                { "answer": "习" },
+                { "answer": "汉" },
+                { "answer": "语" },
+                { "answer": "难" },
+                { "answer": "吗" }
+            ],
+            "words": ["觉", "学", "汉", "吗", "难", "得", "语", "习", "你"]
+        },
+        {
+            "id": 228,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466021/%E5%90%AC%E5%92%8C%E8%AF%B4%E4%B9%9F%E6%AF%94%E8%BE%83%E5%AE%B9%E6%98%93%E4%BD%86%E6%98%AF%E8%AF%BB%E5%92%8C%E5%86%99%E5%BE%88%E9%9A%BE_yfgpqg.mp3",
+            "sentence": "Listening and Speaking are quite easy, but Reading and Writing are very difficult. <br> ___ ___ ___ ___ ___ ___ ___ ___， ___ ___ ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "听" },
+                { "answer": "和" },
+                { "answer": "说" },
+                { "answer": "也" },
+                { "answer": "比" },
+                { "answer": "较" },
+                { "answer": "容" },
+                { "answer": "易" },
+                { "answer": "但" },
+                { "answer": "是" },
+                { "answer": "读" },
+                { "answer": "和" },
+                { "answer": "写" },
+                { "answer": "很" },
+                { "answer": "难" }
+            ],
+            "words": ["也", "和", "容", "很", "比", "但", "听", "难", "读", "易", "说", "是", "较", "和", "写"]
+        },
+        {
+            "id": 229,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740386336/%E6%80%8E%E4%B9%88%E6%A0%B7_f5j4fv.mp3",
+            "sentence": "How, what about： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E6%80%8E%E4%B9%88%E6%A0%B7_gutw5o.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672832/%E9%9A%BE_qifqhi.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672829/%E8%AF%B7_ow5lc2.gif", "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E6%80%8E%E4%B9%88%E6%A0%B7_gutw5o.png"]
+        },
+        {
+            "id": 230,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740386335/%E5%90%AC_jymcm4.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%AC_a1yzp0.png", "： ___ "],
+            "blanks": [
+                { "answer": "听" }
+                
+            ],
+            "words": ["写", "说", "听", "读"]
+        },
+        {
+            "id": 231,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740386345/%E8%AF%BB_kmgoxx.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1740386281/%E8%AF%BB_hugrin.png", "： ___ "],
+            "blanks": [
+                { "answer": "读" }
+                
+            ],
+            "words": ["写", "说", "听", "读"]
+        },
+        {
+            "id": 232,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740386345/%E8%AF%B4_xdbguf.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1740386281/%E8%AF%B4_yotqhu.png", "： ___ "],
+            "blanks": [
+                { "answer": "说" }
+                
+            ],
+            "words": ["写", "说", "听", "读"]
+        },
+        {
+            "id": 233,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740386332/%E5%86%99_eok66m.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%86%99_yzz6pe.png", "： ___ "],
+            "blanks": [
+                { "answer": "写" }
+                
+            ],
+            "words": ["写", "说", "听", "读"]
+        },
+        {
+            "id": 234,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466017/%E4%BD%A0%E4%BB%AC%E7%9A%84%E8%80%81%E5%B8%88%E6%98%AF%E8%B0%81_s8gpba.mp3",
+            "sentence": "Who is your teacher? <br> ___ ___ ___ ___ ___ ___ ___？",
+            "blanks": [
+                { "answer": "你" },
+                { "answer": "们" },
+                { "answer": "的" },
+                { "answer": "老" },
+                { "answer": "师" },
+                { "answer": "是" },
+                { "answer": "谁" }
+                
+                
+            ],
+            "words": ["的", "老", "你", "谁", "是", "师", "们"]
+        },
+        {
+            "id": 235,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466018/%E4%BD%A0%E5%9C%A8%E5%93%AA%E4%B8%AA%E7%8F%AD%E5%AD%A6%E4%B9%A0_tpkrcx.mp3",
+            "sentence": "Which class are you in? <br> ___ ___ ___ ___ ___ ___ ___？",
+            "blanks": [
+                { "answer": "你" },
+                { "answer": "在" },
+                { "answer": "哪" },
+                { "answer": "个" },
+                { "answer": "班" },
+                { "answer": "学" },
+                { "answer": "习" }
+                
+                
+            ],
+            "words": ["在", "个", "你", "学", "班", "习", "哪"]
+        },
+        {
+            "id": 236,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466028/%E8%BF%99%E4%BD%8D%E6%98%AF%E6%96%B0%E5%90%8C%E5%AD%A6%E6%98%AF%E6%88%91%E7%9A%84%E5%90%8C%E5%B1%8B_dnl7cm.mp3",
+            "sentence": "This person is the new classmate, he is my roommate. <br> ___ ___ ___ ___ ___ ___， ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "这" },
+                { "answer": "位" },
+                { "answer": "是" },
+                { "answer": "新" },
+                { "answer": "同" },
+                { "answer": "学" },
+                { "answer": "是" },
+                { "answer": "我" },
+                { "answer": "的" },
+                { "answer": "同" },
+                { "answer": "屋" }
+                
+            ],
+            "words": ["位", "同", "是", "同", "新", "我", "屋", "这", "的", "学", "是"]
+        },
+        {
+            "id": 237,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740386332/%E5%90%8C%E5%B1%8B_tviy0h.mp3",
+            "sentence": "同屋： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%B1%8B_n2co5b.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%AD%A6_kpsdoe.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%B1%8B_n2co5b.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672827/%E8%80%81%E5%B8%88_yp4q3u.png"]
+        },
+        {
+            "id": 238,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740386337/%E7%8F%AD_ga5zl0.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1740386280/%E7%8F%AD_nccisq.png", "： ___ "],
+            "blanks": [
+                { "answer": "班" }
+                
+            ],
+            "words": ["楼", "屋子", "班", "房间"]
         }
     ]
 }
