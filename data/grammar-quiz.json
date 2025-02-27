@@ -270,276 +270,305 @@
         },
         {
             "id": 24,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673133/%E8%BF%99%E6%98%AF%E4%BB%80%E4%B9%88_lho2uy.mp3",
-            "sentence": "What is this? <br> ___ ___ ___?",
+            "audio": "",
+            "sentence": "A：你住___？<br> B：我住语言大学十楼。",
             "blanks": [
-                { "answer": "这" },
-                { "answer": "是" },
-                { "answer": "什么" }
+                { "answer": "哪儿" }
+                
             ],
-            "words": ["什么", "这", "是"]
+            "words": []
         },
         {
             "id": 25,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673131/%E8%BF%99%E6%98%AF%E4%B9%A6_lebbej.mp3",
-            "sentence": "This is a book. <br> ___ ___ ___.",
+            "audio": "",
+            "sentence": "A：你是___国人？B：我是加拿大人。",
             "blanks": [
-                { "answer": "这" },
-                { "answer": "是" },
-                { "answer": "书" }
+                { "answer": "哪" },
+                
             ],
-            "words": ["书", "是", "这"]
+            "words": []
         },
         {
             "id": 26,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673163/%E4%B9%A6_jjihr5.mp3",
-            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672809/%E4%B9%A6_f3edw3.png", ": ___"],
-            "blanks": [
-                { "answer": "书" }
-            ],
-            "words": ["电视", "书", "椅子"]
-        },
-        {
-            "id": 27,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673134/%E8%BF%99%E6%98%AF%E4%BB%80%E4%B9%88%E4%B9%A6_zl0i7l.mp3",
-            "sentence": "___ ___ ___ ___?",
-            "blanks": [
-                { "answer": "这" },
-                { "answer": "是" },
-                { "answer": "什么" },
-                { "answer": "书" }
-                
-            ],
-            "words": ["什么", "书", "是", "这"]
-        },
-        {
-            "id": 28,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673161/%E4%B8%AD%E6%96%87_vbkj3r.mp3",
-            "sentence": "中文 : ___",
-            "blanks": [
-                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672808/%E4%B8%AD%E6%96%87_ceposq.png" }
-            ],
-            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672833/%E9%9F%A9%E6%96%87_ipmlxt.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672821/%E6%97%A5%E6%96%87_lnpilr.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672808/%E4%B8%AD%E6%96%87_ceposq.png"]
-        },
-        {
-            "id": 29,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673140/%E8%BF%99%E6%98%AF%E8%B0%81%E7%9A%84%E4%B9%A6_l4mna3.mp3",
-            "sentence": "Whose book is this? <br> ___ ___ ___ ___ ___?",
-            "blanks": [
-                { "answer": "这" },
-                { "answer": "是" },
-                { "answer": "谁" },
-                { "answer": "的" },
-                { "answer": "书" }
-            ],
-            "words": ["谁", "这", "是", "书", "的"]
-        },
-        {
-            "id": 30,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673345/%E8%B0%81_ueab1g.mp3",
-            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672830/%E8%B0%81_o4ejhr.gif", ": ___"],
+            "audio": "",
+            "sentence": "A：___叫玛丽？B：我叫玛丽。",
             "blanks": [
                 { "answer": "谁" }
             ],
-            "words": ["那", "在", "谁"]
+            "words": []
+        },
+        {
+            "id": 27,
+            "audio": "",
+            "sentence": "A：你们的老师是___？B：我们的老师是林老师。",
+            "blanks": [
+                { "answer": "谁" }
+                
+            ],
+            "words": []
+        },
+        {
+            "id": 28,
+            "audio": "",
+            "sentence": "A：你学习___？B：我学习汉语。",
+            "blanks": [
+                { "answer": "什么" }
+            ],
+            "words": []
+        },
+        {
+            "id": 29,
+            "audio": "",
+            "sentence": "A：你觉得这个大学___？B：我觉得这个大学很好。",
+            "blanks": [
+                { "answer": "怎么样" }
+                
+            ],
+            "words": []
+        },
+        {
+            "id": 30,
+            "audio": "",
+            "sentence": "1. 王老师是我的老师。→ ___？",
+            "blanks": [
+                { "answer": "谁是你的老师" }
+            ],
+            "words": []
         },
         {
             "id": 31,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673139/%E8%BF%99%E6%98%AF%E8%80%81%E5%B8%88%E7%9A%84%E4%B9%A6_ry6pfu.mp3",
-            "sentence": "___ ___ ___ ___ ___.",
+            "audio": "",
+            "sentence": "2. 我在北京大学学习。→ ___？",
             "blanks": [
-                { "answer": "这" },
-                { "answer": "是" },
-                { "answer": "老师" },
-                { "answer": "的" },
-                { "answer": "书" }
+                { "answer": "你在哪儿学习" }
+                
             ],
-            "words": ["是", "老师", "书", "这", "的"]
+            "words": []
         },
         {
             "id": 32,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673142/%E9%82%A3%E6%98%AF%E4%BB%80%E4%B9%88_vhyyi4.mp3",
-            "sentence": "What is that? <br> ___ ___ ___?",
+            "audio": "",
+            "sentence": "3. 我觉得汉语的语法不太难。→ ___？"
             "blanks": [
-                { "answer": "那" },
-                { "answer": "是" },
-                { "answer": "什么" }
+                { "answer": "你觉得汉语的语法怎么样" }
+                
             ],
-            "words": ["什么", "那", "是"]
+            "words": []
         },
         {
             "id": 33,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673311/%E6%9D%82%E5%BF%97_axn4uh.mp3",
-            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672824/%E6%9D%82%E5%BF%97_adnplb.png", ": ___"],
+            "audio": "",
+            "sentence": "4. 五块五一个。→ ___？"
             "blanks": [
-                { "answer": "杂志" }
+                { "answer": "多少钱一个" }
             ],
-            "words": ["杂志", "学校", "身体"]
+            "words": []
         },
         {
             "id": 34,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673144/%E9%82%A3%E6%98%AF%E4%BB%80%E4%B9%88%E6%9D%82%E5%BF%97_cj6lqe.mp3",
-            "sentence": "___ ___ ___ ___?",
+            "audio": "",
+            "sentence": "1. Their teacher - ___ ___ ___ ",
             "blanks": [
-                { "answer": "那" },
-                { "answer": "是" },
-                { "answer": "什么" },
-                { "answer": "杂志" }
+                { "answer": "他们" },
+                { "answer": "的" },
+                { "answer": "老师" }
+                
             ],
-            "words": ["是", "什么", "杂志", "那"]
+            "words": ["的", "他们", "老师"]
         },
         {
             "id": 35,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673333/%E8%8B%B1%E6%96%87_kjsarw.mp3",
-            "sentence": "英文 : ___",
+            "audio": "",
+            "sentence": "2. My roommate - ___ ___ ___ ",
             "blanks": [
-                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672827/%E8%8B%B1%E6%96%87_vr4hh3.png" }
+                { "answer": "我" },
+                { "answer": "的" },
+                { "answer": "同屋" }
+                
             ],
-            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672827/%E8%8B%B1%E6%96%87_vr4hh3.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672832/%E9%98%BF%E6%8B%89%E4%BC%AF%E6%96%87_zso60r.png", "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672819/%E5%BE%B7%E6%96%87_raeko0.png"]
+            "words": ["同屋", "我", "的"]
         },
         {
             "id": 36,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673148/%E9%82%A3%E6%98%AF%E8%B0%81%E7%9A%84%E6%9D%82%E5%BF%97_pq9pbq.mp3",
-            "sentence": "___ ___ ___ ___ ___？",
+            "audio": "",
+            "sentence": "3. Mary's classmate - ___ ___ ___ ",
             "blanks": [
-                { "answer": "那" },
-                { "answer": "是" },
-                { "answer": "谁" },
+                { "answer": "玛丽" },
                 { "answer": "的" },
-                { "answer": "杂志" }
+                { "answer": "同学" }
+                
             ],
-            "words": ["是", "谁", "杂志", "那", "的"]
+            "words": ["同学", "玛丽", "的"]
         },
         {
             "id": 37,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673145/%E9%82%A3%E6%98%AF%E6%88%91%E6%9C%8B%E5%8F%8B%E7%9A%84%E6%9D%82%E5%BF%97_va0ugf.mp3",
-            "sentence": "That's my friend's magazine. <br> ___ ___ ___ ___ ___ ___.",
+            "audio": "",
+            "sentence": "4. My teacher is Teacher Wang. <br> ___ ___ ___ ___ ___ ___。",
             "blanks": [
-                { "answer": "那" },
-                { "answer": "是" },
                 { "answer": "我" },
-                { "answer": "朋友" },
                 { "answer": "的" },
-                { "answer": "杂志" }
+                { "answer": "老师" },
+                { "answer": "是" },
+                { "answer": "王" },
+                { "answer": "老师" }
             ],
-            "words": ["那", "我", "的", "朋友", "是", "杂志"]
+            "words": ["老师", "我", "的", "王", "是", "老师"]
         },
         {
             "id": 38,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673310/%E6%9C%8B%E5%8F%8B_r32byy.mp3",
-            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734672823/%E6%9C%8B%E5%8F%8B_pwkkse.png", ": ___"],
+            "audio": "",
+            "sentence": "5. This is the library's book. <br> ___ ___ ___ ___ ___。",
             "blanks": [
-                { "answer": "朋友" }
+                { "answer": "这" },
+                { "answer": "是" },
+                { "answer": "图书馆" },
+                { "answer": "的" },
+                { "answer": "书" }
             ],
-            "words": ["老师", "父母", "朋友"]
+            "words": ["书", "图书馆", "这", "的", "是"]
         },
         {
             "id": 39,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673150/%E4%B8%80_ccdydi.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "1. a very good classmate <br> ___ ___ ___ ___。",
             "blanks": [
-                { "answer": "yī" }
+                { "answer": "很" },
+                { "answer": "好" },
+                { "answer": "的" },
+                { "answer": "同学" }
             ],
-            "words": ["yī", "yí", "yǐ", "yì"]
+            "words": ["同学", "好", "的", "很"]
         },
         {
             "id": 40,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673165/%E4%BA%94_durk7r.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "2. a very good teacher <br> ___ ___ ___ ___。",
             "blanks": [
-                { "answer": "wǔ" }
+                { "answer": "很" },
+                { "answer": "好" },
+                { "answer": "的" },
+                { "answer": "老师" }
             ],
-            "words": ["wū", "wú", "wǔ", "wù"]
+            "words": ["好", "老师", "的", "很"]
         },
         {
             "id": 41,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735354395/yu2_cvh99x.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "3. a very old dictionary <br> ___ ___ ___ ___。",
             "blanks": [
-                { "answer": "yú" }
+                { "answer": "很" },
+                { "answer": "旧" },
+                { "answer": "的" },
+                { "answer": "词典" }
             ],
-            "words": ["yū", "yú", "yǔ", "yù"]
+            "words": ["词典", "旧", "很", "的"]
         },
         {
             "id": 42,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673233/%E5%85%AB_jwszsy.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "4. a very new notebook <br> ___ ___ ___ ___。",
             "blanks": [
-                { "answer": "bā" }
+                { "answer": "很" },
+                { "answer": "新" },
+                { "answer": "的" },
+                { "answer": "本子" }
             ],
-            "words": ["bā", "bá", "bǎ", "bà"]
+            "words": ["的", "很", "本子", "新"]
         },
         {
             "id": 43,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673261/%E5%A4%A7_ni23pu.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "1. 这(A)是(B)谁(C)汉语(D)书？<br> Answer: ___",
             "blanks": [
-                { "answer": "dà" }
+                { "answer": "C" }
             ],
-            "words": ["dā", "dá", "dǎ", "dà"]
+            "words": ["A", "B", "C", "D"]
         },
         {
             "id": 44,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673155/%E4%B8%8D_p3kqjq.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "2. 他们(A)都是(B)很(C)好(D)人。<br> Answer: ___",
             "blanks": [
-                { "answer": "bù" }
+                { "answer": "D" }
             ],
-            "words": ["bū", "bú", "bǔ", "bù"]
+            "words": ["A", "B", "C", "D"]
         },
         {
             "id": 45,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673265/%E5%A5%B3_kxwjg4.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "3. 玛丽(A)老师(B)是(C)王(D)老师。<br> Answer: ___",
             "blanks": [
-                { "answer": "nǚ" }
+                { "answer": "A" }
             ],
-            "words": ["nǖ", "nǘ", "nǚ", "nǜ"]
+            "words": ["A", "B", "C", "D"]
         },
         {
             "id": 46,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673245/%E5%8F%A3_dxcuqi.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "4. 这(A)是(B)我爸爸(C)汉语(D)词典。<br> Answer: ___",
             "blanks": [
-                { "answer": "kǒu" }
+                { "answer": "C" }
             ],
-            "words": ["kōu", "kóu", "kǒu", "kòu"]
+            "words": ["A", "B", "C", "D"]
         },
         {
             "id": 47,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673324/%E7%99%BD_kbwum2.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "1. I study at Beijing Language and Culture University. <br> ___ ___ ___ ___ ___ ___。",
             "blanks": [
-                { "answer": "bái" }
+                { "answer": "我" },
+                { "answer": "在" },
+                { "answer": "北京" },
+                { "answer": "语言" },
+                { "answer": "大学" },
+                { "answer": "学习" }
             ],
-            "words": ["bāi", "bái", "bǎi", "bài"]
+            "words": ["学习", "北京", "在", "大学", "语言", "我"]
         },
         {
             "id": 48,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735354394/hei1_hd4jw1.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "2. He lives in the 10th building. <br> ___ ___ ___ ___ ___。",
             "blanks": [
-                { "answer": "hēi" }
+                { "answer": "他" },
+                { "answer": "在" },
+                { "answer": "十" },
+                { "answer": "楼" },
+                { "answer": "住" }
+                
             ],
-            "words": ["hēi", "héi", "hěi", "hèi"]
+            "words": ["在", "楼", "他", "住", "十"]
         },
         {
             "id": 49,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673375/%E9%A9%AC_zbvgtx.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "1. Let me introduce you, this is my roommate. <br> ___ ___ ___ ___， ___ ___ ___ ___。",
             "blanks": [
-                { "answer": "mǎ" }
+                { "answer": "给" },
+                { "answer": "你" },
+                { "answer": "介绍" },
+                { "answer": "一下" },
+                { "answer": "这" },
+                { "answer": "是" },
+                { "answer": "我" },
+                { "answer": "同屋" }
             ],
-            "words": ["mā", "má", "mǎ", "mà"]
+            "words": ["介绍", "给", "是", "同屋", "这", "我", "一下", "你"]
         },
         {
             "id": 50,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673172/%E4%BD%A0_ll3o9t.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "2. In the afternoon, she calls her mother. <br> ___， ___ ___ ___ ___ ___。",
             "blanks": [
-                { "answer": "nǐ" }
+                { "answer": "下午" },
+                { "answer": "她" },
+                { "answer": "给" },
+                { "answer": "妈妈" },
+                { "answer": "打" },
+                { "answer": "电话" }
+                
             ],
-            "words": ["nī", "ní", "nǐ", "nì"]
+            "words": ["给", "打", "妈妈", "下午", "电话", "她"]
         },
         {
             "id": 51,
