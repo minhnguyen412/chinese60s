@@ -499,7 +499,7 @@
         "id": "63",
         "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672814/%E5%93%AA%E5%84%BF_vorrd2.png",
         "character": "哪儿",
-        "meaning": "Where",
+        "meaning": "Where - <a href='grammar.html#grammar-7'>More</a>",
         "pinyin": "nǎr",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673253/%E5%93%AA%E5%84%BF_peovii.mp3"
     },
@@ -739,7 +739,7 @@
         "id": "93",
         "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672814/%E5%93%AA_j3bq2j.png",
         "character": "哪",
-        "meaning": "Which; where",
+        "meaning": "Which; where - <a href='grammar.html#grammar-7'>More</a>",
         "pinyin": "nǎ",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673252/%E5%93%AA_nab18b.mp3"
     },
@@ -867,7 +867,7 @@
         "id": "109",
         "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672830/%E8%B0%81_o4ejhr.gif",
         "character": "谁",
-        "meaning": "Who",
+        "meaning": "Who - <a href='grammar.html#grammar-7'>More</a>",
         "pinyin": "shéi/shuí",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673345/%E8%B0%81_ueab1g.mp3"
     },
@@ -875,7 +875,7 @@
         "id": "110",
         "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672826/%E7%9A%84_ngnlln.png",
         "character": "的",
-        "meaning": "a particle used after an attribute to indicate possession",
+        "meaning": "a particle used after an attribute to indicate possession - <a href='grammar.html#grammar-8'>More</a>",
         "pinyin": "de",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673325/%E7%9A%84_ksdvbh.mp3"
     },
@@ -1555,7 +1555,7 @@
         "id": "195",
         "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174874/%E5%9C%A8_pmhnxl.png",
         "character": "在",
-        "meaning": "to be in/at; in; at",
+        "meaning": "to be in/at; in; at - <a href='grammar.html#grammar-9'>More</a>",
         "pinyin": "zài",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175245/%E5%9C%A8_dadas6.mp3"
     },
@@ -1851,7 +1851,7 @@
         "id": "232",
         "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E6%80%8E%E4%B9%88%E6%A0%B7_gutw5o.png",
         "character": "怎么样",
-        "meaning": "how; what about",
+        "meaning": "how; what about - <a href='grammar.html#grammar-7'>More</a>",
         "pinyin": "zěnmeyàng",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740386336/%E6%80%8E%E4%B9%88%E6%A0%B7_f5j4fv.mp3"
     },
@@ -1939,7 +1939,7 @@
         "id": "243",
         "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386280/%E7%BB%99_hprhyj.png",
         "character": "给²",
-        "meaning": "to; for",
+        "meaning": "to; for - <a href='grammar.html#grammar-9'>More</a>",
         "pinyin": "gěi",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160497/%E7%BB%99_rgzsqq.mp3"
     },
