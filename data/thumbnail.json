@@ -117,7 +117,7 @@
         "description": "Lesson 12 (1): Where do you study Chinese?",
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1740468951/hyjc-1-12-1_1_rdnz2m.png",
         "videoLink": "https://www.youtube.com/embed/ng-E83Dg-KU?si=lAmjTgpd_KVG1OrK",
-        "htmlLink": "posts.html?postStartId=135&postEndId=141&quizStartId=221&quizEndId=224&id=15"
+        "htmlLink": "posts.html?postStartId=135&postEndId=141&quizStartId=225&quizEndId=233&id=15"
     },
     {
         "id": 16,
@@ -125,6 +125,6 @@
         "description": "Lesson 12 (2): Who is your teacher?",
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1740469078/hyjc-1-12-2_fgppy0.png",
         "videoLink": "https://www.youtube.com/embed/ng-E83Dg-KU?si=lAmjTgpd_KVG1OrK",
-        "htmlLink": "posts.html?postStartId=142&postEndId=147&quizStartId=221&quizEndId=224&id=16"
+        "htmlLink": "posts.html?postStartId=142&postEndId=147&quizStartId=234&quizEndId=238&id=16"
     }
 ]
