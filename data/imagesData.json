@@ -1974,5 +1974,237 @@
         "meaning": "class",
         "pinyin": "bān",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740386337/%E7%8F%AD_ga5zl0.mp3"
+    },
+    {
+        "id": "248",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741078386/%E6%B2%A1%E6%9C%89_hydam3.gif",
+        "character": "没（有）",
+        "meaning": "have not; not yet; did not",
+        "pinyin": "méi (yǒu)",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077134/%E6%B2%A1_ulszmi.mp3"
+    },
+    {
+        "id": "249",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741077561/%E7%AE%B1%E5%AD%90_u1fzgy.png",
+        "character": "箱子",
+        "meaning": "box; case; trunk",
+        "pinyin": "xiāngzi",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077135/%E7%AE%B1%E5%AD%90_ezs6vx.mp3"
+    },
+    {
+        "id": "250",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741077207/%E6%9C%89_wzffcy.png",
+        "character": "有",
+        "meaning": "to have; there be",
+        "pinyin": "yǒu",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077134/%E6%9C%89_czlvzu.mp3"
+    },
+    {
+        "id": "251",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741078381/%E8%BF%99%E5%84%BF_g3zlh6.png",
+        "character": "这儿",
+        "meaning": "here",
+        "pinyin": "zhèr",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077143/%E8%BF%99%E5%84%BF_yzwvuw.mp3"
+    },
+    {
+        "id": "252",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741078382/%E9%87%8D_wvopgb.png",
+        "character": "重",
+        "meaning": "heavy",
+        "pinyin": "zhòng",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077143/%E9%87%8D_iot3zj.mp3"
+    },
+    {
+        "id": "253",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741079082/%E9%BB%91_momhv3.png",
+        "character": "黑",
+        "meaning": "black",
+        "pinyin": "hēi",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077144/%E9%BB%91_zly51b.mp3"
+    },
+    {
+        "id": "254",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741078005/%E7%BA%A2_e6iw1y.png",
+        "character": "红",
+        "meaning": "red",
+        "pinyin": "hóng",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077135/%E7%BA%A2_nf0otl.mp3"
+    },
+    {
+        "id": "255",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741078381/%E8%BD%BB_epmfq6.png",
+        "character": "轻",
+        "meaning": "light",
+        "pinyin": "qīng",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077143/%E8%BD%BB_ug80iy.mp3"
+    },
+    {
+        "id": "256",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741078385/%E6%97%A7_oifa8a.png",
+        "character": "旧",
+        "meaning": "old; used",
+        "pinyin": "jiù",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077134/%E6%97%A7_wr4dud.mp3"
+    },
+    {
+        "id": "257",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741078006/%E8%8D%AF_ly8gqs.png",
+        "character": "药",
+        "meaning": "medicine; drug",
+        "pinyin": "yào",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077136/%E8%8D%AF_yeqhpl.mp3"
+    },
+    {
+        "id": "258",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741078987/%E4%B8%AD%E8%8D%AF_nvraka.png",
+        "character": "中药",
+        "meaning": "Chinese medicine",
+        "pinyin": "zhōngyào",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077133/%E4%B8%AD%E8%8D%AF_vniy1n.mp3"
+    },
+    {
+        "id": "259",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741078006/%E8%A5%BF%E8%8D%AF_ac5apm.png",
+        "character": "西药",
+        "meaning": "Western medicine",
+        "pinyin": "xīyào",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077143/%E8%A5%BF%E8%8D%AF_qjpqz0.mp3"
+    },
+    {
+        "id": "260",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741078005/%E8%8C%B6%E5%8F%B6_v2nosy.png",
+        "character": "茶叶",
+        "meaning": "tea leaves",
+        "pinyin": "cháyè",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077135/%E8%8C%B6%E5%8F%B6_zzrug0.mp3"
+    },
+    {
+        "id": "261",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741078381/%E9%87%8C_btnsxr.png",
+        "character": "里",
+        "meaning": "inside",
+        "pinyin": "lǐ",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077143/%E9%87%8C_wj40if.mp3"
+    },
+    {
+        "id": "262",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741078381/%E6%97%A5%E7%94%A8%E5%93%81_ztzxfm.png",
+        "character": "日用品",
+        "meaning": "daily necessities ",
+        "pinyin": "rìyòngpǐn",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077134/%E6%97%A5%E7%94%A8%E5%93%81_nyzd3a.mp3"
+    },
+    {
+        "id": "263",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741078884/%E4%BB%B6_vfgo2p.png",
+        "character": "件",
+        "meaning": "(classifier) article; piece",
+        "pinyin": "jiàn",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077133/%E4%BB%B6_uso6o7.mp3"
+    },
+    {
+        "id": "264",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741078006/%E8%A1%A3%E6%9C%8D_txvsc1.png",
+        "character": "衣服",
+        "meaning": "clothes",
+        "pinyin": "yīfu",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077136/%E8%A1%A3%E6%9C%8D_vxrepe.mp3"
+    },
+    {
+        "id": "265",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741078800/%E6%8A%8A_f4cboe.png",
+        "character": "把",
+        "meaning": "(a classifier used for a tool with a handle)",
+        "pinyin": "bǎ",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077134/%E6%8A%8A_atqqop.mp3"
+    },
+    {
+        "id": "266",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741078383/%E9%9B%A8%E4%BC%9E_nbbi8g.png",
+        "character": "雨伞",
+        "meaning": "umbrella",
+        "pinyin": "yǔsǎn",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077144/%E9%9B%A8%E4%BC%9E_scerzv.mp3"
+    },
+    {
+        "id": "267",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741078382/%E9%9B%A8_gg1t6t.png",
+        "character": "雨",
+        "meaning": "rain",
+        "pinyin": "yǔ",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077144/%E9%9B%A8_zdg8de.mp3"
+    },
+    {
+        "id": "268",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741077208/%E7%93%B6_jwniml.png",
+        "character": "瓶",
+        "meaning": "bottle",
+        "pinyin": "píng",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077135/%E7%93%B6_mydmpp.mp3"
+    },
+    {
+        "id": "269",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741078721/%E9%A6%99%E6%B0%B4_l8wpia.png",
+        "character": "香水",
+        "meaning": "perfume",
+        "pinyin": "xiāngshuǐ",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077144/%E9%A6%99%E6%B0%B4_oftifm.mp3"
+    },
+    {
+        "id": "270",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741077208/%E6%B0%B4_y8eqks.png",
+        "character": "水",
+        "meaning": "water",
+        "pinyin": "shuǐ",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077133/%E6%B0%B4_d8nzb4.mp3"
+    },
+    {
+        "id": "271",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741077207/%E6%9C%AC_apnbf2.png",
+        "character": "本",
+        "meaning": "(a classifier for books)",
+        "pinyin": "běn",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077133/%E6%9C%AC_whk2ek.mp3"
+    },
+    {
+        "id": "272",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741078052/%E8%AF%8D%E5%85%B8_z770wr.png",
+        "character": "词典",
+        "meaning": "dictionary",
+        "pinyin": "cídiǎn",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077143/%E8%AF%8D%E5%85%B8_xqujhp.mp3"
+    },
+    {
+        "id": "273",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741078630/%E5%BC%A0_jk1v8d.png",
+        "character": "张",
+        "meaning": "piece; sheet (for paper, drawings, etc.)",
+        "pinyin": "zhāng",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077133/%E5%BC%A0_xm6jhx.mp3"
+    },
+    {
+        "id": "274",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741078502/%E5%85%89%E7%9B%98_yb1rhw.png",
+        "character": "光盘",
+        "meaning": "CD; VCD; DVD",
+        "pinyin": "guāngpán",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077133/%E5%85%89%E7%9B%98_rzuvbk.mp3"
+    },
+    {
+        "id": "275",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741078381/%E6%94%AF_vccowr.png",
+        "character": "支",
+        "meaning": "(a classifier for pen, pencil, etc.)",
+        "pinyin": "zhī",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077134/%E6%94%AF_lmx2e3.mp3"
+    },
+    {
+        "id": "276",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741077221/%E7%AC%94_stuxrz.png",
+        "character": "笔",
+        "meaning": "pen; pencil; writing brush",
+        "pinyin": "bǐ",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077135/%E7%AC%94_cpftb6.mp3"
     }
 ]
