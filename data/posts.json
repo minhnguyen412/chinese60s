@@ -1321,5 +1321,158 @@
         "description": "wǒmen de lǎoshī shì lín lǎoshī<br>Our teacher is Teacher Lin.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466025/%E6%88%91%E4%BB%AC%E7%9A%84%E8%80%81%E5%B8%88%E6%98%AF%E6%9E%97%E8%80%81%E5%B8%88_jmryf8.mp3"
+    },
+    {
+        "id": 148, 
+        "user": "A", 
+        "title": "你没有箱子吗？", 
+        "segments": ["你", "没", "有", "箱子", "吗", "？"],
+        "description": "nǐ méiyǒu xiāngzi ma<br>Don't you have a suitcase?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466025/%E6%88%91%E4%BB%AC%E7%9A%84%E8%80%81%E5%B8%88%E6%98%AF%E6%9E%97%E8%80%81%E5%B8%88_jmryf8.mp3"
+    },
+    {
+        "id": 149, 
+        "user": "B", 
+        "title": "有啊。我的在这儿呢。", 
+        "segments": ["有", "啊", "。", "我", "的", "在", "这儿", "呢", "。"],
+        "description": "yǒu a wǒ de zài zhèr ne<br>Yes, I do. Mine are right here.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466025/%E6%88%91%E4%BB%AC%E7%9A%84%E8%80%81%E5%B8%88%E6%98%AF%E6%9E%97%E8%80%81%E5%B8%88_jmryf8.mp3"
+    },
+    {
+        "id": 150, 
+        "user": "A", 
+        "title": "我的很重，你的重不重？", 
+        "segments": ["我", "的", "很", "重", "，", "你", "的", "重", "不", "重", "？"],
+        "description": "wǒ de hěn zhòng nǐ de zhòng bu zhòng<br>Mine is very heavy. Are yours heavy?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466025/%E6%88%91%E4%BB%AC%E7%9A%84%E8%80%81%E5%B8%88%E6%98%AF%E6%9E%97%E8%80%81%E5%B8%88_jmryf8.mp3"
+    },
+    {
+        "id": 151, 
+        "user": "B", 
+        "title": "这个黑的很重，那个红的比较轻。", 
+        "segments": ["这", "个", "黑", "的", "很", "重", "，", "那", "个", "红", "的", "比较", "轻", "。"],
+        "description": "zhè ge hēi de hěn zhòng nà ge hóng de bǐjiào qīng<br>This black one is very heavy, that red one is lighter.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466025/%E6%88%91%E4%BB%AC%E7%9A%84%E8%80%81%E5%B8%88%E6%98%AF%E6%9E%97%E8%80%81%E5%B8%88_jmryf8.mp3"
+    },
+    {
+        "id": 152, 
+        "user": "A", 
+        "title": "你的箱子很新，我的很旧。", 
+        "segments": ["你", "的", "箱子", "很", "新", "，", "我", "的", "很", "旧", "。"],
+        "description": "nǐ de xiāngzi hěn xīn wǒ de hěn jiù<br>Your suitcase is very new, mine is very old.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466025/%E6%88%91%E4%BB%AC%E7%9A%84%E8%80%81%E5%B8%88%E6%98%AF%E6%9E%97%E8%80%81%E5%B8%88_jmryf8.mp3"
+    },
+    {
+        "id": 153, 
+        "user": "B", 
+        "title": "那个新的是朋友的。", 
+        "segments": ["那", "个", "新", "的", "是", "朋友", "的", "。"],
+        "description": "nà ge xīn de shì péngyou de<br>The new one is my friend's.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466025/%E6%88%91%E4%BB%AC%E7%9A%84%E8%80%81%E5%B8%88%E6%98%AF%E6%9E%97%E8%80%81%E5%B8%88_jmryf8.mp3"
+    },
+    {
+        "id": 154, 
+        "user": "B", 
+        "title": "这个旧的是我的。", 
+        "segments": ["这", "个", "旧", "的", "是", "我", "的", "。"],
+        "description": "zhè ge jiù de shì wǒ de<br>The old one is mine.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466025/%E6%88%91%E4%BB%AC%E7%9A%84%E8%80%81%E5%B8%88%E6%98%AF%E6%9E%97%E8%80%81%E5%B8%88_jmryf8.mp3"
+    },
+    {
+        "id": 155, 
+        "user": "A", 
+        "title": "先生，这些黑的是什么东西？", 
+        "segments": ["先生", "，", "这些", "黑", "的", "是", "什么", "东西", "？"],
+        "description": "xiānsheng zhèxie hēi de shì shénme dōngxi<br>Sir, what are these black things?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466025/%E6%88%91%E4%BB%AC%E7%9A%84%E8%80%81%E5%B8%88%E6%98%AF%E6%9E%97%E8%80%81%E5%B8%88_jmryf8.mp3"
+    },
+    {
+        "id": 156, 
+        "user": "B", 
+        "title": "这是一些药。", 
+        "segments": ["这", "是", "一些", "药", "。"],
+        "description": "zhè shì yìxiē yào<br>These are some medicines.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466025/%E6%88%91%E4%BB%AC%E7%9A%84%E8%80%81%E5%B8%88%E6%98%AF%E6%9E%97%E8%80%81%E5%B8%88_jmryf8.mp3"
+    },
+    {
+        "id": 157, 
+        "user": "A", 
+        "title": "什么药？", 
+        "segments": ["什么", "药", "？"],
+        "description": "shénme yào<br>What kind of medicines?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466025/%E6%88%91%E4%BB%AC%E7%9A%84%E8%80%81%E5%B8%88%E6%98%AF%E6%9E%97%E8%80%81%E5%B8%88_jmryf8.mp3"
+    },
+    {
+        "id": 158, 
+        "user": "B", 
+        "title": "中药。", 
+        "segments": ["中药", "。"],
+        "description": "zhōngyào<br>Chinese medicine.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466025/%E6%88%91%E4%BB%AC%E7%9A%84%E8%80%81%E5%B8%88%E6%98%AF%E6%9E%97%E8%80%81%E5%B8%88_jmryf8.mp3"
+    },
+    {
+        "id": 159, 
+        "user": "A", 
+        "title": "这是不是药？", 
+        "segments": ["这", "是", "不", "是", "药", "？"],
+        "description": "zhè shì bú shì yào<br>Is this medicine too?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466025/%E6%88%91%E4%BB%AC%E7%9A%84%E8%80%81%E5%B8%88%E6%98%AF%E6%9E%97%E8%80%81%E5%B8%88_jmryf8.mp3"
+    },
+    {
+        "id": 160, 
+        "user": "B", 
+        "title": "这不是药，这是茶叶。", 
+        "segments": ["这", "不", "是", "药", "，", "这", "是", "茶叶", "。"],
+        "description": "zhè bú shì yào zhè shì cháyè<br>This isn't medicine, it's tea leaves.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466025/%E6%88%91%E4%BB%AC%E7%9A%84%E8%80%81%E5%B8%88%E6%98%AF%E6%9E%97%E8%80%81%E5%B8%88_jmryf8.mp3"
+    },
+    {
+        "id": 161, 
+        "user": "A", 
+        "title": "那个箱子里是什么？", 
+        "segments": ["那", "个", "箱子", "里", "是", "什么", "？"],
+        "description": "nà ge xiāngzi li shì shénme<br>What's in that suitcase?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466025/%E6%88%91%E4%BB%AC%E7%9A%84%E8%80%81%E5%B8%88%E6%98%AF%E6%9E%97%E8%80%81%E5%B8%88_jmryf8.mp3"
+    },
+    {
+        "id": 162, 
+        "user": "B", 
+        "title": "都是日用品。", 
+        "segments": ["都", "是", "日用品", "。"],
+        "description": "dōu shì rìyòngpǐn<br>It's all daily necessities.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466025/%E6%88%91%E4%BB%AC%E7%9A%84%E8%80%81%E5%B8%88%E6%98%AF%E6%9E%97%E8%80%81%E5%B8%88_jmryf8.mp3"
+    },
+    {
+        "id": 163, 
+        "user": "B", 
+        "title": "有两件衣服、一把雨伞和一瓶香水，", 
+        "segments": ["有", "两", "件", "衣服", "、", "一", "把", "雨伞", "和", "一", "瓶", "香水", "，"],
+        "description": "yǒu liǎng jiàn yīfu yì bǎ yǔsǎn hé yì píng xiāngshuǐ <br>Two pieces of clothing, an umbrella and a bottle of perfume.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466025/%E6%88%91%E4%BB%AC%E7%9A%84%E8%80%81%E5%B8%88%E6%98%AF%E6%9E%97%E8%80%81%E5%B8%88_jmryf8.mp3"
+    },
+    {
+        "id": 164, 
+        "user": "B", 
+        "title": "还有一本书、一本词典、两张光盘和三支笔。", 
+        "segments": ["还", "有", "一", "本", "书", "、", "一", "本", "词典", "、", "两", "张", "光盘", "和", "三", "支", "笔", "。"],
+        "description": "hái yǒu yì běn shū yì běn cídiǎn liǎng zhāng guāngpán hé sān zhī bǐ<br>also a book, a dictionary, two CDs and three pens.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466025/%E6%88%91%E4%BB%AC%E7%9A%84%E8%80%81%E5%B8%88%E6%98%AF%E6%9E%97%E8%80%81%E5%B8%88_jmryf8.mp3"
     }
 ]
