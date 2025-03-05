@@ -126,5 +126,21 @@
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1740469078/hyjc-1-12-2_fgppy0.png",
         "videoLink": "https://www.youtube.com/embed/ng-E83Dg-KU?si=lAmjTgpd_KVG1OrK",
         "htmlLink": "posts.html?postStartId=142&postEndId=147&quizStartId=234&quizEndId=238&id=16"
+    },
+    {
+        "id": 17,
+        "title": "第十三课 (一)：这个黑箱子很重",
+        "description": "Lesson 13 (1): This black suitcase is very heavy",
+        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741163450/hyjc-1-13-1_xgxxzu.png",
+        "videoLink": "https://www.youtube.com/embed/ng-E83Dg-KU?si=lAmjTgpd_KVG1OrK",
+        "htmlLink": "posts.html?postStartId=148&postEndId=154&quizStartId=234&quizEndId=238&id=17"
+    },
+    {
+        "id": 18,
+        "title": "第十三课 (二)：这是不是中药？",
+        "description": "Lesson 13 (2): Is this Chinese medicine?",
+        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741163449/hyjc-1-13-2_vnjms0.png",
+        "videoLink": "https://www.youtube.com/embed/ng-E83Dg-KU?si=lAmjTgpd_KVG1OrK",
+        "htmlLink": "posts.html?postStartId=155&postEndId=164&quizStartId=234&quizEndId=238&id=18"
     }
 ]
