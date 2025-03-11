@@ -593,7 +593,7 @@
             "audio": "",
             "sentence": "Which books: ___",
             "blanks": [
-                { "answer": "那些书" }
+                { "answer": "哪些书" }
             ],
             "words": []
         },
