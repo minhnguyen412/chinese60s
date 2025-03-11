@@ -572,199 +572,231 @@
         },
         {
             "id": 51,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673266/%E5%A5%BD_lge2io.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "Some people: ___",
             "blanks": [
-                { "answer": "hǎo" }
+                { "answer": "一些人" }
             ],
-            "words": ["hāo", "háo", "hǎo", "hào"]
+            "words": []
         },
         {
             "id": 52,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735354395/pa_l4o4im.mp3",
-            "sentence": "Which sound do you hear? ___",
+            "audio": "",
+            "sentence": "Some books: ___",
             "blanks": [
-                { "answer": "pa" }
+                { "answer": "一些书" }
             ],
-            "words": ["ba", "pa"]
+            "words": []
         },
         {
             "id": 53,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735354394/da_gsewdl.mp3",
-            "sentence": "Which sound do you hear? ___",
+            "audio": "",
+            "sentence": "Which books: ___",
             "blanks": [
-                { "answer": "da" }
+                { "answer": "那些书" }
             ],
-            "words": ["da", "ta"]
+            "words": []
         },
         {
             "id": 54,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735354394/hei_wd8bah.mp3",
-            "sentence": "Which sound do you hear? ___",
+            "audio": "",
+            "sentence": "These things: ___",
             "blanks": [
-                { "answer": "hei" }
+                { "answer": "这些东西" }
             ],
-            "words": ["hai", "hei"]
+            "words": []
         },
         {
             "id": 55,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735354395/po_gplthh.mp3",
-            "sentence": "Which sound do you hear? ___",
+            "audio": "",
+            "sentence": "___ ___ ___ ___ ___。",
             "blanks": [
-                { "answer": "po" }
+                { "answer": "这" },
+                { "answer": "个" },
+                { "answer": "箱子" },
+                { "answer": "很" },
+                { "answer": "重" }
             ],
-            "words": ["pa", "po"]
+            "words": ["个", "重", "很", "这", "箱子"]
         },
         {
             "id": 56,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735354394/gou_g3k7r3.mp3",
-            "sentence": "Which sound do you hear? ___",
+            "audio": "",
+            "sentence": "___ ___ ___。",
             "blanks": [
-                { "answer": "gou" }
+                { "answer": "汉字" },
+                { "answer": "很" },
+                { "answer": "难" }
+
             ],
-            "words": ["gao", "gou"]
+            "words": ["很", "汉字", "难"]
         },
         {
             "id": 57,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735354394/ka_hcewtw.mp3",
-            "sentence": "Which sound do you hear? ___",
+            "audio": "",
+            "sentence": "___ ___ ___。",
             "blanks": [
-                { "answer": "ka" }
+                { "answer": "我" },
+                { "answer": "不" },
+                { "answer": "忙" }
             ],
-            "words": ["ga", "ka"]
+            "words": ["忙", "我", "不"]
         },
         {
             "id": 58,
             "audio": "",
-            "sentence": "你: ___",
-            "blanks": [
-                { "answer": "nǐ" }
-            ],
-            "words": ["nǐ", "wǔ", "yǔ", "mǎ"]
-        },
-        {
-            "id": 59,
-            "audio": "",
-            "sentence": "好: ___",
-            "blanks": [
-                { "answer": "hǎo" }
-            ],
-            "words": ["nǚ", "wǔ", "hǎo", "bǎi"]
-        },
-        {
-            "id":60,
-            "audio": "",
-            "sentence": "Are you busy?: ___ ___ ___?",
-            "blanks": [
-                { "answer": "你" },
-                { "answer": "忙" },
-                { "answer": "吗" }
-            ],
-            "words": ["忙", "你", "吗"]
-        },
-        {
-            "id":61,
-            "audio": "",
-            "sentence": "Very busy: ___ ___。",
-            "blanks": [
-                { "answer": "很" },
-                { "answer": "忙" }
-            ],
-            "words": ["忙", "很"]
-        },
-        {
-            "id":62,
-            "audio": "",
-            "sentence": "Is Chinese difficult?: ___ ___ ___?",
+            "sentence": "___ ___ ___ ___。",
             "blanks": [
                 { "answer": "汉语" },
-                { "answer": "难" },
-                { "answer": "吗" }
-            ],
-            "words": ["难", "吗", "汉语"]
-        },
-        {
-            "id":63,
-            "audio": "",
-            "sentence": "Not too difficult: ___ ___ ___。",
-            "blanks": [
                 { "answer": "不" },
                 { "answer": "太" },
                 { "answer": "难" }
             ],
-            "words": ["太", "不", "难"]
+            "words": ["太", "汉语", "不", "难"]
+        },
+        {
+            "id": 59,
+            "audio": "",
+            "sentence": "___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "那" },
+                { "answer": "个" },
+                { "answer": "箱子" },
+                { "answer": "不" },
+                { "answer": "重" }
+            ],
+            "words": ["箱子", "不", "个", "重", "那"]
+        },
+        {
+            "id":60,
+            "audio": "",
+            "sentence": "Which character needs to be removed?<br>我是很忙。Answer:___",
+            "blanks": [
+                { "answer": "是" }
+            ],
+            "words": ["我", "是", "很", "忙"]
+        },
+        {
+            "id":61,
+            "audio": "",
+            "sentence": "Which character needs to be removed?<br>我们老师是很好。Answer:___",
+            "blanks": [
+                { "answer": "是" }
+            ],
+            "words": ["我们", "老师", "是", "很", "好"]
+        },
+        {
+            "id":62,
+            "audio": "",
+            "sentence": "This character is very difficult. ___。",
+            "blanks": [
+                { "answer": "这个汉字很难" }
+
+            ],
+            "words": []
+        },
+        {
+            "id":63,
+            "audio": "",
+            "sentence": "This character is difficult, that character is not difficult. ___, ___。",
+            "blanks": [
+                { "answer": "这个汉字难" },
+                { "answer": "那个汉字不难" }
+
+            ],
+            "words": []
         },
         {
             "id":64,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673171/%E4%BB%96%E5%A5%B9_ajweaf.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "This suitcase is heavy, that suitcase is light. ___, ___。",
             "blanks": [
-                { "answer": "tā" }
+                { "answer": "这个箱子重" },
+                { "answer": "那个箱子轻" }
+
             ],
-            "words": ["tā", "tá", "tǎ", "tà"]
+            "words": []
         },
         {
             "id":65,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673287/%E5%BF%99_ez8ywo.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "A：他___老师？/ 他___老师___？<br>B：是。/ 不是。",
             "blanks": [
-                { "answer": "máng" }
+                { "answer": "是不是" },
+                { "answer": "是" },
+                { "answer": "不是" }
             ],
-            "words": ["māng", "máng", "mǎng", "màng"]
+            "words": []
         },
         {
             "id":66,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673282/%E5%BE%88_h1omcw.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "A：你去___去？/ 你___银行？/ 你去银行___？<br>B：去。/ 不去。",
             "blanks": [
-                { "answer": "hěn" }
+                { "answer": "不" },
+                { "answer": "去不去" },
+                { "answer": "不去" }
             ],
-            "words": ["hēn", "hén", "hěn", "hèn"]
+            "words": []
         },
         {
             "id":67,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673364/%E9%9A%BE_soiuxw.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "A：你忙___忙？<br>B：很忙。/ 不忙。",
             "blanks": [
-                { "answer": "nán" }
+                { "answer": "不" }
             ],
-            "words": ["nān", "nán", "nǎn", "nàn"]
+            "words": []
         },
         {
             "id":68,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673313/%E6%B1%89%E8%AF%AD_n6ho4r.mp3",
-            "sentence": "汉语: ___",
+            "audio": "",
+            "sentence": "___ ___ ___ ___ ___？",
             "blanks": [
-                { "answer": "hànyǔ" }
+                { "answer": "这些" },
+                { "answer": "箱子" },
+                { "answer": "是" },
+                { "answer": "谁" },
+                { "answer": "的" }
             ],
-            "words": ["hānyú", "hànyǔ", "hanyǔ", "hányu"]
+            "words": ["的", "是", "这些", "谁", "箱子"]
         },
         {
             "id":69,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673320/%E7%88%B8%E7%88%B8_ktwtw6.mp3",
-            "sentence": "爸爸: ___",
+            "audio": "",
+            "sentence": "___ ___ ___ ___ ___。",
             "blanks": [
-                { "answer": "bàba" }
+                { "answer": "这些" },
+                { "answer": "箱子" },
+                { "answer": "是" },
+                { "answer": "我" },
+                { "answer": "的" }
             ],
-            "words": ["baba", "pàpa", "papa", "bàba"]
+            "words": ["的", "是", "这些", "我", "箱子"]
         },
         {
             "id":70,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673268/%E5%A6%88%E5%A6%88_cyj7nk.mp3",
-            "sentence": "妈妈: ___",
+            "audio": "",
+            "sentence": "___ ___ ___ ___ ___？",
             "blanks": [
-                { "answer": "māma" }
+                { "answer": "这" },
+                { "answer": "是" },
+                { "answer": "谁" },
+                { "answer": "的" },
+                { "answer": "书" }
             ],
-            "words": ["māma", "mama", "máma", "mǎma"]
+            "words": ["书", "谁", "是", "的", "这"]
         },
         {
             "id":71,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673250/%E5%93%A5%E5%93%A5_t3w2af.mp3",
-            "sentence": "哥哥: ___",
+            "audio": "",
+            "sentence": "___ ___ ___。",
             "blanks": [
-                { "answer": "gēge" }
+                { "answer": "我" },
+                { "answer": "爸爸" },
+                { "answer": "的" }
             ],
-            "words": ["gege", "gège", "gége", "gēge"]
+            "words": ["的", "爸爸", "我"]
         },
         {
             "id":72,
