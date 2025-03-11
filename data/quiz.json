@@ -2620,6 +2620,299 @@
                 
             ],
             "words": ["楼", "屋子", "班", "房间"]
+        },
+        {
+            "id": 239,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741160965/%E4%BD%A0%E6%B2%A1%E6%9C%89%E7%AE%B1%E5%AD%90%E5%90%97_c98m4k.mp3",
+            "sentence": "Don't you have a suitcase? <br> ___ ___ ___ ___ ___ ___? ",
+            "blanks": [
+                { "answer": "你" },
+                { "answer": "没" },
+                { "answer": "有" },
+                { "answer": "箱" },
+                { "answer": "子" },
+                { "answer": "吗" }
+
+            ],
+            "words": ["没", "子", "有", "吗", "你", "箱"]
+        },
+        {
+            "id": 240,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741160966/%E6%88%91%E7%9A%84%E5%BE%88%E9%87%8D%E4%BD%A0%E7%9A%84%E9%87%8D%E4%B8%8D%E9%87%8D_nbvawe.mp3",
+            "sentence": "Mine is very heavy. Are yours heavy? <br> ___ ___ ___ ___， ___ ___ ___ ___ ___? ",
+            "blanks": [
+                { "answer": "我" },
+                { "answer": "的" },
+                { "answer": "很" },
+                { "answer": "重" },
+                { "answer": "你" },
+                { "answer": "的" },
+                { "answer": "重" },
+                { "answer": "不" },
+                { "answer": "重" }
+
+            ],
+            "words": ["重", "的", "的", "重", "我", "不", "重", "你", "很"]
+        },
+        {
+            "id": 241,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741160967/%E8%BF%99%E4%B8%AA%E9%BB%91%E7%9A%84%E5%BE%88%E9%87%8D%E9%82%A3%E4%B8%AA%E7%BA%A2%E7%9A%84%E6%AF%94%E8%BE%83%E8%BD%BB_nk2ldf.mp3",
+            "sentence": "This black one is very heavy, that red one is lighter. <br> ___ ___ ___ ___ ___ ___， ___ ___ ___ ___ ___ ___ ___。 ",
+            "blanks": [
+                { "answer": "这" },
+                { "answer": "个" },
+                { "answer": "黑" },
+                { "answer": "的" },
+                { "answer": "很" },
+                { "answer": "重" },
+                { "answer": "那" },
+                { "answer": "个" },
+                { "answer": "红" },
+                { "answer": "的" },
+                { "answer": "比" },
+                { "answer": "较" },
+                { "answer": "轻" }
+            ],
+            "words": ["的", "那", "个", "重", "红", "比", "这", "较", "轻", "的", "很", "黑", "个"]
+        },
+        {
+            "id": 242,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741160965/%E4%BD%A0%E7%9A%84%E7%AE%B1%E5%AD%90%E5%BE%88%E6%96%B0%E6%88%91%E7%9A%84%E5%BE%88%E6%97%A7_pphef9.mp3",
+            "sentence": "Your suitcase is very new, mine is very old. <br> ___ ___ ___ ___ ___ ___， ___ ___ ___ ___。 ",
+            "blanks": [
+                { "answer": "你" },
+                { "answer": "的" },
+                { "answer": "箱" },
+                { "answer": "子" },
+                { "answer": "很" },
+                { "answer": "新" },
+                { "answer": "我" },
+                { "answer": "的" },
+                { "answer": "很" },
+                { "answer": "旧" }
+              
+            ],
+            "words": ["子", "的", "新", "的", "旧", "你", "很", "很", "我", "箱"]
+        },
+        {
+            "id": 243,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077135/%E7%AE%B1%E5%AD%90_ezs6vx.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1741077561/%E7%AE%B1%E5%AD%90_u1fzgy.png", "： ___ "],
+            "blanks": [
+                { "answer": "箱子" }
+                
+            ],
+            "words": ["屋子", "本子", "饺子", "箱子"]
+        },
+        {
+            "id": 244,
+            "audio": "",
+            "sentence": "Heavy: ___ <br> Light: ___ ",
+            "blanks": [
+                { "answer": "重" },
+                { "answer": "轻" }
+           
+              
+            ],
+            "words": ["轻", "新", "旧", "重"]
+        },
+        {
+            "id": 245,
+            "audio": "",
+            "sentence": "Black: ___ <br> Red: ___ ",
+            "blanks": [
+                { "answer": "黑" },
+                { "answer": "红" }
+           
+              
+            ],
+            "words": ["黄", "红", "蓝", "黑"]
+        },
+        {
+            "id": 246,
+            "audio": "",
+            "sentence": "New: ___ <br> Old: ___ ",
+            "blanks": [
+                { "answer": "新" },
+                { "answer": "旧" }
+           
+              
+            ],
+            "words": ["轻", "新", "旧", "重"]
+        },
+        {
+            "id": 247,
+            "audio": "",
+            "sentence": "Very: ___ <br> Relatively: ___ ",
+            "blanks": [
+                { "answer": "很" },
+                { "answer": "比较" }
+           
+              
+            ],
+            "words": ["比较", "太", "不", "很"]
+        },
+        {
+            "id": 248,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741160966/%E5%85%88%E7%94%9F%E8%BF%99%E4%BA%9B%E9%BB%91%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88%E4%B8%9C%E8%A5%BF_xzvm8o.mp3",
+            "sentence": "Sir, what are these black things? <br> ___ ___， ___ ___ ___ ___ ___ ___ ___ ___ ___？ ",
+            "blanks": [
+                { "answer": "先" },
+                { "answer": "生" },
+                { "answer": "这" },
+                { "answer": "些" },
+                { "answer": "黑" },
+                { "answer": "的" },
+                { "answer": "是" },
+                { "answer": "什" },
+                { "answer": "么" },
+                { "answer": "东" },
+                { "answer": "西" }
+              
+            ],
+            "words": ["黑", "是", "生", "么", "些", "先", "东", "的", "西", "什", "这"]
+        },
+        {
+            "id": 249,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741160965/%E8%BF%99%E6%98%AF%E4%B8%80%E4%BA%9B%E8%8D%AF_h4wifn.mp3",
+            "sentence": "These are some medicines. <br> ___ ___ ___ ___ ___。 ",
+            "blanks": [
+                { "answer": "这" },
+                { "answer": "是" },
+                { "answer": "一" },
+                { "answer": "些" },
+                { "answer": "药" }
+
+              
+            ],
+            "words": ["是", "些", "一", "药", "这"]
+        },
+        {
+            "id": 250,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741160965/%E8%BF%99%E6%98%AF%E4%B8%8D%E6%98%AF%E8%8D%AF_vycqla.mp3",
+            "sentence": "Is this medicine too? <br> ___ ___ ___ ___ ___？",
+            "blanks": [
+                { "answer": "这" },
+                { "answer": "是" },
+                { "answer": "不" },
+                { "answer": "是" },
+                { "answer": "药" }
+
+              
+            ],
+            "words": ["是", "不", "药", "是", "这"]
+        },
+        {
+            "id": 251,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741160966/%E6%9C%89%E4%B8%A4%E4%BB%B6%E8%A1%A3%E6%9C%8D_irglbo.mp3",
+            "sentence": "There are two pieces of clothing, an umbrella and a bottle of perfume. <br> ___ ___ ___ ___ ___，___ ___ ___ ___ ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "有" },
+                { "answer": "两" },
+                { "answer": "件" },
+                { "answer": "衣" },
+                { "answer": "服" },
+                { "answer": "一" },
+                { "answer": "把" },
+                { "answer": "雨" },
+                { "answer": "伞" },
+                { "answer": "和" },
+                { "answer": "一" },
+                { "answer": "瓶" },
+                { "answer": "香" },
+                { "answer": "水" }
+
+              
+            ],
+            "words": ["雨", "服", "两", "和", "瓶", "伞", "一", "香", "件", "水", "一", "衣", "把", "有"]
+        },
+        {
+            "id": 252,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741160967/%E8%BF%98%E6%9C%89%E4%B8%80%E6%9C%AC%E4%B9%A6_aaz1l1.mp3",
+            "sentence": "There are also a book, a dictionary, two CDs and three pens. <br> ___ ___ ___ ___ ___，___ ___ ___ ___， ___ ___ ___ ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "还" },
+                { "answer": "有" },
+                { "answer": "一" },
+                { "answer": "本" },
+                { "answer": "书" },
+                { "answer": "一" },
+                { "answer": "本" },
+                { "answer": "词" },
+                { "answer": "典" },
+                { "answer": "两" },
+                { "answer": "张" },
+                { "answer": "光" },
+                { "answer": "盘" },
+                { "answer": "和" },
+                { "answer": "三" },
+                { "answer": "支" },
+                { "answer": "笔" }
+
+            ],
+            "words": ["词", "两", "有", "光", "书", "典", "一", "一", "盘", "和", "还", "笔", "本", "本", "三", "张", "支"]
+        },
+        {
+            "id": 253,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077136/%E8%8D%AF_yeqhpl.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1741078006/%E8%8D%AF_ly8gqs.png", "： ___ "],
+            "blanks": [
+                { "answer": "药" }
+                
+            ],
+            "words": ["笔", "光盘", "药", "书"]
+        },
+        {
+            "id": 254,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077144/%E9%A6%99%E6%B0%B4_oftifm.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1741078721/%E9%A6%99%E6%B0%B4_l8wpia.png", "： ___ "],
+            "blanks": [
+                { "answer": "香水" }
+                
+            ],
+            "words": ["香水", "本子", "饺子", "箱子"]
+        },
+        {
+            "id": 255,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077133/%E5%85%89%E7%9B%98_rzuvbk.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1741078502/%E5%85%89%E7%9B%98_yb1rhw.png", "： ___ "],
+            "blanks": [
+                { "answer": "光盘" }
+                
+            ],
+            "words": ["屋子", "光盘", "饺子", "箱子"]
+        },
+        {
+            "id": 256,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077136/%E8%A1%A3%E6%9C%8D_vxrepe.mp3",
+            "sentence": "Clothes: ___",
+            "blanks": [
+                { "answer": "衣服" }
+           
+              
+            ],
+            "words": ["衣服", "光盘", "词典", "香水"]
+        },
+        {
+            "id": 257,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077144/%E9%9B%A8%E4%BC%9E_scerzv.mp3",
+            "sentence": "Umbrella: ___",
+            "blanks": [
+                { "answer": "雨伞" }
+           
+              
+            ],
+            "words": ["衣服", "光盘", "词典", "雨伞"]
+        },
+        {
+            "id": 258,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077143/%E8%AF%8D%E5%85%B8_xqujhp.mp3",
+            "sentence": "Dictionary: ___",
+            "blanks": [
+                { "answer": "词典" }
+
+            ],
+            "words": ["衣服", "光盘", "词典", "雨伞"]
         }
     ]
 }
