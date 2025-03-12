@@ -1344,7 +1344,7 @@
         "id": 150, 
         "user": "A", 
         "title": "我的很重，你的重不重？", 
-        "segments": ["我", "的", "很", "重", "，", "你", "的", "重", "不", "重", "？"],
+        "segments": ["我", "的", "很", "重", "，", "你", "的", "重", "不", "重", "？", "<a href='grammar.html#grammar-11'>⁽*⁾</a>", "<a href='grammar.html#grammar-12'>⁽**⁾</a>"],
         "description": "wǒ de hěn zhòng nǐ de zhòng bu zhòng<br>Mine is very heavy. Are yours heavy?", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741160966/%E6%88%91%E7%9A%84%E5%BE%88%E9%87%8D%E4%BD%A0%E7%9A%84%E9%87%8D%E4%B8%8D%E9%87%8D_nbvawe.mp3"
@@ -1353,7 +1353,7 @@
         "id": 151, 
         "user": "B", 
         "title": "这个黑的很重，那个红的比较轻。", 
-        "segments": ["这", "个", "黑", "的", "很", "重", "，", "那", "个", "红", "的", "比较", "轻", "。"],
+        "segments": ["这", "个", "黑", "的", "很", "重", "，", "那", "个", "红", "的", "比较", "轻", "。", "<a href='grammar.html#grammar-13'>⁽*⁾</a>", "<a href='grammar.html#grammar-11'>⁽*⁾</a>"],
         "description": "zhè ge hēi de hěn zhòng nà ge hóng de bǐjiào qīng<br>This black one is very heavy, that red one is lighter.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/nvcodinh.0001_yazunu.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741160967/%E8%BF%99%E4%B8%AA%E9%BB%91%E7%9A%84%E5%BE%88%E9%87%8D%E9%82%A3%E4%B8%AA%E7%BA%A2%E7%9A%84%E6%AF%94%E8%BE%83%E8%BD%BB_nk2ldf.mp3"
@@ -1362,7 +1362,7 @@
         "id": 152, 
         "user": "A", 
         "title": "你的箱子很新，我的很旧。", 
-        "segments": ["你", "的", "箱子", "很", "新", "，", "我", "的", "很", "旧", "。"],
+        "segments": ["你", "的", "箱子", "很", "新", "，", "我", "的", "很", "旧", "。", "<a href='grammar.html#grammar-13'>⁽*⁾</a>", "<a href='grammar.html#grammar-11'>⁽*⁾</a>"],
         "description": "nǐ de xiāngzi hěn xīn wǒ de hěn jiù<br>Your suitcase is very new, mine is very old.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741160965/%E4%BD%A0%E7%9A%84%E7%AE%B1%E5%AD%90%E5%BE%88%E6%96%B0%E6%88%91%E7%9A%84%E5%BE%88%E6%97%A7_pphef9.mp3"
@@ -1371,7 +1371,7 @@
         "id": 153, 
         "user": "B", 
         "title": "那个新的是朋友的。", 
-        "segments": ["那", "个", "新", "的", "是", "朋友", "的", "。"],
+        "segments": ["那", "个", "新", "的", "是", "朋友", "的", "。", "<a href='grammar.html#grammar-13'>⁽*⁾</a>"],
         "description": "nà ge xīn de shì péngyou de<br>The new one is my friend's.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/nvcodinh.0001_yazunu.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741160966/%E9%82%A3%E4%B8%AA%E6%96%B0%E7%9A%84%E6%98%AF%E6%9C%8B%E5%8F%8B%E7%9A%84_sfqotv.mp3"
@@ -1380,7 +1380,7 @@
         "id": 154, 
         "user": "B", 
         "title": "这个旧的是我的。", 
-        "segments": ["这", "个", "旧", "的", "是", "我", "的", "。"],
+        "segments": ["这", "个", "旧", "的", "是", "我", "的", "。", "<a href='grammar.html#grammar-13'>⁽*⁾</a>"],
         "description": "zhè ge jiù de shì wǒ de<br>The old one is mine.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/nvcodinh.0001_yazunu.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741160967/%E8%BF%99%E4%B8%AA%E6%97%A7%E7%9A%84%E6%98%AF%E6%88%91%E7%9A%84_crojty.mp3"
@@ -1389,7 +1389,7 @@
         "id": 155, 
         "user": "A", 
         "title": "先生，这些黑的是什么东西？", 
-        "segments": ["先生", "，", "这些", "黑", "的", "是", "什么", "东西", "？"],
+        "segments": ["先生", "，", "这些", "黑", "的", "是", "什么", "东西", "？", "<a href='grammar.html#grammar-13'>⁽*⁾</a>"],
         "description": "xiānsheng zhèxie hēi de shì shénme dōngxi<br>Sir, what are these black things?", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/anninh_g9xant.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741160966/%E5%85%88%E7%94%9F%E8%BF%99%E4%BA%9B%E9%BB%91%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88%E4%B8%9C%E8%A5%BF_xzvm8o.mp3"
