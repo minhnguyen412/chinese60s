@@ -875,7 +875,7 @@
         "id": "110",
         "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672826/%E7%9A%84_ngnlln.png",
         "character": "的",
-        "meaning": "a particle used after an attribute to indicate possession - <a href='grammar.html#grammar-8'>More</a>",
+        "meaning": "a particle used after an attribute to indicate possession - <a href='grammar.html#grammar-8'>More</a><br>noun/pronoun/adj/verb/phrase + 的 = noun - <a href='grammar.html#grammar-13'>More</a>",
         "pinyin": "de",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673325/%E7%9A%84_ksdvbh.mp3"
     },
@@ -1115,7 +1115,7 @@
         "id": "140",
         "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672830/%E8%BF%99%E4%BA%9B_snz8dq.png",
         "character": "这些",
-        "meaning": "These",
+        "meaning": "These - <a href='grammar.html#grammar-10'>More</a>",
         "pinyin": "zhèxiē",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673351/%E8%BF%99%E4%BA%9B_u0mkct.mp3"
     },
@@ -1123,7 +1123,7 @@
         "id": "141",
         "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672809/%E4%BA%9B_vzw6vo.png",
         "character": "些",
-        "meaning": "classifier - some",
+        "meaning": "classifier - some - <a href='grammar.html#grammar-10'>More</a>",
         "pinyin": "xiē",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673167/%E4%BA%9B_bueai8.mp3"
     },
@@ -1131,7 +1131,7 @@
         "id": "142",
         "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672808/%E4%B8%80%E4%BA%9B_mqsor0.png",
         "character": "一些",
-        "meaning": "some; a few; a little",
+        "meaning": "some; a few; a little - <a href='grammar.html#grammar-10'>More</a>",
         "pinyin": "yìxiē",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673152/%E4%B8%80%E4%BA%9B_goqgmk.mp3"
     },
@@ -1139,7 +1139,7 @@
         "id": "143",
         "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672830/%E9%82%A3%E4%BA%9B_is9xsd.png",
         "character": "那些",
-        "meaning": "Those",
+        "meaning": "Those - <a href='grammar.html#grammar-10'>More</a>",
         "pinyin": "nàxiē",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673354/%E9%82%A3%E4%BA%9B_jg8gap.mp3"
     },
