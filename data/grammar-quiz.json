@@ -790,104 +790,129 @@
         {
             "id":71,
             "audio": "",
-            "sentence": "___ ___ ___。",
+            "sentence": "___ ___ ___ ___。",
             "blanks": [
                 { "answer": "我" },
-                { "answer": "爸爸" },
-                { "answer": "的" }
+                { "answer": "最近" },
+                { "answer": "有（一）点儿" },
+                { "answer": "忙" }
             ],
-            "words": ["的", "爸爸", "我"]
+            "words": ["最近", "忙", "我", "有（一）点儿"]
         },
         {
             "id":72,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673269/%E5%A6%B9%E5%A6%B9_fm9pax.mp3",
-            "sentence": "mèimei: ___",
+            "audio": "",
+            "sentence": "___ ___ ___ ___ ___。",
             "blanks": [
-                { "answer": "妹妹" }
+                { "answer": "这" },
+                { "answer": "个" },
+                { "answer": "箱子" },
+                { "answer": "有（一）点儿" },
+                { "answer": "大" }
             ],
-            "words": ["妈妈", "妹妹", "弟弟", "哥哥"]
+            "words": ["个", "大", "有（一）点儿", "这", "箱子"]
         },
         {
             "id":73,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673281/%E5%BC%9F%E5%BC%9F_taqkox.mp3",
-            "sentence": "dìdi: ___",
+            "audio": "",
+            "sentence": "A：How is your health? ___ ___ ___?<br>B：My health is very good. ___ ___ ___ ___。",
             "blanks": [
-                { "answer": "弟弟" }
+                { "answer": "你" },
+                { "answer": "身体" },
+                { "answer": "怎么样" },
+                { "answer": "我" },
+                { "answer": "身体" },
+                { "answer": "很" },
+                { "answer": "好" }
             ],
-            "words": ["爸爸", "妹妹", "弟弟", "哥哥"]
+            "words": ["我", "身体", "好", "很", "你", "身体", "怎么样"]
         },
         {
             "id": 74,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277880/%E6%98%8E%E5%A4%A9%E8%A7%811_hicaru.mp3",
-            "sentence": "See you tomorrow! <br> ___!",
+            "audio": "",
+            "sentence": "A：Is her job busy or not? ___ ___ ___ ___ ___?<br>B：Her job is not busy. ___ ___ ___ ___。",
             "blanks": [
-                { "answer": "明天见" }
+                { "answer": "她" },
+                { "answer": "工作" },
+                { "answer": "忙" },
+                { "answer": "不" },
+                { "answer": "忙" },
+                { "answer": "她" },
+                { "answer": "工作" },
+                { "answer": "不" },
+                { "answer": "忙" }
             ],
-            "words": ["对不起", "你好", "明天见"]
+            "words": ["不", "工作", "不", "她", "", "忙", "她", "忙", "工作", "忙"]
         },
         {
             "id": 75,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673271/%E5%AD%A6_uno8r3.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "A：你的车是新的 ___ 旧的?<br>B：我的车是新的。",
             "blanks": [
-                { "answer": "xué" }
+                { "answer": "还是" }
             ],
-            "words": ["xuē", "xué", "xuě", "xuè"]
+            "words": []
         },
         {
             "id": 76,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673241/%E5%8E%BB_kpu4fk.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "A：你今天去 ___ 明天去?<br>B：我明天去。",
             "blanks": [
-                { "answer": "qù" }
+                { "answer": "还是" }
             ],
-            "words": ["qū", "qú", "qǔ", "qù"]
+            "words": []
         },
         
         {
             "id": 77,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673244/%E5%8F%96_obawic.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "A：你喝点儿什么，茶 ___ 咖啡?<br>B：喝点儿茶吧。",
             "blanks": [
-                { "answer": "qǔ" }
+                { "answer": "还是" }
             ],
-            "words": ["qū", "qú", "qǔ", "qù"]
+            "words": []
         },
         {
             "id": 78,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673359/%E9%92%B1_fwinoj.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "___ ___ ___ ___? （= 我的书在那儿？)",
             "blanks": [
-                { "answer": "qián" }
+                { "answer": "我" },
+                { "answer": "的" },
+                { "answer": "书" },
+                { "answer": "呢" }
             ],
-            "words": ["qiān", "qián", "qiǎn", "qiàn"]
+            "words": ["的", "呢", "我", "书"]
         },
         {
             "id": 79,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673234/%E5%85%AD_hlbdqd.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "___ ___ ___ ___? （= 我的自行车在那儿？)",
             "blanks": [
-                { "answer": "liù" }
+                { "answer": "我" },
+                { "answer": "的" },
+                { "answer": "自行车" },
+                { "answer": "呢" }
             ],
-            "words": ["liū", "liú", "liǔ", "liù"]
+            "words": ["自行车", "的", "呢", "我"]
         },
         {
             "id": 80,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673153/%E4%B8%83_msyi6a.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "A：这是谁的包？<br>B：我的。<br>A：___？（那个包是谁的？）<br>B：我朋友的？",
             "blanks": [
-                { "answer": "qī" }
+                { "answer": "那个呢" }
             ],
-            "words": ["qī", "qí", "qǐ", "qì"]
+            "words": []
         },
         {
             "id": 81,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673162/%E4%B9%9D_hvhtri.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "A：你是哪国人？<br>B：我是中国人。___？<br>A：我是日本人。",
             "blanks": [
-                { "answer": "jiǔ" }
+                { "answer": "你呢" }
             ],
-            "words": ["jiū", "jiú", "jiǔ", "jiù"]
+            "words": []
         },
         {
             "id": 82,
