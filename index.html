@@ -304,6 +304,11 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr); /* 3 cột */
       gap: 10px;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 400px; /* Giới hạn chiều rộng */
+      margin: 0 auto; /* Căn giữa toàn bộ container */
     }
 
 
@@ -371,6 +376,10 @@
     .thumbnail-section h3 {
         font-size: 0.8rem;
         padding-left: 15px;
+    }
+    .button-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 cột */
+        max-width: 300px; /* Giới hạn chiều rộng */
     }
 }
   </style>
