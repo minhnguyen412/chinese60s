@@ -2206,5 +2206,173 @@
         "meaning": "pen; pencil; writing brush",
         "pinyin": "bǐ",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077135/%E7%AC%94_cpftb6.mp3"
+    },
+    {
+        "id": "277",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1742351248/%E7%BB%8F%E7%90%86-min_wfs7tb.png",
+        "character": "经理",
+        "meaning": "manager ",
+        "pinyin": "jīnglǐ",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742353525/%E7%BB%8F%E7%90%86_slyip6.mp3"
+    },
+    {
+        "id": "278",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1742351247/%E5%A5%BD%E4%B9%85-min_mgsl78.png",
+        "character": "好久",
+        "meaning": "(for) a long time",
+        "pinyin": "hǎojiǔ",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742352612/%E5%A5%BD%E4%B9%85_awihky.mp3"
+    },
+    {
+        "id": "279",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1742351267/%E9%A9%AC%E9%A9%AC%E8%99%8E%E8%99%8E-min_so5fld.png",
+        "character": "马马虎虎",
+        "meaning": "so so",
+        "pinyin": "mǎmǎhūhū",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742354131/%E9%A9%AC%E9%A9%AC%E8%99%8E%E8%99%8E_q8bpka.mp3"
+    },
+    {
+        "id": "280",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1742351246/%E6%9C%80%E8%BF%91-min_znbmtw.png",
+        "character": "最近",
+        "meaning": "recently; in the near future",
+        "pinyin": "zuìjìn",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742353521/%E6%9C%80%E8%BF%91_axjcbr.mp3"
+    },
+    {
+        "id": "281",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1742351247/%E5%88%9A-min_rwxdtd.png",
+        "character": "刚",
+        "meaning": "just now; a short while ago",
+        "pinyin": "gāng",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742352611/%E5%88%9A_i1zokw.mp3"
+    },
+    {
+        "id": "282",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1742351247/%E5%BC%80%E5%AD%A6-min_lwoklv.png",
+        "character": "开学",
+        "meaning": "to start a new school year",
+        "pinyin": "kāi xué",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742352612/%E5%BC%80%E5%AD%A6_m2pcsz.mp3"
+    },
+    {
+        "id": "283",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1742351247/%E5%BC%80-min_f3txuo.png",
+        "character": "开",
+        "meaning": "to begin; to open",
+        "pinyin": "kāi",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742352612/%E5%BC%80_qepgpm.mp3"
+    },
+    {
+        "id": "284",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1742351247/%E6%9C%89%E4%B8%80%E7%82%B9%E5%84%BF-min_x87bis.png",
+        "character": "有（一）点儿",
+        "meaning": "a little; slightly",
+        "pinyin": "yǒu (yì) diǎnr",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742353521/%E6%9C%89_%E4%B8%80_%E7%82%B9%E5%84%BF_w71lr1.mp3"
+    },
+    {
+        "id": "285",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1742351248/%E7%82%B9%E5%84%BF-min_oztjut.png",
+        "character": "点儿",
+        "meaning": "(classifier) a little",
+        "pinyin": "diǎnr",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742353525/%E7%82%B9%E5%84%BF_a5qsyh.mp3"
+    },
+    {
+        "id": "286",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1742351249/%E8%BF%98%E6%98%AF-min_kbmffu.png",
+        "character": "还是",
+        "meaning": "or",
+        "pinyin": "háishi",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742354130/%E8%BF%98%E6%98%AF_firabi.mp3"
+    },
+    {
+        "id": "287",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1742351247/%E5%92%96%E5%95%A1-min_yidb6r.png",
+        "character": "咖啡",
+        "meaning": "coffee",
+        "pinyin": "kāfēi",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742352611/%E5%92%96%E5%95%A1_y3jpy4.mp3"
+    },
+    {
+        "id": "288",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1742351247/%E6%9D%AF-min_h2axeq.png",
+        "character": "杯",
+        "meaning": "cup",
+        "pinyin": "bēi",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742353521/%E6%9D%AF_qajhsa.mp3"
+    },
+    {
+        "id": "289",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1742351249/%E8%BD%A6-min_jq8uaq.png",
+        "character": "车",
+        "meaning": "vehicle (bicycle, car, etc.)",
+        "pinyin": "chē",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742353549/%E8%BD%A6_pym8za.mp3"
+    },
+    {
+        "id": "290",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1742351248/%E8%87%AA%E8%A1%8C%E8%BD%A6-min_owzuth.png",
+        "character": "自行车",
+        "meaning": "bicycle",
+        "pinyin": "zìxíngchē",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742353525/%E8%87%AA%E8%A1%8C%E8%BD%A6_oysig3.mp3"
+    },
+    {
+        "id": "291",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1742351247/%E6%B1%BD%E8%BD%A6-min_n2kssw.png",
+        "character": "汽车",
+        "meaning": "auto; car; bus",
+        "pinyin": "qìchē",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742353525/%E6%B1%BD%E8%BD%A6_xuxqzf.mp3"
+    },
+    {
+        "id": "292",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1742351248/%E6%91%A9%E6%89%98%E8%BD%A6-min_i6f3ro.png",
+        "character": "摩托车",
+        "meaning": "motorcycle; scooter",
+        "pinyin": "mótuōchē",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742352642/%E6%91%A9%E6%89%98%E8%BD%A6_dnmevm.mp3"
+    },
+    {
+        "id": "293",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1742351246/%E5%87%BA%E7%A7%9F%E8%BD%A6-min_rnjuoq.png",
+        "character": "出租车",
+        "meaning": "taxi",
+        "pinyin": "chūzūchē",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742352611/%E5%87%BA%E7%A7%9F%E8%BD%A6_bhqv0m.mp3"
+    },
+    {
+        "id": "294",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1742351259/%E9%A2%9C%E8%89%B2-min_wuyr5f.png",
+        "character": "颜色",
+        "meaning": "color",
+        "pinyin": "yánsè",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742354130/%E9%A2%9C%E8%89%B2_mtggui.mp3"
+    },
+    {
+        "id": "295",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1742351248/%E8%93%9D-min_rlq7cz.png",
+        "character": "蓝",
+        "meaning": "blue",
+        "pinyin": "lán",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742353526/%E8%93%9D_zbricg.mp3"
+    },
+    {
+        "id": "296",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1742351249/%E8%BE%86-min_d8pfkd.png",
+        "character": "辆",
+        "meaning": "(a classifier for vehicles)",
+        "pinyin": "liàng",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742354130/%E8%BE%86_m8te2j.mp3"
+    },
+    {
+        "id": "297",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1742351247/%E5%95%8A-min_gnv0s3.png",
+        "character": "啊",
+        "meaning": "(expressing sudden realization)",
+        "pinyin": "à",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742352611/%E5%95%8A_oeop06.mp3"
     }
 ]
