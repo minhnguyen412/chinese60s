@@ -1474,5 +1474,176 @@
         "description": "hái yǒu yì běn shū yì běn cídiǎn liǎng zhāng guāngpán hé sān zhī bǐ<br>also a book, a dictionary, two CDs and three pens.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741160967/%E8%BF%98%E6%9C%89%E4%B8%80%E6%9C%AC%E4%B9%A6_aaz1l1.mp3"
+    },
+    {
+        "id": 165, 
+        "user": "关经理", 
+        "title": "王老师，好久不见了。", 
+        "segments": ["王", "老师", "，", "好久", "不", "见", "了", "。"],
+        "description": "wáng lǎoshī hǎojiǔ bú jiàn le<br>Teacher Wang, long time no see.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673379/gdguan_t6axau.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437007/165_r8l2iz.mp3"
+    },
+    {
+        "id": 166, 
+        "user": "王老师", 
+        "title": "啊！关经理，欢迎，欢迎！", 
+        "segments": ["啊", "！", "关", "经理", "，", "欢迎", "，", "欢迎", "！"],
+        "description": "à guān jīnglǐ huānyíng huānyíng<br>Ah, Manager Guan! Welcome! Welcome!", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437007/166_oldwjo.mp3"
+    },
+    {
+        "id": 167, 
+        "user": "关经理", 
+        "title": "您身体好吗？", 
+        "segments": ["您", "身体", "好", "吗", "？"],
+        "description": "nín shēntǐ hǎo ma<br>How is your health?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673379/gdguan_t6axau.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437007/167_qocewz.mp3"
+    },
+    {
+        "id": 168, 
+        "user": "王老师", 
+        "title": "很好。您身体怎么样？", 
+        "segments": ["很", "好", "。", "您", "身体", "怎么样", "？"],
+        "description": "hěn hǎo nín shēntǐ zěnmeyàng<br>Very good! How about your health?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437008/168_ashoni.mp3"
+    },
+    {
+        "id": 169, 
+        "user": "关经理", 
+        "title": "马马虎虎。", 
+        "segments": ["马马虎虎", "。"],
+        "description": "mǎmahūhū<br>So-so.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673379/gdguan_t6axau.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437007/169_ov32nt.mp3"
+    },
+    {
+        "id": 170, 
+        "user": "王老师", 
+        "title": "最近工作忙不忙？", 
+        "segments": ["最近", "工作", "忙", "不", "忙", "？"],
+        "description": "zuìjìn gōngzuò máng bu máng<br>Has your work been busy lately?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437008/170_zf37ca.mp3"
+    },
+    {
+        "id": 171, 
+        "user": "关经理", 
+        "title": "不太忙，您呢？", 
+        "segments": ["不", "太", "忙", "，", "您", "呢", "？"],
+        "description": "bú tài máng nín ne<br>Not too busy, and you?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673379/gdguan_t6axau.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437008/171_qu1iyd.mp3"
+    },
+    {
+        "id": 172, 
+        "user": "王老师", 
+        "title": "刚开学，有点儿忙。", 
+        "segments": ["刚", "开学", "，", "有", "点儿", "忙", "。"],
+        "description": "gāng kāi xué yóudiǎnr máng<br>New term just started, so I'm a bit busy.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437008/172_phfz3t.mp3"
+    },
+    {
+        "id": 173, 
+        "user": "王老师", 
+        "title": "喝点儿什么？茶还是咖啡？", 
+        "segments": ["喝", "点儿", "什么", "？", "茶", "还是", "咖啡", "？"],
+        "description": "hē diǎnr shénme chá háishi kāfēi<br>What would you like to drink? Tea or coffee?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437009/173_aytrmy.mp3"
+    },
+    {
+        "id": 174, 
+        "user": "关经理", 
+        "title": "喝杯茶吧！", 
+        "segments": ["喝", "杯", "茶", "吧", "！"],
+        "description": "hē bēi chá ba<br>Let's have a cup of tea!", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673379/gdguan_t6axau.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437008/174_gctwh2.mp3"
+    },
+    {
+        "id": 175, 
+        "user": "田芳", 
+        "title": "我的车呢？", 
+        "segments": ["我", "的", "车", "呢", "？"],
+        "description": "wǒ de chē ne<br>Where is my bike?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/KAT.0001_weeiww.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437009/175_bk8h2w.mp3"
+    },
+    {
+        "id": 176, 
+        "user": "张东", 
+        "title": "你的车是什么颜色的？", 
+        "segments": ["你", "的", "车", "是", "什么", "颜色", "的", "？"],
+        "description": "nǐ de chē shì shénme yánsè de<br>Which color is your bike?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673385/zhangdong_llur8t.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437009/176_d96k3m.mp3"
+    },
+    {
+        "id": 177, 
+        "user": "田芳", 
+        "title": "蓝的。", 
+        "segments": ["蓝", "的", "。"],
+        "description": "lán de<br>The blue one!", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/KAT.0001_weeiww.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437007/177_iwezbr.mp3"
+    },
+    {
+        "id": 178, 
+        "user": "张东", 
+        "title": "是新的还是旧的？", 
+        "segments": ["是", "新", "的", "还是", "旧", "的", "？"],
+        "description": "shì xīn de háishi jiù de<br>Is it the new one or the old one?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673385/zhangdong_llur8t.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437007/178_jxfdlt.mp3"
+    },
+    {
+        "id": 179, 
+        "user": "田芳", 
+        "title": "新的。", 
+        "segments": ["新", "的", "。"],
+        "description": "xīn de<br>The new one.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/KAT.0001_weeiww.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437007/179_e5yeko.mp3"
+    },
+    {
+        "id": 180, 
+        "user": "张东", 
+        "title": "那辆蓝的是不是你的？", 
+        "segments": ["那", "辆", "蓝", "的", "是", "不", "是", "你", "的", "？"],
+        "description": "nà liàng lán de shì bu shì nǐ de<br>Is that blue one yours?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673385/zhangdong_llur8t.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437008/180_mqob9z.mp3"
+    },
+    {
+        "id": 181, 
+        "user": "田芳", 
+        "title": "哪辆？", 
+        "segments": ["哪", "辆", "？"],
+        "description": "nǎ liàng<br>Which one?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/KAT.0001_weeiww.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437008/181_k0ulsf.mp3"
+    },
+    {
+        "id": 182, 
+        "user": "张东", 
+        "title": "那辆！", 
+        "segments": ["那", "辆", "！"],
+        "description": "nà liàng<br>That one!", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673385/zhangdong_llur8t.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437008/182_audngi.mp3"
+    },
+    {
+        "id": 183, 
+        "user": "田芳", 
+        "title": "不是。......啊，我的车在那儿呢。", 
+        "segments": ["不", "是", "。", "......", "啊", "，", "我", "的", "车", "在", "那儿", "呢", "。"],
+        "description": "bú shì à wǒ de chē zài nàr ne<br>No, it's not. ... Ah! My bike is there.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/KAT.0001_weeiww.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437009/183_evv0hg.mp3"
     }
 ]
