@@ -2913,6 +2913,210 @@
 
             ],
             "words": ["衣服", "光盘", "词典", "雨伞"]
+        },
+        {
+            "id": 259,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437007/167_qocewz.mp3",
+            "sentence": "Is your health good? <br> ___ ___ ___ ___ ___?",
+            "blanks": [
+                { "answer": "您" },
+                { "answer": "身" },
+                { "answer": "体" },
+                { "answer": "好" },
+                { "answer": "吗" }
+            ],
+            "words": ["身", "吗", "您", "好", "体"]
+        },
+        {
+            "id": 260,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437008/170_zf37ca.mp3",
+            "sentence": "Has your work been busy lately? <br> ___ ___ ___ ___ ___ ___ ___?",
+            "blanks": [
+                { "answer": "最" },
+                { "answer": "近" },
+                { "answer": "工" },
+                { "answer": "作" },
+                { "answer": "忙" },
+                { "answer": "不" },
+                { "answer": "忙" }
+            ],
+            "words": ["作", "近", "忙", "忙", "最", "不", "工"]
+        },
+        {
+            "id": 261,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437008/172_phfz3t.mp3",
+            "sentence": "New school term just started, so I'm a bit busy. <br> ___ ___ ___, ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "刚" },
+                { "answer": "开" },
+                { "answer": "学" },
+                { "answer": "有" },
+                { "answer": "点" },
+                { "answer": "儿" },
+                { "answer": "忙" }
+            ],
+            "words": ["点", "开", "忙", "学", "刚", "儿", "有"]
+        },
+        {
+            "id": 262,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437009/173_aytrmy.mp3",
+            "sentence": "Would you like to drink something? Tea or coffee? <br> ___ ___ ___ ___ ___? ___ ___ ___?",
+            "blanks": [
+                { "answer": "喝" },
+                { "answer": "点" },
+                { "answer": "儿" },
+                { "answer": "什" },
+                { "answer": "么" },
+                { "answer": "茶" },
+                { "answer": "还" },
+                { "answer": "是" },
+                { "answer": "咖" },
+                { "answer": "啡" }
+            ],
+            "words": ["点", "喝", "么", "是", "茶", "儿", "什", "咖", "还", "啡"]
+        },
+        {
+            "id": 263,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673336/%E8%8C%B6_qjl60i.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672827/%E8%8C%B6_wqnz2r.png", "： ___ "],
+            "blanks": [
+                { "answer": "茶" }
+                
+            ],
+            "words": ["咖啡", "米饭", "茶", "啤酒"]
+        },
+        {
+            "id": 264,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742352611/%E5%92%96%E5%95%A1_y3jpy4.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1742351247/%E5%92%96%E5%95%A1-min_yidb6r.png", "： ___ "],
+            "blanks": [
+                { "answer": "咖啡" }
+                
+            ],
+            "words": ["水果", "咖啡", "酒", "茶叶"]
+        },
+        {
+            "id": 265,
+            "audio": "",
+            "sentence": "You go to the bank or the post office? <br> ___ ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "你" },
+                { "answer": "去" },
+                { "answer": "银行" },
+                { "answer": "还是" },
+                { "answer": "去" },
+                { "answer": "邮局" }
+            ],
+            "words": ["去", "还是", "邮局", "你", "去", "银行"]
+        },
+        {
+            "id": 266,
+            "audio": "",
+            "sentence": "You drink water or beer? <br> ___ ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "你" },
+                { "answer": "喝" },
+                { "answer": "水" },
+                { "answer": "还是" },
+                { "answer": "喝" },
+                { "answer": "啤酒" }
+            ],
+            "words": ["喝", "还是", "水", "你", "啤酒", "喝"]
+        },
+        {
+            "id": 267,
+            "audio": "",
+            "sentence": "You study English or French? <br> ___ ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "你" },
+                { "answer": "学习" },
+                { "answer": "英语" },
+                { "answer": "还是" },
+                { "answer": "学习" },
+                { "answer": "法语" }
+            ],
+            "words": ["还是", "学习", "法语", "你", "学习", "英语"]
+        },
+        {
+            "id": 268,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437009/175_bk8h2w.mp3",
+            "sentence": "Where is my bike? <br> ___ ___ ___ ___?",
+            "blanks": [
+                { "answer": "我" },
+                { "answer": "的" },
+                { "answer": "车" },
+                { "answer": "呢" }
+            ],
+            "words": ["的", "我", "车", "呢"]
+        },
+        {
+            "id": 269,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437009/176_d96k3m.mp3",
+            "sentence": "Which color is your bike? <br> ___ ___ ___ ___ ___ ___ ___ ___ ___?",
+            "blanks": [
+                { "answer": "你" },
+                { "answer": "的" },
+                { "answer": "车" },
+                { "answer": "是" },
+                { "answer": "什" },
+                { "answer": "么" },
+                { "answer": "颜" },
+                { "answer": "色" },
+                { "answer": "的" }
+            ],
+            "words": ["是", "么", "的", "色", "你", "的", "什", "颜", "车"]
+        },
+        {
+            "id": 270,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437007/178_jxfdlt.mp3",
+            "sentence": "Is it the new one or the old one? <br> ___ ___ ___ ___ ___ ___ ___?",
+            "blanks": [
+                { "answer": "是" },
+                { "answer": "新" },
+                { "answer": "的" },
+                { "answer": "还" },
+                { "answer": "是" },
+                { "answer": "旧" },
+                { "answer": "的" }
+            ],
+            "words": ["是", "新", "的", "是", "旧", "的", "还"]
+        },
+        {
+            "id": 271,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437008/180_mqob9z.mp3",
+            "sentence": "Is that blue one yours? <br> ___ ___ ___ ___ ___ ___ ___ ___ ___?",
+            "blanks": [
+                { "answer": "那" },
+                { "answer": "辆" },
+                { "answer": "蓝" },
+                { "answer": "的" },
+                { "answer": "是" },
+                { "answer": "不" },
+                { "answer": "是" },
+                { "answer": "你" },
+                { "answer": "的" }
+            ],
+            "words": ["蓝", "不", "的", "那", "是", "的", "辆", "是", "你"]
+        },
+        {
+            "id": 272,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742354130/%E9%A2%9C%E8%89%B2_mtggui.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1742351259/%E9%A2%9C%E8%89%B2-min_wuyr5f.png", "： ___ "],
+            "blanks": [
+                { "answer": "颜色" }
+                
+            ],
+            "words": ["自行车", "蓝色", "黑色", "颜色"]
+        },
+        {
+            "id": 273,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742353525/%E8%87%AA%E8%A1%8C%E8%BD%A6_oysig3.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1742351248/%E8%87%AA%E8%A1%8C%E8%BD%A6-min_owzuth.png", "： ___ "],
+            "blanks": [
+                { "answer": "自行车" }
+                
+            ],
+            "words": ["自行车", "摩托车", "汽车", "出租车"]
         }
     ]
 }
