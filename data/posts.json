@@ -1533,7 +1533,7 @@
         "id": 171, 
         "user": "关经理", 
         "title": "不太忙，您呢？", 
-        "segments": ["不", "太", "忙", "，", "您", "呢", "？"],
+        "segments": ["不", "太", "忙", "，", "您", "呢", "？", "<a href='grammar.html#grammar-16'>⁽*⁾</a>"],
         "description": "bú tài máng nín ne<br>Not too busy, and you?", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673379/gdguan_t6axau.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437008/171_qu1iyd.mp3"
@@ -1542,7 +1542,7 @@
         "id": 172, 
         "user": "王老师", 
         "title": "刚开学，有点儿忙。", 
-        "segments": ["刚", "开学", "，", "有", "点儿", "忙", "。"],
+        "segments": ["刚", "开学", "，", "有", "点儿", "忙", "。", "<a href='collocations.html#collo-1'>⁽*⁾</a>"],
         "description": "gāng kāi xué yóudiǎnr máng<br>New term just started, so I'm a bit busy.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437008/172_phfz3t.mp3"
@@ -1551,7 +1551,7 @@
         "id": 173, 
         "user": "王老师", 
         "title": "喝点儿什么？茶还是咖啡？", 
-        "segments": ["喝", "点儿", "什么", "？", "茶", "还是", "咖啡", "？"],
+        "segments": ["喝", "点儿", "什么", "？", "茶", "还是", "咖啡", "？", "<a href='grammar.html#grammar-15'>⁽*⁾</a>"],
         "description": "hē diǎnr shénme chá háishi kāfēi<br>What would you like to drink? Tea or coffee?", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437009/173_aytrmy.mp3"
@@ -1569,7 +1569,7 @@
         "id": 175, 
         "user": "田芳", 
         "title": "我的车呢？", 
-        "segments": ["我", "的", "车", "呢", "？"],
+        "segments": ["我", "的", "车", "呢", "？", "<a href='grammar.html#grammar-16'>⁽*⁾</a>"],
         "description": "wǒ de chē ne<br>Where is my bike?", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/KAT.0001_weeiww.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437009/175_bk8h2w.mp3"
@@ -1596,7 +1596,7 @@
         "id": 178, 
         "user": "张东", 
         "title": "是新的还是旧的？", 
-        "segments": ["是", "新", "的", "还是", "旧", "的", "？"],
+        "segments": ["是", "新", "的", "还是", "旧", "的", "？", "<a href='grammar.html#grammar-15'>⁽*⁾</a>"],
         "description": "shì xīn de háishi jiù de<br>Is it the new one or the old one?", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673385/zhangdong_llur8t.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437007/178_jxfdlt.mp3"
@@ -1641,7 +1641,7 @@
         "id": 183, 
         "user": "田芳", 
         "title": "不是。......啊，我的车在那儿呢。", 
-        "segments": ["不", "是", "。", "......", "啊", "，", "我", "的", "车", "在", "那儿", "呢", "。"],
+        "segments": ["不", "是", "。", "......", "啊", "，", "我", "的", "车", "在", "那儿", "呢", "。", "<a href='collocations.html#collo-2'>⁽*⁾</a>"],
         "description": "bú shì à wǒ de chē zài nàr ne<br>No, it's not. ... Ah! My bike is there.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/KAT.0001_weeiww.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437009/183_evv0hg.mp3"
