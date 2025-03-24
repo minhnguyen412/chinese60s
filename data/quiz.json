@@ -2960,7 +2960,7 @@
         {
             "id": 262,
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437009/173_aytrmy.mp3",
-            "sentence": "Would you like to drink something? Tea or coffee? <br> ___ ___ ___ ___ ___? ___ ___ ___?",
+            "sentence": "Would you like to drink something? Tea or coffee? <br> ___ ___ ___ ___ ___? ___ ___ ___ ___ ___?",
             "blanks": [
                 { "answer": "喝" },
                 { "answer": "点" },
@@ -2998,7 +2998,7 @@
         {
             "id": 265,
             "audio": "",
-            "sentence": "You go to the bank or the post office? <br> ___ ___ ___ ___ ___ ___。",
+            "sentence": "You go to the bank or the post office? <br> ___ ___ ___ ___ ___ ___?",
             "blanks": [
                 { "answer": "你" },
                 { "answer": "去" },
@@ -3012,7 +3012,7 @@
         {
             "id": 266,
             "audio": "",
-            "sentence": "You drink water or beer? <br> ___ ___ ___ ___ ___ ___。",
+            "sentence": "You drink water or beer? <br> ___ ___ ___ ___ ___ ___?",
             "blanks": [
                 { "answer": "你" },
                 { "answer": "喝" },
@@ -3026,7 +3026,7 @@
         {
             "id": 267,
             "audio": "",
-            "sentence": "You study English or French? <br> ___ ___ ___ ___ ___ ___。",
+            "sentence": "You study English or French? <br> ___ ___ ___ ___ ___ ___?",
             "blanks": [
                 { "answer": "你" },
                 { "answer": "学习" },
