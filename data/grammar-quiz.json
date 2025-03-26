@@ -914,152 +914,159 @@
         },
         {
             "id": 82,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1736230957/ming2_wagq9o.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "(三个日本人 + 四个美国人) -> 他们 ___ 美国人。",
             "blanks": [
-                { "answer": "míng" }
+                { "answer": "不都是" }
             ],
-            "words": ["mīng", "míng", "mǐng", "mìng"]
+            "words": []
         },
         {
             "id": 83,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1736230958/tian1_rlpvnn.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "(三个日本人 + 四个中国人) -> 他们 ___ 美国人。",
             "blanks": [
-                { "answer": "tiān" }
+                { "answer": "都不是" }
             ],
-            "words": ["tiān", "tián", "tiǎn", "tiàn"]
+            "words": []
         },
         {
             "id": 84,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673341/%E8%A7%81_u0eked.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "A：Do you have a bike? ___ ___ ___ ___？<br>B：Yes, I have. ___。",
             "blanks": [
-                { "answer": "jiàn" }
+                { "answer": "你" },
+                { "answer": "有" },
+                { "answer": "自行车" },
+                { "answer": "吗" },
+                { "answer": "有" }
             ],
-            "words": ["jiān", "jián", "jiǎn", "jiàn"]
+            "words": ["有", "有", "吗", "自行车", "你"]
         },
         {
             "id": 85,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1736230957/ju1_bw156p.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "A：Do you have an older sister or not? ___ ___ ___ ___ ___？<br>B：No. I don't. ___ ___。",
             "blanks": [
-                { "answer": "jū" }
+                { "answer": "你" },
+                { "answer": "有" },
+                { "answer": "没" },
+                { "answer": "有" },
+                { "answer": "姐姐" },
+                { "answer": "没" },
+                { "answer": "有" }
             ],
-            "words": ["jī", "jū"]
+            "words": ["有", "你", "姐姐", "有", "没", "没", "有"]
         },
         {
             "id": 86,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1736230957/qi1_m9c3ph.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "32: ___",
             "blanks": [
-                { "answer": "qī" }
+                { "answer": "三十二" }
             ],
-            "words": ["qī", "xī"]
+            "words": []
         },
         {
             "id": 87,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1736230958/xu1_troyq1.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "67: ___",
             "blanks": [
-                { "answer": "xū" }
+                { "answer": "六十七" }
             ],
-            "words": ["qū", "xū"]
+            "words": []
         },
         {
             "id": 88,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1736230957/ji1qi4_nmeyvz.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "208: ___",
             "blanks": [
-                { "answer": "jīqì" }
+                { "answer": "二百零八" }
             ],
-            "words": ["jiqi", "jīqì", "jìqì", "jīqī"]
+            "words": []
         },
         {
             "id": 89,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1736230958/nuli_kabcyi.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "423: ___",
             "blanks": [
-                { "answer": "nǚlì" }
+                { "answer": "四百二十三" }
             ],
-            "words": ["nǔlì", "nǘli", "nǚlì", "nǚli"]
+            "words": []
         },
         {
             "id": 90,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1736235604/quqian_md0sdy.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "6854: ___",
             "blanks": [
-                { "answer": "qǔ qián" }
+                { "answer": "六千八百五十四" }
             ],
-            "words": ["qú qián", "qǔ qián", "qǔ qiǎn", "qú qiǎn"]
+            "words": []
         },
         {
             "id": 91,
             "audio": "",
-            "sentence": "银行: ___",
+            "sentence": "9806: ___",
             "blanks": [
-                { "answer": "yínháng" }
+                { "answer": "九千八百零六" }
             ],
-            "words": ["míngtiān", "yóujú", "jì xìn", "yínháng"]
+            "words": []
         },
         {
             "id": 92,
             "audio": "",
-            "sentence": "邮局: ___",
+            "sentence": "A：你家___几口人？<br>B：我家___五口人。",
             "blanks": [
-                { "answer": "yóujú" }
+                { "answer": "有" }
             ],
-            "words": ["yóujú", "míngtiān", "jì xìn", "yínháng"]
+            "words": []
         },
         {
             "id": 93,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277874/%E4%BD%A0%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%90%97_wafg5e.mp3",
-            "sentence": "Do you study English? <br> ___ ___ ___ ___ ?",
+            "audio": "",
+            "sentence": "A：你们公司___职员？<br>B：大概___一百多职员。",
             "blanks": [
-                { "answer": "你" },
-                { "answer": "学" },
-                { "answer": "英语" },
-                { "answer": "吗" }
+                { "answer": "有多少" },
+                { "answer": "有" }
                 
             ],
-            "words": ["学", "吗", "你", "英语"]
+            "words": []
         },
         {
             "id": 94,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277870/%E4%BD%A0%E5%8E%BB%E9%82%AE%E5%B1%80%E5%AF%84%E4%BF%A1%E5%90%97_p2pcho.mp3",
-            "sentence": "Are you going to the post office to send a letter? <br> ___ ___ ___ ___ ___ ___?",
+            "audio": "",
+            "sentence": "A：你吃___个? <br>B：我吃一个。",
             "blanks": [
-                { "answer": "你" },
-                { "answer": "去" },
-                { "answer": "邮局" },
-                { "answer": "寄" },
-                { "answer": "信" },
-                { "answer": "吗" }
+                { "answer": "几" }
             ],
-            "words": ["吗", "邮局", "寄", "去", "你", "信"]
+            "words": []
         },
         {
             "id": 95,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277878/%E5%8E%BB%E9%93%B6%E8%A1%8C%E5%8F%96%E9%92%B1_nj3s21.mp3",
-            "sentence": "I'm going to the bank to withdraw some money. <br> ___ ___ ___ ___.",
+            "audio": "",
+            "sentence": "A：你换___?<br>B：我换五百美元。",
             "blanks": [
-                { "answer": "去" },
-                { "answer": "银行" },
-                { "answer": "取" },
-                { "answer": "钱" }
-                
+                { "answer": "多少" }                
             ],
-            "words": ["银行", "取", "去", "钱"]
+            "words": []
         },
         {
             "id": 96,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673277/%E5%AF%B9_mvladp.mp3",
-            "sentence": "对： ___ ",
+            "audio": "",
+            "sentence": "一___老师<br>两___书<br>三___自行车<br>四___毛衣<br>五___人<br>六___照片<br>七___笔<br>八___椅子<br>九___数码相机<br>十___苹果 ",
             "blanks": [
-                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672818/%E5%AF%B9_kivn0g.png" }
-                
+                { "answer": "位/个" },
+                { "answer": "本" },
+                { "answer": "辆" },
+                { "answer": "件" },
+                { "answer": "口/个" },
+                { "answer": "张" },
+                { "answer": "支" },
+                { "answer": "把" },
+                { "answer": "个" },
+                { "answer": "斤" }
             ],
-            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672831/%E8%BF%9B_yvpsep.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672830/%E8%BA%AB%E4%BD%93_gyl84l.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672818/%E5%AF%B9_kivn0g.png"]
+            "words": ["本", "把", "件", "个", "张", "斤", "位/个", "口/个", "支", "辆"]
         },
         {
             "id": 97,
