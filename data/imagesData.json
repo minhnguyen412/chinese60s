@@ -1242,7 +1242,7 @@
     {
         "id": "156",
         "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159625/%E5%A4%9A_ce42rq.png",
-        "character": "多",
+        "character": "多¹",
         "meaning": "many; a lot of",
         "pinyin": "duō",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160490/%E5%A4%9A_bmjqp8.mp3"
@@ -2374,5 +2374,133 @@
         "meaning": "(expressing sudden realization)",
         "pinyin": "à",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742352611/%E5%95%8A_oeop06.mp3"
+    },
+    {
+        "id": "298",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1743044906/%E5%85%A8-min_akr5tk.png",
+        "character": "全",
+        "meaning": "whole; all; wholly",
+        "pinyin": "quán",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743045185/%E5%85%A8_ss4ig5.mp3"
+    },
+    {
+        "id": "299",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1743044906/%E7%85%A7%E7%89%87-min_gfoeso.png",
+        "character": "照片",
+        "meaning": "photo",
+        "pinyin": "zhàopiàn",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743045192/%E7%85%A7%E7%89%87_p6vvmi.mp3"
+    },
+    {
+        "id": "300",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1743044908/%E7%9C%8B-min_iple8q.png",
+        "character": "看",
+        "meaning": "to look at; to watch; to see; to read",
+        "pinyin": "kàn",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743045193/%E7%9C%8B_xfp51c.mp3"
+    },
+    {
+        "id": "301",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672817/%E5%A7%90%E5%A7%90_tvefnu.png",
+        "character": "姐姐",
+        "meaning": "elder sister",
+        "pinyin": "jiějie",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743045190/%E5%A7%90%E5%A7%90_e30uye.mp3"
+    },
+    {
+        "id": "302",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1743044907/%E5%8F%AA-min_kvjcwo.png",
+        "character": "只",
+        "meaning": "only; just; merely",
+        "pinyin": "zhǐ",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743045186/%E5%8F%AA_cqabuc.mp3"
+    },
+    {
+        "id": "303",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1743044906/%E5%81%9A-min_qtvnv5.png",
+        "character": "做",
+        "meaning": "to do",
+        "pinyin": "zuò",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743045185/%E5%81%9A_dgmdpm.mp3"
+    },
+    {
+        "id": "304",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1743044908/%E5%A4%A7%E5%A4%AB-min_zxelsa.png",
+        "character": "大夫",
+        "meaning": "doctor",
+        "pinyin": "dàifu",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743045189/%E5%A4%A7%E5%A4%AB_au6lij.mp3"
+    },
+    {
+        "id": "305",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1743044906/%E5%8C%BB%E9%99%A2-min_cautlw.png",
+        "character": "医院",
+        "meaning": "hospital",
+        "pinyin": "yīyuàn",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743045186/%E5%8C%BB%E9%99%A2_in8bn2.mp3"
+    },
+    {
+        "id": "306",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1743044906/%E5%85%AC%E5%8F%B8-min_cgtrjx.png",
+        "character": "公司",
+        "meaning": "company",
+        "pinyin": "gōngsī",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743045185/%E5%85%AC%E5%8F%B8_mnfdw2.mp3"
+    },
+    {
+        "id": "307",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1743044907/%E5%95%86%E5%BA%97-min_kocppu.png",
+        "character": "商店",
+        "meaning": "shop",
+        "pinyin": "shāngdiàn",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743045186/%E5%95%86%E5%BA%97_l330ok.mp3"
+    },
+    {
+        "id": "308",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1743044906/%E5%BE%8B%E5%B8%88-min_beybbq.png",
+        "character": "律师",
+        "meaning": "lawyer",
+        "pinyin": "lǜshī",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743045192/%E5%BE%8B%E5%B8%88_x69ws2.mp3"
+    },
+    {
+        "id": "309",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1743044908/%E5%A4%96%E8%B4%B8-min_njtnnw.png",
+        "character": "外贸",
+        "meaning": "foreign trade",
+        "pinyin": "wàimào",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743045189/%E5%A4%96%E8%B4%B8_byv4x3.mp3"
+    },
+    {
+        "id": "310",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1743044908/%E5%B0%8F-min_kmyvzu.png",
+        "character": "小",
+        "meaning": "small",
+        "pinyin": "xiǎo",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743045191/%E5%B0%8F_kbl6ee.mp3"
+    },
+    {
+        "id": "311",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1743044908/%E5%A4%A7%E6%A6%82-min_a2dxbc.png",
+        "character": "大概",
+        "meaning": "about; approximately",
+        "pinyin": "dàgài",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743045190/%E5%A4%A7%E6%A6%82_vnocnn.mp3"
+    },
+    {
+        "id": "312",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1743044907/%E5%A4%9A-min_rrbmu6.png",
+        "character": "多²",
+        "meaning": "(used after a number) more; over; odd",
+        "pinyin": "duō",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160490/%E5%A4%9A_bmjqp8.mp3"
+    },
+    {
+        "id": "313",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1743044907/%E5%A4%96%E5%9B%BD-min_h3ico9.png",
+        "character": "外国",
+        "meaning": "foreign",
+        "pinyin": "wàiguó",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743045186/%E5%A4%96%E5%9B%BD_hvqqs5.mp3"
     }
 ]
