@@ -1645,5 +1645,158 @@
         "description": "bú shì à wǒ de chē zài nàr ne<br>No, it's not. ... Ah! My bike is there.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/KAT.0001_weeiww.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437009/183_evv0hg.mp3"
+    },
+    {
+        "id": 184, 
+        "user": "麦克", 
+        "title": "你家有几口人？", 
+        "segments": ["你", "家", "有", "几", "口", "人", "？"],
+        "description": "nǐ jiā yǒu jǐ kǒu rén<br>How many people are in your family?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1735799749/sam_mjxry3.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132251/184_h0xoqv.mp3"
+    },
+    {
+        "id": 185, 
+        "user": "玛丽", 
+        "title": "我家有五口人，爸爸、妈妈、哥哥、姐姐和我。", 
+        "segments": ["我", "家", "有", "五", "口", "人", "，", "爸爸", "、", "妈妈", "、", "姐姐", "和", "我", "。"],
+        "description": "wǒ jiā yǒu wǔ kǒu rén bàba māma gēge jiějie hé wǒ<br>There are five people in my family, my father, my mother, my older brother, my older sister and me.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132251/185_nkk87m.mp3"
+    },
+    {
+        "id": 186, 
+        "user": "麦克", 
+        "title": "你有没有全家的照片？", 
+        "segments": ["你", "有", "没", "有", "全", "家", "的", "照片", "？"],
+        "description": "nǐ yǒu méiyǒu quán jiā de zhàopiàn<br>Do you have a family photo?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132251/186_mbur39.mp3"
+    },
+    {
+        "id": 187, 
+        "user": "玛丽", 
+        "title": "有一张。你看，这是我们全家的照片。", 
+        "segments": ["有", "一", "张", "。", "你", "看", "，", "这", "是", "我们", "全", "家", "的", "照片", "。"],
+        "description": "yǒu yì zhāng nǐ kàn zhè shì wǒmen quán jiā de zhàopiàn<br>Yes, I have one. Look, this is a photo of my whole family.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132252/187_awwrmp.mp3"
+    },
+    {
+        "id": 188, 
+        "user": "玛丽", 
+        "title": "你有哥哥姐姐吗？", 
+        "segments": ["你", "有", "哥哥", "姐姐", "吗", "？"],
+        "description": "nǐ yǒu gēge jiějie ma<br>Do you have any older brothers or sisters?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132252/188_qnnmlk.mp3"
+    },
+    {
+        "id": 189, 
+        "user": "麦克", 
+        "title": "我没有哥哥，也没有姐姐，只有两个弟弟。", 
+        "segments": ["我", "没", "有", "哥哥", "，", "也", "没", "有", "姐姐", "，", "只", "有", "两", "个", "弟弟", "。"],
+        "description": "wǒ méiyǒu gēge yě méiyǒu jiějie zhǐ yǒu liǎng ge dìdi<br>No, I don't have neither older brothers nor older sisters, I only have two younger brothers.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1735799749/sam_mjxry3.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132252/189_tg6ilh.mp3"
+    },
+    {
+        "id": 190, 
+        "user": "玛丽", 
+        "title": "你爸爸、妈妈做什么工作？", 
+        "segments": ["你", "爸爸", "、", "妈妈", "做", "什么", "工作", "？"],
+        "description": "nǐ bàba māma zuò shénme gōngzuò<br>What do your parents do?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132252/190_e9a0i5.mp3"
+    },
+    {
+        "id": 191, 
+        "user": "麦克", 
+        "title": "我妈妈是大夫，在医院工作，爸爸是一家公司的经理。", 
+        "segments": ["我", "妈妈", "是", "大夫", "，", "在", "医院", "工作", "，", "爸爸", "是", "一", "家", "公司", "的", "经理", "。"],
+        "description": "wǒ māma shì dàifu zài yīyuàn gōngzuò bàba shì yì jiā gōngsī de jīnglǐ<br>My mom is a doctor and works in a hospital, and my dad is a manager at a company.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1735799749/sam_mjxry3.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132252/191_ilsjwa.mp3"
+    },
+    {
+        "id": 192, 
+        "user": "玛丽", 
+        "title": "我妈妈在商店工作，爸爸是律师。", 
+        "segments": ["我", "妈妈", "在", "商店", "工作", "，", "爸爸", "是", "律师", "。"],
+        "description": "wǒ māma zài shāngdiàn gōngzuò bàba shì lǜshī<br>My mom works in a shop, and my dad is a lawyer.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132251/192_yzmwph.mp3"
+    },
+    {
+        "id": 193, 
+        "user": "王老师", 
+        "title": "你们是一家什么公司？", 
+        "segments": ["你们", "是", "一", "家", "什么", "公司", "？"],
+        "description": "nǐmen shì yì jiā shénme gōngsī<br>What kind of company is yours?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132251/193_h1tpup.mp3"
+    },
+    {
+        "id": 194, 
+        "user": "关经理", 
+        "title": "是一家外贸公司。", 
+        "segments": ["是", "一", "家", "外贸", "公司", "。"],
+        "description": "shì yì jiā wàimào gōngsī<br>It's a foreign trade company.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673379/gdguan_t6axau.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132252/194_uaxxxd.mp3"
+    },
+    {
+        "id": 195, 
+        "user": "王老师", 
+        "title": "是一家大公司吗？", 
+        "segments": ["是", "一", "家", "大", "公司", "吗", "？"],
+        "description": "shì yì jiā dà gōngsī ma<br>Is it a big company?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132253/195_mqlgx7.mp3"
+    },
+    {
+        "id": 196, 
+        "user": "关经理", 
+        "title": "不大，是一家比较小的公司。", 
+        "segments": ["不", "大", "，", "是", "一", "家", "比较", "小", "的", "公司", "。"],
+        "description": "bú dà shì yì jiā bǐjiào xiǎo de gōngsī<br>No, it's a relatively small company.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673379/gdguan_t6axau.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132253/196_vitnbg.mp3"
+    },
+    {
+        "id": 197, 
+        "user": "王老师", 
+        "title": "有多少职员？", 
+        "segments": ["有", "多少", "职员", "？"],
+        "description": "yǒu duōshao zhíyuán<br>How many employees are there?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132253/197_brjcmo.mp3"
+    },
+    {
+        "id": 198, 
+        "user": "关经理", 
+        "title": "大概有一百多个职员。", 
+        "segments": ["大概", "有", "一", "百", "多²", "个", "职员", "。"],
+        "description": "dàgài yǒu yì bǎi duō ge zhíyuán<br>There are about over 100 employees.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673379/gdguan_t6axau.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132253/198_efrhjj.mp3"
+    },
+    {
+        "id": 199, 
+        "user": "王老师", 
+        "title": "都是中国职员吗？", 
+        "segments": ["都", "是", "中国", "职员", "吗", "？"],
+        "description": "dōu shì zhōngguó zhíyuán ma<br>Are they all Chinese employees?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132253/199_izmioj.mp3"
+    },
+    {
+        "id": 200, 
+        "user": "关经理", 
+        "title": "不都是中国职员，也有外国职员。", 
+        "segments": ["不", "都", "是", "中国", "职员", "，", "也", "有", "外国", "职员", "。"],
+        "description": "bù dōu shì zhōngguó zhíyuán yě yǒu wàiguó zhíyuán<br>Not all of them are Chinese, there are also foreign employees.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673379/gdguan_t6axau.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132253/200_ibwfsd.mp3"
     }
 ]
