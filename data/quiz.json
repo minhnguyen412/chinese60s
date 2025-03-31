@@ -3117,6 +3117,206 @@
                 
             ],
             "words": ["自行车", "摩托车", "汽车", "出租车"]
+        },
+        {
+            "id": 274,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132251/184_h0xoqv.mp3",
+            "sentence": "How many people are in your family?<br> ___ ___ ___ ___ ___ ___?",
+            "blanks": [
+                { "answer": "你" },
+                { "answer": "家" },
+                { "answer": "有" },
+                { "answer": "几" },
+                { "answer": "口" },
+                { "answer": "人" }
+            ],
+            "words": ["几", "人", "你", "有", "口", "家"]
+        },
+        {
+            "id": 275,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132251/185_nkk87m.mp3",
+            "sentence": "There are five people in my family, my dad, my mom, an older brother, an older sister and me.<br> ___ ___ ___ ___ ___ ___, ___、___、___、___ ___ ___。",
+            "blanks": [
+                { "answer": "我" },
+                { "answer": "家" },
+                { "answer": "有" },
+                { "answer": "五" },
+                { "answer": "口" },
+                { "answer": "人" },
+                { "answer": "爸爸" },
+                { "answer": "妈妈" },
+                { "answer": "哥哥" },
+                { "answer": "姐姐" },
+                { "answer": "和" },
+                { "answer": "我" }
+            ],
+            "words": ["五", "人", "我", "有", "口", "家", "哥哥", "和", "妈妈", "我", "姐姐", "爸爸"]
+        },
+        {
+            "id": 276,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132251/186_mbur39.mp3",
+            "sentence": "Do you have a family photo?<br> ___ ___ ___ ___ ___ ___ ___ ___ ___?",
+            "blanks": [
+                { "answer": "你" },
+                { "answer": "有" },
+                { "answer": "没" },
+                { "answer": "有" },
+                { "answer": "全" },
+                { "answer": "家" },
+                { "answer": "的" },
+                { "answer": "照" },
+                { "answer": "片" }
+            ],
+            "words": ["全", "有", "片", "的", "你", "有", "照", "家", "没"]
+        },
+        {
+            "id": 276,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132252/189_tg6ilh.mp3",
+            "sentence": "I don't have neither older brothers nor older sisters, I only have two younger brothers.<br> ___ ___ ___, ___ ___ ___, ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "我" },
+                { "answer": "没有" },
+                { "answer": "哥哥" },
+                { "answer": "也" },
+                { "answer": "没有" },
+                { "answer": "姐姐" },
+                { "answer": "只" },
+                { "answer": "有" },
+                { "answer": "两" },
+                { "answer": "个" },
+                { "answer": "弟弟" },
+            ],
+            "words": ["没有", "姐姐", "有", "也", "弟弟", "个", "我", "只", "两", "没有", "哥哥"]
+        },
+        {
+            "id": 277,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132252/191_ilsjwa.mp3",
+            "sentence": "我妈妈是___，在___工作，爸爸是一家___的___。",
+            "blanks": [
+                { "answer": "大夫" },
+                { "answer": "医院" },
+                { "answer": "公司" },
+                { "answer": "经理" }
+
+            ],
+            "words": ["经理", "医院", "大夫", "公司"]
+        },
+        {
+            "id": 278,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743045186/%E5%95%86%E5%BA%97_l330ok.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1743044907/%E5%95%86%E5%BA%97-min_kocppu.png", "： ___ "],
+            "blanks": [
+                { "answer": "商店" }
+                
+            ],
+            "words": ["公司", "旅馆", "商店", "医院"]
+        },
+        {
+            "id": 278,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743045192/%E5%BE%8B%E5%B8%88_x69ws2.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1743044906/%E5%BE%8B%E5%B8%88-min_beybbq.png", "： ___ "],
+            "blanks": [
+                { "answer": "律师" }
+                
+            ],
+            "words": ["律师", "大夫", "经理", "营业员"]
+        },
+        {
+            "id": 279,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132251/193_h1tpup.mp3",
+            "sentence": "What kind of company is yours? <br> ___ ___ ___ ___ ___ ___ ___ ___ ___?",
+            "blanks": [
+                { "answer": "你" },
+                { "answer": "们" },
+                { "answer": "是" },
+                { "answer": "一" },
+                { "answer": "家" },
+                { "answer": "什" },
+                { "answer": "么" },
+                { "answer": "公" },
+                { "answer": "四" }
+            ],
+            "words": ["是", "家", "们", "么", "司", "你", "什", "公", "一"]
+        },
+        {
+            "id": 280,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132252/194_uaxxxd.mp3",
+            "sentence": "It's a foreign trade company. <br> ___ ___ ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "是" },
+                { "answer": "一" },
+                { "answer": "家" },
+                { "answer": "外" },
+                { "answer": "贸" },
+                { "answer": "公" },
+                { "answer": "司" }
+            ],
+            "words": ["家", "贸", "是", "司", "外", "公", "一"]
+        },
+        {
+            "id": 281,
+            "audio": "ttps://res.cloudinary.com/dndwvsqib/video/upload/v1743132253/196_vitnbg.mp3",
+            "sentence": "No, it's a relatively small company.<br> ___ ___, ___ ___ ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "不" },
+                { "answer": "大" },
+                { "answer": "是" },
+                { "answer": "一" },
+                { "answer": "家" },
+                { "answer": "比较" },
+                { "answer": "小" },
+                { "answer": "的" },
+                { "answer": "公司" }
+            ],
+            "words": ["大", "家", "是", "小", "不", "比较", "的", "一", "公司"]
+        },
+        {
+            "id": 282,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132253/197_brjcmo.mp3",
+            "sentence": "How many employees are there? <br> ___ ___ ___ ___ ___？",
+            "blanks": [
+                { "answer": "有" },
+                { "answer": "多" },
+                { "answer": "少" },
+                { "answer": "职" },
+                { "answer": "员" }
+
+            ],
+            "words": ["多", "职", "有", "员", "少"]
+        },
+        {
+            "id": 283,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132253/198_efrhjj.mp3",
+            "sentence": "There are about over 100 employees. <br> ___ ___ ___ ___ ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "大" },
+                { "answer": "概" },
+                { "answer": "有" },
+                { "answer": "一" },
+                { "answer": "百" },
+                { "answer": "多" },
+                { "answer": "个" },
+                { "answer": "职" },
+                { "answer": "员" }
+            ],
+            "words": ["概", "多", "一", "职", "百", "大", "员", "个", "有"]
+        },
+        {
+            "id": 284,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132253/200_ibwfsd.mp3",
+            "sentence": "Not all of them are Chinese, there are also foreign employees. <br> ___ ___ ___ ___ ___, ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "不" },
+                { "answer": "都" },
+                { "answer": "是" },
+                { "answer": "中国" },
+                { "answer": "职员" },
+                { "answer": "也" },
+                { "answer": "有" },
+                { "answer": "外国" },
+                { "answer": "职员" }
+            ],
+            "words": ["中国", "都", "也", "不", "外国", "有", "职员", "职员", "是"]
         }
     ]
 }
