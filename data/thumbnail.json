@@ -165,7 +165,7 @@
         "description": "Lesson 15 (1): How many people are in your family?",
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1743135704/hyjc-1-15-1_eph1cw.png",
         "videoLink": "https://www.youtube.com/embed/ng-E83Dg-KU?si=lAmjTgpd_KVG1OrK",
-        "htmlLink": "posts.html?postStartId=184&postEndId=192&quizStartId=268&quizEndId=273&id=21"
+        "htmlLink": "posts.html?postStartId=184&postEndId=192&quizStartId=274&quizEndId=278&id=21"
     },
     {
         "id": 22,
@@ -173,6 +173,6 @@
         "description": "Lesson 15 (2): How many employees are in your company?",
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1743135703/hyjc-1-15-2_ohlkft.png",
         "videoLink": "https://www.youtube.com/embed/ng-E83Dg-KU?si=lAmjTgpd_KVG1OrK",
-        "htmlLink": "posts.html?postStartId=193&postEndId=200&quizStartId=268&quizEndId=273&id=22"
+        "htmlLink": "posts.html?postStartId=193&postEndId=200&quizStartId=279&quizEndId=284&id=22"
     }
 ]
