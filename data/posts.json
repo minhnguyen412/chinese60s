@@ -1650,7 +1650,7 @@
         "id": 184, 
         "user": "麦克", 
         "title": "你家有几口人？", 
-        "segments": ["你", "家", "有", "几", "口", "人", "？"],
+        "segments": ["你", "家", "有", "几", "口", "人", "？", "<a href='grammar.html#grammar-17'>⁽*⁾</a>", "<a href='grammar.html#grammar-19'>⁽**⁾</a>"],
         "description": "nǐ jiā yǒu jǐ kǒu rén<br>How many people are in your family?", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1735799749/sam_mjxry3.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132251/184_h0xoqv.mp3"
@@ -1659,7 +1659,7 @@
         "id": 185, 
         "user": "玛丽", 
         "title": "我家有五口人，爸爸、妈妈、哥哥、姐姐和我。", 
-        "segments": ["我", "家", "有", "五", "口", "人", "，", "爸爸", "、", "妈妈", "、", "姐姐", "和", "我", "。"],
+        "segments": ["我", "家", "有", "五", "口", "人", "，", "爸爸", "、", "妈妈", "、", "姐姐", "和", "我", "。", "<a href='grammar.html#grammar-17'>⁽*⁾</a>"],
         "description": "wǒ jiā yǒu wǔ kǒu rén bàba māma gēge jiějie hé wǒ<br>There are five people in my family, my father, my mother, my older brother, my older sister and me.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132251/185_nkk87m.mp3"
@@ -1668,7 +1668,7 @@
         "id": 186, 
         "user": "麦克", 
         "title": "你有没有全家的照片？", 
-        "segments": ["你", "有", "没", "有", "全", "家", "的", "照片", "？"],
+        "segments": ["你", "有", "没", "有", "全", "家", "的", "照片", "？", "<a href='grammar.html#grammar-17'>⁽*⁾</a>"],
         "description": "nǐ yǒu méiyǒu quán jiā de zhàopiàn<br>Do you have a family photo?", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132251/186_mbur39.mp3"
@@ -1686,7 +1686,7 @@
         "id": 188, 
         "user": "玛丽", 
         "title": "你有哥哥姐姐吗？", 
-        "segments": ["你", "有", "哥哥", "姐姐", "吗", "？"],
+        "segments": ["你", "有", "哥哥", "姐姐", "吗", "？", "<a href='grammar.html#grammar-17'>⁽*⁾</a>"],
         "description": "nǐ yǒu gēge jiějie ma<br>Do you have any older brothers or sisters?", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132252/188_qnnmlk.mp3"
@@ -1695,7 +1695,7 @@
         "id": 189, 
         "user": "麦克", 
         "title": "我没有哥哥，也没有姐姐，只有两个弟弟。", 
-        "segments": ["我", "没", "有", "哥哥", "，", "也", "没", "有", "姐姐", "，", "只", "有", "两", "个", "弟弟", "。"],
+        "segments": ["我", "没", "有", "哥哥", "，", "也", "没", "有", "姐姐", "，", "只", "有", "两", "个", "弟弟", "。", "<a href='collocations.html#collo-3'>⁽*⁾</a>"],
         "description": "wǒ méiyǒu gēge yě méiyǒu jiějie zhǐ yǒu liǎng ge dìdi<br>No, I don't have neither older brothers nor older sisters, I only have two younger brothers.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1735799749/sam_mjxry3.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132252/189_tg6ilh.mp3"
@@ -1767,7 +1767,7 @@
         "id": 197, 
         "user": "王老师", 
         "title": "有多少职员？", 
-        "segments": ["有", "多少", "职员", "？"],
+        "segments": ["有", "多少", "职员", "？", "<a href='grammar.html#grammar-19'>⁽*⁾</a>"],
         "description": "yǒu duōshao zhíyuán<br>How many employees are there?", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132253/197_brjcmo.mp3"
@@ -1776,7 +1776,7 @@
         "id": 198, 
         "user": "关经理", 
         "title": "大概有一百多个职员。", 
-        "segments": ["大概", "有", "一", "百", "多²", "个", "职员", "。"],
+        "segments": ["大概", "有", "一", "百", "多²", "个", "职员", "。", "<a href='grammar.html#grammar-18'>⁽*⁾</a>", "<a href='collocations.html#collo-4'>⁽**⁾</a>"],
         "description": "dàgài yǒu yì bǎi duō ge zhíyuán<br>There are about over 100 employees.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673379/gdguan_t6axau.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132253/198_efrhjj.mp3"
@@ -1794,7 +1794,7 @@
         "id": 200, 
         "user": "关经理", 
         "title": "不都是中国职员，也有外国职员。", 
-        "segments": ["不", "都", "是", "中国", "职员", "，", "也", "有", "外国", "职员", "。"],
+        "segments": ["不", "都", "是", "中国", "职员", "，", "也", "有", "外国", "职员", "。", "<a href='collocations.html#collo-5'>⁽*⁾</a>"],
         "description": "bù dōu shì zhōngguó zhíyuán yě yǒu wàiguó zhíyuán<br>Not all of them are Chinese, there are also foreign employees.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673379/gdguan_t6axau.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132253/200_ibwfsd.mp3"
