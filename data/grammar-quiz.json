@@ -1139,7 +1139,7 @@
             "blanks": [
                 { "answer": "B" }
             ],
-            "words": []
+            "words": ["A", "B", "C"]
         },
         {
             "id": 104,
@@ -1148,7 +1148,7 @@
             "blanks": [
                 { "answer": "A" }
             ],
-            "words": []
+            "words": ["A", "B", "C"]
         },
         {
             "id": 105,
