@@ -1070,143 +1070,154 @@
         },
         {
             "id": 97,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673271/%E5%AD%A6_uno8r3.mp3",
-            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672817/%E5%AD%A6_ohlrfe.png", "： ___ "],
+            "audio": "",
+            "sentence": "1. 晚上咱们去看电影，___?",
             "blanks": [
-                { "answer": "学" }
+                { "answer": "好吗" }
                 
             ],
-            "words": ["取", "学", "去"]
+            "words": []
         },
         {
             "id": 98,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277869/%E4%BD%A0%E5%8E%BB%E5%93%AA%E5%84%BF_s6wvro.mp3",
-            "sentence": "Where are you going? <br> ___ ___ ___ ___ ?",
+            "audio": "",
+            "sentence": "2. 你跟我一起去，___?",
             "blanks": [
-                { "answer": "你" },
-                { "answer": "去" },
-                { "answer": "哪" },
-                { "answer": "儿" }
+                { "answer": "好吗" }
             ],
-            "words": ["儿", "哪", "去", "你"]
+            "words": []
         },
         {
             "id": 99,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673164/%E4%BA%8C_nvoe5j.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "1. 晚上 ___ （我们）一起去吧。",
             "blanks": [
-                { "answer": "èr" }
+                { "answer": "咱们" }
             ],
-            "words": ["ēr", "ér", "ěr", "èr"]
+            "words": []
         },
         {
             "id": 100,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673154/%E4%B8%89_dx0o9r.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "2. 你们是留学生，我们是中国学生，___ 是朋友。",
             "blanks": [
-                { "answer": "sān" }
+                { "answer": "咱们" }
             ],
-            "words": ["sān", "sán", "sǎn", "sàn"]
+            "words": []
         },
         {
             "id": 101,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673256/%E5%9B%9B_f14l1u.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "A：___ ___ ___ ___。（请求、提议）<br>B：___ ___。（同意）",
             "blanks": [
-                { "answer": "sì" }
+                { "answer": "咱们" },
+                { "answer": "一起" },
+                { "answer": "去" },
+                { "answer": "吧" },
+                { "answer": "好" },
+                { "answer": "吧" }
             ],
-            "words": ["sī", "sí", "sǐ", "sì"]
+            "words": ["好", "去", "咱们", "吧", "吧", "一起"]
         },
         {
             "id": 102,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673257/%E5%9B%9E_osv0va.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "A：___ ___ ___。（请求、提议）<br>B：___ ___。（同意）",
             "blanks": [
-                { "answer": "huí" }
+                { "answer": "咱们" },
+                { "answer": "走" },
+                { "answer": "吧" },
+                { "answer": "走" },
+                { "answer": "吧" }
             ],
-            "words": ["huī", "huí", "huǐ", "huì"]
+            "words": ["吧", "走", "咱们", "吧", "走"]
         },
         {
             "id": 103,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673271/%E5%AD%A6_uno8r3.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "Which sentence is incorrect?<br>A：很少吃馒头<br>B：很多看电影<br>C：很少看电视<br>Answer: ___",
             "blanks": [
-                { "answer": "xué" }
+                { "answer": "B" }
             ],
-            "words": ["xuē", "xué", "xuě", "xuè"]
+            "words": []
         },
         {
             "id": 104,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1736839419/xiao4_bfi3tj.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "Which sentence is correct?<br>A：很少吃馒头<br>B：很多看电影<br>C：很多吃米饭<br>Answer: ___",
             "blanks": [
-                { "answer": "xiào" }
+                { "answer": "A" }
             ],
-            "words": ["xiāo", "xiáo", "xiǎo", "xiào"]
+            "words": []
         },
         {
             "id": 105,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1736839420/zi2_diqbtt.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "A：___ ___ ___ ___？<br>B：___ ___ ___ ___。",
             "blanks": [
-                { "answer": "zí" }
+                { "answer": "你" },
+                { "answer": "晚上" },
+                { "answer": "做" },
+                { "answer": "什么" },
+                { "answer": "我" },
+                { "answer": "晚上" },
+                { "answer": "做" },
+                { "answer": "练习" }
             ],
-            "words": ["zī", "zí", "zǐ", "zì"]
+            "words": ["做", "晚上", "你", "练习", "晚上", "我", "做", "什么"]
         },
         {
             "id": 106,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1736840194/xi4_x5y2xn.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "A：___ ___ ___ ___ ___？<br>B：___ ___ ___ ___。",
             "blanks": [
-                { "answer": "xì" }
+                { "answer": "下午" },
+                { "answer": "你" },
+                { "answer": "常" },
+                { "answer": "去" },
+                { "answer": "哪儿" },
+                { "answer": "我" },
+                { "answer": "常" },
+                { "answer": "去" },
+                { "answer": "图书馆" }
             ],
-            "words": ["xī", "xí", "xǐ", "xì"]
+            "words": ["你", "我", "去", "图书馆", "下午", "去", "常", "常", "哪儿"]
         },
         {
             "id": 107,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1736839419/e2rto2ng_bhtre1.mp3",
-            "sentence": "Listen and rearrange: ___ ___ ___ ___ ___",
+            "audio": "",
+            "sentence": "A：你喝茶 ___ 喝咖啡？<br>B：我喝咖啡。",
             "blanks": [
-                { "answer": "é" },
-                { "answer": "r" },
-                { "answer": "t" },
-                { "answer": "ó" },
-                { "answer": "ng" }
+                { "answer": "还是" }
             ],
-            "words": ["ng", "ó", "r", "é", "t"]
+            "words": []
         },
         {
             "id": 108,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1736839420/ha3owa2nr_cd7e23.mp3",
-            "sentence": "Listen and rearrange: ___ ___ ___ ___ ___ ___ ___",
+            "audio": "",
+            "sentence": "A：你上午去 ___ 下午去？<br>B：下午去。",
             "blanks": [
-                { "answer": "h" },
-                { "answer": "ǎ" },
-                { "answer": "o" },
-                { "answer": "w" },
-                { "answer": "ǎ" },
-                { "answer": "n" },
-                { "answer": "r" }
+                { "answer": "还是" }
             ],
-            "words": ["r", "h", "ǎ", "w", "ǎ", "o", "n"]
+            "words": []
         },
         {
             "id": 109,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1736839420/ze2_bxcgcd.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "A：星期天你做什么？<br>B：我常常在宿舍看书 ___ 跟朋友聊天儿。",
             "blanks": [
-                { "answer": "zé" }
+                { "answer": "或者" }
             ],
-            "words": ["zá", "zé"]
+            "words": []
         },
         {
             "id": 110,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1736839420/si4_r8tcyt.mp3",
-            "sentence": "Listen and choose the correct pinyin: ___",
+            "audio": "",
+            "sentence": "晚上我常常听音乐 ___ 看电视。",
             "blanks": [
-                { "answer": "sì" }
+                { "answer": "或者" }
             ],
-            "words": ["sì", "cí"]
+            "words": []
         },
         {
             "id": 111,
