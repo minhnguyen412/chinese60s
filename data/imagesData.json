@@ -2502,5 +2502,301 @@
         "meaning": "foreign",
         "pinyin": "wàiguó",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743045186/%E5%A4%96%E5%9B%BD_hvqqs5.mp3"
+    },
+    {
+        "id": "314",
+        "imageSrc": "",
+        "character": "现在",
+        "meaning": "now",
+        "pinyin": "xiànzài",
+        "audioSrc": ""
+    },
+    {
+        "id": "315",
+        "imageSrc": "",
+        "character": "跟",
+        "meaning": "with; to follow",
+        "pinyin": "gēn",
+        "audioSrc": ""
+    },
+    {
+        "id": "316",
+        "imageSrc": "",
+        "character": "一起",
+        "meaning": "together",
+        "pinyin": "yìqǐ",
+        "audioSrc": ""
+    },
+    {
+        "id": "317",
+        "imageSrc": "",
+        "character": "咱们",
+        "meaning": "we; us",
+        "pinyin": "zánmen",
+        "audioSrc": ""
+    },
+    {
+        "id": "318",
+        "imageSrc": "",
+        "character": "走",
+        "meaning": "to walk; to go",
+        "pinyin": "zǒu",
+        "audioSrc": ""
+    },
+    {
+        "id": "319",
+        "imageSrc": "",
+        "character": "常",
+        "meaning": "often; usually; frequently",
+        "pinyin": "cháng",
+        "audioSrc": ""
+    },
+    {
+        "id": "320",
+        "imageSrc": "",
+        "character": "常常",
+        "meaning": "often; usually; frequently",
+        "pinyin": "cháng cháng",
+        "audioSrc": ""
+    },
+    {
+        "id": "321",
+        "imageSrc": "",
+        "character": "有时候",
+        "meaning": "sometimes; now and then",
+        "pinyin": "yǒu shíhou",
+        "audioSrc": ""
+    },
+    {
+        "id": "322",
+        "imageSrc": "",
+        "character": "时候",
+        "meaning": "time",
+        "pinyin": "shíhou",
+        "audioSrc": ""
+    },
+    {
+        "id": "323",
+        "imageSrc": "",
+        "character": "借",
+        "meaning": "to borrow; to lend",
+        "pinyin": "jiè",
+        "audioSrc": ""
+    },
+    {
+        "id": "324",
+        "imageSrc": "",
+        "character": "上网",
+        "meaning": "to log on; to surf the Internet",
+        "pinyin": "shàng wǎng",
+        "audioSrc": ""
+    },
+    {
+        "id": "325",
+        "imageSrc": "",
+        "character": "网",
+        "meaning": "net",
+        "pinyin": "wǎng",
+        "audioSrc": ""
+    },
+    {
+        "id": "326",
+        "imageSrc": "",
+        "character": "查",
+        "meaning": "to check; to look up",
+        "pinyin": "chá",
+        "audioSrc": ""
+    },
+    {
+        "id": "327",
+        "imageSrc": "",
+        "character": "资料",
+        "meaning": "material",
+        "pinyin": "zīliào",
+        "audioSrc": ""
+    },
+    {
+        "id": "328",
+        "imageSrc": "",
+        "character": "总",
+        "meaning": "always",
+        "pinyin": "zǒng",
+        "audioSrc": ""
+    },
+    {
+        "id": "329",
+        "imageSrc": "",
+        "character": "总是",
+        "meaning": "always",
+        "pinyin": "zǒng shì",
+        "audioSrc": ""
+    },
+    {
+        "id": "330",
+        "imageSrc": "",
+        "character": "安静",
+        "meaning": "quiet; peaceful; calm",
+        "pinyin": "ānjìng",
+        "audioSrc": ""
+    },
+    {
+        "id": "331",
+        "imageSrc": "",
+        "character": "晚上",
+        "meaning": "evening",
+        "pinyin": "wǎnshang",
+        "audioSrc": ""
+    },
+    {
+        "id": "332",
+        "imageSrc": "",
+        "character": "复习",
+        "meaning": "to review",
+        "pinyin": "fùxí",
+        "audioSrc": ""
+    },
+    {
+        "id": "333",
+        "imageSrc": "",
+        "character": "课文",
+        "meaning": "text",
+        "pinyin": "kèwén",
+        "audioSrc": ""
+    },
+    {
+        "id": "334",
+        "imageSrc": "",
+        "character": "预习",
+        "meaning": "to preview",
+        "pinyin": "yùxí",
+        "audioSrc": ""
+    },
+    {
+        "id": "335",
+        "imageSrc": "",
+        "character": "生词",
+        "meaning": "new words",
+        "pinyin": "shēngcí",
+        "audioSrc": ""
+    },
+    {
+        "id": "336",
+        "imageSrc": "",
+        "character": "或者",
+        "meaning": "or",
+        "pinyin": "huòzhě",
+        "audioSrc": ""
+    },
+    {
+        "id": "337",
+        "imageSrc": "",
+        "character": "练习",
+        "meaning": "to practice; exercise",
+        "pinyin": "liànxí",
+        "audioSrc": ""
+    },
+    {
+        "id": "338",
+        "imageSrc": "",
+        "character": "聊天儿",
+        "meaning": "to chat",
+        "pinyin": "liáo tiānr",
+        "audioSrc": ""
+    },
+    {
+        "id": "339",
+        "imageSrc": "",
+        "character": "收发",
+        "meaning": "to receive and dispatch",
+        "pinyin": "shōufā",
+        "audioSrc": ""
+    },
+    {
+        "id": "340",
+        "imageSrc": "",
+        "character": "收",
+        "meaning": "to receive; to accept",
+        "pinyin": "shōu",
+        "audioSrc": ""
+    },
+    {
+        "id": "341",
+        "imageSrc": "",
+        "character": "发",
+        "meaning": "to dispatch; to send out",
+        "pinyin": "fā",
+        "audioSrc": ""
+    },
+    {
+        "id": "342",
+        "imageSrc": "",
+        "character": "伊妹儿",
+        "meaning": "e-mail",
+        "pinyin": "yīmèir",
+        "audioSrc": ""
+    },
+    {
+        "id": "343",
+        "imageSrc": "",
+        "character": "电影",
+        "meaning": "film; movie",
+        "pinyin": "diànyǐng",
+        "audioSrc": ""
+    },
+    {
+        "id": "344",
+        "imageSrc": "",
+        "character": "电视剧",
+        "meaning": "TV drama; TV play",
+        "pinyin": "diànshìjù",
+        "audioSrc": ""
+    },
+    {
+        "id": "345",
+        "imageSrc": "",
+        "character": "电视",
+        "meaning": "Television; TV",
+        "pinyin": "diànshì",
+        "audioSrc": ""
+    },
+    {
+        "id": "346",
+        "imageSrc": "",
+        "character": "休息",
+        "meaning": "to rest",
+        "pinyin": "xiūxi",
+        "audioSrc": ""
+    },
+    {
+        "id": "347",
+        "imageSrc": "",
+        "character": "宿舍",
+        "meaning": "dormitory",
+        "pinyin": "sùshè",
+        "audioSrc": ""
+    },
+    {
+        "id": "348",
+        "imageSrc": "",
+        "character": "公园",
+        "meaning": "park",
+        "pinyin": "gōngyuán",
+        "audioSrc": ""
+    },
+    {
+        "id": "349",
+        "imageSrc": "",
+        "character": "超市",
+        "meaning": "supermarket",
+        "pinyin": "chāoshì",
+        "audioSrc": ""
+    },
+    {
+        "id": "350",
+        "imageSrc": "",
+        "character": "东西",
+        "meaning": "thing",
+        "pinyin": "dōngxi",
+        "audioSrc": ""
     }
 ]
