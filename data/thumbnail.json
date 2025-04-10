@@ -174,5 +174,21 @@
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1744080182/hyjc-1-15-2_rywb49.png",
         "videoLink": "https://www.youtube.com/embed/ng-E83Dg-KU?si=lAmjTgpd_KVG1OrK",
         "htmlLink": "posts.html?postStartId=193&postEndId=200&quizStartId=279&quizEndId=284&id=22"
+    },
+    {
+        "id": 23,
+        "title": "第十六课 (一)：你常去图书馆吗？",
+        "description": "Lesson 16 (1): Do you often go to the library?",
+        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1744080182/hyjc-1-15-2_rywb49.png",
+        "videoLink": "https://www.youtube.com/embed/ng-E83Dg-KU?si=lAmjTgpd_KVG1OrK",
+        "htmlLink": "posts.html?postStartId=201&postEndId=210&quizStartId=279&quizEndId=284&id=23"
+    },
+    {
+        "id": 24,
+        "title": "第十六课 (二)：晚上你常做什么？",
+        "description": "Lesson 16 (2): What do you often do in the evening?",
+        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1744080182/hyjc-1-15-2_rywb49.png",
+        "videoLink": "https://www.youtube.com/embed/ng-E83Dg-KU?si=lAmjTgpd_KVG1OrK",
+        "htmlLink": "posts.html?postStartId=211&postEndId=218&quizStartId=279&quizEndId=284&id=24"
     }
 ]
