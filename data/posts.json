@@ -1798,5 +1798,167 @@
         "description": "bù dōu shì zhōngguó zhíyuán yě yǒu wàiguó zhíyuán<br>Not all of them are Chinese, there are also foreign employees.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673379/gdguan_t6axau.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132253/200_ibwfsd.mp3"
+    },
+    {
+        "id": 201, 
+        "user": "玛丽", 
+        "title": "我现在去图书馆，你跟我一起去，好吗？", 
+        "segments": ["我", "现在", "去", "图书馆", "，", "你", "跟", "我", "一起", "去", "，", "好", "吗", "？"],
+        "description": "Wǒ xiànzài qù túshūguǎn, nǐ gēn wǒ yìqǐ qù, hǎo ma?<br>I'm going to the library now. Want to come with me?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254858/201_gpoygh.mp3"
+    },
+    {
+        "id": 202, 
+        "user": "麦克", 
+        "title": "好，咱们走吧。", 
+        "segments": ["好", "，", "咱们", "走", "吧", "。"],
+        "description": "Hǎo, zánmen zǒu ba.<br>Sure, let’s go.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1735799749/sam_mjxry3.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254858/202_sj4frb.mp3"
+    },
+    {
+        "id": 203, 
+        "user": "麦克", 
+        "title": "你常去图书馆吗？", 
+        "segments": ["你", "常", "去", "图书馆", "吗", "？"],
+        "description": "Nǐ cháng qù túshūguǎn ma?<br>Do you go to the library often?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1735799749/sam_mjxry3.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254858/203_ho1tjj.mp3"
+    },
+    {
+        "id": 204, 
+        "user": "玛丽", 
+        "title": "常去。我常借书，也常在那儿看书。", 
+        "segments": ["常", "去", "。", "我", "常", "借", "书", "，", "也", "常", "在", "那儿", "看", "书", "。"],
+        "description": "Cháng qù. Wǒ cháng jiè shū, yě cháng zài nàr kàn shū.<br>Yes, I go often. I often borrow books and read there, too.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254859/204_ab2szr.mp3"
+    },
+    {
+        "id": 205, 
+        "user": "玛丽", 
+        "title": "你呢？常去吗？", 
+        "segments": ["你", "呢", "？", "常", "去", "吗", "？"],
+        "description": "Nǐ ne? Cháng qù ma?<br>What about you? Do you go often?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254859/205_uxkpxa.mp3"
+    },
+    {
+        "id": 206, 
+        "user": "麦克", 
+        "title": "我也常去。", 
+        "segments": ["我", "也", "常", "去", "。"],
+        "description": "Wǒ yě cháng qù.<br>I go often too.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1735799749/sam_mjxry3.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254859/206_zi2au3.mp3"
+    },
+    {
+        "id": 207, 
+        "user": "麦克", 
+        "title": "有时候借书，有时候上网查资料，但不常在那儿看书。", 
+        "segments": ["有时候", "借", "书", "，", "有时候", "上网", "查", "资料", "，", "但", "不", "常", "在", "那儿", "看", "书", "。"],
+        "description": " Yǒu shíhou jiè shū, yǒu shíhou shàng wǎng chá zīliào, dàn bù cháng zài nàr kàn shū.<br>Sometimes I borrow books, sometimes I go online to do research, but I don’t usually read there. ", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1735799749/sam_mjxry3.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254859/207_uikulc.mp3"
+    },
+    {
+        "id": 208, 
+        "user": "麦克", 
+        "title": "我总在宿舍看书。", 
+        "segments": ["我", "总", "在", "宿舍", "看", "书", "。"],
+        "description": "Wǒ zǒng zài sùshè kàn shū.<br>I usually read in my dorm.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1735799749/sam_mjxry3.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254860/208_onk3uz.mp3"
+    },
+    {
+        "id": 209, 
+        "user": "玛丽", 
+        "title": "你的宿舍安静吗？", 
+        "segments": ["你", "的", "宿舍", "安静", "吗", "？"],
+        "description": "Nǐ de sùshè ānjìng ma?<br>Is your dorm quiet?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254860/209_n3ozdy.mp3"
+    },
+    {
+        "id": 210, 
+        "user": "麦克", 
+        "title": "很安静。", 
+        "segments": ["很", "安静", "。"],
+        "description": "Hěn ānjìng.<br>Very quiet.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1735799749/sam_mjxry3.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254858/210_buyxbm.mp3"
+    },
+    {
+        "id": 211, 
+        "user": "A", 
+        "title": "晚上你常做什么？", 
+        "segments": ["晚上", "你", "常", "做", "什么", "？"],
+        "description": "Wǎnshang nǐ cháng zuò shénme?<br>What do you usually do in the evening?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673385/zhangdong_llur8t.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254859/211_ktzr0z.mp3"
+    },
+    {
+        "id": 212, 
+        "user": "B", 
+        "title": "复习课文，预习生词，或者做练习。", 
+        "segments": ["复习", "课文", "，", "预习", "生词", "，", "或者", "做", "练习", "。"],
+        "description": "Fùxí kèwén, yùxí shēngcí, huòzhě zuò liànxí.<br>I review the texts, preview new vocabulary, or do exercises.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739861164/DEVI.0001_vviafz.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254859/212_ryqwoz.mp3"
+    },
+    {
+        "id": 213, 
+        "user": "B", 
+        "title": "有时候上网跟朋友聊天儿或者收发伊妹儿。", 
+        "segments": ["有时候", "上网", "跟", "朋友", "聊天儿", "或者", "收发", "伊妹儿", "。"],
+        "description": "Yǒu shíhou shàng wǎng gēn péngyou liáo tiānr huòzhě shōufā yīmèir.<br>Sometimes I go online to chat with friends, or send and receive emails.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739861164/DEVI.0001_vviafz.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254860/213_epyjbw.mp3"
+    },
+    {
+        "id": 214, 
+        "user": "A", 
+        "title": "我也是，我还常看中文电影和电视剧的DVD。", 
+        "segments": ["我", "也", "是", "，", "我", "还", "常", "看", "中文", "电影", "和", "电视剧", "的", "DVD", "。"],
+        "description": "Wǒ yě shì, wǒ hái cháng kàn Zhōngwén diànyǐng hé diànshìjù de DVD.<br>Me too. I also often watch Chinese movies and TV drama DVDs.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673385/zhangdong_llur8t.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254860/214_cavt6h.mp3"
+    },
+    {
+        "id": 215, 
+        "user": "A", 
+        "title": "你常看吗？", 
+        "segments": ["你", "常", "看", "吗", "？"],
+        "description": "Nǐ cháng kàn ma?<br>Do you watch them often?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673385/zhangdong_llur8t.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254860/215_buzu0n.mp3"
+    },
+    {
+        "id": 216, 
+        "user": "B", 
+        "title": "我很少看。", 
+        "segments": ["我", "很", "少", "看", "。"],
+        "description": "Wǒ hěn shǎo kàn.<br>I rarely watch them.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739861164/DEVI.0001_vviafz.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254860/216_pc2013.mp3"
+    },
+    {
+        "id": 217, 
+        "user": "A", 
+        "title": "星期六和星期日你做什么？", 
+        "segments": ["星期六", "和", "星期日", "你", "做", "什么", "？"],
+        "description": "Xīngqīliù hé xīngqīrì nǐ zuò shénme?<br>What do you usually do on Saturdays and Sundays?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673385/zhangdong_llur8t.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254861/217_pgu8pq.mp3"
+    },
+    {
+        "id": 218, 
+        "user": "B", 
+        "title": "有时候在宿舍休息，有时候跟朋友一起去公园玩儿或者去超市买东西。", 
+        "segments": ["有时候", "在", "宿舍", "休息", "，", "有时候", "跟", "朋友", "一起", "去", "公园", "玩儿", "或者", "去", "超市", "买", "东西", "。"],
+        "description": "Yǒu shíhou zài sùshè xiūxi, yǒu shíhou gēn péngyou yìqí qù gōngyuán wánr huòzhě qù chāoshì mǎi dōngxi.<br>Sometimes I rest in the dorm, and sometimes I go to the park with friends or go shopping at the supermarket.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739861164/DEVI.0001_vviafz.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254861/218_i2svp3.mp3"
     }
 ]
