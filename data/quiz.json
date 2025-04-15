@@ -3317,6 +3317,236 @@
                 { "answer": "职员" }
             ],
             "words": ["中国", "都", "也", "不", "外国", "有", "职员", "职员", "是"]
+        },
+        {
+            "id": 285,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254858/201_gpoygh.mp3",
+            "sentence": "I'm going to the library now. Want to come with me? <br> ___ ___ ___ ___, ___ ___ ___ ___ ___, ___ ___?",
+            "blanks": [
+                { "answer": "我" },
+                { "answer": "现在" },
+                { "answer": "去" },
+                { "answer": "图书馆" },
+                { "answer": "你" },
+                { "answer": "跟" },
+                { "answer": "我" },
+                { "answer": "一起" },
+                { "answer": "去" },
+                { "answer": "好" },
+                { "answer": "吗" }
+            ],
+            "words": ["去", "跟", "吗", "一起", "我", "好", "去", "我", "你", "现在", "图书馆"]
+        },
+        {
+            "id": 286,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254859/204_ab2szr.mp3",
+            "sentence": "I go often. I often borrow books and read there, too.<br> ___ ___。 ___ ___ ___ ___, ___ ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "常" },
+                { "answer": "去" },
+                { "answer": "我" },
+                { "answer": "常" },
+                { "answer": "借" },
+                { "answer": "书" },
+                { "answer": "也" },
+                { "answer": "常" },
+                { "answer": "在" },
+                { "answer": "那儿" },
+                { "answer": "看" },
+                { "answer": "书" }
+            ],
+            "words": ["借", "常", "去", "书", "那儿", "常", "看", "常", "在", "书", "也", "我"]
+        },
+        {
+            "id": 287,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254859/207_uikulc.mp3",
+            "sentence": "Sometimes I borrow books, sometimes I go online to do research, but I don’t usually read there.<br> ___ ___ ___ ___, ___ ___ ___ ___ ___ ___, ___ ___ ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "有" },
+                { "answer": "时候" },
+                { "answer": "借" },
+                { "answer": "书" },
+                { "answer": "有" },
+                { "answer": "时候" },
+                { "answer": "上" },
+                { "answer": "网" },
+                { "answer": "查" },
+                { "answer": "资料" },
+                { "answer": "但" },
+                { "answer": "不" },
+                { "answer": "常" },
+                { "answer": "在" },
+                { "answer": "那儿" },
+                { "answer": "看" },
+                { "answer": "书" }
+            ],
+            "words": ["上", "借", "不", "查", "有", "那儿", "书", "有", "在", "资料", "常", "时候", "看", "书", "但", "网", "时候"]
+        },
+        {
+            "id": 288,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744187934/%E8%B5%B0_bvlnfc.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1744211179/%E8%B5%B0-min_mqar15.png", "： ___ "],
+            "blanks": [
+                { "answer": "走" }
+                
+            ],
+            "words": ["走", "借", "查"]
+        },
+        {
+            "id": 289,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744187901/%E5%80%9F_xixwjh.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1744211155/%E5%80%9F-min_bshcr0.png", "： ___ "],
+            "blanks": [
+                { "answer": "借" }
+                
+            ],
+            "words": ["走", "借", "查"]
+        },
+        {
+            "id": 290,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744187903/%E6%9F%A5_acapdh.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1744211171/%E6%9F%A5-min_fw53vv.png", "： ___ "],
+            "blanks": [
+                { "answer": "查" }
+                
+            ],
+            "words": ["走", "借", "查"]
+        },
+        {
+            "id": 291,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744187934/%E8%B5%84%E6%96%99_oylxto.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1744211178/%E8%B5%84%E6%96%99-min_qdowt5.png", "： ___ "],
+            "blanks": [
+                { "answer": "资料" }
+                
+            ],
+            "words": ["书", "资料", "本子", "光盘"]
+        },
+        {
+            "id": 292,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744187933/%E7%BD%91_do4wnx.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1744211177/%E7%BD%91-min_tqreta.png", "： ___ "],
+            "blanks": [
+                { "answer": "网" }
+                
+            ],
+            "words": ["书", "资料", "本子", "网"]
+        },
+        {
+            "id": 293,
+            "audio": "",
+            "sentence": "What do you usually do in the evening? <br> ___ ___ ___ ___ ___?",
+            "blanks": [
+                { "answer": "晚上" },
+                { "answer": "你" },
+                { "answer": "常" },
+                { "answer": "做" },
+                { "answer": "什么" }
+            ],
+            "words": ["常", "什么", "晚上", "做", "你"]
+        },
+        {
+            "id": 294,
+            "audio": "",
+            "sentence": "I review the texts, preview new vocabulary, or do exercises.<br> ___ ___, ___ ___, ___ ___ ___。",
+            "blanks": [
+                { "answer": "复习" },
+                { "answer": "课文" },
+                { "answer": "预习" },
+                { "answer": "生词" },
+                { "answer": "或者" },
+                { "answer": "做" },
+                { "answer": "练习" }
+            ],
+            "words": ["课文", "练习", "生词", "做", "或者", "复习", "预习"]
+        },
+        {
+            "id": 295,
+            "audio": "",
+            "sentence": "Sometimes I rest in the dorm, and sometimes I go to the park with friends or go shopping at the supermarket.<br> ___ ___ ___ ___ ___, ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "有" },
+                { "answer": "时候" },
+                { "answer": "在" },
+                { "answer": "宿舍" },
+                { "answer": "休息" },
+                { "answer": "有" },
+                { "answer": "时候" },
+                { "answer": "跟" },
+                { "answer": "朋友" },
+                { "answer": "一起" },
+                { "answer": "去" },
+                { "answer": "公园" },
+                { "answer": "玩儿" },
+                { "answer": "或者" },
+                { "answer": "去" },
+                { "answer": "超市" },
+                { "answer": "买" },
+                { "answer": "东西" }
+            ],
+            "words": ["在", "去", "朋友", "有", "去", "东西", "玩儿", "有", "超市", "时候", "买", "或者", "公园", "宿舍", "时候", "跟", "一起", "休息"]
+        },
+        {
+            "id": 296,
+            "audio": "",
+            "sentence": "I rarely watch them.<br> ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "我" },
+                { "answer": "很" },
+                { "answer": "少" },
+                { "answer": "看" }
+            ],
+            "words": ["很", "看", "我", "少"]
+        },
+        {
+            "id": 297,
+            "audio": "",
+            "sentence": "伊妹儿： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%B1%8B_n2co5b.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%AD%A6_kpsdoe.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%B1%8B_n2co5b.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672827/%E8%80%81%E5%B8%88_yp4q3u.png"]
+        },
+        {
+            "id": 298,
+            "audio": "",
+            "sentence": "电影： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%B1%8B_n2co5b.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%AD%A6_kpsdoe.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%B1%8B_n2co5b.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672827/%E8%80%81%E5%B8%88_yp4q3u.png"]
+        },
+        {
+            "id": 299,
+            "audio": "",
+            "sentence": "电视剧： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%B1%8B_n2co5b.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%AD%A6_kpsdoe.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%B1%8B_n2co5b.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672827/%E8%80%81%E5%B8%88_yp4q3u.png"]
+        },
+        {
+            "id": 300,
+            "audio": "",
+            "sentence": "公园： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%B1%8B_n2co5b.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%AD%A6_kpsdoe.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%B1%8B_n2co5b.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672827/%E8%80%81%E5%B8%88_yp4q3u.png"]
+        },
+        {
+            "id": 301,
+            "audio": "",
+            "sentence": "超市： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%B1%8B_n2co5b.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%AD%A6_kpsdoe.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%B1%8B_n2co5b.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672827/%E8%80%81%E5%B8%88_yp4q3u.png"]
         }
     ]
 }
