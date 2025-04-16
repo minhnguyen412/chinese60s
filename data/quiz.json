@@ -3434,7 +3434,7 @@
         },
         {
             "id": 293,
-            "audio": "",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254859/211_ktzr0z.mp3",
             "sentence": "What do you usually do in the evening? <br> ___ ___ ___ ___ ___?",
             "blanks": [
                 { "answer": "晚上" },
@@ -3447,7 +3447,7 @@
         },
         {
             "id": 294,
-            "audio": "",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254859/212_ryqwoz.mp3",
             "sentence": "I review the texts, preview new vocabulary, or do exercises.<br> ___ ___, ___ ___, ___ ___ ___。",
             "blanks": [
                 { "answer": "复习" },
@@ -3462,7 +3462,7 @@
         },
         {
             "id": 295,
-            "audio": "",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254861/218_i2svp3.mp3",
             "sentence": "Sometimes I rest in the dorm, and sometimes I go to the park with friends or go shopping at the supermarket.<br> ___ ___ ___ ___ ___, ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___。",
             "blanks": [
                 { "answer": "有" },
@@ -3488,7 +3488,7 @@
         },
         {
             "id": 296,
-            "audio": "",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254860/216_pc2013.mp3",
             "sentence": "I rarely watch them.<br> ___ ___ ___ ___。",
             "blanks": [
                 { "answer": "我" },
@@ -3500,53 +3500,53 @@
         },
         {
             "id": 297,
-            "audio": "",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744187900/%E4%BC%8A%E5%A6%B9%E5%84%BF_lmh9jk.mp3",
             "sentence": "伊妹儿： ___ ",
             "blanks": [
-                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%B1%8B_n2co5b.png" }
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1744211146/%E4%BC%8A%E5%A6%B9%E5%84%BF-min_wdjnw4.png" }
                 
             ],
-            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%AD%A6_kpsdoe.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%B1%8B_n2co5b.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672827/%E8%80%81%E5%B8%88_yp4q3u.png"]
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1744211178/%E8%AF%BE%E6%96%87-min_sq6dxj.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1744211146/%E4%BC%8A%E5%A6%B9%E5%84%BF-min_wdjnw4.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1744211173/%E7%94%B5%E8%A7%86-min_wosvkz.png"]
         },
         {
             "id": 298,
-            "audio": "",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744187904/%E7%94%B5%E5%BD%B1_ycwzxs.mp3",
             "sentence": "电影： ___ ",
             "blanks": [
-                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%B1%8B_n2co5b.png" }
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1744211172/%E7%94%B5%E5%BD%B1-min_huf15w.png" }
                 
             ],
-            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%AD%A6_kpsdoe.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%B1%8B_n2co5b.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672827/%E8%80%81%E5%B8%88_yp4q3u.png"]
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1744211146/%E4%B8%9C%E8%A5%BF-min_cwaeyg.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%B1%8B_n2co5b.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1744211172/%E7%94%B5%E5%BD%B1-min_huf15w.png"]
         },
         {
             "id": 299,
-            "audio": "",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744187920/%E7%94%B5%E8%A7%86%E5%89%A7_lbw1fn.mp3",
             "sentence": "电视剧： ___ ",
             "blanks": [
-                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%B1%8B_n2co5b.png" }
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1744211173/%E7%94%B5%E8%A7%86%E5%89%A7-min_ugooqa.png" }
                 
             ],
-            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%AD%A6_kpsdoe.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%B1%8B_n2co5b.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672827/%E8%80%81%E5%B8%88_yp4q3u.png"]
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1744211173/%E7%94%B5%E8%A7%86%E5%89%A7-min_ugooqa.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1744211178/%E8%B5%84%E6%96%99-min_qdowt5.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1741078052/%E8%AF%8D%E5%85%B8_z770wr.png"]
         },
         {
             "id": 300,
-            "audio": "",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744187901/%E5%85%AC%E5%9B%AD_slrvyc.mp3",
             "sentence": "公园： ___ ",
             "blanks": [
-                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%B1%8B_n2co5b.png" }
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1744211155/%E5%85%AC%E5%9B%AD-min_qhqqjx.png" }
                 
             ],
-            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%AD%A6_kpsdoe.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%B1%8B_n2co5b.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672827/%E8%80%81%E5%B8%88_yp4q3u.png"]
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1744211180/%E8%B6%85%E5%B8%82-min_zhnfne.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1744211155/%E5%85%AC%E5%9B%AD-min_qhqqjx.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672827/%E8%80%81%E5%B8%88_yp4q3u.png"]
         },
         {
             "id": 301,
-            "audio": "",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744187934/%E8%B6%85%E5%B8%82_zapn8h.mp3",
             "sentence": "超市： ___ ",
             "blanks": [
-                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%B1%8B_n2co5b.png" }
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1744211180/%E8%B6%85%E5%B8%82-min_zhnfne.png" }
                 
             ],
-            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%AD%A6_kpsdoe.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%8C%E5%B1%8B_n2co5b.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672827/%E8%80%81%E5%B8%88_yp4q3u.png"]
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1744211162/%E5%AE%BF%E8%88%8D-min_ddeiyf.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1744211155/%E5%85%AC%E5%9B%AD-min_qhqqjx.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1744211180/%E8%B6%85%E5%B8%82-min_zhnfne.png"]
         }
     ]
 }
