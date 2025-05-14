@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn Chinese online with Chinese60s through real conversations, grammar tools, and interactive character writing.">
+  <meta name="keywords" content="Learn Chinese online, Chinese conversation practice, Chinese grammar, Chinese character writing, Chinese60s">
+  <meta name="author" content="Chinese60s Team">
+  <title>Learn Chinese Online with Chinese60s</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: #8bc34a;
+      color: white;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+
+    .homepage-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    nav {
+      display: flex;
+    }
+
+    @media screen and (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #8bc34a;
+        width: 100%;
+        padding: 10px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      nav ul li a {
+        font-size: 1rem;
+      }
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 20px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: left;
+      margin: 0 100px 100px 100px;
+    }
+
+    .main-content img {
+      width: 80px;
+      height: auto;
+    }
+
+    .logos-and-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .logos-and-title .logo {
+      width: 100%;
+      height: auto;
+      max-height: 800px;
+      object-fit: contain;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+
+    li {
+      font-size: 1.1rem;
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    .main-content ul {
+      margin-left: 20px;
+      padding-left: 20px;
+    }
+
+    .donation-section {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .donation-section img {
+      max-width: 200px;
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .donation-section img:hover {
+      transform: scale(1.1);
+    }
+
+    footer {
+      background-color: #8bc34a;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    footer .social-icons {
+      margin-top: 10px;
+    }
+
+    footer .social-icons a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: white;
+    }
+
+    @media screen and (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logos-and-title {
+        flex-direction: column;
+        padding: 10px;
+      }
+
+      .logos-and-title .logo {
+        max-height: 200px;
+        margin: 10px 0;
+      }
+
+      .main-content {
+        margin: 0 10px 100px 10px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      header h1 {
+        font-size: 1.3rem;
+      }
+
+      .logos-and-title .logo {
+        max-height: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><a href="index.html" class="homepage-link">CHINESE 60s</a></h1>
+    <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <nav>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="https://www.amazon.com/shop/studiorum60s">Shop</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="logos-and-title">
+    <img src="assets/homepage.png" alt="Logo" class="logo">
+  </div>
+
+  <div class="main-content">
+    <h1>Learn Chinese Online with Chinese60s: A Smart and Structured Way to Master Mandarin</h1>
+    <p>Are you struggling to learn Chinese on your own? Do you find it hard to memorize vocabulary, understand grammar, or keep up with native conversations? You’re not alone—and the solution might be easier than you think.</p>
+
+    <p><strong>At Chinese60s.com</strong>, we’ve developed a complete system to help you <strong>learn Chinese online</strong> through real conversations, interactive tools, and smart explanations—all in one place.</p>
+
+    <h2>Why Learning Chinese Through Content Works</h2>
+
+    <p>Traditional learning often focuses on memorizing isolated vocabulary and grammar rules, which can feel disconnected from real-world use. That’s why <strong>learning Chinese through dialogue-based content</strong> is far more effective.</p>
+
+    <ul>
+      <li>You absorb vocabulary naturally</li>
+      <li>You learn how native speakers actually speak</li>
+      <li>You understand grammar as it’s used, not just as abstract theory</li>
+    </ul>
+
+    <p>At <strong>Chinese60s</strong>, we’ve built our method on this principle—and we provide everything you need to apply it.</p>
+
+    <h2>How Chinese60s Helps You Learn Faster and Smarter</h2>
+
+    <h3>1. Watch Real-Life Dialogue Videos</h3>
+    <p>Each lesson begins with a short, authentic video featuring a natural Chinese conversation. The videos are organized from beginner to advanced levels, so you can start at your level and grow over time.</p>
+    <p><em>Why it works:</em> You train your listening, get exposed to sentence patterns, and hear real pronunciation.</p>
+
+    <h3>2. Study the Dialogue Line by Line</h3>
+    <p>Scroll down below the video and you’ll see the full transcript broken down line by line.</p>
+    <ul>
+      <li>Click the <strong>arrow icon</strong> to see the <strong>meaning</strong> and <strong>pinyin</strong></li>
+      <li>Click the <strong>headphone icon</strong> to hear the sentence aloud</li>
+    </ul>
+    <p>This is perfect for listening, reading, and speaking practice—all at once.</p>
+
+    <h3>3. Dive into Each Word or Character</h3>
+    <p>Click on any Chinese character to see:</p>
+    <ul>
+      <li>A clear <strong>definition</strong></li>
+      <li>A related <strong>image or visual cue</strong></li>
+      <li>The <strong>audio pronunciation</strong></li>
+    </ul>
+    <p>This deepens your vocabulary knowledge and helps with long-term memory.</p>
+
+    <h3>4. Instantly Understand Chinese Grammar</h3>
+    <p>Click the <strong>star icon</strong> next to any sentence to access a <strong>simple grammar breakdown</strong>.</p>
+    <p><em>No more searching forums or asking strangers—everything is right here.</em></p>
+
+    <h3>5. Practice Writing Chinese Characters</h3>
+    <p>Chinese60s provides a <strong>built-in writing space</strong> where you can practice forming each character by hand.</p>
+    <p>This helps you:</p>
+    <ul>
+      <li>Remember stroke order</li>
+      <li>Improve handwriting</li>
+      <li>Boost reading and writing skills together</li>
+    </ul>
+
+    <h2>What Makes Chinese60s Different?</h2>
+    <p>Unlike many language apps or websites, <strong>Chinese60s is built by real language learners and teachers</strong> who understand the challenges of learning Mandarin.</p>
+    <p>With <strong>Chinese60s</strong>, you get:</p>
+    <ul>
+      <li>Real dialogue, not textbook phrases</li>
+      <li>Easy access to grammar and vocabulary</li>
+      <li>Integrated listening, reading, speaking, and writing</li>
+      <li>A fun, non-overwhelming interface</li>
+    </ul>
+
+    <h2>Who Is This For?</h2>
+    <p>Whether you’re:</p>
+    <ul>
+      <li>A beginner starting to learn Chinese</li>
+      <li>An intermediate learner struggling with grammar</li>
+      <li>A traveler or businessperson preparing to speak Mandarin</li>
+      <li>A student preparing for HSK or other exams</li>
+    </ul>
+    <p><strong>Chinese60s.com</strong> gives you the tools to build fluency at your own pace, with no pressure and no confusion.</p>
+
+    <h2>Ready to Learn Chinese the Smart Way?</h2>
+    <p>Start with one lesson and feel the difference.</p>
+
+    <p><a href="https://chinese60s.com" target="_blank"><strong>Visit Chinese60s.com now</strong></a> to explore interactive content, video-based lessons, grammar guides, writing tools, and more.</p>
+
+    <p><strong>No more guesswork. No more boring study sessions. Just smart, structured, and meaningful learning.</strong></p>
+  </div>
+
+    
+  <footer>
+    <p>Chinese60s</p>
+    <p>Learn Mandarin through images and videos</p>
+    <div class="social-icons">
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+      <a href="#">TikTok</a>
+      <a href="#">Instagram</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('nav');
+
+      menuToggle.addEventListener('click', function () {
+        nav.classList.toggle('show');
+        menuToggle.innerHTML = nav.classList.contains('show') ? '&#10005;' : '&#9776;';
+      });
+    });
+  </script>
+</body>
+</html>
