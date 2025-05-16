@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn Chinese online with Chinese60s through real conversations, grammar tools, and interactive character writing.">
+  <meta name="keywords" content="Learn Chinese online, Chinese conversation practice, Chinese grammar, Chinese character writing, Chinese60s">
+  <meta name="author" content="Chinese60s Team">
+  <title>What Should You Do When Starting to Learn Chinese?</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: #8bc34a;
+      color: white;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+
+    .homepage-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    nav {
+      display: flex;
+    }
+
+    @media screen and (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #8bc34a;
+        width: 100%;
+        padding: 10px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      nav ul li a {
+        font-size: 1rem;
+      }
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 20px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: left;
+      margin: 0 100px 100px 100px;
+    }
+
+    .main-content img {
+      width: 80px;
+      height: auto;
+    }
+
+    .logos-and-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .logos-and-title .logo {
+      width: 100%;
+      height: auto;
+      max-height: 800px;
+      object-fit: contain;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+
+    li {
+      font-size: 1.1rem;
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    .main-content ul {
+      margin-left: 20px;
+      padding-left: 20px;
+    }
+
+    .donation-section {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .donation-section img {
+      max-width: 200px;
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .donation-section img:hover {
+      transform: scale(1.1);
+    }
+
+    footer {
+      background-color: #8bc34a;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    footer .social-icons {
+      margin-top: 10px;
+    }
+
+    footer .social-icons a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: white;
+    }
+
+    @media screen and (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logos-and-title {
+        flex-direction: column;
+        padding: 10px;
+      }
+
+      .logos-and-title .logo {
+        max-height: 200px;
+        margin: 10px 0;
+      }
+
+      .main-content {
+        margin: 0 10px 100px 10px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      header h1 {
+        font-size: 1.3rem;
+      }
+
+      .logos-and-title .logo {
+        max-height: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><a href="../index.html" class="homepage-link">CHINESE 60s</a></h1>
+    <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <nav>
+      <ul>
+        <li><a href="../about.html">About Us</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../courses.html">Courses</a></li>
+        <li><a href="https://www.amazon.com/shop/studiorum60s">Shop</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="logos-and-title">
+    <img src="../assets/homepage.png" alt="Logo" class="logo">
+  </div>
+
+  <div class="main-content">
+    <h1>What Should You Do When Starting to Learn Chinese?</h1>
+    <p>Starting a new language can feel overwhelming—but it doesn’t have to be. The key is to follow a structured path, from beginner to advanced. This helps you build a solid foundation, retain what you’ve learned, and avoid getting lost if you ever take a break.</p>
+
+    <p>This principle doesn’t just apply to Chinese—it’s the secret behind successful language learning in general.</p>
+
+    <h2>Step 1: Master the Basics First</h2>
+
+    <p>If you're new to Chinese, it's essential to focus on the basics first. That means using a well-structured curriculum and understanding core grammar and vocabulary before jumping into more advanced topics.</p>
+
+    <p>Some of the most popular beginner Chinese textbooks include:</p>
+    <ul>
+      <li>HSK Standard Course 1–4</li>
+      <li>Boya Chinese 1–2</li>
+      <li>Msutong Chinese 1–4</li>
+    </ul>
+
+    <p>These are widely used in language schools and universities, and they provide a clear learning path.</p>
+
+    <h2>Step 2: Keep Learning with the Right Tools and Support</h2>
+
+    <p>To stay consistent and motivated while learning Chinese, you’ll need more than just a textbook. Here are a few key elements to keep your learning sustainable:</p>
+
+    <h3>1. Spark Interest Through Self-Study</h3>
+    <p>One of the best ways to maintain your enthusiasm is by watching basic Chinese animation videos. It’s even more effective if the videos follow the same structure as your textbook—this helps reinforce what you’re learning.</p>
+
+    <p>At <strong>Chinese60s</strong>, we create animated dialogue videos that align with popular beginner textbooks. These fun, structured videos make it easier for you to stay engaged and remember new content.</p>
+
+    <h3>2. Get Help from a 1-on-1 Teacher</h3>
+    <p>No matter how good the materials are, there will always be questions or things you don’t fully understand. Having a 1-on-1 tutor can make a big difference in helping you move past difficult points quickly and confidently.</p>
+
+    <h3>3. Practice with Friends or Join a Community</h3>
+    <p>Learning a language isn’t just about studying—it’s also about using it. Try to find friends or a study group to practice with. If you have the chance, travel to China or Taiwan to immerse yourself in the language and culture.</p>
+
+    <h2>Step 3: Choose the Right Path for Your Goals</h2>
+
+    <p>Not everyone learns Chinese for the same reason. That’s why your learning path may vary depending on your goals.</p>
+
+    <p>If your main goal is to understand basic Chinese, master sentence structure, and gain solid grammar knowledge, <strong>Chinese60s</strong> is the perfect starting point. Our interactive content is designed to help beginners build a strong foundation with less stress and more fun.</p>
+
+    <p>If you want to go deeper, we can help you connect with professional teachers for personalized 1-on-1 lessons and even provide opportunities to experience real life in China or Taiwan.</p>
+
+    <h2>Ready to Begin Your Chinese Journey?</h2>
+
+    <p>Whether you’re just curious or ready to dive in, a clear roadmap and the right tools can make all the difference.</p>
+
+    <p><strong>➡️ Visit <a href="https://chinese60s.com" target="_blank">Chinese60s.com</a> today</strong> to start learning Chinese with interactive, animated content tailored to your level.</p>
+
+    <p>No more guesswork. Just smart, fun, and effective Chinese learning—at your own pace.</p>
+    <br>
+    <br>
+    <div id="disqus_thread"></div>
+    <script>
+          var disqus_config = function () {
+              this.page.url = window.location.href;  // URL hiện tại
+              this.page.identifier = window.location.pathname; // Định danh duy nhất cho mỗi bài
+          };
+
+          (function() {
+              var d = document, s = d.createElement('script');
+              s.src = 'https://chinese60s-com.disqus.com/embed.js';
+              s.setAttribute('data-timestamp', +new Date());
+              (d.head || d.body).appendChild(s);
+          })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  
+    
+  <footer>
+    <p>Chinese60s</p>
+    <p>Learn Mandarin through images and videos</p>
+    <div class="social-icons">
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+      <a href="#">TikTok</a>
+      <a href="#">Instagram</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('nav');
+
+      menuToggle.addEventListener('click', function () {
+        nav.classList.toggle('show');
+        menuToggle.innerHTML = nav.classList.contains('show') ? '&#10005;' : '&#9776;';
+      });
+    });
+  </script>
+</body>
+</html>
