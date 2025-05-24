@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn Chinese online with Chinese60s through real conversations, grammar tools, and interactive character writing.">
+  <meta name="keywords" content="Learn Chinese online, Chinese conversation practice, Chinese grammar, Chinese character writing, Chinese60s">
+  <meta name="author" content="Chinese60s Team">
+  <title>How to Keep Learning Chinese When You’re Really Busy</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: #8bc34a;
+      color: white;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+
+    .homepage-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    nav {
+      display: flex;
+    }
+
+    @media screen and (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #8bc34a;
+        width: 100%;
+        padding: 10px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      nav ul li a {
+        font-size: 1rem;
+      }
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 20px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: left;
+      margin: 0 100px 100px 100px;
+    }
+
+    .main-content img {
+      width: 80px;
+      height: auto;
+    }
+
+    .logos-and-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .logos-and-title .logo {
+      width: 100%;
+      height: auto;
+      max-height: 800px;
+      object-fit: contain;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+
+    li {
+      font-size: 1.1rem;
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    .main-content ul {
+      margin-left: 20px;
+      padding-left: 20px;
+    }
+
+    .donation-section {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .donation-section img {
+      max-width: 200px;
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .donation-section img:hover {
+      transform: scale(1.1);
+    }
+
+    footer {
+      background-color: #8bc34a;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    footer .social-icons {
+      margin-top: 10px;
+    }
+
+    footer .social-icons a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: white;
+    }
+
+    @media screen and (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logos-and-title {
+        flex-direction: column;
+        padding: 10px;
+      }
+
+      .logos-and-title .logo {
+        max-height: 200px;
+        margin: 10px 0;
+      }
+
+      .main-content {
+        margin: 0 10px 100px 10px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      header h1 {
+        font-size: 1.3rem;
+      }
+
+      .logos-and-title .logo {
+        max-height: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><a href="../index.html" class="homepage-link">CHINESE 60s</a></h1>
+    <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <nav>
+      <ul>
+        <li><a href="../about.html">About Us</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../courses.html">Courses</a></li>
+        <li><a href="https://www.amazon.com/shop/studiorum60s">Shop</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="logos-and-title">
+    <img src="../assets/homepage.png" alt="Logo" class="logo">
+  </div>
+
+  <div class="main-content">
+    <h1>How to Keep Learning Chinese When You’re Really Busy</h1>
+    <p><strong>Life gets hectic. Whether you’re juggling work, school, family, or all of the above, staying consistent with language learning—especially a language as unique as Chinese—can feel nearly impossible.</strong></p>
+    <p><strong>But the truth is:</strong> You don’t have to spend hours a day to make progress. With the right mindset and methods, even busy people can maintain and improve their Chinese skills.</p>
+    <section>
+      <h2>1. Always Stay Connected to the Basics</h2>
+      <p>When time is tight, don’t stress about learning something new every day. Instead, focus on reinforcing what you’ve already learned.</p>
+      <ul>
+        <li>Review old lessons.</li>
+        <li>Rewatch familiar dialogues.</li>
+        <li>Repeat the same vocabulary or sentence structures until they become second nature.</li>
+      </ul>
+      <p><strong>Consistency matters more than speed.</strong> Even just 5–10 minutes of review can keep your memory sharp and help you retain long-term knowledge.</p>
+    </section>
+
+    <section>
+      <h2>2. Make Chinese Part of Your Daily Life</h2>
+      <p>To stay motivated, try linking your Chinese learning to real events or relationships in your life. This makes the language more meaningful and easier to remember.</p>
+      <p>Focus on three core themes:</p>
+      <ul>
+        <li>Conversations with friends</li>
+        <li>Family interactions</li>
+        <li>Work or coworker communication</li>
+      </ul>
+      <p>Even if you’re just imagining these conversations or mentally translating them, this simple mental practice helps reinforce your skills.</p>
+    </section>
+
+    <section>
+      <h2>3. Follow Chinese Content on Social Media</h2>
+      <p>Turn your screen time into study time.</p>
+      <p>Follow Chinese-language accounts or language learning creators like <strong>@chinese60s</strong> on:</p>
+      <ul>
+        <li>Instagram</li>
+        <li>YouTube</li>
+        <li>TikTok</li>
+        <li>Facebook</li>
+      </ul>
+      <p>These quick, bite-sized videos and posts can become part of your daily routine—no extra effort required.</p>
+      <p><strong>Every time you scroll, you get a little dose of Chinese.</strong></p>
+    </section>
+
+    <section>
+      <h2>4. Make a Daily Mini Commitment</h2>
+      <p>You don’t need an hour. You don’t even need thirty minutes.</p>
+      <p><strong>Just commit to thinking about Chinese every single day, even for a moment:</strong></p>
+      <ul>
+        <li>Watch one video</li>
+        <li>Read one sentence</li>
+        <li>Practice one word</li>
+        <li>Listen to one short clip</li>
+      </ul>
+      <p>These micro habits keep you mentally engaged and prevent the language from fading away.</p>
+    </section>
+
+    <section>
+      <h2>Final Thoughts</h2>
+      <p>Being busy doesn’t mean you have to give up on learning Chinese.</p>
+      <ul>
+        <li>Stick to your basics.</li>
+        <li>Make the language part of your life.</li>
+        <li>Use tools that fit into your schedule.</li>
+      </ul>
+      <p>And most importantly—stay connected to why you started learning in the first place.</p>
+
+      <p>➡️ For quick, fun, and effective learning tools you can use anytime, follow <strong>Chinese60s</strong> on your favorite platform or visit <a href="https://chinese60s.com" target="_blank">Chinese60s.com</a></p>
+
+      <p><strong>Small steps. Big results. Keep going.</strong></p>
+    </section>
+    <br>
+    <br>
+    <div id="disqus_thread"></div>
+    <script>
+          var disqus_config = function () {
+              this.page.url = window.location.href;  // URL hiện tại
+              this.page.identifier = window.location.pathname; // Định danh duy nhất cho mỗi bài
+          };
+
+          (function() {
+              var d = document, s = d.createElement('script');
+              s.src = 'https://chinese60s-com.disqus.com/embed.js';
+              s.setAttribute('data-timestamp', +new Date());
+              (d.head || d.body).appendChild(s);
+          })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  
+    
+  <footer>
+    <p>Chinese60s</p>
+    <p>Learn Mandarin through images and videos</p>
+    <div class="social-icons">
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+      <a href="#">TikTok</a>
+      <a href="#">Instagram</a>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('nav');
+
+      menuToggle.addEventListener('click', function () {
+        nav.classList.toggle('show');
+        menuToggle.innerHTML = nav.classList.contains('show') ? '&#10005;' : '&#9776;';
+      });
+    });
+  </script>
+</body>
+</html>
