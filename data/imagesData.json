@@ -1549,17 +1549,17 @@
         "character": "找²",
         "meaning": "to look for",
         "pinyin": "zhǎo",
-        "pinyin": "zài",
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175245/%E5%9C%A8_dadas6.mp3"
-    },
-    {        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160493/%E6%89%BE_gv2zoz.mp3"
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160493/%E6%89%BE_gv2zoz.mp3"
     },
     {
         "id": "195",
-        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174874/%E5%9C%A8_pmhnxl.pn",
-        "character": "在",g
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174874/%E5%9C%A8_pmhnxl.png",
+        "character": "在",
         "meaning": "to be in/at; in; at - <a href='grammar.html#grammar-9'>More</a><br>in the process of",
-
+        "pinyin": "zài",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175245/%E5%9C%A8_dadas6.mp3"
+    },
+    {
         "id": "196",
         "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174874/%E5%AE%B6_tolh5l.png",
         "character": "家",
