@@ -611,7 +611,7 @@
         "id": "77",
         "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672815/%E5%9D%90_v3qgxh.png",
         "character": "坐",
-        "meaning": "to sit",
+        "meaning": "to sit; to travel by",
         "pinyin": "zuò",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673260/%E5%9D%90_of9mvo.mp3"
     },
@@ -1549,17 +1549,17 @@
         "character": "找²",
         "meaning": "to look for",
         "pinyin": "zhǎo",
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160493/%E6%89%BE_gv2zoz.mp3"
-    },
-    {
-        "id": "195",
-        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174874/%E5%9C%A8_pmhnxl.png",
-        "character": "在",
-        "meaning": "to be in/at; in; at - <a href='grammar.html#grammar-9'>More</a>",
         "pinyin": "zài",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175245/%E5%9C%A8_dadas6.mp3"
     },
+    {        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160493/%E6%89%BE_gv2zoz.mp3"
+    },
     {
+        "id": "195",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174874/%E5%9C%A8_pmhnxl.pn",
+        "character": "在",g
+        "meaning": "to be in/at; in; at - <a href='grammar.html#grammar-9'>More</a><br>in the process of",
+
         "id": "196",
         "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174874/%E5%AE%B6_tolh5l.png",
         "character": "家",
