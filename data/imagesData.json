@@ -2798,5 +2798,117 @@
         "meaning": "thing",
         "pinyin": "dōngxi",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744187900/%E4%B8%9C%E8%A5%BF_esvd3l.mp3"
+    },
+    {
+        "id": "351",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1749659965/%E5%87%BA%E6%9D%A5-min_tygfc2.png",
+        "character": "出来",
+        "meaning": "to move from inside to outside",
+        "pinyin": "chūlai",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1749660573/%E5%87%BA%E6%9D%A5_ajyb55.mp3"
+    },
+    {
+        "id": "352",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1749659965/%E6%9D%A5-min_lpnmqy.png",
+        "character": "来",
+        "meaning": "to come",
+        "pinyin": "lái",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1749660575/%E6%9D%A5_hd1c62.mp3"
+    },
+    {
+        "id": "353",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1749659966/%E6%AD%A3%E5%9C%A8-min_kig0hp.png",
+        "character": "正在",
+        "meaning": "in the process of; in the course of",
+        "pinyin": "zhèngzài",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1749660576/%E6%AD%A3%E5%9C%A8_z80zve.mp3"
+    },
+    {
+        "id": "354",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1749659967/%E9%9F%B3%E4%B9%90-min_agyqqc.png",
+        "character": "音乐",
+        "meaning": "music",
+        "pinyin": "yīnyuè",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1749660578/%E9%9F%B3%E4%B9%90_she6wj.mp3"
+    },
+    {
+        "id": "355",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1749659967/%E6%B2%A1%E6%9C%89-min_ouu5vd.png",
+        "character": "没有",
+        "meaning": "have not; did not",
+        "pinyin": "méiyǒu",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741077135/%E6%B2%A1%E6%9C%89_ipgcgh.mp3"
+    },
+    {
+        "id": "356",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1749659965/%E6%AD%A3-min_bo2a79.png",
+        "character": "正",
+        "meaning": "be doing; just (doing sth); just now",
+        "pinyin": "zhèng",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1749660575/%E6%AD%A3_eh62o8.mp3"
+    },
+    {
+        "id": "357",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1749659966/%E5%BD%95%E9%9F%B3-min_e7l6x0.png",
+        "character": "录音",
+        "meaning": "recording; to record",
+        "pinyin": "lùyīn",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1749660574/%E5%BD%95%E9%9F%B3_egf5ar.mp3"
+    },
+    {
+        "id": "358",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1749659965/%E4%BA%8B-min_fei6v6.png",
+        "character": "事",
+        "meaning": "matter; thing; business",
+        "pinyin": "shì",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1749660573/%E4%BA%8B_i8wlu6.mp3"
+    },
+    {
+        "id": "359",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1749659966/%E4%B9%A6%E5%BA%97-min_tnhwzr.png",
+        "character": "书店",
+        "meaning": "bookstore",
+        "pinyin": "shūdiàn",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1749660573/%E4%B9%A6%E5%BA%97_f3ioj0.mp3"
+    },
+    {
+        "id": "360",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1749659966/%E6%83%B3-min_nd9dh5.png",
+        "character": "想",
+        "meaning": "to think; to want to",
+        "pinyin": "xiǎng",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1749660574/%E6%83%B3_upscmq.mp3"
+    },
+    {
+        "id": "361",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1749659966/%E6%B1%89%E8%8B%B1-min_bde7z3.png",
+        "character": "汉英",
+        "meaning": "Chinese-English",
+        "pinyin": "Hàn-Yīng",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1749660576/%E6%B1%89%E8%8B%B1_w2v3ts.mp3"
+    },
+    {
+        "id": "362",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1749659967/%E6%8C%A4-min_irtzuw.png",
+        "character": "挤",
+        "meaning": "crowded; to squeeze",
+        "pinyin": "jǐ",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1749660574/%E6%8C%A4_ur5gxp.mp3"
+    },
+    {
+        "id": "363",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1749659968/%E9%AA%91-min_w4jifb.png",
+        "character": "骑",
+        "meaning": "to ride",
+        "pinyin": "qí",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1749660579/%E9%AA%91_mikugp.mp3"
+    },
+    {
+        "id": "364",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1749659967/%E8%A1%8C-min_fry2ln.png",
+        "character": "行",
+        "meaning": "all right; OK",
+        "pinyin": "xíng",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1749660578/%E8%A1%8C_yzmdp0.mp3"
     }
 ]
