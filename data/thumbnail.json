@@ -190,5 +190,13 @@
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1744259266/hyjc-1-16-2_voofck.png",
         "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
         "htmlLink": "posts.html?postStartId=211&postEndId=218&quizStartId=293&quizEndId=301&id=24"
+    },
+    {
+        "id": 25,
+        "title": "第十七课 (一)：他在做什么呢？",
+        "description": "Lesson 17 (1): What is he doing?",
+        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1749714680/hyjc-1-17-1_ltg8qr.png",
+        "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
+        "htmlLink": "posts.html?postStartId=219&postEndId=233&quizStartId=293&quizEndId=301&id=25"
     }
 ]
