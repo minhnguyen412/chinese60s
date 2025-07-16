@@ -198,5 +198,13 @@
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1749714680/hyjc-1-17-1_ltg8qr.png",
         "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
         "htmlLink": "posts.html?postStartId=219&postEndId=233&quizStartId=302&quizEndId=317&id=25"
+    },
+    {
+        "id": 26,
+        "title": "第十七课 (二)：谁教你们语法？",
+        "description": "Lesson 17 (2): Who teaches you guys Grammar?",
+        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752650641/hyjc-1-17-2_jvveud.png",
+        "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
+        "htmlLink": "posts.html?postStartId=234&postEndId=241&quizStartId=302&quizEndId=317&id=26"
     }
 ]
