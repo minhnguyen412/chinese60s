@@ -2910,5 +2910,77 @@
         "meaning": "all right; OK",
         "pinyin": "xíng",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1749660578/%E8%A1%8C_yzmdp0.mp3"
+    },
+    {
+        "id": "365",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752648100/%E9%97%A8-min_xo7a2a.png",
+        "character": "门²",
+        "meaning": "(a classifier for subjects in school)",
+        "pinyin": "mén",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752648174/%E9%97%A8_am7bgo.mp3"
+    },
+    {
+        "id": "366",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752648100/%E8%AF%BE-min_gywozu.png",
+        "character": "课",
+        "meaning": "lesson; course",
+        "pinyin": "kè",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752648173/%E8%AF%BE_cdueni.mp3"
+    },
+    {
+        "id": "367",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752648100/%E7%BB%BC%E5%90%88-min_muosi5.png",
+        "character": "综合",
+        "meaning": "comprehensive",
+        "pinyin": "zōnghé",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752648173/%E7%BB%BC%E5%90%88_iavkpz.mp3"
+    },
+    {
+        "id": "368",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752648099/%E5%8F%A3%E8%AF%AD-min_napv0e.png",
+        "character": "口语",
+        "meaning": "spoken language",
+        "pinyin": "kǒuyǔ",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752648176/%E5%8F%A3%E8%AF%AD_xxctoo.mp3"
+    },
+    {
+        "id": "369",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752648100/%E5%90%AC%E5%8A%9B-min_zysiyh.png",
+        "character": "听力",
+        "meaning": "listening",
+        "pinyin": "tīnglì",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752648177/%E5%90%AC%E5%8A%9B_obt0gq.mp3"
+    },
+    {
+        "id": "370",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752648101/%E9%98%85%E8%AF%BB-min_l410ce.png",
+        "character": "阅读",
+        "meaning": "reading",
+        "pinyin": "yuèdú",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752648175/%E9%98%85%E8%AF%BB_yozd0z.mp3"
+    },
+    {
+        "id": "371",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752648100/%E6%96%87%E5%8C%96-min_bynxno.png",
+        "character": "文化",
+        "meaning": "culture",
+        "pinyin": "wénhuà",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752648173/%E6%96%87%E5%8C%96_sx8hxm.mp3"
+    },
+    {
+        "id": "372",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752648100/%E4%BD%93%E8%82%B2-min_st0zjq.png",
+        "character": "体育",
+        "meaning": "physical training",
+        "pinyin": "tǐyù",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752648176/%E4%BD%93%E8%82%B2_zsb0ty.mp3"
+    },
+    {
+        "id": "373",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752648100/%E6%95%99-min_if6zuf.png",
+        "character": "教",
+        "meaning": "to teach",
+        "pinyin": "jiāo",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752648172/%E6%95%99_bufktv.mp3"
     }
 ]
