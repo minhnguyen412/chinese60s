@@ -3741,6 +3741,156 @@
                 
             ],
             "words": ["没", "行", "太", "有"]
+        },
+        {
+            "id": 318,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752649701/234_xoxskq.mp3",
+            "sentence": "Mary, how many classes do you have?<br> ___, ___ ___ ___ ___ ___？",
+            "blanks": [
+                { "answer": "玛丽" },
+                { "answer": "你们" },
+                { "answer": "有" },
+                { "answer": "几" },
+                { "answer": "门" },
+                { "answer": "课" }
+            ],
+            "words": ["你们", "几", "课", "玛丽", "门", "有"]
+        },
+        {
+            "id": 319,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752649702/235_vsumn1.mp3",
+            "sentence": "Now we only have four classes: general studies, speaking, listening and reading classes.<br> ___ ___ ___ ___ ___ ___, ___、 ___、 ___ ___ ___。",
+            "blanks": [
+                { "answer": "现在" },
+                { "answer": "只" },
+                { "answer": "有" },
+                { "answer": "四" },
+                { "answer": "门" },
+                { "answer": "课" },
+                { "answer": "综合课" },
+                { "answer": "口语课" },
+                { "answer": "听力课" },
+                { "answer": "和" },
+                { "answer": "阅读课" }
+            ],
+            "words": ["有", "阅读课", "门", "口语课", "和", "只", "听力课", "四", "综合课", "课", "现在"]
+        },
+        {
+            "id": 320,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752649709/238_sdbwdk.mp3",
+            "sentence": "What does Teacher Lin teach you?<br> ___ ___ ___ ___ ___？",
+            "blanks": [
+                { "answer": "林" },
+                { "answer": "老师" },
+                { "answer": "教" },
+                { "answer": "你们" },
+                { "answer": "什么" }
+            ],
+            "words": ["你们", "教", "老师", "什么", "林"]
+        },
+        {
+            "id": 321,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752649712/240_yfsyvy.mp3",
+            "sentence": "Who teaches you guys General Studies and Speaking?<br> ___ ___ ___ ___ ___ ___？",
+            "blanks": [
+                { "answer": "谁" },
+                { "answer": "教" },
+                { "answer": "你们" },
+                { "answer": "综合课" },
+                { "answer": "和" },
+                { "answer": "口语课" }
+            ],
+            "words": ["教", "和", "综合课", "口语课", "你们", "谁"]
+        },
+        {
+            "id": 322,
+            "audio": "",
+            "sentence": "a classifier for subjects in school: ___",
+            "blanks": [
+                { "answer": "门" }
+
+            ],
+            "words": ["张", "本", "门", "个"]
+        },
+        {
+            "id": 323,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752648173/%E8%AF%BE_cdueni.mp3",
+            "sentence": "课： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752648100/%E8%AF%BE-min_gywozu.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672818/%E5%B7%A5%E4%BD%9C_vym8um.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1741331687/renewal-min_agqrjl.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1752648100/%E8%AF%BE-min_gywozu.png"]
+        },
+        {
+            "id": 324,
+            "audio": "",
+            "sentence": "comprehensive: ___",
+            "blanks": [
+                { "answer": "综合" }
+
+            ],
+            "words": ["综合", "听力", "阅读", "口语"]
+        },
+        {
+            "id": 325,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752648176/%E5%8F%A3%E8%AF%AD_xxctoo.mp3",
+            "sentence": "口语： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752648099/%E5%8F%A3%E8%AF%AD-min_napv0e.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1752648101/%E9%98%85%E8%AF%BB-min_l410ce.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1752648099/%E5%8F%A3%E8%AF%AD-min_napv0e.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1752648100/%E5%90%AC%E5%8A%9B-min_zysiyh.png"]
+        },
+        {
+            "id": 326,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752648177/%E5%90%AC%E5%8A%9B_obt0gq.mp3",
+            "sentence": "听力： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752648100/%E5%90%AC%E5%8A%9B-min_zysiyh.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1752648101/%E9%98%85%E8%AF%BB-min_l410ce.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1752648099/%E5%8F%A3%E8%AF%AD-min_napv0e.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1752648100/%E5%90%AC%E5%8A%9B-min_zysiyh.png"]
+        },
+        {
+            "id": 327,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752648175/%E9%98%85%E8%AF%BB_yozd0z.mp3",
+            "sentence": "阅读： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752648101/%E9%98%85%E8%AF%BB-min_l410ce.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1752648101/%E9%98%85%E8%AF%BB-min_l410ce.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1752648100/%E5%90%AC%E5%8A%9B-min_zysiyh.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1752648099/%E5%8F%A3%E8%AF%AD-min_napv0e.png"]
+        },
+        {
+            "id": 328,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752648173/%E6%96%87%E5%8C%96_sx8hxm.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1752648100/%E6%96%87%E5%8C%96-min_bynxno.png", "： ___ "],
+            "blanks": [
+                { "answer": "文化" }
+                
+            ],
+            "words": ["国家", "课文", "外语", "文化"]
+        },
+        {
+            "id": 329,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752648176/%E4%BD%93%E8%82%B2_zsb0ty.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1752648100/%E4%BD%93%E8%82%B2-min_st0zjq.png", "： ___ "],
+            "blanks": [
+                { "answer": "体育" }
+                
+            ],
+            "words": ["唱歌", "体育", "做饭", "打球"]
+        },
+        {
+            "id": 330,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752648172/%E6%95%99_bufktv.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1752648100/%E6%95%99-min_if6zuf.png", "： ___ "],
+            "blanks": [
+                { "answer": "教" }
+                
+            ],
+            "words": ["教", "跑", "喝", "睡"]
         }
     ]
 }
