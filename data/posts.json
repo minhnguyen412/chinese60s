@@ -2100,7 +2100,7 @@
         "id": 234, 
         "user": "田芳", 
         "title": "玛丽，你们有几门课？", 
-        "segments": ["玛丽", "，", "你们", "有", "几", "门", "课", "？"],
+        "segments": ["玛丽", "，", "你们", "有", "几", "门²", "课", "？"],
         "description": "mǎlì nǐmen yǒu jǐ mén kè<br>Mary, how many classes do you have?", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752649701/234_xoxskq.mp3"
@@ -2109,7 +2109,7 @@
         "id": 235, 
         "user": "玛丽", 
         "title": "现在只有四门课：综合课、口语课、听力课和阅读课。", 
-        "segments": ["现在", "只", "有", "四", "门", "课", "：", "综合", "课", "、", "口语", "课", "、", "听力", "课", "和", "阅读", "课", "。"],
+        "segments": ["现在", "只", "有", "四", "门²", "课", "：", "综合", "课", "、", "口语", "课", "、", "听力", "课", "和", "阅读", "课", "。"],
         "description": "xiànzài zhǐ yǒu sì mén kè zōnghé kè kǒuyǔ kè tīnglì kè hé yuèdú kè<br>Now we only have four classes: general studies, speaking, listening and reading classes.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752649702/235_vsumn1.mp3"
