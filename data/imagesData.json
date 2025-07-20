@@ -2982,5 +2982,93 @@
         "meaning": "to teach",
         "pinyin": "jiāo",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752648172/%E6%95%99_bufktv.mp3"
+    },
+    {
+        "id": "374",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984630/%E5%8C%85%E8%A3%B9-min_wkit5t.png",
+        "character": "包裹",
+        "meaning": "parcel; package",
+        "pinyin": "bāoguǒ",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984319/%E5%8C%85%E8%A3%B9_xy9z7i.mp3"
+    },
+    {
+        "id": "375",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984635/%E9%A1%BA%E4%BE%BF-min_ebvtzv.png",
+        "character": "顺便",
+        "meaning": "on the way; conveniently",
+        "pinyin": "shùnbiàn",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984323/%E9%A1%BA%E4%BE%BF_tvist6.mp3"
+    },
+    {
+        "id": "376",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984633/%E6%9B%BF-min_ujtwbv.png",
+        "character": "替",
+        "meaning": "for",
+        "pinyin": "tì",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984321/%E6%9B%BF_txr5yw.mp3"
+    },
+    {
+        "id": "377",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984635/%E9%82%AE%E7%A5%A8-min_guzayf.png",
+        "character": "邮票",
+        "meaning": "stamp",
+        "pinyin": "yóupiào",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984323/%E9%82%AE%E7%A5%A8_bwchd4.mp3"
+    },
+    {
+        "id": "378",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984629/%E4%BB%BD-min_jvfk7r.png",
+        "character": "份",
+        "meaning": "a classifier for newspaper, documents, etc.",
+        "pinyin": "fèn",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984318/%E4%BB%BD_otdom3.mp3"
+    },
+    {
+        "id": "379",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984635/%E9%9D%92%E5%B9%B4-min_x6smym.png",
+        "character": "青年",
+        "meaning": "youth",
+        "pinyin": "qīngnián",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984629/%E4%BB%BD-min_jvfk7r.png"
+    },
+    {
+        "id": "380",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984630/%E6%8A%A5-min_kbwstj.png",
+        "character": "报",
+        "meaning": "newspaper",
+        "pinyin": "bào",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984318/%E6%8A%A5_gr6kde.mp3"
+    },
+    {
+        "id": "381",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984630/%E6%8A%A5-min_kbwstj.png",
+        "character": "报纸",
+        "meaning": "newspaper",
+        "pinyin": "bàozhǐ",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984319/%E6%8A%A5%E7%BA%B8_dsazdd.mp3"
+    },
+    {
+        "id": "382",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984632/%E6%8B%BF-min_hy7lhx.png",
+        "character": "拿",
+        "meaning": "to take; to get",
+        "pinyin": "ná",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984319/%E6%8B%BF_wm4a5t.mp3"
+    },
+    {
+        "id": "383",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984628/%E4%B8%8D%E7%94%A8-min_hmjzln.png",
+        "character": "不用",
+        "meaning": "need not; unnecessarily",
+        "pinyin": "búyòng",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984319/%E4%B8%8D%E7%94%A8_nc8i1v.mp3"
+    },
+    {
+        "id": "384",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984634/%E7%94%A8-min_gf7fsa.png",
+        "character": "用",
+        "meaning": "to use",
+        "pinyin": "yòng",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984321/%E7%94%A8_w73fr8.mp3"
     }
 ]
