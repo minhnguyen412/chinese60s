@@ -2172,72 +2172,72 @@
         "id": 242, 
         "user": "田芳", 
         "title": "张东，你要去哪儿？", 
-        "segments": ["王", "老师", "。"],
-        "description": "wáng lǎoshī<br>Teacher Wang.", 
-        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png", 
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752649712/241_smpwbr.mp3"
+        "segments": ["张东", "，", "你", "要", "去", "哪儿", "？"],
+        "description": "zhāng dōng nǐ yào qù nǎr<br>Zhang Dong, where are you going?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984341/242_zdb4ps.mp3"
     },
     {
         "id": 243, 
         "user": "张东", 
         "title": "我去邮局寄包裹，顺便去书店买一本书。", 
-        "segments": ["王", "老师", "。"],
-        "description": "wáng lǎoshī<br>Teacher Wang.", 
-        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png", 
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752649712/241_smpwbr.mp3"
+        "segments": ["我", "去", "邮局", "寄", "包裹", "，", "顺便", "去", "书店", "买", "一", "本", "书", "。"],
+        "description": "wǒ qù yóujú jì bāoguǒ shùnbiàn qù shūdiān mǎi yì běn shū<br>I'm going to the post office to send a parcel, and then to the bookstore to buy a book.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673385/zhangdong_llur8t.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984341/243_r3g3ir.mp3"
     },
     {
         "id": 244, 
         "user": "张东", 
         "title": "你去吗？", 
-        "segments": ["王", "老师", "。"],
-        "description": "wáng lǎoshī<br>Teacher Wang.", 
-        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png", 
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752649712/241_smpwbr.mp3"
+        "segments": ["你", "去", "吗", "？"],
+        "description": "nǐ qù ma<br>Do you want to go?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673385/zhangdong_llur8t.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984365/244_rjj3p0.mp3"
     },
     {
         "id": 245, 
         "user": "田芳", 
         "title": "不去，一会儿玛丽来找我。", 
-        "segments": ["王", "老师", "。"],
-        "description": "wáng lǎoshī<br>Teacher Wang.", 
-        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png", 
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752649712/241_smpwbr.mp3"
+        "segments": ["不", "去", "，", "一会儿", "玛丽", "来", "找²", "我", "。"],
+        "description": "bú qù yíhuìr mǎlì lái zhǎo wǒ<br>No, Mary is coming to see me in a while.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984408/245_maqxgm.mp3"
     },
     {
         "id": 246, 
         "user": "田芳", 
         "title": "你顺便替我买几张邮票和一份青年报吧。", 
-        "segments": ["王", "老师", "。"],
-        "description": "wáng lǎoshī<br>Teacher Wang.", 
-        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png", 
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752649712/241_smpwbr.mp3"
+        "segments": ["你", "顺便", "替", "我", "买", "几", "张", "邮票", "和", "一", "份", "青年", "报", "吧", "。"],
+        "description": "nǐ shùnbiàn tì wǒ mǎi jǐ zhāng yóupiào hé yí fēn qīngniánbào ba<br>While you're at it, can you buy me some stamps and a copy of Youth Daily?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984409/246_zjoerw.mp3"
     },
     {
         "id": 247, 
         "user": "张东", 
         "title": "好的。", 
-        "segments": ["王", "老师", "。"],
-        "description": "wáng lǎoshī<br>Teacher Wang.", 
-        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png", 
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752649712/241_smpwbr.mp3"
+        "segments": ["好", "的", "。"],
+        "description": "hǎo de<br>Sure.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673385/zhangdong_llur8t.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984409/246_zjoerw.mp3"
     },
     {
         "id": 248, 
         "user": "田芳", 
         "title": "我给你拿钱。", 
-        "segments": ["王", "老师", "。"],
-        "description": "wáng lǎoshī<br>Teacher Wang.", 
-        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png", 
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752649712/241_smpwbr.mp3"
+        "segments": ["我", "给²", "你", "拿", "钱", "。"],
+        "description": "wǒ gěi nǐ ná qián<br>Let me give you some money.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984410/248_x07qjb.mp3"
     },
     {
         "id": 249, 
         "user": "张东", 
         "title": "不用，先用我的钱买吧。", 
-        "segments": ["王", "老师", "。"],
-        "description": "wáng lǎoshī<br>Teacher Wang.", 
-        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png", 
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752649712/241_smpwbr.mp3"
+        "segments": ["不用", "，", "先", "用", "我", "的", "钱", "买", "吧", "。"],
+        "description": "búyòng xiān yòng wǒ de qián mǎi ba<br>No need, just use my money first.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673385/zhangdong_llur8t.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984410/249_syeuc5.mp3"
     }
 ]
