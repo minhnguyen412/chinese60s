@@ -3891,6 +3891,48 @@
                 
             ],
             "words": ["教", "跑", "喝", "睡"]
-        }
+        },
+        {
+            "id": 331,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752649709/238_sdbwdk.mp3",
+            "sentence": "I'm going to the post office to send a parcel, and then to the bookstore to buy a book.<br> ___ ___ ___ ___ ___, ___ ___ ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "我" },
+                { "answer": "去" },
+                { "answer": "邮局" },
+                { "answer": "寄" },
+                { "answer": "包裹" },
+                { "answer": "顺便" },
+                { "answer": "去" },
+                { "answer": "书店" },
+                { "answer": "买" },
+                { "answer": "一" },
+                { "answer": "本" },
+                { "answer": "书" }
+            ],
+            "words": ["你们", "教", "老师", "什么", "林"]
+        },
+        {
+            "id": 332,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752649709/238_sdbwdk.mp3",
+            "sentence": "I'm going to the post office to send a parcel, and then to the bookstore to buy a book.<br> ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "你" },
+                { "answer": "顺便" },
+                { "answer": "替" },
+                { "answer": "我" },
+                { "answer": "买" },
+                { "answer": "几" },
+                { "answer": "张" },
+                { "answer": "邮票" },
+                { "answer": "和" },
+                { "answer": "一" },
+                { "answer": "份" },
+                { "answer": "青年" },
+                { "answer": "报" },
+                { "answer": "吧" }
+            ],
+            "words": ["你们", "教", "老师", "什么", "林"]
+        },
     ]
 }
