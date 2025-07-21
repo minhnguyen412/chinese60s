@@ -3894,7 +3894,7 @@
         },
         {
             "id": 331,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752649709/238_sdbwdk.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984341/243_r3g3ir.mp3",
             "sentence": "I'm going to the post office to send a parcel, and then to the bookstore to buy a book.<br> ___ ___ ___ ___ ___, ___ ___ ___ ___ ___ ___ ___。",
             "blanks": [
                 { "answer": "我" },
@@ -3910,12 +3910,12 @@
                 { "answer": "本" },
                 { "answer": "书" }
             ],
-            "words": ["你们", "教", "老师", "什么", "林"]
+            "words": ["寄", "去", "顺便", "书", "买", "本", "书店", "一", "我", "去", "包裹", "邮局"]
         },
         {
             "id": 332,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752649709/238_sdbwdk.mp3",
-            "sentence": "I'm going to the post office to send a parcel, and then to the bookstore to buy a book.<br> ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___。",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984409/246_zjoerw.mp3",
+            "sentence": "While you're at it, can you buy me some stamps and a copy of Youth Daily?<br> ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___。",
             "blanks": [
                 { "answer": "你" },
                 { "answer": "顺便" },
@@ -3932,7 +3932,137 @@
                 { "answer": "报" },
                 { "answer": "吧" }
             ],
-            "words": ["你们", "教", "老师", "什么", "林"]
+            "words": ["买", "青年", "替", "一", "张", "顺便", "吧", "和", "几", "份", "报", "我", "", "邮票", "你"]
         },
+        {
+            "id": 333,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984410/248_x07qjb.mp3",
+            "sentence": "Let me give you some money.<br> ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "我" },
+                { "answer": "给" },
+                { "answer": "你" },
+                { "answer": "拿" },
+                { "answer": "钱" }
+            ],
+            "words": ["拿", "给", "钱", "我", "你"]
+        },
+        {
+            "id": 334,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984410/249_syeuc5.mp3",
+            "sentence": "No need, just use my money first.<br> ___, ___ ___ ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "不用" },
+                { "answer": "先" },
+                { "answer": "用" },
+                { "answer": "我" },
+                { "answer": "的" },
+                { "answer": "钱" },
+                { "answer": "买" },
+                { "answer": "吧" }
+
+            ],
+            "words": ["用", "的", "不用", "我", "先", "买", "吧", "钱"]
+        },
+        {
+            "id": 335,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984319/%E5%8C%85%E8%A3%B9_xy9z7i.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1752984630/%E5%8C%85%E8%A3%B9-min_wkit5t.png", "： ___ "],
+            "blanks": [
+                { "answer": "包裹" }
+                
+            ],
+            "words": ["报纸", "伊妹儿", "包裹", "本子"]
+        },
+        {
+            "id": 336,
+            "audio": "",
+            "sentence": "on the way; conveniently: ___",
+            "blanks": [
+                { "answer": "顺便" }
+
+            ],
+            "words": ["方便", "旁边", "便宜", "顺便"]
+        },
+        {
+            "id": 337,
+            "audio": "",
+            "sentence": "for: ___",
+            "blanks": [
+                { "answer": "替" }
+
+            ],
+            "words": ["帮", "替", "找", "换"]
+        },
+        {
+            "id": 338,
+            "audio": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984630/%E5%8C%85%E8%A3%B9-min_wkit5t.png",
+            "sentence": "邮票： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984635/%E9%82%AE%E7%A5%A8-min_guzayf.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1744211178/%E8%AF%BE%E6%96%87-min_sq6dxj.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984635/%E9%82%AE%E7%A5%A8-min_guzayf.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1744211146/%E4%B8%9C%E8%A5%BF-min_cwaeyg.png"]
+        },
+        {
+            "id": 339,
+            "audio": "",
+            "sentence": "a classifier for newspaper, documents, etc: ___",
+            "blanks": [
+                { "answer": "份" }
+
+            ],
+            "words": ["份", "张", "本", "把"]
+        },
+        {
+            "id": 340,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984323/%E9%9D%92%E5%B9%B4_rt94zu.mp3",
+            "sentence": "青年： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984635/%E9%9D%92%E5%B9%B4-min_x6smym.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1752984635/%E9%9D%92%E5%B9%B4-min_x6smym.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1743044906/%E5%BE%8B%E5%B8%88-min_beybbq.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1742351248/%E7%BB%8F%E7%90%86-min_wfs7tb.png"]
+        },
+        {
+            "id": 341,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984318/%E6%8A%A5_gr6kde.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1752984630/%E6%8A%A5-min_kbwstj.png", "： ___ "],
+            "blanks": [
+                { "answer": "报" }
+                
+            ],
+            "words": ["杂志", "报", "包裹", "本子"]
+        },
+        {
+            "id": 342,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984319/%E6%8B%BF_wm4a5t.mp3",
+            "sentence": "拿： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984632/%E6%8B%BF-min_hy7lhx.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1742351248/%E8%87%AA%E8%A1%8C%E8%BD%A6-min_owzuth.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386281/%E8%AF%BB_hugrin.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984632/%E6%8B%BF-min_hy7lhx.png"]
+        },
+        {
+            "id": 343,
+            "audio": "",
+            "sentence": "need not; unnecessarily: ___",
+            "blanks": [
+                { "answer": "不用" }
+
+            ],
+            "words": ["不过", "不用", "但是", "别的"]
+        },
+        {
+            "id": 344,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984321/%E7%94%A8_w73fr8.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1752984634/%E7%94%A8-min_gf7fsa.png", "： ___ "],
+            "blanks": [
+                { "answer": "用" }
+                
+            ],
+            "words": ["走", "写", "忘", "用"]
+        }
     ]
 }
