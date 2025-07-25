@@ -214,5 +214,13 @@
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753023814/hyjc-1-18-1_x9flul.png",
         "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
         "htmlLink": "posts.html?postStartId=242&postEndId=249&quizStartId=331&quizEndId=344&id=27"
+    },
+    {
+        "id": 28,
+        "title": "第十八课 (二)：外贸代表团明天去上海参观",
+        "description": "Lesson 18 (2): A foreign trade delegation is going to visit Shanghai tomorrow",
+        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753433402/hyjc-1-18-2_kik0sf.png",
+        "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
+        "htmlLink": "posts.html?postStartId=250&postEndId=261&quizStartId=331&quizEndId=344&id=28"
     }
 ]
