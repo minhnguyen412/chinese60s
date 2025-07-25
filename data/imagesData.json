@@ -3070,5 +3070,133 @@
         "meaning": "to use",
         "pinyin": "yòng",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984321/%E7%94%A8_w73fr8.mp3"
+    },
+    {
+        "id": "385",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984634/%E7%94%A8-min_gf7fsa.png",
+        "character": "旅行",
+        "meaning": "to travel",
+        "pinyin": "lǚxíng",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984320/%E6%97%85%E8%A1%8C_dj2rar.mp3"
+    },
+    {
+        "id": "386",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984634/%E7%94%A8-min_gf7fsa.png",
+        "character": "代表",
+        "meaning": "representative; to represent",
+        "pinyin": "dàibiǎo",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984321/%E7%94%A8_w73fr8.mp3"
+    },
+    {
+        "id": "387",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984634/%E7%94%A8-min_gf7fsa.png",
+        "character": "团",
+        "meaning": "delegation; mass",
+        "pinyin": "tuán",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984321/%E7%94%A8_w73fr8.mp3"
+    },
+    {
+        "id": "388",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984634/%E7%94%A8-min_gf7fsa.png",
+        "character": "参观",
+        "meaning": "to visit",
+        "pinyin": "cānguān",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984321/%E7%94%A8_w73fr8.mp3"
+    },
+    {
+        "id": "389",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984634/%E7%94%A8-min_gf7fsa.png",
+        "character": "当",
+        "meaning": "to be; to serve as",
+        "pinyin": "dāng",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984321/%E7%94%A8_w73fr8.mp3"
+    },
+    {
+        "id": "390",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984634/%E7%94%A8-min_gf7fsa.png",
+        "character": "翻译",
+        "meaning": "interpreter; to interpret",
+        "pinyin": "fānyì",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984321/%E7%94%A8_w73fr8.mp3"
+    },
+    {
+        "id": "391",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984634/%E7%94%A8-min_gf7fsa.png",
+        "character": "飞机",
+        "meaning": "plane",
+        "pinyin": "fēijī",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984321/%E7%94%A8_w73fr8.mp3"
+    },
+    {
+        "id": "392",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984634/%E7%94%A8-min_gf7fsa.png",
+        "character": "飞",
+        "meaning": "to fly",
+        "pinyin": "fēi",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984321/%E7%94%A8_w73fr8.mp3"
+    },
+    {
+        "id": "393",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984634/%E7%94%A8-min_gf7fsa.png",
+        "character": "火车",
+        "meaning": "train",
+        "pinyin": "huǒchē",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984321/%E7%94%A8_w73fr8.mp3"
+    },
+    {
+        "id": "394",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984634/%E7%94%A8-min_gf7fsa.png",
+        "character": "回来",
+        "meaning": "to come back",
+        "pinyin": "huílai",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984321/%E7%94%A8_w73fr8.mp3"
+    },
+    {
+        "id": "395",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984634/%E7%94%A8-min_gf7fsa.png",
+        "character": "办",
+        "meaning": "to handle",
+        "pinyin": "bàn",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984321/%E7%94%A8_w73fr8.mp3"
+    },
+    {
+        "id": "396",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984634/%E7%94%A8-min_gf7fsa.png",
+        "character": "帮",
+        "meaning": "to help",
+        "pinyin": "bāng",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984321/%E7%94%A8_w73fr8.mp3"
+    },
+    {
+        "id": "397",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984634/%E7%94%A8-min_gf7fsa.png",
+        "character": "浇",
+        "meaning": "to water",
+        "pinyin": "jiāo",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984321/%E7%94%A8_w73fr8.mp3"
+    },
+    {
+        "id": "398",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984634/%E7%94%A8-min_gf7fsa.png",
+        "character": "花",
+        "meaning": "flower",
+        "pinyin": "huā",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984321/%E7%94%A8_w73fr8.mp3"
+    },
+    {
+        "id": "399",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984634/%E7%94%A8-min_gf7fsa.png",
+        "character": "没问题",
+        "meaning": "no problem",
+        "pinyin": "méi wèntí",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984321/%E7%94%A8_w73fr8.mp3"
+    },
+    {
+        "id": "400",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752984634/%E7%94%A8-min_gf7fsa.png",
+        "character": "问题",
+        "meaning": "question; problem",
+        "pinyin": "wèntí",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984321/%E7%94%A8_w73fr8.mp3"
     }
 ]
