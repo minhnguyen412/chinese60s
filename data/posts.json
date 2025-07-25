@@ -2239,5 +2239,113 @@
         "description": "búyòng xiān yòng wǒ de qián mǎi ba<br>No need, just use my money first.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673385/zhangdong_llur8t.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984410/249_syeuc5.mp3"
+    },
+    {
+        "id": 250, 
+        "user": "珍妮", 
+        "title": "玛丽，我明天去上海。", 
+        "segments": ["玛丽", "，", "我", "明天", "去", "上海", "。"],
+        "description": "mǎlì wǒ míngtiān qù shānghǎi<br>Mary, I'm going to Shanghai tomorrow.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753432295/roland_xvp4bn.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984410/250_uyvo5o.mp3"
+    },
+    {
+        "id": 251, 
+        "user": "玛丽", 
+        "title": "你去上海旅行吗？", 
+        "segments": ["你", "去", "上海", "旅行", "吗", "？"],
+        "description": "nǐ qù shànghǎi lǚxíng ma<br>Are you going to Shanghai for traveling?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984410/251_momslp.mp3"
+    },
+    {
+        "id": 252, 
+        "user": "珍妮", 
+        "title": "不，明天一个外贸代表团去上海参观", 
+        "segments": ["不", "，", "明天", "一", "个", "外贸", "代表", "团", "去", "上海", "参观"],
+        "description": "bù míngtiān yí ge wàimào dàibiǎotuán qù shànghǎi cānguān<br>No, a foreign trade delegation is going to visit Shanghai tomorrow", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753432295/roland_xvp4bn.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984410/252_hdweyh.mp3"
+    },
+    {
+        "id": 253, 
+        "user": "珍妮", 
+        "title": "我去给他们当翻译。", 
+        "segments": ["我", "去", "给", "他们", "当", "翻译", "。"],
+        "description": "wǒ qù gěi tāmen dāng fānyì<br>I'm going to be an interpreter for them.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753432295/roland_xvp4bn.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984410/253_yzci2w.mp3"
+    },
+    {
+        "id": 254, 
+        "user": "玛丽", 
+        "title": "坐飞机去还是坐火车去？", 
+        "segments": ["坐", "飞机", "去", "还是", "坐", "火车", "去", "？"],
+        "description": "zuò fēijī qù háishi zuò huǒchē qù<br>Are you going by plane or train?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984411/254_h0dibv.mp3"
+    },
+    {
+        "id": 255, 
+        "user": "珍妮", 
+        "title": "坐飞机去。", 
+        "segments": ["坐", "飞机", "去", "。"],
+        "description": "zuò fēijī qù<br>By plane.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753432295/roland_xvp4bn.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984411/255_hongfg.mp3"
+    },
+    {
+        "id": 256, 
+        "user": "玛丽", 
+        "title": "什么时候回来？", 
+        "segments": ["什么", "时候", "回来", "？"],
+        "description": "shénme shíhou huílai<br>When will you be back?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984411/256_gv4cw0.mp3"
+    },
+    {
+        "id": 257, 
+        "user": "珍妮", 
+        "title": "八号回来。", 
+        "segments": ["八", "号", "回来", "。"],
+        "description": "bā hào huílai<br>I'll be back on the 8th.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753432295/roland_xvp4bn.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984411/257_zfrdn3.mp3"
+    },
+    {
+        "id": 258, 
+        "user": "珍妮", 
+        "title": "替我办一件事，行吗？", 
+        "segments": ["替", "我", "办", "一", "件", "事", "，", "行", "吗", "？"],
+        "description": "tì wǒ bàn yi jiàn shì xíng ma<br>Can you do me a favor?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753432295/roland_xvp4bn.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984411/258_cinxf8.mp3"
+    },
+    {
+        "id": 259, 
+        "user": "玛丽", 
+        "title": "什么是？你说吧。", 
+        "segments": ["什么", "是", "？", "你", "说", "吧", "。"],
+        "description": "shénme shì nǐ shuō ba<br>What is it? Just tell me.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984411/259_qyme6f.mp3"
+    },
+    {
+        "id": 260, 
+        "user": "珍妮", 
+        "title": "帮我浇一下儿花。", 
+        "segments": ["帮", "我", "浇", "一下儿", "花", "。"],
+        "description": "bāng wǒ jiāo yíxiàr huā<br>Can you help me water my flowers?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753432295/roland_xvp4bn.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984412/260_noun28.mp3"
+    },
+    {
+        "id": 261, 
+        "user": "玛丽", 
+        "title": "行，没问题。", 
+        "segments": ["行", "，", "没问题", "。"],
+        "description": "xíng méi wèntí<br>Okay, no problem!", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984437/261_kxmzhn.mp3"
     }
 ]
