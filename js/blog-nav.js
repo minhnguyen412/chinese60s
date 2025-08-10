@@ -2,8 +2,14 @@ document.addEventListener('DOMContentLoaded', function() {
   fetch('../data/blog.json')
     .then(res => res.json())
     .then(posts => {
+      // Lấy tên file (không có .html)
       let currentUrl = window.location.pathname.split('/').pop();
-      let currentPost = posts.find(p => p.htmlLink.split('/').pop() === currentUrl);
+
+      // Tìm post theo slug không cần .html
+      let currentPost = posts.find(p => {
+        let slug = p.htmlLink.split('/').pop().replace('.html', '');
+        return slug === currentUrl;
+      });
 
       if (!currentPost) {
         console.warn('Không tìm thấy bài hiện tại trong blog.json');
@@ -32,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (latestList) {
         sortedPosts.slice(0, 5).forEach(post => {
           let li = document.createElement('li');
-          li.innerHTML = `<a href="${post.htmlLink}">${post.title}</a>`;
+          li.innerHTML = `<a href="/${post.htmlLink}">${post.title}</a>`;
           latestList.appendChild(li);
         });
       }
