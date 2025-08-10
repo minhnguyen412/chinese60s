@@ -414,6 +414,17 @@
 .slider-btn.next {
   right: 0;
 }
+@media (max-width: 768px) {
+  .video-item {
+    min-width: 50%; /* 2 video mỗi hàng trên tablet */
+  }
+}
+
+@media (max-width: 480px) {
+  .video-item {
+    min-width: 100%; /* 1 video mỗi hàng trên điện thoại */
+  }
+}
 
 /* AMAZON IMAGES ROW */
 .amazon-images {
@@ -612,7 +623,14 @@
       const items = document.querySelectorAll('.video-item');
 
       let currentIndex = 0;
-      const visibleItems = 3; // Số video hiển thị 1 lúc
+      let visibleItems = getVisibleItems();
+
+      function getVisibleItems() {
+        if (window.innerWidth <= 480) return 1; // mobile
+        if (window.innerWidth <= 768) return 2; // tablet
+        return 3; // desktop
+      }
+
 
       nextBtn.addEventListener('click', () => {
         if (currentIndex < items.length - visibleItems) {
@@ -641,4 +659,5 @@
   </script>
 </body>
 </html>
+
 
