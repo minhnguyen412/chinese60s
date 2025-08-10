@@ -369,6 +369,83 @@
     }
     
 }
+    /* VIDEO SLIDER */
+.video-slider-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+.video-slider {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+}
+
+.video-item {
+  min-width: 33.33%; /* 3 video mỗi hàng */
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.video-item iframe {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.slider-btn.prev {
+  left: 0;
+}
+
+.slider-btn.next {
+  right: 0;
+}
+
+/* AMAZON IMAGES ROW */
+.amazon-images {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  margin-top: 20px;
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+.amazon-images img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+.amazon-images img:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .video-item {
+    min-width: 100%;
+  }
+  .amazon-images {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
   </style>
 </head>
 <body>
@@ -410,6 +487,50 @@
 
     <div class="thumbnail-section">
       <h2>初级 - BEGINNER - HSK-1-2</h2>
+      <!-- Slider Video Section -->
+      <div class="video-slider-container">
+        <button class="slider-btn prev">&#10094;</button>
+        <div class="video-slider">
+          <!-- Mỗi video là 1 div -->
+          <div class="video-item">
+            <iframe src="https://www.youtube.com/embed/ng-E83Dg-KU?si=5E5ZZ4GMMHq4IL2c" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="video-item">
+            <iframe src="https://www.youtube.com/embed/s0QazUhB3v4?si=jnrnk4ZI_cv2DKEM" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="video-item">
+            <iframe src="https://www.youtube.com/embed/yRhp-kQfD5g?si=Ic3jqmuqds3_zvzi" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="video-item">
+            <iframe src="https://www.youtube.com/embed/-G-w67htf1Y?si=3TTH1XEQ9AZxP2Z6" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="video-item">
+            <iframe src="https://www.youtube.com/embed/ZQtSMctxOxo?si=HHhIXEH5TA8et2Av" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="video-item">
+            <iframe src="https://www.youtube.com/embed/gi4_0KntJ7g?si=ruFJB91Rt9mc1xcD" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="video-item">
+            <iframe src="https://www.youtube.com/embed/nHTOSnWUrl8?si=0BzOLafwKePU575a" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <div class="video-item">
+            <iframe src="https://www.youtube.com/embed/7oZUEDsbMCQ?si=SmieVOqDCXXLGLYE" frameborder="0" allowfullscreen></iframe>
+          </div>
+        </div>
+        <button class="slider-btn next">&#10095;</button>
+      </div>
+
+      <!-- Amazon Images Row -->
+      <div class="amazon-images">
+        <a href="https://amzn.to/458N8Q2" target="_blank"><img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1754799160/hyjc-1_waystv.png" alt="Hanyu-Jiaocheng-1A"></a>
+        <a href="https://amzn.to/45aBnZn" target="_blank"><img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1754799156/hyjc-2_tan7ou.png" alt="Hanyu-Jiaocheng-1B"></a>
+        <a href="https://amzn.to/3HnBGXF" target="_blank"><img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1754799159/boyachinese_kfccp5.png" alt="Boya-1"></a>
+        <a href="https://amzn.to/45I9DLQ" target="_blank"><img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1754799156/msutong_vgdjwf.png" alt="Msutong-1"></a>
+        <a href="https://amzn.to/3HnBNm3" target="_blank"><img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1754800464/msutong-2_y51aus.png" alt="Msutong-2"></a>
+        <a href="https://amzn.to/3UlUI3v" target="_blank"><img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1754799158/sutong-3_uhjady.png" alt="Msutong-3"></a>
+        <a href="https://amzn.to/41lxGhh" target="_blank"><img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1754799158/sutong-4_ewgkav.png" alt="Msutong-4"></a>
+      </div>
+
       <h3>HANYU JIAOCHENG - 汉语教程</h3>
       <div class="thumbnails" id="thumbnails-container">
         
@@ -483,6 +604,41 @@
         container.innerHTML = '<p>Failed to load thumbnails.</p>';
       }
     });
+    // Video slider logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const slider = document.querySelector('.video-slider');
+      const prevBtn = document.querySelector('.slider-btn.prev');
+      const nextBtn = document.querySelector('.slider-btn.next');
+      const items = document.querySelectorAll('.video-item');
+
+      let currentIndex = 0;
+      const visibleItems = 3; // Số video hiển thị 1 lúc
+
+      nextBtn.addEventListener('click', () => {
+        if (currentIndex < items.length - visibleItems) {
+          currentIndex++;
+        } else {
+          currentIndex = 0; // quay lại đầu
+        }
+        updateSlider();
+      });
+
+      prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+          currentIndex--;
+        } else {
+          currentIndex = items.length - visibleItems; // quay lại cuối
+        }
+        updateSlider();
+      });
+
+      function updateSlider() {
+        const offset = -(currentIndex * (100 / visibleItems));
+        slider.style.transform = `translateX(${offset}%)`;
+      }
+    });
+
   </script>
 </body>
 </html>
+
