@@ -330,28 +330,11 @@
     <p><a href="https://chinese60s.com" target="_blank"><strong>Visit Chinese60s.com now</strong></a> to explore animated dialogues, instant grammar support, interactive character tools, and more.</p>
 
     <p><strong>No more guesswork. No more dry textbooks. Just smart, structured, and joyful learning.</strong></p>
-    <div class="post-navigation">
-        <div class="prev-post">
-            <?php previous_post_link('%link', '← Previous Post'); ?>
-        </div>
-        <div class="next-post">
-            <?php next_post_link('%link', 'Next Post →'); ?>
-        </div>
-    </div>
-    <div class="latest-posts">
-        <h3>Bài viết mới nhất</h3>
-        <ul>
-            <?php
-            $recent_posts = wp_get_recent_posts([
-                'numberposts' => 5,
-                'post_status' => 'publish'
-            ]);
-            foreach ($recent_posts as $post) {
-                echo '<li><a href="' . get_permalink($post["ID"]) . '">' . esc_html($post["post_title"]) . '</a></li>';
-            }
-            ?>
-        </ul>
-    </div>
+    <div id="prev-next"></div>
+
+    <h3>Latest Posts</h3>
+    <ul id="latest-posts"></ul>
+
     <script src="../js/blog-nav.js"></script>
     <br>
     <br>
