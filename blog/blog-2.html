@@ -289,6 +289,15 @@
     <p><strong>➡️ Visit <a href="https://chinese60s.com" target="_blank">Chinese60s.com</a> today</strong> to start learning Chinese with interactive, animated content tailored to your level.</p>
 
     <p>No more guesswork. Just smart, fun, and effective Chinese learning—at your own pace.</p>
+    <div id="post-navigation" style="display:flex; justify-content: space-between; margin: 20px 0;">
+      <div id="prev-post"></div>
+      <div id="next-post"></div>
+    </div>
+
+    <div id="latest-posts">
+      <h3>Latest Posts</h3>
+      <ul id="latest-list"></ul>
+    </div>
     <br>
     <br>
     <div id="disqus_thread"></div>
@@ -319,7 +328,7 @@
       <a href="#">Instagram</a>
     </div>
   </footer>
-
+  <script src="../js/blog-nav.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const menuToggle = document.querySelector('.menu-toggle');
