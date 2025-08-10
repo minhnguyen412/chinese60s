@@ -1,38 +1,39 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Lấy tên file hiện tại
-    const currentPage = window.location.pathname.split("/").pop();
+document.addEventListener('DOMContentLoaded', function() {
+  fetch('../data/blog.json')
+    .then(res => res.json())
+    .then(posts => {
+      // Lấy tên file hiện tại (VD: blog-3.html)
+      let currentUrl = window.location.pathname.split('/').pop();
+      let currentPost = posts.find(p => p.htmlLink.endsWith(currentUrl));
 
-    fetch("../data/blog.json") // Đường dẫn tới file JSON
-        .then(response => response.json())
-        .then(posts => {
-            // Tìm index bài hiện tại
-            const currentIndex = posts.findIndex(post => post.htmlLink.endsWith(currentPage));
+      if (!currentPost) return;
 
-            // Hiển thị Previous & Next
-            const prevNextContainer = document.getElementById("prev-next");
-            let html = "";
+      let currentId = currentPost.id;
 
-            if (currentIndex > 0) {
-                html += `<a href="../${posts[currentIndex - 1].htmlLink}">⬅ Previous: ${posts[currentIndex - 1].title}</a>`;
-            }
+      // Sắp xếp bài theo id giảm dần để tìm latest posts
+      let sortedPosts = [...posts].sort((a, b) => b.id - a.id);
 
-            if (currentIndex < posts.length - 1) {
-                if (html) html += " | "; // Ngăn cách
-                html += `<a href="../${posts[currentIndex + 1].htmlLink}">Next: ${posts[currentIndex + 1].title} ➡</a>`;
-            }
+      // Tìm previous post (id nhỏ hơn)
+      let prevPost = posts.find(p => p.id === currentId - 1);
+      if (prevPost) {
+        document.getElementById('prev-post').innerHTML =
+          `<a href="${prevPost.htmlLink}">← ${prevPost.title}</a>`;
+      }
 
-            prevNextContainer.innerHTML = html || "<em>No more posts</em>";
+      // Tìm next post (id lớn hơn)
+      let nextPost = posts.find(p => p.id === currentId + 1);
+      if (nextPost) {
+        document.getElementById('next-post').innerHTML =
+          `<a href="${nextPost.htmlLink}">${nextPost.title} →</a>`;
+      }
 
-            // Hiển thị 5 bài mới nhất
-            const latestContainer = document.getElementById("latest-posts");
-            posts
-                .slice(-5) // Lấy 5 bài cuối
-                .reverse() // Mới nhất trước
-                .forEach(post => {
-                    const li = document.createElement("li");
-                    li.innerHTML = `<a href="../${post.htmlLink}">${post.title}</a>`;
-                    latestContainer.appendChild(li);
-                });
-        })
-        .catch(err => console.error("Error loading blog.json:", err));
+      // Hiển thị 5 bài mới nhất
+      let latestList = document.getElementById('latest-list');
+      sortedPosts.slice(0, 5).forEach(post => {
+        let li = document.createElement('li');
+        li.innerHTML = `<a href="${post.htmlLink}">${post.title}</a>`;
+        latestList.appendChild(li);
+      });
+    })
+    .catch(err => console.error('Error loading blog.json:', err));
 });
