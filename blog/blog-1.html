@@ -331,11 +331,28 @@
 
     <p><strong>No more guesswork. No more dry textbooks. Just smart, structured, and joyful learning.</strong></p>
     <div class="post-navigation">
-      <a id="prev-post" href="#"></a>
-      <a id="next-post" href="#"></a>
+        <div class="prev-post">
+            <?php previous_post_link('%link', '← Previous Post'); ?>
+        </div>
+        <div class="next-post">
+            <?php next_post_link('%link', 'Next Post →'); ?>
+        </div>
     </div>
-
-    
+    <div class="latest-posts">
+        <h3>Bài viết mới nhất</h3>
+        <ul>
+            <?php
+            $recent_posts = wp_get_recent_posts([
+                'numberposts' => 5,
+                'post_status' => 'publish'
+            ]);
+            foreach ($recent_posts as $post) {
+                echo '<li><a href="' . get_permalink($post["ID"]) . '">' . esc_html($post["post_title"]) . '</a></li>';
+            }
+            ?>
+        </ul>
+    </div>
+    <script src="../js/blog-nav.js"></script>
     <br>
     <br>
     <div id="disqus_thread"></div>
@@ -354,12 +371,8 @@
       </script>
       <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
-  <div class="recent-posts">
-    <h3>New posts</h3>
-    <ul id="recent-list"></ul>
-  </div>
-
-  <script src="../js/blog-nav.js"></script>
+  
+  
     
   <footer>
     <p>Chinese60s</p>
