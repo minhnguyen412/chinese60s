@@ -2324,8 +2324,8 @@
     {
         "id": 259, 
         "user": "玛丽", 
-        "title": "什么是？你说吧。", 
-        "segments": ["什么", "是", "？", "你", "说", "吧", "。"],
+        "title": "什么事？你说吧。", 
+        "segments": ["什么", "事", "？", "你", "说", "吧", "。"],
         "description": "shénme shì nǐ shuō ba<br>What is it? Just tell me.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984411/259_qyme6f.mp3"
