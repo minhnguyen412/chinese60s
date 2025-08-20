@@ -2497,7 +2497,7 @@
         "user": "售货员", 
         "title": "二百太少了，不买。", 
         "segments": ["二", "百", "太", "少", "了", "，", "不", "买", "。"],
-        "description": "èrbǎi tài shǎo le bú mài<br>Two hundred is too low, I can’t sell it., 
+        "description": "èrbǎi tài shǎo le bú mài<br>Two hundred is too low, I can’t sell it.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984437/261_kxmzhn.mp3"
     },
@@ -2506,7 +2506,7 @@
         "user": "售货员", 
         "title": "可以打八折，你给三百二吧。", 
         "segments": ["可以", "打", "八", "折", "，", "你", "给", "三", "百", "二", "吧", "。"],
-        "description": "kěyǐ dǎ bā zhé nǐ gěi sānbǎi èr ba<br>But I can give you a 20% discount, so you can take it for 320."", 
+        "description": "kěyǐ dǎ bā zhé nǐ gěi sānbǎi èr ba<br>But I can give you a 20% discount, so you can take it for 320.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984437/261_kxmzhn.mp3"
     },
@@ -2529,4 +2529,5 @@
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984437/261_kxmzhn.mp3"
     }
 ]
+
 
