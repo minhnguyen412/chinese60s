@@ -2354,8 +2354,8 @@
         "title": "我看看羽绒服。", 
         "segments": ["我", "看", "看", "羽绒服", "。"],
         "description": "wǒ kànkan yǔróngfú<br>I’d like to take a look at the down jackets.", 
-        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984437/261_kxmzhn.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/xiaojie.0001_gjt1qd.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696628/262_wq7qic.mp3"
     },
     {
         "id": 263, 
@@ -2363,8 +2363,8 @@
         "title": "你看看这件怎么样？", 
         "segments": ["你", "看", "看", "这", "件", "怎么样", "？"],
         "description": "nǐ kànkan zhè jiàn zěnmeyàng<br>What do you think of this one?", 
-        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984437/261_kxmzhn.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696629/263_i2riaf.mp3"
     },
     {
         "id": 264, 
@@ -2372,26 +2372,26 @@
         "title": "又好又便宜。", 
         "segments": ["又", "好", "又", "便宜", "。"],
         "description": "yòu hǎo yòu piányi<br>It’s nice and cheap.", 
-        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984437/261_kxmzhn.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696629/263_i2riaf.mp3"
     },
     {
         "id": 265, 
         "user": "玛丽", 
         "title": "这件有一点儿长。", 
-        "segments": ["这", "件", "有", "一", "点儿", "长", "。"],
+        "segments": ["这", "件", "有", "一点儿", "长", "。"],
         "description": "zhè jiàn yǒu yìdiǎnr cháng<br>This one is a little long. ", 
-        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984437/261_kxmzhn.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/xiaojie.0001_gjt1qd.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696632/265_tngxjt.mp3"
     },
     {
         "id": 266, 
         "user": "玛丽", 
         "title": "有短一点儿的吗？", 
-        "segments": ["有", "短", "一", "点儿", "的", "吗", "？"],
+        "segments": ["有", "短", "一点儿", "的", "吗", "？"],
         "description": "yǒu duǎn yìdiǎnr de ma<br>Do you have a shorter one?", 
-        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984437/261_kxmzhn.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/xiaojie.0001_gjt1qd.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696630/266_fxaex2.mp3"
     },
     {
         "id": 267, 
@@ -2399,8 +2399,8 @@
         "title": "你要深颜色的还是要浅颜色的？", 
         "segments": ["你", "要", "深", "颜色", "的", "还是", "要", "浅", "颜色", "的", "？"],
         "description": "nǐ yào shēn yánsè de háishi yào qiǎn yánsè de<br>Do you want a dark color or a light color?", 
-        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984437/261_kxmzhn.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696631/267_b9wugc.mp3"
     },
     {
         "id": 268, 
@@ -2408,8 +2408,8 @@
         "title": "浅颜色的。", 
         "segments": ["浅", "颜色", "的", "。"],
         "description": "qiǎn yánsè de<br>A light color. ", 
-        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984437/261_kxmzhn.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/xiaojie.0001_gjt1qd.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696631/268_cpk23u.mp3"
     },
     {
         "id": 269, 
@@ -2417,8 +2417,8 @@
         "title": "我试试可以吗？", 
         "segments": ["我", "试", "试", "可以", "吗", "？"],
         "description": "wǒ shìshi kěyǐ ma<br>Can I try it on?", 
-        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984437/261_kxmzhn.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/xiaojie.0001_gjt1qd.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696630/269_gj51ov.mp3"
     },
     {
         "id": 270, 
@@ -2426,17 +2426,17 @@
         "title": "当然可以。", 
         "segments": ["当然", "可以", "。"],
         "description": "dāngrán kěyǐ<br>Of course.", 
-        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984437/261_kxmzhn.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696633/270_xq92e7.mp3"
     },
     {
         "id": 271, 
         "user": "玛丽", 
         "title": "这件太肥了，有没有瘦一点儿的？", 
-        "segments": ["这", "件", "太", "肥", "了", "，", "有", "没有", "瘦", "一", "点儿", "的", "？"],
+        "segments": ["这", "件", "太", "肥", "了", "，", "有", "没有", "瘦", "一点儿", "的", "？"],
         "description": "zhè jiàn tài féi le yǒu méiyǒu shòu yìdiǎnr de<br>This one is too loose. Do you have a slimmer one?", 
-        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984437/261_kxmzhn.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/xiaojie.0001_gjt1qd.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696631/271_jrtph3.mp3"
     },
     {
         "id": 272, 
@@ -2444,8 +2444,8 @@
         "title": "你再试试这一件。", 
         "segments": ["你", "再", "试", "试", "这", "一", "件", "。"],
         "description": "nǐ zài shìshi zhè yí jiàn<br>Try this one instead.", 
-        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984437/261_kxmzhn.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696631/271_jrtph3.mp3"
     },
     {
         "id": 273, 
@@ -2453,8 +2453,8 @@
         "title": "这件不大不小，正合适，颜色也很好看。", 
         "segments": ["这", "件", "不", "大", "不", "小", "，", "正", "合适", "，", "颜色", "也", "很", "好看", "。"],
         "description": "zhè jiàn bú dà bù xiǎo zhèng héshì yánsè yě hěn hǎokàn<br>This one is neither too big nor too small, it fits perfectly, and the color looks great too.", 
-        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984437/261_kxmzhn.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/xiaojie.0001_gjt1qd.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696629/273_tkkcwr.mp3"
     },
     {
         "id": 274, 
@@ -2462,8 +2462,8 @@
         "title": "这种羽绒服怎么卖？", 
         "segments": ["这", "种", "羽绒服", "怎么", "卖", "？"],
         "description": "zhè zhǒng yǔróngfú zěnme mài<br>How much is this kind of down jacket?", 
-        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984437/261_kxmzhn.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/xiaojie.0001_gjt1qd.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696629/274_ngxwfy.mp3"
     },
     {
         "id": 275, 
@@ -2471,8 +2471,8 @@
         "title": "一件四百块。", 
         "segments": ["一", "件", "四", "百", "块", "。"],
         "description": "yí jiàn sìbǎi kuài<br>Four hundred yuan each.", 
-        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984437/261_kxmzhn.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696629/275_deaeq7.mp3"
     },
     {
         "id": 276, 
@@ -2480,17 +2480,17 @@
         "title": "太贵了。", 
         "segments": ["太", "贵", "了", "。"],
         "description": "tài guì le<br>That’s too expensive.", 
-        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984437/261_kxmzhn.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/xiaojie.0001_gjt1qd.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696630/276_wam3yv.mp3"
     },
     {
         "id": 277, 
         "user": "玛丽", 
         "title": "便宜一点儿吧，二百怎么样？", 
-        "segments": ["便宜", "一", "点儿", "吧", "，", "二", "百", "怎么样", "？"],
+        "segments": ["便宜", "一点儿", "吧", "，", "二", "百", "怎么样", "？"],
         "description": "piányi yìdiǎnr ba èrbǎi zěnmeyàng<br>Could you make it cheaper? How about two hundred?", 
-        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984437/261_kxmzhn.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/xiaojie.0001_gjt1qd.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696630/276_wam3yv.mp3"
     },
     {
         "id": 278, 
@@ -2498,8 +2498,8 @@
         "title": "二百太少了，不买。", 
         "segments": ["二", "百", "太", "少", "了", "，", "不", "买", "。"],
         "description": "èrbǎi tài shǎo le bú mài<br>Two hundred is too low, I can’t sell it.", 
-        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984437/261_kxmzhn.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696631/278_uslbfn.mp3"
     },
     {
         "id": 279, 
@@ -2507,8 +2507,8 @@
         "title": "可以打八折，你给三百二吧。", 
         "segments": ["可以", "打", "八", "折", "，", "你", "给", "三", "百", "二", "吧", "。", "(", "打折", ")"],
         "description": "kěyǐ dǎ bā zhé nǐ gěi sānbǎi èr ba<br>But I can give you a 20% discount, so you can take it for 320.", 
-        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984437/261_kxmzhn.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696632/279_rj68g6.mp3"
     },
     {
         "id": 280, 
@@ -2516,8 +2516,8 @@
         "title": "三百行不行？", 
         "segments": ["三", "百", "行", "不", "行", "？"],
         "description": "sānbǎi xíng bu xíng<br>Can you make it 300?", 
-        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984437/261_kxmzhn.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/xiaojie.0001_gjt1qd.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696632/280_lhunh6.mp3"
     },
     {
         "id": 281, 
@@ -2525,10 +2525,11 @@
         "title": "给你吧。", 
         "segments": ["给", "你", "吧", "。"],
         "description": "gěi nǐ ba<br>Alright, deal.", 
-        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png", 
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984437/261_kxmzhn.mp3"
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696632/281_hbv8li.mp3"
     }
 ]
+
 
 
 
