@@ -3201,7 +3201,7 @@
     },
     {
         "id": "401",
-        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753428454/%E9%97%AE%E9%A2%98-min_ushw2b.png",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1755824083/%E7%BE%BD%E7%BB%92%E6%9C%8D-min_lacupa.png",
         "character": "羽绒服",
         "meaning": "down jacket",
         "pinyin": "yǔróngfú",
@@ -3209,140 +3209,141 @@
     },
     {
         "id": "402",
-        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753428454/%E9%97%AE%E9%A2%98-min_ushw2b.png",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1755824083/%E5%8F%88-min_lhuv6h.png",
         "character": "又",
         "meaning": "又...又: not only ... but also",
         "pinyin": "yòu",
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984323/%E9%97%AE%E9%A2%98_vqrc6s.mp3"
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696643/%E5%8F%88_uvc82e.mp3"
     },
     {
         "id": "403",
-        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753428454/%E9%97%AE%E9%A2%98-min_ushw2b.png",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1755824082/%E4%BE%BF%E5%AE%9C-min_y8gkrh.png",
         "character": "便宜",
         "meaning": "inexpensive; cheap",
         "pinyin": "piányi",
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984323/%E9%97%AE%E9%A2%98_vqrc6s.mp3"
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696643/%E4%BE%BF%E5%AE%9C_oc0unv.mp3"
     },
     {
         "id": "404",
-        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753428454/%E9%97%AE%E9%A2%98-min_ushw2b.png",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1755824084/%E9%95%BF-min_a1hq1d.png",
         "character": "长",
         "meaning": "long",
         "pinyin": "cháng",
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984323/%E9%97%AE%E9%A2%98_vqrc6s.mp3"
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696650/%E9%95%BF_omg1dd.mp3"
     },
     {
         "id": "405",
-        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753428454/%E9%97%AE%E9%A2%98-min_ushw2b.png",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1742351248/%E7%82%B9%E5%84%BF-min_oztjut.png",
         "character": "一点儿",
         "meaning": "a bit; a little",
         "pinyin": "yìdiǎnr",
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984323/%E9%97%AE%E9%A2%98_vqrc6s.mp3"
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696643/%E4%B8%80%E7%82%B9%E5%84%BF_w9amft.mp3"
     },
     {
         "id": "406",
-        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753428454/%E9%97%AE%E9%A2%98-min_ushw2b.png",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1755824083/%E7%9F%AD-min_lpvpom.png",
         "character": "短",
         "meaning": "short",
         "pinyin": "duǎn",
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984323/%E9%97%AE%E9%A2%98_vqrc6s.mp3"
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696649/%E7%9F%AD_qltb04.mp3"
     },
     {
         "id": "407",
-        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753428454/%E9%97%AE%E9%A2%98-min_ushw2b.png",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1755824082/%E6%B7%B1-min_pix9ws.png",
         "character": "深",
         "meaning": "(color) dark; deep",
         "pinyin": "shēn",
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984323/%E9%97%AE%E9%A2%98_vqrc6s.mp3"
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696645/%E6%B7%B1_ddzji6.mp3"
     },
     {
         "id": "408",
-        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753428454/%E9%97%AE%E9%A2%98-min_ushw2b.png",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1755824082/%E6%B5%85-min_yiuvy6.png",
         "character": "浅",
         "meaning": "(color) light; shallow",
         "pinyin": "qiǎn",
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984323/%E9%97%AE%E9%A2%98_vqrc6s.mp3"
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696644/%E6%B5%85_ktbyhw.mp3"
     },
     {
         "id": "409",
-        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753428454/%E9%97%AE%E9%A2%98-min_ushw2b.png",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1755824084/%E8%AF%95-min_cztt4v.png",
         "character": "试",
         "meaning": "to try",
         "pinyin": "shì",
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984323/%E9%97%AE%E9%A2%98_vqrc6s.mp3"
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696651/%E8%AF%95_xu9nf8.mp3"
     },
     {
         "id": "410",
-        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753428454/%E9%97%AE%E9%A2%98-min_ushw2b.png",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1755824082/%E5%8F%AF%E4%BB%A5-min_lfbgfm.png",
         "character": "可以",
         "meaning": "may; can",
         "pinyin": "kěyǐ",
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984323/%E9%97%AE%E9%A2%98_vqrc6s.mp3"
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696643/%E5%8F%AF%E4%BB%A5_blfyad.mp3"
     },
     {
         "id": "411",
-        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753428454/%E9%97%AE%E9%A2%98-min_ushw2b.png",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1755824082/%E5%BD%93%E7%84%B6-min_dhw02d.png",
         "character": "当然",
         "meaning": "certainly; of course; without doubt",
         "pinyin": "dāngrán",
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984323/%E9%97%AE%E9%A2%98_vqrc6s.mp3"
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696644/%E5%BD%93%E7%84%B6_gginlk.mp3"
     },
     {
         "id": "412",
-        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753428454/%E9%97%AE%E9%A2%98-min_ushw2b.png",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1755824083/%E8%82%A5-min_mr5tf7.png",
         "character": "肥",
         "meaning": "fat; loose",
         "pinyin": "féi",
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984323/%E9%97%AE%E9%A2%98_vqrc6s.mp3"
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696649/%E8%82%A5_buynnx.mp3"
     },
     {
         "id": "413",
-        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753428454/%E9%97%AE%E9%A2%98-min_ushw2b.png",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1755824084/%E8%83%96-min_koegyk.png",
         "character": "胖",
         "meaning": "fat",
         "pinyin": "pàng",
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984323/%E9%97%AE%E9%A2%98_vqrc6s.mp3"
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696649/%E8%83%96_gcgslv.mp3"
     },
     {
         "id": "414",
-        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753428454/%E9%97%AE%E9%A2%98-min_ushw2b.png",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1755824083/%E7%98%A6-min_nns7uo.png",
         "character": "瘦",
         "meaning": "thin; tight",
         "pinyin": "shòu",
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984323/%E9%97%AE%E9%A2%98_vqrc6s.mp3"
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696648/%E7%98%A6_buirfo.mp3"
     },
     {
         "id": "415",
-        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753428454/%E9%97%AE%E9%A2%98-min_ushw2b.png",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672816/%E5%A5%B3_gvhben.png",
         "character": "合适",
         "meaning": "fit; suitable",
         "pinyin": "héshì",
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984323/%E9%97%AE%E9%A2%98_vqrc6s.mp3"
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696644/%E5%90%88%E9%80%82_xjt65x.mp3"
     },
     {
         "id": "416",
-        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753428454/%E9%97%AE%E9%A2%98-min_ushw2b.png",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1755824082/%E5%A5%BD%E7%9C%8B-min_jxfkkk.png",
         "character": "好看",
         "meaning": "good-looking; pretty",
         "pinyin": "hǎokàn",
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984323/%E9%97%AE%E9%A2%98_vqrc6s.mp3"
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696646/%E5%A5%BD%E7%9C%8B_aqpn1o.mp3"
     },
     {
         "id": "417",
-        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753428454/%E9%97%AE%E9%A2%98-min_ushw2b.png",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1755824083/%E7%A7%8D-min_ommfkn.png",
         "character": "种",
         "meaning": "kind; type",
         "pinyin": "zhǒng",
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984323/%E9%97%AE%E9%A2%98_vqrc6s.mp3"
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696649/%E7%A7%8D_daorsl.mp3"
     },
     {
         "id": "418",
-        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753428454/%E9%97%AE%E9%A2%98-min_ushw2b.png",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1755824083/%E6%89%93%E6%8A%98-min_jvoy0a.png",
         "character": "打折",
         "meaning": "to sell at a discount; to give a discount",
         "pinyin": "dǎzhé",
-        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984323/%E9%97%AE%E9%A2%98_vqrc6s.mp3"
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696644/%E6%89%93%E6%8A%98_uhcrcj.mp3"
     }
 ]
+
 
 
