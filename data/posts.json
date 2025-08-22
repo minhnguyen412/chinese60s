@@ -2496,7 +2496,7 @@
         "id": 278, 
         "user": "售货员", 
         "title": "二百太少了，不买。", 
-        "segments": ["二", "百", "太", "少", "了", "，", "不", "买", "。"],
+        "segments": ["二", "百", "太", "少", "了", "，", "不", "卖", "。"],
         "description": "èrbǎi tài shǎo le bú mài<br>Two hundred is too low, I can’t sell it.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696631/278_uslbfn.mp3"
@@ -2523,7 +2523,7 @@
         "id": 281, 
         "user": "售货员", 
         "title": "给你吧。", 
-        "segments": ["给", "你", "吧", "。"],
+        "segments": ["给¹", "你", "吧", "。"],
         "description": "gěi nǐ ba<br>Alright, deal.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696632/281_hbv8li.mp3"
