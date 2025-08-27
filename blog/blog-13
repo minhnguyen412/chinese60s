@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn Chinese online with Chinese60s through real conversations, grammar tools, and interactive character writing.">
+  <meta name="keywords" content="Learn Chinese online, Chinese conversation practice, Chinese grammar, Chinese character writing, Chinese60s">
+  <meta name="author" content="Chinese60s Team">
+  <title>Learn Real-Life Chinese: Losing My Voice</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: #8bc34a;
+      color: white;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+
+    .homepage-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    nav {
+      display: flex;
+    }
+
+    @media screen and (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #8bc34a;
+        width: 100%;
+        padding: 10px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      nav ul li a {
+        font-size: 1rem;
+      }
+    }
+
+    .main-content {
+      flex: 1;
+      padding: 20px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: left;
+      margin: 0 100px 100px 100px;
+    }
+
+    .main-content img {
+      width: 80px;
+      height: auto;
+    }
+
+    .logos-and-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .logos-and-title .logo {
+      width: 100%;
+      height: auto;
+      max-height: 800px;
+      object-fit: contain;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+
+    li {
+      font-size: 1.1rem;
+      font-weight: bold;
+      font-style: italic;
+    }
+
+    .main-content ul {
+      margin-left: 20px;
+      padding-left: 20px;
+    }
+
+    .donation-section {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .donation-section img {
+      max-width: 200px;
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .donation-section img:hover {
+      transform: scale(1.1);
+    }
+
+    footer {
+      background-color: #8bc34a;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    footer .social-icons {
+      margin-top: 10px;
+    }
+
+    footer .social-icons a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: white;
+    }
+
+    @media screen and (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logos-and-title {
+        flex-direction: column;
+        padding: 10px;
+      }
+
+      .logos-and-title .logo {
+        max-height: 200px;
+        margin: 10px 0;
+      }
+
+      .main-content {
+        margin: 0 10px 100px 10px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      header h1 {
+        font-size: 1.3rem;
+      }
+
+      .logos-and-title .logo {
+        max-height: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><a href="../index.html" class="homepage-link">CHINESE 60s</a></h1>
+    <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <nav>
+      <ul>
+        <li><a href="../about.html">About Us</a></li>
+        <li><a href="../blog.html">Blog</a></li>
+        <li><a href="../courses.html">Courses</a></li>
+        <li><a href="https://www.amazon.com/shop/studiorum60s">Shop</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="logos-and-title">
+    <img src="../assets/homepage.png" alt="Logo" class="logo">
+  </div>
+
+  <div class="main-content">
+    <h1>[Real-Life Chinese] 失声 - Losing My Voice - Douyin Script</h1>
+    <p>Imagine your close friend calling you and sounding completely different. Her voice is gone because of a cold. She starts telling you about how she caught it from her son, how she can’t speak properly, and how it feels miserable. In today’s lesson, you’ll listen as if you were hearing your friend complain, while at the same time practicing vocabulary and grammar from the Chinese script.</p>
+    <p>Let’s explore the video script together 👇</p>
+      <section>
+      <h2>📽️ The Script: 失声 - Losing My Voice </h2>
+      <h3>Script with Pinyin and Translation</h3>
+      <p><b>这两天我儿子感冒了给我传染了。</b><br>
+        <span class="pinyin">Zhè liǎng tiān wǒ érzi gǎnmào le gěi wǒ chuánrǎn le.</span><br>
+        <span class="translation">These past two days, my son caught a cold and passed it on to me.</span>        </p>
+      <p><b>我竟然失声了。</b><br>
+        <span class="pinyin">Wǒ jìngrán shīshēng le.</span><br>
+        <span class="translation">I actually lost my voice!</span>        
+      </p>
+      <p><b>我上网一捜，发现是2025年的新型病毒，就好多人都在失声。</b><br>
+        <span class="pinyin">Wǒ shàngwǎng yī sōu, fāxiàn shì 2025 nián de xīnxíng bìngdú, jiù hǎoduō rén dōu zài shīshēng.</span><br>
+        <span class="translation"I searched online and discovered that it’s a new 2025 virus, and so many people are losing their voices.</span>        
+      </p>
+      <p><b>有失声四五天的。有失声10天的。</b><br>
+        <span class="pinyin">Yǒu shīshēng sì wǔ tiān de. Yǒu shīshēng shí tiān de.</span><br>
+        <span class="translation">Some people lose their voice for 4–5 days. Some for 10 days.</span>        
+      </p>
+      <p><b>我这才第二天。也并不知道得多久，得持续多久。</b><br>
+        <span class="pinyin">Wǒ zhè cái dì èr tiān. Yě bìng bù zhīdào děi duōjiǔ, děi chíxù duōjiǔ.</span><br>
+        <span class="translation">It’s only my second day. I really don’t know how long this will last.</span>        
+      </p>
+      <p><b>这两天就被逼的変相的変温柔了。</b><br>
+        <span class="pinyin">Zhè liǎng tiān jiù bèi bī de biànxiàng de biàn wēnróu le.</span><br>
+        <span class="translation">These two days, I was forced to “pretend” to be extra gentle.</span>        
+      </p>
+      <p><b>你说话也说不出来呀。</b><br>
+        <span class="pinyin">Nǐ shuōhuà yě shuō bù chūlái ya.</span><br>
+        <span class="translation">You can’t even get the words out when you try to speak.</span>        
+      </p>
+      <p><b>这病毒太厉害了。</b><br>
+        <span class="pinyin">Zhè bìngdú tài lìhài le.</span><br>
+        <span class="translation">This virus is too strong.</span>        
+      </p>
+      <p><b>是嫌我24年这一年讲话太多了。</b><br>
+        <span class="pinyin">Shì xián wǒ èrshísì nián zhè yī nián jiǎnghuà tài duō le.</span><br>
+        <span class="translation">Maybe it “dislikes” that I talked too much in 2024.</span>        
+      </p>
+      <p><b>让我得这毒株让我25年少说话多做事是吧?</b><br>
+        <span class="pinyin">Ràng wǒ dé zhè dúzhū ràng wǒ èrshíwǔ nián shǎo shuōhuà duō zuòshì shì ba?</span><br>
+        <span class="translation">It makes me catch this strain so that in 2025 I’ll talk less and do more, right?</span>        
+      </p>
+      <p><b>谁能救救我呀。</b><br>
+        <span class="pinyin">Shéi néng jiùjiu wǒ ya.</span><br>
+        <span class="translation">Who can save me?</span>        
+      </p>
+      <p><b>这嗓子太难受了。真的太难受了。</b><br>
+        <span class="pinyin">Zhè sǎngzi tài nánshòu le. Zhēn de tài nánshòu le.</span><br>
+        <span class="translation">My throat feels so uncomfortable. Really unbearable.</span>        
+      </p>
+    </section>
+
+    <section>
+      <h2>🧠 Useful Vocabulary Highlights</h2>
+      <table border="1" cellpadding="5" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Word</th>
+                        <th>Pinyin</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>感冒</td><td>gǎnmào</td><td>cold, to catch a cold</td></tr>
+                    <tr><td>传染</td><td>chuánrǎn</td><td>to infect, to transmit disease</td></tr>
+                    <tr><td>失声</td><td>shīshēng</td><td>to lose one’s voice</td></tr>
+                    <tr><td>竟然</td><td>jìngrán</td><td>unexpectedly, actually</td></tr>
+                    <tr><td>捜</td><td>sōu</td><td>to search (online or in general)</td></tr>
+                    <tr><td>病毒</td><td>bìngdú</td><td>virus</td></tr>
+                    <tr><td>持续</td><td>chíxù</td><td>to last, to continue</td></tr>
+                    <tr><td>変相</td><td>biànxiàng</td><td>in a disguised form</td></tr>
+                    <tr><td>変温柔</td><td>biàn wēnróu</td><td>becoming gentle (ironically used)</td></tr>
+                    <tr><td>嫌</td><td>xián</td><td>to dislike, to complain that…</td></tr>
+                    <tr><td>嗓子</td><td>sǎngzi</td><td>throat, voice</td></tr>
+                    <tr><td>难受</td><td>nánshòu</td><td>uncomfortable, hard to bear</td></tr>
+                </tbody>
+            </table>
+    </section>
+
+    <section>
+      <h2>📚 Grammar Structures to Notice</h2>
+      <h3>1. 给</h3>
+      <p>
+        <strong>给 (gěi):</strong> used here to indicate “cause” or “pass on to”<br />
+        📝 Example: 他感冒了给我传染了。 = "He caught a cold and passed it to me."
+      </p>
+
+      <h3>2. 上网一捜</h3>
+      <p>
+        <strong>上网一捜 (shàngwǎng yī sōu):</strong> structure “verb + 一 + verb” means doing something quickly or casually.<br/>
+        📝 Example: 我上网一捜。 = "I just did a quick search online."
+      </p>
+
+      <h3>3. 并</h3>
+      <p>
+        <strong>并 (bìng)</strong> used with negatives to emphasize.<br />
+        📝 Example: 也并不知道得多久。 = "I really don’t know how long it will last."
+      </p>
+
+      <h3>4. 被逼</h3>
+      <p>
+        <strong>被逼 (bèi bī)</strong> passive voice with 被, meaning “forced to.”<br />
+        📝 Example: 被逼的変相的変温柔了。 = "I was forced to become gentle in a disguised way."
+      </p>
+
+      <h3>5. 说不出来</h3>
+      <p>
+        <strong>说不出来 (shuō bù chūlái)</strong> resultative complement structure, meaning “unable to say.”<br/>
+        📝 Example: 你说话也说不出来呀。 = "You can’t even speak properly."
+      </p>
+
+      <h3>6. 让</h3>
+      <p>
+        <strong>让 (ràng)</strong> causative verb “let/make.”<br />
+        📝 Example: 让我得这毒株让我25年少说话多做事。 = "This virus makes me talk less and do more in 2025."
+      </p>
+    </section>
+    </section>
+    <h2>🎯 Takeaway</h2>
+    <p>Everyday life situations (like catching a cold) provide natural, emotional contexts for practicing listening and vocabulary.</p>
+    <p>Vocabulary such as 感冒, 传染, and 失声 are directly tied to health and daily communication.</p>
+    <p>Grammar structures like 被, 并, and 让 add nuance to expressing causation, emphasis, and passivity.</p>
+    <p>Using verb + 一 + verb (like 上网一捜) is a useful pattern for sounding natural.</p>
+    <p>👉 Try repeating the sentences aloud, practice writing the characters, and even act out the scene with friends. With practice, you won’t just learn words — you’ll learn how to live the language.</p>
+    </section>
+    <section>
+      <h2>✏️ Learn Chinese Naturally with Chinese60s</h2>
+      <p>Want to learn more real-life Chinese like this?</p>
+      <ul>
+        <li>Study authentic conversations from videos</li>
+        <li>Learn vocabulary in context</li>
+        <li>Get clear explanations of grammar points</li>
+        <li>Practice listening, reading, and writing in one place</li>
+      </ul>
+      <p>🎬 Try our HSK 1–2 video dialogues for beginners</p>
+      <p>📝 Follow our blog for native-level breakdowns like this</p>
+      <p>📲 Follow <strong>Chinese60s</strong> on Instagram, YouTube, TikTok, and Facebook for daily language tips</p>
+      <p>👉 <strong>Start your journey at <a href="https://chinese60s.com" target="_blank">Chinese60s.com</a></strong></p>
+    </section>
+    <div id="post-navigation" style="display:flex; justify-content: space-between; margin: 20px 0;">
+      <div id="prev-post"></div>
+      <div id="next-post"></div>
+    </div>
+
+    <div id="latest-posts">
+      <h3>Latest Posts</h3>
+      <ul id="latest-list"></ul>
+    </div>
+
+    
+    <br>
+    <br>
+    <div id="disqus_thread"></div>
+    <script>
+          var disqus_config = function () {
+              this.page.url = window.location.href;  // URL hiện tại
+              this.page.identifier = window.location.pathname; // Định danh duy nhất cho mỗi bài
+          };
+
+          (function() {
+              var d = document, s = d.createElement('script');
+              s.src = 'https://chinese60s-com.disqus.com/embed.js';
+              s.setAttribute('data-timestamp', +new Date());
+              (d.head || d.body).appendChild(s);
+          })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+  
+    
+  <footer>
+    <p>Chinese60s</p>
+    <p>Learn Mandarin through images and videos</p>
+    <div class="social-icons">
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+      <a href="#">TikTok</a>
+      <a href="#">Instagram</a>
+    </div>
+  </footer>
+  <script src="../js/blog-nav.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('nav');
+
+      menuToggle.addEventListener('click', function () {
+        nav.classList.toggle('show');
+        menuToggle.innerHTML = nav.classList.contains('show') ? '&#10005;' : '&#9776;';
+      });
+    });
+  </script>
+</body>
+</html>
