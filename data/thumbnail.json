@@ -230,8 +230,25 @@
         "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1755825026/hyjc-1-19_h9gsgs.png",
         "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
         "htmlLink": "posts.html?postStartId=262&postEndId=281&quizStartId=331&quizEndId=344&id=29"
+    },
+    {
+        "id": 30,
+        "title": "第二十课（一）：你哪一年大学毕业？",
+        "description": "Lesson 20 (1): What year will you graduate from university?",
+        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1755825026/hyjc-1-19_h9gsgs.png",
+        "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
+        "htmlLink": "posts.html?postStartId=282&postEndId=288&quizStartId=331&quizEndId=344&id=30"
+    },
+    {
+        "id": 31,
+        "title": "第二十课（二）：祝你生日快乐！",
+        "description": "Lesson 20 (2): Happy birthday!",
+        "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1755825026/hyjc-1-19_h9gsgs.png",
+        "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
+        "htmlLink": "posts.html?postStartId=289&postEndId=299&quizStartId=331&quizEndId=344&id=31"
     }
 ]
+
 
 
 
