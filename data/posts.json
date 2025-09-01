@@ -2527,8 +2527,171 @@
         "description": "gěi nǐ ba<br>Alright, deal.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696632/281_hbv8li.mp3"
+    }，
+    {
+        "id": 282, 
+        "user": "A", 
+        "title": "你哪一年大学毕业？", 
+        "segments": ["你", "哪", "一", "年", "大学", "毕业", "？"],
+        "description": "Nǐ nǎ yī nián dàxué bìyè?<br>What year will you graduate from university?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753432295/roland_xvp4bn.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736166/282_v3qeth.mp3"
+    }，
+    {
+        "id": 283, 
+        "user": "B", 
+        "title": "明年。你呢？", 
+        "segments": ["明年", "。", "你", "呢", "？"],
+        "description": "Míngnián. Nǐ ne?<br>Next year. What about you?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/nvcodinh.0001_yazunu.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736166/283_znjh9d.mp3"
+    }，
+    {
+        "id": 284, 
+        "user": "A", 
+        "title": "我后年。", 
+        "segments": ["我", "后年", "。"],
+        "description": "Wǒ hòu nián.<br>The year after next.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753432295/roland_xvp4bn.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736166/284_w8vwri.mp3"
+    }，
+    {
+        "id": 285, 
+        "user": "A", 
+        "title": "你今年多大？", 
+        "segments": ["你", "今年", "多", "大", "？"],
+        "description": "Nǐ jīnnián duōdà?<br>How old are you this year?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753432295/roland_xvp4bn.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736166/285_iacapi.mp3"
+    }，
+    {
+        "id": 286, 
+        "user": "B", 
+        "title": "我二十一岁。", 
+        "segments": ["我", "二", "十", "一", "岁", "。"],
+        "description": "Wǒ èrshíyī suì.<br>I’m twenty-one.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/nvcodinh.0001_yazunu.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736167/286_rdfvfy.mp3"
+    }，
+    {
+        "id": 287, 
+        "user": "A", 
+        "title": "属什么的？", 
+        "segments": ["属", "什么", "的", "？"],
+        "description": "Shǔ shénme de?<br>What’s your zodiac sign?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753432295/roland_xvp4bn.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736166/287_iknt2j.mp3"
+    }，
+    {
+        "id": 288, 
+        "user": "B", 
+        "title": "属狗的。", 
+        "segments": ["属", "狗", "的", "。"],
+        "description": "Shǔ gǒu de.<br>The Dog.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/nvcodinh.0001_yazunu.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736167/288_szjm0p.mp3"
+    }，
+    {
+        "id": 289, 
+        "user": "A", 
+        "title": "你的生日是几月几号？", 
+        "segments": ["你", "的", "生日", "是", "几", "月", "几", "号", "？"],
+        "description": "Nǐ de shēngrì shì jǐ yuè jǐ hào?<br>When is your birthday?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736167/289_njy1j0.mp3"
+    }，
+    {
+        "id": 290, 
+        "user": "B", 
+        "title": "我的生日是十月十八号，正好是星期六。", 
+        "segments": ["我", "的", "生日", "是", "十", "月", "十", "八", "号", "，", "正好", "是", "星期", "六", "。"],
+        "description": "Wǒ de shēngrì shì shí yuè shíbā hào, zhènghǎo shì xīngqíliù.<br>My birthday is October 18th, and it happens to be a Saturday.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1737017372/mary-2_qzxzd4.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736167/290_ktdgrt.mp3"
+    }，
+    {
+        "id": 291, 
+        "user": "A", 
+        "title": "是吗？你打算怎么过？", 
+        "segments": ["是", "吗", "？", "你", "打算", "怎么", "过", "？"],
+        "description": "Shì ma? Nǐ dǎsuàn zěnmeguò?<br>Really? How are you planning to celebrate?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736167/291_jqui2p.mp3"
+    }，
+    {
+        "id": 292, 
+        "user": "B", 
+        "title": "我准备举行一个生日晚会。", 
+        "segments": ["我", "准备", "举行", "一", "个", "生日", "晚会", "。"],
+        "description": "Wǒ zhǔnbèi jǔxíng yīgè shēngrì wǎnhuì.<br>I’m going to hold a birthday party.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1737017372/mary-2_qzxzd4.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736168/292_fb4zvz.mp3"
+    }，
+    {
+        "id": 293, 
+        "user": "B", 
+        "title": "你也来参加，好吗？", 
+        "segments": ["你", "也", "来", "参加", "，", "好", "吗", "？"],
+        "description": "Nǐ yě lái cānjiā, hǎo ma?<br>Would you like to come?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1737017372/mary-2_qzxzd4.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736168/293_umqfaj.mp3"
+    }，
+    {
+        "id": 294, 
+        "user": "A", 
+        "title": "什么时间举行？", 
+        "segments": ["什么", "时间", "举行", "？"],
+        "description": "Shénme shíjiān jǔxíng?<br>What time will it be?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736168/294_h5qk9l.mp3"
+    }，
+    {
+        "id": 295, 
+        "user": "B", 
+        "title": "星期六晚上七点。", 
+        "segments": ["星期", "六", "晚上", "七", "点", "。"],
+        "description": "Xīngqíliù wǎnshàng qī diǎn.<br>Saturday evening at 7 o’clock.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1737017372/mary-2_qzxzd4.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736168/295_fbtqqq.mp3"
+    }，
+    {
+        "id": 296, 
+        "user": "A", 
+        "title": "在哪儿？", 
+        "segments": ["在", "哪儿", "？"],
+        "description": "Zài nǎr?<br>Where?", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736169/296_xw0gnb.mp3"
+    }，
+    {
+        "id": 297, 
+        "user": "B", 
+        "title": "就在我的房间。", 
+        "segments": ["就", "在", "我", "的", "房间", "。"],
+        "description": "Jiù zài wǒ de fángjiān.<br>In my room.", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1737017372/mary-2_qzxzd4.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736169/297_ddjtiz.mp3"
+    }，
+    {
+        "id": 298, 
+        "user": "A", 
+        "title": "好。我一定去。祝你生日快乐！", 
+        "segments": ["好", "。", "我", "一定", "去", "。", "祝", "你", "生日", "快乐", "！"],
+        "description": "Hǎo. Wǒ yīdìng qù. Zhù nǐ shēngrì kuàilè!<br>Great, I’ll definitely come. Happy Birthday!", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736169/298_g7fj6w.mp3"
+    }，
+    {
+        "id": 299, 
+        "user": "B", 
+        "title": "谢谢！", 
+        "segments": ["谢谢", "！"],
+        "description": "Xièxiè!<br>Thank you!", 
+        "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1737017372/mary-2_qzxzd4.png", 
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736166/299_hmpbzl.mp3"
     }
 ]
+
 
 
 
