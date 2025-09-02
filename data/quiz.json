@@ -4305,7 +4305,7 @@
         },
         {
             "id": 364,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696629/263_i2riaf.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696630/264_qe7tgt.mp3",
             "sentence": "It’s nice and cheap.<br>___ ___ ___ ___ ___。",
             "blanks": [
                 { "answer": "又" },
@@ -4334,7 +4334,7 @@
         {
             "id": 366,
             "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696631/267_b9wugc.mp3",
-            "sentence": "Do you want a dark color or a light color?<br>___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___?",
+            "sentence": "Do you want a dark color or a light color?<br>___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___?",
             "blanks": [
                 { "answer": "你" },
                 { "answer": "要" },
@@ -4384,7 +4384,7 @@
         },
         {
             "id": 369,
-            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696629/274_ngxwfy.mp3",
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696632/279_rj68g6.mp3",
             "sentence": "But I can give you a 20% discount, so you can take it for 320.<br>___ ___ ___ ___ ___, ___ ___ ___ ___ ___ ___。",
             "blanks": [
                 { "answer": "可" },
@@ -4779,6 +4779,7 @@
         }
     ]
 }
+
 
 
 
