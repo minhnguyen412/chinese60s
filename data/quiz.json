@@ -4063,6 +4063,216 @@
                 
             ],
             "words": ["走", "写", "忘", "用"]
+        }，
+        {
+            "id": 345,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984410/250_uyvo5o.mp3",
+            "sentence": "Mary, I'm going to Shanghai tomorrow.<br> ___, ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "玛丽" },
+                { "answer": "我" },
+                { "answer": "明天" },
+                { "answer": "去" },
+                { "answer": "上海" }
+            ],
+            "words": ["上海", "玛丽", "明天", "我", "去"]
+        },
+        {
+            "id": 346,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984410/251_momslp.mp3",
+            "sentence": "Are you going to Shanghai for traveling?<br> ___ ___ ___ ___ ___?",
+            "blanks": [
+                { "answer": "你" },
+                { "answer": "去" },
+                { "answer": "上海" },
+                { "answer": "旅行" },
+                { "answer": "吗" }
+            ],
+            "words": ["旅行", "上海", "你", "吗", "去"]
+        },
+        {
+            "id": 347,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984410/252_hdweyh.mp3",
+            "sentence": "No, a foreign trade delegation is going to visit Shanghai tomorrow<br>___, ___ ___ ___ ___ ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "不" },
+                { "answer": "明天" },
+                { "answer": "一" },
+                { "answer": "个" },
+                { "answer": "外贸" },
+                { "answer": "代表" },
+                { "answer": "团" },
+                { "answer": "去" },
+                { "answer": "上海" },
+                { "answer": "参观" }
+            ],
+            "words": ["代表", "明天", "不", "去", "参观", "个", "上海", "一", "团", "外贸"]
+        },
+        {
+            "id": 348,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984410/253_yzci2w.mp3",
+            "sentence": "I'm going to be an interpreter for them.<br>___ ___ ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "我" },
+                { "answer": "去" },
+                { "answer": "给" },
+                { "answer": "他" },
+                { "answer": "们" },
+                { "answer": "当" },
+                { "answer": "翻译" }
+            ],
+            "words": ["他", "当", "们", "给", "翻译", "我", "去"]
+        },
+        {
+            "id": 349,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984411/254_h0dibv.mp3",
+            "sentence": "Are you going by plane or train?<br>___ ___ ___ ___ ___ ___ ___?",
+            "blanks": [
+                { "answer": "坐" },
+                { "answer": "飞机" },
+                { "answer": "去" },
+                { "answer": "还是" },
+                { "answer": "坐" },
+                { "answer": "火车" },
+                { "answer": "去" }
+            ],
+            "words": ["火车", "飞机", "还是", "去", "坐", "去", "坐"]
+        },
+        {
+            "id": 350,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984411/256_gv4cw0.mp3",
+            "sentence": "When will you be back?<br>___ ___ ___ ___ ___ ___?",
+            "blanks": [
+                { "answer": "什" },
+                { "answer": "么" },
+                { "answer": "时" },
+                { "answer": "候" },
+                { "answer": "回" },
+                { "answer": "来" }
+            ],
+            "words": ["回", "么", "时", "什", "候", "来"]
+        },
+        {
+            "id": 351,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984411/258_cinxf8.mp3",
+            "sentence": "Can you do me a favor?<br>___ ___ ___ ___ ___ ___, ___ ___?",
+            "blanks": [
+                { "answer": "替" },
+                { "answer": "我" },
+                { "answer": "办" },
+                { "answer": "一" },
+                { "answer": "件" },
+                { "answer": "事" },
+                { "answer": "行" },
+                { "answer": "吗" }
+            ],
+            "words": ["替", "我", "吗", "一", "行", "事", "办", "件"]
+        },
+        {
+            "id": 352,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984412/260_noun28.mp3",
+            "sentence": "Please help me water my flowers.<br>___ ___ ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "帮" },
+                { "answer": "我" },
+                { "answer": "浇" },
+                { "answer": "一" },
+                { "answer": "下" },
+                { "answer": "儿" },
+                { "answer": "花" }
+            ],
+            "words": ["花", "儿", "下", "一", "浇", "我", "帮"]
+        },
+        {
+            "id": 353,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743045189/%E5%A4%96%E8%B4%B8_byv4x3.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1743044908/%E5%A4%96%E8%B4%B8-min_njtnnw.png", "： ___ "],
+            "blanks": [
+                { "answer": "外贸" }
+                
+            ],
+            "words": ["代表", "翻译", "旅行", "外贸"]
+        },
+        {
+            "id": 354,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984319/%E4%BB%A3%E8%A1%A8_qax5wp.mp3",
+            "sentence": "代表： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753428459/%E4%BB%A3%E8%A1%A8-min_c3aio9.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1753428454/%E7%BF%BB%E8%AF%91-min_yjbalm.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1753428459/%E4%BB%A3%E8%A1%A8-min_c3aio9.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1744211180/%E8%B6%85%E5%B8%82-min_zhnfne.png"]
+        },
+        {
+            "id": 355,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984321/%E7%BF%BB%E8%AF%91_f2legd.mp3",
+            "sentence": "翻译： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753428454/%E7%BF%BB%E8%AF%91-min_yjbalm.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1738568493/%E6%8D%A2_g9f9xq.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159624/%E4%B8%80%E5%85%B1_jdedky.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1753428454/%E7%BF%BB%E8%AF%91-min_yjbalm.png"]
+        },
+        {
+            "id": 356,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984324/%E9%A3%9E%E6%9C%BA_hr8kcp.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1753428459/%E9%A3%9E%E6%9C%BA-min_t9vx8w.png", "： ___ "],
+            "blanks": [
+                { "answer": "飞机" }
+                
+            ],
+            "words": ["火车", "自行车", "飞机", "汽车"]
+        },
+        {
+            "id": 357,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984321/%E7%81%AB%E8%BD%A6_c23sus.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1753428454/%E7%81%AB%E8%BD%A6-min_d2lgyn.png", "： ___ "],
+            "blanks": [
+                { "answer": "火车" }
+                
+            ],
+            "words": ["火车", "自行车", "飞机", "汽车"]
+        },
+        {
+            "id": 358,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984320/%E5%9B%9E%E6%9D%A5_mt4hlc.mp3",
+            "sentence": "回来： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753428453/%E5%9B%9E%E6%9D%A5-min_wikr93.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1734672812/%E5%8E%BB_oiwxvj.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1753428453/%E5%9B%9E%E6%9D%A5-min_wikr93.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1749659965/%E5%87%BA%E6%9D%A5-min_tygfc2.png"]
+        },
+        {
+            "id": 359,
+            "audio": "",
+            "sentence": "to; for: ___",
+            "blanks": [
+                { "answer": "给" }
+
+            ],
+            "words": ["帮", "替", "给", "换"]
+        },
+        {
+            "id": 360,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984321/%E6%B5%87_z4og4p.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1753428453/%E6%B5%87-min_eusftt.png", "： ___ "],
+            "blanks": [
+                { "answer": "浇" }
+                
+            ],
+            "words": ["画", "浇", "坐", "写"]
+        },
+        {
+            "id": 361,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984322/%E8%8A%B1_xbb7q0.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1753428454/%E8%8A%B1-min_t1bgwh.png", "： ___ "],
+            "blanks": [
+                { "answer": "花" }
+                
+            ],
+            "words": ["火", "木", "水", "花"]
         }
     ]
 }
+
