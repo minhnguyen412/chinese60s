@@ -4620,9 +4620,166 @@
                 
             ],
             "words": ["狗", "猪", "蛇", "样"]
+        },
+        {
+            "id": 391,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736167/289_njy1j0.mp3",
+            "sentence": "When is your birthday?<br>___ ___ ___ ___ ___ ___ ___ ___ ___？",
+            "blanks": [
+                { "answer": "你" },
+                { "answer": "的" },
+                { "answer": "生" },
+                { "answer": "日" },
+                { "answer": "是" },
+                { "answer": "几" },
+                { "answer": "月" },
+                { "answer": "几" },
+                { "answer": "号" }
+            ],
+            "words": ["日", "几", "几", "号", "你", "月", "生", "是", "的"]
+        },
+        {
+            "id": 392,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736167/290_ktdgrt.mp3",
+            "sentence": "My birthday is October 18th, and it happens to be a Saturday.<br>___ ___ ___ ___ ___ ___ ___ ___ ___ ___, ___ ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "我" },
+                { "answer": "的" },
+                { "answer": "生" },
+                { "answer": "日" },
+                { "answer": "是" },
+                { "answer": "十" },
+                { "answer": "月" },
+                { "answer": "十" },
+                { "answer": "八" },
+                { "answer": "号" },
+                { "answer": "正" },
+                { "answer": "好" },
+                { "answer": "是" },
+                { "answer": "星" },
+                { "answer": "期" },
+                { "answer": "六" }
+            ],
+            "words": ["星", "是", "十", "八", "正", "的", "好", "号", "我", "六", "期", "生", "日", "是", "十", "月"]
+        },
+        {
+            "id": 393,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736167/291_jqui2p.mp3",
+            "sentence": "Really? How are you planning to celebrate?<br>___ ___? ___ ___ ___ ___ ___ ___？",
+            "blanks": [
+                { "answer": "是" },
+                { "answer": "吗" },
+                { "answer": "你" },
+                { "answer": "打" },
+                { "answer": "算" },
+                { "answer": "怎" },
+                { "answer": "么" },
+                { "answer": "过" }
+            ],
+            "words": ["吗", "么", "怎", "打", "是", "算", "你", "过"]
+        },
+        {
+            "id": 394,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736168/292_fb4zvz.mp3",
+            "sentence": "I’m going to hold a birthday party.<br>___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "我" },
+                { "answer": "准" },
+                { "answer": "备" },
+                { "answer": "举" },
+                { "answer": "行" },
+                { "answer": "一" },
+                { "answer": "个" },
+                { "answer": "生" },
+                { "answer": "日" },
+                { "answer": "晚" },
+                { "answer": "会" }
+            ],
+            "words": ["一", "举", "日", "备", "个", "准", "会", "生", "行", "晚", "我"]
+        },
+        {
+            "id": 395,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737226/%E6%9C%88_vnr5qy.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1756797896/%E6%9C%88-min_you4hm.png", "： ___ "],
+            "blanks": [
+                { "answer": "月" }
+                
+            ],
+            "words": ["号", "时间", "点", "月"]
+        },
+        {
+            "id": 396,
+            "audio": "",
+            "sentence": "date in a month: ___",
+            "blanks": [
+                { "answer": "号" }
+
+            ],
+            "words": ["号", "时间", "点", "月"]
+        },
+        {
+            "id": 397,
+            "audio": "",
+            "sentence": "happen to; just right: ___",
+            "blanks": [
+                { "answer": "正好" }
+
+            ],
+            "words": ["号", "正好", "点", "月"]
+        },
+        {
+            "id": 398,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737221/%E6%89%93%E7%AE%97_x21hqg.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1756797896/%E6%89%93%E7%AE%97-min_z0ukqi.png", "： ___ "],
+            "blanks": [
+                { "answer": "打算" }
+                
+            ],
+            "words": ["代表", "学习", "打算", "举行"]
+        },
+        {
+            "id": 399,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737197/%E4%B8%BE%E8%A1%8C_sv4e9d.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1756798813/%E4%B8%BE%E8%A1%8C-min_bp2nmi.png", "： ___ "],
+            "blanks": [
+                { "answer": "举行" }
+                
+            ],
+            "words": ["代表", "学习", "打算", "举行"]
+        },
+        {
+            "id": 400,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737225/%E6%99%9A%E4%BC%9A_dndzbp.mp3",
+            "sentence": "晚会： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797896/%E6%99%9A%E4%BC%9A-min_bwafyb.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1756797896/%E6%99%9A%E4%BC%9A-min_bwafyb.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797894/%E5%8F%82%E5%8A%A0-min_hptkve.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1744211171/%E6%97%B6%E5%80%99-min_evv5dh.png"]
+        },
+        {
+            "id": 401,
+            "audio": "",
+            "sentence": "to join; to participate: ___",
+            "blanks": [
+                { "answer": "参加" }
+
+            ],
+            "words": ["参加", "正好", "点种", "举行"]
+        },
+        {
+            "id": 402,
+            "audio": "",
+            "sentence": "exactly; precisely: ___",
+            "blanks": [
+                { "answer": "就" }
+
+            ],
+            "words": ["参加", "就", "点种", "举行"]
         }
     ]
 }
+
 
 
 
