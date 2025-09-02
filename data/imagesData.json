@@ -3394,7 +3394,7 @@
     {
         "id": "425",
         "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797894/%E5%A4%9A-min_zz01ka.png",
-        "character": "多",
+        "character": "多³",
         "meaning": "(used in question) how; to what extent",
         "pinyin": "duō",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160490/%E5%A4%9A_bmjqp8.mp3"
@@ -3442,7 +3442,7 @@
     {
         "id": "431",
         "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797894/%E5%8F%B7-min_yntj2b.png",
-        "character": "号",
+        "character": "号²",
         "meaning": "date in a month",
         "pinyin": "hào",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175244/%E5%8F%B7_zgfixg.mp3"
@@ -3568,6 +3568,7 @@
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737220/%E5%BF%AB%E4%B9%90_nxv68y.mp3"
     }
 ]
+
 
 
 
