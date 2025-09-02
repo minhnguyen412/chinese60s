@@ -2559,7 +2559,7 @@
         "id": 285, 
         "user": "A", 
         "title": "你今年多大？", 
-        "segments": ["你", "今年", "多", "大", "？"],
+        "segments": ["你", "今年", "多大", "？"],
         "description": "Nǐ jīnnián duōdà?<br>How old are you this year?", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753432295/roland_xvp4bn.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736166/285_iacapi.mp3"
@@ -2595,7 +2595,7 @@
         "id": 289, 
         "user": "A", 
         "title": "你的生日是几月几号？", 
-        "segments": ["你", "的", "生日", "是", "几", "月", "几", "号", "？"],
+        "segments": ["你", "的", "生日", "是", "几", "月", "几", "号²", "？"],
         "description": "Nǐ de shēngrì shì jǐ yuè jǐ hào?<br>When is your birthday?", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736167/289_njy1j0.mp3"
@@ -2604,7 +2604,7 @@
         "id": 290, 
         "user": "B", 
         "title": "我的生日是十月十八号，正好是星期六。", 
-        "segments": ["我", "的", "生日", "是", "十", "月", "十", "八", "号", "，", "正好", "是", "星期", "六", "。"],
+        "segments": ["我", "的", "生日", "是", "十", "月", "十", "八", "号²", "，", "正好", "是", "星期", "六", "。"],
         "description": "Wǒ de shēngrì shì shí yuè shíbā hào, zhènghǎo shì xīngqíliù.<br>My birthday is October 18th, and it happens to be a Saturday.", 
         "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1737017372/mary-2_qzxzd4.png", 
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736167/290_ktdgrt.mp3"
@@ -2691,6 +2691,7 @@
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736166/299_hmpbzl.mp3"
     }
 ]
+
 
 
 
