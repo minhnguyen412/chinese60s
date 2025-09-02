@@ -4272,8 +4272,247 @@
                 
             ],
             "words": ["火", "木", "水", "花"]
+        },
+        {
+            "id": 362,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696628/262_wq7qic.mp3",
+            "sentence": "I’d like to take a look at the down jackets.<br>___ ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "我" },
+                { "answer": "看" },
+                { "answer": "看" },
+                { "answer": "羽" },
+                { "answer": "绒" },
+                { "answer": "服" }
+            ],
+            "words": ["服", "羽", "我", "看", "看", "绒"]
+        },
+        {
+            "id": 363,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696629/263_i2riaf.mp3",
+            "sentence": "What do you think of this one?<br>___ ___ ___ ___ ___ ___ ___ ___?",
+            "blanks": [
+                { "answer": "你" },
+                { "answer": "看" },
+                { "answer": "看" },
+                { "answer": "这" },
+                { "answer": "件" },
+                { "answer": "怎" },
+                { "answer": "么" },
+                { "answer": "样" }
+            ],
+            "words": ["么", "样", "看", "你", "看", "件", "怎", "这"]
+        },
+        {
+            "id": 364,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696629/263_i2riaf.mp3",
+            "sentence": "It’s nice and cheap.<br>___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "又" },
+                { "answer": "好" },
+                { "answer": "又" },
+                { "answer": "便" },
+                { "answer": "宜" }
+            ],
+            "words": ["宜", "又", "好", "又", "便"]
+        },
+        {
+            "id": 365,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696632/265_tngxjt.mp3",
+            "sentence": "This one is a little long.<br>___ ___ ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "这" },
+                { "answer": "件" },
+                { "answer": "有" },
+                { "answer": "一" },
+                { "answer": "点" },
+                { "answer": "儿" },
+                { "answer": "长" }
+            ],
+            "words": ["点", "一", "件", "这", "长", "儿", "有"]
+        },
+        {
+            "id": 366,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696631/267_b9wugc.mp3",
+            "sentence": "Do you want a dark color or a light color?<br>___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___?",
+            "blanks": [
+                { "answer": "你" },
+                { "answer": "要" },
+                { "answer": "深" },
+                { "answer": "颜" },
+                { "answer": "色" },
+                { "answer": "的" },
+                { "answer": "还" },
+                { "answer": "是" },
+                { "answer": "要" },
+                { "answer": "浅" },
+                { "answer": "颜" },
+                { "answer": "色" },
+                { "answer": "的" }
+            ],
+            "words": ["的", "是", "还", "要", "颜", "深", "色", "颜", "浅", "要", "色", "你", "的"]
+        },
+        {
+            "id": 367,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696630/269_gj51ov.mp3",
+            "sentence": "Can I try it on?<br>___ ___ ___ ___ ___ ___?",
+            "blanks": [
+                { "answer": "我" },
+                { "answer": "试" },
+                { "answer": "试" },
+                { "answer": "可" },
+                { "answer": "以" },
+                { "answer": "吗" }
+            ],
+            "words": ["试", "可", "以", "我", "试", "吗"]
+        },
+        {
+            "id": 368,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696629/274_ngxwfy.mp3",
+            "sentence": "How much is this kind of down jacket?<br>___ ___ ___ ___ ___ ___ ___ ___?",
+            "blanks": [
+                { "answer": "这" },
+                { "answer": "种" },
+                { "answer": "羽" },
+                { "answer": "绒" },
+                { "answer": "服" },
+                { "answer": "怎" },
+                { "answer": "么" },
+                { "answer": "卖" }
+            ],
+            "words": ["绒", "种", "么", "服", "羽", "卖", "这", "怎"]
+        },
+        {
+            "id": 369,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696629/274_ngxwfy.mp3",
+            "sentence": "But I can give you a 20% discount, so you can take it for 320.<br>___ ___ ___ ___ ___, ___ ___ ___ ___ ___ ___。",
+            "blanks": [
+                { "answer": "可" },
+                { "answer": "以" },
+                { "answer": "打" },
+                { "answer": "八" },
+                { "answer": "折" },
+                { "answer": "你" },
+                { "answer": "给" },
+                { "answer": "三" },
+                { "answer": "百" },
+                { "answer": "二" },
+                { "answer": "吧" }
+            ],
+            "words": ["打", "吧", "折", "百", "你", "以", "二", "八", "三", "给", "可"]
+        },
+        {
+            "id": 370,
+            "audio": "",
+            "sentence": "inexpensive; cheap: ___",
+            "blanks": [
+                { "answer": "便宜" }
+
+            ],
+            "words": ["贵", "打折", "免费", "便宜"]
+        },
+        {
+            "id": 371,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696650/%E9%95%BF_omg1dd.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1755824084/%E9%95%BF-min_a1hq1d.png", "： ___ "],
+            "blanks": [
+                { "answer": "长" }
+                
+            ],
+            "words": ["浅", "长", "深", "短"]
+        },
+        {
+            "id": 372,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696649/%E7%9F%AD_qltb04.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1755824083/%E7%9F%AD-min_lpvpom.png", "： ___ "],
+            "blanks": [
+                { "answer": "短" }
+                
+            ],
+            "words": ["浅", "长", "深", "短"]
+        },
+        {
+            "id": 373,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696645/%E6%B7%B1_ddzji6.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1755824082/%E6%B7%B1-min_pix9ws.png", "： ___ "],
+            "blanks": [
+                { "answer": "深" }
+                
+            ],
+            "words": ["浅", "长", "深", "短"]
+        },
+        {
+            "id": 374,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696644/%E6%B5%85_ktbyhw.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1755824082/%E6%B5%85-min_yiuvy6.png", "： ___ "],
+            "blanks": [
+                { "answer": "浅" }
+                
+            ],
+            "words": ["浅", "长", "深", "短"]
+        },
+        {
+            "id": 375,
+            "audio": "",
+            "sentence": "certainly; of course; without doubt: ___",
+            "blanks": [
+                { "answer": "当然" }
+
+            ],
+            "words": ["当然", "马马虎虎", "可以", "好"]
+        },
+        {
+            "id": 376,
+            "audio": "",
+            "sentence": "may; can: ___",
+            "blanks": [
+                { "answer": "可以" }
+
+            ],
+            "words": ["当然", "马马虎虎", "可以", "好"]
+        },
+        {
+            "id": 377,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696649/%E8%82%A5_buynnx.mp3",
+            "sentence": "肥： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1755865894/%E8%82%A5-min_pdn1ou.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1755865894/%E8%82%A5-min_pdn1ou.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1755865894/%E7%98%A6-min_vmegqu.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1755824082/%E5%A5%BD%E7%9C%8B-min_jxfkkk.png"]
+        },
+        {
+            "id": 378,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696648/%E7%98%A6_buirfo.mp3",
+            "sentence": "瘦： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1755865894/%E7%98%A6-min_vmegqu.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1755865894/%E8%82%A5-min_pdn1ou.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1755865894/%E7%98%A6-min_vmegqu.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1755824082/%E5%A5%BD%E7%9C%8B-min_jxfkkk.png"]
+        },
+        {
+            "id": 379,
+            "audio": "",
+            "sentence": "fit; suitable: ___",
+            "blanks": [
+                { "answer": "合适" }
+
+            ],
+            "words": ["肥", "瘦", "长", "合适"]
+        },
+        {
+            "id": 380,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696644/%E6%89%93%E6%8A%98_uhcrcj.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1755824083/%E6%89%93%E6%8A%98-min_jvoy0a.png", "： ___ "],
+            "blanks": [
+                { "answer": "打折" }
+                
+            ],
+            "words": ["打折", "贵", "买东西", "超市"]
         }
     ]
 }
+
 
 
