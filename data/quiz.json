@@ -4510,9 +4510,120 @@
                 
             ],
             "words": ["打折", "贵", "买东西", "超市"]
+        },
+        {
+            "id": 381,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736166/282_v3qeth.mp3",
+            "sentence": "What year will you graduate from university?<br>___ ___ ___ ___ ___ ___ ___ ___?",
+            "blanks": [
+                { "answer": "你" },
+                { "answer": "哪" },
+                { "answer": "一" },
+                { "answer": "年" },
+                { "answer": "大" },
+                { "answer": "学" },
+                { "answer": "毕" },
+                { "answer": "业" }
+            ],
+            "words": ["学", "你", "哪", "业", "一", "大", "毕", "年"]
+        },
+        {
+            "id": 382,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736166/285_iacapi.mp3",
+            "sentence": "How old are you this year?<br>___ ___ ___ ___ ___?",
+            "blanks": [
+                { "answer": "你" },
+                { "answer": "今" },
+                { "answer": "年" },
+                { "answer": "多" },
+                { "answer": "大" }
+            ],
+            "words": ["今", "大", "多", "你", "年"]
+        },
+        {
+            "id": 383,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736167/288_szjm0p.mp3",
+            "sentence": "I was born in the year of the dog.<br>___ ___ ___。",
+            "blanks": [
+                { "answer": "属" },
+                { "answer": "狗" },
+                { "answer": "的" }
+            ],
+            "words": ["狗", "属", "的"]
+        },
+        {
+            "id": 384,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737229/%E6%AF%95%E4%B8%9A_anbtyn.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1756797896/%E6%AF%95%E4%B8%9A-min_fkgie7.png", "： ___ "],
+            "blanks": [
+                { "answer": "毕业" }
+                
+            ],
+            "words": ["大学", "学校", "老师", "毕业"]
+        },
+        {
+            "id": 385,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737223/%E6%98%8E%E5%B9%B4_ysz1hp.mp3",
+            "sentence": "明年： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797895/%E6%98%8E%E5%B9%B4-min_vnx241.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1756797895/%E5%90%8E%E5%B9%B4-min_fsw3ui.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797895/%E6%98%8E%E5%B9%B4-min_vnx241.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797894/%E5%8E%BB%E5%B9%B4-min_tdseps.png"]
+        },
+        {
+            "id": 386,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737210/%E5%90%8E%E5%B9%B4_tlb5go.mp3",
+            "sentence": "后年： ___ ",
+            "blanks": [
+                { "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797895/%E5%90%8E%E5%B9%B4-min_fsw3ui.png" }
+                
+            ],
+            "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1756797895/%E5%90%8E%E5%B9%B4-min_fsw3ui.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797895/%E6%98%8E%E5%B9%B4-min_vnx241.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797894/%E5%8E%BB%E5%B9%B4-min_tdseps.png"]
+        },
+        {
+            "id": 387,
+            "audio": "",
+            "sentence": "...years old: ___",
+            "blanks": [
+                { "answer": "岁" }
+
+            ],
+            "words": ["老", "年轻", "岁", "新"]
+        },
+        {
+            "id": 388,
+            "audio": "",
+            "sentence": "how old: ___",
+            "blanks": [
+                { "answer": "多大" }
+
+            ],
+            "words": ["多久", "多大", "多少", "多小"]
+        },
+        {
+            "id": 389,
+            "audio": "",
+            "sentence": "to be born in the year of: ___",
+            "blanks": [
+                { "answer": "属" }
+
+            ],
+            "words": ["给", "帮", "替", "属"]
+        },
+        {
+            "id": 390,
+            "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737232/%E7%8B%97_i08psq.mp3",
+            "sentence": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1756797896/%E7%8B%97-min_xt3trt.png", "： ___ "],
+            "blanks": [
+                { "answer": "狗" }
+                
+            ],
+            "words": ["狗", "猪", "蛇", "样"]
         }
     ]
 }
+
 
 
 
