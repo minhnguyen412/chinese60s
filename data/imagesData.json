@@ -3342,8 +3342,233 @@
         "meaning": "to sell at a discount; to give a discount",
         "pinyin": "dǎzhé",
         "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696644/%E6%89%93%E6%8A%98_uhcrcj.mp3"
+    },
+    {
+        "id": "419",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797895/%E5%B9%B4-min_ytznzv.png",
+        "character": "年",
+        "meaning": "year",
+        "pinyin": "nián",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737218/%E5%B9%B4_dzwbdq.mp3"
+    },
+    {
+        "id": "420",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756798813/%E4%BB%8A%E5%B9%B4-min_gwviux.png",
+        "character": "今年",
+        "meaning": "this year",
+        "pinyin": "jīnnián",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737201/%E4%BB%8A%E5%B9%B4_mkbrzm.mp3"
+    },
+    {
+        "id": "421",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797895/%E6%98%8E%E5%B9%B4-min_vnx241.png",
+        "character": "明年",
+        "meaning": "next year",
+        "pinyin": "míngnián",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737223/%E6%98%8E%E5%B9%B4_ysz1hp.mp3"
+    },
+    {
+        "id": "422",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797895/%E5%90%8E%E5%B9%B4-min_fsw3ui.png",
+        "character": "后年",
+        "meaning": "the year after next",
+        "pinyin": "hòunián",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737210/%E5%90%8E%E5%B9%B4_tlb5go.mp3"
+    },
+    {
+        "id": "423",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797894/%E5%8E%BB%E5%B9%B4-min_tdseps.png",
+        "character": "去年",
+        "meaning": "last year",
+        "pinyin": "qùnián",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737205/%E5%8E%BB%E5%B9%B4_vdtr2r.mp3"
+    },
+    {
+        "id": "424",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797896/%E6%AF%95%E4%B8%9A-min_fkgie7.png",
+        "character": "毕业",
+        "meaning": "to graduate",
+        "pinyin": "bì yè",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737229/%E6%AF%95%E4%B8%9A_anbtyn.mp3"
+    },
+    {
+        "id": "425",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797894/%E5%A4%9A-min_zz01ka.png",
+        "character": "多",
+        "meaning": "(used in question) how; to what extent",
+        "pinyin": "duō",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160490/%E5%A4%9A_bmjqp8.mp3"
+    },
+    {
+        "id": "426",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797895/%E5%A4%9A%E5%A4%A7-min_ndipxb.png",
+        "character": "多大",
+        "meaning": "how old",
+        "pinyin": "duō dà",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737213/%E5%A4%9A%E5%A4%A7_baou67.mp3"
+    },
+    {
+        "id": "427",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797895/%E5%B2%81-min_xrixks.png",
+        "character": "岁",
+        "meaning": "...years old",
+        "pinyin": "suì",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737217/%E5%B2%81_uhwffo.mp3"
+    },
+    {
+        "id": "428",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797896/%E5%B1%9E-min_uv7pga.png",
+        "character": "属",
+        "meaning": "to be born in the year of",
+        "pinyin": "shǔ",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737216/%E5%B1%9E_w2mcjg.mp3"
+    },
+    {
+        "id": "429",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797896/%E7%8B%97-min_xt3trt.png",
+        "character": "狗",
+        "meaning": "dog",
+        "pinyin": "gǒu",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737232/%E7%8B%97_i08psq.mp3"
+    },
+    {
+        "id": "430",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797896/%E6%9C%88-min_you4hm.png",
+        "character": "月",
+        "meaning": "month",
+        "pinyin": "yuè",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737226/%E6%9C%88_vnr5qy.mp3"
+    },
+    {
+        "id": "431",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797894/%E5%8F%B7-min_yntj2b.png",
+        "character": "号",
+        "meaning": "date in a month",
+        "pinyin": "hào",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175244/%E5%8F%B7_zgfixg.mp3"
+    },
+    {
+        "id": "432",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797947/%E7%94%9F%E6%97%A5-min_qjjqu1.png",
+        "character": "生日",
+        "meaning": "birthday",
+        "pinyin": "shēngri",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737234/%E7%94%9F%E6%97%A5_bbgidz.mp3"
+    },
+    {
+        "id": "433",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797896/%E6%AD%A3%E5%A5%BD-min_egs6e5.png",
+        "character": "正好",
+        "meaning": "happen to; just right",
+        "pinyin": "zhènghǎo",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737227/%E6%AD%A3%E5%A5%BD_vaxyit.mp3"
+    },
+    {
+        "id": "434",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797896/%E6%89%93%E7%AE%97-min_z0ukqi.png",
+        "character": "打算",
+        "meaning": "to intend; plan",
+        "pinyin": "dǎsuan",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737221/%E6%89%93%E7%AE%97_x21hqg.mp3"
+    },
+    {
+        "id": "435",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756798813/%E8%BF%87-min_lgzmwx.png",
+        "character": "过",
+        "meaning": "to celebrate; to spend (a holiday); to pass (time)",
+        "pinyin": "guò",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737236/%E8%BF%87_bxqk3j.mp3"
+    },
+    {
+        "id": "436",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756798815/%E5%87%86%E5%A4%87-min_iyhzjm.png",
+        "character": "准备",
+        "meaning": "to prepare",
+        "pinyin": "zhǔnbèi",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737203/%E5%87%86%E5%A4%87_nvaely.mp3"
+    },
+    {
+        "id": "437",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756798813/%E4%B8%BE%E8%A1%8C-min_bp2nmi.png",
+        "character": "举行",
+        "meaning": "to hold",
+        "pinyin": "jǔxíng",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737197/%E4%B8%BE%E8%A1%8C_sv4e9d.mp3"
+    },
+    {
+        "id": "438",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797896/%E6%99%9A%E4%BC%9A-min_bwafyb.png",
+        "character": "晚会",
+        "meaning": "evening party",
+        "pinyin": "wǎnhuì",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737225/%E6%99%9A%E4%BC%9A_dndzbp.mp3"
+    },
+    {
+        "id": "439",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797894/%E5%8F%82%E5%8A%A0-min_hptkve.png",
+        "character": "参加",
+        "meaning": "to join; to participate",
+        "pinyin": "cānjiā",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737207/%E5%8F%82%E5%8A%A0_v0lql0.mp3"
+    },
+    {
+        "id": "440",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1744211171/%E6%97%B6%E5%80%99-min_evv5dh.png",
+        "character": "时间",
+        "meaning": "time",
+        "pinyin": "shíjiān",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737222/%E6%97%B6%E9%97%B4_ihd2vv.mp3"
+    },
+    {
+        "id": "441",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672808/%E4%B8%AD%E5%8D%88_x92kat.png",
+        "character": "点",
+        "meaning": "o'clock",
+        "pinyin": "diǎn",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737230/%E7%82%B9_o0aa3f.mp3"
+    },
+    {
+        "id": "442",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1744211172/%E7%8E%B0%E5%9C%A8-min_qhz4a4.png",
+        "character": "点钟",
+        "meaning": "o'clock",
+        "pinyin": "diǎn zhōng",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737231/%E7%82%B9%E9%92%9F_vmobb6.mp3"
+    },
+    {
+        "id": "443",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797895/%E5%B0%B1-min_nwgfpw.png",
+        "character": "就",
+        "meaning": "exactly; precisely",
+        "pinyin": "jiù",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737214/%E5%B0%B1_e3p4ss.mp3"
+    },
+    {
+        "id": "444",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756798813/%E4%B8%80%E5%AE%9A-min_xg0c3c.png",
+        "character": "一定",
+        "meaning": "surely; definitely; certainly",
+        "pinyin": "yídìng",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737214/%E5%B0%B1_e3p4ss.mp3"
+    },
+    {
+        "id": "445",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797897/%E7%A5%9D-min_rk9uti.png",
+        "character": "祝",
+        "meaning": "to wish",
+        "pinyin": "zhù",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737235/%E7%A5%9D_jtc1uw.mp3"
+    },
+    {
+        "id": "446",
+        "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797895/%E5%BF%AB%E4%B9%90-min_pkwkb9.png",
+        "character": "快乐",
+        "meaning": "happy; joyful; cheerful",
+        "pinyin": "kuàilè",
+        "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737220/%E5%BF%AB%E4%B9%90_nxv68y.mp3"
     }
 ]
+
 
 
 
