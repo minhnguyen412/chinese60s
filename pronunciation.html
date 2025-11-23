@@ -55,12 +55,6 @@ body {
     .right-panel {
         flex-direction: column; /* cột thanh mẫu và vận mẫu rớt xuống */
     }
-    .phoneme-box audio {
-        transform: scale(0.5);
-        transform-origin: left center;
-        height: 18px !important;
-        width: 5px !important;
-    }
 }
 
 @media (max-width: 480px) {
@@ -101,8 +95,21 @@ body {
     align-items:center;
 }
 .phoneme-box audio {
-    width: 180px;
-    height: 25px;
+    display: none;
+}
+/* Style nút Play mới */
+.play-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 3px 60px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.play-btn:active {
+    opacity: 0.7;
 }
 .phoneme-images {
     display: flex;          /* xếp hình ngang */
@@ -133,6 +140,30 @@ canvas{border:1px solid #ccc;background:#fff;display:block;margin-bottom:8px;}
 label{margin-right:8px;}
 </style>
 </head>
+<script>
+window.onload = function () {
+
+    document.querySelectorAll(".phoneme-box").forEach(box => {
+        const audio = box.querySelector("audio");
+        if (!audio) return;
+
+        // Tạo nút Play
+        const btn = document.createElement("button");
+        btn.className = "play-btn";
+        btn.textContent = "► Play";
+
+        btn.addEventListener("click", () => {
+            audio.currentTime = 0;
+            audio.play();
+        });
+
+        // chèn nút vào header
+        const header = box.querySelector(".phoneme-header");
+        header.appendChild(btn);
+    });
+
+};
+</script>
 <body>
 <!-- LEFT: CANVAS + CONTROLS -->
 <div class="left-panel">
@@ -981,6 +1012,7 @@ loadAllLayers();
 
 </body>
 </html>
+
 
 
 
