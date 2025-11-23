@@ -140,30 +140,6 @@ canvas{border:1px solid #ccc;background:#fff;display:block;margin-bottom:8px;}
 label{margin-right:8px;}
 </style>
 </head>
-<script>
-window.onload = function () {
-
-    document.querySelectorAll(".phoneme-box").forEach(box => {
-        const audio = box.querySelector("audio");
-        if (!audio) return;
-
-        // Tạo nút Play
-        const btn = document.createElement("button");
-        btn.className = "play-btn";
-        btn.textContent = "► Play";
-
-        btn.addEventListener("click", () => {
-            audio.currentTime = 0;
-            audio.play();
-        });
-
-        // chèn nút vào header
-        const header = box.querySelector(".phoneme-header");
-        header.appendChild(btn);
-    });
-
-};
-</script>
 <body>
 <!-- LEFT: CANVAS + CONTROLS -->
 <div class="left-panel">
@@ -1009,7 +985,19 @@ function playAnim(timestamp) {
 loadAllLayers();
 
 </script>
-
+<script>
+window.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".phoneme-box").forEach(box => 
+        box.querySelector(".phoneme-header").appendChild(
+            Object.assign(document.createElement("button"), {
+                className: "play-btn",
+                textContent: "► Play",
+                onclick: () => box.querySelector("audio")?.play()
+            })
+        )
+    );
+});
+</script>
 </body>
 </html>
 
