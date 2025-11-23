@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Preloaded Multi-layer Rig Editor</title>
+<style>
+body {
+    font-family:sans-serif;
+    margin:16px;
+    display:flex;
+    justify-content: center;   /* Căn giữa ngang */
+    align-items: flex-start;
+    gap:20px;
+    background-image: url('3.png'); /* Đường dẫn đến ảnh */
+    background-size: cover; /* Ảnh phủ toàn bộ màn hình */
+    background-position: center; /* Căn giữa */
+    background-repeat: no-repeat; /* Không lặp lại ảnh */
+    background-attachment: fixed;
+    flex-wrap: wrap;
+}
+
+/* Canvas bên trái */
+.left-panel {
+    flex: 0 0 auto;
+    max-width: 620px;
+    
+}
+
+/* Container chứa PDF + panel phải */
+.right-panel-container {
+    display: flex;
+    flex-direction: column; /* pdf-ad nằm trên right-panel */
+    gap: 10px;
+    
+}
+
+/* Right panel mặc định */
+.right-panel {
+    display: flex;
+    flex-direction: row; /* 2 cột cạnh nhau */
+    gap: 20px;
+    max-height: 600px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 8px;
+    background-color: white;
+}
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column; /* left-panel xuống trên, right-panel-container xuống dưới */
+        align-items: center;
+    }
+    
+    .right-panel {
+        flex-direction: column; /* cột thanh mẫu và vận mẫu rớt xuống */
+    }
+    
+}
+
+@media (max-width: 480px) {
+    body {
+        flex-direction: column;
+        align-items: center;
+    }
+    .right-panel-container {
+        width: 100%;
+    }
+    .right-panel {
+        flex-direction: column;
+    }
+    .column {
+        width: 100%;
+    }
+}
+/* Mỗi cột */
+.column {
+    width:220px; 
+}
+
+.column h3 {
+    margin-top:0;
+}
+
+/* Mỗi item âm */
+.phoneme-box {
+    border:1px solid #ddd;
+    padding:8px;
+    margin-bottom:12px;
+    border-radius:8px;
+}
+
+.phoneme-header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.phoneme-box audio {
+    width: 180px;
+    height: 25px;
+}
+.phoneme-images {
+    display: flex;          /* xếp hình ngang */
+    flex-wrap: wrap;        /* xuống hàng nếu quá rộng */
+    gap: 4px;
+    width: 200px;           /* hoặc width mong muốn */
+    height: 100px;          /* chiều cao khung */
+    border: 1px solid #ddd; /* viền khung */
+    padding: 4px;
+    overflow: hidden;       /* ẩn phần tràn */
+    justify-content: center; /* căn giữa hình nếu muốn */
+    align-items: center;     /* căn giữa theo chiều dọc */
+}
+
+.phoneme-images img {
+    max-width: 100%;   /* không vượt quá khung */
+    max-height: 100%;  /* không vượt quá khung */
+    object-fit: contain; /* giữ tỉ lệ hình */
+    flex: 1 1 auto;    /* co giãn nếu cần */
+}
+.tone-chart p {
+    max-width: 200px;   /* GIỚI HẠN ĐỘ RỘNG */
+    
+    line-height: 1.4;   /* nhìn thoáng hơn */
+}
+canvas{border:1px solid #ccc;background:#fff;display:block;margin-bottom:8px;}
+.controls{margin-bottom:12px;}
+label{margin-right:8px;}
+</style>
+</head>
+<body>
+<!-- LEFT: CANVAS + CONTROLS -->
+<div class="left-panel">
+    <h1><a href="index.html" class="homepage-link">CHINESE 60s</a></h1>
+    <h2>Mandarin Chinese Pronunciation Guide</h2>
+    <canvas id="canvas" width="500" height="500"></canvas>
+
+    <div class="controls">
+      <select id="layerSelect">
+        <option value="">--Select Layer--</option>
+      </select>
+      <label>Rotate: <span id="rotVal">0°</span></label>
+      <input type="range" id="rotSlider" min="-180" max="180" value="0">
+      <input type="number" id="rotInput" min="-180" max="180" value="0" style="width:50px">
+      <button id="resetBtn">Reset All</button>
+      <br><br>
+      <button id="setStartBtn">Set Keyframe Start</button>
+      <button id="setEndBtn">Set Keyframe End</button>
+      <button id="playBtn">Play</button>
+      <button id="loopBtn">Loop On/Off</button>
+    </div>
+
+    <div>
+      <p>PivotPixel: <span id="pivotPixel">N/A</span></p>
+      <p>Anchor: <span id="anchorVal">N/A</span></p>
+    </div>
+
+</div>
+
+<!-- RIGHT: 2 COLUMN PHONETICS -->
+<div class="right-panel-container">
+  <div class="pdf-ad">
+    <h3>PDF for learning Mandarin Chinese pronunciation</h3>
+    <div class="pdf-item">
+      <img src="img/pdf-cover.png" alt="PDF Cover" style="width:100px;height:auto;">
+      <div>
+        <p><a href="https://example.com/buy-pdf" target="_blank">BUY NOW!!!</a></p>
+        <p>Price: $10</p>
+      </div>
+    </div>
+  </div>
+<div class="right-panel">
+  
+    <!-- COLUMN 1: Thanh mẫu -->
+    <div class="column">
+        <h3>Initials</h3>
+
+        <!-- Mẫu demo, mày thêm bao nhiêu tùy thích -->
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>b</strong>
+                <audio controls src="yuyin/audio/b.mp3"></audio>
+            </div>
+            <div class="phoneme-images">
+                <img src="yuyin/b.png">
+                
+            </div>
+        </div>
+
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>p</strong>
+                <audio controls src="yuyin/audio/p.mp3"></audio>
+            </div>
+            <div class="phoneme-images">
+                <img src="yuyin/p.png">
+                
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>m</strong>
+                <audio controls src="yuyin/audio/m.mp3"></audio>
+            </div>
+            <div class="phoneme-images">
+                <img src="yuyin/m.gif">
+                
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>f</strong>
+                <audio controls src="yuyin/audio/f.mp3"></audio>
+            </div>
+            <div class="phoneme-images">
+                <img src="yuyin/f.gif">
+                
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>d</strong>
+                <audio controls src="yuyin/audio/d.mp3"></audio>
+            </div>
+            <div class="phoneme-images">
+                <img src="yuyin/d.gif">
+                
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>t</strong>
+                <audio controls src="yuyin/audio/t.mp3"></audio>
+            </div>
+            <div class="phoneme-images">
+                <img src="yuyin/t.gif">
+                
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>n</strong>
+                <audio controls src="yuyin/audio/n.mp3"></audio>
+            </div>
+            <div class="phoneme-images">
+                <img src="yuyin/n.gif">
+                
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>l</strong>
+                <audio controls src="yuyin/audio/l.mp3"></audio>
+            </div>
+            <div class="phoneme-images">
+                <img src="yuyin/l.gif">
+                
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>g</strong>
+                <audio controls src="yuyin/audio/g.mp3"></audio>
+            </div>
+            <div class="phoneme-images">
+                <img src="yuyin/g.gif">
+                
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>k</strong>
+                <audio controls src="yuyin/audio/k.mp3"></audio>
+            </div>
+            <div class="phoneme-images">
+                <img src="yuyin/k.jpg">
+                
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>h</strong>
+                <audio controls src="yuyin/audio/h.mp3"></audio>
+            </div>
+            <div class="phoneme-images">
+                <img src="yuyin/h.jpg">
+                
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>j</strong>
+                <audio controls src="yuyin/audio/j.mp3"></audio>
+            </div>
+            <div class="phoneme-images">
+                <img src="yuyin/j.gif">
+                
+            </div>
+        </div>
+
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>q</strong>
+                <audio controls src="yuyin/audio/q.mp3"></audio>
+            </div>
+            <div class="phoneme-images">
+                <img src="yuyin/q.gif">
+                
+            </div>
+        </div>
+
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>x</strong>
+                <audio controls src="yuyin/audio/x.mp3"></audio>
+            </div>
+            <div class="phoneme-images">
+                <img src="yuyin/x.gif">
+                
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>z</strong>
+                <audio controls src="yuyin/audio/z.mp3"></audio>
+            </div>
+            <div class="phoneme-images">
+                <img src="yuyin/zcs.png">
+                
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>c</strong>
+                <audio controls src="yuyin/audio/c.mp3"></audio>
+            </div>
+            <div class="phoneme-images">
+                <img src="yuyin/zcs.png">
+                
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>s</strong>
+                <audio controls src="yuyin/audio/s.mp3"></audio>
+            </div>
+            <div class="phoneme-images">
+                <img src="yuyin/zcs.png">
+                
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>zh</strong>
+                <audio controls src="yuyin/audio/zh.mp3"></audio>
+            </div>
+            <div class="phoneme-images">
+                <img src="yuyin/zh.gif">
+                
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>ch</strong>
+                <audio controls src="yuyin/audio/ch.mp3"></audio>
+            </div>
+            <div class="phoneme-images">
+                <img src="yuyin/ch.gif">
+                
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>sh</strong>
+                <audio controls src="yuyin/audio/sh.mp3"></audio>
+            </div>
+            <div class="phoneme-images">
+                <img src="yuyin/sh.gif">
+                
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>r</strong>
+                <audio controls src="yuyin/audio/r.mp3"></audio>
+            </div>
+            <div class="phoneme-images">
+                <img src="yuyin/r.jpg">
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- COLUMN 2: Vận mẫu -->
+    <div class="column">
+        <h3>Finals</h3>
+
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>a</strong>
+            <audio controls src="yuyin/audio/a.mp3"></audio>
+            </div>
+            <div class="phoneme-images">
+                <img src="yuyin/a.jpg">
+                
+            </div>
+        </div>
+
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>o</strong>
+            <audio controls src="yuyin/audio/o.mp3"></audio>
+            </div>
+            <div class="phoneme-images">
+                <img src="yuyin/o.jpg">
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>e</strong>
+            <audio controls src="yuyin/audio/e.mp3"></audio>
+            </div>
+            <div class="phoneme-images">
+                <img src="yuyin/e.jpg">
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>i</strong>
+            <audio controls src="yuyin/audio/i.mp3"></audio>
+            </div>
+            <div class="phoneme-images">
+                <img src="yuyin/i.jpg">
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>u</strong>
+            <audio controls src="yuyin/audio/u.mp3"></audio>
+            </div>
+            <div class="phoneme-images">
+                <img src="yuyin/u.jpg">
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>ü</strong>
+            <audio controls src="yuyin/audio/u2.mp3"></audio>
+            </div>
+            <div class="phoneme-images">
+                <img src="yuyin/u2.gif">
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>ai</strong>
+            <audio controls src="yuyin/audio/ai.mp3"></audio>
+            </div>
+            
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>ei</strong>
+            <audio controls src="yuyin/audio/ei.mp3"></audio>
+            </div>
+            
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>ao</strong>
+            <audio controls src="yuyin/audio/ao.mp3"></audio>
+            </div>
+            
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>ou</strong>
+            <audio controls src="yuyin/audio/ou.mp3"></audio>
+            </div>
+            
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>an</strong>
+            <audio controls src="yuyin/audio/an.mp3"></audio>
+            </div>
+            
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>en</strong>
+            <audio controls src="yuyin/audio/en.mp3"></audio>
+            </div>
+            
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>ang</strong>
+            <audio controls src="yuyin/audio/ang.mp3"></audio>
+            </div>
+            
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>eng</strong>
+            <audio controls src="yuyin/audio/eng.mp3"></audio>
+            </div>
+            
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>ong</strong>
+            <audio controls src="yuyin/audio/ong.mp3"></audio>
+            </div>
+            
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>ia</strong>
+            <audio controls src="yuyin/audio/ia.mp3"></audio>
+            </div>
+            <div>
+                <strong>/ya/</strong>
+            </div>
+            
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>ie</strong>
+            <audio controls src="yuyin/audio/ie.mp3"></audio>
+            </div>
+            <div>
+                <strong>/ye/</strong>
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>iao</strong>
+            <audio controls src="yuyin/audio/iao.mp3"></audio>
+            </div>
+            <div>
+                <strong>/yao/</strong>
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>iu (iou)</strong>
+            <audio controls src="yuyin/audio/iu (iou).mp3"></audio>
+            </div>
+            <div>
+                <strong>/you/</strong>
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>ian</strong>
+            <audio controls src="yuyin/audio/ian.mp3"></audio>
+            </div>
+            <div>
+                <strong>/yan/</strong>
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>in</strong>
+            <audio controls src="yuyin/audio/in.mp3"></audio>
+            </div>
+            <div>
+                <strong>/yin/</strong>
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>iang</strong>
+            <audio controls src="yuyin/audio/iang.mp3"></audio>
+            </div>
+            <div>
+                <strong>/yang/</strong>
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>ing</strong>
+            <audio controls src="yuyin/audio/ing.mp3"></audio>
+            </div>
+            <div>
+                <strong>/ying/</strong>
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>üe</strong>
+            <audio controls src="yuyin/audio/üe.mp3"></audio>
+            </div>
+            <div>
+                <strong>/yue/</strong>
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>üan</strong>
+            <audio controls src="yuyin/audio/üan.mp3"></audio>
+            </div>
+            <div>
+                <strong>/yuan/</strong>
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>ün</strong>
+            <audio controls src="yuyin/audio/ün.mp3"></audio>
+            </div>
+            <div>
+                <strong>/yun/</strong>
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>iong</strong>
+            <audio controls src="yuyin/audio/iong.mp3"></audio>
+            </div>
+            <div>
+                <strong>/yong/</strong>
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>-i</strong>
+            <audio controls src="yuyin/audio/-i.mp3"></audio>
+            </div>
+            
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>er</strong>
+            <audio controls src="yuyin/audio/er.mp3"></audio>
+            </div>
+            
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>ua</strong>
+            <audio controls src="yuyin/audio/ua.mp3"></audio>
+            </div>
+            <div>
+                <strong>/wa/</strong>
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>uo</strong>
+            <audio controls src="yuyin/audio/uo.mp3"></audio>
+            </div>
+            <div>
+                <strong>/wo/</strong>
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>uai</strong>
+            <audio controls src="yuyin/audio/uai.mp3"></audio>
+            </div>
+            <div>
+                <strong>/wai/</strong>
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>ui (uei)</strong>
+            <audio controls src="yuyin/audio/ui (uei).mp3"></audio>
+            </div>
+            <div>
+                <strong>/wei/</strong>
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>uan</strong>
+            <audio controls src="yuyin/audio/uan.mp3"></audio>
+            </div>
+            <div>
+                <strong>/wan/</strong>
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>un (uen)</strong>
+            <audio controls src="yuyin/audio/un (uen).mp3"></audio>
+            </div>
+            <div>
+                <strong>/wen/</strong>
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>uang</strong>
+            <audio controls src="yuyin/audio/uang.mp3"></audio>
+            </div>
+            <div>
+                <strong>/wang/</strong>
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>ueng</strong>
+            <audio controls src="yuyin/audio/ueng.mp3"></audio>
+            </div>
+            <div>
+                <strong>/weng/</strong>
+            </div>
+        </div>
+        <div class="phoneme-box">
+            <div class="phoneme-header">
+                <strong>-i[ƪ]</strong>
+            <audio controls src="yuyin/audio/-i[ƪ].mp3"></audio>
+            </div>
+            
+        </div>
+        
+</div>
+<div class="tone-chart">
+    <h3>Tones</h3>
+    <img src="88b9a9a.gif" alt="Bảng thanh điệu" style="width:100%;">
+    <p>Some syllables in Chinese are toneless (disregarding the tones of the characters they represent) and are pronounced light and short. These syllables are called neutralized tones or neutral tones. The pitch of a neutral tone is affected by the tone of the preceding syllable.</p>
+    <p> 3rd tone + 1st tone/2nd tone/4th tone/neutral tone-> 3rd-tone syllable becomes a half 3rd tone</p>
+    <p> 不(4th tone) + 4th tone syllable-> 不 changes to the 2nd tone</p>
+    <p> 一+ the 1st, 2nd or 3rd tone syllables-> 一 is pronounced as the 4th tonee</p>
+    <p> 一+ the 4th tone syllables -> 一 is pronounced as the 2nd tone</p>
+    <p> 3rd tone + 3rd tone + 3rd tone -> 2nd tone + 2nd tone + 3rd tone</p>
+    <p> 3rd tone + 3rd tone + 3rd tone -> 3rd tone + 2nd tone + 3rd tone</p>
+    <h3>PDF for learning<br>Mandarin Chinese<br>pronunciation</h3>
+    <img src="img/pdf-cover.png" alt="PDF Cover" style="width:100px;height:auto;">
+    <p><a href="https://example.com/buy-pdf" target="_blank">BUY NOW!!!</a></p>
+    <p>Price: $10</p>
+</div>
+
+<!-- ======================= SCRIPT RIG =============================== -->
+<script>
+/* —— TOÀN BỘ PHẦN JS CỦA MÀY GIỮ NGUYÊN —— */
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+const layerSelect = document.getElementById('layerSelect');
+const rotSlider = document.getElementById('rotSlider');
+const rotInput = document.getElementById('rotInput');
+const rotVal = document.getElementById('rotVal');
+const resetBtn = document.getElementById('resetBtn');
+const setStartBtn = document.getElementById('setStartBtn');
+const setEndBtn = document.getElementById('setEndBtn');
+const playBtn = document.getElementById('playBtn');
+const loopBtn = document.getElementById('loopBtn');
+const pivotPixelEl = document.getElementById('pivotPixel');
+const anchorEl = document.getElementById('anchorVal');
+
+const CANVAS_WIDTH = canvas.width;
+const CANVAS_HEIGHT = canvas.height;
+const ORIGINAL_IMG_SIZE = 1080;
+const SCALE = Math.min(CANVAS_WIDTH/ORIGINAL_IMG_SIZE, CANVAS_HEIGHT/ORIGINAL_IMG_SIZE);
+
+let selectedLayer = null;
+let layers = [
+  {name:'background', src:'yuyin/images/background.png', pivotX:540, pivotY:540, fixed:true},
+  {name:'frame', src:'yuyin/images/frame.png', pivotX:540, pivotY:540, fixed:true},
+  {name:'back-tongue', src:'yuyin/images/back-tongue.png', pivotX:540, pivotY:540, fixed:true},
+  {name:'lower-jaw', src:'yuyin/images/lower-jaw.png', pivotX:412, pivotY:728, parent:'back-tongue'},
+  {name:'blade-tongue', src:'yuyin/images/blade-tongue.png', pivotX:572, pivotY:585, parent:'back-tongue'},
+  {name:'tip-tongue', src:'yuyin/images/tip-tongue.png', pivotX:399, pivotY:580, parent:'blade-tongue'},
+  {name:'lower-lip', src:'yuyin/images/lower-lip.png', pivotX:215, pivotY:659, parent:'lower-jaw'},
+  {name:'hard-palate', src:'yuyin/images/hard-palate.png', pivotX:595, pivotY:485,  fixed:false},
+  {name:'soft-palate', src:'yuyin/images/soft-palate.png', pivotX:540, pivotY:540, parent:'hard-palate'},
+  {name:'upper-lip', src:'yuyin/images/upper-lip.png', pivotX:205, pivotY:530, parent:'hard-palate'},
+  {name:'uvula', src:'yuyin/images/uvula.png', pivotX:599, pivotY:485, parent:'soft-palate'},
+];
+
+// Animation
+let keyframes = [];
+let totalFrames = 24;
+let animating = false;
+let loop = false;
+let currentFrame = 0;
+
+// Load images
+function loadAllLayers(){
+  let loaded = 0;
+  layers.forEach(l=>{
+    const img = new Image();
+    img.src = l.src;
+    img.onload = ()=>{
+      l.img = img;
+      l.width = img.width;
+      l.height = img.height;
+      l.scale = SCALE;
+      l.rotation = 0;
+      const originX = CANVAS_WIDTH / 2;
+      const originY = CANVAS_HEIGHT / 2;
+      l.x = originX + (l.pivotX - 540) * SCALE;
+      l.y = originY + (l.pivotY - 540) * SCALE;
+      l.initX = l.x; l.initY = l.y; l.initRotation = l.rotation;
+      loaded++;
+      if(loaded===layers.length){ populateLayerSelect(); drawAll(); }
+    }
+  });
+}
+
+// Populate select
+function populateLayerSelect(){
+  layerSelect.innerHTML = '<option value="">--Select Layer--</option>';
+  layers.forEach(l=>{
+    if(!l.fixed){
+      const opt = document.createElement('option');
+      opt.value = l.name;
+      opt.textContent = l.name;
+      layerSelect.appendChild(opt);
+    }
+  });
+}
+
+// Update child positions
+function updateChildPositions(parent){
+  layers.forEach(l=>{
+    if(l.parent === parent.name){
+      const dx0 = l.initX - parent.initX;
+      const dy0 = l.initY - parent.initY;
+      const cos = Math.cos(parent.rotation);
+      const sin = Math.sin(parent.rotation);
+      const newDx = dx0 * cos - dy0 * sin;
+      const newDy = dx0 * sin + dy0 * cos;
+      l.x = parent.x + newDx;
+      l.y = parent.y + newDy;
+      l.rotation = parent.rotation + l.initRotation;
+      updateChildPositions(l);
+    }
+  });
+}
+
+// Draw all
+function drawAll(){
+  ctx.clearRect(0,0,CANVAS_WIDTH,CANVAS_HEIGHT);
+  layers.forEach(l=>{
+    if(!l.img) return;
+    ctx.save();
+    ctx.translate(l.x,l.y);
+    ctx.rotate(l.rotation);
+    ctx.drawImage(l.img,-l.pivotX*l.scale,-l.pivotY*l.scale,l.width*l.scale,l.height*l.scale);
+    ctx.restore();
+  });
+  updateInfo();
+}
+
+// Update info
+function updateInfo(){
+  if(!selectedLayer){ pivotPixelEl.textContent='N/A'; anchorEl.textContent='N/A'; return; }
+  pivotPixelEl.textContent=`${selectedLayer.pivotX}, ${selectedLayer.pivotY}`;
+  anchorEl.textContent=`${(selectedLayer.pivotX/selectedLayer.width).toFixed(4)}, ${(selectedLayer.pivotY/selectedLayer.height).toFixed(4)}`;
+}
+
+// Event listeners
+layerSelect.addEventListener('change', ()=>{
+  selectedLayer = layers.find(l=>l.name===layerSelect.value);
+  if(selectedLayer){
+    const deg = Math.round(selectedLayer.rotation*180/Math.PI);
+    rotSlider.value = deg;
+    rotInput.value = deg;       // đồng bộ ô input
+    rotVal.textContent = deg+'°';
+    updateInfo();
+  }
+});
+
+rotSlider.addEventListener('input', ()=>{
+  if(!selectedLayer) return;
+  const deg = Number(rotSlider.value);
+  selectedLayer.rotation = deg * Math.PI/180;
+  rotInput.value = deg;       // đồng bộ ô input
+  rotVal.textContent = deg+'°';
+  updateChildPositions(selectedLayer);
+  drawAll();
+});
+rotInput.addEventListener('change', ()=>{
+  if(!selectedLayer) return;
+  let deg = Number(rotInput.value);
+  if(isNaN(deg)) deg = 0;
+  rotInput.value = deg;        // đảm bảo giá trị hợp lệ
+  selectedLayer.rotation = deg * Math.PI/180;
+  rotSlider.value = deg;       // đồng bộ slider
+  rotVal.textContent = deg+'°';
+  updateChildPositions(selectedLayer);
+  drawAll();
+});
+resetBtn.addEventListener('click', ()=>{
+  layers.forEach(l=>{l.rotation=l.initRotation;l.x=l.initX;l.y=l.initY;});
+  drawAll();
+// Reset màu các nút keyframe về mặc định
+  setStartBtn.style.background = '';
+  setStartBtn.style.color = '';
+  setEndBtn.style.background = '';
+  setEndBtn.style.color = '';
+});
+
+// Keyframe buttons
+setStartBtn.addEventListener('click', ()=>{saveKeyframe(0, setStartBtn);});
+setEndBtn.addEventListener('click', ()=>{saveKeyframe(12, setEndBtn);});
+
+function saveKeyframe(frame, btn){
+  keyframes[frame] = layers.map(l=>({name:l.name,x:l.x,y:l.y,rotation:l.rotation}));
+  
+  // Khi đã set xong, đổi màu nút để biết
+  btn.style.background = '#4CAF50';  // xanh lá
+  btn.style.color = 'white';
+}
+
+// Interpolate frames
+function interpolateKeyframes(){
+  // Nội suy frame từ 1 đến 11
+  for(let f = 1; f < 12; f++){
+    keyframes[f] = layers.map(l => {
+      const start = keyframes[0].find(k => k.name === l.name);
+      const end   = keyframes[12].find(k => k.name === l.name);
+      const t = f / 12;
+      return {
+        name: l.name,
+        x: start.x + (end.x - start.x) * t,
+        y: start.y + (end.y - start.y) * t,
+        rotation: start.rotation + (end.rotation - start.rotation) * t
+      };
+    });
+  }
+
+  // Frame 12 = keyframe end (đã có sẵn)
+
+  // Frame 13-23: giữ nguyên frame 12 (để animation kết thúc yên)
+  for(let f = 13; f < 24; f++){
+    keyframes[f] = keyframes[12].map(v => ({...v}));
+  }
+}
+// Play animation
+playBtn.addEventListener('click',()=>{
+  if(!keyframes[0]||!keyframes[12]){alert('Set both start and end keyframes!'); return;}
+  interpolateKeyframes();
+  animating = true;
+  currentFrame = 0;
+  requestAnimationFrame(playAnim);
+});
+
+loopBtn.addEventListener('click',()=>{loop=!loop; alert('Loop: '+loop);});
+
+let lastTime = 0;
+const FPS = 24;                // FPS mong muốn
+const frameDuration = 1000/FPS;
+function playAnim(timestamp) {
+  if (!animating) return;
+
+  if (timestamp - lastTime >= frameDuration) {
+    lastTime = timestamp;
+
+    // cập nhật frame
+    const frameData = keyframes[currentFrame];
+    frameData.forEach(fd => {
+      const l = layers.find(ly => ly.name === fd.name);
+      l.x = fd.x; l.y = fd.y; l.rotation = fd.rotation;
+    });
+
+    drawAll();
+
+    currentFrame++;
+    if (currentFrame >= 24) {
+      if (loop) currentFrame = 0;
+      else { animating = false; return; }
+    }
+  }
+
+  requestAnimationFrame(playAnim);
+}
+// Start
+loadAllLayers();
+
+</script>
+
+</body>
+</html>
