@@ -1,0 +1,17 @@
+[
+    {
+        "audio": "audio1.mp3",
+        "options": ["bā", "bà"],
+        "answer": 0
+    },
+    {
+        "audio": "audio2.mp3",
+        "options": ["má", "mǎ"],
+        "answer": 1
+    },
+    {
+        "audio": "audio3.mp3",
+        "options": ["hǎo", "hào"],
+        "answer": 0
+    }
+]
