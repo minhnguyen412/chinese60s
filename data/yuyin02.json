@@ -12,5 +12,12 @@
         "text2": "li",
         "tone1": 1,
         "tone2": 2
+    },
+    {
+        "audio": "audio2.mp3",
+        "text1": "shi",
+        "text2": "li",
+        "tone1": 1,
+        "tone2": 2
     }
 ]
