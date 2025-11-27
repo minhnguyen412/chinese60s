@@ -1,0 +1,16 @@
+[
+    {
+        "audio": "audio1.mp3",
+        "text1": "ma",
+        "text2": "ne",
+        "tone1": 3,
+        "tone2": 4
+    },
+    {
+        "audio": "audio2.mp3",
+        "text1": "shi",
+        "text2": "li",
+        "tone1": 1,
+        "tone2": 2
+    }
+]
