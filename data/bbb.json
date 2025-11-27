@@ -909,6 +909,8 @@
     "type": "tone",
     "audio": "audio/t3.mp3",
     "text1": "yi",
-    "tone1": 4
+    "tone1": 4,
+    "text2": "jian",
+    "tone2": 4
   }
 ]
