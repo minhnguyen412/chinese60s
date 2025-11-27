@@ -925,19 +925,19 @@
     "tone3": 4
   },
   {
-    "group": "fill1",
+    "group": "fill",
     "type": "fill",
     "audio": "audio/ni3hao3.mp3",
     "answer": "nǐhǎo"
   },
   {
-    "group": "fill1",
+    "group": "fill",
     "type": "fill",
     "audio": "audio/nv3.mp3",
     "answer": "nǚ"
   },
   {
-    "group": "fill1",
+    "group": "fill",
     "type": "fill",
     "audio": "audio/zao3shang4.mp3",
     "answer": "zǎoshàng"
