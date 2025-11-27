@@ -917,29 +917,213 @@
     "group": "tone",
     "type": "tone",
     "audio": "audio/t3.mp3",
-    "text1": "yi",
+    "text1": "zhan",
     "tone1": 4,
-    "text2": "jian",
+    "text2": "lan",
     "tone2": 4,
-    "text3": "jian",
+    "text3": "pin",
+    "tone3": 4
+  },
+  {
+    "group": "tone",
+    "type": "tone",
+    "audio": "audio/t3.mp3",
+    "text1": "lü",
+    "tone1": 4,
+    "text2": "you",
+    "tone2": 4,
+    "text3": "tuan",
+    "tone3": 4
+  },
+  {
+    "group": "tone",
+    "type": "tone",
+    "audio": "audio/t3.mp3",
+    "text1": "yu",
+    "tone1": 4,
+    "text2": "mao",
+    "tone2": 4,
+    "text3": "qiu",
     "tone3": 4
   },
   {
     "group": "fill",
     "type": "fill",
     "audio": "audio/ni3hao3.mp3",
-    "answer": "nǐhǎo"
+    "answer": "chī mántou"
   },
   {
     "group": "fill",
     "type": "fill",
     "audio": "audio/nv3.mp3",
-    "answer": "nǚ"
+    "answer": "hē suānnǎi"
   },
   {
     "group": "fill",
     "type": "fill",
     "audio": "audio/zao3shang4.mp3",
-    "answer": "zǎoshàng"
+    "answer": "zúqiúchǎng"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "fēijīchǎng"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "zhǎnlǎnguǎn"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "zhǎo língqián"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "dú kèwén"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "tī  zúqiú"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "shòupiàoyuán"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "jiànzhùshī"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "zhōngwén ruǎnjiàn"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "fánróng fùqiáng"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "měihǎo lǐxiǎng"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "bǎohù huánjìng"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "bìxūpǐn"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "zhǎnlǎnpǐn"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "qīngguǐ diànchē"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "zìxíngchē"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "lùxiàngjì"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "diānbīngxiāng"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "zhǎnlǎnguǎn"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "měishùguǎn"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "gōnggòng cèsuǒ"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "gōngyòng diànhuà"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "dàibiǎotuán"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "lǚyóutuán"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "shì shàng wú nán shì"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "zhǐ pà yǒu xīn rén"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "yù qióng qiān lǐ mù"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "gèng shàng yì céng lóu"
   }
 ]
