@@ -912,5 +912,34 @@
     "tone1": 4,
     "text2": "jian",
     "tone2": 4
+  },
+  {
+    "group": "tone",
+    "type": "tone",
+    "audio": "audio/t3.mp3",
+    "text1": "yi",
+    "tone1": 4,
+    "text2": "jian",
+    "tone2": 4,
+    "text3": "jian",
+    "tone3": 4
+  },
+  {
+    "group": "fill1",
+    "type": "fill",
+    "audio": "audio/ni3hao3.mp3",
+    "answer": "nǐhǎo"
+  },
+  {
+    "group": "fill1",
+    "type": "fill",
+    "audio": "audio/nv3.mp3",
+    "answer": "nǚ"
+  },
+  {
+    "group": "fill1",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "zǎoshàng"
   }
 ]
