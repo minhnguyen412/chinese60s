@@ -1,18 +1,20 @@
 [
   {
+    "group": "mcq1",
     "type": "choice",
     "audio": "audio/a1.mp3",
     "options": ["ba1", "ba4"],
     "answer": 0
   },
   {
+    "group": "mcq1",
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["ma2", "ma3"],
     "answer": 1
   },
-
   {
+    "group": "tone1",
     "type": "tone",
     "audio": "audio/t1.mp3",
     "text1": "má",
@@ -21,11 +23,21 @@
     "tone2": 4
   },
   {
+    "group": "tone2",
     "type": "tone",
     "audio": "audio/t2.mp3",
     "text1": "xǐ",
     "tone1": 3,
     "text2": "huān",
     "tone2": 1
+  },
+  {
+    "group": "tone2",
+    "type": "tone",
+    "audio": "audio/t3.mp3",
+    "text1": "shì",
+    "tone1": 4,
+    "text2": "jiè",
+    "tone2": 4
   }
 ]
