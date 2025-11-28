@@ -138,12 +138,22 @@ body {
 canvas{border:1px solid #ccc;background:#fff;display:block;margin-bottom:8px;}
 .controls{margin-bottom:12px;}
 label{margin-right:8px;}
+.correct { background-color: #c8ffcc !important; }
+.wrong { background-color: #ffc8c8 !important; }
+/* Footer */
+    footer {      
+      text-align: center;
+    }
 </style>
 </head>
 <body>
+<div class="main-panels" style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
 <!-- LEFT: CANVAS + CONTROLS -->
 <div class="left-panel">
-    <h1><a href="index.html" class="homepage-link">CHINESE 60s</a></h1>
+    <p><a href="index.html" class="homepage-link">Home</a><p>
+    <a href="index.html">
+    <img src="assets/banner.png" alt="CHINESE 60s" style="width:500px; height:auto;">
+</a>
     <h2>Mandarin Chinese Pronunciation Guide</h2>
     <canvas id="canvas" width="500" height="500"></canvas>
 
@@ -745,6 +755,277 @@ label{margin-right:8px;}
     <p><a href="https://example.com/buy-pdf" target="_blank">BUY NOW!!!</a></p>
     <p>Price: $10</p>
 </div>
+</div>
+</div>
+<!-- =================== QUIZ SECTION (TÁCH RIÊNG) =================== -->
+  <div class="quiz-section" style="margin-top:40px; width:90%; max-width:1200px; border:1px solid #ccc; padding:20px; background:white;">
+    <h2>Quiz Section</h2>
+    <h3>Listen to the following initials and finals and choose the correct answer</h3>
+    <table id="quiz-grid-mcq1"></table>
+
+    <h3>Distinguish easily confused tones</h3>
+    <table id="quiz-grid-mcq2"></table>
+
+    <h3>Choose the correct tone based on the tone-change rules</h3>
+    <table id="quiz-grid-tone"></table>
+
+    <h3>Fill in the blanks with multi-syllable phrases</h3>
+    <p>Type the pinyin following these rules: ā = a1;  á = a2; ǎ = a3; à = a4; ü = v</p>
+    <table id="quiz-grid-fillin"></table>
+<!-- Button xem toàn bộ -->
+<div style="margin-top:20px;">
+    <a href="quiz_full.html">
+        <button style="padding:10px 20px; font-size:16px;">Xem toàn bộ quiz</button>
+    </a>
+</div>
+  </div>
+
+<!-- Footer -->
+  <footer>
+    <p>Chinese60s</p>
+    <p>Learn Mandarin through images and videos</p>
+    <div class="social-icons">
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+      <a href="#">TikTok</a>
+      <a href="#">Instagram</a>
+    </div>
+  </footer>
+<script>
+// Map thanh điệu
+const toneMap = {
+    a: ["ā","á","ǎ","à"],
+    e: ["ē","é","ě","è"],
+    i: ["ī","í","ǐ","ì"],
+    o: ["ō","ó","ǒ","ò"],
+    u: ["ū","ú","ǔ","ù"],
+    ü: ["ǖ","ǘ","ǚ","ǜ"]
+};
+
+// Hàm convert chính
+function convertPinyin(str) {
+    // đổi "v" → "ü"
+    str = str.replace(/v/g, "ü");
+
+    return str.replace(/([a-zü]+)([1-4])/gi, (match, letters, tone) => {
+        const t = parseInt(tone) - 1;
+        letters = letters.toLowerCase();
+
+        // thứ tự ưu tiên đặt dấu
+        const priority = ["a","e","o","u","i","ü"];
+
+        for (let v of priority) {
+            const idx = letters.indexOf(v);
+            if (idx !== -1) {
+                const accented = toneMap[v][t];
+                return (
+                    letters.slice(0, idx) +
+                    accented +
+                    letters.slice(idx + v.length)
+                );
+            }
+        }
+
+        return match;
+    });
+}
+
+// Áp dụng vào input .pinyin-input
+document.addEventListener("input", (e) => {
+    if (e.target.classList.contains("pinyin-input")) {
+        const pos = e.target.selectionStart;
+        e.target.value = convertPinyin(e.target.value);
+        e.target.setSelectionRange(pos, pos);
+    }
+});
+</script>
+
+<script>
+async function loadAllGrids() {
+    const res = await fetch("data/yuyin-preview.json");
+    const data = await res.json();
+
+    const tables = [
+        {id: "quiz-grid-mcq1", group: "mcq1"},
+        {id: "quiz-grid-mcq2", group: "mcq2"},
+        {id: "quiz-grid-tone", group: "tone"},
+        {id: "quiz-grid-fillin", group: "fill"}
+    ];
+
+    tables.forEach(t => renderGrid(data, t.id, t.group));
+}
+
+function renderGrid(data, tableId, group) {
+    const table = document.getElementById(tableId);
+    const COLUMNS = 3;
+    let row;
+
+    data.filter(q => q.group === group).forEach((q, index) => {
+
+        if (index % COLUMNS === 0) {
+            row = document.createElement("tr");
+            table.appendChild(row);
+        }
+
+        const cell = document.createElement("td");
+
+        /* ------------------ MULTIPLE CHOICE ------------------ */
+        if (q.type === "choice") {
+            cell.dataset.answer = q.answer;
+            cell.innerHTML = `
+                <div class="cell-buttons">
+                    <button onclick="playAudio('${q.audio}')">🔊</button>
+                    <button onclick="checkAnswer(this,0)">${q.options[0]}</button>
+                    <button onclick="checkAnswer(this,1)">${q.options[1]}</button>
+                </div>
+            `;
+        }
+
+        /* ------------------ TONE TYPE (2–3 cụm) ------------------ */
+        else if (q.type === "tone") {
+            cell.dataset.tone1 = q.tone1;
+            cell.dataset.tone2 = q.tone2;
+            if (q.text3 && q.tone3 !== undefined) cell.dataset.tone3 = q.tone3;
+
+            let html = `
+                <div class="cell-area">
+                    <button onclick="playAudio('${q.audio}')">🔊</button>
+                    <span>${q.text1}</span>
+                    <select class="select1">
+                        <option value="">-</option><option value="1">1</option>
+                        <option value="2">2</option><option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    <span>${q.text2}</span>
+                    <select class="select2">
+                        <option value="">-</option><option value="1">1</option>
+                        <option value="2">2</option><option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+            `;
+
+            if (q.text3 && q.tone3 !== undefined) {
+                html += `
+                    <span>${q.text3}</span>
+                    <select class="select3">
+                        <option value="">-</option><option value="1">1</option>
+                        <option value="2">2</option><option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                `;
+            }
+
+            html += `<button onclick="checkTone(this)">Check</button></div>`;
+            cell.innerHTML = html;
+        }
+
+        /* ------------------ FILL-IN INPUT TYPE ------------------ */
+        else if (q.type === "fill") {
+            cell.dataset.answer = q.answer;
+
+            cell.innerHTML = `
+                <div class="cell-area">
+                    <button onclick="playAudio('${q.audio}')">🔊</button>
+                    <input type="text" class="pinyin-input fill-input" placeholder="Type the word you hear">
+                    <button onclick="checkFill(this)">Check</button>
+                </div>
+            `;
+        }
+
+        row.appendChild(cell);
+    });
+}
+
+/* ------------------ AUDIO ------------------ */
+function playAudio(file) {
+    new Audio(file).play();
+}
+
+/* ------------------ MCQ CHECK ------------------ */
+function checkAnswer(btn, choice) {
+    const cell = btn.closest("td");
+    const correct = Number(cell.dataset.answer);
+
+    cell.querySelectorAll("button").forEach(b => b.classList.remove("correct","wrong"));
+    btn.classList.add(choice===correct ? "correct" : "wrong");
+}
+
+/* ------------------ TONE CHECK ------------------ */
+function checkTone(btn) {
+    const cell = btn.closest("td");
+
+    const correct1 = Number(cell.dataset.tone1);
+    const correct2 = Number(cell.dataset.tone2);
+    const correct3 = cell.dataset.tone3 ? Number(cell.dataset.tone3) : null;
+
+    const v1 = Number(cell.querySelector(".select1").value);
+    const v2 = Number(cell.querySelector(".select2").value);
+    const v3 = correct3 !== null ? Number(cell.querySelector(".select3").value) : null;
+
+    cell.classList.remove("correct","wrong");
+
+    let isOK = (v1 === correct1 && v2 === correct2);
+    if (correct3 !== null) isOK = isOK && (v3 === correct3);
+
+    cell.classList.add(isOK ? "correct" : "wrong");
+}
+
+/* ------------------ FILL-IN CHECK ------------------ */
+// Normalize pinyin: đổi v→ü, convert tone numbers, thống nhất dạng có dấu
+function normalizePinyin(str) {
+    if (!str) return "";
+    str = str.toLowerCase().trim();
+    str = str.replace(/\s+/g, ""); // ❗ bỏ toàn bộ dấu cách
+    return convertPinyin(str);     // giữ nguyên hàm convertPinyin của mày
+}
+function checkFill(btn) {
+    const cell = btn.closest("td");
+
+    const inputRaw = cell.querySelector(".fill-input").value;
+    const correctRaw = cell.dataset.answer;
+
+    const input = normalizePinyin(inputRaw);
+    const correct = normalizePinyin(correctRaw);
+
+    // Reset class
+    cell.classList.remove("correct","wrong");
+
+    // Nếu đúng
+    if (input === correct) {
+        cell.classList.add("correct");
+        cell.dataset.wrongCount = 0;  // reset wrong count
+        const ansBox = cell.querySelector(".answer-box");
+        if (ansBox) ansBox.remove();
+        return;
+    }
+
+    // Nếu sai
+    cell.classList.add("wrong");
+
+    // Tăng bộ đếm sai
+    let count = Number(cell.dataset.wrongCount || 0) + 1;
+    cell.dataset.wrongCount = count;
+
+    // Nếu sai < 3 → không show đáp án
+    if (count < 3) return;
+
+    // Nếu sai ≥ 3 lần → hiện đáp án
+    if (!cell.querySelector(".answer-box")) {
+        const correctDisplay = cell.dataset.answer; // giữ nguyên format của mày
+
+        const box = document.createElement("div");
+        box.className = "answer-box";
+        box.style.marginTop = "6px";
+        box.style.fontSize = "14px";
+        box.style.color = "#333";
+
+        box.innerHTML = `Answer: <b>${correctDisplay}</b>`;
+
+        cell.appendChild(box);
+    }
+}
+loadAllGrids();
+</script>
 
 <!-- ======================= SCRIPT RIG =============================== -->
 <script>
@@ -1001,6 +1282,7 @@ window.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
 
 
 
