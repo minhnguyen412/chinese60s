@@ -1,0 +1,257 @@
+[
+  {
+    "group": "mcq1",
+    "type": "choice",
+    "audio": "../yuyin/audio/a.mp3",
+    "options": ["a", "e"],
+    "answer": 0
+  },
+  {
+    "group": "mcq1",
+    "type": "choice",
+    "audio": "audio/a2.mp3",
+    "options": ["a", "o"],
+    "answer": 1
+  },
+  {
+    "group": "mcq1",
+    "type": "choice",
+    "audio": "audio/a2.mp3",
+    "options": ["e", "o"],
+    "answer": 0
+  },
+  {
+    "group": "mcq1",
+    "type": "choice",
+    "audio": "audio/a2.mp3",
+    "options": ["i", "u"],
+    "answer": 1
+  },
+  {
+    "group": "mcq1",
+    "type": "choice",
+    "audio": "audio/a2.mp3",
+    "options": ["i", "ü"],
+    "answer": 0
+  },
+  {
+    "group": "mcq1",
+    "type": "choice",
+    "audio": "audio/a2.mp3",
+    "options": ["u", "ü"],
+    "answer": 1
+  },
+  {
+    "group": "mcq1",
+    "type": "choice",
+    "audio": "audio/a2.mp3",
+    "options": ["u", "e"],
+    "answer": 1
+  },
+  {
+    "group": "mcq1",
+    "type": "choice",
+    "audio": "audio/a2.mp3",
+    "options": ["e", "i"],
+    "answer": 1
+  },
+  {
+    "group": "mcq1",
+    "type": "choice",
+    "audio": "audio/a2.mp3",
+    "options": ["o", "i"],
+    "answer": 0
+  },
+  {
+    "group": "mcq2",
+    "type": "choice",
+    "audio": "audio/a2.mp3",
+    "options": ["yī", "yì"],
+    "answer": 1
+  },
+  {
+    "group": "mcq2",
+    "type": "choice",
+    "audio": "audio/a2.mp3",
+    "options": ["bā", "bà"],
+    "answer": 0
+  },
+  {
+    "group": "mcq2",
+    "type": "choice",
+    "audio": "audio/a2.mp3",
+    "options": ["kōu", "kòu"],
+    "answer": 0
+  },
+  {
+    "group": "mcq2",
+    "type": "choice",
+    "audio": "audio/a2.mp3",
+    "options": ["hēi", "hèi"],
+    "answer": 0
+  },
+  {
+    "group": "mcq2",
+    "type": "choice",
+    "audio": "audio/a2.mp3",
+    "options": ["nī", "nì"],
+    "answer": 1
+  },
+  {
+    "group": "mcq2",
+    "type": "choice",
+    "audio": "audio/a2.mp3",
+    "options": ["māng", "màng"],
+    "answer": 0
+  },
+  {
+    "group": "mcq2",
+    "type": "choice",
+    "audio": "audio/a2.mp3",
+    "options": ["gē", "gè"],
+    "answer": 1
+  },
+  {
+    "group": "mcq2",
+    "type": "choice",
+    "audio": "audio/a2.mp3",
+    "options": ["dī", "dì"],
+    "answer": 1
+  },
+  {
+    "group": "mcq2",
+    "type": "choice",
+    "audio": "audio/a2.mp3",
+    "options": ["qū", "qù"],
+    "answer": 1
+  },
+  {
+    "group": "tone",
+    "type": "tone",
+    "audio": "audio/t1.mp3",
+    "text1": "ta",
+    "tone1": 1,
+    "text2": "men",
+    "tone2": 5
+  },
+  {
+    "group": "tone",
+    "type": "tone",
+    "audio": "audio/t2.mp3",
+    "text1": "ni",
+    "tone1": 3,
+    "text2": "ting",
+    "tone2": 1
+  },
+  {
+    "group": "tone",
+    "type": "tone",
+    "audio": "audio/t3.mp3",
+    "text1": "qing",
+    "tone1": 3,
+    "text2": "he",
+    "tone2": 1
+  },
+  {
+    "group": "tone",
+    "type": "tone",
+    "audio": "audio/t3.mp3",
+    "text1": "sang",
+    "tone1": 3,
+    "text2": "zi",
+    "tone2": 5
+  },
+  {
+    "group": "tone",
+    "type": "tone",
+    "audio": "audio/t3.mp3",
+    "text1": "ma",
+    "tone1": 2,
+    "text2": "fan",
+    "tone2": 5
+  },
+  {
+    "group": "tone",
+    "type": "tone",
+    "audio": "audio/t3.mp3",
+    "text1": "yi",
+    "tone1": 2,
+    "text2": "pian",
+    "tone2": 4
+  },
+  {
+    "group": "tone",
+    "type": "tone",
+    "audio": "audio/t3.mp3",
+    "text1": "nai",
+    "tone1": 3,
+    "text2": "nai",
+    "tone2": 5
+  },
+  {
+    "group": "tone",
+    "type": "tone",
+    "audio": "audio/t3.mp3",
+    "text1": "yi",
+    "tone1": 4,
+    "text2": "zhi",
+    "tone2": 1
+  },
+  {
+    "group": "tone",
+    "type": "tone",
+    "audio": "audio/t3.mp3",
+    "text1": "wo",
+    "tone1": 3,
+    "text2": "pa",
+    "tone2": 4
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/ni3hao3.mp3",
+    "answer": "chī mántou"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/nv3.mp3",
+    "answer": "hē suānnǎi"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "zúqiúchǎng"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "fēijīchǎng"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "zhǎnlǎnguǎn"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "zhǎo língqián"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "dú kèwén"
+  },
+  {
+    "group": "fill",
+    "type": "fill",
+    "audio": "audio/zao3shang4.mp3",
+    "answer": "tī  zúqiú"
+  }
+]
