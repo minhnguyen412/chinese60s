@@ -141,9 +141,16 @@ label{margin-right:8px;}
 .correct { background-color: #c8ffcc !important; }
 .wrong { background-color: #ffc8c8 !important; }
 /* Footer */
-    footer {      
-      text-align: center;
-    }
+footer {      
+    text-align: center;
+}
+.pdf-ad {
+    text-align: center;          /* Căn giữa nội dung */
+}
+.pdf-ad .pdf-item img {
+  display: block;              /* Để margin auto hoạt động */
+  margin: 0 auto;              /* Căn giữa hình */
+}
 </style>
 </head>
 <body>
@@ -182,12 +189,9 @@ label{margin-right:8px;}
 <!-- RIGHT: 2 COLUMN PHONETICS -->
 <div class="right-panel-container">
   <div class="pdf-ad">
-    <h3>Mandarin Chinese pronunciation Training Pack</h3>
+    <h3><a href="https://example.com/buy-pdf" target="_blank">Mandarin Chinese pronunciation Training Pack</a></h3>
     <div class="pdf-item">
       <img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1764303120/pronunciation-ad-2_qu8u0o.png" alt="PDF Cover" style="width:500px;height:auto;">
-      <div>
-        <p><a href="https://example.com/buy-pdf" target="_blank">BUY NOW!!!</a></p>
-      </div>
     </div>
   </div>
 <div class="right-panel">
@@ -772,7 +776,7 @@ label{margin-right:8px;}
     <table id="quiz-grid-fillin"></table>
 <!-- Button xem toàn bộ -->
 <div style="margin-top:20px;">
-    <a href="yuyin-quiz_full.html">
+    <a href="yuyin-quiz.html">
         <button style="padding:10px 20px; font-size:16px;">Do all the quizzes here!</button>
     </a>
 </div>
@@ -1280,6 +1284,7 @@ window.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
 
 
 
