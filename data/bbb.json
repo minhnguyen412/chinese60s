@@ -2,7 +2,7 @@
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a1.mp3",
+    "audio": "../yuyin/audio/a.mp3",
     "options": ["a", "e"],
     "answer": 0
   },
