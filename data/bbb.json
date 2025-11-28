@@ -18,7 +18,7 @@
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["e", "o"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
@@ -32,7 +32,7 @@
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["i", "ü"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
@@ -60,7 +60,7 @@
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["o", "i"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
@@ -74,7 +74,7 @@
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["t", "d"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
@@ -88,7 +88,7 @@
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["l", "n"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
@@ -109,7 +109,7 @@
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["q", "ch"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
@@ -130,14 +130,14 @@
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["q", "c"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["x", "s"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
@@ -158,21 +158,21 @@
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["sh", "s"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["j", "q"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["q", "x"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
@@ -186,14 +186,14 @@
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["ch", "sh"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["zh", "ch"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
@@ -214,28 +214,28 @@
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["s", "r"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["z", "s"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["sh", "c"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["r", "sh"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
@@ -263,21 +263,14 @@
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["sh", "zh"],
-    "answer": 1
-  },
-  {
-    "group": "mcq1",
-    "type": "choice",
-    "audio": "audio/a2.mp3",
-    "options": ["a", "o"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["ai", "ei"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
@@ -291,14 +284,14 @@
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["uo", "ou"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["ie", "ia"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
@@ -312,7 +305,7 @@
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["iou", "iao"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
@@ -333,7 +326,7 @@
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["ua", "uo"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
@@ -347,14 +340,14 @@
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["ou", "iou"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["ua", "uo"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
@@ -368,7 +361,7 @@
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["en", "eng"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
@@ -382,7 +375,7 @@
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["an", "en"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
@@ -396,21 +389,21 @@
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["uan", "uen"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["ian", "üan"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["eng", "ang"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq1",
@@ -430,7 +423,7 @@
     "group": "mcq1",
     "type": "choice",
     "audio": "audio/a2.mp3",
-    "options": ["uang", "uong"],
+    "options": ["uang", "ueng"],
     "answer": 1
   },
   {
@@ -445,13 +438,13 @@
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["er", "-i[ƪ]"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq2",
     "type": "choice",
     "audio": "audio/a2.mp3",
-    "options": ["yī", "-yì"],
+    "options": ["yī", "yì"],
     "answer": 1
   },
   {
@@ -459,21 +452,21 @@
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["bā", "bà"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq2",
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["kōu", "kòu"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq2",
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["hēi", "hèi"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq2",
@@ -487,7 +480,7 @@
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["māng", "màng"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq2",
@@ -529,21 +522,21 @@
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["liū", "liù"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq2",
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["sī", "sì"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq2",
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["zī", "zì"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq2",
@@ -564,7 +557,7 @@
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["nǘ", "nǚ"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq2",
@@ -585,21 +578,21 @@
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["sán", "sǎn"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq2",
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["xiáo", "xiǎo"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq2",
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["zhé", "zhě"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq2",
@@ -613,14 +606,14 @@
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["zuó", "zuǒ"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq2",
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["bá", "bǎ"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq2",
@@ -634,23 +627,37 @@
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["má", "mǎ"],
-    "answer": 1
+    "answer": 0
   },
   {
     "group": "mcq2",
     "type": "choice",
     "audio": "audio/a2.mp3",
     "options": ["gé", "gě"],
-    "answer": 1
+    "answer": 0
+  },
+  {
+    "group": "mcq2",
+    "type": "choice",
+    "audio": "audio/a2.mp3",
+    "options": ["yú", "yǔ"],
+    "answer": 0
+  },
+  {
+    "group": "mcq2",
+    "type": "choice",
+    "audio": "audio/a2.mp3",
+    "options": ["nán", "nǎn"],
+    "answer": 0
   },
   {
     "group": "tone",
     "type": "tone",
     "audio": "audio/t1.mp3",
     "text1": "ta",
-    "tone1": 2,
+    "tone1": 1,
     "text2": "men",
-    "tone2": 4
+    "tone2": 5
   },
   {
     "group": "tone",
@@ -666,34 +673,34 @@
     "type": "tone",
     "audio": "audio/t3.mp3",
     "text1": "qing",
-    "tone1": 4,
+    "tone1": 3,
     "text2": "he",
-    "tone2": 4
+    "tone2": 1
   },
   {
     "group": "tone",
     "type": "tone",
     "audio": "audio/t3.mp3",
     "text1": "sang",
-    "tone1": 4,
+    "tone1": 3,
     "text2": "zi",
-    "tone2": 4
+    "tone2": 5
   },
   {
     "group": "tone",
     "type": "tone",
     "audio": "audio/t3.mp3",
     "text1": "ma",
-    "tone1": 4,
+    "tone1": 2,
     "text2": "fan",
-    "tone2": 4
+    "tone2": 5
   },
   {
     "group": "tone",
     "type": "tone",
     "audio": "audio/t3.mp3",
     "text1": "yi",
-    "tone1": 4,
+    "tone1": 2,
     "text2": "pian",
     "tone2": 4
   },
@@ -702,9 +709,9 @@
     "type": "tone",
     "audio": "audio/t3.mp3",
     "text1": "nai",
-    "tone1": 4,
+    "tone1": 3,
     "text2": "nai",
-    "tone2": 4
+    "tone2": 5
   },
   {
     "group": "tone",
@@ -713,14 +720,14 @@
     "text1": "yi",
     "tone1": 4,
     "text2": "zhi",
-    "tone2": 4
+    "tone2": 1
   },
   {
     "group": "tone",
     "type": "tone",
     "audio": "audio/t3.mp3",
     "text1": "wo",
-    "tone1": 4,
+    "tone1": 3,
     "text2": "pa",
     "tone2": 4
   },
@@ -729,34 +736,34 @@
     "type": "tone",
     "audio": "audio/t3.mp3",
     "text1": "duo",
-    "tone1": 4,
+    "tone1": 1,
     "text2": "le",
-    "tone2": 4
+    "tone2": 5
   },
   {
     "group": "tone",
     "type": "tone",
     "audio": "audio/t3.mp3",
     "text1": "ni",
-    "tone1": 4,
+    "tone1": 3,
     "text2": "hao",
-    "tone2": 4
+    "tone2": 3
   },
   {
     "group": "tone",
     "type": "tone",
     "audio": "audio/t3.mp3",
     "text1": "ben",
-    "tone1": 4,
+    "tone1": 3,
     "text2": "lai",
-    "tone2": 4
+    "tone2": 2
   },
   {
     "group": "tone",
     "type": "tone",
     "audio": "audio/t3.mp3",
     "text1": "deng",
-    "tone1": 4,
+    "tone1": 3,
     "text2": "dai",
     "tone2": 4
   },
@@ -765,7 +772,7 @@
     "type": "tone",
     "audio": "audio/t3.mp3",
     "text1": "gan",
-    "tone1": 4,
+    "tone1": 3,
     "text2": "xie",
     "tone2": 4
   },
@@ -774,54 +781,54 @@
     "type": "tone",
     "audio": "audio/t3.mp3",
     "text1": "shou",
-    "tone1": 4,
+    "tone1": 3,
     "text2": "biao",
-    "tone2": 4
+    "tone2": 3
   },
   {
     "group": "tone",
     "type": "tone",
     "audio": "audio/t3.mp3",
     "text1": "ke",
-    "tone1": 4,
+    "tone1": 3,
     "text2": "yi",
-    "tone2": 4
+    "tone2": 3
   },
   {
     "group": "tone",
     "type": "tone",
     "audio": "audio/t3.mp3",
     "text1": "hen",
-    "tone1": 4,
+    "tone1": 3,
     "text2": "gao",
-    "tone2": 4
+    "tone2": 1
   },
   {
     "group": "tone",
     "type": "tone",
     "audio": "audio/t3.mp3",
     "text1": "biao",
-    "tone1": 4,
+    "tone1": 3,
     "text2": "yan",
-    "tone2": 4
+    "tone2": 3
   },
   {
     "group": "tone",
     "type": "tone",
     "audio": "audio/t3.mp3",
     "text1": "jian",
-    "tone1": 4,
+    "tone1": 3,
     "text2": "dan",
-    "tone2": 4
+    "tone2": 1
   },
   {
     "group": "tone",
     "type": "tone",
     "audio": "audio/t3.mp3",
     "text1": "hao",
-    "tone1": 4,
+    "tone1": 3,
     "text2": "dong",
-    "tone2": 4
+    "tone2": 3
   },
   {
     "group": "tone",
@@ -830,7 +837,7 @@
     "text1": "bu",
     "tone1": 4,
     "text2": "he",
-    "tone2": 4
+    "tone2": 1
   },
   {
     "group": "tone",
@@ -839,14 +846,14 @@
     "text1": "bu",
     "tone1": 4,
     "text2": "jiang",
-    "tone2": 4
+    "tone2": 3
   },
   {
     "group": "tone",
     "type": "tone",
     "audio": "audio/t3.mp3",
     "text1": "bu",
-    "tone1": 4,
+    "tone1": 2,
     "text2": "jin",
     "tone2": 4
   },
@@ -857,14 +864,14 @@
     "text1": "bu",
     "tone1": 4,
     "text2": "tian",
-    "tone2": 4
+    "tone2": 2
   },
   {
     "group": "tone",
     "type": "tone",
     "audio": "audio/t3.mp3",
     "text1": "bu",
-    "tone1": 4,
+    "tone1": 2,
     "text2": "yao",
     "tone2": 4
   },
@@ -875,7 +882,7 @@
     "text1": "yi",
     "tone1": 4,
     "text2": "feng",
-    "tone2": 4
+    "tone2": 1
   },
   {
     "group": "tone",
@@ -884,14 +891,14 @@
     "text1": "yi",
     "tone1": 4,
     "text2": "hui",
-    "tone2": 4
+    "tone2": 2
   },
   {
     "group": "tone",
     "type": "tone",
     "audio": "audio/t3.mp3",
     "text1": "yi",
-    "tone1": 4,
+    "tone1": 2,
     "text2": "ke",
     "tone2": 4
   },
@@ -902,14 +909,14 @@
     "text1": "yi",
     "tone1": 4,
     "text2": "kou",
-    "tone2": 4
+    "tone2": 3
   },
   {
     "group": "tone",
     "type": "tone",
     "audio": "audio/t3.mp3",
     "text1": "yi",
-    "tone1": 4,
+    "tone1": 2,
     "text2": "jian",
     "tone2": 4
   },
@@ -918,33 +925,33 @@
     "type": "tone",
     "audio": "audio/t3.mp3",
     "text1": "zhan",
-    "tone1": 4,
+    "tone1": 3,
     "text2": "lan",
-    "tone2": 4,
+    "tone2": 3,
     "text3": "pin",
-    "tone3": 4
+    "tone3": 3
   },
   {
     "group": "tone",
     "type": "tone",
     "audio": "audio/t3.mp3",
     "text1": "lü",
-    "tone1": 4,
+    "tone1": 3,
     "text2": "you",
-    "tone2": 4,
+    "tone2": 2,
     "text3": "tuan",
-    "tone3": 4
+    "tone3": 2
   },
   {
     "group": "tone",
     "type": "tone",
     "audio": "audio/t3.mp3",
     "text1": "yu",
-    "tone1": 4,
+    "tone1": 3,
     "text2": "mao",
-    "tone2": 4,
+    "tone2": 2,
     "text3": "qiu",
-    "tone3": 4
+    "tone3": 2
   },
   {
     "group": "fill",
