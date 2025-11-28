@@ -9,434 +9,434 @@
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/o.mp3",
     "options": ["a", "o"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/e.mp3",
     "options": ["e", "o"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/u.mp3",
     "options": ["i", "u"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/i.mp3",
     "options": ["i", "ü"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/u2.mp3",
     "options": ["u", "ü"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/e.mp3",
     "options": ["u", "e"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/i.mp3",
     "options": ["e", "i"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/o.mp3",
     "options": ["o", "i"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/p.mp3",
     "options": ["b", "p"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/t.mp3",
     "options": ["t", "d"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/k.mp3",
     "options": ["g", "k"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/l.mp3",
     "options": ["l", "n"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/k.mp3",
     "options": ["h", "k"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/zh.mp3",
     "options": ["j", "zh"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/q.mp3",
     "options": ["q", "ch"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/sh.mp3",
     "options": ["x", "sh"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/z.mp3",
     "options": ["j", "z"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/q.mp3",
     "options": ["q", "c"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/x.mp3",
     "options": ["x", "s"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/z.mp3",
     "options": ["zh", "z"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/c.mp3",
     "options": ["ch", "c"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/sh.mp3",
     "options": ["sh", "s"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/j.mp3",
     "options": ["j", "q"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/q.mp3",
     "options": ["q", "x"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/j.mp3",
     "options": ["x", "j"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/ch.mp3",
     "options": ["ch", "sh"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/zh.mp3",
     "options": ["zh", "ch"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/r.mp3",
     "options": ["sh", "r"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/c.mp3",
     "options": ["z", "c"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/s.mp3",
     "options": ["s", "r"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/z.mp3",
     "options": ["z", "s"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/sh.mp3",
     "options": ["sh", "c"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/r.mp3",
     "options": ["r", "sh"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/c.mp3",
     "options": ["s", "c"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/r.mp3",
     "options": ["ch", "r"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/x.mp3",
     "options": ["s", "x"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/sh.mp3",
     "options": ["sh", "zh"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/ai.mp3",
     "options": ["ai", "ei"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/ou.mp3",
     "options": ["ao", "ou"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/uo.mp3",
     "options": ["uo", "ou"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/ie.mp3",
     "options": ["ie", "ia"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/ei.mp3",
     "options": ["uei", "ei"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/iu (iou).mp3",
     "options": ["iou", "iao"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/uo.mp3",
     "options": ["ao", "uo"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/iao.mp3",
     "options": ["ao", "iao"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/ua.mp3",
     "options": ["ua", "uo"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/üe.mp3",
     "options": ["ie", "üe"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/ou.mp3",
     "options": ["ou", "iou"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/ua.mp3",
     "options": ["ua", "uo"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/ang.mp3",
     "options": ["an", "ang"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/en.mp3",
     "options": ["en", "eng"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/ing.mp3",
     "options": ["in", "ing"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/an.mp3",
     "options": ["an", "en"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/ün.mp3",
     "options": ["in", "ün"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/uan.mp3",
     "options": ["uan", "uen"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/ian.mp3",
     "options": ["ian", "üan"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/eng.mp3",
     "options": ["eng", "ang"],
     "answer": 0
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/ong.mp3",
     "options": ["eng", "ong"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/iong.mp3",
     "options": ["ing", "iong"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/ueng.mp3",
     "options": ["uang", "ueng"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/-i[ƪ].mp3",
     "options": ["-i", "-i[ƪ]"],
     "answer": 1
   },
   {
     "group": "mcq1",
     "type": "choice",
-    "audio": "audio/a2.mp3",
+    "audio": "../yuyin/audio/er.mp3",
     "options": ["er", "-i[ƪ]"],
     "answer": 0
   },
