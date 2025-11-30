@@ -132,7 +132,12 @@ h3 { margin-top: 40px; }
     </nav>
   </header>
 
-  
+<div id="locked-section">
+  <h2>Enter the license key to view the content</h2>
+  <input id="licenseInput" type="text" placeholder="Enter license key..." style="padding:8px;width:250px;">
+  <button id="verifyBtn" style="padding:8px 16px;">Mở khóa</button>
+  <p id="status" style="color:red;"></p>
+</div>  
 <!-- Container riêng cho nội dung quiz -->
   <div class="content-container">
     <h1>Chinese60s Pronunciation Quiz</h1>
@@ -161,6 +166,50 @@ h3 { margin-top: 40px; }
       <a href="#">Instagram</a>
     </div>
   </footer>
+<script>
+const PRODUCT_ID = "botuwj"; // Thay bằng product_id của mày trên Gumroad
+
+// Nếu đã mở trước đó, show luôn
+if (localStorage.getItem("unlocked") === "yes") {
+    document.getElementById("locked-section").style.display = "none";
+    document.getElementById("content").style.display = "block";
+}
+
+document.getElementById("verifyBtn").addEventListener("click", async function () {
+    const key = document.getElementById("licenseInput").value.trim();
+    const status = document.getElementById("status");
+
+    if (!key) {
+        status.textContent = "Please enter a valid license key.";
+        return;
+    }
+
+    status.textContent = "Checking...";
+
+    const form = new URLSearchParams();
+    form.append("product_id", PRODUCT_ID);
+    form.append("license_key", key);
+
+    const response = await fetch("https://api.gumroad.com/v2/licenses/verify", {
+        method: "POST",
+        body: form
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+        // Lưu trạng thái mở khóa
+        localStorage.setItem("unlocked", "yes");
+
+        // Ẩn ô nhập, hiện nội dung
+        document.getElementById("locked-section").style.display = "none";
+        document.getElementById("content").style.display = "block";
+    } else {
+        status.textContent = "Invalid license key.";
+    }
+});
+</script>
+  
 <script>
 // Map thanh điệu
 const toneMap = {
@@ -212,7 +261,7 @@ document.addEventListener("input", (e) => {
 
 <script>
 async function loadAllGrids() {
-    const res = await fetch("https://raw.githubusercontent.com/minhnguyen412/chinese60s/refs/heads/main/data/bbb.json");
+    const res = await fetch("https://raw.githubusercontent.com/minhnguyen412/chinese60s/refs/heads/main/data/yuyin-quiz.json");
     const data = await res.json();
 
     const tables = [
@@ -398,4 +447,5 @@ loadAllGrids();
 </script>
 </body>
 </html>
+
 
