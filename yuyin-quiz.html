@@ -115,6 +115,54 @@ h3 { margin-top: 40px; }
       text-decoration: none;
       color: white;
     }
+  #locked-section {
+  max-width: 400px;          /* Giới hạn chiều ngang */
+  margin: 100px auto;        /* Canh giữa màn hình, cách top 100px */
+  padding: 30px 20px;        /* Khoảng cách trong box */
+  background-color: #f7f7f7; /* Nền nhẹ */
+  border: 2px solid #8bc34a; /* Viền xanh nhạt */
+  border-radius: 12px;       /* Bo góc */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1); /* Bóng nhẹ */
+  text-align: center;        /* Canh text giữa */
+  font-family: Arial, sans-serif;
+}
+
+#locked-section h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #333;
+}
+
+#locked-section input {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+#locked-section button {
+  padding: 10px 25px;
+  font-size: 16px;
+  background-color: #8bc34a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#locked-section button:hover {
+  background-color: #7cb342;
+}
+
+#locked-section #status {
+  margin-top: 15px;
+  color: red;
+  font-weight: bold;
+}
 </style>
 </head>
 <body>
@@ -135,9 +183,9 @@ h3 { margin-top: 40px; }
 
 <div id="locked-section">
   <h2>Enter the license key to view the content</h2>
-  <input id="licenseInput" type="text" placeholder="Enter license key..." style="padding:8px;width:250px;">
-  <button id="verifyBtn" style="padding:8px 16px;">Mở khóa</button>
-  <p id="status" style="color:red;"></p>
+  <input id="licenseInput" type="text" placeholder="Enter license key...";">
+  <button id="verifyBtn";">Unlock</button>
+  <p id="status";"></p>
 </div>  
 <!-- Container riêng cho nội dung quiz -->
   <div class="content-container">
@@ -448,6 +496,7 @@ loadAllGrids();
 </script>
 </body>
 </html>
+
 
 
 
