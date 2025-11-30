@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tone Game</title>
+<style>
+body {
+  font-family: sans-serif;
+  background: linear-gradient(135deg, #ffe7ba, #ffe1ee);
+  text-align: center;
+  padding: 40px;
+}
+
+h1 { font-size: 36px; }
+
+#lesson-select {
+  font-size: 20px;
+  padding: 8px 12px;
+  margin-bottom: 20px;
+}
+
+#play-btn {
+  padding: 10px 20px;
+  font-size: 18px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.tones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.tone-btn {
+  padding: 20px 28px;
+  font-size: 28px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.1s;
+  user-select: none;
+}
+
+.tone-btn:hover { transform: scale(1.1); }
+
+#popup {
+  margin-top: 20px;
+  font-size: 48px;
+  font-weight: bold;
+  opacity: 0;
+  transform: translateY(0) scale(0.8);
+  transition: all 0.3s ease-out;
+  display: inline-block;
+  padding: 10px 30px;
+  border-radius: 25px;
+  color: white;
+}
+
+#popup.show {
+  opacity: 1;
+  transform: translateY(-20px) scale(1);
+}
+
+.sparkle {
+  position: fixed;
+  font-size: 40px;
+  animation: fly 1s ease-out forwards;
+}
+
+@keyframes fly {
+  0%   { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-150px) scale(0.3); opacity: 0; }
+}
+
+#summary {
+  margin-top: 30px;
+  font-size: 24px;
+}
+</style>
+</head>
+<body>
+
+<h1>🎵 Tone Practice Game</h1>
+
+<select id="lesson-select">
+  <option value="0">Select a lesson</option>
+</select>
+<br>
+<button id="play-btn">▶ Play Audio</button>
+
+<div class="tones" id="tone-buttons"></div>
+
+<div id="popup"></div>
+<div id="summary"></div>
+
+<script>
+// JSON 5 bài (ví dụ)
+const lessons = [
+  {id:1, title:"Easy — 15 tones", audio:"level-1.mp3", sequence:["má","mà","má","mǎ","mā","mà","mà","má","mǎ","mǎ","mā","má","mà","mǎ","mā"]},
+  {id:2, title:"Light Easy — 30 tones", audio:"level-2.mp3", sequence:["mǎ","mà","mā","má","mā","mà","má","mǎ","mǎ","mà","mà","mā","má","mā","mǎ","mǎ","mà","má","mā","mā","má","mǎ","mà","mǎ","má","mà","mā","mǎ","má","mà"]},
+  {id:3, title:"Medium — 45 tones", audio:"level-3.mp3", sequence:["mà","mǎ","má","mā","mǎ","mà","má","mā","mǎ","má","mà","mà","mǎ","mǎ","mā","má","mā","mà","mǎ","má","mā","mā","mǎ","má","mà","mǎ","má","mā","mà","mǎ","má","mā","mà","mǎ","mǎ","mā","má","mà","mǎ","mā","má", "má","mā", "mǎ", "mà"]},
+  {id:4, title:"Hard-ish — 60 tones", audio:"level-4.mp3", sequence:["mǎ","mà","mà","má","mā","mǎ","má","mà","mā","mǎ","má","mǎ","mà","mā","má","mà","mǎ","mǎ","mā","má","mà","mā","mǎ","má","mà","mā","mǎ","má","mà","mā","mǎ","má","mà","mǎ","mā","mā","mǎ","má","mà","mǎ","mā","mà","mǎ","mā", "mǎ","mā","má","mà","mā","mǎ","má","mà","mā","mǎ", "mà","má","mā","mǎ","má","mà"]},
+  {id:5, title:"Hard — 100 tones", audio:"level-5.mp3", sequence:["mà","mǎ","má","mā","mǎ","mà","má","mǎ","mā","mà","mǎ","mǎ","mā","má","mà","mā","mǎ","má","mà","mǎ","mà","mā","mǎ","má","mà","mā","má","mà","mǎ","mǎ","mā","má","mà","mǎ","mā","mà","mā","mǎ","má","mà","mǎ","mā","mā","mǎ","má","mà","mǎ","mā","mā","mǎ","má","mà","mǎ","mā","mà","mǎ","má","mā","mà","mǎ","mā","má","mà","mǎ","mǎ","mà","mā","mǎ","má","mà","mā","mǎ","má","mà","mǎ","mā","mā","mǎ","mā","mà","mǎ","má","mà","mā","mǎ","má","mà","mǎ","mā","má", "mǎ","mǎ","mā","má","mà","mǎ","mā","mà","mā","mǎ"]}
+];
+
+const popup = document.getElementById("popup");
+const toneButtonsDiv = document.getElementById("tone-buttons");
+const summaryDiv = document.getElementById("summary");
+const lessonSelect = document.getElementById("lesson-select");
+const playBtn = document.getElementById("play-btn");
+const replayBtn = document.getElementById("replay-btn");
+
+
+let currentLesson = null;
+let currentIndex = 0;
+let errors = 0;
+let audio = new Audio();
+
+lessons.forEach((l,i)=>lessonSelect.innerHTML += `<option value="${i}">${l.title}</option>`);
+
+lessonSelect.addEventListener("change", () => {
+  const idx = Number(lessonSelect.value);
+  if (idx < 0 || idx >= lessons.length) return; // bỏ qua “Select a lesson”
+  startLesson(lessons[idx]);
+});
+playBtn.addEventListener("click",()=>{
+  if(currentLesson){
+    audio.currentTime = 0;
+    audio.play();
+    // nếu lesson đã kết thúc nhưng muốn chơi lại thì reset index:
+    if(currentIndex >= currentLesson.sequence.length){
+      currentIndex = 0;
+      errors = 0;
+      summaryDiv.innerText = "";
+    }
+  }
+});
+
+function startLesson(lesson){
+  currentLesson = lesson;
+  currentIndex = 0;
+  errors = 0;
+  summaryDiv.innerText = "";
+  audio.src = lesson.audio;
+  toneButtonsDiv.innerHTML = "";
+  // tạo nút
+  ["mā","má","mǎ","mà"].forEach((tone,i)=>{
+    const btn = document.createElement("div");
+    btn.className="tone-btn";
+    btn.innerText = `${tone} (${i+1})`;
+    btn.dataset.tone=tone;
+    btn.dataset.key=i+1;
+    btn.addEventListener("click",()=>handleTone(tone));
+    toneButtonsDiv.appendChild(btn);
+  });
+}
+
+function handleTone(tone){
+  if(!currentLesson) return;
+  const correct = currentLesson.sequence[currentIndex];
+  if(tone===correct){
+    showPopup("PERFECT","linear-gradient(45deg, #4caf50, #8bc34a)");
+  } else {
+    showPopup("MISS","linear-gradient(45deg, #f44336, #ff7961)");
+    errors++;
+  }
+  currentIndex++;
+  if(currentIndex>=currentLesson.sequence.length){
+    summaryDiv.innerText=`Lesson complete! Total errors: ${errors}`;
+    
+  }
+}
+
+function showPopup(msg, bg){
+  popup.innerText=msg;
+  popup.style.background=bg;
+  popup.classList.add("show");
+  setTimeout(()=>popup.classList.remove("show"),600);
+  // sparkles
+  const sparkle = document.createElement("div");
+  sparkle.className="sparkle";
+  sparkle.innerText = msg==="PERFECT"?"⭐":"💥";
+  sparkle.style.left=(toneButtonsDiv.offsetLeft + Math.random()*toneButtonsDiv.offsetWidth)+"px";
+  sparkle.style.top=(toneButtonsDiv.offsetTop + Math.random()*50 + 50)+"px";
+  document.body.appendChild(sparkle);
+  setTimeout(()=>sparkle.remove(),1000);
+}
+
+// Key support
+document.addEventListener("keydown",(e)=>{
+  if(!currentLesson) return;
+  const btn=[...document.querySelectorAll(".tone-btn")].find(b=>b.dataset.key==e.key);
+  if(btn) handleTone(btn.dataset.tone);
+});
+</script>
+
+</body>
+</html>
