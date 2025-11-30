@@ -80,25 +80,139 @@ h1 { font-size: 36px; }
   margin-top: 30px;
   font-size: 24px;
 }
+
+/* Lock Screen Styles */
+#locked-section {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 30px 20px;
+  background-color: #f7f7f7;
+  border: 2px solid #8bc34a;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+#locked-section h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #333;
+}
+
+#locked-section input {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+#locked-section button {
+  padding: 10px 25px;
+  font-size: 16px;
+  background-color: #8bc34a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#locked-section button:hover {
+  background-color: #7cb342;
+}
+
+#locked-section #status {
+  margin-top: 15px;
+  color: red;
+  font-weight: bold;
+}
+
+/* Hide game content initially */
+#game-content {
+  display: none;
+}
 </style>
 </head>
 <body>
 
-<h1>🎵 Tone Practice Game</h1>
+<!-- Lock Screen -->
+<div id="locked-section">
+  <h2>Enter the license key to play the game</h2>
+  <input id="licenseInput" type="text" placeholder="Enter license key...">
+  <button id="verifyBtn">Unlock</button>
+  <p id="status"></p>
+</div>
 
-<select id="lesson-select">
-  <option value="0">Select a lesson</option>
-</select>
-<br>
-<button id="play-btn">▶ Play Audio</button>
+<!-- Game Content -->
+<div id="game-content">
+  <h1>🎵 Tone Practice Game</h1>
 
-<div class="tones" id="tone-buttons"></div>
+  <select id="lesson-select">
+    <option value="0">Select a lesson</option>
+  </select>
+  <br>
+  <button id="play-btn">▶ Play Audio</button>
 
-<div id="popup"></div>
-<div id="summary"></div>
+  <div class="tones" id="tone-buttons"></div>
+
+  <div id="popup"></div>
+  <div id="summary"></div>
+</div>
 
 <script>
-// JSON 5 bài (ví dụ)
+// ==================== LICENSE VERIFICATION ====================
+const PRODUCT_ID = "ufowKPN1xaOa-ueREQbmOw==";
+
+// Check if already unlocked
+if (localStorage.getItem("unlocked") === "yes") {
+    document.getElementById("locked-section").style.display = "none";
+    document.getElementById("game-content").style.display = "block";
+}
+
+// Verify license key
+document.getElementById("verifyBtn").addEventListener("click", async function () {
+    const key = document.getElementById("licenseInput").value.trim();
+    const status = document.getElementById("status");
+
+    if (!key) {
+        status.textContent = "Please enter a valid license key.";
+        return;
+    }
+
+    status.textContent = "Checking...";
+
+    const form = new URLSearchParams();
+    form.append("product_id", PRODUCT_ID);
+    form.append("license_key", key);
+
+    try {
+        const response = await fetch("https://api.gumroad.com/v2/licenses/verify", {
+            method: "POST",
+            body: form
+        });
+
+        const data = await response.json();
+        console.log("Response:", data);
+
+        if (data.success) {
+            localStorage.setItem("unlocked", "yes");
+            document.getElementById("locked-section").style.display = "none";
+            document.getElementById("game-content").style.display = "block";
+            status.textContent = "";
+        } else {
+            status.textContent = "Invalid license key.";
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        status.textContent = "Connection error. Please try again.";
+    }
+});
+
+// ==================== GAME LOGIC ====================
 const lessons = [
   {id:1, title:"Easy — 15 tones", audio:"level-1.mp3", sequence:["má","mà","má","mǎ","mā","mà","mà","má","mǎ","mǎ","mā","má","mà","mǎ","mā"]},
   {id:2, title:"Light Easy — 30 tones", audio:"level-2.mp3", sequence:["mǎ","mà","mā","má","mā","mà","má","mǎ","mǎ","mà","mà","mā","má","mā","mǎ","mǎ","mà","má","mā","mā","má","mǎ","mà","mǎ","má","mà","mā","mǎ","má","mà"]},
@@ -112,8 +226,6 @@ const toneButtonsDiv = document.getElementById("tone-buttons");
 const summaryDiv = document.getElementById("summary");
 const lessonSelect = document.getElementById("lesson-select");
 const playBtn = document.getElementById("play-btn");
-const replayBtn = document.getElementById("replay-btn");
-
 
 let currentLesson = null;
 let currentIndex = 0;
@@ -124,14 +236,14 @@ lessons.forEach((l,i)=>lessonSelect.innerHTML += `<option value="${i}">${l.title
 
 lessonSelect.addEventListener("change", () => {
   const idx = Number(lessonSelect.value);
-  if (idx < 0 || idx >= lessons.length) return; // bỏ qua “Select a lesson”
+  if (idx < 0 || idx >= lessons.length) return;
   startLesson(lessons[idx]);
 });
+
 playBtn.addEventListener("click",()=>{
   if(currentLesson){
     audio.currentTime = 0;
     audio.play();
-    // nếu lesson đã kết thúc nhưng muốn chơi lại thì reset index:
     if(currentIndex >= currentLesson.sequence.length){
       currentIndex = 0;
       errors = 0;
@@ -147,7 +259,6 @@ function startLesson(lesson){
   summaryDiv.innerText = "";
   audio.src = lesson.audio;
   toneButtonsDiv.innerHTML = "";
-  // tạo nút
   ["mā","má","mǎ","mà"].forEach((tone,i)=>{
     const btn = document.createElement("div");
     btn.className="tone-btn";
@@ -171,7 +282,6 @@ function handleTone(tone){
   currentIndex++;
   if(currentIndex>=currentLesson.sequence.length){
     summaryDiv.innerText=`Lesson complete! Total errors: ${errors}`;
-    
   }
 }
 
@@ -180,7 +290,6 @@ function showPopup(msg, bg){
   popup.style.background=bg;
   popup.classList.add("show");
   setTimeout(()=>popup.classList.remove("show"),600);
-  // sparkles
   const sparkle = document.createElement("div");
   sparkle.className="sparkle";
   sparkle.innerText = msg==="PERFECT"?"⭐":"💥";
@@ -190,7 +299,6 @@ function showPopup(msg, bg){
   setTimeout(()=>sparkle.remove(),1000);
 }
 
-// Key support
 document.addEventListener("keydown",(e)=>{
   if(!currentLesson) return;
   const btn=[...document.querySelectorAll(".tone-btn")].find(b=>b.dataset.key==e.key);
