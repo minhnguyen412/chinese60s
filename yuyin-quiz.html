@@ -216,12 +216,12 @@ h3 { margin-top: 40px; }
     </div>
   </footer>
 <script>
-const PRODUCT_ID = "botuwj"; // Thay bằng product_id của mày trên Gumroad
+const PRODUCT_ID = "botuwj";
 
 // Nếu đã mở trước đó, show luôn
 if (localStorage.getItem("unlocked") === "yes") {
     document.getElementById("locked-section").style.display = "none";
-    document.getElementById("content").style.display = "block";
+    document.querySelector(".content-container").style.display = "block"; // ← SỬA Ở ĐÂY
 }
 
 document.getElementById("verifyBtn").addEventListener("click", async function () {
@@ -247,12 +247,9 @@ document.getElementById("verifyBtn").addEventListener("click", async function ()
     const data = await response.json();
 
     if (data.success) {
-        // Lưu trạng thái mở khóa
         localStorage.setItem("unlocked", "yes");
-
-        // Ẩn ô nhập, hiện nội dung
         document.getElementById("locked-section").style.display = "none";
-        document.getElementById("content").style.display = "block";
+        document.querySelector(".content-container").style.display = "block"; // ← VÀ Ở ĐÂY
     } else {
         status.textContent = "Invalid license key.";
     }
@@ -496,6 +493,7 @@ loadAllGrids();
 </script>
 </body>
 </html>
+
 
 
 
