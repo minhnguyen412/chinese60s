@@ -216,12 +216,12 @@ h3 { margin-top: 40px; }
     </div>
   </footer>
 <script>
-const PRODUCT_ID = "botuwj";
+const PRODUCT_ID = "ufowKPN1xaOa-ueREQbmOw=="; // ← ĐỔI THÀNH CÁI NÀY
 
 // Nếu đã mở trước đó, show luôn
 if (localStorage.getItem("unlocked") === "yes") {
     document.getElementById("locked-section").style.display = "none";
-    document.querySelector(".content-container").style.display = "block"; // ← SỬA Ở ĐÂY
+    document.querySelector(".content-container").style.display = "block";
 }
 
 document.getElementById("verifyBtn").addEventListener("click", async function () {
@@ -235,30 +235,26 @@ document.getElementById("verifyBtn").addEventListener("click", async function ()
 
     status.textContent = "Checking...";
 
+    const form = new URLSearchParams();
+    form.append("product_id", PRODUCT_ID);
+    form.append("license_key", key);
+
     try {
         const response = await fetch("https://api.gumroad.com/v2/licenses/verify", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
-            body: new URLSearchParams({
-                "product_permalink": "mandarin-pronunciation-pack", // ← Đổi product_id thành product_permalink
-                "license_key": key,
-                "increment_uses_count": "false"
-            })
+            body: form
         });
 
         const data = await response.json();
-        console.log("Full response:", data);
+        console.log("Response:", data);
 
-        if (data.success && data.purchase) {
+        if (data.success) {
             localStorage.setItem("unlocked", "yes");
             document.getElementById("locked-section").style.display = "none";
             document.querySelector(".content-container").style.display = "block";
             status.textContent = "";
         } else {
             status.textContent = "Invalid license key.";
-            console.log("Error:", data);
         }
     } catch (error) {
         console.error("Error:", error);
@@ -504,6 +500,7 @@ loadAllGrids();
 </script>
 </body>
 </html>
+
 
 
 
