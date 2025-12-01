@@ -214,11 +214,11 @@ document.getElementById("verifyBtn").addEventListener("click", async function ()
 
 // ==================== GAME LOGIC ====================
 const lessons = [
-  {id:1, title:"Easy — 15 tones", audio:"level-1.mp3", sequence:["má","mà","má","mǎ","mā","mà","mà","má","mǎ","mǎ","mā","má","mà","mǎ","mā"]},
-  {id:2, title:"Light Easy — 30 tones", audio:"level-2.mp3", sequence:["mǎ","mà","mā","má","mā","mà","má","mǎ","mǎ","mà","mà","mā","má","mā","mǎ","mǎ","mà","má","mā","mā","má","mǎ","mà","mǎ","má","mà","mā","mǎ","má","mà"]},
-  {id:3, title:"Medium — 45 tones", audio:"level-3.mp3", sequence:["mà","mǎ","má","mā","mǎ","mà","má","mā","mǎ","má","mà","mà","mǎ","mǎ","mā","má","mā","mà","mǎ","má","mā","mā","mǎ","má","mà","mǎ","má","mā","mà","mǎ","má","mā","mà","mǎ","mǎ","mā","má","mà","mǎ","mā","má", "má","mā", "mǎ", "mà"]},
-  {id:4, title:"Hard-ish — 60 tones", audio:"level-4.mp3", sequence:["mǎ","mà","mà","má","mā","mǎ","má","mà","mā","mǎ","má","mǎ","mà","mā","má","mà","mǎ","mǎ","mā","má","mà","mā","mǎ","má","mà","mā","mǎ","má","mà","mā","mǎ","má","mà","mǎ","mā","mā","mǎ","má","mà","mǎ","mā","mà","mǎ","mā", "mǎ","mā","má","mà","mā","mǎ","má","mà","mā","mǎ", "mà","má","mā","mǎ","má","mà"]},
-  {id:5, title:"Hard — 100 tones", audio:"level-5.mp3", sequence:["mà","mǎ","má","mā","mǎ","mà","má","mǎ","mā","mà","mǎ","mǎ","mā","má","mà","mā","mǎ","má","mà","mǎ","mà","mā","mǎ","má","mà","mā","má","mà","mǎ","mǎ","mā","má","mà","mǎ","mā","mà","mā","mǎ","má","mà","mǎ","mā","mā","mǎ","má","mà","mǎ","mā","mā","mǎ","má","mà","mǎ","mā","mà","mǎ","má","mā","mà","mǎ","mā","má","mà","mǎ","mǎ","mà","mā","mǎ","má","mà","mā","mǎ","má","mà","mǎ","mā","mā","mǎ","mā","mà","mǎ","má","mà","mā","mǎ","má","mà","mǎ","mā","má", "mǎ","mǎ","mā","má","mà","mǎ","mā","mà","mā","mǎ"]}
+  {id:1, title:"Easy — 15 tones", audio:"https://res.cloudinary.com/dndwvsqib/video/upload/v1764554031/level-1_pings3.mp3", sequence:["má","mà","má","mǎ","mā","mà","mà","má","mǎ","mǎ","mā","má","mà","mǎ","mā"]},
+  {id:2, title:"Light Easy — 30 tones", audio:"https://res.cloudinary.com/dndwvsqib/video/upload/v1764554041/level-2_u5215m.mp3", sequence:["mǎ","mà","mā","má","mā","mà","má","mǎ","mǎ","mà","mà","mā","má","mā","mǎ","mǎ","mà","má","mā","mā","má","mǎ","mà","mǎ","má","mà","mā","mǎ","má","mà"]},
+  {id:3, title:"Medium — 45 tones", audio:"https://res.cloudinary.com/dndwvsqib/video/upload/v1764554042/level-3_fgzabw.mp3", sequence:["mà","mǎ","má","mā","mǎ","mà","má","mā","mǎ","má","mà","mà","mǎ","mǎ","mā","má","mā","mà","mǎ","má","mā","mā","mǎ","má","mà","mǎ","má","mā","mà","mǎ","má","mā","mà","mǎ","mǎ","mā","má","mà","mǎ","mā","má", "má","mā", "mǎ", "mà"]},
+  {id:4, title:"Hard-ish — 60 tones", audio:"https://res.cloudinary.com/dndwvsqib/video/upload/v1764554043/level-4_lfcwsz.mp3", sequence:["mǎ","mà","mà","má","mā","mǎ","má","mà","mā","mǎ","má","mǎ","mà","mā","má","mà","mǎ","mǎ","mā","má","mà","mā","mǎ","má","mà","mā","mǎ","má","mà","mā","mǎ","má","mà","mǎ","mā","mā","mǎ","má","mà","mǎ","mā","mà","mǎ","mā", "mǎ","mā","má","mà","mā","mǎ","má","mà","mā","mǎ", "mà","má","mā","mǎ","má","mà"]},
+  {id:5, title:"Hard — 100 tones", audio:"https://res.cloudinary.com/dndwvsqib/video/upload/v1764554046/level-5_cnffb4.mp3", sequence:["mà","mǎ","má","mā","mǎ","mà","má","mǎ","mā","mà","mǎ","mǎ","mā","má","mà","mā","mǎ","má","mà","mǎ","mà","mā","mǎ","má","mà","mā","má","mà","mǎ","mǎ","mā","má","mà","mǎ","mā","mà","mā","mǎ","má","mà","mǎ","mā","mā","mǎ","má","mà","mǎ","mā","mā","mǎ","má","mà","mǎ","mā","mà","mǎ","má","mā","mà","mǎ","mā","má","mà","mǎ","mǎ","mà","mā","mǎ","má","mà","mā","mǎ","má","mà","mǎ","mā","mā","mǎ","mā","mà","mǎ","má","mà","mā","mǎ","má","mà","mǎ","mā","má", "mǎ","mǎ","mā","má","mà","mǎ","mā","mà","mā","mǎ"]}
 ];
 
 const popup = document.getElementById("popup");
@@ -308,3 +308,4 @@ document.addEventListener("keydown",(e)=>{
 
 </body>
 </html>
+
