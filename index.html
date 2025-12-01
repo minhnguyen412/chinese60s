@@ -456,7 +456,10 @@
     grid-template-columns: repeat(4, 1fr);
   }
 }
-
+.pdf-item img {
+  display: block;              /* Để margin auto hoạt động */
+  margin: 0 auto;              /* Căn giữa hình */
+}
   </style>
 </head>
 <body>
@@ -491,7 +494,13 @@
     <button onclick="location.href='grammar.html'">Grammar</button>
     <button onclick="location.href='collocations.html'">Collocations</button>
   </div>
-
+  <div class="pdf-item">
+      <a href="https://maxfilms.gumroad.com/l/mandarin-pronunciation-pack" target="_blank">
+      <img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1764554536/bigad_tz9jre.gif" 
+         alt="PDF Cover" 
+         style="width:500px;height:auto;cursor:pointer;">
+      </a>
+  </div>
   <!-- Main Content -->
   <div class="main-content">
     
@@ -659,6 +668,7 @@
   </script>
 </body>
 </html>
+
 
 
 
