@@ -1,0 +1,487 @@
+/* Reset cơ bản */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+/* Header */
+header {
+    background-color: #8bc34a;
+    color: white;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.homepage-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+    }
+    nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #8bc34a;
+        width: 100%;
+        padding: 10px 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+    }
+    nav.show {
+        display: flex;
+    }
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    nav ul li a {
+        font-size: 1rem;
+    }
+}
+
+/* Main Content */
+.logos-and-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.logos-and-title .logo {
+    width: 100%;
+    height: auto;
+    max-height: 800px;
+    object-fit: contain;
+}
+
+/* Tag New Words */
+.new-words {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background-color: #ffeb3b;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    z-index: 50;
+}
+.new-words a {
+    text-decoration: none;
+    color: inherit;
+}
+.new-words a:hover {
+    color: #ff5722;
+}
+
+/* Footer */
+footer {
+    background-color: #8bc34a;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+}
+footer .social-icons {
+    margin-top: 10px;
+}
+footer .social-icons a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: white;
+}
+
+/* Search */
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+#searchInput {
+    padding: 8px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+#searchButton {
+    padding: 8px 15px;
+    background-color: #0078d7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+#searchButton:hover {
+    background-color: #005bb5;
+}
+
+/* Controls */
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+#countInput {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 80px;
+    margin-right: 10px;
+}
+#sortSelect {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+#okButton {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#okButton:hover {
+    background-color: #45a049;
+}
+#imagesButton {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #0078d7;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+#imagesButton:hover {
+    background-color: #005bb5;
+}
+/* =====================
+   GRID & CARD (3 columns per row, flat layout)
+   ===================== */
+
+.grid-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* Each card is a horizontal row with 3 columns */
+.card {
+    display: grid;
+    grid-template-columns: 220px 1fr 220px;
+    gap: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    overflow: hidden;
+    min-height: 180px;
+    position: relative;
+    width: 100%;
+    max-width: 850px; /* chiều ngang cố định tối đa */
+    margin: 0 auto;   /* căn giữa */
+}
+/* Col 1: Image */
+.card-image-col {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f8f8;
+    border-right: 1px solid #eee;
+}
+.card-image-col img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Audio button inside image col */
+.audio-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 4px 8px;
+    border: none;
+    font-size: 16px;
+    color: black;
+    background: rgba(255,255,255,0.8);
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 2;
+}
+.audio-button:hover {
+    background-color: #dee3de;
+}
+
+/* Col 2: Info */
+.card-info-col {
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    border-right: 1px solid #eee;
+}
+
+.card-pinyin {
+    color: #888;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+}
+
+.card-character {
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1.2;
+    color: #222;
+    display: flex;
+    gap: 2px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.card-meaning {
+    color: #444;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+.card-stroke-area {
+    margin-top: 8px;
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Col 3: Practice canvas */
+.card-practice-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    background: #fafafa;
+    gap: 8px;
+}
+
+.card-practice-col canvas {
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    background: white;
+    cursor: crosshair;
+    touch-action: none;
+}
+
+.practice-controls {
+    display: flex;
+    gap: 6px;
+}
+
+.practice-btn {
+    padding: 4px 10px;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    background: white;
+}
+.practice-btn:hover {
+    background: #f0f0f0;
+}
+.practice-btn.clear-btn {
+    color: #e53935;
+    border-color: #e53935;
+}
+.practice-btn.clear-btn:hover {
+    background: #ffeaea;
+}
+
+/* Character interaction */
+.character {
+    transition: color 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+}
+.character:hover {
+    color: #8bc34a;
+}
+.character.clicked {
+    color: red;
+}
+
+/* Stroke order container */
+.stroke-order-container {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+}
+/* =====================
+   PAGINATION
+   ===================== */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.pagination button {
+    padding: 7px 13px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    min-width: 38px;
+}
+
+.pagination button:hover:not(:disabled) {
+    background: #e8f5e9;
+    border-color: #8bc34a;
+}
+
+.pagination button.active {
+    background: #8bc34a;
+    color: white;
+    border-color: #8bc34a;
+    font-weight: bold;
+}
+
+.pagination button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.pagination-dots {
+    padding: 0 4px;
+    color: #aaa;
+    font-size: 16px;
+    line-height: 1;
+}
+
+/* =====================
+   RESPONSIVE
+   ===================== */
+@media (max-width: 900px) {
+    .card {
+        grid-template-columns: 160px 1fr 160px;
+        min-height: 150px;
+    }
+    .card-character {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 650px) {
+    .card {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+    .card-image-col {
+        
+        border-right: none;
+        border-bottom: 1px solid #eee;
+    }
+    .card-info-col {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+    }
+    .card-practice-col {
+        padding: 16px;
+    }
+    .card-practice-col canvas {
+        width: 160px !important;
+        height: 160px !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    .logos-and-title {
+        flex-direction: column;
+        padding: 10px;
+    }
+    .logos-and-title .logo {
+        max-height: 200px;
+        margin: 10px 0;
+    }
+    .new-words {
+        right: 10px;
+        padding: 8px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header h1 {
+        font-size: 1.3rem;
+    }
+    .logos-and-title .logo {
+        max-height: 150px;
+    }
+}
