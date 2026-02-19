@@ -2,7 +2,7 @@ let data = []; // Khai báo biến data toàn cục
 
 // Fetch data from GitHub JSON file and display
 const filesToFetch = [
-    'https://raw.githubusercontent.com/minhnguyen412/chinese60s/refs/heads/main/data/imagesData.json'
+    '../data/imagesData.json'
 ];
 
 Promise.all(filesToFetch.map(url => fetch(url).then(res => res.json())))
@@ -352,4 +352,5 @@ Promise.all(filesToFetch.map(url => fetch(url).then(res => res.json())))
             if (e.key === 'Enter') okButton.click();
         });
     })
+
     .catch(error => console.error('Error fetching JSON:', error));
