@@ -233,7 +233,7 @@ div {
     min-height: 180px;
     position: relative;
     width: 100%;
-    max-width: 850px; /* chiều ngang cố định tối đa */
+    max-width: 800px; /* chiều ngang cố định tối đa */
     margin: 0 auto;   /* căn giữa */
 }
 /* Col 1: Image */
