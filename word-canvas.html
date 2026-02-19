@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@chinese60s</title>
+    <link rel="stylesheet" href="newword.css">
+    <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3235921032748480"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- Header -->
+  <header>
+    <h1><a href="index.html" class="homepage-link">CHINESE 60s</a></h1>
+    <button class="menu-toggle" aria-label="Toggle navigation">
+      &#9776; <!-- Biểu tượng ba gạch -->
+    </button>
+    <nav>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="https://www.amazon.com/shop/studiorum60s">Shop</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Logos and Title Section -->
+  <div class="logos-and-title">
+      <img src="assets/banner.png" alt="Logo" class="logo">
+  </div>
+    <!-- Search Section -->
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search character or meaning...">
+        <button id="searchButton">Search</button>
+    </div>
+  <!-- Main Content -->
+  <div>
+  <input type="number" id="countInput" placeholder="Number of images" min="1" value="100"> <!-- Mặc định là 100 -->
+  <select id="sortSelect">
+      <option value="oldest">Oldest</option>
+      <option value="newest" selected>Newest</option>
+      <option value="shuffle">Shuffle</option>
+  </select>
+  <button id="okButton">OK</button> <!-- Nút OK -->
+  <a href="newword.html" id="imagesButton">Images</a>
+</div>
+  <div class="grid-container" id="imageGrid"></div>
+  <script src="newword.js"></script>
+<!-- New Words Tag -->
+  <div class="new-words">
+      <a href="https://buymeacoffee.com/chinese60s">Donate</a>
+  </div>
+
+<!-- Footer -->
+  <footer>
+    <p>Chinese60s</p>
+    <p>Learn Mandarin through images and videos</p>
+    <div class="social-icons">
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+      <a href="#">TikTok</a>
+      <a href="#">Instagram</a>
+    </div>
+  </footer>
+  
+  <script>
+    // JavaScript để điều khiển nút hamburger menu
+    document.addEventListener('DOMContentLoaded', function () {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('nav');
+
+      menuToggle.addEventListener('click', function () {
+        nav.classList.toggle('show');
+
+        // Chuyển đổi biểu tượng giữa ba gạch và dấu X
+        if (nav.classList.contains('show')) {
+          menuToggle.innerHTML = '&#10005;'; // Biểu tượng X
+        } else {
+          menuToggle.innerHTML = '&#9776;'; // Biểu tượng ba gạch
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
