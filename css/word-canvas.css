@@ -456,11 +456,12 @@ div {
 /* iPad portrait (~820px) và các màn tương tự */
 @media (max-width: 900px) and (min-width: 651px) {
     .card {
-        grid-template-columns: 130px 1fr 130px;
+        grid-template-columns: 1fr 130px 130px;
         min-height: 140px;
         max-width: 800px;
     }
     .card-info-col {
+        min-width: 0;
         padding: 8px 10px;
         gap: 3px;
     }
@@ -532,6 +533,7 @@ div {
     }
 
 }
+
 
 
 
