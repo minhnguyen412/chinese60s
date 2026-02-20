@@ -454,9 +454,9 @@ div {
 }
 
 /* iPad portrait (~820px) và các màn tương tự */
-@media (max-width: 820px) and (min-width: 651px) {
+@media (max-width: 900px) and (min-width: 651px) {
     .card {
-        grid-template-columns: 120px 1fr 120px;
+        grid-template-columns: 130px 1fr 130px;
         min-height: 140px;
         max-width: 700px;
     }
@@ -465,35 +465,21 @@ div {
         gap: 3px;
     }
     .card-character {
-        font-size: 1.25rem;
-    }
-    .card-pinyin {
-        font-size: 0.78rem;
-    }
-    .card-meaning {
-        font-size: 0.75rem;
+        font-size: 1.6rem;
     }
     .card-practice-col {
         padding: 6px;
     }
     .card-practice-col canvas {
-        width: 100px !important;
-        height: 100px !important;
+        width: 120px !important;
+        height: 120px !important;
     }
     .practice-btn {
         padding: 3px 7px;
         font-size: 11px;
     }
 }
-@media (max-width: 900px) {
-    .card {
-        grid-template-columns: 130px 1fr 130px;
-        min-height: 150px;
-    }
-    .card-character {
-        font-size: 1.6rem;
-    }
-}
+
 
 @media (max-width: 650px) {
     .card {
@@ -546,5 +532,6 @@ div {
     }
 
 }
+
 
 
