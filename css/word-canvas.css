@@ -428,7 +428,7 @@ div {
 /* iPad landscape */
 @media (max-width: 1024px) and (min-width: 821px) {
     .card {
-        grid-template-columns: 140px 1fr 140px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         min-height: 150px;
     }
     .card-info-col {
@@ -535,6 +535,7 @@ div {
     }
 
 }
+
 
 
 
