@@ -233,7 +233,7 @@ div {
     min-height: 180px;
     position: relative;
     width: 100%;
-    max-width: 800px; /* chiều ngang cố định tối đa */
+    max-width: 850px; /* chiều ngang cố định tối đa */
     margin: 0 auto;   /* căn giữa */
 }
 /* Col 1: Image */
@@ -425,6 +425,33 @@ div {
 /* =====================
    RESPONSIVE
    ===================== */
+@media (max-width: 1024px) and (min-width: 651px) {
+    .card {
+        grid-template-columns: 140px 1fr 140px;
+        min-height: 150px;
+    }
+    .card-info-col {
+        padding: 10px 12px;
+        gap: 4px;
+    }
+    .card-character {
+        font-size: 1.4rem;
+    }
+    .card-pinyin {
+        font-size: 0.82rem;
+    }
+    .card-meaning {
+        font-size: 0.8rem;
+    }
+    .card-practice-col {
+        padding: 8px;
+    }
+    .card-practice-col canvas {
+        width: 120px !important;
+        height: 120px !important;
+    }
+}
+
 @media (max-width: 900px) {
     .card {
         grid-template-columns: 160px 1fr 160px;
@@ -484,4 +511,5 @@ div {
     .logos-and-title .logo {
         max-height: 150px;
     }
+
 }
