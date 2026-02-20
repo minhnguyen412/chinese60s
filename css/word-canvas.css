@@ -454,7 +454,7 @@ div {
 
 @media (max-width: 900px) {
     .card {
-        grid-template-columns: 160px 1fr 160px;
+        grid-template-columns: 130px 1fr 130px;
         min-height: 150px;
     }
     .card-character {
@@ -513,3 +513,4 @@ div {
     }
 
 }
+
