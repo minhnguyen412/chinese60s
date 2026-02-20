@@ -224,7 +224,7 @@ div {
 /* Each card is a horizontal row with 3 columns */
 .card {
     display: grid;
-    grid-template-columns: 220px 1fr 220px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0;
     background: white;
     border-radius: 12px;
@@ -535,6 +535,7 @@ div {
     }
 
 }
+
 
 
 
