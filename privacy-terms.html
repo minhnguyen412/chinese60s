@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy & Terms — Chinese60s</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #222;
+      --green: #7cb83e;
+      --green-dark: #5a8f27;
+      --green-light: #d8f0a0;
+      --green-pale: #f2fde0;
+      --yellow: #ffd84d;
+      --yellow-pale: #fffbe6;
+      --peach: #ffb89a;
+      --peach-pale: #fff3ee;
+      --sky: #72c8f0;
+      --sky-pale: #eaf8ff;
+      --lavender: #c5b0f8;
+      --lavender-pale: #f3f0ff;
+      --pink: #ffadc5;
+      --pink-pale: #fff2f6;
+      --white: #fff;
+      --bg: #fffef5;
+      --shadow-sm: 3px 3px 0 var(--black);
+      --shadow-md: 4px 4px 0 var(--black);
+      --shadow-lg: 6px 6px 0 var(--black);
+      --border: 2.5px solid var(--black);
+      --border-thick: 3px solid var(--black);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 500;
+      background: var(--bg);
+      color: var(--black);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: radial-gradient(circle, rgba(0,0,0,0.045) 1px, transparent 1px);
+      background-size: 22px 22px;
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--green); border-bottom: var(--border-thick);
+      padding: 0 50px; height: 66px;
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 100;
+    }
+    header a { text-decoration: none; }
+    header h1 {
+      font-weight: 700; font-size: 1.7rem; color: white;
+      letter-spacing: 0.04em; text-shadow: 2px 2px 0 rgba(0,0,0,0.25);
+    }
+    .menu-toggle { display: none; font-size: 24px; background: none; border: none; color: white; cursor: pointer; }
+    nav ul { list-style: none; display: flex; gap: 8px; }
+    nav ul li a {
+      text-decoration: none; color: var(--black);
+      font-weight: 600; font-size: 1rem;
+      background: var(--white); border: var(--border); border-radius: 50px;
+      padding: 6px 18px; display: inline-block;
+      box-shadow: var(--shadow-sm); transition: transform 0.12s, box-shadow 0.12s;
+    }
+    nav ul li a:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+
+    @media (max-width: 768px) {
+      header { padding: 0 20px; position: relative; }
+      .menu-toggle { display: block; }
+      nav { display: none; position: absolute; top: 66px; left: 0; right: 0; background: var(--green); border-bottom: var(--border); padding: 12px 0; }
+      nav.show { display: flex; flex-direction: column; align-items: center; }
+      nav ul { flex-direction: column; align-items: center; gap: 8px; padding: 6px 0; }
+    }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: var(--lavender-pale); border-bottom: var(--border-thick);
+      padding: 60px 24px 50px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before { content: '📋'; position: absolute; font-size: 150px; opacity: 0.1; top: -20px; right: 40px; pointer-events: none; }
+    .page-hero::after  { content: '🔒'; position: absolute; font-size: 100px; opacity: 0.1; bottom: -10px; left: 30px; pointer-events: none; }
+    .page-hero .tag {
+      display: inline-block; background: var(--lavender);
+      border: var(--border); border-radius: 50px;
+      padding: 6px 18px; font-weight: 600; font-size: 0.95rem;
+      box-shadow: var(--shadow-sm); margin-bottom: 18px;
+    }
+    .page-hero h2 { font-weight: 700; font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.2; margin-bottom: 14px; }
+    .page-hero p  { font-size: 1.1rem; color: #666; max-width: 520px; margin: 0 auto; line-height: 1.7; }
+
+    /* ── TAB NAV ── */
+    .tab-nav {
+      position: sticky; top: 66px; z-index: 90;
+      background: var(--white); border-bottom: var(--border-thick);
+      display: flex; justify-content: center;
+      gap: 12px; padding: 14px 24px;
+    }
+    .tab-btn {
+      background: var(--bg); border: var(--border); border-radius: 50px;
+      padding: 8px 24px; font-family: 'Fredoka', sans-serif;
+      font-weight: 600; font-size: 1rem; cursor: pointer;
+      box-shadow: var(--shadow-sm); transition: transform 0.12s, box-shadow 0.12s, background 0.15s;
+    }
+    .tab-btn:hover { transform: translate(-1px,-2px); box-shadow: 5px 5px 0 var(--black); }
+    .tab-btn.active { background: var(--green); color: white; box-shadow: var(--shadow-md); }
+
+    /* ── CONTENT PANELS ── */
+    .panel { display: none; padding: 60px 24px; position: relative; z-index: 1; }
+    .panel.active { display: block; }
+    .container { max-width: 820px; margin: 0 auto; }
+
+    /* ── LEGAL CARD STYLES ── */
+    .legal-intro {
+      background: var(--white); border: var(--border-thick); border-radius: 22px;
+      box-shadow: var(--shadow-md); padding: 28px 32px; margin-bottom: 32px;
+      display: flex; gap: 18px; align-items: flex-start;
+    }
+    .legal-intro .intro-icon { font-size: 2.5rem; flex-shrink: 0; }
+    .legal-intro h3 { font-weight: 700; font-size: 1.2rem; margin-bottom: 6px; }
+    .legal-intro p  { font-size: 0.97rem; color: #666; line-height: 1.65; }
+
+    .legal-section {
+      background: var(--white); border: var(--border-thick); border-radius: 22px;
+      box-shadow: var(--shadow-md); padding: 28px 32px; margin-bottom: 20px;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .legal-section:hover { transform: translate(-2px,-2px); box-shadow: 7px 7px 0 var(--black); }
+
+    .legal-section-header {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 14px;
+    }
+    .legal-num {
+      background: var(--green-light); border: var(--border); border-radius: 50%;
+      width: 38px; height: 38px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 1rem; flex-shrink: 0;
+      box-shadow: var(--shadow-sm);
+    }
+    .legal-section h3 { font-weight: 700; font-size: 1.15rem; }
+    .legal-section p  { font-size: 0.97rem; color: #555; line-height: 1.7; margin-bottom: 10px; }
+    .legal-section p:last-child { margin-bottom: 0; }
+    .legal-section ul { padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .legal-section ul li {
+      display: flex; gap: 10px; align-items: flex-start;
+      font-size: 0.97rem; color: #555; line-height: 1.65;
+    }
+    .legal-section ul li::before {
+      content: '→'; color: var(--green-dark);
+      font-weight: 700; flex-shrink: 0; margin-top: 1px;
+    }
+
+    /* color accents per section */
+    .legal-section:nth-child(2n)   .legal-num { background: var(--yellow); }
+    .legal-section:nth-child(3n)   .legal-num { background: var(--sky); }
+    .legal-section:nth-child(4n)   .legal-num { background: var(--pink); }
+    .legal-section:nth-child(5n)   .legal-num { background: var(--lavender); }
+    .legal-section:nth-child(6n)   .legal-num { background: var(--peach); }
+
+    .updated-tag {
+      display: inline-block; background: var(--green-light);
+      border: var(--border); border-radius: 50px;
+      padding: 5px 16px; font-weight: 600; font-size: 0.88rem;
+      box-shadow: var(--shadow-sm); margin-bottom: 32px; color: var(--green-dark);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #222; color: rgba(255,255,255,0.65);
+      padding: 28px 50px; text-align: center; position: relative; z-index: 1;
+    }
+    footer .brand { font-weight: 700; color: var(--green-light); font-size: 1.3rem; margin-bottom: 6px; }
+    footer p { font-size: 0.95rem; font-weight: 500; margin-bottom: 3px; }
+    .social-icons { margin-top: 14px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .social-icons a {
+      text-decoration: none; color: var(--black); font-weight: 600; font-size: 0.9rem;
+      background: var(--green-light); border: var(--border); border-radius: 50px;
+      padding: 5px 16px; box-shadow: var(--shadow-sm); transition: transform 0.12s;
+    }
+    .social-icons a:hover { transform: translate(-1px,-2px); }
+
+    .footer-links { margin-top: 12px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .footer-links a {
+      color: rgba(255,255,255,0.5); text-decoration: none;
+      font-size: 0.88rem; font-weight: 600; transition: color 0.15s;
+    }
+    .footer-links a:hover { color: var(--green-light); }
+
+    .donate-tag {
+      position: fixed; top: 50%; right: 20px; transform: translateY(-50%);
+      background: var(--yellow); border: var(--border-thick); border-radius: 20px;
+      padding: 10px 14px; box-shadow: var(--shadow-md);
+      font-weight: 700; font-size: 0.95rem; z-index: 50;
+    }
+    .donate-tag a { text-decoration: none; color: var(--black); }
+
+    @media (max-width: 768px) {
+      .panel { padding: 40px 20px; }
+      .legal-section { padding: 22px 20px; }
+      .legal-intro { padding: 22px 20px; }
+      footer { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html"><h1>CHINESE 60s</h1></a>
+    <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <nav>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="https://www.amazon.com/shop/studiorum60s" target="_blank">Shop</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <span class="tag">📋 Legal stuff, made readable</span>
+    <h2>Privacy & Terms</h2>
+    <p>We keep it simple and honest. Here's exactly how Chinese60s handles your data and what you agree to when using our site.</p>
+  </div>
+
+  <!-- TAB NAV -->
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('privacy', this)">🔒 Privacy Policy</button>
+    <button class="tab-btn" onclick="switchTab('terms', this)">📄 Terms of Service</button>
+  </div>
+
+  <!-- ═══ PRIVACY POLICY ═══ -->
+  <div class="panel active" id="panel-privacy">
+    <div class="container">
+
+      <span class="updated-tag">📅 Last updated: January 2025</span>
+
+      <div class="legal-intro">
+        <span class="intro-icon">🔒</span>
+        <div>
+          <h3>Your privacy matters to us</h3>
+          <p>Chinese60s is a free educational platform. We collect minimal data and never sell your information to anyone. This policy explains clearly what we collect, why, and how you can control it.</p>
+        </div>
+      </div>
+
+      <div class="legal-section">
+        <div class="legal-section-header">
+          <span class="legal-num">1</span>
+          <h3>What Information We Collect</h3>
+        </div>
+        <p>We collect only what's necessary to run the site and improve your learning experience:</p>
+        <ul>
+          <li><strong>Usage data:</strong> Pages visited, time spent, buttons clicked — collected anonymously via Google Analytics.</li>
+          <li><strong>Device info:</strong> Browser type, screen size, and operating system to ensure the site displays correctly.</li>
+          <li><strong>Cookies:</strong> Small files stored on your device to remember your preferences and session.</li>
+          <li><strong>Voluntary info:</strong> If you contact us by email or donate, we receive your email address and any info you share.</li>
+        </ul>
+        <p style="margin-top:12px;">We do <strong>not</strong> collect your name, location, phone number, or any payment information directly.</p>
+      </div>
+
+      <div class="legal-section">
+        <div class="legal-section-header">
+          <span class="legal-num">2</span>
+          <h3>How We Use Your Information</h3>
+        </div>
+        <ul>
+          <li>To understand which content is most useful and improve the learning experience.</li>
+          <li>To fix bugs and technical issues on the site.</li>
+          <li>To respond to your messages if you contact us directly.</li>
+          <li>To display relevant content through third-party tools (see section 4).</li>
+        </ul>
+        <p style="margin-top:12px;">We never use your data for advertising profiling, and we never sell it to third parties.</p>
+      </div>
+
+      <div class="legal-section">
+        <div class="legal-section-header">
+          <span class="legal-num">3</span>
+          <h3>Cookies</h3>
+        </div>
+        <p>We use two types of cookies:</p>
+        <ul>
+          <li><strong>Essential cookies:</strong> Required for the site to function. These cannot be disabled.</li>
+          <li><strong>Analytics cookies:</strong> Help us understand how visitors use Chinese60s. You can opt out by using browser settings or tools like uBlock Origin.</li>
+        </ul>
+        <p style="margin-top:12px;">We do not use advertising cookies or tracking pixels for targeted ads on our site.</p>
+      </div>
+
+      <div class="legal-section">
+        <div class="legal-section-header">
+          <span class="legal-num">4</span>
+          <h3>Third-Party Services</h3>
+        </div>
+        <p>Chinese60s uses the following third-party tools, which have their own privacy policies:</p>
+        <ul>
+          <li><strong>YouTube:</strong> Embedded videos may set cookies when you play them.</li>
+          <li><strong>Google Analytics:</strong> Anonymized traffic analysis. <a href="https://policies.google.com/privacy" target="_blank" style="color:var(--green-dark);">Google's Privacy Policy →</a></li>
+          <li><strong>Gumroad:</strong> For digital product purchases. Gumroad handles all payment processing.</li>
+          <li><strong>Amazon Associates:</strong> We participate in the Amazon affiliate program. Links to Amazon may earn us a small commission at no extra cost to you.</li>
+          <li><strong>Buy Me a Coffee:</strong> For voluntary donations. They handle payment processing.</li>
+        </ul>
+      </div>
+
+      <div class="legal-section">
+        <div class="legal-section-header">
+          <span class="legal-num">5</span>
+          <h3>Your Rights</h3>
+        </div>
+        <p>Depending on where you live, you may have the right to:</p>
+        <ul>
+          <li>Access the personal data we hold about you.</li>
+          <li>Request deletion of your data.</li>
+          <li>Opt out of analytics tracking.</li>
+          <li>Lodge a complaint with your local data protection authority.</li>
+        </ul>
+        <p style="margin-top:12px;">To exercise any of these rights, email us at <strong>hello@chinese60s.com</strong> and we'll respond within 30 days.</p>
+      </div>
+
+      <div class="legal-section">
+        <div class="legal-section-header">
+          <span class="legal-num">6</span>
+          <h3>Children's Privacy</h3>
+        </div>
+        <p>Chinese60s is designed for general audiences, including language learners of all ages. We do not knowingly collect personal information from children under 13. If you believe a child has submitted personal data to us, please contact us and we will delete it promptly.</p>
+      </div>
+
+      <div class="legal-section">
+        <div class="legal-section-header">
+          <span class="legal-num">7</span>
+          <h3>Changes to This Policy</h3>
+        </div>
+        <p>We may update this Privacy Policy from time to time. When we do, we'll update the "Last updated" date at the top of this page. Continued use of Chinese60s after changes means you accept the updated policy.</p>
+        <p>For significant changes, we'll post a notice on the homepage.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ TERMS OF SERVICE ═══ -->
+  <div class="panel" id="panel-terms">
+    <div class="container">
+
+      <span class="updated-tag">📅 Last updated: January 2025</span>
+
+      <div class="legal-intro">
+        <span class="intro-icon">📄</span>
+        <div>
+          <h3>Simple, fair terms</h3>
+          <p>By using Chinese60s, you agree to these terms. We've written them to be as clear and readable as possible — no confusing legalese. If something's unclear, just ask us.</p>
+        </div>
+      </div>
+
+      <div class="legal-section">
+        <div class="legal-section-header">
+          <span class="legal-num">1</span>
+          <h3>Acceptance of Terms</h3>
+        </div>
+        <p>By accessing or using Chinese60s (chinese60s.com), you agree to be bound by these Terms of Service. If you do not agree, please do not use the site.</p>
+        <p>These terms apply to all visitors, learners, and anyone who interacts with our content, tools, or services.</p>
+      </div>
+
+      <div class="legal-section">
+        <div class="legal-section-header">
+          <span class="legal-num">2</span>
+          <h3>What Chinese60s Provides</h3>
+        </div>
+        <p>Chinese60s provides free and paid educational content for learning Mandarin Chinese, including:</p>
+        <ul>
+          <li>Animated dialogue videos and interactive learning tools.</li>
+          <li>Vocabulary, grammar, pronunciation, and writing resources.</li>
+          <li>Downloadable study materials (some available via Gumroad).</li>
+          <li>Affiliate links to recommended learning materials on Amazon.</li>
+        </ul>
+        <p style="margin-top:12px;">We reserve the right to update, modify, or discontinue any feature or content at any time without prior notice.</p>
+      </div>
+
+      <div class="legal-section">
+        <div class="legal-section-header">
+          <span class="legal-num">3</span>
+          <h3>Intellectual Property</h3>
+        </div>
+        <p>All original content on Chinese60s — including animated videos, illustrations, written explanations, and interactive tools — is owned by Chinese60s and protected by copyright.</p>
+        <ul>
+          <li>You may use our content for personal, non-commercial learning only.</li>
+          <li>You may not reproduce, redistribute, sell, or republish our content without written permission.</li>
+          <li>Sharing a link to our content is always welcome and encouraged!</li>
+        </ul>
+      </div>
+
+      <div class="legal-section">
+        <div class="legal-section-header">
+          <span class="legal-num">4</span>
+          <h3>User Conduct</h3>
+        </div>
+        <p>When using Chinese60s, you agree not to:</p>
+        <ul>
+          <li>Scrape, copy, or download our content in bulk for redistribution.</li>
+          <li>Use automated tools or bots to access the site.</li>
+          <li>Attempt to interfere with or disrupt the site's operation.</li>
+          <li>Use our content in any way that violates applicable laws.</li>
+        </ul>
+      </div>
+
+      <div class="legal-section">
+        <div class="legal-section-header">
+          <span class="legal-num">5</span>
+          <h3>Affiliate Links & Sponsored Content</h3>
+        </div>
+        <p>Chinese60s participates in the Amazon Associates affiliate program. This means some links to Amazon products may earn us a small commission if you make a purchase — at no extra cost to you.</p>
+        <p>We only recommend products we genuinely believe are useful for Chinese learners. Affiliate relationships do not influence our editorial content.</p>
+      </div>
+
+      <div class="legal-section">
+        <div class="legal-section-header">
+          <span class="legal-num">6</span>
+          <h3>Disclaimer & Limitation of Liability</h3>
+        </div>
+        <p>Chinese60s provides educational content "as is" without any guarantees of accuracy, completeness, or fitness for a particular purpose.</p>
+        <ul>
+          <li>We are not responsible for learning outcomes or exam results.</li>
+          <li>We are not liable for any issues arising from third-party tools linked from our site.</li>
+          <li>Content may contain occasional errors — if you spot one, please let us know!</li>
+        </ul>
+        <p style="margin-top:12px;">To the maximum extent permitted by law, Chinese60s's total liability for any claim is limited to the amount you paid for any specific service (if any).</p>
+      </div>
+
+      <div class="legal-section">
+        <div class="legal-section-header">
+          <span class="legal-num">7</span>
+          <h3>Purchases & Refunds</h3>
+        </div>
+        <p>Paid products (such as downloadable PDF packs) are sold through Gumroad. Their terms and refund policies apply to those transactions.</p>
+        <p>If you have an issue with a Chinese60s product, contact us at <strong>hello@chinese60s.com</strong> and we'll do our best to make it right.</p>
+      </div>
+
+      <div class="legal-section">
+        <div class="legal-section-header">
+          <span class="legal-num">8</span>
+          <h3>Changes to Terms</h3>
+        </div>
+        <p>We may update these Terms from time to time. The "Last updated" date at the top of this page will always reflect the most recent version. Continued use of Chinese60s after updates means you accept the new terms.</p>
+      </div>
+
+      <div class="legal-section">
+        <div class="legal-section-header">
+          <span class="legal-num">9</span>
+          <h3>Contact Us</h3>
+        </div>
+        <p>Questions about these terms? We're happy to help.</p>
+        <p>📧 Email us at <strong>hello@chinese60s.com</strong> — we typically reply within 2–3 business days.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="donate-tag">
+    <a href="https://buymeacoffee.com/chinese60s" target="_blank">☕ Donate</a>
+  </div>
+
+  <footer>
+    <p class="brand">CHINESE 60s</p>
+    <p>An all-in-one connected system for learning Chinese</p>
+    <div class="social-icons">
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+      <a href="#">TikTok</a>
+      <a href="#">Instagram</a>
+    </div>
+    <div class="footer-links">
+      <a href="about.html">About Us</a>
+      <a href="privacy-terms.html">Privacy & Terms</a>
+      <a href="index.html">Home</a>
+    </div>
+  </footer>
+
+  <script>
+    // Menu toggle
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('show');
+      toggle.innerHTML = nav.classList.contains('show') ? '&#10005;' : '&#9776;';
+    });
+
+    // Tab switching
+    function switchTab(tab, btn) {
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('panel-' + tab).classList.add('active');
+      btn.classList.add('active');
+      window.scrollTo({ top: document.querySelector('.tab-nav').offsetTop - 70, behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
