@@ -4,263 +4,580 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chinese60s Blog</title>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3235921032748480"
-     crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3235921032748480" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --black: #222;
+      --green: #7cb83e;
+      --green-dark: #5a8f27;
+      --green-light: #d8f0a0;
+      --green-pale: #f2fde0;
+      --yellow: #ffd84d;
+      --yellow-pale: #fffbe6;
+      --peach: #ffb89a;
+      --peach-pale: #fff3ee;
+      --sky: #72c8f0;
+      --sky-pale: #eaf8ff;
+      --lavender: #c5b0f8;
+      --lavender-pale: #f3f0ff;
+      --pink: #ffadc5;
+      --pink-pale: #fff2f6;
+      --white: #fff;
+      --bg: #fffef5;
+      --shadow-sm: 3px 3px 0 var(--black);
+      --shadow-md: 4px 4px 0 var(--black);
+      --shadow-lg: 6px 6px 0 var(--black);
+      --border: 2.5px solid var(--black);
+      --border-thick: 3px solid var(--black);
     }
 
-    html, body {
-      height: 100%;
-    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      display: flex;
-      flex-direction: column;
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 500;
+      background: var(--bg);
+      color: var(--black);
+      overflow-x: hidden;
+      display: flex; flex-direction: column; min-height: 100vh;
     }
 
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px);
+      background-size: 22px 22px;
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── HEADER ── */
     header {
-      background-color: #8bc34a;
-      color: white;
-      padding: 15px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-left: 50px;
-      padding-right: 50px;
+      background: var(--green); border-bottom: var(--border-thick);
+      padding: 0 50px; height: 66px;
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 100;
     }
-
-    .homepage-link {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .menu-toggle {
-      display: none;
-      font-size: 24px;
-      background: none;
-      border: none;
-      color: white;
-      cursor: pointer;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-
+    header a.brand { text-decoration: none; }
+    header h1 { font-weight: 700; font-size: 1.7rem; color: white; letter-spacing: 0.04em; text-shadow: 2px 2px 0 rgba(0,0,0,0.25); }
+    .menu-toggle { display: none; font-size: 24px; background: none; border: none; color: white; cursor: pointer; }
+    nav ul { list-style: none; display: flex; gap: 8px; }
     nav ul li a {
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
+      text-decoration: none; color: var(--black); font-weight: 600; font-size: 1rem;
+      background: var(--white); border: var(--border); border-radius: 50px;
+      padding: 6px 18px; display: inline-block;
+      box-shadow: var(--shadow-sm); transition: transform 0.12s, box-shadow 0.12s;
+    }
+    nav ul li a:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+
+    @media (max-width: 768px) {
+      header { padding: 0 20px; position: relative; }
+      .menu-toggle { display: block; }
+      nav { display: none; position: absolute; top: 66px; left: 0; right: 0; background: var(--green); border-bottom: var(--border); padding: 12px 0; }
+      nav.show { display: flex; flex-direction: column; align-items: center; }
+      nav ul { flex-direction: column; align-items: center; gap: 8px; padding: 6px 0; }
     }
 
-    nav ul li a:hover {
-      text-decoration: underline;
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: var(--yellow-pale); border-bottom: var(--border-thick);
+      padding: 52px 24px 44px; text-align: center;
+      position: relative; overflow: hidden; z-index: 1;
+    }
+    .page-hero::before { content: '📝'; position: absolute; font-size: 150px; opacity: 0.1; top: -20px; right: 40px; pointer-events: none; }
+    .page-hero .tag {
+      display: inline-block; background: var(--yellow);
+      border: var(--border); border-radius: 50px;
+      padding: 6px 18px; font-weight: 600; font-size: 0.95rem;
+      box-shadow: var(--shadow-sm); margin-bottom: 16px;
+    }
+    .page-hero h2 { font-weight: 700; font-size: clamp(2rem, 4.5vw, 3.2rem); line-height: 1.2; margin-bottom: 10px; }
+    .page-hero p  { font-size: 1.05rem; color: #666; max-width: 500px; margin: 0 auto; line-height: 1.65; }
+
+    /* ── MAIN ── */
+    .main-content { flex: 1; padding: 56px 24px 72px; position: relative; z-index: 1; }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    /* ── CATEGORY TITLE ── */
+    .category-title {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--white); border: var(--border-thick); border-radius: 50px;
+      padding: 10px 24px; font-weight: 700; font-size: 1.15rem;
+      box-shadow: var(--shadow-md); margin-bottom: 28px;
     }
 
-    nav {
-      display: flex;
+    /* ══════════════════════════════
+       FEATURED POST (first item)
+       — big card, image left, text right
+    ══════════════════════════════ */
+    .blog-featured {
+      margin-bottom: 48px;
     }
 
-    @media screen and (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-        position: absolute;
-        top: 15px;
-        right: 20px;
-      }
+    .featured-card {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      background: var(--white);
+      border: var(--border-thick); border-radius: 24px;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      text-decoration: none; color: var(--black);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .featured-card:hover { transform: translate(-3px,-4px); box-shadow: 8px 8px 0 var(--black); }
 
-      nav {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background-color: #8bc34a;
-        width: 100%;
-        padding: 10px 0;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
+    .featured-img {
+      background: var(--green-pale);
+      min-height: 280px;
+      display: flex; align-items: center; justify-content: center;
+      border-right: var(--border-thick);
+      overflow: hidden; position: relative;
+    }
+    .featured-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block;
+    }
+    /* placeholder when no image */
+    .featured-img .ph {
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      color: var(--green-dark); font-weight: 600; font-size: 0.9rem;
+    }
+    .featured-img .ph span { font-size: 3.5rem; }
 
-      nav.show {
-        display: flex;
-      }
+    .featured-body {
+      padding: 32px 30px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .featured-tag {
+      display: inline-block;
+      background: var(--green-light); border: var(--border); border-radius: 50px;
+      padding: 4px 14px; font-size: 0.82rem; font-weight: 700;
+      box-shadow: var(--shadow-sm); margin-bottom: 14px;
+      align-self: flex-start;
+    }
+    .featured-body h3 {
+      font-weight: 700; font-size: 1.45rem; line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .featured-body p {
+      font-size: 0.98rem; color: #666; line-height: 1.65; margin-bottom: 20px;
+    }
+    .read-more {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--green); color: white;
+      border: var(--border); border-radius: 50px;
+      padding: 8px 20px; font-weight: 700; font-size: 0.92rem;
+      box-shadow: var(--shadow-sm); align-self: flex-start;
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    .featured-card:hover .read-more { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--black); }
 
-      nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-      }
-
-      nav ul li a {
-        font-size: 1rem;
-      }
+    @media (max-width: 768px) {
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-img { min-height: 200px; border-right: none; border-bottom: var(--border-thick); }
     }
 
-    .main-content {
-      flex: 1;
-      padding: 20px;
-      text-align: left;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: left;
-      margin: 0 100px 100px 100px;
+    /* ══════════════════════════════
+       BLOG GRID — card style newspaper
+       image on top, title below
+    ══════════════════════════════ */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-bottom: 56px;
     }
 
-    .main-content img {
-      width: 80px;
-      height: auto;
+    .blog-card {
+      background: var(--white);
+      border: var(--border-thick); border-radius: 20px;
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      text-decoration: none; color: var(--black);
+      display: flex; flex-direction: column;
+      transition: transform 0.15s, box-shadow 0.15s;
     }
+    .blog-card:hover { transform: translate(-2px,-3px); box-shadow: 6px 6px 0 var(--black); }
 
-    .logos-and-title {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
+    /* thumbnail image area */
+    .card-img {
+      width: 100%; aspect-ratio: 16/9;
+      overflow: hidden;
+      border-bottom: var(--border-thick);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
     }
-
-    .logos-and-title .logo {
-      width: 100%;
-      height: auto;
-      max-height: 800px;
-      object-fit: contain;
-    }
-
-    p {
-      font-size: 1.1rem;
-    }
-
-    li {
-      font-size: 1.1rem;
-      font-weight: bold;
-      font-style: italic;
-    }
-
-    .main-content ul {
-      margin-left: 20px;
-      padding-left: 20px;
-    }
-
-    .donation-section {
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    .donation-section img {
-      max-width: 200px;
-      width: 100%;
-      height: auto;
-      cursor: pointer;
+    .card-img img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
       transition: transform 0.3s;
     }
+    .blog-card:hover .card-img img { transform: scale(1.04); }
 
-    .donation-section img:hover {
-      transform: scale(1.1);
+    /* placeholder emoji background when no image yet */
+    .card-img .img-ph {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 6px; font-size: 0.82rem; font-weight: 600;
+    }
+    .card-img .img-ph .ph-emoji { font-size: 2.6rem; }
+
+    /* alternating bg colors for placeholders */
+    .blog-card:nth-child(6n+1) .card-img .img-ph { background: var(--green-pale); color: var(--green-dark); }
+    .blog-card:nth-child(6n+2) .card-img .img-ph { background: var(--yellow-pale); color: #7a5c00; }
+    .blog-card:nth-child(6n+3) .card-img .img-ph { background: var(--sky-pale); color: #1a6a9a; }
+    .blog-card:nth-child(6n+4) .card-img .img-ph { background: var(--pink-pale); color: #a0305a; }
+    .blog-card:nth-child(6n+5) .card-img .img-ph { background: var(--lavender-pale); color: #4a2fa0; }
+    .blog-card:nth-child(6n+6) .card-img .img-ph { background: var(--peach-pale); color: #b84010; }
+
+    /* card body */
+    .card-body {
+      padding: 16px 18px 20px;
+      display: flex; flex-direction: column; flex: 1;
+    }
+    .card-tag {
+      display: inline-block;
+      padding: 3px 12px; border-radius: 50px; border: 1.5px solid var(--black);
+      font-size: 0.75rem; font-weight: 700; margin-bottom: 10px;
+      box-shadow: 2px 2px 0 var(--black); align-self: flex-start;
+    }
+    .tag-guide  { background: var(--green-light); color: var(--green-dark); }
+    .tag-script { background: var(--yellow); color: #7a5c00; }
+
+    .card-body h4 {
+      font-weight: 700; font-size: 1.02rem; line-height: 1.4;
+      margin-bottom: 8px; flex: 1;
+    }
+    .card-body .card-num {
+      font-size: 0.82rem; color: #aaa; font-weight: 600; margin-top: 10px;
     }
 
+    @media (max-width: 900px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px)  { .blog-grid { grid-template-columns: 1fr; } }
+
+    /* ── SEPARATOR ── */
+    .section-sep {
+      border: none; border-top: var(--border-thick);
+      margin: 48px 0 36px;
+      position: relative;
+    }
+
+    /* ── FOOTER ── */
     footer {
-      background-color: #8bc34a;
-      color: white;
-      padding: 15px;
-      text-align: center;
+      background: #222; color: rgba(255,255,255,0.65);
+      padding: 28px 50px; text-align: center; position: relative; z-index: 1;
     }
-
-    footer .social-icons {
-      margin-top: 10px;
+    footer .brand { font-weight: 700; color: var(--green-light); font-size: 1.3rem; margin-bottom: 6px; }
+    footer p { font-size: 0.95rem; font-weight: 500; margin-bottom: 3px; }
+    .social-icons { margin-top: 14px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .social-icons a {
+      text-decoration: none; color: var(--black); font-weight: 600; font-size: 0.9rem;
+      background: var(--green-light); border: var(--border); border-radius: 50px;
+      padding: 5px 16px; box-shadow: var(--shadow-sm); transition: transform 0.12s;
     }
+    .social-icons a:hover { transform: translate(-1px,-2px); }
 
-    footer .social-icons a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: white;
+    .donate-tag {
+      position: fixed; top: 50%; right: 20px; transform: translateY(-50%);
+      background: var(--yellow); border: var(--border-thick); border-radius: 20px;
+      padding: 10px 14px; box-shadow: var(--shadow-md); font-weight: 700; font-size: 0.95rem; z-index: 50;
     }
+    .donate-tag a { text-decoration: none; color: var(--black); }
 
-    @media screen and (max-width: 768px) {
-      header {
-        flex-direction: column;
-        text-align: center;
-      }
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
 
-      nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-      }
-
-      .logos-and-title {
-        flex-direction: column;
-        padding: 10px;
-      }
-
-      .logos-and-title .logo {
-        max-height: 200px;
-        margin: 10px 0;
-      }
-
-      .main-content {
-        margin: 0 10px 100px 10px;
-      }
-    }
-
-    @media screen and (max-width: 480px) {
-      header h1 {
-        font-size: 1.3rem;
-      }
-
-      .logos-and-title .logo {
-        max-height: 150px;
-      }
+    @media (max-width: 768px) {
+      .main-content { padding: 36px 16px 60px; }
+      footer { padding: 28px 20px; }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1><a href="index.html" class="homepage-link">CHINESE 60s</a></h1>
+    <a href="index.html" class="brand"><h1>CHINESE 60s</h1></a>
     <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
     <nav>
       <ul>
         <li><a href="about.html">About Us</a></li>
         <li><a href="courses.html">Courses</a></li>
-        <li><a href="https://www.amazon.com/shop/studiorum60s">Shop</a></li>
+        <li><a href="https://www.amazon.com/shop/studiorum60s" target="_blank">Shop</a></li>
       </ul>
     </nav>
   </header>
 
-  <div class="logos-and-title">
-    <img src="assets/homepage.png" alt="Logo" class="logo">
+  <div class="page-hero">
+    <span class="tag">✍️ Articles & Scripts</span>
+    <h2>Chinese60s Blog</h2>
+    <p>Learning tips, study guides, and real-life Chinese dialogue scripts from Douyin.</p>
   </div>
 
   <div class="main-content">
-    <h1>Chinese60s Blog</h1>
-    <ul class="blog-list">
-      <li><a href="blog/blog-1.html">Learn Chinese Online with Chinese60s</a></li>
-      <li><a href="blog/blog-2.html">What Should You Do When Starting to Learn Chinese?</a></li>
-      <li><a href="blog/blog-3.html">The True Nature of Learning Chinese: What Makes It Unique</a></li>
-      <li><a href="blog/blog-4.html">How to Keep Learning Chinese When You’re Really Busy</a></li>
-      <li><a href="blog/blog-5.html">How to Effectively Learn New Chinese Vocabulary</a></li>
-      <li><a href="blog/blog-6.html">[Real-Life Chinese] 九十后租房 - House hunting as a post-90s renter - Douyin Script</a></li>
-      <li><a href="blog/blog-7.html">[Real-Life Chinese] SPA 按摩 - SPA Massage - Douyin Script</a></li>
-      <li><a href="blog/blog-8.html">[Real-Life Chinese] 治愈时 - Healing Time - Douyin Script</a></li>
-      <li><a href="blog/blog-9.html">[Real-Life Chinese] 坐大巴车回家 - Take a bus to go back home - Douyin Script</a></li>
-      <li><a href="blog/blog-10.html">[Real-Life Chinese] 来菜市场买菜买水果 - Go to the market to buy vegetables and fruits - Douyin Script</a></li>
-      <li><a href="blog/blog-11.html">[Real-Life Chinese] 她的厨艺真的是可以的 - Her cooking is really great - Douyin Script</a></li>
-      <li><a href="blog/blog-12.html">[Real-Life Chinese] 刚梦到真的一个让特别让人害怕的梦 - I just dreamed a really, really scary dream - Douyin Script</a></li>
-      <li><a href="blog/blog-13.html">[Real-Life Chinese] 失声 - Losing My Voice - Douyin Script</a></li>
-      <li><a href="blog/blog-14.html">[Real-Life Chinese] 一个快速掉秤的方法 - A quick way to lose weight - Douyin Script</a></li>
-      <li><a href="blog/blog-15.html">[Real-Life Chinese] 如何使用洗衣机 - How to use a washing machine - Douyin Script</a></li>
-    </ul>
+    <div class="container">
+
+      <!-- ═══ LEARNING GUIDES ═══ -->
+      <div class="blog-featured reveal">
+        <div class="category-title">📚 Learning Guides</div>
+
+        <!-- Featured first post — big card -->
+        <a href="blog/blog-1.html" class="featured-card">
+          <div class="featured-img">
+            <!--
+              Replace the .ph div with:
+              <img src="blog/images/blog-1.jpg" alt="...">
+            -->
+            <div class="ph">
+              <span>🖼️</span>
+              <span>Add image here</span>
+            </div>
+          </div>
+          <div class="featured-body">
+            <span class="featured-tag">📚 Guide</span>
+            <h3>Learn Chinese Online with Chinese60s</h3>
+            <p>Discover how Chinese60s connects animated dialogues, vocabulary, grammar, and speaking practice into one seamless learning system.</p>
+            <span class="read-more">Read article →</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Grid for remaining guides -->
+      <div class="blog-grid reveal">
+
+        <a href="blog/blog-2.html" class="blog-card">
+          <div class="card-img">
+            <!-- <img src="blog/images/blog-2.jpg" alt=""> -->
+            <div class="img-ph">
+              <span class="ph-emoji">🚀</span>
+              <span>Add image here</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-guide">📚 Guide</span>
+            <h4>What Should You Do When Starting to Learn Chinese?</h4>
+            <span class="card-num">#2</span>
+          </div>
+        </a>
+
+        <a href="blog/blog-3.html" class="blog-card">
+          <div class="card-img">
+            <!-- <img src="blog/images/blog-3.jpg" alt=""> -->
+            <div class="img-ph">
+              <span class="ph-emoji">🌏</span>
+              <span>Add image here</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-guide">📚 Guide</span>
+            <h4>The True Nature of Learning Chinese: What Makes It Unique</h4>
+            <span class="card-num">#3</span>
+          </div>
+        </a>
+
+        <a href="blog/blog-4.html" class="blog-card">
+          <div class="card-img">
+            <!-- <img src="blog/images/blog-4.jpg" alt=""> -->
+            <div class="img-ph">
+              <span class="ph-emoji">⏰</span>
+              <span>Add image here</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-guide">📚 Guide</span>
+            <h4>How to Keep Learning Chinese When You're Really Busy</h4>
+            <span class="card-num">#4</span>
+          </div>
+        </a>
+
+        <a href="blog/blog-5.html" class="blog-card">
+          <div class="card-img">
+            <!-- <img src="blog/images/blog-5.jpg" alt=""> -->
+            <div class="img-ph">
+              <span class="ph-emoji">📖</span>
+              <span>Add image here</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-guide">📚 Guide</span>
+            <h4>How to Effectively Learn New Chinese Vocabulary</h4>
+            <span class="card-num">#5</span>
+          </div>
+        </a>
+
+      </div><!-- /grid guides -->
+
+      <hr class="section-sep">
+
+      <!-- ═══ REAL-LIFE SCRIPTS ═══ -->
+      <div class="reveal">
+        <div class="category-title">🎬 Real-Life Chinese — Douyin Scripts</div>
+      </div>
+
+      <div class="blog-grid reveal">
+
+        <a href="blog/blog-6.html" class="blog-card">
+          <div class="card-img">
+            <!-- <img src="blog/images/blog-6.jpg" alt=""> -->
+            <div class="img-ph">
+              <span class="ph-emoji">🏠</span>
+              <span>Add image here</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-script">🎬 Script</span>
+            <h4>九十后租房 — House hunting as a post-90s renter</h4>
+            <span class="card-num">#6</span>
+          </div>
+        </a>
+
+        <a href="blog/blog-7.html" class="blog-card">
+          <div class="card-img">
+            <!-- <img src="blog/images/blog-7.jpg" alt=""> -->
+            <div class="img-ph">
+              <span class="ph-emoji">💆</span>
+              <span>Add image here</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-script">🎬 Script</span>
+            <h4>SPA 按摩 — SPA Massage</h4>
+            <span class="card-num">#7</span>
+          </div>
+        </a>
+
+        <a href="blog/blog-8.html" class="blog-card">
+          <div class="card-img">
+            <!-- <img src="blog/images/blog-8.jpg" alt=""> -->
+            <div class="img-ph">
+              <span class="ph-emoji">🌿</span>
+              <span>Add image here</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-script">🎬 Script</span>
+            <h4>治愈时 — Healing Time</h4>
+            <span class="card-num">#8</span>
+          </div>
+        </a>
+
+        <a href="blog/blog-9.html" class="blog-card">
+          <div class="card-img">
+            <!-- <img src="blog/images/blog-9.jpg" alt=""> -->
+            <div class="img-ph">
+              <span class="ph-emoji">🚌</span>
+              <span>Add image here</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-script">🎬 Script</span>
+            <h4>坐大巴车回家 — Take a bus to go back home</h4>
+            <span class="card-num">#9</span>
+          </div>
+        </a>
+
+        <a href="blog/blog-10.html" class="blog-card">
+          <div class="card-img">
+            <!-- <img src="blog/images/blog-10.jpg" alt=""> -->
+            <div class="img-ph">
+              <span class="ph-emoji">🥦</span>
+              <span>Add image here</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-script">🎬 Script</span>
+            <h4>来菜市场买菜买水果 — Go to the market to buy vegetables and fruits</h4>
+            <span class="card-num">#10</span>
+          </div>
+        </a>
+
+        <a href="blog/blog-11.html" class="blog-card">
+          <div class="card-img">
+            <!-- <img src="blog/images/blog-11.jpg" alt=""> -->
+            <div class="img-ph">
+              <span class="ph-emoji">🍳</span>
+              <span>Add image here</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-script">🎬 Script</span>
+            <h4>她的厨艺真的是可以的 — Her cooking is really great</h4>
+            <span class="card-num">#11</span>
+          </div>
+        </a>
+
+        <a href="blog/blog-12.html" class="blog-card">
+          <div class="card-img">
+            <!-- <img src="blog/images/blog-12.jpg" alt=""> -->
+            <div class="img-ph">
+              <span class="ph-emoji">😱</span>
+              <span>Add image here</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-script">🎬 Script</span>
+            <h4>刚梦到真的一个让特别让人害怕的梦 — I just dreamed a really scary dream</h4>
+            <span class="card-num">#12</span>
+          </div>
+        </a>
+
+        <a href="blog/blog-13.html" class="blog-card">
+          <div class="card-img">
+            <!-- <img src="blog/images/blog-13.jpg" alt=""> -->
+            <div class="img-ph">
+              <span class="ph-emoji">🤐</span>
+              <span>Add image here</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-script">🎬 Script</span>
+            <h4>失声 — Losing My Voice</h4>
+            <span class="card-num">#13</span>
+          </div>
+        </a>
+
+        <a href="blog/blog-14.html" class="blog-card">
+          <div class="card-img">
+            <!-- <img src="blog/images/blog-14.jpg" alt=""> -->
+            <div class="img-ph">
+              <span class="ph-emoji">⚖️</span>
+              <span>Add image here</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-script">🎬 Script</span>
+            <h4>一个快速掉秤的方法 — A quick way to lose weight</h4>
+            <span class="card-num">#14</span>
+          </div>
+        </a>
+
+        <a href="blog/blog-15.html" class="blog-card">
+          <div class="card-img">
+            <!-- <img src="blog/images/blog-15.jpg" alt=""> -->
+            <div class="img-ph">
+              <span class="ph-emoji">🫧</span>
+              <span>Add image here</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-tag tag-script">🎬 Script</span>
+            <h4>如何使用洗衣机 — How to use a washing machine</h4>
+            <span class="card-num">#15</span>
+          </div>
+        </a>
+
+      </div><!-- /grid scripts -->
+
+    </div>
+  </div>
+
+  <div class="donate-tag">
+    <a href="https://buymeacoffee.com/chinese60s" target="_blank">☕ Donate</a>
   </div>
 
   <footer>
-    <p>Chinese60s</p>
+    <p class="brand">CHINESE 60s</p>
     <p>Learn Mandarin through images and videos</p>
     <div class="social-icons">
       <a href="#">Facebook</a>
@@ -271,15 +588,22 @@
   </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const menuToggle = document.querySelector('.menu-toggle');
-      const nav = document.querySelector('nav');
-
-      menuToggle.addEventListener('click', function () {
-        nav.classList.toggle('show');
-        menuToggle.innerHTML = nav.classList.contains('show') ? '&#10005;' : '&#9776;';
-      });
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('show');
+      toggle.innerHTML = nav.classList.contains('show') ? '&#10005;' : '&#9776;';
     });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
