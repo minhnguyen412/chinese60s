@@ -3,516 +3,381 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learning page</title>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3235921032748480"
-     crossorigin="anonymous"></script>
+  <title>Chinese 60s — Learn Mandarin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3235921032748480" crossorigin="anonymous"></script>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --black: #222;
+      --green: #7cb83e;
+      --green-dark: #5a8f27;
+      --green-light: #d8f0a0;
+      --green-pale: #f2fde0;
+      --yellow: #ffd84d;
+      --yellow-pale: #fffbe6;
+      --peach: #ffb89a;
+      --peach-pale: #fff3ee;
+      --sky: #72c8f0;
+      --sky-pale: #eaf8ff;
+      --lavender: #c5b0f8;
+      --lavender-pale: #f3f0ff;
+      --pink: #ffadc5;
+      --pink-pale: #fff2f6;
+      --white: #fff;
+      --bg: #fffef5;
+      --shadow-sm: 3px 3px 0 var(--black);
+      --shadow-md: 4px 4px 0 var(--black);
+      --shadow-lg: 6px 6px 0 var(--black);
+      --border: 2.5px solid var(--black);
+      --border-thick: 3px solid var(--black);
     }
 
-    html, body {
-      height: 100%;
-    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 500;
+      background: var(--bg);
+      color: var(--black);
+      overflow-x: hidden;
       display: flex;
       flex-direction: column;
+      min-height: 100vh;
     }
 
-    /* Header */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: radial-gradient(circle, rgba(0,0,0,0.045) 1px, transparent 1px);
+      background-size: 22px 22px;
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── HEADER ── */
     header {
-      background-color: #8bc34a;
-      color: white;
-      padding: 15px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-left: 50px;
-      padding-right: 50px;
+      background: var(--green);
+      border-bottom: var(--border-thick);
+      padding: 0 50px; height: 66px;
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 100;
     }
-    .menu-toggle {
-      display: none;
-      font-size: 24px;
-      background: none;
-      border: none;
-      color: white;
-      cursor: pointer;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-    }
-
-    nav ul li a:hover {
-      text-decoration: underline;
-    }
-    /* Hide menu in responsive mode */
-    nav {
-      display: flex;
-    }
-
-    /* Responsive cho màn hình nhỏ hơn 768px */
-    @media screen and (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-        position: absolute;
-        top: 15px;
-        right: 20px;
-      }
-
-      nav {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background-color: #8bc34a;
-        width: 100%;
-        padding: 10px 0;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
-
-      nav.show {
-        display: flex;
-      }
-
-      nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-      }
-
-      nav ul li a {
-        font-size: 1rem;
-      }
-    }
-
-    /* Main Content */
-    .main-content {
-      flex: 1;
-      padding: 20px;
-      text-align: center;
-      background-image: url('');
-      background-size: cover; /* Phủ kín khung */
-      background-position: center; /* Căn giữa ảnh */
-      background-repeat: no-repeat;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 100px;
-    }
-
-    .main-content img {
-      width: 80px;
-      height: auto;
-    }
-
-    .logos-and-title {
-      
-      display: flex;
-      justify-content: center; /* Phân tách khoảng cách giữa các phần tử */
-      align-items: center;/* Căn giữa theo chiều dọc */
-      width: 100%;
-      
-      
-    }
-
-    .logos-and-title .logo {
-      width: 100%;
-      height: auto;
-      max-height: 800px;
-      object-fit: contain;
-    }
-    
-    /* Buttons Section */
-    .button-container {
-      display: flex;
-      justify-content: center;
-      gap: 10px; /* Khoảng cách giữa các nút */
-      margin-top: 10px; /* Khoảng cách giữa title và buttons */
-      width: 100%; /* Đảm bảo sử dụng toàn bộ chiều rộng */
-    }
-
-    .button-container button {
-      padding: 10px 15px;
-      background-color: #fff45e;
-      color: black;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      flex: 0 1 200px; /* Đặt chiều rộng tối đa cho nút */
-      max-width: 200px; /* Chiều rộng tối đa */
-      text-align: center; /* Căn giữa nội dung */
-      font-weight: bold;
-      font-size: 16px;
-    }
-
-    .button-container button:hover {
-      background-color: #f7eb3e; /* Màu hover */
-    }
-
-    .thumbnail-section {
-      margin-top: 30px;
-      text-align: left;
-    }
-
-    .thumbnail-section h2 {
-      display: inline-block;
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-      color: #333;
-      margin-left: 90px; /* Cách lề trái */
-      background-color: #fedcd3;
-      padding: 10px;
-      border-radius: 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      font-weight: bold;
-
-    }
-    .thumbnail-section h3 {
-      font-size: 1 rem;
-      margin-bottom: 10px;
-      color: #333;
-      padding-left: 100px;
-    }
-    
-    .thumbnails {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: center;
-    }
-
-    .thumbnail {
-      width: 300px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      overflow: hidden;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s;
-    }
-
-    .thumbnail:hover {
-      transform: translateY(-5px);
-    }
-
-    .thumbnail img {
-      width: 100%;
-      height: auto;
-    }
-
-    .thumbnail .info {
-      padding: 10px;
-      background: #f9f9f9;
-    }
-
-    .thumbnail .info h4 {
-      margin-bottom: 5px;
-      font-size: 1rem;
-      color: #333;
-    }
-
-    .thumbnail .info p {
-      font-size: 0.875rem;
-      color: #666;
-    }
-
-    /* Tag New Words */
-    .new-words {
-      position: fixed;
-      top: 50%;
-      right: 20px;
-      transform: translateY(-50%);
-      background-color: #ffeb3b;
-      padding: 10px;
-      border-radius: 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      font-weight: bold;
-    }
-
-    /* Footer */
-    footer {
-      background-color: #8bc34a;
-      color: white;
-      padding: 15px;
-      text-align: center;
-    }
-
-    footer .social-icons {
-      margin-top: 10px;
-    }
-
-    footer .social-icons a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: white;
-    }
-    .thumbnail a,
-    .new-words a {
-      text-decoration: none; /* Loại bỏ gạch chân */
-      color: inherit; /* Sử dụng màu chữ hiện tại */
-    }
-
-    .thumbnail a:hover,
-    .new-words a:hover {
-      text-decoration: none; /* Không gạch chân khi hover */
-      color: #ff5722; /* Đổi màu chữ khi hover (chọn màu tùy ý) */
-    }
-    
-/* Responsive cho màn hình nhỏ hơn 768px */
-@media screen and (max-width: 768px) {
-    /* Header */
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    /* Logos and Title */
-    .logos-and-title {
-        flex-direction: column;
-        padding: 10px;
-    }
-
-    .logos-and-title .logo {
-    
-        max-height: 200px;
-        margin: 10px 0;
-        
-    }
-    .button-container button {
-      flex: 0 1 120px; /* Đặt chiều rộng tối đa cho nút */
-      max-width: 120px; /* Chiều rộng tối đa */
-      font-size: 13px;
-    }
-    
-    /* Thumbnails */
-    .thumbnails {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .thumbnail {
-        width: 100%;
-        max-width: 300px;
-        margin-bottom: 15px;
-    }
-
-    /* Typography */
-    h1 {
-        font-size: 1.5rem;
-    }
-
-    .thumbnail-section h2 {
-        font-size: 1.2rem;
-        margin-left: 15px;
-    }
-
-    .thumbnail-section h3 {
-        font-size: 0.9rem;
-        padding-left: 20px;
-    }
-
-    .thumbnail .info h4 {
-        font-size: 0.9rem;
-    }
-
-    .thumbnail .info p {
-        font-size: 0.8rem;
-    }
-
-    /* New Words Tag */
-    .new-words {
-         
-        right: 10px;
-        padding: 8px;
-    }
-}
-
-/* Responsive cho màn hình rất nhỏ */
-@media screen and (max-width: 480px) {
     header h1 {
-        font-size: 1.3rem;
+      font-family: 'Fredoka', sans-serif; font-weight: 700;
+      font-size: 1.7rem; color: white;
+      letter-spacing: 0.04em;
+      text-shadow: 2px 2px 0 rgba(0,0,0,0.25);
+    }
+    .menu-toggle { display: none; font-size: 24px; background: none; border: none; color: white; cursor: pointer; }
+    nav ul { list-style: none; display: flex; gap: 8px; }
+    nav ul li a {
+      text-decoration: none; color: var(--black);
+      font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1rem;
+      background: var(--white); border: var(--border); border-radius: 50px;
+      padding: 6px 18px; display: inline-block;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    nav ul li a:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+
+    @media (max-width: 768px) {
+      header { padding: 0 20px; position: relative; }
+      .menu-toggle { display: block; }
+      nav { display: none; position: absolute; top: 66px; left: 0; right: 0; background: var(--green); border-bottom: var(--border); padding: 12px 0; }
+      nav.show { display: flex; flex-direction: column; align-items: center; }
+      nav ul { flex-direction: column; align-items: center; gap: 8px; padding: 6px 0; }
     }
 
-    .logos-and-title .logo {
-    
-        
-        max-height: 150px;
+    /* ── HERO BANNER ── */
+    .hero-banner {
+      background: var(--green-pale);
+      border-bottom: var(--border-thick);
+      display: flex; justify-content: center; align-items: flex-end;
+      position: relative; z-index: 1;
+      overflow: hidden;
+    }
+    .hero-banner .logo {
+      width: 100%; height: auto; max-height: 320px; object-fit: contain; display: block;
     }
 
-    .thumbnail-section h2 {
-        font-size: 1rem;
-        margin-left: 10px;
+    /* ── TOOL BUTTONS ── */
+    .tools-section {
+      background: var(--white);
+      border-bottom: var(--border-thick);
+      padding: 20px 24px;
+      position: relative; z-index: 1;
+      display: flex; flex-direction: column; gap: 12px; align-items: center;
+    }
+    .button-container {
+      display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+    }
+    .button-container button {
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem;
+      background: var(--yellow); color: var(--black);
+      padding: 10px 24px; border: var(--border-thick); border-radius: 50px;
+      box-shadow: var(--shadow-sm); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s;
+      flex: 0 1 auto;
+    }
+    .button-container button:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+
+    @media (max-width: 480px) {
+      .button-container button { font-size: 0.88rem; padding: 8px 16px; }
     }
 
-    .thumbnail-section h3 {
-        font-size: 0.8rem;
-        padding-left: 15px;
+    /* ── AD BANNER ── */
+    .ad-banner {
+      display: flex; justify-content: center;
+      padding: 20px 24px;
+      position: relative; z-index: 1;
+      background: var(--bg);
     }
-    
-}
-    /* VIDEO SLIDER */
-.video-slider-container {
-  position: relative;
-  width: 100%;
-  max-width: 1200px;
-  margin: 20px auto;
-  overflow: hidden;
-}
+    .ad-banner a img {
+      max-width: 100%; height: auto; border-radius: 12px;
+      border: var(--border); box-shadow: var(--shadow-md);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .ad-banner a img:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); }
 
-.video-slider {
-  display: flex;
-  transition: transform 0.4s ease-in-out;
-}
+    /* ── MAIN CONTENT ── */
+    main {
+      flex: 1;
+      padding: 0 0 80px;
+      position: relative; z-index: 1;
+    }
 
-.video-item {
-  min-width: 33.33%; /* 3 video mỗi hàng */
-  padding: 10px;
-  box-sizing: border-box;
-}
+    /* ── SECTION HEADER ── */
+    .section-header {
+      padding: 36px 40px 20px;
+      display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    }
+    .section-badge {
+      display: inline-block;
+      background: var(--peach); border: var(--border); border-radius: 50px;
+      padding: 8px 22px; font-weight: 700; font-size: 1.1rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .section-sub {
+      font-size: 0.95rem; color: #777; font-weight: 500;
+    }
 
-.video-item iframe {
-  width: 100%;
-  height: 200px;
-  border-radius: 8px;
-}
+    /* ── VIDEO SLIDER ── */
+    .slider-wrap {
+      padding: 0 40px;
+      position: relative;
+    }
+    .video-slider-container {
+      position: relative;
+      width: 100%; max-width: 1160px;
+      margin: 0 auto;
+      overflow: hidden;
+      border: var(--border-thick); border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+    }
+    .video-slider {
+      display: flex;
+      transition: transform 0.4s ease-in-out;
+    }
+    .video-item {
+      min-width: 33.33%; padding: 12px; box-sizing: border-box;
+    }
+    .video-item iframe {
+      width: 100%; height: 210px;
+      border-radius: 12px; border: var(--border);
+      display: block;
+    }
+    .slider-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: var(--yellow); color: var(--black);
+      border: var(--border-thick); border-radius: 50%;
+      width: 42px; height: 42px; font-size: 16px;
+      cursor: pointer; z-index: 5; box-shadow: var(--shadow-sm);
+      transition: transform 0.12s, box-shadow 0.12s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .slider-btn:hover { transform: translateY(-50%) translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+    .slider-btn.prev { left: -20px; }
+    .slider-btn.next { right: -20px; }
 
-.slider-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  z-index: 5;
-}
+    @media (max-width: 768px) {
+      .video-item { min-width: 50%; }
+      .slider-wrap { padding: 0 24px; }
+      .slider-btn.prev { left: -14px; }
+      .slider-btn.next { right: -14px; }
+    }
+    @media (max-width: 480px) {
+      .video-item { min-width: 100%; }
+      .video-item iframe { height: 180px; }
+    }
 
-.slider-btn.prev {
-  left: 0;
-}
+    /* ── AMAZON BOOKS ── */
+    .books-section {
+      padding: 32px 40px 0;
+    }
+    .books-label {
+      display: inline-block;
+      background: var(--sky); border: var(--border); border-radius: 50px;
+      padding: 6px 18px; font-weight: 600; font-size: 0.95rem;
+      box-shadow: var(--shadow-sm); margin-bottom: 16px;
+    }
+    .amazon-images {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+      max-width: 1160px;
+    }
+    .amazon-images a {
+      border: var(--border); border-radius: 12px;
+      overflow: hidden; display: block;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .amazon-images a:hover { transform: translate(-2px,-3px); box-shadow: 5px 5px 0 var(--black); }
+    .amazon-images img {
+      width: 100%; height: auto; display: block;
+    }
 
-.slider-btn.next {
-  right: 0;
-}
-@media (max-width: 768px) {
-  .video-item {
-    min-width: 50%; /* 2 video mỗi hàng trên tablet */
-  }
-}
+    @media (max-width: 768px) {
+      .amazon-images { grid-template-columns: repeat(4, 1fr); }
+      .books-section { padding: 24px 20px 0; }
+    }
+    @media (max-width: 480px) {
+      .amazon-images { grid-template-columns: repeat(3, 1fr); }
+    }
 
-@media (max-width: 480px) {
-  .video-item {
-    min-width: 100%; /* 1 video mỗi hàng trên điện thoại */
-  }
-}
+    /* ── THUMBNAILS ── */
+    .thumbnails-section {
+      padding: 28px 40px 0;
+    }
+    .thumbnails-label {
+      display: inline-block;
+      background: var(--lavender); border: var(--border); border-radius: 50px;
+      padding: 6px 18px; font-weight: 600; font-size: 0.95rem;
+      box-shadow: var(--shadow-sm); margin-bottom: 16px;
+    }
+    .thumbnails {
+      display: flex; flex-wrap: wrap; gap: 18px;
+      justify-content: flex-start;
+      max-width: 1160px;
+    }
+    .thumbnail {
+      width: 280px;
+      border: var(--border-thick); border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      background: var(--white);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .thumbnail:hover { transform: translate(-2px,-3px); box-shadow: 6px 6px 0 var(--black); }
+    .thumbnail a { text-decoration: none; color: inherit; display: block; }
+    .thumbnail img { width: 100%; height: auto; display: block; }
+    .thumbnail .info {
+      padding: 12px 14px;
+      background: var(--green-pale);
+      border-top: var(--border);
+    }
+    .thumbnail .info h4 {
+      margin-bottom: 4px; font-size: 1rem; font-weight: 700; color: var(--black);
+    }
+    .thumbnail .info p { font-size: 0.875rem; color: #666; line-height: 1.5; }
 
-/* AMAZON IMAGES ROW */
-.amazon-images {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 10px;
-  margin-top: 20px;
-  margin: 20px auto;
-  max-width: 1200px;
-}
+    @media (max-width: 768px) {
+      .thumbnails { flex-direction: column; align-items: center; }
+      .thumbnail { width: 100%; max-width: 320px; }
+      .thumbnails-section, .section-header { padding-left: 20px; padding-right: 20px; }
+      .slider-wrap { padding: 0 20px; }
+    }
 
-.amazon-images img {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-  transition: transform 0.3s ease;
-}
+    /* ── DONATE TAG ── */
+    .new-words {
+      position: fixed; top: 50%; right: 20px; transform: translateY(-50%);
+      background: var(--yellow); border: var(--border-thick);
+      border-radius: 20px; padding: 10px 14px;
+      box-shadow: var(--shadow-md); font-weight: 700; font-size: 0.95rem; z-index: 50;
+    }
+    .new-words a { text-decoration: none; color: var(--black); }
+    .new-words a:hover { color: var(--green-dark); }
 
-.amazon-images img:hover {
-  transform: scale(1.05);
-}
+    /* ── FOOTER ── */
+    footer {
+      background: #222; color: rgba(255,255,255,0.65);
+      padding: 28px 50px; text-align: center;
+      position: relative; z-index: 1;
+    }
+    footer .brand { font-weight: 700; color: var(--green-light); font-size: 1.3rem; margin-bottom: 6px; }
+    footer p { font-size: 0.95rem; font-weight: 500; margin-bottom: 3px; }
+    .social-icons { margin-top: 14px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .social-icons a {
+      text-decoration: none; color: var(--black);
+      font-weight: 600; font-size: 0.9rem;
+      background: var(--green-light); border: var(--border); border-radius: 50px;
+      padding: 5px 16px; box-shadow: var(--shadow-sm);
+      transition: transform 0.12s;
+    }
+    .social-icons a:hover { transform: translate(-1px,-2px); }
 
-/* Responsive */
-@media screen and (max-width: 768px) {
-  .video-item {
-    min-width: 100%;
-  }
-  .amazon-images {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-.pdf-item img {
-  display: block;              /* Để margin auto hoạt động */
-  margin: 0 auto;              /* Căn giữa hình */
-}
+    @media (max-width: 768px) {
+      footer { padding: 28px 20px; }
+      .new-words { right: 10px; padding: 8px; font-size: 0.85rem; }
+    }
   </style>
 </head>
 <body>
+
   <!-- Header -->
   <header>
     <h1>CHINESE 60s</h1>
-    <button class="menu-toggle" aria-label="Toggle navigation">
-      &#9776; <!-- Biểu tượng ba gạch -->
-    </button>
+    <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
     <nav>
       <ul>
         <li><a href="about.html">About Us</a></li>
         <li><a href="blog.html">Blog</a></li>
         <li><a href="courses.html">Courses</a></li>
-        <li><a href="https://www.amazon.com/shop/studiorum60s">Shop</a></li>
+        <li><a href="https://www.amazon.com/shop/studiorum60s" target="_blank">Shop</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Logos and Title Section -->
-  <div class="logos-and-title">
-      <img src="assets/homepage.png" alt="Logo" class="logo">
-      
+  <!-- Hero Banner -->
+  <div class="hero-banner">
+    <img src="assets/homepage.png" alt="Chinese 60s" class="logo">
   </div>
-  <!-- Buttons Section -->
-  <div class="button-container">
-    <button onclick="location.href='pronunciation.html'">Pronunciation</button>
-    <button onclick="location.href='word-canvas.html'">New Words</button>
-    <button onclick="location.href='write.html'">Learn to write</button>
+
+  <!-- Tool Buttons -->
+  <div class="tools-section">
+    <div class="button-container">
+      <button onclick="location.href='pronunciation.html'">🔊 Pronunciation</button>
+      <button onclick="location.href='word-canvas.html'">📚 New Words</button>
+      <button onclick="location.href='write.html'">✏️ Learn to Write</button>
+    </div>
+    <div class="button-container">
+      <button onclick="location.href='grammar.html'">📖 Grammar</button>
+      <button onclick="location.href='collocations.html'">🔗 Collocations</button>
+    </div>
   </div>
-  <div class="button-container">
-    <button onclick="location.href='grammar.html'">Grammar</button>
-    <button onclick="location.href='collocations.html'">Collocations</button>
-  </div>
-  <br>
-  <div class="pdf-item" style="text-align:center; padding: 20px;">
+
+  <!-- Ad Banner -->
+  <div class="ad-banner">
     <a href="https://maxfilms.gumroad.com/l/mandarin-pronunciation-pack" target="_blank">
-      <img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1764554536/bigad_tz9jre.gif"
-         alt="PDF Cover"
-         style="max-width:100%; height:auto; cursor:pointer; border-radius:8px;">
+      <img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1764554536/bigad_tz9jre.gif" alt="Mandarin Pronunciation Pack">
     </a>
   </div>
-  <!-- Main Content -->
-  <div class="main-content">
-    
 
-    <div class="thumbnail-section">
-      <h2>初级 - BEGINNER - HSK-1-2</h2>
-      <!-- Slider Video Section -->
+  <!-- Main Content -->
+  <main>
+
+    <!-- Section Header -->
+    <div class="section-header">
+      <span class="section-badge">🎓 初级 · BEGINNER · HSK 1–2</span>
+      <span class="section-sub">Start here if you're new to Mandarin</span>
+    </div>
+
+    <!-- Video Slider -->
+    <div class="slider-wrap">
       <div class="video-slider-container">
         <button class="slider-btn prev">&#10094;</button>
         <div class="video-slider">
-          <!-- Mỗi video là 1 div -->
           <div class="video-item">
             <iframe src="https://www.youtube.com/embed/ng-E83Dg-KU?si=5E5ZZ4GMMHq4IL2c" frameborder="0" allowfullscreen></iframe>
           </div>
@@ -540,8 +405,11 @@
         </div>
         <button class="slider-btn next">&#10095;</button>
       </div>
+    </div>
 
-      <!-- Amazon Images Row -->
+    <!-- Recommended Books -->
+    <div class="books-section">
+      <span class="books-label">📦 Recommended Textbooks</span>
       <div class="amazon-images">
         <a href="https://amzn.to/458N8Q2" target="_blank"><img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1754799160/hyjc-1_waystv.png" alt="Hanyu-Jiaocheng-1A"></a>
         <a href="https://amzn.to/45aBnZn" target="_blank"><img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1754799156/hyjc-2_tan7ou.png" alt="Hanyu-Jiaocheng-1B"></a>
@@ -551,22 +419,24 @@
         <a href="https://amzn.to/3UlUI3v" target="_blank"><img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1754799158/sutong-3_uhjady.png" alt="Msutong-3"></a>
         <a href="https://amzn.to/41lxGhh" target="_blank"><img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1754799158/sutong-4_ewgkav.png" alt="Msutong-4"></a>
       </div>
-
-      <h3>HANYU JIAOCHENG - 汉语教程</h3>
-      <div class="thumbnails" id="thumbnails-container">
-        
-      </div>
     </div>
-  </div>
-  
-  <!-- New Words Tag -->
+
+    <!-- Thumbnails -->
+    <div class="thumbnails-section">
+      <span class="thumbnails-label">🎬 HANYU JIAOCHENG · 汉语教程</span>
+      <div class="thumbnails" id="thumbnails-container"></div>
+    </div>
+
+  </main>
+
+  <!-- Donate Tag -->
   <div class="new-words">
-    <a href="https://buymeacoffee.com/chinese60s">Donate</a>
+    <a href="https://buymeacoffee.com/chinese60s" target="_blank">☕ Donate</a>
   </div>
-  
+
   <!-- Footer -->
   <footer>
-    <p>Chinese60s</p>
+    <p class="brand">CHINESE 60s</p>
     <p>Learn Mandarin through images and videos</p>
     <div class="social-icons">
       <a href="#">Facebook</a>
@@ -575,38 +445,29 @@
       <a href="#">Instagram</a>
     </div>
   </footer>
+
   <script>
-    // JavaScript để điều khiển nút hamburger menu
+    // Hamburger menu
     document.addEventListener('DOMContentLoaded', function () {
       const menuToggle = document.querySelector('.menu-toggle');
       const nav = document.querySelector('nav');
-
       menuToggle.addEventListener('click', function () {
         nav.classList.toggle('show');
-
-        // Chuyển đổi biểu tượng giữa ba gạch và dấu X
-        if (nav.classList.contains('show')) {
-          menuToggle.innerHTML = '&#10005;'; // Biểu tượng X
-        } else {
-          menuToggle.innerHTML = '&#9776;'; // Biểu tượng ba gạch
-        }
+        menuToggle.innerHTML = nav.classList.contains('show') ? '&#10005;' : '&#9776;';
       });
     });
   </script>
+
   <script>
+    // Load thumbnails from JSON
     document.addEventListener('DOMContentLoaded', async () => {
       const container = document.getElementById('thumbnails-container');
-
       try {
-        const response = await fetch('data/thumbnail.json'); 
+        const response = await fetch('data/thumbnail.json');
         const data = await response.json();
-
         data.forEach(item => {
-          // Tạo thẻ div cho mỗi thumbnail
           const thumbnail = document.createElement('div');
           thumbnail.className = 'thumbnail';
-
-          // Nội dung HTML của thumbnail
           thumbnail.innerHTML = `
             <a href="${item.htmlLink}">
               <img src="${item.thumbnail}" alt="${item.title} Thumbnail">
@@ -616,8 +477,6 @@
               </div>
             </a>
           `;
-
-          // Thêm thumbnail vào container
           container.appendChild(thumbnail);
         });
       } catch (error) {
@@ -625,60 +484,42 @@
         container.innerHTML = '<p>Failed to load thumbnails.</p>';
       }
     });
-    // Video slider logic
+
+    // Video slider
     document.addEventListener('DOMContentLoaded', () => {
       const slider = document.querySelector('.video-slider');
       const prevBtn = document.querySelector('.slider-btn.prev');
       const nextBtn = document.querySelector('.slider-btn.next');
       const items = document.querySelectorAll('.video-item');
-
       let currentIndex = 0;
-      let visibleItems = getVisibleItems();
 
       function getVisibleItems() {
-        if (window.innerWidth <= 480) return 1; // mobile
-        if (window.innerWidth <= 768) return 2; // tablet
-        return 3; // desktop
+        if (window.innerWidth <= 480) return 1;
+        if (window.innerWidth <= 768) return 2;
+        return 3;
       }
 
+      function updateSlider() {
+        const visibleItems = getVisibleItems();
+        const offset = -(currentIndex * (100 / visibleItems));
+        slider.style.transform = `translateX(${offset}%)`;
+      }
 
       nextBtn.addEventListener('click', () => {
-        if (currentIndex < items.length - visibleItems) {
-          currentIndex++;
-        } else {
-          currentIndex = 0; // quay lại đầu
-        }
+        const visibleItems = getVisibleItems();
+        currentIndex = currentIndex < items.length - visibleItems ? currentIndex + 1 : 0;
         updateSlider();
       });
 
       prevBtn.addEventListener('click', () => {
-        if (currentIndex > 0) {
-          currentIndex--;
-        } else {
-          currentIndex = items.length - visibleItems; // quay lại cuối
-        }
+        const visibleItems = getVisibleItems();
+        currentIndex = currentIndex > 0 ? currentIndex - 1 : items.length - visibleItems;
         updateSlider();
       });
 
-      function updateSlider() {
-        const offset = -(currentIndex * (100 / visibleItems));
-        slider.style.transform = `translateX(${offset}%)`;
-      }
+      window.addEventListener('resize', updateSlider);
     });
-
   </script>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
