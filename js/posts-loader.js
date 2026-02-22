@@ -183,8 +183,8 @@ function loadPosts(startpId, endpId, listId) {
             // Thêm avatar và user vào thẻ row
             row.appendChild(avatar);
             row.appendChild(user);
-            li.appendChild(audio);
-            li.appendChild(toggleButton);
+            row.appendChild(audio);
+            row.appendChild(toggleButton);
 
             const h2 = document.createElement('h2');
             h2.itemProp = 'name';
@@ -229,3 +229,4 @@ function loadPosts(startpId, endpId, listId) {
         console.error('Error fetching JSON files:', error);
     });
 }
+
