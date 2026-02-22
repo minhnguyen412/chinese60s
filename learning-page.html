@@ -226,6 +226,7 @@
       grid-template-columns: repeat(7, 1fr);
       gap: 10px;
       max-width: 1160px;
+      margin: 0 auto;   /* thêm dòng này */
     }
     .amazon-images a {
       border: var(--border); border-radius: 12px;
@@ -257,9 +258,12 @@
       box-shadow: var(--shadow-sm); margin-bottom: 16px;
     }
     .thumbnails {
-      display: flex; flex-wrap: wrap; gap: 18px;
-      justify-content: flex-start;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      justify-content: center;  /* đổi thành center */
       max-width: 1160px;
+      margin: 0 auto;           /* thêm dòng này */
     }
     .thumbnail {
       width: 280px;
@@ -518,4 +522,5 @@
 
 </body>
 </html>
+
 
