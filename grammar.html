@@ -1,651 +1,608 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GRAMMAR</title>
-    <link rel="stylesheet" href="css/grammar.css">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3235921032748480"
-     crossorigin="anonymous"></script>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grammar — Chinese60s</title>
+  <link rel="stylesheet" href="css/grammar.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3235921032748480" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #222;
+      --green: #7cb83e;
+      --green-dark: #5a8f27;
+      --green-light: #d8f0a0;
+      --green-pale: #f2fde0;
+      --yellow: #ffd84d;
+      --yellow-pale: #fffbe6;
+      --peach: #ffb89a;
+      --peach-pale: #fff3ee;
+      --sky: #72c8f0;
+      --sky-pale: #eaf8ff;
+      --lavender: #c5b0f8;
+      --lavender-pale: #f3f0ff;
+      --pink: #ffadc5;
+      --pink-pale: #fff2f6;
+      --white: #fff;
+      --bg: #fffef5;
+      --shadow-sm: 3px 3px 0 var(--black);
+      --shadow-md: 4px 4px 0 var(--black);
+      --shadow-lg: 6px 6px 0 var(--black);
+      --border: 2.5px solid var(--black);
+      --border-thick: 3px solid var(--black);
+    }
 
-      html, body {
-        height: 100%;
-      
-      }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-      body {
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-        display: flex;
-        flex-direction: column;
-        background-image: url('assets/3.png'); /* Đường dẫn đến ảnh */
-        background-size: cover; /* Ảnh phủ toàn bộ màn hình */
-        background-position: center; /* Căn giữa */
-        background-repeat: no-repeat; /* Không lặp lại ảnh */
-        background-attachment: fixed;
-      }
-      /* Header */
-      header {
-        background-color: #8bc34a;
-        color: white;
-        padding: 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-left: 50px;
-        padding-right: 50px;
-      }
-      .homepage-link {
-        text-decoration: none;
-        color: white; /* Giữ nguyên màu sắc của text gốc */
-      }
-      .menu-toggle {
-        display: none;
-        font-size: 24px;
-        background: none;
-        border: none;
-        color: white;
-        cursor: pointer;
-      }
-      nav ul {
-        list-style: none;
-        display: flex;
-        gap: 20px;
-      }
+    body {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 500;
+      background: var(--bg);
+      color: var(--black);
+      overflow-x: hidden;
+      display: flex; flex-direction: column; min-height: 100vh;
+    }
 
-      nav ul li a {
-        text-decoration: none;
-        color: white;
-        font-weight: bold;
-      }
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px);
+      background-size: 22px 22px;
+      pointer-events: none; z-index: 0;
+    }
 
-      nav ul li a:hover {
-        text-decoration: underline;
-      }
-      /* Hide menu in responsive mode */
-      nav {
-        display: flex;
-      }
+    /* ── HEADER ── */
+    header {
+      background: var(--green); border-bottom: var(--border-thick);
+      padding: 0 50px; height: 66px;
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 100;
+    }
+    header a.brand { text-decoration: none; }
+    header h1 { font-weight: 700; font-size: 1.7rem; color: white; letter-spacing: 0.04em; text-shadow: 2px 2px 0 rgba(0,0,0,0.25); }
+    .menu-toggle { display: none; font-size: 24px; background: none; border: none; color: white; cursor: pointer; }
+    nav ul { list-style: none; display: flex; gap: 8px; }
+    nav ul li a {
+      text-decoration: none; color: var(--black); font-weight: 600; font-size: 1rem;
+      background: var(--white); border: var(--border); border-radius: 50px;
+      padding: 6px 18px; display: inline-block;
+      box-shadow: var(--shadow-sm); transition: transform 0.12s, box-shadow 0.12s;
+    }
+    nav ul li a:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
 
-      /* Responsive cho màn hình nhỏ hơn 768px */
-      @media screen and (max-width: 768px) {
-        .menu-toggle {
-          display: block;
-          position: absolute;
-          top: 15px;
-          right: 20px;
-        }
+    @media (max-width: 768px) {
+      header { padding: 0 20px; position: relative; }
+      .menu-toggle { display: block; }
+      nav { display: none; position: absolute; top: 66px; left: 0; right: 0; background: var(--green); border-bottom: var(--border); padding: 12px 0; }
+      nav.show { display: flex; flex-direction: column; align-items: center; }
+      nav ul { flex-direction: column; align-items: center; gap: 8px; padding: 6px 0; }
+    }
 
-        nav {
-          display: none;
-          flex-direction: column;
-          position: absolute;
-          top: 60px;
-          right: 0;
-          background-color: #8bc34a;
-          width: 100%;
-          padding: 10px 0;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: var(--sky-pale); border-bottom: var(--border-thick);
+      padding: 48px 24px 40px; text-align: center;
+      position: relative; overflow: hidden; z-index: 1;
+    }
+    .page-hero::before { content: '📐'; position: absolute; font-size: 150px; opacity: 0.1; top: -20px; right: 40px; pointer-events: none; }
+    .page-hero .tag {
+      display: inline-block; background: var(--sky);
+      border: var(--border); border-radius: 50px;
+      padding: 6px 18px; font-weight: 600; font-size: 0.95rem;
+      box-shadow: var(--shadow-sm); margin-bottom: 14px;
+    }
+    .page-hero h2 { font-weight: 700; font-size: clamp(2rem, 4.5vw, 3rem); margin-bottom: 10px; }
+    .page-hero p  { font-size: 1.05rem; color: #666; max-width: 500px; margin: 0 auto; line-height: 1.65; }
 
-        nav.show {
-          display: flex;
-        }
+    /* ── QUICK NAV BUTTONS ── */
+    .quick-nav {
+      background: var(--white); border-bottom: var(--border-thick);
+      padding: 14px 24px;
+      display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+      position: relative; z-index: 1;
+    }
+    .quick-nav a {
+      background: var(--yellow-pale); border: var(--border); border-radius: 50px;
+      padding: 6px 18px; font-weight: 600; font-size: 0.9rem;
+      text-decoration: none; color: var(--black);
+      box-shadow: var(--shadow-sm); transition: transform 0.12s, box-shadow 0.12s;
+    }
+    .quick-nav a:hover { transform: translate(-1px,-2px); box-shadow: 4px 4px 0 var(--black); }
 
-        nav ul {
-          flex-direction: column;
-          align-items: center;
-          gap: 10px;
-        }
+    /* ── MAIN ── */
+    .main-content { flex: 1; padding: 40px 24px 72px; position: relative; z-index: 1; }
+    .container { max-width: 900px; margin: 0 auto; }
 
-        nav ul li a {
-          font-size: 1rem;
-        }
-      }
+    /* ── PAGE TITLE ── */
+    .page-title {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--white); border: var(--border-thick); border-radius: 20px;
+      padding: 12px 28px; font-weight: 700; font-size: 1.6rem;
+      box-shadow: var(--shadow-lg); margin-bottom: 28px;
+    }
 
-    
-      .logos-and-title {
-      
-        display: flex;
-        justify-content: center; /* Phân tách khoảng cách giữa các phần tử */
-        align-items: center;/* Căn giữa theo chiều dọc */
-        width: 100%;
-      
-      
-      }
+    /* ── ACCORDION ── */
+    .accordion { display: flex; flex-direction: column; gap: 14px; }
 
-      .logos-and-title .logo {
-        width: 100%;
-        height: auto;
-        max-height: 800px;
-        object-fit: contain;
-      }
-    
-      /* Buttons Section */
-      .button-container {
-        display: flex;
-        justify-content: center;
-        gap: 10px; /* Khoảng cách giữa các nút */
-        margin-top: 10px; /* Khoảng cách giữa title và buttons */
-        width: 100%; /* Đảm bảo sử dụng toàn bộ chiều rộng */
-      }
+    .accordion-item {
+      background: var(--white);
+      border: var(--border-thick); border-radius: 20px;
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      transition: box-shadow 0.15s;
+    }
+    .accordion-item:hover { box-shadow: 6px 6px 0 var(--black); }
 
-      .button-container button {
-        padding: 10px 15px;
-        background-color: #fff45e;
-        color: black;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        flex: 0 1 200px; /* Đặt chiều rộng tối đa cho nút */
-        max-width: 200px; /* Chiều rộng tối đa */
-        text-align: center; /* Căn giữa nội dung */
-        font-weight: bold;
-        font-size: 16px;
-      }
+    /* alternating left border colors */
+    .accordion-item:nth-child(6n+1) { border-left: 6px solid var(--green); }
+    .accordion-item:nth-child(6n+2) { border-left: 6px solid var(--yellow); }
+    .accordion-item:nth-child(6n+3) { border-left: 6px solid var(--sky); }
+    .accordion-item:nth-child(6n+4) { border-left: 6px solid var(--pink); }
+    .accordion-item:nth-child(6n+5) { border-left: 6px solid var(--lavender); }
+    .accordion-item:nth-child(6n+6) { border-left: 6px solid var(--peach); }
 
-      .button-container button:hover {
-        background-color: #f7eb3e; /* Màu hover */
-      }
+    .accordion-header {
+      width: 100%; background: none; border: none; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 22px; gap: 12px;
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem;
+      color: var(--black); text-align: left;
+      transition: background 0.15s;
+    }
+    .accordion-header:hover { background: var(--green-pale); }
 
-    
+    .toggle-icon {
+      min-width: 30px; height: 30px;
+      background: var(--green-light); border: var(--border); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; font-weight: 700; flex-shrink: 0;
+      box-shadow: 2px 2px 0 var(--black);
+      transition: transform 0.2s, background 0.15s;
+    }
+    .accordion-item.open .toggle-icon {
+      background: var(--green); color: white;
+      transform: rotate(45deg);
+    }
 
-      /* Footer */
-      footer {
-        background-color: #8bc34a;
-        color: white;
-        padding: 15px;
-        text-align: center;
-      }
+    .accordion-content {
+      display: none;
+      padding: 0 22px 22px;
+      border-top: var(--border);
+      background: var(--bg);
+    }
+    .accordion-item.open .accordion-content { display: block; }
 
-      footer .social-icons {
-        margin-top: 10px;
-      }
+    /* content inner styles */
+    .accordion-content p {
+      font-size: 1rem; color: #444; line-height: 1.7;
+      margin-bottom: 10px;
+    }
+    .accordion-content p:last-child { margin-bottom: 0; }
 
-      footer .social-icons a {
-        margin: 0 10px;
-        text-decoration: none;
-        color: white;
-      }
-    
-    
-  /* Responsive cho màn hình nhỏ hơn 768px */
-  @media screen and (max-width: 768px) {
-      /* Header */
-      header {
-        flex-direction: column;
-        text-align: center;
-      }
+    /* grammar formula highlight */
+    .accordion-content p[style*="color: red"] {
+      background: var(--yellow-pale);
+      border: var(--border); border-radius: 14px;
+      padding: 10px 18px !important;
+      box-shadow: var(--shadow-sm);
+      font-size: 1.1rem !important;
+      color: var(--green-dark) !important;
+    }
 
-      nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-      }
+    /* ── FOOTER ── */
+    footer {
+      background: #222; color: rgba(255,255,255,0.65);
+      padding: 28px 50px; text-align: center; position: relative; z-index: 1;
+    }
+    footer .brand { font-weight: 700; color: var(--green-light); font-size: 1.3rem; margin-bottom: 6px; }
+    footer p { font-size: 0.95rem; font-weight: 500; margin-bottom: 3px; }
+    .social-icons { margin-top: 14px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .social-icons a {
+      text-decoration: none; color: var(--black); font-weight: 600; font-size: 0.9rem;
+      background: var(--green-light); border: var(--border); border-radius: 50px;
+      padding: 5px 16px; box-shadow: var(--shadow-sm); transition: transform 0.12s;
+    }
+    .social-icons a:hover { transform: translate(-1px,-2px); }
 
-      /* Logos and Title */
-      .logos-and-title {
-        flex-direction: column;
-        padding: 10px;
-      }
+    .donate-tag {
+      position: fixed; top: 50%; right: 20px; transform: translateY(-50%);
+      background: var(--yellow); border: var(--border-thick); border-radius: 20px;
+      padding: 10px 14px; box-shadow: var(--shadow-md); font-weight: 700; font-size: 0.95rem; z-index: 50;
+    }
+    .donate-tag a { text-decoration: none; color: var(--black); }
 
-      .logos-and-title .logo {
-    
-        max-height: 200px;
-        margin: 10px 0;
-        
-      }
-      .button-container button {
-        flex: 0 1 120px; /* Đặt chiều rộng tối đa cho nút */
-        max-width: 120px; /* Chiều rộng tối đa */
-        font-size: 13px;
-      }
-
-    
-
-      /* Typography */
-      h1 {
-        font-size: 1.5rem;
-      }
-
-    
-  }
-
-  /* Responsive cho màn hình rất nhỏ */
-  @media screen and (max-width: 480px) {
-      header h1 {
-        font-size: 1.3rem;
-      }
-
-      .logos-and-title .logo {
-    
-        
-        max-height: 150px;
-      }
-
-      
-  }
+    @media (max-width: 768px) {
+      .main-content { padding: 28px 14px 60px; }
+      .accordion-header { font-size: 0.92rem; padding: 14px 16px; }
+      .accordion-content { padding: 0 16px 18px; }
+      footer { padding: 28px 20px; }
+    }
   </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-      <h1><a href="index.html" class="homepage-link">CHINESE 60s</a></h1>
-      <button class="menu-toggle" aria-label="Toggle navigation">
-        &#9776; <!-- Biểu tượng ba gạch -->
-      </button>
-      <nav>
-        <ul>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="courses.html">Courses</a></li>
-          <li><a href="https://www.amazon.com/shop/studiorum60s">Shop</a></li>
-        </ul>
-      </nav>
-    </header>
 
-    
-      
-    </div>
-    <!-- Buttons Section -->
-    <div class="button-container">
-      <button onclick="location.href='newword.html'">New Words</button>
-      <button onclick="location.href='write.html'">Learn to write</button>
-      <button onclick="location.href='collocations.html'">Collocations</button>
-    </div>
+  <header>
+    <a href="index.html" class="brand"><h1>CHINESE 60s</h1></a>
+    <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <nav>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="https://www.amazon.com/shop/studiorum60s" target="_blank">Shop</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page-hero">
+    <span class="tag">📐 Sentence Patterns</span>
+    <h2>Grammar</h2>
+    <p>Core grammar patterns from HSK 1–2, explained in context with practice exercises.</p>
+  </div>
+
+  <div class="quick-nav">
+    <a href="word-canvas.html">📖 New Words</a>
+    <a href="write.html">✍️ Learn to Write</a>
+    <a href="collocations.html">🔗 Collocations</a>
+  </div>
+
+  <div class="main-content">
     <div class="container">
-        <h1>GRAMMAR</h1>
-        <div class="accordion">
-            <!-- Mục 1 -->
-            <div class="accordion-item" id="grammar-1">
-                <button class="accordion-header">
-                    <span>[1] 汉语句子的语序 - The grammatical order in Chinese sentences</span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>There are no morphological changes in the strict sense in Chinese; the word order is the main grammatical constituent of the language.</p>
-                    <p>主语：Subject - 谓语：Predicate - 名词：Noun - 动词：Verb - 形容词：Adjective - 状语：Adverbial - 宾语：Object - 定语：Attribute/Modifier - 补语：Complement</p>
-                    <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">主语（定 + 名）谓语（状语 + 动 + 补 + 定 + 宾/形）</p>
-                    
-                    <div id="quiz-container-1" class="grammar-quiz" data-start-id="1" data-end-id="3"></div>
-                    <script src="js/grammar-quiz.js"></script>
-                </div>
-            </div>
+      <div class="page-title">📐 GRAMMAR</div>
 
-            <!-- Mục 2 -->
-            <div class="accordion-item" id="grammar-2">
-                <button class="accordion-header">
-                    <span>[2] 动词谓语句 - The sentence with a verb as its predicate</span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>A sentence with a verb as its predicate is one in which the verb is the main element of the predicate. The grammatical order is:</p>
-                    <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">主语 + 谓语（动词）+ 宾语</p>
-                    <p style="font-size: 12px;">主语：Subject - 谓语：Predicate - 动词：Verb - 宾语：Object</p>
-                    <div id="quiz-container-2" class="grammar-quiz" data-start-id="4" data-end-id="7"></div>
-                    <script src="js/grammar-quiz.js"></script>
-                </div>
-            </div>
+      <div class="accordion">
 
-            <!-- Mục 3 -->
-            <div class="accordion-item" id="grammar-3">
-                <button class="accordion-header">
-                    <span>[3] 号码的读法 - How to read numbers</span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>In reading a cardinal number, no matter how many digits there are, they are read out one by one. For example: telephone numbers, house numbers, passport numbers, car numbers, etc</p>
-                    <p>1. "一" is often read as "yāo"</p>
-                    <p>2. "二" is read as "èr", and cannot be read as "liǎng"</p>
-                    <p>3. Identical numbers are read out one by one</p>
-                    <p>When inquiring about numbers, we say "几号" or "...号码是多少?"</p>
-                    <div id="quiz-container-3" class="grammar-quiz" data-start-id="8" data-end-id="12"></div>
-                    <script src="js/grammar-quiz.js"></script>
-                </div>
-            </div>
-            <!-- Mục 4 -->
-            <div class="accordion-item" id="grammar-4">
-                <button class="accordion-header">
-                    <span>[4] 怎么问 (1) ......吗？ - Interrogation (1): Yes/No questions with "......吗？"</span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>A yes/no question is formed by adding the inquisitive modal particle "吗" to the end of an indicative sentence.</p>
-                    
-                    <div id="quiz-container-4" class="grammar-type-quiz" data-start-id="13" data-end-id="15"></div>
-                    <script src="js/grammar-type-quiz.js"></script>
-                </div>
-            </div>
-            <!-- Mục 5 -->
-            <div class="accordion-item" id="grammar-5">
-                <button class="accordion-header">
-                    <span>[5] 状语 - Adverbial </span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>The modifying elements before a verb and adjective are called adverbials. Adverbs, adjectives, etc., can function as adverbials.</p>
-                    
-                    <div id="quiz-container-5" class="grammar-quiz" data-start-id="16" data-end-id="18"></div>
-                    <script src="js/grammar-quiz.js"></script>
-                </div>
-            </div>
-            <!-- Mục 6 -->
-            <div class="accordion-item" id="grammar-6">
-                <button class="accordion-header">
-                    <span>[6] 副词 "也" 和 "都" - The adverbs "也" (also) and "都" (all, both) "</span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>The adverbs "也" and "都" are placed before verbs and adjectives and function as adverbials.</p>
-                    
-                    <div id="quiz-container-6" class="grammar-type-quiz" data-start-id="19" data-end-id="23"></div>
-                    <script src="js/grammar-type-quiz.js"></script>
-                </div>
-            </div>
-            <!-- Mục 7 -->
-            <div class="accordion-item" id="grammar-7">
-                <button class="accordion-header">
-                    <span>[7] 怎么问 (2) 疑问代词 - Interrogation (2): questions with interrogative pronouns</span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>Questions with interrogative pronouns, sometimes called wh-questions, refer to the questions with:</p>
-                    <p>- 谁：who</p>
-                    <p>- 什么：what</p>
-                    <p>- 哪：which</p>
-                    <p>- 哪儿（哪里）：where</p>
-                    <p>- 怎么：how to</p>
-                    <p>- 怎么样：how</p>
-                    <p>- 几：how many</p>
-                    <p>- 多少：how many, how much</p>
-                    <div id="quiz-container-7" class="grammar-type-quiz" data-start-id="24" data-end-id="29"></div>
-                    
-                    <p>Note: Interrogative sentences cannot take "吗" at the end except those formed with "declarative sentences + 吗". For example, it is wrong to say "你是哪国人吗？</p>
-                    <p style="font-weight: bold; font-size: 15px;">Use interrogative pronouns to ask questions</p>
-                    <div id="quiz-container-8" class="grammar-type-quiz" data-start-id="30" data-end-id="33"></div>
-                    <script src="js/grammar-type-quiz.js"></script>
-                </div>
-            </div>
-            <!-- Mục 8 -->
-            <div class="accordion-item" id="grammar-8">
-                <button class="accordion-header">
-                    <span>[8] 定语和结构助词 "的" - The attributive and the structural particle "的”</span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>The modifiers of nouns and nominal phrases are called attributes. The function of an attribute is to modify and define. In a phrase the attribute is placed in front of the noun; in a sentence before the subject or object, e.g.</p>
-                    <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">Attribute (nouns; pronouns; very + adj) + 的 + nouns/nominal phrases</p>
-                    <p>The structural particle "的" is placed immediately after the attribute. It is the formal indicator of the attribute.</p>
-                    <p>1. When a noun or pronoun is used as an attribute to define, or to show possession and subordination, the particle "的" is added.</p>
-                    <p>我的书 - 他的词典 - 老师的本子 - 图书馆的书 - 我们的老师</p>
-                    <div id="quiz-container-9" class="grammar-quiz" data-start-id="34" data-end-id="38"></div>
-                    <p>2. When an adjective phrase (very + adj) is used as the attribute, the particle "的" is added.</p>
-                    <div id="quiz-container-10" class="grammar-quiz" data-start-id="39" data-end-id="42"></div>
-                    <p>3. Sometimes the tructural particle "的" is not added between the attribute an the centre-word, e.g.</p>
-                    <p>男同学 - 女同学 - 中文书 - 世界地图</p>
-                    <p style="font-weight: bold; font-size: 15px;">Supply "的" in the proper place</p>
-                    <div id="quiz-container-11" class="grammar-quiz" data-start-id="43" data-end-id="46"></div>
-                    <script src="js/grammar-quiz.js"></script>
-                </div>
-            </div>
-            <!-- Mục 9 -->
-            <div class="accordion-item" id="grammar-9">
-                <button class="accordion-header">
-                    <span>[9] 介词 "在" 和 "给" - The preposition "在" and "给"</span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>The preposition "在" together with a location word and placed before a predicate verb, tells the place where an act occurred, e.g.</p>
-                    <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">S + 在 + location word + predicate verb</p>
-                    <div id="quiz-container-12" class="grammar-quiz" data-start-id="47" data-end-id="48"></div>
-                    <p>The preposition "给" indicates the receiver or benificiary of an action, e.g.</p>
-                    <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">给 + S.O + V</p>
-                    <div id="quiz-container-13" class="grammar-quiz" data-start-id="49" data-end-id="50"></div>
-                    <script src="js/grammar-quiz.js"></script>
-                </div>
-            </div>
-            <!-- Mục 10 -->
-            <div class="accordion-item" id="grammar-10">
-                <button class="accordion-header">
-                    <span>[10] 量词 “些” - The classifier "些"</span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>The classifier "些" indicates an uncertain amount; it is often used after "一", "哪", "这", "那", etc.</p>
-                    <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">一/哪/这/那... + 些 + N</p>
-                    <div id="quiz-container-14" class="grammar-type-quiz" data-start-id="51" data-end-id="54"></div>
-                    <p>Note: The classifier "些" can only be used with "一". It does not collocate with other numerals.</p>
-                    
-                    <script src="js/grammar-type-quiz.js"></script>
-                </div>
-            </div>
-            <!-- Mục 11 -->
-            <div class="accordion-item" id="grammar-11">
-                <button class="accordion-header">
-                    <span>[11] 形容词谓语句 - Sentence with an adjective as the predicate </span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>When an adjective functions as the predicate of a sentence, we call it a sentence with an adjective predicate. This type of sentences are used to describe or evaluate someone, something, or a state of affairs.</p>
-                    <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">S + (不）ADV + ADJ</p>
-                    <p>In a sentence with an adjectival predicate, "是" can not be inserted between the subject and the predicate.</p>
-                    <div id="quiz-container-15" class="grammar-quiz" data-start-id="55" data-end-id="61"></div>
-                    <p>Adjectives in such sentences usually take an adverb before them. If they don't have an adverb, the meanings of the sentences will not be descriptive. Rather, they may imply a sense of comparison.</p>
-                    <div id="quiz-container-16" class="grammar-type-quiz" data-start-id="62" data-end-id="64"></div>
-                    <script src="js/grammar-quiz.js"></script>
-                    <script src="js/grammar-type-quiz.js"></script>
-                </div>
-            </div>
-            <!-- Mục 12 -->
-            <div class="accordion-item" id="grammar-12">
-                <button class="accordion-header">
-                    <span>[12] 怎么问（3): 正反问句 - Interrogation (3): the affirmative-negative question </span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>An affirmative-negative question is one in which the affirmative and negative forms of the main element of the predicate are paralleled, e.g.</p>
-                    <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">S + V + 不 + V + N？</p>
-                    <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">S + V + N + 不 + V？</p>
-                    <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">S + ADJ + 不 + ADJ？</p>
-                    <div id="quiz-container-17" class="grammar-type-quiz" data-start-id="65" data-end-id="67"></div>
-                    
-                    
-                    <script src="js/grammar-type-quiz.js"></script>
-                </div>
-            </div>
-            <!-- Mục 13 -->
-            <div class="accordion-item" id="grammar-13">
-                <button class="accordion-header">
-                    <span>[13] "的"字词组 - "的" phrase </span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>"的" phrase is formed by attaching the particle "的" to a noun, pronoun, adjective, verb or phrase. Its grammatical functions are equal to those of nouns, e.g.</p>
-                    <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">NOUN/ PRONOUN/ ADJECTIVE/ VERB/ PHRASE + 的 = NOUN</p>
-                    
-                    <div id="quiz-container-18" class="grammar-quiz" data-start-id="68" data-end-id="70"></div>
-                    
-                    
-                    <script src="js/grammar-quiz.js"></script>
-                </div>
-            </div>
-            <!-- Mục 14 -->
-            <div class="accordion-item" id="grammar-14">
-                <button class="accordion-header">
-                    <span>[14] 主谓谓语句 - The sentence with S-P phrase as the predicate</span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>When a subject-predicate phrase functions as the predicate of the sentence and explains or describes the subject, the sentence is called a sentence with a subject-predicate phrase as the predicate, e.g.</p>
-                    <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">S + P (S'+P')</p>
-                    
-                    <div id="quiz-container-19" class="grammar-quiz" data-start-id="73" data-end-id="74"></div>
-                    
-                    
-                    <script src="js/grammar-quiz.js"></script>
-                </div>
-            </div>
-            <!-- Mục 15 -->
-            <div class="accordion-item" id="grammar-15">
-                <button class="accordion-header">
-                    <span>[15] 怎么问（4）选择问句：还是 - Alternative questions: "...or...?"</span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>If there are two or more possibilities for an answer, we use alternative questions, e.g.</p>
-                    <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">... 还是 ...?</p>
-                    
-                    <div id="quiz-container-20" class="grammar-type-quiz" data-start-id="75" data-end-id="77"></div>
-                    
-                    
-                    <script src="js/grammar-type-quiz.js"></script>
-                </div>
-            </div>
-            <!-- Mục 16 -->
-            <div class="accordion-item" id="grammar-16">
-                <button class="accordion-header">
-                    <span>[16] 怎么问（5）省略问句：...呢？- Elliptical questions with "...呢?"</span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>1. Without a specific context it refers to the whereabouts of someone or something, e.g.</p>
-                    <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">呢 = 在那儿</p>
-                    <div id="quiz-container-21" class="grammar-quiz" data-start-id="78" data-end-id="79"></div>
-                    <p>2. If there is a context, the reference is dependent on the context, e.g.</p>
-                    <div id="quiz-container-22" class="grammar-type-quiz" data-start-id="80" data-end-id="81"></div>
-                    <script src="js/grammar-quiz.js"></script>
-                    <script src="js/grammar-type-quiz.js"></script>
-                </div>
-            </div>
-            <!-- Mục 17 -->
-            <div class="accordion-item" id="grammar-17">
-                <button class="accordion-header">
-                    <span>[17] “有” 字句 - The “有” sentence</span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>1. “有” sentence may express possessions</p>
-                    <p>The affirmative form</p><p style="font-weight: bold; font-size: 25px; color: red;">A + 有 + B</p>
-                    <p>The negative form</p><p style="font-weight: bold; font-size: 25px; color: red;">A + 没 + 有 + B</p>
-                    <p>The affirmative-negative form</p><p style="font-weight: bold; font-size: 25px; color: red;">A + 有没有 + B</p>
-                    <div id="quiz-container-23" class="grammar-quiz" data-start-id="84" data-end-id="85"></div>
-                    <p>2. “有” sentence may express a state of existence</p>
-                    <div id="quiz-container-24" class="grammar-type-quiz" data-start-id="92" data-end-id="93"></div>
-                    <script src="js/grammar-quiz.js"></script>
-                    <script src="js/grammar-type-quiz.js"></script>
-                </div>
-            </div>
-            <!-- Mục 18 -->
-            <div class="accordion-item" id="grammar-18">
-                <button class="accordion-header">
-                    <span>[18] 称数法 - Enumeration</span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>1-10</p>
-                    <p>20-99：十</p>
-                    <p>100-999：百</p>
-                    <p>1000-9999：千</p>
-                    <p>10000-99999：万</p>
-                    <p>1000</p><p style="font-weight: bold; font-size: 25px; color: red;">一千</p>
-                    <p>10000</p><p style="font-weight: bold; font-size: 25px; color: red;">一万</p>
-                    <p>108</p><p style="font-weight: bold; font-size: 25px; color: red;">一百零八</p>
-                    <p>110</p><p style="font-weight: bold; font-size: 25px; color: red;">一百一（十）</p>
-                    <p>1018</p><p style="font-weight: bold; font-size: 25px; color: red;">一千零一十八</p>
-                    <p>1005</p><p style="font-weight: bold; font-size: 25px; color: red;">一千零五</p>
-                    <p>10890</p><p style="font-weight: bold; font-size: 25px; color: red;">一万零八百九十</p>
-                    <div id="quiz-container-25" class="grammar-type-quiz" data-start-id="86" data-end-id="91"></div>
-                    <script src="js/grammar-type-quiz.js"></script>
-                </div>
-            </div>
-            <!-- Mục 19 -->
-            <div class="accordion-item" id="grammar-19">
-                <button class="accordion-header">
-                    <span>[19] 询问数量：“几” 和 “多少” - Enquiries about amount: “几” and “多少”</span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>When the amount is estimated to be within 1 - 10, “几” is used; when it is more than 10, or cannot be estimated, “多少” is used.</p>
-                    <div id="quiz-container-26" class="grammar-type-quiz" data-start-id="94" data-end-id="95"></div>
-                    <script src="js/grammar-type-quiz.js"></script>
-                </div>
-            </div>
-            <!-- Mục 20 -->
-            <div class="accordion-item" id="grammar-20">
-                <button class="accordion-header">
-                    <span>[20] 数量词组：“数 + 量 + 名” - Numeral-classifier compound: "Numeral + classifier + noun"</span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>Numeral-classifier compounds are used as attributives of the nouns to indicate the amount of things. Every thing has its corresponding unit of measurement (classifier) in Chinese.</p>
-                    <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">数 + 量 + 名</p>
-                    <div id="quiz-container-27" class="grammar-quiz" data-start-id="96" data-end-id="96"></div>
-                    <script src="js/grammar-quiz.js"></script>
-                </div>
-            </div>
-            <!-- Mục 21 -->
-            <div class="accordion-item" id="grammar-21">
-                <button class="accordion-header">
-                    <span>[21] 时间词语作状语 - Temporal words as adverbials</span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>A temporal word as an adverbial may be placed either before the verb or before the subject to indicate the time of an act.</p>
-                    <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">（时间词语）主语 + （时间词语）动词</p>
-                    <div id="quiz-container-28" class="grammar-quiz" data-start-id="105" data-end-id="106"></div>
-                    <script src="js/grammar-quiz.js"></script>
-                </div>
-            </div>
-            <!-- Mục 22 -->
-            <div class="accordion-item" id="grammar-22">
-                <button class="accordion-header">
-                    <span>[22] “还是” 和 “或者” - “还是” and “或者”</span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>Both "还是" and "或者" means "or". Their difference in usage is:</p>
-                    <p style="font-weight: bold; font-size: 25px; color: red;">"还是" is used in alternative questions</p>
-                    <p style="font-weight: bold; font-size: 25px; color: red;">"或者" is used in indicative sentences</p>
-                    <div id="quiz-container-29" class="grammar-type-quiz" data-start-id="107" data-end-id="110"></div>
-                    <script src="js/grammar-type-quiz.js"></script>
-                </div>
-            </div>
-
+        <div class="accordion-item" id="grammar-1">
+          <button class="accordion-header">
+            <span>[1] 汉语句子的语序 — The grammatical order in Chinese sentences</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>There are no morphological changes in the strict sense in Chinese; the word order is the main grammatical constituent of the language.</p>
+            <p>主语：Subject — 谓语：Predicate — 名词：Noun — 动词：Verb — 形容词：Adjective — 状语：Adverbial — 宾语：Object — 定语：Attribute/Modifier — 补语：Complement</p>
+            <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">主语（定 + 名）谓语（状语 + 动 + 补 + 定 + 宾/形）</p>
+            <div id="quiz-container-1" class="grammar-quiz" data-start-id="1" data-end-id="3"></div>
+            <script src="js/grammar-quiz.js"></script>
+          </div>
         </div>
+
+        <div class="accordion-item" id="grammar-2">
+          <button class="accordion-header">
+            <span>[2] 动词谓语句 — The sentence with a verb as its predicate</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>A sentence with a verb as its predicate is one in which the verb is the main element of the predicate. The grammatical order is:</p>
+            <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">主语 + 谓语（动词）+ 宾语</p>
+            <p style="font-size: 12px;">主语：Subject — 谓语：Predicate — 动词：Verb — 宾语：Object</p>
+            <div id="quiz-container-2" class="grammar-quiz" data-start-id="4" data-end-id="7"></div>
+            <script src="js/grammar-quiz.js"></script>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="grammar-3">
+          <button class="accordion-header">
+            <span>[3] 号码的读法 — How to read numbers</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>In reading a cardinal number, no matter how many digits there are, they are read out one by one. For example: telephone numbers, house numbers, passport numbers, car numbers, etc</p>
+            <p>1. "一" is often read as "yāo"</p>
+            <p>2. "二" is read as "èr", and cannot be read as "liǎng"</p>
+            <p>3. Identical numbers are read out one by one</p>
+            <p>When inquiring about numbers, we say "几号" or "...号码是多少?"</p>
+            <div id="quiz-container-3" class="grammar-quiz" data-start-id="8" data-end-id="12"></div>
+            <script src="js/grammar-quiz.js"></script>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="grammar-4">
+          <button class="accordion-header">
+            <span>[4] 怎么问 (1) ......吗？ — Interrogation (1): Yes/No questions with "......吗？"</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>A yes/no question is formed by adding the inquisitive modal particle "吗" to the end of an indicative sentence.</p>
+            <div id="quiz-container-4" class="grammar-type-quiz" data-start-id="13" data-end-id="15"></div>
+            <script src="js/grammar-type-quiz.js"></script>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="grammar-5">
+          <button class="accordion-header">
+            <span>[5] 状语 — Adverbial</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>The modifying elements before a verb and adjective are called adverbials. Adverbs, adjectives, etc., can function as adverbials.</p>
+            <div id="quiz-container-5" class="grammar-quiz" data-start-id="16" data-end-id="18"></div>
+            <script src="js/grammar-quiz.js"></script>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="grammar-6">
+          <button class="accordion-header">
+            <span>[6] 副词 "也" 和 "都" — The adverbs "也" (also) and "都" (all, both)</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>The adverbs "也" and "都" are placed before verbs and adjectives and function as adverbials.</p>
+            <div id="quiz-container-6" class="grammar-type-quiz" data-start-id="19" data-end-id="23"></div>
+            <script src="js/grammar-type-quiz.js"></script>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="grammar-7">
+          <button class="accordion-header">
+            <span>[7] 怎么问 (2) 疑问代词 — Interrogation (2): questions with interrogative pronouns</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>Questions with interrogative pronouns, sometimes called wh-questions, refer to the questions with:</p>
+            <p>— 谁：who &nbsp;|&nbsp; 什么：what &nbsp;|&nbsp; 哪：which &nbsp;|&nbsp; 哪儿（哪里）：where &nbsp;|&nbsp; 怎么：how to &nbsp;|&nbsp; 怎么样：how &nbsp;|&nbsp; 几：how many &nbsp;|&nbsp; 多少：how many, how much</p>
+            <div id="quiz-container-7" class="grammar-type-quiz" data-start-id="24" data-end-id="29"></div>
+            <p>Note: Interrogative sentences cannot take "吗" at the end except those formed with "declarative sentences + 吗". For example, it is wrong to say "你是哪国人吗？"</p>
+            <p style="font-weight: bold; font-size: 15px;">Use interrogative pronouns to ask questions</p>
+            <div id="quiz-container-8" class="grammar-type-quiz" data-start-id="30" data-end-id="33"></div>
+            <script src="js/grammar-type-quiz.js"></script>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="grammar-8">
+          <button class="accordion-header">
+            <span>[8] 定语和结构助词 "的" — The attributive and the structural particle "的"</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>The modifiers of nouns and nominal phrases are called attributes. The function of an attribute is to modify and define.</p>
+            <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">Attribute (nouns; pronouns; very + adj) + 的 + nouns/nominal phrases</p>
+            <p>1. When a noun or pronoun is used as an attribute to define, or to show possession and subordination, the particle "的" is added.</p>
+            <p>我的书 — 他的词典 — 老师的本子 — 图书馆的书 — 我们的老师</p>
+            <div id="quiz-container-9" class="grammar-quiz" data-start-id="34" data-end-id="38"></div>
+            <p>2. When an adjective phrase (very + adj) is used as the attribute, the particle "的" is added.</p>
+            <div id="quiz-container-10" class="grammar-quiz" data-start-id="39" data-end-id="42"></div>
+            <p>3. Sometimes the structural particle "的" is not added, e.g. 男同学 — 女同学 — 中文书 — 世界地图</p>
+            <p style="font-weight: bold; font-size: 15px;">Supply "的" in the proper place</p>
+            <div id="quiz-container-11" class="grammar-quiz" data-start-id="43" data-end-id="46"></div>
+            <script src="js/grammar-quiz.js"></script>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="grammar-9">
+          <button class="accordion-header">
+            <span>[9] 介词 "在" 和 "给" — The preposition "在" and "给"</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>The preposition "在" together with a location word and placed before a predicate verb, tells the place where an act occurred.</p>
+            <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">S + 在 + location word + predicate verb</p>
+            <div id="quiz-container-12" class="grammar-quiz" data-start-id="47" data-end-id="48"></div>
+            <p>The preposition "给" indicates the receiver or beneficiary of an action.</p>
+            <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">给 + S.O + V</p>
+            <div id="quiz-container-13" class="grammar-quiz" data-start-id="49" data-end-id="50"></div>
+            <script src="js/grammar-quiz.js"></script>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="grammar-10">
+          <button class="accordion-header">
+            <span>[10] 量词 "些" — The classifier "些"</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>The classifier "些" indicates an uncertain amount; it is often used after "一", "哪", "这", "那", etc.</p>
+            <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">一/哪/这/那... + 些 + N</p>
+            <div id="quiz-container-14" class="grammar-type-quiz" data-start-id="51" data-end-id="54"></div>
+            <p>Note: The classifier "些" can only be used with "一". It does not collocate with other numerals.</p>
+            <script src="js/grammar-type-quiz.js"></script>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="grammar-11">
+          <button class="accordion-header">
+            <span>[11] 形容词谓语句 — Sentence with an adjective as the predicate</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>When an adjective functions as the predicate of a sentence, we call it a sentence with an adjective predicate. Used to describe or evaluate someone, something, or a state of affairs.</p>
+            <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">S + (不）ADV + ADJ</p>
+            <p>In a sentence with an adjectival predicate, "是" can not be inserted between the subject and the predicate.</p>
+            <div id="quiz-container-15" class="grammar-quiz" data-start-id="55" data-end-id="61"></div>
+            <p>Adjectives in such sentences usually take an adverb before them. If they don't have an adverb, the meanings may imply a sense of comparison.</p>
+            <div id="quiz-container-16" class="grammar-type-quiz" data-start-id="62" data-end-id="64"></div>
+            <script src="js/grammar-quiz.js"></script>
+            <script src="js/grammar-type-quiz.js"></script>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="grammar-12">
+          <button class="accordion-header">
+            <span>[12] 怎么问（3): 正反问句 — Interrogation (3): the affirmative-negative question</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>An affirmative-negative question is one in which the affirmative and negative forms of the main element of the predicate are paralleled.</p>
+            <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">S + V + 不 + V + N？</p>
+            <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">S + V + N + 不 + V？</p>
+            <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">S + ADJ + 不 + ADJ？</p>
+            <div id="quiz-container-17" class="grammar-type-quiz" data-start-id="65" data-end-id="67"></div>
+            <script src="js/grammar-type-quiz.js"></script>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="grammar-13">
+          <button class="accordion-header">
+            <span>[13] "的"字词组 — "的" phrase</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>"的" phrase is formed by attaching the particle "的" to a noun, pronoun, adjective, verb or phrase. Its grammatical functions are equal to those of nouns.</p>
+            <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">NOUN / PRONOUN / ADJECTIVE / VERB / PHRASE + 的 = NOUN</p>
+            <div id="quiz-container-18" class="grammar-quiz" data-start-id="68" data-end-id="70"></div>
+            <script src="js/grammar-quiz.js"></script>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="grammar-14">
+          <button class="accordion-header">
+            <span>[14] 主谓谓语句 — The sentence with S-P phrase as the predicate</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>When a subject-predicate phrase functions as the predicate of the sentence and explains or describes the subject, the sentence is called a sentence with a subject-predicate phrase as the predicate.</p>
+            <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">S + P (S'+P')</p>
+            <div id="quiz-container-19" class="grammar-quiz" data-start-id="73" data-end-id="74"></div>
+            <script src="js/grammar-quiz.js"></script>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="grammar-15">
+          <button class="accordion-header">
+            <span>[15] 怎么问（4）选择问句：还是 — Alternative questions: "...or...?"</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>If there are two or more possibilities for an answer, we use alternative questions.</p>
+            <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">... 还是 ...?</p>
+            <div id="quiz-container-20" class="grammar-type-quiz" data-start-id="75" data-end-id="77"></div>
+            <script src="js/grammar-type-quiz.js"></script>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="grammar-16">
+          <button class="accordion-header">
+            <span>[16] 怎么问（5）省略问句：...呢？ — Elliptical questions with "...呢?"</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>1. Without a specific context it refers to the whereabouts of someone or something.</p>
+            <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">呢 = 在那儿</p>
+            <div id="quiz-container-21" class="grammar-quiz" data-start-id="78" data-end-id="79"></div>
+            <p>2. If there is a context, the reference is dependent on the context.</p>
+            <div id="quiz-container-22" class="grammar-type-quiz" data-start-id="80" data-end-id="81"></div>
+            <script src="js/grammar-quiz.js"></script>
+            <script src="js/grammar-type-quiz.js"></script>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="grammar-17">
+          <button class="accordion-header">
+            <span>[17] "有" 字句 — The "有" sentence</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>1. "有" sentence may express possessions</p>
+            <p style="font-weight: bold; font-size: 25px; color: red;">A + 有 + B &nbsp;|&nbsp; A + 没 + 有 + B &nbsp;|&nbsp; A + 有没有 + B</p>
+            <div id="quiz-container-23" class="grammar-quiz" data-start-id="84" data-end-id="85"></div>
+            <p>2. "有" sentence may express a state of existence</p>
+            <div id="quiz-container-24" class="grammar-type-quiz" data-start-id="92" data-end-id="93"></div>
+            <script src="js/grammar-quiz.js"></script>
+            <script src="js/grammar-type-quiz.js"></script>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="grammar-18">
+          <button class="accordion-header">
+            <span>[18] 称数法 — Enumeration</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>1–10 &nbsp;|&nbsp; 20–99：十 &nbsp;|&nbsp; 100–999：百 &nbsp;|&nbsp; 1000–9999：千 &nbsp;|&nbsp; 10000–99999：万</p>
+            <p style="font-weight: bold; font-size: 25px; color: red;">1000 → 一千 &nbsp;|&nbsp; 10000 → 一万 &nbsp;|&nbsp; 108 → 一百零八 &nbsp;|&nbsp; 110 → 一百一（十）&nbsp;|&nbsp; 1018 → 一千零一十八 &nbsp;|&nbsp; 1005 → 一千零五 &nbsp;|&nbsp; 10890 → 一万零八百九十</p>
+            <div id="quiz-container-25" class="grammar-type-quiz" data-start-id="86" data-end-id="91"></div>
+            <script src="js/grammar-type-quiz.js"></script>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="grammar-19">
+          <button class="accordion-header">
+            <span>[19] 询问数量："几" 和 "多少" — Enquiries about amount: "几" and "多少"</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>When the amount is estimated to be within 1–10, "几" is used; when it is more than 10, or cannot be estimated, "多少" is used.</p>
+            <div id="quiz-container-26" class="grammar-type-quiz" data-start-id="94" data-end-id="95"></div>
+            <script src="js/grammar-type-quiz.js"></script>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="grammar-20">
+          <button class="accordion-header">
+            <span>[20] 数量词组："数 + 量 + 名" — Numeral-classifier compound</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>Numeral-classifier compounds are used as attributives of the nouns to indicate the amount of things. Every thing has its corresponding unit of measurement (classifier) in Chinese.</p>
+            <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">数 + 量 + 名</p>
+            <div id="quiz-container-27" class="grammar-quiz" data-start-id="96" data-end-id="96"></div>
+            <script src="js/grammar-quiz.js"></script>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="grammar-21">
+          <button class="accordion-header">
+            <span>[21] 时间词语作状语 — Temporal words as adverbials</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>A temporal word as an adverbial may be placed either before the verb or before the subject to indicate the time of an act.</p>
+            <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">（时间词语）主语 + （时间词语）动词</p>
+            <div id="quiz-container-28" class="grammar-quiz" data-start-id="105" data-end-id="106"></div>
+            <script src="js/grammar-quiz.js"></script>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="grammar-22">
+          <button class="accordion-header">
+            <span>[22] "还是" 和 "或者" — "还是" and "或者"</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>Both "还是" and "或者" mean "or". Their difference in usage:</p>
+            <p style="font-weight: bold; font-size: 25px; color: red;">"还是" is used in alternative questions</p>
+            <p style="font-weight: bold; font-size: 25px; color: red;">"或者" is used in indicative sentences</p>
+            <div id="quiz-container-29" class="grammar-type-quiz" data-start-id="107" data-end-id="110"></div>
+            <script src="js/grammar-type-quiz.js"></script>
+          </div>
+        </div>
+
+      </div><!-- /accordion -->
     </div>
+  </div>
 
-    <script src="js/grammar.js"></script>
-    <!-- Footer -->
-    <footer>
-      <p>Chinese60s</p>
-      <p>Learn Mandarin through images and videos</p>
-      <div class="social-icons">
-        <a href="#">Facebook</a>
-        <a href="#">YouTube</a>
-        <a href="#">TikTok</a>
-        <a href="#">Instagram</a>
-      </div>
-    </footer>
-    <script>
-    // JavaScript để điều khiển nút hamburger menu
-    document.addEventListener('DOMContentLoaded', function () {
-      const menuToggle = document.querySelector('.menu-toggle');
-      const nav = document.querySelector('nav');
+  <div class="donate-tag">
+    <a href="https://buymeacoffee.com/chinese60s" target="_blank">☕ Donate</a>
+  </div>
 
-      menuToggle.addEventListener('click', function () {
-        nav.classList.toggle('show');
+  <footer>
+    <p class="brand">CHINESE 60s</p>
+    <p>Learn Mandarin through images and videos</p>
+    <div class="social-icons">
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+      <a href="#">TikTok</a>
+      <a href="#">Instagram</a>
+    </div>
+  </footer>
 
-        // Chuyển đổi biểu tượng giữa ba gạch và dấu X
-        if (nav.classList.contains('show')) {
-          menuToggle.innerHTML = '&#10005;'; // Biểu tượng X
-        } else {
-          menuToggle.innerHTML = '&#9776;'; // Biểu tượng ba gạch
-        }
+  <script src="js/grammar.js"></script>
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('show');
+      toggle.innerHTML = nav.classList.contains('show') ? '&#10005;' : '&#9776;';
+    });
+
+    // Override grammar.js accordion if needed — ensure open class toggling
+    document.querySelectorAll('.accordion-header').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.accordion-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
       });
     });
   </script>
