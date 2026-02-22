@@ -1,217 +1,367 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Chinese60s Multi-Quiz</title>
-<style>
-body { font-family: Arial; margin: 0 auto;}
-table { border-collapse: collapse; width: 100%; margin-bottom: 30px; }
-td { border: 1px solid #ccc; padding: 10px; width: 33%; vertical-align: middle; text-align: center;}
-.cell-buttons, .cell-area { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; justify-content: center;}
-button { padding: 4px 8px; font-size: 14px; cursor: pointer; }
-select { padding: 3px; font-size: 14px; }
-.correct { background-color: #c8ffcc !important; }
-.wrong { background-color: #ffc8c8 !important; }
-h3 { margin-top: 40px; }
-.content-container {
-  display: none;
-  max-width: 900px;      /* Giới hạn chiều ngang */
-  margin: 0 auto;        /* Canh giữa container */
-  padding: 20px;         /* Khoảng cách trong container */
-}
-/* Header */
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pronunciation Quiz — Chinese60s</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #222;
+      --green: #7cb83e;
+      --green-dark: #5a8f27;
+      --green-light: #d8f0a0;
+      --green-pale: #f2fde0;
+      --yellow: #ffd84d;
+      --yellow-pale: #fffbe6;
+      --peach: #ffb89a;
+      --peach-pale: #fff3ee;
+      --sky: #72c8f0;
+      --sky-pale: #eaf8ff;
+      --lavender: #c5b0f8;
+      --lavender-pale: #f3f0ff;
+      --pink: #ffadc5;
+      --pink-pale: #fff2f6;
+      --white: #fff;
+      --bg: #fffef5;
+      --shadow-sm: 3px 3px 0 var(--black);
+      --shadow-md: 4px 4px 0 var(--black);
+      --shadow-lg: 6px 6px 0 var(--black);
+      --border: 2.5px solid var(--black);
+      --border-thick: 3px solid var(--black);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 500;
+      background: var(--bg);
+      color: var(--black);
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: radial-gradient(circle, rgba(0,0,0,0.045) 1px, transparent 1px);
+      background-size: 22px 22px;
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── HEADER ── */
     header {
-      background-color: #8bc34a;
-      color: white;
-      padding: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-left: 50px;
-      padding-right: 50px;
+      background: var(--green);
+      border-bottom: var(--border-thick);
+      padding: 0 50px; height: 66px;
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 100;
     }
-    .homepage-link {
-      text-decoration: none;
-      color: inherit; /* Giữ nguyên màu sắc của text gốc */
+    header h1 {
+      font-weight: 700; font-size: 1.7rem; color: white;
+      letter-spacing: 0.04em; text-shadow: 2px 2px 0 rgba(0,0,0,0.25);
     }
-
-    
-    .menu-toggle {
-      display: none;
-      font-size: 24px;
-      background: none;
-      border: none;
-      color: white;
-      cursor: pointer;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-
+    .homepage-link { text-decoration: none; color: inherit; }
+    .menu-toggle { display: none; font-size: 24px; background: none; border: none; color: white; cursor: pointer; }
+    nav ul { list-style: none; display: flex; gap: 8px; }
     nav ul li a {
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
+      text-decoration: none; color: var(--black);
+      font-weight: 600; font-size: 1rem;
+      background: var(--white); border: var(--border); border-radius: 50px;
+      padding: 6px 18px; display: inline-block;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    nav ul li a:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+
+    @media (max-width: 768px) {
+      header { padding: 0 20px; position: relative; }
+      .menu-toggle { display: block; }
+      nav { display: none; position: absolute; top: 66px; left: 0; right: 0; background: var(--green); border-bottom: var(--border); padding: 12px 0; }
+      nav.show { display: flex; flex-direction: column; align-items: center; }
+      nav ul { flex-direction: column; align-items: center; gap: 8px; padding: 6px 0; }
     }
 
-    nav ul li a:hover {
-      text-decoration: underline;
-    }
-    nav {
-      display: flex;
-    }
-
-    /* Responsive cho màn hình nhỏ hơn 768px */
-    @media screen and (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-        position: absolute;
-        
-        right: 20px;
-      }
-
-      nav {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background-color: #8bc34a;
-        width: 100%;
-        padding: 10px 0;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
-
-      nav.show {
-        display: flex;
-      }
-
-      nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-      }
-
-      nav ul li a {
-        font-size: 1rem;
-      }
-    }
-/* Footer */
-    footer {
-      background-color: #8bc34a;
-      color: white;
-      padding: 15px;
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: var(--lavender-pale);
+      border-bottom: var(--border-thick);
+      padding: 36px 24px 28px;
       text-align: center;
+      position: relative; z-index: 1; overflow: hidden;
+    }
+    .page-hero::before {
+      content: '🎯';
+      position: absolute; font-size: 140px; opacity: 0.1;
+      top: -10px; right: 40px; pointer-events: none;
+    }
+    .page-hero .tag {
+      display: inline-block;
+      background: var(--lavender); border: var(--border); border-radius: 50px;
+      padding: 6px 18px; font-weight: 600; font-size: 0.95rem;
+      box-shadow: var(--shadow-sm); margin-bottom: 12px;
+    }
+    .page-hero h2 {
+      font-weight: 700; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.2;
+    }
+    .page-hero p { color: #666; margin-top: 8px; font-size: 1rem; }
+
+    /* ── LOCK GATE ── */
+    #locked-section {
+      flex: 1;
+      display: flex; align-items: center; justify-content: center;
+      padding: 40px 24px;
+      position: relative; z-index: 1;
     }
 
-    footer .social-icons {
-      margin-top: 10px;
+    .lock-card {
+      background: var(--white);
+      border: var(--border-thick); border-radius: 26px;
+      box-shadow: var(--shadow-lg);
+      padding: 40px 36px;
+      max-width: 460px; width: 100%;
+      text-align: center;
+      display: flex; flex-direction: column; gap: 18px; align-items: center;
     }
 
-    footer .social-icons a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: white;
+    .lock-icon { font-size: 3.2rem; }
+
+    .lock-card h2 {
+      font-weight: 700; font-size: 1.4rem; line-height: 1.35;
     }
-  #locked-section {
-  max-width: 400px;          /* Giới hạn chiều ngang */
-  margin: 100px auto;        /* Canh giữa màn hình, cách top 100px */
-  padding: 30px 20px;        /* Khoảng cách trong box */
-  background-color: #f7f7f7; /* Nền nhẹ */
-  border: 2px solid #8bc34a; /* Viền xanh nhạt */
-  border-radius: 12px;       /* Bo góc */
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1); /* Bóng nhẹ */
-  text-align: center;        /* Canh text giữa */
-  font-family: Arial, sans-serif;
-}
 
-#locked-section h2 {
-  margin-bottom: 20px;
-  font-size: 20px;
-  color: #333;
-}
+    .lock-card p {
+      font-size: 0.95rem; color: #666; line-height: 1.6;
+    }
 
-#locked-section input {
-  width: 80%;
-  padding: 10px;
-  font-size: 16px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  box-sizing: border-box;
-}
+    #licenseInput {
+      font-family: 'Fredoka', sans-serif; font-weight: 500; font-size: 1rem;
+      padding: 11px 20px; border: var(--border-thick); border-radius: 50px;
+      background: var(--bg); outline: none;
+      box-shadow: var(--shadow-sm); width: 100%;
+      transition: box-shadow 0.12s;
+    }
+    #licenseInput:focus { box-shadow: 4px 4px 0 var(--black); }
+    #licenseInput::placeholder { color: #bbb; }
 
-#locked-section button {
-  padding: 10px 25px;
-  font-size: 16px;
-  background-color: #8bc34a;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
+    #verifyBtn {
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.1rem;
+      background: var(--green); color: white;
+      padding: 12px 36px; border: var(--border-thick); border-radius: 50px;
+      box-shadow: var(--shadow-md); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s;
+      width: 100%;
+    }
+    #verifyBtn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); }
 
-#locked-section button:hover {
-  background-color: #7cb342;
-}
+    #status {
+      font-size: 0.9rem; font-weight: 600; color: #e53935;
+      min-height: 18px;
+    }
+    #status.ok { color: var(--green-dark); }
 
-#locked-section #status {
-  margin-top: 15px;
-  color: red;
-  font-weight: bold;
-}
-</style>
+    .buy-link {
+      display: inline-block;
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 0.95rem;
+      background: var(--yellow); color: var(--black);
+      border: var(--border-thick); border-radius: 50px;
+      padding: 10px 24px; text-decoration: none;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    .buy-link:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+
+    /* ── QUIZ CONTENT ── */
+    .content-container {
+      display: none;
+      position: relative; z-index: 1;
+      padding: 32px 40px 80px;
+      max-width: 1200px; margin: 0 auto; width: 100%;
+    }
+
+    .quiz-header {
+      margin-bottom: 28px;
+    }
+    .quiz-header h1 {
+      font-weight: 700; font-size: clamp(1.6rem, 3vw, 2.2rem);
+      display: inline-block;
+      background: var(--yellow); border: var(--border-thick); border-radius: 50px;
+      padding: 10px 28px; box-shadow: var(--shadow-md);
+    }
+
+    /* Section label */
+    .section-label {
+      display: inline-block; margin: 28px 0 12px;
+      font-weight: 700; font-size: 1rem;
+      border: var(--border); border-radius: 50px;
+      padding: 5px 18px; box-shadow: var(--shadow-sm);
+    }
+    .label-1 { background: var(--sky); }
+    .label-2 { background: var(--peach); }
+    .label-3 { background: var(--lavender); }
+    .label-4 { background: var(--green-light); }
+
+    .section-hint {
+      font-size: 0.9rem; color: #777; margin-bottom: 14px;
+    }
+
+    /* Quiz table */
+    table {
+      border-collapse: separate;
+      border-spacing: 8px;
+      width: 100%;
+      margin-bottom: 8px;
+    }
+    td {
+      background: var(--white);
+      border: var(--border); border-radius: 14px;
+      padding: 14px 12px;
+      width: 33%; vertical-align: middle; text-align: center;
+      transition: box-shadow 0.15s;
+    }
+    td:hover { box-shadow: var(--shadow-sm); }
+    td.correct { background: var(--green-pale) !important; border-color: var(--green-dark); }
+    td.wrong   { background: var(--pink-pale)  !important; border-color: #e53935; }
+
+    .cell-buttons, .cell-area {
+      display: flex; gap: 6px; align-items: center;
+      flex-wrap: wrap; justify-content: center;
+    }
+
+    /* Quiz buttons */
+    .content-container button {
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 0.9rem;
+      background: var(--white); color: var(--black);
+      padding: 6px 16px; border: var(--border-thick); border-radius: 50px;
+      box-shadow: var(--shadow-sm); cursor: pointer;
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+    .content-container button:hover {
+      transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--black);
+    }
+    .content-container button.correct { background: var(--green-pale); border-color: var(--green-dark); }
+    .content-container button.wrong   { background: var(--pink-pale);  border-color: #e53935; }
+
+    /* Select dropdowns */
+    .content-container select {
+      font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 0.9rem;
+      padding: 5px 10px; border: var(--border); border-radius: 50px;
+      background: var(--bg); outline: none; cursor: pointer;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Fill input */
+    .fill-input {
+      font-family: 'Fredoka', sans-serif; font-weight: 500; font-size: 0.9rem;
+      padding: 6px 14px; border: var(--border); border-radius: 50px;
+      background: var(--bg); outline: none;
+      box-shadow: var(--shadow-sm); width: 150px;
+      transition: box-shadow 0.12s;
+    }
+    .fill-input:focus { box-shadow: 4px 4px 0 var(--black); }
+
+    .answer-box {
+      margin-top: 6px; font-size: 0.88rem;
+      background: var(--yellow-pale); border: var(--border); border-radius: 10px;
+      padding: 4px 10px; display: inline-block;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #222; color: rgba(255,255,255,0.65);
+      padding: 28px 50px; text-align: center;
+      position: relative; z-index: 1; margin-top: auto;
+    }
+    footer .brand { font-weight: 700; color: var(--green-light); font-size: 1.3rem; margin-bottom: 6px; }
+    footer p { font-size: 0.95rem; font-weight: 500; margin-bottom: 3px; }
+    .social-icons { margin-top: 14px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .social-icons a {
+      text-decoration: none; color: var(--black);
+      font-weight: 600; font-size: 0.9rem;
+      background: var(--green-light); border: var(--border); border-radius: 50px;
+      padding: 5px 16px; box-shadow: var(--shadow-sm); transition: transform 0.12s;
+    }
+    .social-icons a:hover { transform: translate(-1px,-2px); }
+
+    @media (max-width: 768px) {
+      .content-container { padding: 20px 16px 60px; }
+      footer { padding: 28px 20px; }
+      td { padding: 10px 8px; }
+      .fill-input { width: 110px; }
+    }
+    @media (max-width: 480px) {
+      table { border-spacing: 4px; }
+      td { width: auto; }
+    }
+  </style>
 </head>
 <body>
-<!-- Header -->
+
+  <!-- Header -->
   <header>
     <h1><a href="index.html" class="homepage-link">CHINESE 60s</a></h1>
-    <button class="menu-toggle" aria-label="Toggle navigation">
-      &#9776;
-    </button>
+    <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
     <nav>
       <ul>
         <li><a href="about.html">About Us</a></li>
         <li><a href="courses.html">Courses</a></li>
-        <li><a href="https://www.amazon.com/shop/studiorum60s">Shop</a></li>
+        <li><a href="https://www.amazon.com/shop/studiorum60s" target="_blank">Shop</a></li>
       </ul>
     </nav>
   </header>
 
-<div id="locked-section">
-  <h2>Enter the license key to view the content</h2>
-  <input id="licenseInput" type="text" placeholder="Enter license key...";">
-  <button id="verifyBtn";">Unlock</button>
-  <p id="status";"></p>
-  <a href="https://maxfilms.gumroad.com/l/mandarin-pronunciation-pack" 
-       target="_blank" 
-       style="color:#0073ff; text-decoration:underline; font-weight:bold;">
-      Purchase the Mandarin Pronunciation Training Pack to get your license key
-  </a>
-</div>  
-<!-- Container riêng cho nội dung quiz -->
-  <div class="content-container">
-    <h1>Chinese60s Pronunciation Quiz</h1>
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <span class="tag">🎯 Full Quiz</span>
+    <h2>Pronunciation Quiz</h2>
+    <p>Unlock the full quiz with your Mandarin Pronunciation Training Pack license key</p>
+  </div>
 
-    <h3>Listen to the following initials and finals and choose the correct answer</h3>
+  <!-- Lock Gate -->
+  <div id="locked-section">
+    <div class="lock-card">
+      <span class="lock-icon">🔒</span>
+      <h2>Enter your license key to access the full quiz</h2>
+      <p>Purchase the <strong>Mandarin Chinese Pronunciation Training Pack</strong> on Gumroad to receive your key.</p>
+
+      <input id="licenseInput" type="text" placeholder="Paste license key here…">
+      <button id="verifyBtn">🔓 Unlock</button>
+      <p id="status"></p>
+
+      <a class="buy-link"
+         href="https://maxfilms.gumroad.com/l/mandarin-pronunciation-pack"
+         target="_blank">🛒 Get your license key</a>
+    </div>
+  </div>
+
+  <!-- Quiz Content (hidden until unlocked) -->
+  <div class="content-container">
+    <div class="quiz-header">
+      <h1>🧠 Chinese60s Pronunciation Quiz</h1>
+    </div>
+
+    <div class="section-label label-1">🔊 Listen & choose — Initials & Finals</div>
     <table id="quiz-grid-mcq1"></table>
 
-    <h3>Distinguish easily confused tones</h3>
+    <div class="section-label label-2">🎵 Distinguish easily confused tones</div>
     <table id="quiz-grid-mcq2"></table>
 
-    <h3>Choose the correct tone based on the tone-change rules</h3>
+    <div class="section-label label-3">📐 Tone-change rules</div>
     <table id="quiz-grid-tone"></table>
 
-    <h3>Fill in the blanks with multi-syllable phrases</h3>
-    <p>Type the pinyin following these rules: ā = a1;  á = a2; ǎ = a3; à = a4; ü = v</p>
+    <div class="section-label label-4">✏️ Fill in the blanks — multi-syllable phrases</div>
+    <p class="section-hint">Typing rules: ā = a1 · á = a2 · ǎ = a3 · à = a4 · ü = v</p>
     <table id="quiz-grid-fillin"></table>
   </div>
-<!-- Footer -->
+
+  <!-- Footer -->
   <footer>
-    <p>Chinese60s</p>
+    <p class="brand">CHINESE 60s</p>
     <p>Learn Mandarin through images and videos</p>
     <div class="social-icons">
       <a href="#">Facebook</a>
@@ -220,297 +370,202 @@ h3 { margin-top: 40px; }
       <a href="#">Instagram</a>
     </div>
   </footer>
-<script>
-const PRODUCT_ID = "ufowKPN1xaOa-ueREQbmOw=="; // ← ĐỔI THÀNH CÁI NÀY
 
-// Nếu đã mở trước đó, show luôn
-if (localStorage.getItem("unlocked") === "yes") {
-    document.getElementById("locked-section").style.display = "none";
-    document.querySelector(".content-container").style.display = "block";
-}
+  <!-- Hamburger -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('nav');
+      menuToggle.addEventListener('click', function () {
+        nav.classList.toggle('show');
+        menuToggle.innerHTML = nav.classList.contains('show') ? '&#10005;' : '&#9776;';
+      });
+    });
+  </script>
 
-document.getElementById("verifyBtn").addEventListener("click", async function () {
-    const key = document.getElementById("licenseInput").value.trim();
-    const status = document.getElementById("status");
+  <!-- License check — unchanged logic -->
+  <script>
+    const PRODUCT_ID = "ufowKPN1xaOa-ueREQbmOw==";
 
-    if (!key) {
-        status.textContent = "Please enter a valid license key.";
-        return;
+    function showContent() {
+      document.getElementById("locked-section").style.display = "none";
+      document.querySelector(".content-container").style.display = "block";
     }
 
-    status.textContent = "Checking...";
+    if (localStorage.getItem("unlocked") === "yes") showContent();
 
-    const form = new URLSearchParams();
-    form.append("product_id", PRODUCT_ID);
-    form.append("license_key", key);
+    document.getElementById("verifyBtn").addEventListener("click", async function () {
+      const key    = document.getElementById("licenseInput").value.trim();
+      const status = document.getElementById("status");
 
-    try {
+      if (!key) { status.textContent = "Please enter a valid license key."; return; }
+
+      status.textContent = "Checking…";
+      status.className = "";
+
+      const form = new URLSearchParams();
+      form.append("product_id", PRODUCT_ID);
+      form.append("license_key", key);
+
+      try {
         const response = await fetch("https://api.gumroad.com/v2/licenses/verify", {
-            method: "POST",
-            body: form
+          method: "POST", body: form
         });
-
         const data = await response.json();
-        console.log("Response:", data);
 
         if (data.success) {
-            localStorage.setItem("unlocked", "yes");
-            document.getElementById("locked-section").style.display = "none";
-            document.querySelector(".content-container").style.display = "block";
-            status.textContent = "";
+          localStorage.setItem("unlocked", "yes");
+          status.textContent = "✓ Unlocked!";
+          status.className = "ok";
+          setTimeout(showContent, 600);
         } else {
-            status.textContent = "Invalid license key.";
+          status.textContent = "Invalid license key. Please try again.";
         }
-    } catch (error) {
-        console.error("Error:", error);
+      } catch (err) {
+        console.error(err);
         status.textContent = "Connection error. Please try again.";
-    }
-});
-</script>
-  
-<script>
-// Map thanh điệu
-const toneMap = {
-    a: ["ā","á","ǎ","à"],
-    e: ["ē","é","ě","è"],
-    i: ["ī","í","ǐ","ì"],
-    o: ["ō","ó","ǒ","ò"],
-    u: ["ū","ú","ǔ","ù"],
-    ü: ["ǖ","ǘ","ǚ","ǜ"]
-};
+      }
+    });
 
-// Hàm convert chính
-function convertPinyin(str) {
-    // đổi "v" → "ü"
-    str = str.replace(/v/g, "ü");
+    document.getElementById("licenseInput").addEventListener("keypress", (e) => {
+      if (e.key === "Enter") document.getElementById("verifyBtn").click();
+    });
+  </script>
 
-    return str.replace(/([a-zü]+)([1-4])/gi, (match, letters, tone) => {
+  <!-- Pinyin converter — unchanged -->
+  <script>
+    const toneMap = {
+      a:["ā","á","ǎ","à"], e:["ē","é","ě","è"], i:["ī","í","ǐ","ì"],
+      o:["ō","ó","ǒ","ò"], u:["ū","ú","ǔ","ù"], ü:["ǖ","ǘ","ǚ","ǜ"]
+    };
+    function convertPinyin(str) {
+      str = str.replace(/v/g, "ü");
+      return str.replace(/([a-zü]+)([1-4])/gi, (match, letters, tone) => {
         const t = parseInt(tone) - 1;
         letters = letters.toLowerCase();
-
-        // thứ tự ưu tiên đặt dấu
-        const priority = ["a","e","o","u","i","ü"];
-
-        for (let v of priority) {
-            const idx = letters.indexOf(v);
-            if (idx !== -1) {
-                const accented = toneMap[v][t];
-                return (
-                    letters.slice(0, idx) +
-                    accented +
-                    letters.slice(idx + v.length)
-                );
-            }
+        for (let v of ["a","e","o","u","i","ü"]) {
+          const idx = letters.indexOf(v);
+          if (idx !== -1) return letters.slice(0,idx) + toneMap[v][t] + letters.slice(idx+v.length);
         }
-
         return match;
-    });
-}
-
-// Áp dụng vào input .pinyin-input
-document.addEventListener("input", (e) => {
-    if (e.target.classList.contains("pinyin-input")) {
+      });
+    }
+    document.addEventListener("input", (e) => {
+      if (e.target.classList.contains("pinyin-input")) {
         const pos = e.target.selectionStart;
         e.target.value = convertPinyin(e.target.value);
         e.target.setSelectionRange(pos, pos);
+      }
+    });
+  </script>
+
+  <!-- Quiz grid loader — unchanged logic -->
+  <script>
+    async function loadAllGrids() {
+      const res  = await fetch("https://raw.githubusercontent.com/minhnguyen412/chinese60s/refs/heads/main/data/yuyin-quiz.json");
+      const data = await res.json();
+      [
+        {id:"quiz-grid-mcq1", group:"mcq1"},
+        {id:"quiz-grid-mcq2", group:"mcq2"},
+        {id:"quiz-grid-tone", group:"tone"},
+        {id:"quiz-grid-fillin", group:"fill"}
+      ].forEach(t => renderGrid(data, t.id, t.group));
     }
-});
-</script>
 
-<script>
-async function loadAllGrids() {
-    const res = await fetch("https://raw.githubusercontent.com/minhnguyen412/chinese60s/refs/heads/main/data/yuyin-quiz.json");
-    const data = await res.json();
-
-    const tables = [
-        {id: "quiz-grid-mcq1", group: "mcq1"},
-        {id: "quiz-grid-mcq2", group: "mcq2"},
-        {id: "quiz-grid-tone", group: "tone"},
-        {id: "quiz-grid-fillin", group: "fill"}
-    ];
-
-    tables.forEach(t => renderGrid(data, t.id, t.group));
-}
-
-function renderGrid(data, tableId, group) {
-    const table = document.getElementById(tableId);
-    const COLUMNS = 3;
-    let row;
-
-    data.filter(q => q.group === group).forEach((q, index) => {
-
-        if (index % COLUMNS === 0) {
-            row = document.createElement("tr");
-            table.appendChild(row);
-        }
-
+    function renderGrid(data, tableId, group) {
+      const table = document.getElementById(tableId);
+      const COLUMNS = 3; let row;
+      data.filter(q => q.group === group).forEach((q, index) => {
+        if (index % COLUMNS === 0) { row = document.createElement("tr"); table.appendChild(row); }
         const cell = document.createElement("td");
 
-        /* ------------------ MULTIPLE CHOICE ------------------ */
         if (q.type === "choice") {
-            cell.dataset.answer = q.answer;
-            cell.innerHTML = `
-                <div class="cell-buttons">
-                    <button onclick="playAudio('${q.audio}')">🔊</button>
-                    <button onclick="checkAnswer(this,0)">${q.options[0]}</button>
-                    <button onclick="checkAnswer(this,1)">${q.options[1]}</button>
-                </div>
-            `;
+          cell.dataset.answer = q.answer;
+          cell.innerHTML = `<div class="cell-buttons">
+            <button onclick="playAudio('${q.audio}')">🔊</button>
+            <button onclick="checkAnswer(this,0)">${q.options[0]}</button>
+            <button onclick="checkAnswer(this,1)">${q.options[1]}</button>
+          </div>`;
+
+        } else if (q.type === "tone") {
+          cell.dataset.tone1 = q.tone1; cell.dataset.tone2 = q.tone2;
+          if (q.text3 && q.tone3 !== undefined) cell.dataset.tone3 = q.tone3;
+          let html = `<div class="cell-area">
+            <button onclick="playAudio('${q.audio}')">🔊</button>
+            <span>${q.text1}</span>
+            <select class="select1"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>
+            <span>${q.text2}</span>
+            <select class="select2"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>`;
+          if (q.text3 && q.tone3 !== undefined)
+            html += `<span>${q.text3}</span><select class="select3"><option value="">-</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select>`;
+          html += `<button onclick="checkTone(this)">Check</button></div>`;
+          cell.innerHTML = html;
+
+        } else if (q.type === "fill") {
+          cell.dataset.answer = q.answer;
+          cell.innerHTML = `<div class="cell-area">
+            <button onclick="playAudio('${q.audio}')">🔊</button>
+            <input type="text" class="pinyin-input fill-input" placeholder="Type here">
+            <button onclick="checkFill(this)">Check</button>
+          </div>`;
         }
-
-        /* ------------------ TONE TYPE (2–3 cụm) ------------------ */
-        else if (q.type === "tone") {
-            cell.dataset.tone1 = q.tone1;
-            cell.dataset.tone2 = q.tone2;
-            if (q.text3 && q.tone3 !== undefined) cell.dataset.tone3 = q.tone3;
-
-            let html = `
-                <div class="cell-area">
-                    <button onclick="playAudio('${q.audio}')">🔊</button>
-                    <span>${q.text1}</span>
-                    <select class="select1">
-                        <option value="">-</option><option value="1">1</option>
-                        <option value="2">2</option><option value="3">3</option>
-                        <option value="4">4</option><option value="5">5</option>
-                    </select>
-                    <span>${q.text2}</span>
-                    <select class="select2">
-                        <option value="">-</option><option value="1">1</option>
-                        <option value="2">2</option><option value="3">3</option>
-                        <option value="4">4</option><option value="5">5</option>
-                    </select>
-            `;
-
-            if (q.text3 && q.tone3 !== undefined) {
-                html += `
-                    <span>${q.text3}</span>
-                    <select class="select3">
-                        <option value="">-</option><option value="1">1</option>
-                        <option value="2">2</option><option value="3">3</option>
-                        <option value="4">4</option><option value="5">5</option>
-                    </select>
-                `;
-            }
-
-            html += `<button onclick="checkTone(this)">Check</button></div>`;
-            cell.innerHTML = html;
-        }
-
-        /* ------------------ FILL-IN INPUT TYPE ------------------ */
-        else if (q.type === "fill") {
-            cell.dataset.answer = q.answer;
-
-            cell.innerHTML = `
-                <div class="cell-area">
-                    <button onclick="playAudio('${q.audio}')">🔊</button>
-                    <input type="text" class="pinyin-input fill-input" placeholder="Type the word you hear">
-                    <button onclick="checkFill(this)">Check</button>
-                </div>
-            `;
-        }
-
         row.appendChild(cell);
-    });
-}
-
-/* ------------------ AUDIO ------------------ */
-function playAudio(file) {
-    new Audio(file).play();
-}
-
-/* ------------------ MCQ CHECK ------------------ */
-function checkAnswer(btn, choice) {
-    const cell = btn.closest("td");
-    const correct = Number(cell.dataset.answer);
-
-    cell.querySelectorAll("button").forEach(b => b.classList.remove("correct","wrong"));
-    btn.classList.add(choice===correct ? "correct" : "wrong");
-}
-
-/* ------------------ TONE CHECK ------------------ */
-function checkTone(btn) {
-    const cell = btn.closest("td");
-
-    const correct1 = Number(cell.dataset.tone1);
-    const correct2 = Number(cell.dataset.tone2);
-    const correct3 = cell.dataset.tone3 ? Number(cell.dataset.tone3) : null;
-
-    const v1 = Number(cell.querySelector(".select1").value);
-    const v2 = Number(cell.querySelector(".select2").value);
-    const v3 = correct3 !== null ? Number(cell.querySelector(".select3").value) : null;
-
-    cell.classList.remove("correct","wrong");
-
-    let isOK = (v1 === correct1 && v2 === correct2);
-    if (correct3 !== null) isOK = isOK && (v3 === correct3);
-
-    cell.classList.add(isOK ? "correct" : "wrong");
-}
-
-/* ------------------ FILL-IN CHECK ------------------ */
-// Normalize pinyin: đổi v→ü, convert tone numbers, thống nhất dạng có dấu
-function normalizePinyin(str) {
-    if (!str) return "";
-    str = str.toLowerCase().trim();
-    str = str.replace(/\s+/g, ""); // ❗ bỏ toàn bộ dấu cách
-    return convertPinyin(str);     // giữ nguyên hàm convertPinyin của mày
-}
-function checkFill(btn) {
-    const cell = btn.closest("td");
-
-    const inputRaw = cell.querySelector(".fill-input").value;
-    const correctRaw = cell.dataset.answer;
-
-    const input = normalizePinyin(inputRaw);
-    const correct = normalizePinyin(correctRaw);
-
-    // Reset class
-    cell.classList.remove("correct","wrong");
-
-    // Nếu đúng
-    if (input === correct) {
-        cell.classList.add("correct");
-        cell.dataset.wrongCount = 0;  // reset wrong count
-        const ansBox = cell.querySelector(".answer-box");
-        if (ansBox) ansBox.remove();
-        return;
+      });
     }
 
-    // Nếu sai
-    cell.classList.add("wrong");
+    function playAudio(file) { new Audio(file).play(); }
 
-    // Tăng bộ đếm sai
-    let count = Number(cell.dataset.wrongCount || 0) + 1;
-    cell.dataset.wrongCount = count;
+    function checkAnswer(btn, choice) {
+      const cell = btn.closest("td");
+      const correct = Number(cell.dataset.answer);
+      cell.querySelectorAll("button").forEach(b => b.classList.remove("correct","wrong"));
+      btn.classList.add(choice === correct ? "correct" : "wrong");
+    }
 
-    // Nếu sai < 3 → không show đáp án
-    if (count < 3) return;
+    function checkTone(btn) {
+      const cell = btn.closest("td");
+      const c1 = Number(cell.dataset.tone1), c2 = Number(cell.dataset.tone2);
+      const c3 = cell.dataset.tone3 ? Number(cell.dataset.tone3) : null;
+      const v1 = Number(cell.querySelector(".select1").value);
+      const v2 = Number(cell.querySelector(".select2").value);
+      const v3 = c3 !== null ? Number(cell.querySelector(".select3").value) : null;
+      cell.classList.remove("correct","wrong");
+      let ok = (v1 === c1 && v2 === c2);
+      if (c3 !== null) ok = ok && (v3 === c3);
+      cell.classList.add(ok ? "correct" : "wrong");
+    }
 
-    // Nếu sai ≥ 3 lần → hiện đáp án
-    if (!cell.querySelector(".answer-box")) {
-        const correctDisplay = cell.dataset.answer; // giữ nguyên format của mày
+    function normalizePinyin(str) {
+      if (!str) return "";
+      return convertPinyin(str.toLowerCase().trim().replace(/\s+/g, ""));
+    }
 
+    function checkFill(btn) {
+      const cell = btn.closest("td");
+      const input   = normalizePinyin(cell.querySelector(".fill-input").value);
+      const correct = normalizePinyin(cell.dataset.answer);
+      cell.classList.remove("correct","wrong");
+      if (input === correct) {
+        cell.classList.add("correct");
+        cell.dataset.wrongCount = 0;
+        const box = cell.querySelector(".answer-box");
+        if (box) box.remove();
+        return;
+      }
+      cell.classList.add("wrong");
+      let count = Number(cell.dataset.wrongCount || 0) + 1;
+      cell.dataset.wrongCount = count;
+      if (count < 3) return;
+      if (!cell.querySelector(".answer-box")) {
         const box = document.createElement("div");
         box.className = "answer-box";
-        box.style.marginTop = "6px";
-        box.style.fontSize = "14px";
-        box.style.color = "#333";
-
-        box.innerHTML = `Answer: <b>${correctDisplay}</b>`;
-
+        box.innerHTML = `Answer: <b>${cell.dataset.answer}</b>`;
         cell.appendChild(box);
+      }
     }
-}
-loadAllGrids();
-</script>
+
+    loadAllGrids();
+  </script>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
