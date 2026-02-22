@@ -1,805 +1,695 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Mandarin Chinese Pronunciation Guide</title>
-<style>
-body {
-    font-family:sans-serif;
-    margin:16px;
-    display:flex;
-    justify-content: center;   /* Căn giữa ngang */
-    align-items: flex-start;
-    gap:20px;
-    background-image: url('yuyin/3.png'); /* Đường dẫn đến ảnh */
-    background-size: cover; /* Ảnh phủ toàn bộ màn hình */
-    background-position: center; /* Căn giữa */
-    background-repeat: no-repeat; /* Không lặp lại ảnh */
-    background-attachment: fixed;
-    flex-wrap: wrap;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pronunciation Guide — Chinese60s</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #222;
+      --green: #7cb83e;
+      --green-dark: #5a8f27;
+      --green-light: #d8f0a0;
+      --green-pale: #f2fde0;
+      --yellow: #ffd84d;
+      --yellow-pale: #fffbe6;
+      --peach: #ffb89a;
+      --peach-pale: #fff3ee;
+      --sky: #72c8f0;
+      --sky-pale: #eaf8ff;
+      --lavender: #c5b0f8;
+      --lavender-pale: #f3f0ff;
+      --pink: #ffadc5;
+      --pink-pale: #fff2f6;
+      --white: #fff;
+      --bg: #fffef5;
+      --shadow-sm: 3px 3px 0 var(--black);
+      --shadow-md: 4px 4px 0 var(--black);
+      --shadow-lg: 6px 6px 0 var(--black);
+      --border: 2.5px solid var(--black);
+      --border-thick: 3px solid var(--black);
+    }
 
-/* Canvas bên trái */
-.left-panel {
-    flex: 0 0 auto;
-    max-width: 620px;
-    
-}
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-/* Container chứa PDF + panel phải */
-.right-panel-container {
-    display: flex;
-    flex-direction: column; /* pdf-ad nằm trên right-panel */
-    gap: 10px;
-    
-}
-
-/* Right panel mặc định */
-.right-panel {
-    display: flex;
-    flex-direction: row; /* 2 cột cạnh nhau */
-    gap: 20px;
-    max-height: 600px;
-    overflow-y: auto;
-    border: 1px solid #ccc;
-    padding: 8px;
-    background-color: white;
-}
-/* Responsive */
-@media (max-width: 768px) {
     body {
-        flex-direction: column; /* left-panel xuống trên, right-panel-container xuống dưới */
-        align-items: center;
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 500;
+      background: var(--bg);
+      color: var(--black);
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
-    
-    .right-panel {
-        flex-direction: column; /* cột thanh mẫu và vận mẫu rớt xuống */
-    }
-}
 
-@media (max-width: 480px) {
-    body {
-        flex-direction: column;
-        align-items: center;
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: radial-gradient(circle, rgba(0,0,0,0.045) 1px, transparent 1px);
+      background-size: 22px 22px;
+      pointer-events: none; z-index: 0;
     }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--green);
+      border-bottom: var(--border-thick);
+      padding: 0 50px; height: 66px;
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 100;
+    }
+    header h1 {
+      font-weight: 700; font-size: 1.7rem; color: white;
+      letter-spacing: 0.04em; text-shadow: 2px 2px 0 rgba(0,0,0,0.25);
+    }
+    .homepage-link { text-decoration: none; color: inherit; }
+    .menu-toggle { display: none; font-size: 24px; background: none; border: none; color: white; cursor: pointer; }
+    nav ul { list-style: none; display: flex; gap: 8px; }
+    nav ul li a {
+      text-decoration: none; color: var(--black);
+      font-weight: 600; font-size: 1rem;
+      background: var(--white); border: var(--border); border-radius: 50px;
+      padding: 6px 18px; display: inline-block;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    nav ul li a:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+
+    /* ── BANNER ── */
+    .banner {
+      background: var(--green-pale);
+      border-bottom: var(--border-thick);
+      display: flex; justify-content: center;
+      position: relative; z-index: 1;
+    }
+    .banner img { width: 100%; height: auto; max-height: 160px; object-fit: contain; display: block; }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: var(--sky-pale);
+      border-bottom: var(--border-thick);
+      padding: 28px 24px 22px;
+      text-align: center;
+      position: relative; z-index: 1; overflow: hidden;
+    }
+    .page-hero::before {
+      content: '🗣️';
+      position: absolute; font-size: 120px; opacity: 0.1;
+      top: -10px; right: 40px; pointer-events: none;
+    }
+    .page-hero .tag {
+      display: inline-block;
+      background: var(--sky); border: var(--border); border-radius: 50px;
+      padding: 6px 18px; font-weight: 600; font-size: 0.95rem;
+      box-shadow: var(--shadow-sm); margin-bottom: 10px;
+    }
+    .page-hero h2 {
+      font-weight: 700; font-size: clamp(1.6rem, 3.5vw, 2.4rem); line-height: 1.2;
+    }
+
+    /* ── MAIN GRID ── */
+    .main-wrapper {
+      display: flex;
+      gap: 24px;
+      padding: 28px 40px 80px;
+      max-width: 1500px;
+      margin: 0 auto;
+      width: 100%;
+      position: relative; z-index: 1;
+      align-items: flex-start;
+      flex: 1;
+    }
+
+    /* ── LEFT PANEL: Canvas ── */
+    .left-panel {
+      flex: 0 0 520px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .canvas-card {
+      background: var(--white);
+      border: var(--border-thick); border-radius: 22px;
+      box-shadow: var(--shadow-md);
+      padding: 20px;
+    }
+    .canvas-card h2 {
+      font-weight: 700; font-size: 1.2rem; margin-bottom: 14px;
+      display: inline-block;
+      background: var(--yellow); border: var(--border); border-radius: 50px;
+      padding: 5px 18px; box-shadow: var(--shadow-sm);
+    }
+    canvas {
+      border: var(--border); border-radius: 14px;
+      background: var(--white); display: block;
+      margin-bottom: 14px; width: 100%; max-width: 480px;
+    }
+
+    /* Controls */
+    .controls {
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .controls select,
+    .controls input[type="range"],
+    .controls input[type="number"] {
+      font-family: 'Fredoka', sans-serif; font-weight: 500; font-size: 0.95rem;
+      padding: 7px 14px; border: var(--border); border-radius: 50px;
+      background: var(--bg); outline: none;
+      box-shadow: var(--shadow-sm);
+    }
+    .controls-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+    .controls label { font-weight: 600; font-size: 0.9rem; }
+
+    .ctrl-btn {
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 0.9rem;
+      background: var(--white); color: var(--black);
+      padding: 7px 16px; border: var(--border-thick); border-radius: 50px;
+      box-shadow: var(--shadow-sm); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    .ctrl-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+    .ctrl-btn.green { background: var(--green); color: white; }
+    .ctrl-btn.yellow { background: var(--yellow); }
+
+    .pivot-info {
+      font-size: 0.88rem; color: #666;
+      background: var(--bg); border: var(--border); border-radius: 12px;
+      padding: 8px 14px;
+    }
+
+    /* ── RIGHT PANEL ── */
     .right-panel-container {
-        width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      min-width: 0;
     }
+
+    /* Ad banner */
+    .ad-card {
+      background: var(--white);
+      border: var(--border-thick); border-radius: 22px;
+      box-shadow: var(--shadow-md);
+      padding: 18px; text-align: center;
+    }
+    .ad-card h3 {
+      font-weight: 700; font-size: 1rem; margin-bottom: 12px;
+    }
+    .ad-card h3 a { color: var(--green-dark); text-decoration: none; }
+    .ad-card h3 a:hover { color: #e53935; }
+    .ad-card img {
+      max-width: 100%; height: auto; border-radius: 12px;
+      border: var(--border); box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .ad-card img:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+
+    /* Phoneme panel */
+    .phoneme-card {
+      background: var(--white);
+      border: var(--border-thick); border-radius: 22px;
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+    .phoneme-card-header {
+      background: var(--green-pale);
+      border-bottom: var(--border);
+      padding: 14px 20px;
+      display: flex; gap: 10px; align-items: center;
+    }
+    .phoneme-card-header .badge {
+      display: inline-block;
+      border: var(--border); border-radius: 50px;
+      padding: 5px 16px; font-weight: 700; font-size: 0.9rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .badge-initials { background: var(--yellow); }
+    .badge-finals   { background: var(--sky); }
+    .badge-tones    { background: var(--peach); }
+
     .right-panel {
-        flex-direction: column;
+      display: flex;
+      flex-direction: row;
+      gap: 0;
+      max-height: 620px;
+      overflow-y: auto;
+      padding: 16px;
     }
-    .column {
-        width: 100%;
+
+    /* Columns */
+    .column { flex: 1; padding: 0 8px; min-width: 200px; }
+    .column h3 {
+      font-weight: 700; font-size: 1rem; margin-bottom: 12px;
+      display: inline-block;
+      background: var(--lavender); border: var(--border); border-radius: 50px;
+      padding: 4px 16px; box-shadow: var(--shadow-sm);
     }
-}
-/* Mỗi cột */
-.column {
-    width:220px; 
-}
+    .column:last-child h3 { background: var(--pink); }
 
-.column h3 {
-    margin-top:0;
-}
+    /* Phoneme box */
+    .phoneme-box {
+      border: var(--border); border-radius: 14px;
+      padding: 10px 12px; margin-bottom: 10px;
+      background: var(--bg);
+      transition: box-shadow 0.12s, transform 0.12s;
+    }
+    .phoneme-box:hover { transform: translate(-1px,-2px); box-shadow: var(--shadow-sm); }
+    .phoneme-box:nth-child(odd)  { background: var(--yellow-pale); }
+    .phoneme-box:nth-child(even) { background: var(--green-pale); }
 
-/* Mỗi item âm */
-.phoneme-box {
-    border:1px solid #ddd;
-    padding:8px;
-    margin-bottom:12px;
-    border-radius:8px;
-}
+    .phoneme-header {
+      display: flex; justify-content: space-between; align-items: center; gap: 6px;
+    }
+    .phoneme-header strong { font-size: 1.1rem; font-weight: 700; }
+    .phoneme-box audio { display: none; }
 
-.phoneme-header {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-.phoneme-box audio {
-    display: none;
-}
-/* Style nút Play mới */
-.play-btn {
-    background: #4CAF50;
-    color: white;
-    border: none;
-    padding: 3px 60px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 12px;
-}
+    .play-btn {
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 0.82rem;
+      background: var(--green); color: white;
+      border: var(--border); border-radius: 50px;
+      padding: 4px 14px; cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.1s;
+      white-space: nowrap;
+    }
+    .play-btn:hover { transform: translate(-1px,-1px); }
+    .play-btn:active { opacity: 0.75; }
 
-.play-btn:active {
-    opacity: 0.7;
-}
-.phoneme-images {
-    display: flex;          /* xếp hình ngang */
-    flex-wrap: wrap;        /* xuống hàng nếu quá rộng */
-    gap: 4px;
-    width: 200px;           /* hoặc width mong muốn */
-    height: 100px;          /* chiều cao khung */
-    border: 1px solid #ddd; /* viền khung */
-    padding: 4px;
-    overflow: hidden;       /* ẩn phần tràn */
-    justify-content: center; /* căn giữa hình nếu muốn */
-    align-items: center;     /* căn giữa theo chiều dọc */
-}
+    .phoneme-images {
+      display: flex; flex-wrap: wrap; gap: 4px;
+      width: 100%; max-width: 200px; height: 90px;
+      border: var(--border); border-radius: 10px; padding: 4px;
+      overflow: hidden; justify-content: center; align-items: center;
+      background: var(--white); margin-top: 8px;
+    }
+    .phoneme-images img {
+      max-width: 100%; max-height: 100%;
+      object-fit: contain; flex: 1 1 auto;
+    }
 
-.phoneme-images img {
-    max-width: 100%;   /* không vượt quá khung */
-    max-height: 100%;  /* không vượt quá khung */
-    object-fit: contain; /* giữ tỉ lệ hình */
-    flex: 1 1 auto;    /* co giãn nếu cần */
-}
-.tone-chart p {
-    max-width: 200px;   /* GIỚI HẠN ĐỘ RỘNG */
-    
-    line-height: 1.4;   /* nhìn thoáng hơn */
-}
-canvas{border:1px solid #ccc;background:#fff;display:block;margin-bottom:8px;}
-.controls{margin-bottom:12px;}
-label{margin-right:8px;}
-.correct { background-color: #c8ffcc !important; }
-.wrong { background-color: #ffc8c8 !important; }
-/* Footer */
-footer {      
-    text-align: center;
-}
-.pdf-ad {
-    text-align: center;          /* Căn giữa nội dung */
-}
-.pdf-ad .pdf-item img {
-  display: block;              /* Để margin auto hoạt động */
-  margin: 0 auto;              /* Căn giữa hình */
-}
+    /* Tone chart column */
+    .tone-chart {
+      flex: 0 0 220px; padding: 0 8px;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .tone-chart h3 {
+      font-weight: 700; font-size: 1rem;
+      display: inline-block;
+      background: var(--peach); border: var(--border); border-radius: 50px;
+      padding: 4px 16px; box-shadow: var(--shadow-sm);
+    }
+    .tone-chart img {
+      width: 100%; border: var(--border); border-radius: 10px;
+    }
+    .tone-chart p {
+      font-size: 0.88rem; color: #555; line-height: 1.55;
+      background: var(--yellow-pale); border: var(--border); border-radius: 12px;
+      padding: 8px 12px;
+    }
+    .tone-chart a { color: var(--green-dark); text-decoration: none; font-weight: 600; }
+    .tone-chart a:hover { color: #e53935; }
+    .tone-ad-img {
+      border: var(--border); border-radius: 12px;
+      box-shadow: var(--shadow-sm); width: 100%; cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    .tone-ad-img:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
 
-</style>
+    /* ── YOUTUBE VIDEO ── */
+    .video-section {
+      padding: 0 40px;
+      position: relative; z-index: 1;
+      max-width: 1500px; margin: 0 auto; width: 100%;
+    }
+    .video-card {
+      background: var(--white);
+      border: var(--border-thick); border-radius: 22px;
+      box-shadow: var(--shadow-md);
+      overflow: hidden; margin-bottom: 28px;
+    }
+    .video-card-header {
+      background: var(--sky-pale); border-bottom: var(--border);
+      padding: 12px 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .video-card-header span {
+      font-weight: 700; font-size: 1rem;
+      background: var(--sky); border: var(--border); border-radius: 50px;
+      padding: 4px 16px; box-shadow: var(--shadow-sm);
+    }
+    .video-card iframe {
+      width: 100%; height: 380px; display: block;
+      border: none;
+    }
+
+    /* ── QUIZ SECTION ── */
+    .quiz-section {
+      padding: 0 40px 28px;
+      position: relative; z-index: 1;
+      max-width: 1500px; margin: 0 auto; width: 100%;
+    }
+    .quiz-card {
+      background: var(--white);
+      border: var(--border-thick); border-radius: 22px;
+      box-shadow: var(--shadow-md);
+      padding: 28px 32px;
+    }
+    .quiz-card > h2 {
+      font-weight: 700; font-size: 1.6rem; margin-bottom: 22px;
+      display: inline-block;
+      background: var(--yellow); border: var(--border); border-radius: 50px;
+      padding: 8px 26px; box-shadow: var(--shadow-sm);
+    }
+    .quiz-card h3 {
+      font-weight: 700; font-size: 1rem; margin: 20px 0 10px;
+      display: inline-block;
+      background: var(--lavender); border: var(--border); border-radius: 50px;
+      padding: 4px 16px; box-shadow: var(--shadow-sm);
+    }
+    .quiz-card p {
+      font-size: 0.9rem; color: #666; margin-bottom: 10px; line-height: 1.6;
+    }
+
+    /* Quiz table & cells */
+    .quiz-card table { width: 100%; border-collapse: separate; border-spacing: 8px; }
+    .quiz-card td {
+      background: var(--bg); border: var(--border); border-radius: 14px;
+      padding: 12px; vertical-align: top; font-size: 0.95rem;
+    }
+    .quiz-card td.correct { background: var(--green-pale) !important; border-color: var(--green-dark); }
+    .quiz-card td.wrong   { background: var(--pink-pale)  !important; border-color: #e53935; }
+
+    .cell-buttons, .cell-area {
+      display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+    }
+
+    .quiz-card button {
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 0.9rem;
+      background: var(--white); color: var(--black);
+      padding: 6px 16px; border: var(--border-thick); border-radius: 50px;
+      box-shadow: var(--shadow-sm); cursor: pointer;
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+    .quiz-card button:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--black); }
+    .quiz-card button.correct { background: var(--green-pale); border-color: var(--green-dark); }
+    .quiz-card button.wrong   { background: var(--pink-pale);  border-color: #e53935; }
+
+    .quiz-card select {
+      font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 0.9rem;
+      padding: 5px 10px; border: var(--border); border-radius: 50px;
+      background: var(--white); outline: none; cursor: pointer;
+    }
+    .fill-input {
+      font-family: 'Fredoka', sans-serif; font-weight: 500; font-size: 0.9rem;
+      padding: 6px 14px; border: var(--border); border-radius: 50px;
+      background: var(--bg); outline: none;
+      box-shadow: var(--shadow-sm); width: 160px;
+    }
+    .answer-box {
+      margin-top: 6px; font-size: 0.88rem; color: #333;
+      background: var(--yellow-pale); border: var(--border); border-radius: 10px; padding: 4px 10px;
+    }
+
+    .unlock-btn-wrap { margin-top: 20px; }
+    .unlock-btn {
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.05rem;
+      background: var(--green); color: white;
+      padding: 12px 32px; border: var(--border-thick); border-radius: 50px;
+      box-shadow: var(--shadow-md); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s;
+      text-decoration: none; display: inline-block;
+    }
+    .unlock-btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #222; color: rgba(255,255,255,0.65);
+      padding: 28px 50px; text-align: center;
+      position: relative; z-index: 1; margin-top: auto;
+    }
+    footer .brand { font-weight: 700; color: var(--green-light); font-size: 1.3rem; margin-bottom: 6px; }
+    footer p { font-size: 0.95rem; font-weight: 500; margin-bottom: 3px; }
+    .social-icons { margin-top: 14px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .social-icons a {
+      text-decoration: none; color: var(--black);
+      font-weight: 600; font-size: 0.9rem;
+      background: var(--green-light); border: var(--border); border-radius: 50px;
+      padding: 5px 16px; box-shadow: var(--shadow-sm); transition: transform 0.12s;
+    }
+    .social-icons a:hover { transform: translate(-1px,-2px); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      .main-wrapper { padding: 20px 20px 60px; }
+      .left-panel { flex: 0 0 420px; }
+    }
+    @media (max-width: 900px) {
+      .main-wrapper { flex-direction: column; padding: 16px 16px 60px; }
+      .left-panel { flex: none; width: 100%; }
+      canvas { max-width: 100%; }
+      .right-panel { flex-direction: column; max-height: none; }
+      .tone-chart { flex: none; width: 100%; }
+      .video-section, .quiz-section { padding: 0 16px 20px; }
+      header { padding: 0 20px; position: relative; }
+      .menu-toggle { display: block; }
+      nav { display: none; position: absolute; top: 66px; left: 0; right: 0; background: var(--green); border-bottom: var(--border); padding: 12px 0; }
+      nav.show { display: flex; flex-direction: column; align-items: center; }
+      nav ul { flex-direction: column; align-items: center; gap: 8px; padding: 6px 0; }
+      .video-card iframe { height: 240px; }
+      .quiz-card table { border-spacing: 4px; }
+      .fill-input { width: 120px; }
+    }
+    @media (max-width: 480px) {
+      footer { padding: 28px 20px; }
+    }
+  </style>
 </head>
 <body>
-<div class="main-panels" style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
-<!-- LEFT: CANVAS + CONTROLS -->
-<div class="left-panel">
-    <p><a href="index.html" class="homepage-link">Home</a><p>
-    <a href="index.html">
-    <img src="assets/banner.png" alt="CHINESE 60s" style="width:500px; height:auto;">
-</a>
+
+  <!-- Header -->
+  <header>
+    <h1><a href="index.html" class="homepage-link">CHINESE 60s</a></h1>
+    <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <nav>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="https://www.amazon.com/shop/studiorum60s" target="_blank">Shop</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Banner -->
+  <div class="banner">
+    <img src="assets/banner.png" alt="Chinese 60s">
+  </div>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <span class="tag">🗣️ Phonetics</span>
     <h2>Mandarin Chinese Pronunciation Guide</h2>
-    <canvas id="canvas" width="500" height="500"></canvas>
-
-    <div class="controls">
-      <select id="layerSelect">
-        <option value="">--Select Layer--</option>
-      </select>
-      <label>Rotate: <span id="rotVal">0°</span></label>
-      <input type="range" id="rotSlider" min="-180" max="180" value="0">
-      <input type="number" id="rotInput" min="-180" max="180" value="0" style="width:50px">
-      <button id="resetBtn">Reset All</button>
-      <br><br>
-      <button id="setStartBtn">Set Keyframe Start</button>
-      <button id="setEndBtn">Set Keyframe End</button>
-      <button id="playBtn">Play</button>
-      <button id="loopBtn">Loop On/Off</button>
-    </div>
-
-    <div>
-      <p>PivotPixel: <span id="pivotPixel">N/A</span></p>
-      <p>Anchor: <span id="anchorVal">N/A</span></p>
-    </div>
-
-</div>
-
-<!-- RIGHT: 2 COLUMN PHONETICS -->
-<div class="right-panel-container">
-  <div class="pdf-ad">
-    <h3><a href="https://maxfilms.gumroad.com/l/mandarin-pronunciation-pack" target="_blank">Mandarin Chinese pronunciation Training Pack</a></h3>
-    <div class="pdf-item">
-      <a href="https://maxfilms.gumroad.com/l/mandarin-pronunciation-pack" target="_blank">
-      <img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1764554536/bigad_tz9jre.gif" 
-         alt="PDF Cover" 
-         style="width:500px;height:auto;cursor:pointer;">
-      </a>
-    </div>
-  </div>
-<div class="right-panel">
-  
-    <!-- COLUMN 1: Thanh mẫu -->
-    <div class="column">
-        <h3>Initials</h3>
-
-        <!-- Mẫu demo, mày thêm bao nhiêu tùy thích -->
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>b</strong>
-                <audio controls src="yuyin/audio/b.mp3"></audio>
-            </div>
-            <div class="phoneme-images">
-                <img src="yuyin/b.png">
-                
-            </div>
-        </div>
-
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>p</strong>
-                <audio controls src="yuyin/audio/p.mp3"></audio>
-            </div>
-            <div class="phoneme-images">
-                <img src="yuyin/p.png">
-                
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>m</strong>
-                <audio controls src="yuyin/audio/m.mp3"></audio>
-            </div>
-            <div class="phoneme-images">
-                <img src="yuyin/m.gif">
-                
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>f</strong>
-                <audio controls src="yuyin/audio/f.mp3"></audio>
-            </div>
-            <div class="phoneme-images">
-                <img src="yuyin/f.gif">
-                
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>d</strong>
-                <audio controls src="yuyin/audio/d.mp3"></audio>
-            </div>
-            <div class="phoneme-images">
-                <img src="yuyin/d.gif">
-                
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>t</strong>
-                <audio controls src="yuyin/audio/t.mp3"></audio>
-            </div>
-            <div class="phoneme-images">
-                <img src="yuyin/t.gif">
-                
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>n</strong>
-                <audio controls src="yuyin/audio/n.mp3"></audio>
-            </div>
-            <div class="phoneme-images">
-                <img src="yuyin/n.gif">
-                
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>l</strong>
-                <audio controls src="yuyin/audio/l.mp3"></audio>
-            </div>
-            <div class="phoneme-images">
-                <img src="yuyin/l.gif">
-                
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>g</strong>
-                <audio controls src="yuyin/audio/g.mp3"></audio>
-            </div>
-            <div class="phoneme-images">
-                <img src="yuyin/g.gif">
-                
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>k</strong>
-                <audio controls src="yuyin/audio/k.mp3"></audio>
-            </div>
-            <div class="phoneme-images">
-                <img src="yuyin/k.jpg">
-                
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>h</strong>
-                <audio controls src="yuyin/audio/h.mp3"></audio>
-            </div>
-            <div class="phoneme-images">
-                <img src="yuyin/h.jpg">
-                
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>j</strong>
-                <audio controls src="yuyin/audio/j.mp3"></audio>
-            </div>
-            <div class="phoneme-images">
-                <img src="yuyin/j.gif">
-                
-            </div>
-        </div>
-
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>q</strong>
-                <audio controls src="yuyin/audio/q.mp3"></audio>
-            </div>
-            <div class="phoneme-images">
-                <img src="yuyin/q.gif">
-                
-            </div>
-        </div>
-
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>x</strong>
-                <audio controls src="yuyin/audio/x.mp3"></audio>
-            </div>
-            <div class="phoneme-images">
-                <img src="yuyin/x.gif">
-                
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>z</strong>
-                <audio controls src="yuyin/audio/z.mp3"></audio>
-            </div>
-            <div class="phoneme-images">
-                <img src="yuyin/zcs.png">
-                
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>c</strong>
-                <audio controls src="yuyin/audio/c.mp3"></audio>
-            </div>
-            <div class="phoneme-images">
-                <img src="yuyin/zcs.png">
-                
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>s</strong>
-                <audio controls src="yuyin/audio/s.mp3"></audio>
-            </div>
-            <div class="phoneme-images">
-                <img src="yuyin/zcs.png">
-                
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>zh</strong>
-                <audio controls src="yuyin/audio/zh.mp3"></audio>
-            </div>
-            <div class="phoneme-images">
-                <img src="yuyin/zh.gif">
-                
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>ch</strong>
-                <audio controls src="yuyin/audio/ch.mp3"></audio>
-            </div>
-            <div class="phoneme-images">
-                <img src="yuyin/ch.gif">
-                
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>sh</strong>
-                <audio controls src="yuyin/audio/sh.mp3"></audio>
-            </div>
-            <div class="phoneme-images">
-                <img src="yuyin/sh.gif">
-                
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>r</strong>
-                <audio controls src="yuyin/audio/r.mp3"></audio>
-            </div>
-            <div class="phoneme-images">
-                <img src="yuyin/r.jpg">
-                
-            </div>
-        </div>
-    </div>
-
-    <!-- COLUMN 2: Vận mẫu -->
-    <div class="column">
-        <h3>Finals</h3>
-
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>a</strong>
-            <audio controls src="yuyin/audio/a.mp3"></audio>
-            </div>
-            <div class="phoneme-images">
-                <img src="yuyin/a.jpg">
-                
-            </div>
-        </div>
-
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>o</strong>
-            <audio controls src="yuyin/audio/o.mp3"></audio>
-            </div>
-            <div class="phoneme-images">
-                <img src="yuyin/o.jpg">
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>e</strong>
-            <audio controls src="yuyin/audio/e.mp3"></audio>
-            </div>
-            <div class="phoneme-images">
-                <img src="yuyin/e.jpg">
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>i</strong>
-            <audio controls src="yuyin/audio/i.mp3"></audio>
-            </div>
-            <div class="phoneme-images">
-                <img src="yuyin/i.jpg">
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>u</strong>
-            <audio controls src="yuyin/audio/u.mp3"></audio>
-            </div>
-            <div class="phoneme-images">
-                <img src="yuyin/u.jpg">
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>ü</strong>
-            <audio controls src="yuyin/audio/u2.mp3"></audio>
-            </div>
-            <div class="phoneme-images">
-                <img src="yuyin/u2.gif">
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>ai</strong>
-            <audio controls src="yuyin/audio/ai.mp3"></audio>
-            </div>
-            
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>ei</strong>
-            <audio controls src="yuyin/audio/ei.mp3"></audio>
-            </div>
-            
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>ao</strong>
-            <audio controls src="yuyin/audio/ao.mp3"></audio>
-            </div>
-            
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>ou</strong>
-            <audio controls src="yuyin/audio/ou.mp3"></audio>
-            </div>
-            
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>an</strong>
-            <audio controls src="yuyin/audio/an.mp3"></audio>
-            </div>
-            
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>en</strong>
-            <audio controls src="yuyin/audio/en.mp3"></audio>
-            </div>
-            
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>ang</strong>
-            <audio controls src="yuyin/audio/ang.mp3"></audio>
-            </div>
-            
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>eng</strong>
-            <audio controls src="yuyin/audio/eng.mp3"></audio>
-            </div>
-            
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>ong</strong>
-            <audio controls src="yuyin/audio/ong.mp3"></audio>
-            </div>
-            
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>ia</strong>
-            <audio controls src="yuyin/audio/ia.mp3"></audio>
-            </div>
-            <div>
-                <strong>/ya/</strong>
-            </div>
-            
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>ie</strong>
-            <audio controls src="yuyin/audio/ie.mp3"></audio>
-            </div>
-            <div>
-                <strong>/ye/</strong>
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>iao</strong>
-            <audio controls src="yuyin/audio/iao.mp3"></audio>
-            </div>
-            <div>
-                <strong>/yao/</strong>
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>iu (iou)</strong>
-            <audio controls src="yuyin/audio/iu (iou).mp3"></audio>
-            </div>
-            <div>
-                <strong>/you/</strong>
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>ian</strong>
-            <audio controls src="yuyin/audio/ian.mp3"></audio>
-            </div>
-            <div>
-                <strong>/yan/</strong>
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>in</strong>
-            <audio controls src="yuyin/audio/in.mp3"></audio>
-            </div>
-            <div>
-                <strong>/yin/</strong>
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>iang</strong>
-            <audio controls src="yuyin/audio/iang.mp3"></audio>
-            </div>
-            <div>
-                <strong>/yang/</strong>
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>ing</strong>
-            <audio controls src="yuyin/audio/ing.mp3"></audio>
-            </div>
-            <div>
-                <strong>/ying/</strong>
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>üe</strong>
-            <audio controls src="yuyin/audio/üe.mp3"></audio>
-            </div>
-            <div>
-                <strong>/yue/</strong>
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>üan</strong>
-            <audio controls src="yuyin/audio/üan.mp3"></audio>
-            </div>
-            <div>
-                <strong>/yuan/</strong>
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>ün</strong>
-            <audio controls src="yuyin/audio/ün.mp3"></audio>
-            </div>
-            <div>
-                <strong>/yun/</strong>
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>iong</strong>
-            <audio controls src="yuyin/audio/iong.mp3"></audio>
-            </div>
-            <div>
-                <strong>/yong/</strong>
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>-i</strong>
-            <audio controls src="yuyin/audio/-i.mp3"></audio>
-            </div>
-            
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>er</strong>
-            <audio controls src="yuyin/audio/er.mp3"></audio>
-            </div>
-            
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>ua</strong>
-            <audio controls src="yuyin/audio/ua.mp3"></audio>
-            </div>
-            <div>
-                <strong>/wa/</strong>
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>uo</strong>
-            <audio controls src="yuyin/audio/uo.mp3"></audio>
-            </div>
-            <div>
-                <strong>/wo/</strong>
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>uai</strong>
-            <audio controls src="yuyin/audio/uai.mp3"></audio>
-            </div>
-            <div>
-                <strong>/wai/</strong>
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>ui (uei)</strong>
-            <audio controls src="yuyin/audio/ui (uei).mp3"></audio>
-            </div>
-            <div>
-                <strong>/wei/</strong>
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>uan</strong>
-            <audio controls src="yuyin/audio/uan.mp3"></audio>
-            </div>
-            <div>
-                <strong>/wan/</strong>
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>un (uen)</strong>
-            <audio controls src="yuyin/audio/un (uen).mp3"></audio>
-            </div>
-            <div>
-                <strong>/wen/</strong>
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>uang</strong>
-            <audio controls src="yuyin/audio/uang.mp3"></audio>
-            </div>
-            <div>
-                <strong>/wang/</strong>
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>ueng</strong>
-            <audio controls src="yuyin/audio/ueng.mp3"></audio>
-            </div>
-            <div>
-                <strong>/weng/</strong>
-            </div>
-        </div>
-        <div class="phoneme-box">
-            <div class="phoneme-header">
-                <strong>-i[ƪ]</strong>
-            <audio controls src="yuyin/audio/-i[ƪ].mp3"></audio>
-            </div>
-            
-        </div>
-        
-</div>
-<div class="tone-chart">
-    <h3>Tones</h3>
-    <img src="yuyin/tones.gif" alt="Bảng thanh điệu" style="width:100%;">
-    <p>Some syllables in Chinese are toneless (disregarding the tones of the characters they represent) and are pronounced light and short. These syllables are called neutralized tones or neutral tones. The pitch of a neutral tone is affected by the tone of the preceding syllable.</p>
-    <p> 3rd tone + 1st tone/2nd tone/4th tone/neutral tone-> 3rd-tone syllable becomes a half 3rd tone</p>
-    <p> 不(4th tone) + 4th tone syllable-> 不 changes to the 2nd tone</p>
-    <p> 一+ the 1st, 2nd or 3rd tone syllables-> 一 is pronounced as the 4th tonee</p>
-    <p> 一+ the 4th tone syllables -> 一 is pronounced as the 2nd tone</p>
-    <p> 3rd tone + 3rd tone + 3rd tone -> 2nd tone + 2nd tone + 3rd tone</p>
-    <p> 3rd tone + 3rd tone + 3rd tone -> 3rd tone + 2nd tone + 3rd tone</p>
-    <h3>PDF for learning<br>Mandarin Chinese<br>pronunciation</h3>
-    <a href="https://maxfilms.gumroad.com/l/mandarin-pronunciation-pack" target="_blank"><img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1764303120/pronunciation-ad-2_qu8u0o.png" alt="PDF Cover" style="width:250px;height:auto;"></a>
-    <p><a href="https://maxfilms.gumroad.com/l/mandarin-pronunciation-pack" target="_blank">BUY NOW!!!</a></p>
-    <a href="https://chinese60s.com/tone-game" target="_blank"><img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1764554095/tone-game_claah2.gif" alt="PDF Cover" style="width:250px;height:auto;"></a>
-</div>
-</div>
-</div>
-<div class="youtube-video">
-  <iframe width="560" height="315"
-    src="https://www.youtube.com/embed/4mgHG8hSS80?si=zJFMlnYrbjMhHBI9"
-    title="YouTube video player"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen>
-  </iframe>
-</div>
-<!-- =================== QUIZ SECTION (TÁCH RIÊNG) =================== -->
-  <div class="quiz-section" style="margin-top:40px; width:90%; max-width:1200px; border:1px solid #ccc; padding:20px; background:white;">
-    <h2>Quiz Section</h2>
-    <h3>Listen to the following initials and finals and choose the correct answer</h3>
-    <table id="quiz-grid-mcq1"></table>
-
-    <h3>Distinguish easily confused tones</h3>
-    <table id="quiz-grid-mcq2"></table>
-
-    <h3>Choose the correct tone based on the tone-change rules</h3>
-    <table id="quiz-grid-tone"></table>
-
-    <h3>Fill in the blanks with multi-syllable phrases</h3>
-    <p>Type the pinyin following these rules: ā = a1;  á = a2; ǎ = a3; à = a4; ü = v</p>
-    <table id="quiz-grid-fillin"></table>
-<!-- Button xem toàn bộ -->
-<div style="margin-top:20px;">
-    <a href="yuyin-quiz.html">
-        <button style="padding:10px 20px; font-size:16px;">Unlock the full quiz here!</button>
-    </a>
-</div>
   </div>
 
-<!-- Footer -->
+  <!-- Main layout -->
+  <div class="main-wrapper">
+
+    <!-- LEFT: Canvas rig -->
+    <div class="left-panel">
+      <div class="canvas-card">
+        <h2>Mouth Rig 🦷</h2>
+        <canvas id="canvas" width="480" height="480"></canvas>
+
+        <div class="controls">
+          <div class="controls-row">
+            <select id="layerSelect"><option value="">-- Select Layer --</option></select>
+          </div>
+          <div class="controls-row">
+            <label>Rotate: <strong id="rotVal">0°</strong></label>
+            <input type="range" id="rotSlider" min="-180" max="180" value="0" style="flex:1;">
+            <input type="number" id="rotInput" min="-180" max="180" value="0" style="width:64px;">
+          </div>
+          <div class="controls-row">
+            <button class="ctrl-btn" id="resetBtn">↺ Reset</button>
+            <button class="ctrl-btn yellow" id="setStartBtn">⬛ Set Start</button>
+            <button class="ctrl-btn yellow" id="setEndBtn">⬛ Set End</button>
+          </div>
+          <div class="controls-row">
+            <button class="ctrl-btn green" id="playBtn">▶ Play</button>
+            <button class="ctrl-btn" id="loopBtn">🔁 Loop</button>
+          </div>
+        </div>
+
+        <div class="pivot-info" style="margin-top:10px;">
+          <span>PivotPixel: <strong id="pivotPixel">N/A</strong></span> &nbsp;|&nbsp;
+          <span>Anchor: <strong id="anchorVal">N/A</strong></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Phonemes -->
+    <div class="right-panel-container">
+
+      <!-- Ad -->
+      <div class="ad-card">
+        <h3><a href="https://maxfilms.gumroad.com/l/mandarin-pronunciation-pack" target="_blank">🎁 Mandarin Chinese Pronunciation Training Pack</a></h3>
+        <a href="https://maxfilms.gumroad.com/l/mandarin-pronunciation-pack" target="_blank">
+          <img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1764554536/bigad_tz9jre.gif" alt="PDF Cover">
+        </a>
+      </div>
+
+      <!-- Phoneme panel -->
+      <div class="phoneme-card">
+        <div class="phoneme-card-header">
+          <span class="badge badge-initials">声母 Initials</span>
+          <span class="badge badge-finals">韵母 Finals</span>
+          <span class="badge badge-tones">声调 Tones</span>
+        </div>
+        <div class="right-panel">
+
+          <!-- COLUMN 1: Initials -->
+          <div class="column">
+            <h3>Initials</h3>
+
+            <div class="phoneme-box"><div class="phoneme-header"><strong>b</strong><audio src="yuyin/audio/b.mp3"></audio></div><div class="phoneme-images"><img src="yuyin/b.png"></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>p</strong><audio src="yuyin/audio/p.mp3"></audio></div><div class="phoneme-images"><img src="yuyin/p.png"></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>m</strong><audio src="yuyin/audio/m.mp3"></audio></div><div class="phoneme-images"><img src="yuyin/m.gif"></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>f</strong><audio src="yuyin/audio/f.mp3"></audio></div><div class="phoneme-images"><img src="yuyin/f.gif"></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>d</strong><audio src="yuyin/audio/d.mp3"></audio></div><div class="phoneme-images"><img src="yuyin/d.gif"></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>t</strong><audio src="yuyin/audio/t.mp3"></audio></div><div class="phoneme-images"><img src="yuyin/t.gif"></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>n</strong><audio src="yuyin/audio/n.mp3"></audio></div><div class="phoneme-images"><img src="yuyin/n.gif"></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>l</strong><audio src="yuyin/audio/l.mp3"></audio></div><div class="phoneme-images"><img src="yuyin/l.gif"></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>g</strong><audio src="yuyin/audio/g.mp3"></audio></div><div class="phoneme-images"><img src="yuyin/g.gif"></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>k</strong><audio src="yuyin/audio/k.mp3"></audio></div><div class="phoneme-images"><img src="yuyin/k.jpg"></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>h</strong><audio src="yuyin/audio/h.mp3"></audio></div><div class="phoneme-images"><img src="yuyin/h.jpg"></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>j</strong><audio src="yuyin/audio/j.mp3"></audio></div><div class="phoneme-images"><img src="yuyin/j.gif"></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>q</strong><audio src="yuyin/audio/q.mp3"></audio></div><div class="phoneme-images"><img src="yuyin/q.gif"></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>x</strong><audio src="yuyin/audio/x.mp3"></audio></div><div class="phoneme-images"><img src="yuyin/x.gif"></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>z</strong><audio src="yuyin/audio/z.mp3"></audio></div><div class="phoneme-images"><img src="yuyin/zcs.png"></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>c</strong><audio src="yuyin/audio/c.mp3"></audio></div><div class="phoneme-images"><img src="yuyin/zcs.png"></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>s</strong><audio src="yuyin/audio/s.mp3"></audio></div><div class="phoneme-images"><img src="yuyin/zcs.png"></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>zh</strong><audio src="yuyin/audio/zh.mp3"></audio></div><div class="phoneme-images"><img src="yuyin/zh.gif"></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>ch</strong><audio src="yuyin/audio/ch.mp3"></audio></div><div class="phoneme-images"><img src="yuyin/ch.gif"></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>sh</strong><audio src="yuyin/audio/sh.mp3"></audio></div><div class="phoneme-images"><img src="yuyin/sh.gif"></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>r</strong><audio src="yuyin/audio/r.mp3"></audio></div><div class="phoneme-images"><img src="yuyin/r.jpg"></div></div>
+          </div>
+
+          <!-- COLUMN 2: Finals -->
+          <div class="column">
+            <h3>Finals</h3>
+
+            <div class="phoneme-box"><div class="phoneme-header"><strong>a</strong><audio src="yuyin/audio/a.mp3"></audio></div><div class="phoneme-images"><img src="yuyin/a.jpg"></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>o</strong><audio src="yuyin/audio/o.mp3"></audio></div><div class="phoneme-images"><img src="yuyin/o.jpg"></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>e</strong><audio src="yuyin/audio/e.mp3"></audio></div><div class="phoneme-images"><img src="yuyin/e.jpg"></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>i</strong><audio src="yuyin/audio/i.mp3"></audio></div><div class="phoneme-images"><img src="yuyin/i.jpg"></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>u</strong><audio src="yuyin/audio/u.mp3"></audio></div><div class="phoneme-images"><img src="yuyin/u.jpg"></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>ü</strong><audio src="yuyin/audio/u2.mp3"></audio></div><div class="phoneme-images"><img src="yuyin/u2.gif"></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>ai</strong><audio src="yuyin/audio/ai.mp3"></audio></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>ei</strong><audio src="yuyin/audio/ei.mp3"></audio></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>ao</strong><audio src="yuyin/audio/ao.mp3"></audio></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>ou</strong><audio src="yuyin/audio/ou.mp3"></audio></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>an</strong><audio src="yuyin/audio/an.mp3"></audio></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>en</strong><audio src="yuyin/audio/en.mp3"></audio></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>ang</strong><audio src="yuyin/audio/ang.mp3"></audio></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>eng</strong><audio src="yuyin/audio/eng.mp3"></audio></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>ong</strong><audio src="yuyin/audio/ong.mp3"></audio></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>ia</strong><audio src="yuyin/audio/ia.mp3"></audio></div><div><strong style="font-size:0.85rem;color:#888">/ya/</strong></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>ie</strong><audio src="yuyin/audio/ie.mp3"></audio></div><div><strong style="font-size:0.85rem;color:#888">/ye/</strong></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>iao</strong><audio src="yuyin/audio/iao.mp3"></audio></div><div><strong style="font-size:0.85rem;color:#888">/yao/</strong></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>iu (iou)</strong><audio src="yuyin/audio/iu (iou).mp3"></audio></div><div><strong style="font-size:0.85rem;color:#888">/you/</strong></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>ian</strong><audio src="yuyin/audio/ian.mp3"></audio></div><div><strong style="font-size:0.85rem;color:#888">/yan/</strong></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>in</strong><audio src="yuyin/audio/in.mp3"></audio></div><div><strong style="font-size:0.85rem;color:#888">/yin/</strong></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>iang</strong><audio src="yuyin/audio/iang.mp3"></audio></div><div><strong style="font-size:0.85rem;color:#888">/yang/</strong></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>ing</strong><audio src="yuyin/audio/ing.mp3"></audio></div><div><strong style="font-size:0.85rem;color:#888">/ying/</strong></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>üe</strong><audio src="yuyin/audio/üe.mp3"></audio></div><div><strong style="font-size:0.85rem;color:#888">/yue/</strong></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>üan</strong><audio src="yuyin/audio/üan.mp3"></audio></div><div><strong style="font-size:0.85rem;color:#888">/yuan/</strong></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>ün</strong><audio src="yuyin/audio/ün.mp3"></audio></div><div><strong style="font-size:0.85rem;color:#888">/yun/</strong></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>iong</strong><audio src="yuyin/audio/iong.mp3"></audio></div><div><strong style="font-size:0.85rem;color:#888">/yong/</strong></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>-i</strong><audio src="yuyin/audio/-i.mp3"></audio></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>er</strong><audio src="yuyin/audio/er.mp3"></audio></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>ua</strong><audio src="yuyin/audio/ua.mp3"></audio></div><div><strong style="font-size:0.85rem;color:#888">/wa/</strong></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>uo</strong><audio src="yuyin/audio/uo.mp3"></audio></div><div><strong style="font-size:0.85rem;color:#888">/wo/</strong></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>uai</strong><audio src="yuyin/audio/uai.mp3"></audio></div><div><strong style="font-size:0.85rem;color:#888">/wai/</strong></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>ui (uei)</strong><audio src="yuyin/audio/ui (uei).mp3"></audio></div><div><strong style="font-size:0.85rem;color:#888">/wei/</strong></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>uan</strong><audio src="yuyin/audio/uan.mp3"></audio></div><div><strong style="font-size:0.85rem;color:#888">/wan/</strong></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>un (uen)</strong><audio src="yuyin/audio/un (uen).mp3"></audio></div><div><strong style="font-size:0.85rem;color:#888">/wen/</strong></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>uang</strong><audio src="yuyin/audio/uang.mp3"></audio></div><div><strong style="font-size:0.85rem;color:#888">/wang/</strong></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>ueng</strong><audio src="yuyin/audio/ueng.mp3"></audio></div><div><strong style="font-size:0.85rem;color:#888">/weng/</strong></div></div>
+            <div class="phoneme-box"><div class="phoneme-header"><strong>-i[ƪ]</strong><audio src="yuyin/audio/-i[ƪ].mp3"></audio></div></div>
+          </div>
+
+          <!-- COLUMN 3: Tone chart -->
+          <div class="tone-chart">
+            <h3>Tones</h3>
+            <img src="yuyin/tones.gif" alt="Tone chart">
+            <p>Some syllables are <strong>toneless</strong> — pronounced light and short. The neutral tone pitch is affected by the preceding syllable.</p>
+            <p>3rd + 1st/2nd/4th/neutral → half 3rd tone</p>
+            <p>不 (4th) + 4th → 不 becomes 2nd tone</p>
+            <p>一 + 1st/2nd/3rd → 一 is 4th tone</p>
+            <p>一 + 4th → 一 is 2nd tone</p>
+            <p>3rd + 3rd + 3rd → 2nd + 2nd + 3rd</p>
+            <p>3rd + 3rd + 3rd → 3rd + 2nd + 3rd</p>
+            <h3 style="margin-top:6px;">Get the PDF</h3>
+            <a href="https://maxfilms.gumroad.com/l/mandarin-pronunciation-pack" target="_blank">
+              <img class="tone-ad-img" src="https://res.cloudinary.com/dndwvsqib/image/upload/v1764303120/pronunciation-ad-2_qu8u0o.png" alt="PDF Cover">
+            </a>
+            <a href="https://maxfilms.gumroad.com/l/mandarin-pronunciation-pack" target="_blank" style="font-weight:700;color:var(--green-dark);">🛒 BUY NOW</a>
+            <a href="https://chinese60s.com/tone-game" target="_blank">
+              <img class="tone-ad-img" src="https://res.cloudinary.com/dndwvsqib/image/upload/v1764554095/tone-game_claah2.gif" alt="Tone Game">
+            </a>
+          </div>
+
+        </div><!-- end right-panel -->
+      </div><!-- end phoneme-card -->
+    </div><!-- end right-panel-container -->
+  </div><!-- end main-wrapper -->
+
+  <!-- YouTube Video -->
+  <div class="video-section">
+    <div class="video-card">
+      <div class="video-card-header">
+        <span>🎬 Video Lesson</span>
+      </div>
+      <iframe src="https://www.youtube.com/embed/4mgHG8hSS80?si=zJFMlnYrbjMhHBI9"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- Quiz Section -->
+  <div class="quiz-section">
+    <div class="quiz-card">
+      <h2>🧠 Quiz Section</h2>
+
+      <h3>🔊 Listen & choose — Initials & Finals</h3>
+      <table id="quiz-grid-mcq1"></table>
+
+      <h3>🎵 Distinguish confused tones</h3>
+      <table id="quiz-grid-mcq2"></table>
+
+      <h3>📐 Tone-change rules</h3>
+      <table id="quiz-grid-tone"></table>
+
+      <h3>✏️ Fill in the blanks</h3>
+      <p>Typing rules: ā = a1 · á = a2 · ǎ = a3 · à = a4 · ü = v</p>
+      <table id="quiz-grid-fillin"></table>
+
+      <div class="unlock-btn-wrap">
+        <a href="yuyin-quiz.html" class="unlock-btn">🔓 Unlock the full quiz</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
   <footer>
-    <p>Chinese60s</p>
+    <p class="brand">CHINESE 60s</p>
     <p>Learn Mandarin through images and videos</p>
     <div class="social-icons">
       <a href="#">Facebook</a>
@@ -808,517 +698,283 @@ footer {
       <a href="#">Instagram</a>
     </div>
   </footer>
-<script>
-// Map thanh điệu
-const toneMap = {
-    a: ["ā","á","ǎ","à"],
-    e: ["ē","é","ě","è"],
-    i: ["ī","í","ǐ","ì"],
-    o: ["ō","ó","ǒ","ò"],
-    u: ["ū","ú","ǔ","ù"],
-    ü: ["ǖ","ǘ","ǚ","ǜ"]
-};
 
-// Hàm convert chính
-function convertPinyin(str) {
-    // đổi "v" → "ü"
-    str = str.replace(/v/g, "ü");
+  <!-- ── ALL SCRIPTS UNCHANGED ── -->
+  <script>
+    // Hamburger
+    document.addEventListener('DOMContentLoaded', function () {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('nav');
+      menuToggle.addEventListener('click', function () {
+        nav.classList.toggle('show');
+        menuToggle.innerHTML = nav.classList.contains('show') ? '&#10005;' : '&#9776;';
+      });
+    });
+  </script>
 
-    return str.replace(/([a-zü]+)([1-4])/gi, (match, letters, tone) => {
-        const t = parseInt(tone) - 1;
+  <script>
+    // Auto-inject Play buttons into each phoneme box
+    window.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".phoneme-box").forEach(box => {
+        const audio = box.querySelector("audio");
+        if (!audio) return;
+        const btn = document.createElement("button");
+        btn.className = "play-btn";
+        btn.textContent = "► Play";
+        btn.onclick = () => audio.play();
+        box.querySelector(".phoneme-header").appendChild(btn);
+      });
+    });
+  </script>
+
+  <script>
+    // Pinyin tone map
+    const toneMap = {
+      a:["ā","á","ǎ","à"], e:["ē","é","ě","è"], i:["ī","í","ǐ","ì"],
+      o:["ō","ó","ǒ","ò"], u:["ū","ú","ǔ","ù"], ü:["ǖ","ǘ","ǚ","ǜ"]
+    };
+    function convertPinyin(str) {
+      str = str.replace(/v/g,"ü");
+      return str.replace(/([a-zü]+)([1-4])/gi,(match,letters,tone)=>{
+        const t = parseInt(tone)-1;
         letters = letters.toLowerCase();
-
-        // thứ tự ưu tiên đặt dấu
-        const priority = ["a","e","o","u","i","ü"];
-
-        for (let v of priority) {
-            const idx = letters.indexOf(v);
-            if (idx !== -1) {
-                const accented = toneMap[v][t];
-                return (
-                    letters.slice(0, idx) +
-                    accented +
-                    letters.slice(idx + v.length)
-                );
-            }
+        for (let v of ["a","e","o","u","i","ü"]) {
+          const idx = letters.indexOf(v);
+          if (idx!==-1) return letters.slice(0,idx)+toneMap[v][t]+letters.slice(idx+v.length);
         }
-
         return match;
-    });
-}
-
-// Áp dụng vào input .pinyin-input
-document.addEventListener("input", (e) => {
-    if (e.target.classList.contains("pinyin-input")) {
-        const pos = e.target.selectionStart;
-        e.target.value = convertPinyin(e.target.value);
-        e.target.setSelectionRange(pos, pos);
+      });
     }
-});
-</script>
+    document.addEventListener("input",(e)=>{
+      if(e.target.classList.contains("pinyin-input")){
+        const pos=e.target.selectionStart;
+        e.target.value=convertPinyin(e.target.value);
+        e.target.setSelectionRange(pos,pos);
+      }
+    });
+  </script>
 
-<script>
-async function loadAllGrids() {
-    const res = await fetch("data/yuyin-preview.json");
-    const data = await res.json();
+  <script>
+    async function loadAllGrids() {
+      const res = await fetch("data/yuyin-preview.json");
+      const data = await res.json();
+      [
+        {id:"quiz-grid-mcq1",group:"mcq1"},
+        {id:"quiz-grid-mcq2",group:"mcq2"},
+        {id:"quiz-grid-tone",group:"tone"},
+        {id:"quiz-grid-fillin",group:"fill"}
+      ].forEach(t => renderGrid(data,t.id,t.group));
+    }
 
-    const tables = [
-        {id: "quiz-grid-mcq1", group: "mcq1"},
-        {id: "quiz-grid-mcq2", group: "mcq2"},
-        {id: "quiz-grid-tone", group: "tone"},
-        {id: "quiz-grid-fillin", group: "fill"}
-    ];
-
-    tables.forEach(t => renderGrid(data, t.id, t.group));
-}
-
-function renderGrid(data, tableId, group) {
-    const table = document.getElementById(tableId);
-    const COLUMNS = 3;
-    let row;
-
-    data.filter(q => q.group === group).forEach((q, index) => {
-
-        if (index % COLUMNS === 0) {
-            row = document.createElement("tr");
-            table.appendChild(row);
+    function renderGrid(data,tableId,group) {
+      const table=document.getElementById(tableId);
+      const COLUMNS=3; let row;
+      data.filter(q=>q.group===group).forEach((q,index)=>{
+        if(index%COLUMNS===0){row=document.createElement("tr");table.appendChild(row);}
+        const cell=document.createElement("td");
+        if(q.type==="choice"){
+          cell.dataset.answer=q.answer;
+          cell.innerHTML=`<div class="cell-buttons"><button onclick="playAudio('${q.audio}')">🔊</button><button onclick="checkAnswer(this,0)">${q.options[0]}</button><button onclick="checkAnswer(this,1)">${q.options[1]}</button></div>`;
+        } else if(q.type==="tone"){
+          cell.dataset.tone1=q.tone1; cell.dataset.tone2=q.tone2;
+          if(q.text3&&q.tone3!==undefined) cell.dataset.tone3=q.tone3;
+          let html=`<div class="cell-area"><button onclick="playAudio('${q.audio}')">🔊</button><span>${q.text1}</span><select class="select1"><option value="">-</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select><span>${q.text2}</span><select class="select2"><option value="">-</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>`;
+          if(q.text3&&q.tone3!==undefined) html+=`<span>${q.text3}</span><select class="select3"><option value="">-</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option></select>`;
+          html+=`<button onclick="checkTone(this)">Check</button></div>`;
+          cell.innerHTML=html;
+        } else if(q.type==="fill"){
+          cell.dataset.answer=q.answer;
+          cell.innerHTML=`<div class="cell-area"><button onclick="playAudio('${q.audio}')">🔊</button><input type="text" class="pinyin-input fill-input" placeholder="Type here"><button onclick="checkFill(this)">Check</button></div>`;
         }
-
-        const cell = document.createElement("td");
-
-        /* ------------------ MULTIPLE CHOICE ------------------ */
-        if (q.type === "choice") {
-            cell.dataset.answer = q.answer;
-            cell.innerHTML = `
-                <div class="cell-buttons">
-                    <button onclick="playAudio('${q.audio}')">🔊</button>
-                    <button onclick="checkAnswer(this,0)">${q.options[0]}</button>
-                    <button onclick="checkAnswer(this,1)">${q.options[1]}</button>
-                </div>
-            `;
-        }
-
-        /* ------------------ TONE TYPE (2–3 cụm) ------------------ */
-        else if (q.type === "tone") {
-            cell.dataset.tone1 = q.tone1;
-            cell.dataset.tone2 = q.tone2;
-            if (q.text3 && q.tone3 !== undefined) cell.dataset.tone3 = q.tone3;
-
-            let html = `
-                <div class="cell-area">
-                    <button onclick="playAudio('${q.audio}')">🔊</button>
-                    <span>${q.text1}</span>
-                    <select class="select1">
-                        <option value="">-</option><option value="1">1</option>
-                        <option value="2">2</option><option value="3">3</option>
-                        <option value="4">4</option><option value="5">5</option>
-                    </select>
-                    <span>${q.text2}</span>
-                    <select class="select2">
-                        <option value="">-</option><option value="1">1</option>
-                        <option value="2">2</option><option value="3">3</option>
-                        <option value="4">4</option><option value="5">5</option>
-                    </select>
-            `;
-
-            if (q.text3 && q.tone3 !== undefined) {
-                html += `
-                    <span>${q.text3}</span>
-                    <select class="select3">
-                        <option value="">-</option><option value="1">1</option>
-                        <option value="2">2</option><option value="3">3</option>
-                        <option value="4">4</option><option value="5">5</option>
-                    </select>
-                `;
-            }
-
-            html += `<button onclick="checkTone(this)">Check</button></div>`;
-            cell.innerHTML = html;
-        }
-
-        /* ------------------ FILL-IN INPUT TYPE ------------------ */
-        else if (q.type === "fill") {
-            cell.dataset.answer = q.answer;
-
-            cell.innerHTML = `
-                <div class="cell-area">
-                    <button onclick="playAudio('${q.audio}')">🔊</button>
-                    <input type="text" class="pinyin-input fill-input" placeholder="Type the word you hear">
-                    <button onclick="checkFill(this)">Check</button>
-                </div>
-            `;
-        }
-
         row.appendChild(cell);
-    });
-}
+      });
+    }
 
-/* ------------------ AUDIO ------------------ */
-function playAudio(file) {
-    new Audio(file).play();
-}
+    function playAudio(file){new Audio(file).play();}
 
-/* ------------------ MCQ CHECK ------------------ */
-function checkAnswer(btn, choice) {
-    const cell = btn.closest("td");
-    const correct = Number(cell.dataset.answer);
+    function checkAnswer(btn,choice){
+      const cell=btn.closest("td");
+      const correct=Number(cell.dataset.answer);
+      cell.querySelectorAll("button").forEach(b=>b.classList.remove("correct","wrong"));
+      btn.classList.add(choice===correct?"correct":"wrong");
+    }
 
-    cell.querySelectorAll("button").forEach(b => b.classList.remove("correct","wrong"));
-    btn.classList.add(choice===correct ? "correct" : "wrong");
-}
+    function checkTone(btn){
+      const cell=btn.closest("td");
+      const c1=Number(cell.dataset.tone1),c2=Number(cell.dataset.tone2);
+      const c3=cell.dataset.tone3?Number(cell.dataset.tone3):null;
+      const v1=Number(cell.querySelector(".select1").value);
+      const v2=Number(cell.querySelector(".select2").value);
+      const v3=c3!==null?Number(cell.querySelector(".select3").value):null;
+      cell.classList.remove("correct","wrong");
+      let ok=(v1===c1&&v2===c2);
+      if(c3!==null) ok=ok&&(v3===c3);
+      cell.classList.add(ok?"correct":"wrong");
+    }
 
-/* ------------------ TONE CHECK ------------------ */
-function checkTone(btn) {
-    const cell = btn.closest("td");
+    function normalizePinyin(str){
+      if(!str) return "";
+      return convertPinyin(str.toLowerCase().trim().replace(/\s+/g,""));
+    }
 
-    const correct1 = Number(cell.dataset.tone1);
-    const correct2 = Number(cell.dataset.tone2);
-    const correct3 = cell.dataset.tone3 ? Number(cell.dataset.tone3) : null;
-
-    const v1 = Number(cell.querySelector(".select1").value);
-    const v2 = Number(cell.querySelector(".select2").value);
-    const v3 = correct3 !== null ? Number(cell.querySelector(".select3").value) : null;
-
-    cell.classList.remove("correct","wrong");
-
-    let isOK = (v1 === correct1 && v2 === correct2);
-    if (correct3 !== null) isOK = isOK && (v3 === correct3);
-
-    cell.classList.add(isOK ? "correct" : "wrong");
-}
-
-/* ------------------ FILL-IN CHECK ------------------ */
-// Normalize pinyin: đổi v→ü, convert tone numbers, thống nhất dạng có dấu
-function normalizePinyin(str) {
-    if (!str) return "";
-    str = str.toLowerCase().trim();
-    str = str.replace(/\s+/g, ""); // ❗ bỏ toàn bộ dấu cách
-    return convertPinyin(str);     // giữ nguyên hàm convertPinyin của mày
-}
-function checkFill(btn) {
-    const cell = btn.closest("td");
-
-    const inputRaw = cell.querySelector(".fill-input").value;
-    const correctRaw = cell.dataset.answer;
-
-    const input = normalizePinyin(inputRaw);
-    const correct = normalizePinyin(correctRaw);
-
-    // Reset class
-    cell.classList.remove("correct","wrong");
-
-    // Nếu đúng
-    if (input === correct) {
+    function checkFill(btn){
+      const cell=btn.closest("td");
+      const input=normalizePinyin(cell.querySelector(".fill-input").value);
+      const correct=normalizePinyin(cell.dataset.answer);
+      cell.classList.remove("correct","wrong");
+      if(input===correct){
         cell.classList.add("correct");
-        cell.dataset.wrongCount = 0;  // reset wrong count
-        const ansBox = cell.querySelector(".answer-box");
-        if (ansBox) ansBox.remove();
+        cell.dataset.wrongCount=0;
+        const box=cell.querySelector(".answer-box");
+        if(box) box.remove();
         return;
-    }
-
-    // Nếu sai
-    cell.classList.add("wrong");
-
-    // Tăng bộ đếm sai
-    let count = Number(cell.dataset.wrongCount || 0) + 1;
-    cell.dataset.wrongCount = count;
-
-    // Nếu sai < 3 → không show đáp án
-    if (count < 3) return;
-
-    // Nếu sai ≥ 3 lần → hiện đáp án
-    if (!cell.querySelector(".answer-box")) {
-        const correctDisplay = cell.dataset.answer; // giữ nguyên format của mày
-
-        const box = document.createElement("div");
-        box.className = "answer-box";
-        box.style.marginTop = "6px";
-        box.style.fontSize = "14px";
-        box.style.color = "#333";
-
-        box.innerHTML = `Answer: <b>${correctDisplay}</b>`;
-
+      }
+      cell.classList.add("wrong");
+      let count=Number(cell.dataset.wrongCount||0)+1;
+      cell.dataset.wrongCount=count;
+      if(count<3) return;
+      if(!cell.querySelector(".answer-box")){
+        const box=document.createElement("div");
+        box.className="answer-box";
+        box.innerHTML=`Answer: <b>${cell.dataset.answer}</b>`;
         cell.appendChild(box);
+      }
     }
-}
-loadAllGrids();
-</script>
+    loadAllGrids();
+  </script>
 
-<!-- ======================= SCRIPT RIG =============================== -->
-<script>
-/* —— TOÀN BỘ PHẦN JS CỦA MÀY GIỮ NGUYÊN —— */
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
-const layerSelect = document.getElementById('layerSelect');
-const rotSlider = document.getElementById('rotSlider');
-const rotInput = document.getElementById('rotInput');
-const rotVal = document.getElementById('rotVal');
-const resetBtn = document.getElementById('resetBtn');
-const setStartBtn = document.getElementById('setStartBtn');
-const setEndBtn = document.getElementById('setEndBtn');
-const playBtn = document.getElementById('playBtn');
-const loopBtn = document.getElementById('loopBtn');
-const pivotPixelEl = document.getElementById('pivotPixel');
-const anchorEl = document.getElementById('anchorVal');
-
-const CANVAS_WIDTH = canvas.width;
-const CANVAS_HEIGHT = canvas.height;
-const ORIGINAL_IMG_SIZE = 1080;
-const SCALE = Math.min(CANVAS_WIDTH/ORIGINAL_IMG_SIZE, CANVAS_HEIGHT/ORIGINAL_IMG_SIZE);
-
-let selectedLayer = null;
-let layers = [
-  {name:'background', src:'yuyin/images/background.png', pivotX:540, pivotY:540, fixed:true},
-  {name:'frame', src:'yuyin/images/frame.png', pivotX:540, pivotY:540, fixed:true},
-  {name:'back-tongue', src:'yuyin/images/back-tongue.png', pivotX:540, pivotY:540, fixed:true},
-  {name:'lower-jaw', src:'yuyin/images/lower-jaw.png', pivotX:412, pivotY:728, parent:'back-tongue'},
-  {name:'blade-back', src:'yuyin/images/back-blade.png', pivotX:572, pivotY:587, parent:'back-tongue'},
-  {name:'blade-top', src:'yuyin/images/top-blade.png', pivotX:490, pivotY:585, parent:'blade-back'},
-  {name:'tip-tongue', src:'yuyin/images/tip-tongue.png', pivotX:399, pivotY:580, parent:'blade-top'},
-  {name:'lower-lip', src:'yuyin/images/lower-lip.png', pivotX:215, pivotY:659, parent:'lower-jaw'},
-  {name:'hard-palate', src:'yuyin/images/hard-palate.png', pivotX:595, pivotY:485,  fixed:false},
-  {name:'soft-palate', src:'yuyin/images/soft-palate.png', pivotX:540, pivotY:540, parent:'hard-palate'},
-  {name:'upper-lip', src:'yuyin/images/upper-lip.png', pivotX:205, pivotY:530, parent:'hard-palate'},
-  {name:'uvula', src:'yuyin/images/uvula.png', pivotX:599, pivotY:485, parent:'soft-palate'},
-];
-
-// Animation
-let keyframes = [];
-let totalFrames = 24;
-let animating = false;
-let loop = false;
-let currentFrame = 0;
-
-// Load images
-function loadAllLayers(){
-  let loaded = 0;
-  layers.forEach(l=>{
-    const img = new Image();
-    img.src = l.src;
-    img.onload = ()=>{
-      l.img = img;
-      l.width = img.width;
-      l.height = img.height;
-      l.scale = SCALE;
-      l.rotation = 0;
-      const originX = CANVAS_WIDTH / 2;
-      const originY = CANVAS_HEIGHT / 2;
-      l.x = originX + (l.pivotX - 540) * SCALE;
-      l.y = originY + (l.pivotY - 540) * SCALE;
-      l.initX = l.x; l.initY = l.y; l.initRotation = l.rotation;
-      loaded++;
-      if(loaded===layers.length){ populateLayerSelect(); drawAll(); }
+  <script>
+    // Canvas rig — unchanged logic
+    const canvas=document.getElementById('canvas');
+    const ctx=canvas.getContext('2d');
+    const layerSelect=document.getElementById('layerSelect');
+    const rotSlider=document.getElementById('rotSlider');
+    const rotInput=document.getElementById('rotInput');
+    const rotVal=document.getElementById('rotVal');
+    const resetBtn=document.getElementById('resetBtn');
+    const setStartBtn=document.getElementById('setStartBtn');
+    const setEndBtn=document.getElementById('setEndBtn');
+    const playBtn=document.getElementById('playBtn');
+    const loopBtn=document.getElementById('loopBtn');
+    const pivotPixelEl=document.getElementById('pivotPixel');
+    const anchorEl=document.getElementById('anchorVal');
+    const CANVAS_WIDTH=canvas.width,CANVAS_HEIGHT=canvas.height;
+    const ORIGINAL_IMG_SIZE=1080;
+    const SCALE=Math.min(CANVAS_WIDTH/ORIGINAL_IMG_SIZE,CANVAS_HEIGHT/ORIGINAL_IMG_SIZE);
+    let selectedLayer=null;
+    let layers=[
+      {name:'background',src:'yuyin/images/background.png',pivotX:540,pivotY:540,fixed:true},
+      {name:'frame',src:'yuyin/images/frame.png',pivotX:540,pivotY:540,fixed:true},
+      {name:'back-tongue',src:'yuyin/images/back-tongue.png',pivotX:540,pivotY:540,fixed:true},
+      {name:'lower-jaw',src:'yuyin/images/lower-jaw.png',pivotX:412,pivotY:728,parent:'back-tongue'},
+      {name:'blade-back',src:'yuyin/images/back-blade.png',pivotX:572,pivotY:587,parent:'back-tongue'},
+      {name:'blade-top',src:'yuyin/images/top-blade.png',pivotX:490,pivotY:585,parent:'blade-back'},
+      {name:'tip-tongue',src:'yuyin/images/tip-tongue.png',pivotX:399,pivotY:580,parent:'blade-top'},
+      {name:'lower-lip',src:'yuyin/images/lower-lip.png',pivotX:215,pivotY:659,parent:'lower-jaw'},
+      {name:'hard-palate',src:'yuyin/images/hard-palate.png',pivotX:595,pivotY:485,fixed:false},
+      {name:'soft-palate',src:'yuyin/images/soft-palate.png',pivotX:540,pivotY:540,parent:'hard-palate'},
+      {name:'upper-lip',src:'yuyin/images/upper-lip.png',pivotX:205,pivotY:530,parent:'hard-palate'},
+      {name:'uvula',src:'yuyin/images/uvula.png',pivotX:599,pivotY:485,parent:'soft-palate'},
+    ];
+    let keyframes=[],animating=false,loop=false,currentFrame=0;
+    function loadAllLayers(){
+      let loaded=0;
+      layers.forEach(l=>{
+        const img=new Image(); img.src=l.src;
+        img.onload=()=>{
+          l.img=img; l.width=img.width; l.height=img.height; l.scale=SCALE; l.rotation=0;
+          const ox=CANVAS_WIDTH/2,oy=CANVAS_HEIGHT/2;
+          l.x=ox+(l.pivotX-540)*SCALE; l.y=oy+(l.pivotY-540)*SCALE;
+          l.initX=l.x; l.initY=l.y; l.initRotation=l.rotation;
+          loaded++;
+          if(loaded===layers.length){populateLayerSelect();drawAll();}
+        };
+      });
     }
-  });
-}
-
-// Populate select
-function populateLayerSelect(){
-  layerSelect.innerHTML = '<option value="">--Select Layer--</option>';
-  layers.forEach(l=>{
-    if(!l.fixed){
-      const opt = document.createElement('option');
-      opt.value = l.name;
-      opt.textContent = l.name;
-      layerSelect.appendChild(opt);
+    function populateLayerSelect(){
+      layerSelect.innerHTML='<option value="">-- Select Layer --</option>';
+      layers.forEach(l=>{
+        if(!l.fixed){const opt=document.createElement('option');opt.value=l.name;opt.textContent=l.name;layerSelect.appendChild(opt);}
+      });
     }
-  });
-}
-
-// Update child positions
-function updateChildPositions(parent){
-  layers.forEach(l=>{
-    if(l.parent === parent.name){
-      const dx0 = l.initX - parent.initX;
-      const dy0 = l.initY - parent.initY;
-      const cos = Math.cos(parent.rotation);
-      const sin = Math.sin(parent.rotation);
-      const newDx = dx0 * cos - dy0 * sin;
-      const newDy = dx0 * sin + dy0 * cos;
-      l.x = parent.x + newDx;
-      l.y = parent.y + newDy;
-      l.rotation = parent.rotation + l.initRotation;
-      updateChildPositions(l);
+    function updateChildPositions(parent){
+      layers.forEach(l=>{
+        if(l.parent===parent.name){
+          const dx0=l.initX-parent.initX,dy0=l.initY-parent.initY;
+          const cos=Math.cos(parent.rotation),sin=Math.sin(parent.rotation);
+          l.x=parent.x+(dx0*cos-dy0*sin);
+          l.y=parent.y+(dx0*sin+dy0*cos);
+          l.rotation=parent.rotation+l.initRotation;
+          updateChildPositions(l);
+        }
+      });
     }
-  });
-}
-
-// Draw all
-function drawAll(){
-  ctx.clearRect(0,0,CANVAS_WIDTH,CANVAS_HEIGHT);
-  layers.forEach(l=>{
-    if(!l.img) return;
-    ctx.save();
-    ctx.translate(l.x,l.y);
-    ctx.rotate(l.rotation);
-    ctx.drawImage(l.img,-l.pivotX*l.scale,-l.pivotY*l.scale,l.width*l.scale,l.height*l.scale);
-    ctx.restore();
-  });
-  updateInfo();
-}
-
-// Update info
-function updateInfo(){
-  if(!selectedLayer){ pivotPixelEl.textContent='N/A'; anchorEl.textContent='N/A'; return; }
-  pivotPixelEl.textContent=`${selectedLayer.pivotX}, ${selectedLayer.pivotY}`;
-  anchorEl.textContent=`${(selectedLayer.pivotX/selectedLayer.width).toFixed(4)}, ${(selectedLayer.pivotY/selectedLayer.height).toFixed(4)}`;
-}
-
-// Event listeners
-layerSelect.addEventListener('change', ()=>{
-  selectedLayer = layers.find(l=>l.name===layerSelect.value);
-  if(selectedLayer){
-    const deg = Math.round(selectedLayer.rotation*180/Math.PI);
-    rotSlider.value = deg;
-    rotInput.value = deg;       // đồng bộ ô input
-    rotVal.textContent = deg+'°';
-    updateInfo();
-  }
-});
-
-rotSlider.addEventListener('input', ()=>{
-  if(!selectedLayer) return;
-  const deg = Number(rotSlider.value);
-  selectedLayer.rotation = deg * Math.PI/180;
-  rotInput.value = deg;       // đồng bộ ô input
-  rotVal.textContent = deg+'°';
-  updateChildPositions(selectedLayer);
-  drawAll();
-});
-rotInput.addEventListener('change', ()=>{
-  if(!selectedLayer) return;
-  let deg = Number(rotInput.value);
-  if(isNaN(deg)) deg = 0;
-  rotInput.value = deg;        // đảm bảo giá trị hợp lệ
-  selectedLayer.rotation = deg * Math.PI/180;
-  rotSlider.value = deg;       // đồng bộ slider
-  rotVal.textContent = deg+'°';
-  updateChildPositions(selectedLayer);
-  drawAll();
-});
-resetBtn.addEventListener('click', ()=>{
-  layers.forEach(l=>{l.rotation=l.initRotation;l.x=l.initX;l.y=l.initY;});
-  drawAll();
-// Reset màu các nút keyframe về mặc định
-  setStartBtn.style.background = '';
-  setStartBtn.style.color = '';
-  setEndBtn.style.background = '';
-  setEndBtn.style.color = '';
-});
-
-// Keyframe buttons
-setStartBtn.addEventListener('click', ()=>{saveKeyframe(0, setStartBtn);});
-setEndBtn.addEventListener('click', ()=>{saveKeyframe(12, setEndBtn);});
-
-function saveKeyframe(frame, btn){
-  keyframes[frame] = layers.map(l=>({name:l.name,x:l.x,y:l.y,rotation:l.rotation}));
-  
-  // Khi đã set xong, đổi màu nút để biết
-  btn.style.background = '#4CAF50';  // xanh lá
-  btn.style.color = 'white';
-}
-
-// Interpolate frames
-function interpolateKeyframes(){
-  // Nội suy frame từ 1 đến 11
-  for(let f = 1; f < 12; f++){
-    keyframes[f] = layers.map(l => {
-      const start = keyframes[0].find(k => k.name === l.name);
-      const end   = keyframes[12].find(k => k.name === l.name);
-      const t = f / 12;
-      return {
-        name: l.name,
-        x: start.x + (end.x - start.x) * t,
-        y: start.y + (end.y - start.y) * t,
-        rotation: start.rotation + (end.rotation - start.rotation) * t
-      };
+    function drawAll(){
+      ctx.clearRect(0,0,CANVAS_WIDTH,CANVAS_HEIGHT);
+      layers.forEach(l=>{
+        if(!l.img) return;
+        ctx.save();ctx.translate(l.x,l.y);ctx.rotate(l.rotation);
+        ctx.drawImage(l.img,-l.pivotX*l.scale,-l.pivotY*l.scale,l.width*l.scale,l.height*l.scale);
+        ctx.restore();
+      });
+      updateInfo();
+    }
+    function updateInfo(){
+      if(!selectedLayer){pivotPixelEl.textContent='N/A';anchorEl.textContent='N/A';return;}
+      pivotPixelEl.textContent=`${selectedLayer.pivotX}, ${selectedLayer.pivotY}`;
+      anchorEl.textContent=`${(selectedLayer.pivotX/selectedLayer.width).toFixed(4)}, ${(selectedLayer.pivotY/selectedLayer.height).toFixed(4)}`;
+    }
+    layerSelect.addEventListener('change',()=>{
+      selectedLayer=layers.find(l=>l.name===layerSelect.value);
+      if(selectedLayer){const deg=Math.round(selectedLayer.rotation*180/Math.PI);rotSlider.value=deg;rotInput.value=deg;rotVal.textContent=deg+'°';updateInfo();}
     });
-  }
-
-  // Frame 12 = keyframe end (đã có sẵn)
-
-  // Frame 13-23: giữ nguyên frame 12 (để animation kết thúc yên)
-  for(let f = 13; f < 24; f++){
-    keyframes[f] = keyframes[12].map(v => ({...v}));
-  }
-}
-// Play animation
-playBtn.addEventListener('click',()=>{
-  if(!keyframes[0]||!keyframes[12]){alert('Set both start and end keyframes!'); return;}
-  interpolateKeyframes();
-  animating = true;
-  currentFrame = 0;
-  requestAnimationFrame(playAnim);
-});
-
-loopBtn.addEventListener('click',()=>{loop=!loop; alert('Loop: '+loop);});
-
-let lastTime = 0;
-const FPS = 24;                // FPS mong muốn
-const frameDuration = 1000/FPS;
-function playAnim(timestamp) {
-  if (!animating) return;
-
-  if (timestamp - lastTime >= frameDuration) {
-    lastTime = timestamp;
-
-    // cập nhật frame
-    const frameData = keyframes[currentFrame];
-    frameData.forEach(fd => {
-      const l = layers.find(ly => ly.name === fd.name);
-      l.x = fd.x; l.y = fd.y; l.rotation = fd.rotation;
+    rotSlider.addEventListener('input',()=>{
+      if(!selectedLayer) return;
+      const deg=Number(rotSlider.value);selectedLayer.rotation=deg*Math.PI/180;rotInput.value=deg;rotVal.textContent=deg+'°';updateChildPositions(selectedLayer);drawAll();
     });
-
-    drawAll();
-
-    currentFrame++;
-    if (currentFrame >= 24) {
-      if (loop) currentFrame = 0;
-      else { animating = false; return; }
+    rotInput.addEventListener('change',()=>{
+      if(!selectedLayer) return;
+      let deg=Number(rotInput.value);if(isNaN(deg)) deg=0;rotInput.value=deg;selectedLayer.rotation=deg*Math.PI/180;rotSlider.value=deg;rotVal.textContent=deg+'°';updateChildPositions(selectedLayer);drawAll();
+    });
+    resetBtn.addEventListener('click',()=>{
+      layers.forEach(l=>{l.rotation=l.initRotation;l.x=l.initX;l.y=l.initY;});drawAll();
+      setStartBtn.style.background='';setStartBtn.style.color='';setEndBtn.style.background='';setEndBtn.style.color='';
+    });
+    function saveKeyframe(frame,btn){
+      keyframes[frame]=layers.map(l=>({name:l.name,x:l.x,y:l.y,rotation:l.rotation}));
+      btn.style.background='#7cb83e';btn.style.color='white';
     }
-  }
+    setStartBtn.addEventListener('click',()=>saveKeyframe(0,setStartBtn));
+    setEndBtn.addEventListener('click',()=>saveKeyframe(12,setEndBtn));
+    function interpolateKeyframes(){
+      for(let f=1;f<12;f++){
+        keyframes[f]=layers.map(l=>{
+          const s=keyframes[0].find(k=>k.name===l.name);
+          const e=keyframes[12].find(k=>k.name===l.name);
+          const t=f/12;
+          return{name:l.name,x:s.x+(e.x-s.x)*t,y:s.y+(e.y-s.y)*t,rotation:s.rotation+(e.rotation-s.rotation)*t};
+        });
+      }
+      for(let f=13;f<24;f++) keyframes[f]=keyframes[12].map(v=>({...v}));
+    }
+    playBtn.addEventListener('click',()=>{
+      if(!keyframes[0]||!keyframes[12]){alert('Set both start and end keyframes!');return;}
+      interpolateKeyframes();animating=true;currentFrame=0;requestAnimationFrame(playAnim);
+    });
+    loopBtn.addEventListener('click',()=>{loop=!loop;alert('Loop: '+loop);});
+    let lastTime=0;const FPS=24,frameDuration=1000/FPS;
+    function playAnim(timestamp){
+      if(!animating) return;
+      if(timestamp-lastTime>=frameDuration){
+        lastTime=timestamp;
+        keyframes[currentFrame].forEach(fd=>{const l=layers.find(ly=>ly.name===fd.name);l.x=fd.x;l.y=fd.y;l.rotation=fd.rotation;});
+        drawAll();currentFrame++;
+        if(currentFrame>=24){if(loop)currentFrame=0;else{animating=false;return;}}
+      }
+      requestAnimationFrame(playAnim);
+    }
+    loadAllLayers();
+  </script>
 
-  requestAnimationFrame(playAnim);
-}
-// Start
-loadAllLayers();
-
-</script>
-<script>
-window.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".phoneme-box").forEach(box => 
-        box.querySelector(".phoneme-header").appendChild(
-            Object.assign(document.createElement("button"), {
-                className: "play-btn",
-                textContent: "► Play",
-                onclick: () => box.querySelector("audio")?.play()
-            })
-        )
-    );
-});
-</script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
