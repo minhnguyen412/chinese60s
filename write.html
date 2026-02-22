@@ -4,217 +4,365 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <meta name="color-scheme" content="light only">
-  <title>Draw Over Text on Canvas</title>
+  <title>Learn to Write — Chinese60s</title>
   <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-     
+    :root {
+      --black: #222;
+      --green: #7cb83e;
+      --green-dark: #5a8f27;
+      --green-light: #d8f0a0;
+      --green-pale: #f2fde0;
+      --yellow: #ffd84d;
+      --yellow-pale: #fffbe6;
+      --sky: #72c8f0;
+      --sky-pale: #eaf8ff;
+      --white: #fff;
+      --bg: #fffef5;
+      --shadow-sm: 3px 3px 0 var(--black);
+      --shadow-md: 4px 4px 0 var(--black);
+      --border: 2.5px solid var(--black);
+      --border-thick: 3px solid var(--black);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      margin: 0;
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 500;
+      background: var(--bg);
+      color: var(--black);
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
       height: 100vh;
       overflow: hidden;
-      
-    }
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 20px;
-      background-color: #f8f9fa;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
     }
 
-    header a {
+    /* halftone bg */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px);
+      background-size: 22px 22px;
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed; top: 0; width: 100%;
+      height: 58px;
+      background: var(--green);
+      border-bottom: var(--border-thick);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 20px;
+      z-index: 1000;
+      flex-shrink: 0;
+    }
+
+    header a.brand {
       text-decoration: none;
-      font-size: 18px;
-      color: #007bff;
-      margin-left: 20px
+      font-weight: 700; font-size: 1.2rem; color: var(--white);
+      text-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+      letter-spacing: 0.03em;
     }
 
     header h1 {
-      margin: 0 auto;
-      font-size: 24px;
-      font-weight: bold;
-      color: #333;
-      
+      font-weight: 700; font-size: 1.25rem; color: var(--white);
+      text-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+      position: absolute; left: 50%; transform: translateX(-50%);
     }
 
-    footer {
-      margin-top: auto;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 20px;
-      background-color: #f8f9fa;
-      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-    }
-
-    footer img {
-      height: 50px;
-      margin-right: 15px;
-    }
-
-    footer .footer-text {
-      display: flex;
-      flex-direction: column;
-    }
-
-    footer .footer-text p {
-      margin: 2px 0;
-      font-size: 14px;
-    }
-
-    footer .footer-text a {
-      font-size: 14px;
-      color: #007bff;
-      text-decoration: none;
-    }
+    /* ── TOOLBAR ── */
     #controls {
-      margin-bottom: 10px;
-      margin-top: 70px;
-      z-index: 1000;
+      position: fixed; top: 58px; width: 100%;
+      background: var(--white);
+      border-bottom: var(--border-thick);
+      padding: 8px 16px;
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+      z-index: 999;
     }
 
+    /* text input */
+    #textInput {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 600; font-size: 1rem;
+      background: var(--yellow-pale);
+      border: var(--border); border-radius: 12px;
+      padding: 6px 14px; outline: none;
+      box-shadow: var(--shadow-sm);
+      width: 160px;
+      transition: box-shadow 0.12s;
+    }
+    #textInput:focus { box-shadow: var(--shadow-md); }
+
+    /* all buttons base */
+    .tool-btn {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 700; font-size: 0.92rem;
+      background: var(--white);
+      border: var(--border); border-radius: 50px;
+      padding: 6px 16px; cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      display: flex; align-items: center; gap: 5px;
+      transition: transform 0.1s, box-shadow 0.1s, background 0.1s;
+      white-space: nowrap;
+    }
+    .tool-btn:hover { transform: translate(-1px,-2px); box-shadow: var(--shadow-md); }
+    .tool-btn:active { transform: translate(1px,1px); box-shadow: 1px 1px 0 var(--black); }
+
+    /* submit = green */
+    #submitText { background: var(--green); color: var(--white); }
+    #submitText:hover { background: var(--green-dark); }
+
+    /* clear = red-ish */
+    #clearButton { background: var(--yellow); }
+
+    /* active state (draw/erase) */
+    .tool-btn.active {
+      background: var(--green); color: var(--white);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* divider between groups */
+    .ctrl-sep {
+      width: 2px; height: 28px;
+      background: #ddd; border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* label */
+    .ctrl-label {
+      font-weight: 700; font-size: 0.88rem; color: #888;
+      white-space: nowrap;
+    }
+
+    /* color picker */
+    #colorPicker {
+      width: 36px; height: 36px;
+      border: var(--border); border-radius: 50%;
+      padding: 2px; cursor: pointer;
+      background: none; box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+    #colorPicker::-webkit-color-swatch-wrapper { padding: 0; border-radius: 50%; }
+    #colorPicker::-webkit-color-swatch { border: none; border-radius: 50%; }
+
+    /* range slider */
+    #lineWidth {
+      -webkit-appearance: none;
+      width: 90px; height: 6px;
+      border-radius: 3px;
+      background: var(--green-light);
+      border: 1.5px solid var(--black);
+      outline: none; cursor: pointer;
+    }
+    #lineWidth::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: var(--green);
+      border: 2px solid var(--black);
+      box-shadow: 2px 2px 0 var(--black);
+      cursor: pointer;
+    }
+
+    /* ── CANVAS AREA ── */
     .canvas-container {
       position: relative;
-      width: 90vw; /* Width 90% of the viewport */
-      height: calc(100vh - 150px);
-*/
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      margin-top: 58px; /* header */
+      flex: 1;
+      /* JS will add toolbar height via CSS var */
+      padding-top: var(--toolbar-h, 54px);
+      z-index: 1;
     }
 
     #textCanvas,
     #drawingCanvas {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;  /* 100% of the container */
-      height: 100%; /* 100% of the container */
+      top: var(--toolbar-h, 54px); left: 0;
+      width: 100%; height: calc(100% - var(--toolbar-h, 54px));
       touch-action: none;
     }
 
-    button {
-      margin: 0 5px;
-      padding: 5px 10px;
-      font-size: 14px;
-      cursor: pointer;
+    /* ── HANZI PREVIEW WIDGET ── */
+    #hanzi-container-wrapper {
+      position: fixed;
+      bottom: 68px; left: 16px;
+      background: var(--white);
+      border: var(--border-thick); border-radius: 18px;
+      padding: 10px;
+      box-shadow: var(--shadow-md);
+      z-index: 500;
+    }
+    #hanzi-container { width: 56px; height: 56px; }
+
+    /* ── FOOTER ── */
+    footer {
+      position: fixed; bottom: 0; width: 100%;
+      height: 58px;
+      background: var(--green);
+      border-top: var(--border-thick);
+      display: flex; align-items: center; justify-content: center;
+      gap: 14px; padding: 0 20px;
+      z-index: 1000;
     }
 
-    button.active {
-      background-color: #007BFF;
-      color: #fff;
+    footer img {
+      height: 38px;
+      border: var(--border); border-radius: 10px;
+      box-shadow: var(--shadow-sm);
     }
-    #hanzi-container-wrapper {
+
+    footer .footer-text {
+      display: flex; flex-direction: column; gap: 1px;
+    }
+    footer .footer-text p {
+      font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.85);
+    }
+    footer .footer-text a {
+      font-size: 0.88rem; font-weight: 700; color: var(--yellow);
+      text-decoration: none;
+    }
+    footer .footer-text a:hover { text-decoration: underline; }
+
+    /* ── CANVAS GRID LINES (decorative via CSS) ── */
+    .canvas-container::before {
+      content: '';
       position: absolute;
-      bottom: 80px; /* Đặt bên dưới header */
-      left: 20px; /* Căn sang góc phải */
-      border: 2px solid #007bff;
-      border-radius: 10px;
-      padding: 10px;
-      background-color: white;
+      top: var(--toolbar-h, 54px); left: 0; right: 0;
+      bottom: 0;
+      background-image:
+        linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+      z-index: 0;
     }
-    #hanzi-container {
-      width: 50px;
-      height: 50px;
+    /* cross-hair center guides */
+    .canvas-container::after {
+      content: '';
+      position: absolute;
+      top: var(--toolbar-h, 54px); left: 50%; right: auto;
+      width: 1px; bottom: 0;
+      background: rgba(0,0,0,0.07);
+      pointer-events: none; z-index: 0;
+    }
+
+    @media (max-width: 600px) {
+      #textInput { width: 120px; }
+      .ctrl-sep  { display: none; }
+      #controls  { gap: 6px; padding: 7px 10px; }
     }
   </style>
 </head>
 <body>
+
+  <!-- HEADER -->
   <header>
-    <a href="/">Chinese60s</a>
-    <h1>Learn to Write</h1>
+    <a href="/" class="brand">CHINESE 60s</a>
+    <h1>✍️ Learn to Write</h1>
   </header>
+
+  <!-- TOOLBAR -->
   <div id="controls">
-    <input type="text" id="textInput" placeholder="Enter text here">
-    <button id="submitText">OK</button>
-    <button id="drawButton" class="active">Draw</button>
-    <button id="eraseButton">Erase</button>
-    <button id="clearButton">Clear</button> <!-- Nút Clear -->
-    <label for="colorPicker">Color:</label>
-    <input type="color" id="colorPicker" value="#000000">
-    <label for="lineWidth">Size:</label>
+    <input type="text" id="textInput" placeholder="Type a character…">
+    <button id="submitText" class="tool-btn">✔ OK</button>
+
+    <div class="ctrl-sep"></div>
+
+    <button id="drawButton"  class="tool-btn active">✏️ Draw</button>
+    <button id="eraseButton" class="tool-btn">🧹 Erase</button>
+    <button id="clearButton" class="tool-btn">🗑 Clear</button>
+
+    <div class="ctrl-sep"></div>
+
+    <span class="ctrl-label">Color</span>
+    <input type="color" id="colorPicker" value="#222222">
+
+    <span class="ctrl-label">Size</span>
     <input type="range" id="lineWidth" min="1" max="30" value="5">
-    
   </div>
+
+  <!-- CANVAS -->
   <div class="canvas-container">
     <canvas id="textCanvas"></canvas>
     <canvas id="drawingCanvas"></canvas>
   </div>
+
+  <!-- HANZI PREVIEW -->
   <div id="hanzi-container-wrapper">
     <div id="hanzi-container"></div>
   </div>
+
+  <!-- FOOTER -->
   <footer>
-    <img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1737793928/bangve_ecnhnj.png" alt="Placeholder Image">
+    <img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1737793928/bangve_ecnhnj.png" alt="Writing tools">
     <div class="footer-text">
       <p>Explore our premium writing tools.</p>
-      <a href="https://www.amazon.com/shop/studiorum60s/list/DIUTOF1S2BVQ?ref_=aipsflist">Buy Now</a>
+      <a href="https://www.amazon.com/shop/studiorum60s/list/DIUTOF1S2BVQ?ref_=aipsflist" target="_blank">Buy Now →</a>
     </div>
   </footer>
+
   <script>
-    const textCanvas = document.getElementById('textCanvas');
+    /* ── Measure toolbar height and set CSS var ── */
+    function setToolbarHeight() {
+      const h = document.getElementById('controls').offsetHeight;
+      document.documentElement.style.setProperty('--toolbar-h', h + 'px');
+    }
+    setToolbarHeight();
+    window.addEventListener('resize', setToolbarHeight);
+
+    /* ══════════════════════════════════════════
+       ALL ORIGINAL CANVAS LOGIC — UNCHANGED
+    ══════════════════════════════════════════ */
+    const textCanvas    = document.getElementById('textCanvas');
     const drawingCanvas = document.getElementById('drawingCanvas');
-    const ctxText = textCanvas.getContext('2d');
-    const ctxDraw = drawingCanvas.getContext('2d');
-    const textInput = document.getElementById('textInput');
-    const submitText = document.getElementById('submitText');
-    const drawButton = document.getElementById('drawButton');
-    const eraseButton = document.getElementById('eraseButton');
-    const clearButton = document.getElementById('clearButton'); // Lấy nút Clear
-    const colorPicker = document.getElementById('colorPicker'); // Lấy màu sắc
-    const lineWidthInput = document.getElementById('lineWidth'); // Lấy kích thước nét vẽ
-    const hanziContainer = document.getElementById('hanzi-container');
+    const ctxText  = textCanvas.getContext('2d');
+    const ctxDraw  = drawingCanvas.getContext('2d');
+    const textInput     = document.getElementById('textInput');
+    const submitText    = document.getElementById('submitText');
+    const drawButton    = document.getElementById('drawButton');
+    const eraseButton   = document.getElementById('eraseButton');
+    const clearButton   = document.getElementById('clearButton');
+    const colorPicker   = document.getElementById('colorPicker');
+    const lineWidthInput= document.getElementById('lineWidth');
+    const hanziContainer= document.getElementById('hanzi-container');
+
     function setCanvasDimensions() {
-      textCanvas.width = textCanvas.clientWidth; // Set width
-      textCanvas.height = textCanvas.clientHeight; // Set height
-      drawingCanvas.width = textCanvas.width; // Same as textCanvas
-      drawingCanvas.height = textCanvas.height; // Same as textCanvas
+      textCanvas.width    = textCanvas.clientWidth;
+      textCanvas.height   = textCanvas.clientHeight;
+      drawingCanvas.width = textCanvas.width;
+      drawingCanvas.height= textCanvas.height;
     }
     setCanvasDimensions();
 
     let isDrawing = false;
     let isErasing = false;
-    let lastX = 0;
-    let lastY = 0;
-    let lastTime = 0;
-    let text = ''; // Store the current text
-    let currentColor = colorPicker.value; // Màu hiện tại
-    let currentLineWidth = lineWidthInput.value; // Kích thước nét vẽ hiện tại
+    let lastX = 0, lastY = 0, lastTime = 0;
+    let text = '';
+    let currentColor     = colorPicker.value;
+    let currentLineWidth = lineWidthInput.value;
     let writer;
 
-    // Function to render text on text canvas
     function renderTextOnCanvas() {
-      ctxText.clearRect(0, 0, textCanvas.width, textCanvas.height); // Clear text canvas
-      ctxText.font = '250px Arial'; // Set font
-      ctxText.fillStyle = 'rgba(0, 0, 0, 0.2)'; // Black text with 50% opacity
-      ctxText.textAlign = 'center'; // Center align text
-      ctxText.textBaseline = 'middle'; // Center vertically
-      ctxText.fillText(text, textCanvas.width / 2, textCanvas.height / 2); // Draw text
+      ctxText.clearRect(0, 0, textCanvas.width, textCanvas.height);
+      ctxText.font          = '250px Arial';
+      ctxText.fillStyle     = 'rgba(0, 0, 0, 0.2)';
+      ctxText.textAlign     = 'center';
+      ctxText.textBaseline  = 'middle';
+      ctxText.fillText(text, textCanvas.width / 2, textCanvas.height / 2);
     }
 
-    // Submit button event listener
     submitText.addEventListener('click', () => {
       const inputText = textInput.value.trim();
       if (inputText) {
-        text = inputText; // Update the text variable
-        renderTextOnCanvas(); // Render text on text canvas
-        // Hiển thị Hanzi Writer
-        hanziContainer.innerHTML = ''; // Clear container
+        text = inputText;
+        renderTextOnCanvas();
+        hanziContainer.innerHTML = '';
         writer = HanziWriter.create('hanzi-container', text, {
-          width: 50,
-          height: 50,
-          padding: 5,
+          width: 56, height: 56, padding: 5,
           showOutline: true,
           strokeAnimationSpeed: 1,
           delayBetweenStrokes: 200,
@@ -222,21 +370,10 @@
         writer.animateCharacter();
       }
     });
-    // Event listeners for color and line width
-    colorPicker.addEventListener('input', (e) => {
-      currentColor = e.target.value;
-    });
 
-    lineWidthInput.addEventListener('input', (e) => {
-      currentLineWidth = e.target.value;
-    });
-    
-    // Allow Enter key to submit text
-    textInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        submitText.click();
-      }
-    });
+    colorPicker.addEventListener('input', (e) => { currentColor = e.target.value; });
+    lineWidthInput.addEventListener('input', (e) => { currentLineWidth = e.target.value; });
+    textInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') submitText.click(); });
 
     drawButton.addEventListener('click', () => {
       isErasing = false;
@@ -250,132 +387,94 @@
       drawButton.classList.remove('active');
     });
 
-    // Clear button event listener
     clearButton.addEventListener('click', () => {
-      ctxDraw.clearRect(0, 0, drawingCanvas.width, drawingCanvas.height); // Xóa toàn bộ nét vẽ
+      ctxDraw.clearRect(0, 0, drawingCanvas.width, drawingCanvas.height);
     });
 
-    // Calculate dynamic line width
     function calculateLineWidth(distance, timeDiff) {
       const velocity = distance / timeDiff;
-      const minLineWidth = 1;
-      const maxLineWidth = 13;
-      const speedFactor = 0.05; // Adjust sensitivity
+      const minLineWidth = 1, maxLineWidth = 13, speedFactor = 0.05;
       return Math.max(minLineWidth, Math.min(maxLineWidth, maxLineWidth - velocity * speedFactor));
     }
 
-    // Drawing functionality
+    /* Mouse events */
     drawingCanvas.addEventListener('mousedown', (e) => {
       isDrawing = true;
-      lastX = e.offsetX;
-      lastY = e.offsetY;
-      lastTime = Date.now();
-      ctxDraw.beginPath(); // Start a new path
+      lastX = e.offsetX; lastY = e.offsetY; lastTime = Date.now();
+      ctxDraw.beginPath();
       ctxDraw.moveTo(lastX, lastY);
     });
 
     drawingCanvas.addEventListener('mousemove', (e) => {
       if (!isDrawing) return;
-
-      const currentX = e.offsetX;
-      const currentY = e.offsetY;
-      const currentTime = Date.now();
-
+      const currentX = e.offsetX, currentY = e.offsetY, currentTime = Date.now();
       const distance = Math.sqrt((currentX - lastX) ** 2 + (currentY - lastY) ** 2);
-      const timeDiff = currentTime - lastTime;
-
-      const lineWidth = calculateLineWidth(distance, timeDiff)* (currentLineWidth / 5);
-      ctxDraw.lineWidth = lineWidth; // Set dynamic line width
-
+      const timeDiff  = currentTime - lastTime;
+      const lineWidth = calculateLineWidth(distance, timeDiff) * (currentLineWidth / 5);
+      ctxDraw.lineWidth = lineWidth;
       if (isErasing) {
         eraseLine(currentX, currentY);
       } else {
         ctxDraw.lineTo(currentX, currentY);
-        ctxDraw.strokeStyle = currentColor; // Set drawing color
-        ctxDraw.lineCap = 'round'; // Make line ends rounded
-        ctxDraw.lineJoin = 'round'; // Smooth corners
+        ctxDraw.strokeStyle = currentColor;
+        ctxDraw.lineCap  = 'round';
+        ctxDraw.lineJoin = 'round';
         ctxDraw.stroke();
       }
-
-      lastX = currentX;
-      lastY = currentY;
-      lastTime = currentTime;
+      lastX = currentX; lastY = currentY; lastTime = currentTime;
     });
 
-    drawingCanvas.addEventListener('mouseup', () => {
-      isDrawing = false;
-      ctxDraw.closePath(); // Close the path
-    });
+    drawingCanvas.addEventListener('mouseup',    () => { isDrawing = false; ctxDraw.closePath(); });
+    drawingCanvas.addEventListener('mouseleave', () => { isDrawing = false; });
 
-    drawingCanvas.addEventListener('mouseleave', () => {
-      isDrawing = false;
-    });
-
-    // Function to erase lines
     function eraseLine(x, y) {
-      const eraseRadius = 10;
-      ctxDraw.clearRect(x - eraseRadius, y - eraseRadius, eraseRadius * 2, eraseRadius * 2);
+      const r = 10;
+      ctxDraw.clearRect(x - r, y - r, r * 2, r * 2);
     }
 
-    // Touch events for mobile devices
+    /* Touch events */
     function getTouchPosition(e) {
-      const rect = drawingCanvas.getBoundingClientRect();
+      const rect  = drawingCanvas.getBoundingClientRect();
       const touch = e.touches[0];
-      return {
-        x: touch.clientX - rect.left,
-        y: touch.clientY - rect.top
-      };
+      return { x: touch.clientX - rect.left, y: touch.clientY - rect.top };
     }
 
     drawingCanvas.addEventListener('touchstart', (e) => {
-      e.preventDefault(); // Prevent scrolling
+      e.preventDefault();
       const { x, y } = getTouchPosition(e);
       isDrawing = true;
-      lastX = x;
-      lastY = y;
-      lastTime = Date.now();
+      lastX = x; lastY = y; lastTime = Date.now();
       ctxDraw.beginPath();
       ctxDraw.moveTo(lastX, lastY);
     });
 
     drawingCanvas.addEventListener('touchmove', (e) => {
       if (!isDrawing) return;
-
       const { x, y } = getTouchPosition(e);
       const currentTime = Date.now();
-
       const distance = Math.sqrt((x - lastX) ** 2 + (y - lastY) ** 2);
-      const timeDiff = currentTime - lastTime;
-
-      const lineWidth = calculateLineWidth(distance, timeDiff)* (currentLineWidth / 5);
-      ctxDraw.lineWidth = lineWidth; // Set dynamic line width
-
+      const timeDiff  = currentTime - lastTime;
+      const lineWidth = calculateLineWidth(distance, timeDiff) * (currentLineWidth / 5);
+      ctxDraw.lineWidth = lineWidth;
       if (isErasing) {
         eraseLine(x, y);
       } else {
         ctxDraw.lineTo(x, y);
-        ctxDraw.strokeStyle = currentColor; // Set drawing color
-        ctxDraw.lineCap = 'round';
+        ctxDraw.strokeStyle = currentColor;
+        ctxDraw.lineCap  = 'round';
         ctxDraw.lineJoin = 'round';
         ctxDraw.stroke();
       }
-
-      lastX = x;
-      lastY = y;
-      lastTime = currentTime;
+      lastX = x; lastY = y; lastTime = currentTime;
     });
 
-    drawingCanvas.addEventListener('touchend', () => {
-      isDrawing = false;
-      ctxDraw.closePath();
+    drawingCanvas.addEventListener('touchend', () => { isDrawing = false; ctxDraw.closePath(); });
+
+    window.addEventListener('resize', () => {
+      setCanvasDimensions();
+      setToolbarHeight();
+      if (text) renderTextOnCanvas();
     });
-
-    // Resize canvases on window resize
-    window.addEventListener('resize', setCanvasDimensions);
-
   </script>
-  
-  
-
 </body>
 </html>
