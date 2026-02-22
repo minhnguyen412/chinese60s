@@ -214,7 +214,20 @@
       transition: transform 0.12s, box-shadow 0.12s;
     }
     .toggle-description:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--black); }
+    .content-list h2 { font-size: 1.35rem; font-weight: 700; line-height: 1.7; margin: 4px 0 0; cursor: default; }
+    .content-list h2 span {
+      cursor: pointer; display: inline;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+      border-radius: 4px; padding: 1px 2px;
+    }
+    .content-list h2 span:hover { color: var(--green-dark); border-color: var(--green); background: var(--green-pale); }
 
+    .description {
+      display: none; color: #555; font-size: 1rem; line-height: 1.65;
+      margin-top: 10px; padding: 12px 14px;
+      background: var(--sky-pale); border: var(--border); border-radius: 12px;
+    }
     /* Content images */
     .content-image {
       max-width: 150px; height: auto; display: block;
@@ -583,6 +596,7 @@
 
 </body>
 </html>
+
 
 
 
