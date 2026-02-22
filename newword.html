@@ -1,59 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@chinese60s</title>
-    <link rel="stylesheet" href="css/newword.css">
-    <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3235921032748480"
-     crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Words — Chinese60s</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3235921032748480" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/newword.css">
+  <style>
+    :root {
+      --black: #222;
+      --green: #7cb83e;
+      --green-dark: #5a8f27;
+      --green-light: #d8f0a0;
+      --green-pale: #f2fde0;
+      --yellow: #ffd84d;
+      --yellow-pale: #fffbe6;
+      --peach: #ffb89a;
+      --peach-pale: #fff3ee;
+      --sky: #72c8f0;
+      --sky-pale: #eaf8ff;
+      --white: #fff;
+      --bg: #fffef5;
+      --shadow-sm: 3px 3px 0 var(--black);
+      --shadow-md: 4px 4px 0 var(--black);
+      --shadow-lg: 6px 6px 0 var(--black);
+      --border: 2.5px solid var(--black);
+      --border-thick: 3px solid var(--black);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 500;
+      background: var(--bg);
+      color: var(--black);
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: radial-gradient(circle, rgba(0,0,0,0.045) 1px, transparent 1px);
+      background-size: 22px 22px;
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--green);
+      border-bottom: var(--border-thick);
+      padding: 0 50px; height: 66px;
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 100;
+    }
+    header h1 {
+      font-family: 'Fredoka', sans-serif; font-weight: 700;
+      font-size: 1.7rem; color: white;
+      letter-spacing: 0.04em;
+      text-shadow: 2px 2px 0 rgba(0,0,0,0.25);
+    }
+    .homepage-link { text-decoration: none; color: inherit; }
+    .menu-toggle { display: none; font-size: 24px; background: none; border: none; color: white; cursor: pointer; }
+    nav ul { list-style: none; display: flex; gap: 8px; }
+    nav ul li a {
+      text-decoration: none; color: var(--black);
+      font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1rem;
+      background: var(--white); border: var(--border); border-radius: 50px;
+      padding: 6px 18px; display: inline-block;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    nav ul li a:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+
+    @media (max-width: 768px) {
+      header { padding: 0 20px; position: relative; }
+      .menu-toggle { display: block; }
+      nav { display: none; position: absolute; top: 66px; left: 0; right: 0; background: var(--green); border-bottom: var(--border); padding: 12px 0; }
+      nav.show { display: flex; flex-direction: column; align-items: center; }
+      nav ul { flex-direction: column; align-items: center; gap: 8px; padding: 6px 0; }
+    }
+
+    /* ── BANNER ── */
+    .logos-and-title {
+      display: flex; justify-content: center; align-items: center;
+      background: var(--green-pale);
+      border-bottom: var(--border-thick);
+      padding: 12px 0 0;
+      position: relative; z-index: 1;
+    }
+    .logos-and-title .logo {
+      width: 100%; height: auto; max-height: 180px; object-fit: contain;
+    }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: var(--peach-pale);
+      border-bottom: var(--border-thick);
+      padding: 36px 24px 28px;
+      text-align: center;
+      position: relative; z-index: 1; overflow: hidden;
+    }
+    .page-hero::before {
+      content: '🖼️';
+      position: absolute; font-size: 130px;
+      opacity: 0.1; top: -10px; right: 40px;
+      pointer-events: none;
+    }
+    .page-hero .tag {
+      display: inline-block;
+      background: var(--peach); border: var(--border); border-radius: 50px;
+      padding: 6px 18px; font-weight: 600; font-size: 0.95rem;
+      box-shadow: var(--shadow-sm); margin-bottom: 14px;
+    }
+    .page-hero h2 {
+      font-weight: 700; font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.2; margin-bottom: 0;
+    }
+
+    /* ── CONTROLS BAR ── */
+    .controls-bar {
+      background: var(--white);
+      border-bottom: var(--border-thick);
+      padding: 18px 24px;
+      position: relative; z-index: 1;
+      display: flex; flex-wrap: wrap; gap: 12px;
+      align-items: center; justify-content: center;
+    }
+
+    /* Search */
+    .search-container {
+      display: flex; gap: 8px; align-items: center;
+    }
+    .search-container input {
+      font-family: 'Fredoka', sans-serif; font-weight: 500; font-size: 1rem;
+      padding: 9px 18px; border: var(--border); border-radius: 50px;
+      background: var(--bg); outline: none;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.12s;
+      width: 240px;
+    }
+    .search-container input:focus { box-shadow: 4px 4px 0 var(--black); }
+
+    /* Inline controls */
+    .filter-controls {
+      display: flex; gap: 10px; align-items: center; flex-wrap: wrap; justify-content: center;
+    }
+    .filter-controls input[type="number"] {
+      font-family: 'Fredoka', sans-serif; font-weight: 500; font-size: 1rem;
+      padding: 9px 14px; border: var(--border); border-radius: 50px;
+      background: var(--bg); outline: none;
+      box-shadow: var(--shadow-sm); width: 110px;
+    }
+    .filter-controls select {
+      font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1rem;
+      padding: 9px 16px; border: var(--border); border-radius: 50px;
+      background: var(--white); outline: none;
+      box-shadow: var(--shadow-sm); cursor: pointer;
+      appearance: none; -webkit-appearance: none;
+    }
+
+    /* Buttons */
+    .btn-green {
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem;
+      background: var(--green); color: white;
+      padding: 9px 24px; border: var(--border-thick); border-radius: 50px;
+      box-shadow: var(--shadow-sm); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s;
+      text-decoration: none; display: inline-block;
+    }
+    .btn-green:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+
+    /* ── GRID ── */
+    .grid-section {
+      flex: 1;
+      padding: 32px 24px 80px;
+      position: relative; z-index: 1;
+    }
+    .grid-container {
+      max-width: 1200px; margin: 0 auto;
+    }
+
+    /* ── DONATE TAG ── */
+    .donate-tag {
+      position: fixed; top: 50%; right: 20px; transform: translateY(-50%);
+      background: var(--yellow); border: var(--border-thick);
+      border-radius: 20px; padding: 10px 14px;
+      box-shadow: var(--shadow-md); font-weight: 700; font-size: 0.95rem; z-index: 50;
+    }
+    .donate-tag a { text-decoration: none; color: var(--black); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #222; color: rgba(255,255,255,0.65);
+      padding: 28px 50px; text-align: center;
+      position: relative; z-index: 1;
+    }
+    footer .brand { font-weight: 700; color: var(--green-light); font-size: 1.3rem; margin-bottom: 6px; }
+    footer p { font-size: 0.95rem; font-weight: 500; margin-bottom: 3px; }
+    .social-icons { margin-top: 14px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .social-icons a {
+      text-decoration: none; color: var(--black);
+      font-weight: 600; font-size: 0.9rem;
+      background: var(--green-light); border: var(--border); border-radius: 50px;
+      padding: 5px 16px; box-shadow: var(--shadow-sm);
+      transition: transform 0.12s;
+    }
+    .social-icons a:hover { transform: translate(-1px,-2px); }
+
+    @media (max-width: 768px) {
+      .grid-section { padding: 24px 16px 80px; }
+      footer { padding: 28px 20px; }
+      .search-container input { width: 180px; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
+
+  <!-- Header -->
   <header>
     <h1><a href="index.html" class="homepage-link">CHINESE 60s</a></h1>
-    <button class="menu-toggle" aria-label="Toggle navigation">
-      &#9776; <!-- Biểu tượng ba gạch -->
-    </button>
+    <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
     <nav>
       <ul>
         <li><a href="about.html">About Us</a></li>
         <li><a href="courses.html">Courses</a></li>
-        <li><a href="https://www.amazon.com/shop/studiorum60s">Shop</a></li>
+        <li><a href="https://www.amazon.com/shop/studiorum60s" target="_blank">Shop</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Logos and Title Section -->
+  <!-- Banner -->
   <div class="logos-and-title">
-      <img src="assets/banner.png" alt="Logo" class="logo">
-  </div>
-    <!-- Search Section -->
-    <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Search character or meaning...">
-        <button id="searchButton">Search</button>
-    </div>
-  <!-- Main Content -->
-  <div>
-  <input type="number" id="countInput" placeholder="Number of images" min="1" value="100"> <!-- Mặc định là 100 -->
-  <select id="sortSelect">
-      <option value="oldest">Oldest</option>
-      <option value="newest" selected>Newest</option>
-      <option value="shuffle">Shuffle</option>
-  </select>
-  <button id="okButton">OK</button> <!-- Nút OK -->
-</div>
-  <div class="grid-container" id="imageGrid"></div>
-  <script src="js/newword.js"></script>
-<!-- New Words Tag -->
-  <div class="new-words">
-      <a href="https://buymeacoffee.com/chinese60s">Donate</a>
+    <img src="assets/banner.png" alt="Chinese 60s" class="logo">
   </div>
 
-<!-- Footer -->
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <span class="tag">🖼️ Flashcards</span>
+    <h2>New Words</h2>
+  </div>
+
+  <!-- Controls Bar -->
+  <div class="controls-bar">
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search character or meaning…">
+      <button class="btn-green" id="searchButton">🔍 Search</button>
+    </div>
+    <div class="filter-controls">
+      <input type="number" id="countInput" placeholder="Count" min="1" value="100">
+      <select id="sortSelect">
+        <option value="oldest">Oldest</option>
+        <option value="newest" selected>Newest</option>
+        <option value="shuffle">Shuffle</option>
+      </select>
+      <button class="btn-green" id="okButton">OK</button>
+    </div>
+  </div>
+
+  <!-- Grid -->
+  <div class="grid-section">
+    <div class="grid-container" id="imageGrid"></div>
+  </div>
+
+  <script src="js/newword.js"></script>
+
+  <!-- Donate Tag -->
+  <div class="donate-tag">
+    <a href="https://buymeacoffee.com/chinese60s" target="_blank">☕ Donate</a>
+  </div>
+
+  <!-- Footer -->
   <footer>
-    <p>Chinese60s</p>
+    <p class="brand">CHINESE 60s</p>
     <p>Learn Mandarin through images and videos</p>
     <div class="social-icons">
       <a href="#">Facebook</a>
@@ -62,25 +288,16 @@
       <a href="#">Instagram</a>
     </div>
   </footer>
-  
+
   <script>
-    // JavaScript để điều khiển nút hamburger menu
     document.addEventListener('DOMContentLoaded', function () {
       const menuToggle = document.querySelector('.menu-toggle');
       const nav = document.querySelector('nav');
-
       menuToggle.addEventListener('click', function () {
         nav.classList.toggle('show');
-
-        // Chuyển đổi biểu tượng giữa ba gạch và dấu X
-        if (nav.classList.contains('show')) {
-          menuToggle.innerHTML = '&#10005;'; // Biểu tượng X
-        } else {
-          menuToggle.innerHTML = '&#9776;'; // Biểu tượng ba gạch
-        }
+        menuToggle.innerHTML = nav.classList.contains('show') ? '&#10005;' : '&#9776;';
       });
     });
   </script>
-
 </body>
 </html>
