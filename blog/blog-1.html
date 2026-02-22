@@ -404,7 +404,7 @@
       padding: 10px 14px; box-shadow: var(--shadow-md); font-weight: 700; font-size: 0.95rem; z-index: 50;
     }
     .donate-tag a { text-decoration: none; color: var(--black); }
-    @media (max-width: 1024px) { .donate-tag { display: none; } }
+    @media (max-width: 1024px) { .donate-tag { display: none; } .sidebar { display: none; }}
     @media (max-width: 768px) { footer { padding: 28px 20px; } }
 
     /* ── FADE IN ── */
@@ -414,15 +414,6 @@
     }
     .article-hero h1, .article-hero .article-meta { animation: fadeUp 0.5s ease both; }
     .article-body { animation: fadeUp 0.55s 0.1s ease both; }
-    @media (max-width: 1024px) {
-    .page-layout { 
-      grid-template-columns: 1fr; 
-      gap: 40px; 
-    }
-    .sidebar { 
-      order: -1;   /* dòng này */
-    }
-    }
   </style>
 </head>
 <body>
