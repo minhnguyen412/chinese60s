@@ -414,6 +414,15 @@
     }
     .article-hero h1, .article-hero .article-meta { animation: fadeUp 0.5s ease both; }
     .article-body { animation: fadeUp 0.55s 0.1s ease both; }
+    @media (max-width: 1024px) {
+    .page-layout { 
+      grid-template-columns: 1fr; 
+      gap: 40px; 
+    }
+    .sidebar { 
+      order: -1;   /* dòng này */
+    }
+    }
   </style>
 </head>
 <body>
