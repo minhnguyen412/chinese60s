@@ -3,412 +3,583 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Post Page</title>
-  <link rel="stylesheet" href="css/post-styles.css">
+  <title>Post Page — Chinese60s</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3235921032748480"
-     crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3235921032748480" crossorigin="anonymous"></script>
   <style>
+    /* ── TOKENS ── */
+    :root {
+      --black: #222;
+      --green: #7cb83e;
+      --green-dark: #5a8f27;
+      --green-light: #d8f0a0;
+      --green-pale: #f2fde0;
+      --yellow: #ffd84d;
+      --yellow-pale: #fffbe6;
+      --peach: #ffb89a;
+      --peach-pale: #fff3ee;
+      --sky: #72c8f0;
+      --sky-pale: #eaf8ff;
+      --lavender: #c5b0f8;
+      --lavender-pale: #f3f0ff;
+      --pink: #ffadc5;
+      --pink-pale: #fff2f6;
+      --white: #fff;
+      --bg: #fffef5;
+      --shadow-sm: 3px 3px 0 var(--black);
+      --shadow-md: 4px 4px 0 var(--black);
+      --shadow-lg: 6px 6px 0 var(--black);
+      --border: 2.5px solid var(--black);
+      --border-thick: 3px solid var(--black);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f5f5f5;
-      
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 500;
+      background: var(--bg);
+      color: var(--black);
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* Header */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: radial-gradient(circle, rgba(0,0,0,0.045) 1px, transparent 1px);
+      background-size: 22px 22px;
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── HEADER ── */
     header {
-      background-color: #8bc34a;
-      color: white;
-      padding: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-left: 50px;
-      padding-right: 50px;
+      background: var(--green);
+      border-bottom: var(--border-thick);
+      padding: 0 50px; height: 66px;
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 100;
     }
-    .homepage-link {
-      text-decoration: none;
-      color: inherit; /* Giữ nguyên màu sắc của text gốc */
+    header h1 {
+      font-family: 'Fredoka', sans-serif; font-weight: 700;
+      font-size: 1.7rem; color: white;
+      letter-spacing: 0.04em;
+      text-shadow: 2px 2px 0 rgba(0,0,0,0.25);
     }
-
-    
-    .menu-toggle {
-      display: none;
-      font-size: 24px;
-      background: none;
-      border: none;
-      color: white;
-      cursor: pointer;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-
+    .homepage-link { text-decoration: none; color: inherit; }
+    .menu-toggle { display: none; font-size: 24px; background: none; border: none; color: white; cursor: pointer; }
+    nav ul { list-style: none; display: flex; gap: 8px; }
     nav ul li a {
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
+      text-decoration: none; color: var(--black);
+      font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1rem;
+      background: var(--white); border: var(--border); border-radius: 50px;
+      padding: 6px 18px; display: inline-block;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    nav ul li a:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+
+    @media (max-width: 768px) {
+      header { padding: 0 20px; position: relative; }
+      .menu-toggle { display: block; }
+      nav { display: none; position: absolute; top: 66px; left: 0; right: 0; background: var(--green); border-bottom: var(--border); padding: 12px 0; }
+      nav.show { display: flex; flex-direction: column; align-items: center; }
+      nav ul { flex-direction: column; align-items: center; gap: 8px; padding: 6px 0; }
     }
 
-    nav ul li a:hover {
-      text-decoration: underline;
+    /* ── BANNER ── */
+    .logos-and-title {
+      display: flex; justify-content: center; align-items: flex-end;
+      background: var(--green-pale);
+      border-bottom: var(--border-thick);
+      position: relative; z-index: 1;
     }
-    nav {
-      display: flex;
-    }
-
-    /* Responsive cho màn hình nhỏ hơn 768px */
-    @media screen and (max-width: 768px) {
-      .menu-toggle {
-        display: block;
-        position: absolute;
-        
-        right: 20px;
-      }
-
-      nav {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background-color: #8bc34a;
-        width: 100%;
-        padding: 10px 0;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
-
-      nav.show {
-        display: flex;
-      }
-
-      nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-      }
-
-      nav ul li a {
-        font-size: 1rem;
-      }
+    .logos-and-title .logo {
+      width: 100%; height: auto; max-height: 160px; object-fit: contain; display: block;
     }
 
+    /* ── MAIN LAYOUT ── */
     .container {
       display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      padding-left: 100px;
-      padding-right: 100px;
-      margin-bottom: 100px;
+      gap: 24px;
+      padding: 32px 60px 80px;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+      position: relative; z-index: 1;
+      flex: 1;
     }
 
+    /* ── VIDEO / CONTENT SECTION ── */
     .video-section {
       flex: 2;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
 
-    .video-section iframe {
+    .video-card {
+      background: var(--white);
+      border: var(--border-thick);
+      border-radius: 22px;
+      box-shadow: var(--shadow-md);
+      padding: 22px;
+      overflow: hidden;
+    }
+
+    #video-title {
+      font-family: 'Fredoka', sans-serif; font-weight: 700;
+      font-size: 1.6rem; line-height: 1.3;
+      margin-bottom: 6px;
+    }
+    #video-description {
+      font-size: 1rem; color: #666; font-weight: 500;
+      margin-bottom: 16px;
+    }
+
+    .video-card iframe {
+      width: 100%; height: 500px;
+      border: var(--border); border-radius: 14px;
+      display: block;
+    }
+
+    /* ── POST CONTENT LIST ── */
+    .pcontainer {
+      background: var(--white);
+      border: var(--border-thick);
+      border-radius: 22px;
+      box-shadow: var(--shadow-md);
+      padding: 24px;
+    }
+
+    .content-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 0; margin: 0;
+    }
+
+    .content-list li {
+      display: flex;
+      flex-direction: column;
+      background: var(--bg);
+      border: var(--border);
+      border-radius: 18px;
+      padding: 16px 20px;
+      position: relative;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.15s;
       width: 100%;
-      height: 540px;
-      border: none;
-      border-radius: 8px;
+    }
+    .content-list li.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .content-list li:hover {
+      box-shadow: var(--shadow-md);
     }
 
+    .content-list li:nth-child(odd)  { background: var(--yellow-pale); }
+    .content-list li:nth-child(even) { background: var(--green-pale); }
+
+    .row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+    }
+
+    .avatar-1 {
+      flex-shrink: 0;
+      width: 46px; height: 46px;
+      background: var(--yellow);
+      border: var(--border); border-radius: 50%;
+    }
+
+    .user {
+      display: flex;
+      flex-direction: column;
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--black);
+    }
+
+    .description {
+      display: none;
+      color: #555;
+      margin-top: 10px;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      padding-left: 60px;
+    }
+    .content-list li:hover .description { display: block; }
+
+    .toggle-description {
+      margin-left: auto;
+      padding: 4px 14px;
+      font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1rem;
+      background: var(--white); color: var(--black);
+      border: var(--border); border-radius: 50px;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.12s;
+      flex-shrink: 0;
+    }
+    .toggle-description:hover { transform: translate(-1px,-1px); color: #e53935; }
+
+    .audio {
+      position: absolute; top: 12px; right: 16px;
+      font-size: 1.3rem; font-weight: 700; cursor: pointer;
+      color: var(--black);
+    }
+
+    /* Content images */
+    .content-image {
+      max-width: 150px; height: auto; display: block;
+      border: var(--border); border-radius: 10px;
+    }
+    .image-wrapper {
+      display: inline-flex; align-items: center; justify-content: center;
+    }
+
+    /* ── QUIZ SECTION ── */
+    .qcontainer {
+      background: var(--white);
+      border: var(--border-thick);
+      border-radius: 22px;
+      box-shadow: var(--shadow-md);
+      padding: 28px 32px;
+    }
+
+    .qcontainer h1 {
+      font-family: 'Fredoka', sans-serif; font-weight: 700;
+      font-size: 1.8rem; margin-bottom: 20px;
+      display: inline-block;
+      background: var(--yellow); border: var(--border); border-radius: 50px;
+      padding: 8px 26px; box-shadow: var(--shadow-sm);
+    }
+
+    #start-container { margin-bottom: 12px; }
+    #start-button {
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.3rem;
+      background: var(--green); color: white;
+      padding: 12px 36px; border: var(--border-thick); border-radius: 50px;
+      box-shadow: var(--shadow-md); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    #start-button:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); }
+
+    .sentence {
+      margin: 20px 0;
+      font-size: 1.8rem; font-weight: 700; line-height: 1.6;
+    }
+
+    .blank {
+      display: inline-block; width: 100px;
+      border-bottom: 3px solid var(--black);
+      text-align: center; margin: 0 5px; color: #888;
+    }
+
+    .options { margin: 16px 0; }
+
+    .word {
+      font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1.3rem;
+      padding: 10px 20px; margin: 5px;
+      background: var(--pink); color: var(--black);
+      border: var(--border-thick); border-radius: 50px;
+      box-shadow: var(--shadow-sm); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    .word:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); background: var(--peach); }
+
+    .result { margin-top: 16px; font-size: 1.1rem; font-weight: 600; }
+    .correct { color: var(--green-dark); }
+    .incorrect { color: #e53935; }
+
+    #buttons button {
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem;
+      padding: 10px 22px; border: var(--border-thick); border-radius: 50px;
+      box-shadow: var(--shadow-sm); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s;
+      margin: 5px;
+    }
+    #buttons button:hover:not(:disabled) { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+    #buttons button.next { background: var(--green); color: white; }
+    #buttons button.retry { background: var(--peach); color: var(--black); }
+    #buttons button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    .hint-text {
+      font-size: 0.9rem; color: #888; margin-top: 12px;
+      border-top: var(--border); padding-top: 10px;
+    }
+
+    /* ── IMAGE CARD OVERLAY ── */
+    .overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 999;
+    }
+    .image-card {
+      position: fixed; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--white);
+      border: var(--border-thick); border-radius: 22px;
+      padding: 24px; box-shadow: var(--shadow-lg);
+      z-index: 1000; width: 320px; text-align: center;
+    }
+    .image-card img { max-width: 100%; height: auto; border-radius: 10px; border: var(--border); }
+    .image-card h3 { margin: 12px 0 6px; font-size: 1.2rem; }
+    .image-card p { font-size: 0.95rem; color: #666; }
+    .image-card .close {
+      position: absolute; top: 12px; right: 16px;
+      cursor: pointer; font-size: 1.6rem; color: #aaa; line-height: 1;
+    }
+    .image-card .close:hover { color: var(--black); }
+
+    #writer-container {
+      display: flex; gap: 12px; justify-content: center; align-items: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── SIDEBAR: Other Videos ── */
     .thumbnails-section {
       flex: 1;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      padding: 15px;
+      min-width: 260px;
+      max-width: 320px;
+      position: sticky; top: 86px;
+      align-self: flex-start;
     }
 
-    .thumbnails-section h3 {
-      margin-bottom: 10px;
+    .sidebar-card {
+      background: var(--white);
+      border: var(--border-thick); border-radius: 22px;
+      box-shadow: var(--shadow-md);
+      padding: 18px;
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+    }
+
+    .sidebar-card h3 {
+      font-family: 'Fredoka', sans-serif; font-weight: 700;
+      font-size: 1.15rem; margin-bottom: 16px;
+      display: inline-block;
+      background: var(--sky); border: var(--border); border-radius: 50px;
+      padding: 5px 18px; box-shadow: var(--shadow-sm);
     }
 
     .thumbnail {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 15px;
-      align-items: center;
+      display: flex; gap: 10px;
+      margin-bottom: 14px; align-items: center;
       cursor: pointer;
+      border: var(--border); border-radius: 14px;
+      overflow: hidden;
+      background: var(--bg);
+      transition: transform 0.12s, box-shadow 0.12s;
     }
-
-    .thumbnail img {
-      width: 100px;
-      height: 60px;
-      border-radius: 8px;
-      object-fit: cover;
-    }
-
-    .thumbnail h4 {
-      margin: 0;
-      font-size: 0.9rem;
-      color: #333;
-    }
-
-    .thumbnail p {
-      font-size: 0.8rem;
-      color: #666;
-    }
+    .thumbnail:hover { transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--black); }
 
     .thumbnail a {
-      text-decoration: none;
-      color: inherit;
-      display: flex;
-      gap: 10px;
-      align-items: center;
+      text-decoration: none; color: inherit;
+      display: flex; gap: 10px; align-items: center;
+      width: 100%; padding: 8px;
     }
-
-    @media screen and (max-width: 1024px) {
-      .container {
-        flex-direction: column;
-        padding-left: 10px;
-        padding-right: 10px;
-      }
-
-      .thumbnails-section {
-        order: 2;
-        margin-top: 20px;
-      }
-      .video-section {
-        order: 1; /* Đảm bảo phần video nằm trên */
-      }
-      .video-section iframe {
-        width: 100%;
-        height: 500px;
-      }
+    .thumbnail img {
+      width: 90px; height: 56px;
+      border-radius: 8px; border: var(--border);
+      object-fit: cover; flex-shrink: 0;
     }
-    @media screen and (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        padding-left: 10px;
-        padding-right: 10px;
-      }
+    .thumbnail h4 { font-size: 0.9rem; font-weight: 600; color: var(--black); margin: 0 0 3px; }
+    .thumbnail p { font-size: 0.78rem; color: #777; margin: 0; }
 
-      .thumbnails-section {
-        order: 2;
-        margin-top: 20px;
-      }
-      .video-section {
-        order: 1; /* Đảm bảo phần video nằm trên */
-      }
-      .video-section iframe {
-        width: 100%;
-        height: 315px;
-      }
-    }
-
-    .logos-and-title {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-    }
-
-    .logos-and-title .logo {
-      width: 100%;
-      height: auto;
-      max-height: 800px;
-      object-fit: contain;
-    }
-
-    /* Tag New Words */
+    /* ── FIXED TAGS ── */
     .buy-coffee, .new-words {
-      position: fixed;
-      right: 20px;
-      background-color: #ffffcc;
-      padding: 10px;
-      border-radius: 20px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      font-weight: bold;
-      z-index: 1000;
-      transition: transform 0.3s ease;
+      position: fixed; right: 20px;
+      background: var(--yellow); border: var(--border-thick);
+      border-radius: 20px; padding: 10px 14px;
+      box-shadow: var(--shadow-md); font-weight: 700; font-size: 0.9rem;
+      z-index: 50; font-family: 'Fredoka', sans-serif;
+      transition: transform 0.12s;
     }
+    .buy-coffee { top: calc(50% - 70px); }
+    .new-words  { top: 50%; transform: translateY(-50%); }
+    .buy-coffee a, .new-words a { text-decoration: none; color: var(--black); }
+    .buy-coffee:hover, .new-words:hover { transform: translate(-2px,-2px); }
+    .new-words:hover { transform: translateY(-50%) translate(-2px,-2px); }
 
-    .buy-coffee {
-      top: calc(50% - 80px); /* Đặt ở trên tag New Words */
-    }
-
-    .new-words {
-      top: 50%;
-      transform: translateY(-50%);
-    }
-    /* Footer */
+    /* ── FOOTER ── */
     footer {
-      background-color: #8bc34a;
-      color: white;
-      padding: 15px;
-      text-align: center;
+      background: #222; color: rgba(255,255,255,0.65);
+      padding: 28px 50px; text-align: center;
+      position: relative; z-index: 1;
     }
-
-    footer .social-icons {
-      margin-top: 10px;
+    footer .brand { font-weight: 700; color: var(--green-light); font-size: 1.3rem; margin-bottom: 6px; }
+    footer p { font-size: 0.95rem; font-weight: 500; margin-bottom: 3px; }
+    .social-icons { margin-top: 14px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .social-icons a {
+      text-decoration: none; color: var(--black);
+      font-weight: 600; font-size: 0.9rem;
+      background: var(--green-light); border: var(--border); border-radius: 50px;
+      padding: 5px 16px; box-shadow: var(--shadow-sm);
+      transition: transform 0.12s;
     }
+    .social-icons a:hover { transform: translate(-1px,-2px); }
 
-    footer .social-icons a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: white;
+    /* ── CHARACTER LINKS ── */
+    a { color: var(--green-dark); text-decoration: none; }
+    a:hover { color: #e53935; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .container { flex-direction: column; padding: 20px 20px 80px; }
+      .thumbnails-section { max-width: 100%; width: 100%; position: static; }
+      .sidebar-card { max-height: 400px; }
+      .video-card iframe { height: 400px; }
     }
-    
-    .buy-coffee a, .new-words a {
-      text-decoration: none; /* Loại bỏ gạch chân */
-      color: inherit; /* Sử dụng màu chữ hiện tại */
+    @media (max-width: 768px) {
+      .container { padding: 16px 16px 80px; }
+      .video-card iframe { height: 280px; }
+      .buy-coffee, .new-words { right: 10px; padding: 8px 10px; font-size: 0.8rem; }
+      .buy-coffee { top: calc(50% - 55px); }
+      footer { padding: 28px 20px; }
+      .sentence { font-size: 1.3rem; }
+      .word { font-size: 1.1rem; }
+      .content-image { max-width: 80px; }
     }
-
-    
-    .buy-coffee:hover, .new-words:hover {
-      text-decoration: none; /* Không gạch chân khi hover */
-      color: #ff5722; /* Đổi màu chữ khi hover (chọn màu tùy ý) */
+    @media (max-width: 480px) {
+      header h1 { font-size: 1.3rem; }
+      .sentence { font-size: 1.1rem; }
+      .word { font-size: 1rem; padding: 8px 14px; }
+      .qcontainer { padding: 18px 16px; }
+      .content-image { max-width: 65px; }
     }
-
-
-    @media screen and (max-width: 480px) {
-      header h1 {
-        font-size: 1.3rem;
-      }
-
-      .logos-and-title .logo {
-        max-height: 150px;
-      }
-
-      .buy-coffee, .new-words {
-        right: 10px;
-        padding: 8px;
-        font-size: 0.7rem;
-      }
-      .buy-coffee {
-        top: calc(50% - 50px); /* Đặt ở trên tag New Words */
-      }
-    
-    }
-    
-
   </style>
 </head>
 <body>
+
   <!-- Header -->
   <header>
     <h1><a href="index.html" class="homepage-link">CHINESE 60s</a></h1>
-    <button class="menu-toggle" aria-label="Toggle navigation">
-      &#9776;
-    </button>
+    <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
     <nav>
       <ul>
         <li><a href="about.html">About Us</a></li>
         <li><a href="courses.html">Courses</a></li>
-        <li><a href="https://www.amazon.com/shop/studiorum60s">Shop</a></li>
+        <li><a href="https://www.amazon.com/shop/studiorum60s" target="_blank">Shop</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Logos and Title Section -->
+  <!-- Banner -->
   <div class="logos-and-title">
-    <img src="assets/banner.png" alt="Logo" class="logo">
+    <img src="assets/banner.png" alt="Chinese 60s" class="logo">
   </div>
 
+  <!-- Main Layout -->
   <div class="container">
-    <!-- Main video section -->
+
+    <!-- Left: Video + Content + Quiz -->
     <div class="video-section">
-      <h1 id="video-title"></h1>
-      <h3 id="video-description"></h3>
-      <iframe id="video-iframe" src="" title="YouTube video player" allowfullscreen></iframe>
-      <script src="js/fetch-video.js"></script>
+
+      <!-- Video Card -->
+      <div class="video-card">
+        <h1 id="video-title"></h1>
+        <h3 id="video-description"></h3>
+        <iframe id="video-iframe" src="" title="YouTube video player" allowfullscreen></iframe>
+        <script src="js/fetch-video.js"></script>
+      </div>
+
+      <!-- Post Content -->
       <div class="pcontainer">
         <ul class="content-list" id="itemList"></ul>
       </div>
       <script src="js/posts-loader.js"></script>
       <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-        
-            // Lấy các ID từ URL hoặc sử dụng giá trị mặc định
-            const startpId = urlParams.get('postStartId') || '21'; // Giá trị mặc định
-            const endpId = urlParams.get('postEndId') || '32'; // Giá trị mặc định
-
-            // Load posts với các ID đã lấy
-            loadPosts(startpId, endpId, 'itemList');
+          const urlParams = new URLSearchParams(window.location.search);
+          const startpId = urlParams.get('postStartId') || '21';
+          const endpId   = urlParams.get('postEndId')   || '32';
+          loadPosts(startpId, endpId, 'itemList');
         });
       </script>
 
+      <!-- Quiz Section -->
       <div class="qcontainer" id="quiz-container" data-start-id="24" data-end-id="38">
         <h1>LET'S PRACTICE!</h1>
         <div id="start-container">
-          <button id="start-button">Start</button>
+          <button id="start-button">▶ Start</button>
         </div>
-        <div class="sentence" id="sentence" style="display: none;"></div>
-        <div class="options" id="options" style="display: none;"></div>
-        <div class="result" style="display: none;"></div>
-        <div id="buttons" style="display: none;"></div>
-        
+        <div class="sentence" id="sentence"  style="display:none;"></div>
+        <div class="options"  id="options"   style="display:none;"></div>
+        <div class="result"                  style="display:none;"></div>
+        <div id="buttons"                    style="display:none;"></div>
       </div>
-      
       <script src="js/quiz.js"></script>
-      <p>**Please click on each Chinese character to see its meaning and pronunciation</p>
+
+      <p class="hint-text">💡 Click on each Chinese character to see its meaning and pronunciation</p>
+
       <script>
         document.addEventListener('DOMContentLoaded', () => {
-          const urlParams = new URLSearchParams(window.location.search);
+          const urlParams  = new URLSearchParams(window.location.search);
           const quizStartId = urlParams.get('quizStartId') || 1;
-          const quizEndId = urlParams.get('quizEndId') || 10;
-        
-          console.log('Quiz Start ID:', quizStartId);
-          console.log('Quiz End ID:', quizEndId);
+          const quizEndId   = urlParams.get('quizEndId')   || 10;
+          console.log('Quiz Start ID:', quizStartId, '| End ID:', quizEndId);
         });
       </script>
     </div>
 
-    <!-- Thumbnails -->
+    <!-- Right: Sidebar -->
     <div class="thumbnails-section">
-      <h3>Other Videos</h3>
-      <div id="thumbnails-container"></div>
+      <div class="sidebar-card">
+        <h3>Other Videos</h3>
+        <div id="thumbnails-container"></div>
+      </div>
     </div>
+
   </div>
 
+  <!-- Sidebar thumbnails JS -->
   <script>
     const maxVideosToShow = 20;
     fetch('data/thumbnail.json')
-      .then(response => response.json())
+      .then(r => r.json())
       .then(videos => {
         videos.sort((a, b) => b.id - a.id);
-        const thumbnailsContainer = document.getElementById("thumbnails-container");
+        const container = document.getElementById('thumbnails-container');
         videos.slice(0, maxVideosToShow).forEach(video => {
-          const thumbnailDiv = document.createElement("div");
-          thumbnailDiv.classList.add("thumbnail");
-          thumbnailDiv.innerHTML = `
+          const div = document.createElement('div');
+          div.classList.add('thumbnail');
+          div.innerHTML = `
             <a href="${video.htmlLink}">
               <img src="${video.thumbnail}" alt="${video.title}">
               <div>
                 <h4>${video.title}</h4>
                 <p>${video.description}</p>
               </div>
-            </a>
-          `;
-          thumbnailsContainer.appendChild(thumbnailDiv);
+            </a>`;
+          container.appendChild(div);
         });
       })
-      .catch(error => console.error("Error loading JSON:", error));
+      .catch(err => console.error('Error loading JSON:', err));
   </script>
 
-  <!-- Buy Me A Coffee Tag -->
+  <!-- Fixed Tags -->
   <div class="buy-coffee">
-    <a href="https://buymeacoffee.com/chinese60s" target="_blank">Donate 🤝</a>
+    <a href="https://buymeacoffee.com/chinese60s" target="_blank">☕ Donate</a>
   </div>
-  <!-- New Words Tag -->
   <div class="new-words">
-    <a href="write.html">Learn to write</a>
+    <a href="write.html">✏️ Learn to write</a>
   </div>
 
   <!-- Footer -->
   <footer>
-    <p>Chinese60s</p>
+    <p class="brand">CHINESE 60s</p>
     <p>Learn Mandarin through images and videos</p>
     <div class="social-icons">
       <a href="#">Facebook</a>
@@ -418,16 +589,17 @@
     </div>
   </footer>
 
+  <!-- Hamburger menu -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const menuToggle = document.querySelector('.menu-toggle');
       const nav = document.querySelector('nav');
-
       menuToggle.addEventListener('click', function () {
         nav.classList.toggle('show');
         menuToggle.innerHTML = nav.classList.contains('show') ? '&#10005;' : '&#9776;';
       });
     });
   </script>
+
 </body>
 </html>
