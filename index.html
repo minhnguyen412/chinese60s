@@ -404,6 +404,28 @@
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
     @media (max-width: 768px) { section { padding: 56px 20px; } }
+    .cta-links {
+      margin-top: 28px;
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .cta-links a {
+      color: white;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+
+    .cta-links a:hover {
+      opacity: 0.7;
+    }
+
+    .cta-divider {
+      margin: 0 8px;
+      opacity: 0.6;
+    }
   </style>
 </head>
 <body>
@@ -621,6 +643,19 @@
       </div>
       <a href="learning-page.html" class="btn-white reveal">🚀 Start Learning Free</a>
     </div>
+    <div class="cta-links reveal">
+  <a href="about.html">About Us</a>
+  <span class="cta-divider">•</span>
+  <a href="about.html#our-story">Our Story</a>
+  <span class="cta-divider">•</span>
+  <a href="about.html#what-we-believe">What We Believe</a>
+  <span class="cta-divider">•</span>
+  <a href="about.html#what-we-offer">What We Offer</a>
+  <br>
+  <a href="privacy.html">🔒 Privacy Policy</a>
+  <span class="cta-divider">•</span>
+  <a href="terms.html">📄 Terms of Service</a>
+</div>
   </section>
 
   <div class="donate-tag">
