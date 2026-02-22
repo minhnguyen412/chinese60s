@@ -1,353 +1,326 @@
-/* Reset cơ bản */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ── RESET ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ── DESIGN TOKENS ── */
+:root {
+  --black: #222;
+  --green: #7cb83e;
+  --green-dark: #5a8f27;
+  --green-light: #d8f0a0;
+  --green-pale: #f2fde0;
+  --yellow: #ffd84d;
+  --yellow-pale: #fffbe6;
+  --peach: #ffb89a;
+  --peach-pale: #fff3ee;
+  --sky: #72c8f0;
+  --sky-pale: #eaf8ff;
+  --white: #fff;
+  --bg: #fffef5;
+  --shadow-sm: 3px 3px 0 var(--black);
+  --shadow-md: 4px 4px 0 var(--black);
+  --shadow-lg: 6px 6px 0 var(--black);
+  --border: 2.5px solid var(--black);
+  --border-thick: 3px solid var(--black);
 }
+
+/* ── BASE ── */
+html { scroll-behavior: smooth; }
 
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f0f0f0;
-    margin: 0;
+  font-family: 'Fredoka', Arial, sans-serif;
+  font-weight: 500;
+  background: var(--bg);
+  color: var(--black);
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Header */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: radial-gradient(circle, rgba(0,0,0,0.045) 1px, transparent 1px);
+  background-size: 22px 22px;
+  pointer-events: none; z-index: 0;
+}
+
+/* ── HEADER ── */
 header {
-    background-color: #8bc34a;
-    color: white;
-    padding: 15px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+  background: var(--green);
+  border-bottom: var(--border-thick);
+  padding: 0 50px;
+  height: 66px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky; top: 0; z-index: 100;
+  width: 100%;
 }
-.homepage-link {
-    text-decoration: none;
-    color: inherit; /* Giữ nguyên màu sắc của text gốc */
+header h1 {
+  font-family: 'Fredoka', sans-serif; font-weight: 700;
+  font-size: 1.7rem; color: white;
+  letter-spacing: 0.04em;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.25);
 }
-
-.menu-toggle {
-    display: none;
-    font-size: 24px;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-}
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
+.homepage-link { text-decoration: none; color: inherit; }
+.menu-toggle { display: none; font-size: 24px; background: none; border: none; color: white; cursor: pointer; }
+nav ul { list-style: none; display: flex; gap: 8px; }
 nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
+  text-decoration: none; color: var(--black);
+  font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1rem;
+  background: var(--white); border: var(--border); border-radius: 50px;
+  padding: 6px 18px; display: inline-block;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.12s, box-shadow 0.12s;
 }
-nav ul li a:hover {
-    text-decoration: underline;
-}
+nav ul li a:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
 
-/* Responsive cho màn hình nhỏ hơn 768px */
-@media screen and (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-        position: absolute;
-        top: 15px;
-        right: 20px;
-    }
-
-    nav {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background-color: #8bc34a;
-        width: 100%;
-        padding: 10px 0;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    nav.show {
-        display: flex;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    nav ul li a {
-        font-size: 1rem;
-    }
-}
-
-/* Main Content */
-
+/* ── BANNER ── */
 .logos-and-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+  display: flex; justify-content: center; align-items: center;
+  background: var(--green-pale);
+  border-bottom: var(--border-thick);
+  padding: 12px 0 0;
+  position: relative; z-index: 1;
+  width: 100%;
 }
-
 .logos-and-title .logo {
-    width: 100%;
-    height: auto;
-    max-height: 800px;
-    object-fit: contain;
+  width: 100%; height: auto; max-height: 180px; object-fit: contain;
 }
 
-/* Tag New Words */
-.new-words {
-    position: fixed;
-    top: 50%;
-    right: 20px;
-    transform: translateY(-50%);
-    background-color: #ffeb3b;
-    padding: 10px;
-    border-radius: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-weight: bold;
+/* ── PAGE HERO ── */
+.page-hero {
+  background: var(--peach-pale);
+  border-bottom: var(--border-thick);
+  padding: 36px 24px 28px;
+  text-align: center;
+  position: relative; z-index: 1; overflow: hidden;
+  width: 100%;
 }
-.new-words a {
-    text-decoration: none;
-    color: inherit;
+.page-hero::before {
+  content: '🖼️';
+  position: absolute; font-size: 130px;
+  opacity: 0.1; top: -10px; right: 40px;
+  pointer-events: none;
 }
-.new-words a:hover {
-    color: #ff5722;
+.page-hero .tag {
+  display: inline-block;
+  background: var(--peach); border: var(--border); border-radius: 50px;
+  padding: 6px 18px; font-weight: 600; font-size: 0.95rem;
+  box-shadow: var(--shadow-sm); margin-bottom: 14px;
 }
-
-/* Footer */
-footer {
-    background-color: #8bc34a;
-    color: white;
-    padding: 15px;
-    text-align: center;
-    width: 100%;
-}
-footer .social-icons {
-    margin-top: 10px;
-}
-footer .social-icons a {
-    margin: 0 10px;
-    text-decoration: none;
-    color: white;
+.page-hero h2 {
+  font-weight: 700; font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.2;
 }
 
-/* Responsive cho màn hình nhỏ hơn 768px */
-@media screen and (max-width: 768px) {
-    header {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    .logos-and-title {
-        flex-direction: column;
-        padding: 10px;
-    }
-
-    .logos-and-title .logo {
-        max-height: 200px;
-        margin: 10px 0;
-    }
-
-    .new-words {
-        right: 10px;
-        padding: 8px;
-    }
+/* ── CONTROLS BAR ── */
+.controls-bar {
+  background: var(--white);
+  border-bottom: var(--border-thick);
+  padding: 18px 24px;
+  position: relative; z-index: 1;
+  display: flex; flex-wrap: wrap; gap: 12px;
+  align-items: center; justify-content: center;
+  width: 100%;
 }
 
-/* Responsive cho màn hình rất nhỏ */
-@media screen and (max-width: 480px) {
-    header h1 {
-        font-size: 1.3rem;
-    }
+/* ── SEARCH ── */
+.search-container {
+  display: flex; gap: 8px; align-items: center; justify-content: center;
+  margin: 0;
+}
+#searchInput {
+  font-family: 'Fredoka', sans-serif; font-weight: 500; font-size: 1rem;
+  padding: 9px 18px; border: var(--border); border-radius: 50px;
+  background: var(--bg); outline: none;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.12s;
+  width: 260px;
+}
+#searchInput:focus { box-shadow: 4px 4px 0 var(--black); }
+#searchButton {
+  font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem;
+  background: var(--green); color: white;
+  padding: 9px 22px; border: var(--border-thick); border-radius: 50px;
+  box-shadow: var(--shadow-sm); cursor: pointer;
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+#searchButton:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
 
-    .logos-and-title .logo {
-        max-height: 150px;
-    }
+/* ── FILTER CONTROLS ── */
+.filter-controls {
+  display: flex !important;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 !important;
+}
+#countInput {
+  font-family: 'Fredoka', sans-serif; font-weight: 500; font-size: 1rem;
+  padding: 9px 14px; border: var(--border); border-radius: 50px;
+  background: var(--bg); outline: none;
+  box-shadow: var(--shadow-sm); width: 110px;
+}
+#sortSelect {
+  font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1rem;
+  padding: 9px 16px; border: var(--border); border-radius: 50px;
+  background: var(--white); outline: none;
+  box-shadow: var(--shadow-sm); cursor: pointer;
+  appearance: none; -webkit-appearance: none; margin: 0;
+}
+#okButton {
+  font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem;
+  background: var(--green); color: white;
+  padding: 9px 24px; border: var(--border-thick); border-radius: 50px;
+  box-shadow: var(--shadow-sm); cursor: pointer;
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+#okButton:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+
+/* ── GRID SECTION ── */
+.grid-section {
+  flex: 1; padding: 32px 24px 100px;
+  position: relative; z-index: 1; width: 100%;
 }
 
-/* Grid Container */
+/* ── GRID CONTAINER ── */
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
-    width: 100%;
-    justify-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  width: 100%;
+  justify-items: center;
+  margin: 0 auto;
+  position: relative; z-index: 1;
 }
 
-/* Card styles */
+/* ── FLIP CARD ── */
 .card {
-    width: 100%;
-    max-width: 300px;
-    height: 300px;
-    perspective: 1000px;
-    position: relative;
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
+  perspective: 1000px;
+  position: relative;
 }
+
 .card-front,
 .card-back {
-    width: 100%;
-    height: 100%;
-    background: white;
-    position: absolute;
-    backface-visibility: hidden;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.6s;
+  width: 100%; height: 100%;
+  background: var(--white);
+  position: absolute;
+  backface-visibility: hidden;
+  border: var(--border-thick);
+  border-radius: 18px;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.6s, box-shadow 0.15s;
 }
-.card-front {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.card img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-}
-.card-back {
-    display: flex; /* Dùng Flexbox */
-    justify-content: center; /* Căn giữa ngang */
-    align-items: center; /* Căn giữa dọc */
-    transform: rotateY(180deg);
-    text-align: center;
-    flex-direction: column;
-}
-.card.flipped .card-front {
-    transform: rotateY(180deg);
-}
-.card.flipped .card-back {
-    transform: rotateY(0deg);
+.card:hover .card-front,
+.card:hover .card-back {
+  box-shadow: var(--shadow-lg);
 }
 
-/* Responsive Grid Adjustments */
-@media (max-width: 1024px) {
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.card-front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--green-pale);
+}
+.card img {
+  width: 100%; height: auto; border-radius: 14px;
+}
+
+.card-back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(180deg);
+  text-align: center;
+  flex-direction: column;
+  background: var(--yellow-pale);
+  padding: 16px;
+  gap: 8px;
+}
+.card.flipped .card-front { transform: rotateY(180deg); }
+.card.flipped .card-back  { transform: rotateY(0deg); }
+
+/* ── AUDIO BUTTON ── */
+.audio-button {
+  position: absolute; top: 10px; right: 10px;
+  padding: 5px 10px;
+  border: var(--border); font-size: 16px; color: var(--black);
+  background: rgba(255,255,255,0.9);
+  border-radius: 50px; cursor: pointer; z-index: 2;
+  font-family: 'Fredoka', sans-serif; font-weight: 600;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.12s;
+}
+.audio-button:hover { transform: translate(-1px,-1px); }
+
+/* ── CHARACTER INTERACTION ── */
+.character {
+  transition: color 0.3s ease, font-size 0.3s ease;
+  cursor: pointer;
+}
+.character:hover { color: var(--green-dark); }
+.character.clicked { color: #e53935; font-size: 1.2em; }
+
+/* Card back interaction */
+.card-back { pointer-events: auto; user-select: text; }
+.card-back a { pointer-events: auto; }
+.card-back .character { pointer-events: auto; }
+
+/* ── DONATE TAG ── */
+.new-words,
+.donate-tag {
+  position: fixed; top: 50%; right: 20px; transform: translateY(-50%);
+  background: var(--yellow); border: var(--border-thick);
+  border-radius: 20px; padding: 10px 14px;
+  box-shadow: var(--shadow-md); font-weight: 700; font-size: 0.95rem; z-index: 50;
+  font-family: 'Fredoka', sans-serif;
+}
+.new-words a, .donate-tag a { text-decoration: none; color: var(--black); }
+.new-words a:hover, .donate-tag a:hover { color: var(--green-dark); }
+
+/* ── FOOTER ── */
+footer {
+  background: #222; color: rgba(255,255,255,0.65);
+  padding: 28px 50px; text-align: center;
+  position: relative; z-index: 1; width: 100%;
+}
+footer .brand { font-weight: 700; color: var(--green-light); font-size: 1.3rem; margin-bottom: 6px; }
+footer p { font-size: 0.95rem; font-weight: 500; margin-bottom: 3px; font-family: 'Fredoka', sans-serif; }
+.social-icons { margin-top: 14px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.social-icons a {
+  text-decoration: none; color: var(--black);
+  font-weight: 600; font-size: 0.9rem;
+  background: var(--green-light); border: var(--border); border-radius: 50px;
+  padding: 5px 16px; box-shadow: var(--shadow-sm);
+  transition: transform 0.12s; font-family: 'Fredoka', sans-serif;
+}
+.social-icons a:hover { transform: translate(-1px,-2px); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  header { padding: 0 20px; position: relative; }
+  .menu-toggle { display: block; }
+  nav { display: none; position: absolute; top: 66px; left: 0; right: 0; background: var(--green); border-bottom: var(--border); padding: 12px 0; }
+  nav.show { display: flex; flex-direction: column; align-items: center; }
+  nav ul { flex-direction: column; align-items: center; gap: 8px; padding: 6px 0; }
+  footer { padding: 28px 20px; }
+  #searchInput { width: 180px; }
+  .new-words, .donate-tag { right: 10px; padding: 8px; }
+  .grid-container { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 600px) {
-    .grid-container {
-        grid-template-columns: 1fr;
-        justify-items: center;
-    }
+  .grid-container { grid-template-columns: 1fr; justify-items: center; }
 }
 
-/* Character Interaction */
-.character {
-    transition: color 0.3s ease, font-size 0.3s ease;
-    cursor: pointer;
-}
-.character.clicked {
-    color: red;
-    font-size: 1.2em;
-}
-
-/* Card Back Interaction */
-.card-back {
-    pointer-events: auto;
-    user-select: text;
-}
-.card-back a {
-    pointer-events: auto; /* Đảm bảo rằng liên kết có thể nhấp được */
-}
-.card-back .character {
-    pointer-events: auto;
-}
-
-/* Audio Button */
-.audio-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: 5px 10px;
-    border: none;
-    font-size: 16px;
-    color: black;
-    border-radius: 5px;
-    cursor: pointer;
-    z-index: 2;
-}
-.audio-button:hover {
-    background-color: #dee3de;
-}
-.search-container {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
-
-#searchInput {
-    padding: 8px;
-    width: 300px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-#searchButton {
-    padding: 8px 15px;
-    background-color: #0078d7;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    margin-left: 10px;
-    cursor: pointer;
-}
-
-#searchButton:hover {
-    background-color: #005bb5;
-}
-/* CSS cho phần nhập số lượng hình ảnh và chọn sắp xếp */
-div {
-    display: flex; /* Sử dụng Flexbox để căn chỉnh */
-    justify-content: center; /* Căn giữa nội dung */
-    align-items: center; /* Căn giữa theo chiều dọc */
-    margin: 20px; /* Khoảng cách bên ngoài */
-}
-
-#countInput {
-    padding: 10px; /* Padding cho ô nhập số lượng */
-    font-size: 16px; /* Kích thước chữ */
-    border: 1px solid #ccc; /* Đường viền */
-    border-radius: 4px; /* Bo góc */
-    width: 80px; /* Chiều rộng của ô nhập */
-    margin-right: 10px; /* Khoảng cách bên phải */
-}
-
-#sortSelect {
-    padding: 10px; /* Padding cho ô chọn sắp xếp */
-    font-size: 16px; /* Kích thước chữ */
-    border: 1px solid #ccc; /* Đường viền */
-    border-radius: 4px; /* Bo góc */
-    margin-right: 10px; /* Khoảng cách bên phải */
-}
-
-#okButton {
-    padding: 10px 15px; /* Padding cho nút OK */
-    font-size: 16px; /* Kích thước chữ */
-    background-color: #4CAF50; /* Màu nền */
-    color: white; /* Màu chữ */
-    border: none; /* Không có đường viền */
-    border-radius: 4px; /* Bo góc */
-    cursor: pointer; /* Con trỏ khi di chuột */
-}
-
-#okButton:hover {
-    background-color: #45a049; /* Màu nền khi hover */
+@media (max-width: 480px) {
+  header h1 { font-size: 1.3rem; }
 }
