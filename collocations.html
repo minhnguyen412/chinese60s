@@ -1,406 +1,395 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COLLOCATIONS</title>
-    <link rel="stylesheet" href="css/grammar.css">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3235921032748480"
-     crossorigin="anonymous"></script>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collocations — Chinese60s</title>
+  <link rel="stylesheet" href="css/grammar.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3235921032748480" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #222;
+      --green: #7cb83e;
+      --green-dark: #5a8f27;
+      --green-light: #d8f0a0;
+      --green-pale: #f2fde0;
+      --yellow: #ffd84d;
+      --yellow-pale: #fffbe6;
+      --peach: #ffb89a;
+      --peach-pale: #fff3ee;
+      --sky: #72c8f0;
+      --sky-pale: #eaf8ff;
+      --lavender: #c5b0f8;
+      --lavender-pale: #f3f0ff;
+      --pink: #ffadc5;
+      --pink-pale: #fff2f6;
+      --white: #fff;
+      --bg: #fffef5;
+      --shadow-sm: 3px 3px 0 var(--black);
+      --shadow-md: 4px 4px 0 var(--black);
+      --shadow-lg: 6px 6px 0 var(--black);
+      --border: 2.5px solid var(--black);
+      --border-thick: 3px solid var(--black);
+    }
 
-      html, body {
-        height: 100%;
-      
-      }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-      body {
-        font-family: Arial, sans-serif;
-        line-height: 1.6;
-        display: flex;
-        flex-direction: column;
-        background-image: url('assets/3.png'); /* Đường dẫn đến ảnh */
-        background-size: cover; /* Ảnh phủ toàn bộ màn hình */
-        background-position: center; /* Căn giữa */
-        background-repeat: no-repeat; /* Không lặp lại ảnh */
-        background-attachment: fixed;
-      }
-      /* Header */
-      header {
-        background-color: #8bc34a;
-        color: white;
-        padding: 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-left: 50px;
-        padding-right: 50px;
-      }
-      .homepage-link {
-        text-decoration: none;
-        color: white; /* Giữ nguyên màu sắc của text gốc */
-      }
-      .menu-toggle {
-        display: none;
-        font-size: 24px;
-        background: none;
-        border: none;
-        color: white;
-        cursor: pointer;
-      }
-      nav ul {
-        list-style: none;
-        display: flex;
-        gap: 20px;
-      }
+    body {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 500;
+      background: var(--bg);
+      color: var(--black);
+      overflow-x: hidden;
+      display: flex; flex-direction: column; min-height: 100vh;
+    }
 
-      nav ul li a {
-        text-decoration: none;
-        color: white;
-        font-weight: bold;
-      }
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px);
+      background-size: 22px 22px;
+      pointer-events: none; z-index: 0;
+    }
 
-      nav ul li a:hover {
-        text-decoration: underline;
-      }
-      /* Hide menu in responsive mode */
-      nav {
-        display: flex;
-      }
+    /* ── HEADER ── */
+    header {
+      background: var(--green); border-bottom: var(--border-thick);
+      padding: 0 50px; height: 66px;
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 100;
+    }
+    header a.brand { text-decoration: none; }
+    header h1 { font-weight: 700; font-size: 1.7rem; color: white; letter-spacing: 0.04em; text-shadow: 2px 2px 0 rgba(0,0,0,0.25); }
+    .menu-toggle { display: none; font-size: 24px; background: none; border: none; color: white; cursor: pointer; }
+    nav ul { list-style: none; display: flex; gap: 8px; }
+    nav ul li a {
+      text-decoration: none; color: var(--black); font-weight: 600; font-size: 1rem;
+      background: var(--white); border: var(--border); border-radius: 50px;
+      padding: 6px 18px; display: inline-block;
+      box-shadow: var(--shadow-sm); transition: transform 0.12s, box-shadow 0.12s;
+    }
+    nav ul li a:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
 
-      /* Responsive cho màn hình nhỏ hơn 768px */
-      @media screen and (max-width: 768px) {
-        .menu-toggle {
-          display: block;
-          position: absolute;
-          top: 15px;
-          right: 20px;
-        }
+    @media (max-width: 768px) {
+      header { padding: 0 20px; position: relative; }
+      .menu-toggle { display: block; }
+      nav { display: none; position: absolute; top: 66px; left: 0; right: 0; background: var(--green); border-bottom: var(--border); padding: 12px 0; }
+      nav.show { display: flex; flex-direction: column; align-items: center; }
+      nav ul { flex-direction: column; align-items: center; gap: 8px; padding: 6px 0; }
+    }
 
-        nav {
-          display: none;
-          flex-direction: column;
-          position: absolute;
-          top: 60px;
-          right: 0;
-          background-color: #8bc34a;
-          width: 100%;
-          padding: 10px 0;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: var(--lavender-pale); border-bottom: var(--border-thick);
+      padding: 48px 24px 40px; text-align: center;
+      position: relative; overflow: hidden; z-index: 1;
+    }
+    .page-hero::before { content: '🔗'; position: absolute; font-size: 150px; opacity: 0.1; top: -20px; right: 40px; pointer-events: none; }
+    .page-hero .tag {
+      display: inline-block; background: var(--lavender);
+      border: var(--border); border-radius: 50px;
+      padding: 6px 18px; font-weight: 600; font-size: 0.95rem;
+      box-shadow: var(--shadow-sm); margin-bottom: 14px;
+    }
+    .page-hero h2 { font-weight: 700; font-size: clamp(2rem, 4.5vw, 3rem); margin-bottom: 10px; }
+    .page-hero p  { font-size: 1.05rem; color: #666; max-width: 500px; margin: 0 auto; line-height: 1.65; }
 
-        nav.show {
-          display: flex;
-        }
+    /* ── QUICK NAV ── */
+    .quick-nav {
+      background: var(--white); border-bottom: var(--border-thick);
+      padding: 14px 24px;
+      display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+      position: relative; z-index: 1;
+    }
+    .quick-nav a {
+      background: var(--yellow-pale); border: var(--border); border-radius: 50px;
+      padding: 6px 18px; font-weight: 600; font-size: 0.9rem;
+      text-decoration: none; color: var(--black);
+      box-shadow: var(--shadow-sm); transition: transform 0.12s, box-shadow 0.12s;
+    }
+    .quick-nav a:hover { transform: translate(-1px,-2px); box-shadow: 4px 4px 0 var(--black); }
 
-        nav ul {
-          flex-direction: column;
-          align-items: center;
-          gap: 10px;
-        }
+    /* ── MAIN ── */
+    .main-content { flex: 1; padding: 40px 24px 72px; position: relative; z-index: 1; }
+    .container { max-width: 900px; margin: 0 auto; }
 
-        nav ul li a {
-          font-size: 1rem;
-        }
-      }
+    .page-title {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--white); border: var(--border-thick); border-radius: 20px;
+      padding: 12px 28px; font-weight: 700; font-size: 1.6rem;
+      box-shadow: var(--shadow-lg); margin-bottom: 28px;
+    }
 
-    
-      .logos-and-title {
-      
-        display: flex;
-        justify-content: center; /* Phân tách khoảng cách giữa các phần tử */
-        align-items: center;/* Căn giữa theo chiều dọc */
-        width: 100%;
-      
-      
-      }
+    /* ── ACCORDION ── */
+    .accordion { display: flex; flex-direction: column; gap: 14px; }
 
-      .logos-and-title .logo {
-        width: 100%;
-        height: auto;
-        max-height: 800px;
-        object-fit: contain;
-      }
-    
-      /* Buttons Section */
-      .button-container {
-        display: flex;
-        justify-content: center;
-        gap: 10px; /* Khoảng cách giữa các nút */
-        margin-top: 10px; /* Khoảng cách giữa title và buttons */
-        width: 100%; /* Đảm bảo sử dụng toàn bộ chiều rộng */
-      }
+    .accordion-item {
+      background: var(--white);
+      border: var(--border-thick); border-radius: 20px;
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      transition: box-shadow 0.15s;
+    }
+    .accordion-item:hover { box-shadow: 6px 6px 0 var(--black); }
 
-      .button-container button {
-        padding: 10px 15px;
-        background-color: #fff45e;
-        color: black;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        flex: 0 1 200px; /* Đặt chiều rộng tối đa cho nút */
-        max-width: 200px; /* Chiều rộng tối đa */
-        text-align: center; /* Căn giữa nội dung */
-        font-weight: bold;
-        font-size: 16px;
-      }
+    .accordion-item:nth-child(6n+1) { border-left: 6px solid var(--lavender); }
+    .accordion-item:nth-child(6n+2) { border-left: 6px solid var(--peach); }
+    .accordion-item:nth-child(6n+3) { border-left: 6px solid var(--pink); }
+    .accordion-item:nth-child(6n+4) { border-left: 6px solid var(--green); }
+    .accordion-item:nth-child(6n+5) { border-left: 6px solid var(--yellow); }
+    .accordion-item:nth-child(6n+6) { border-left: 6px solid var(--sky); }
 
-      .button-container button:hover {
-        background-color: #f7eb3e; /* Màu hover */
-      }
+    .accordion-header {
+      width: 100%; background: none; border: none; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 22px; gap: 12px;
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem;
+      color: var(--black); text-align: left;
+      transition: background 0.15s;
+    }
+    .accordion-header:hover { background: var(--lavender-pale); }
 
-    
+    .toggle-icon {
+      min-width: 30px; height: 30px;
+      background: var(--lavender); border: var(--border); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; font-weight: 700; flex-shrink: 0;
+      box-shadow: 2px 2px 0 var(--black);
+      transition: transform 0.2s, background 0.15s;
+    }
+    .accordion-item.open .toggle-icon {
+      background: var(--green); color: white;
+      transform: rotate(45deg);
+    }
 
-      /* Footer */
-      footer {
-        background-color: #8bc34a;
-        color: white;
-        padding: 15px;
-        text-align: center;
-      }
+    .accordion-content {
+      display: none;
+      padding: 0 22px 22px;
+      border-top: var(--border);
+      background: var(--bg);
+    }
+    .accordion-item.open .accordion-content { display: block; }
 
-      footer .social-icons {
-        margin-top: 10px;
-      }
+    .accordion-content p {
+      font-size: 1rem; color: #444; line-height: 1.7; margin-bottom: 10px;
+    }
+    .accordion-content p:last-child { margin-bottom: 0; }
 
-      footer .social-icons a {
-        margin: 0 10px;
-        text-decoration: none;
-        color: white;
-      }
-    
-    
-  /* Responsive cho màn hình nhỏ hơn 768px */
-  @media screen and (max-width: 768px) {
-      /* Header */
-      header {
-        flex-direction: column;
-        text-align: center;
-      }
+    .accordion-content p[style*="color: red"] {
+      background: var(--yellow-pale);
+      border: var(--border); border-radius: 14px;
+      padding: 10px 18px !important;
+      box-shadow: var(--shadow-sm);
+      font-size: 1.1rem !important;
+      color: var(--green-dark) !important;
+    }
 
-      nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-      }
+    /* ── FOOTER ── */
+    footer {
+      background: #222; color: rgba(255,255,255,0.65);
+      padding: 28px 50px; text-align: center; position: relative; z-index: 1;
+    }
+    footer .brand { font-weight: 700; color: var(--green-light); font-size: 1.3rem; margin-bottom: 6px; }
+    footer p { font-size: 0.95rem; font-weight: 500; margin-bottom: 3px; }
+    .social-icons { margin-top: 14px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .social-icons a {
+      text-decoration: none; color: var(--black); font-weight: 600; font-size: 0.9rem;
+      background: var(--green-light); border: var(--border); border-radius: 50px;
+      padding: 5px 16px; box-shadow: var(--shadow-sm); transition: transform 0.12s;
+    }
+    .social-icons a:hover { transform: translate(-1px,-2px); }
 
-      /* Logos and Title */
-      .logos-and-title {
-        flex-direction: column;
-        padding: 10px;
-      }
+    .donate-tag {
+      position: fixed; top: 50%; right: 20px; transform: translateY(-50%);
+      background: var(--yellow); border: var(--border-thick); border-radius: 20px;
+      padding: 10px 14px; box-shadow: var(--shadow-md); font-weight: 700; font-size: 0.95rem; z-index: 50;
+    }
+    .donate-tag a { text-decoration: none; color: var(--black); }
 
-      .logos-and-title .logo {
-    
-        max-height: 200px;
-        margin: 10px 0;
-        
-      }
-      .button-container button {
-        flex: 0 1 120px; /* Đặt chiều rộng tối đa cho nút */
-        max-width: 120px; /* Chiều rộng tối đa */
-        font-size: 13px;
-      }
-
-    
-
-      /* Typography */
-      h1 {
-        font-size: 1.5rem;
-      }
-
-    
-  }
-
-  /* Responsive cho màn hình rất nhỏ */
-  @media screen and (max-width: 480px) {
-      header h1 {
-        font-size: 1.3rem;
-      }
-
-      .logos-and-title .logo {
-    
-        
-        max-height: 150px;
-      }
-
-      
-  }
+    @media (max-width: 768px) {
+      .main-content { padding: 28px 14px 60px; }
+      .accordion-header { font-size: 0.92rem; padding: 14px 16px; }
+      .accordion-content { padding: 0 16px 18px; }
+      footer { padding: 28px 20px; }
+    }
   </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-      <h1><a href="index.html" class="homepage-link">CHINESE 60s</a></h1>
-      <button class="menu-toggle" aria-label="Toggle navigation">
-        &#9776; <!-- Biểu tượng ba gạch -->
-      </button>
-      <nav>
-        <ul>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="courses.html">Courses</a></li>
-          <li><a href="https://www.amazon.com/shop/studiorum60s">Shop</a></li>
-        </ul>
-      </nav>
-    </header>
 
-    
-      
-    </div>
-    <!-- Buttons Section -->
-    <div class="button-container">
-      <button onclick="location.href='newword.html'">New Words</button>
-      <button onclick="location.href='write.html'">Learn to write</button>
-    </div>
+  <header>
+    <a href="index.html" class="brand"><h1>CHINESE 60s</h1></a>
+    <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <nav>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="https://www.amazon.com/shop/studiorum60s" target="_blank">Shop</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page-hero">
+    <span class="tag">🔗 Word Combinations</span>
+    <h2>Collocations</h2>
+    <p>Common Chinese word patterns and collocations from HSK 1–2, with usage notes and practice.</p>
+  </div>
+
+  <div class="quick-nav">
+    <a href="word-canvas.html">📖 New Words</a>
+    <a href="write.html">✍️ Learn to Write</a>
+    <a href="grammar.html">📐 Grammar</a>
+  </div>
+
+  <div class="main-content">
     <div class="container">
-        <h1>COLLOCATIONS</h1>
-        <div class="accordion">
-            <!-- Mục 1 -->
-            <div class="accordion-item" id="collo-1">
-                <button class="accordion-header">
-                    <span>[1] 有（一）点儿忙 - a little (too) busy</span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>有（一）点儿 means "slightly" (mostly used to refer to something unpleasant.)</p>
-                    <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">有（一）点儿 + ADJ</p>
-                    <div id="quiz-container-1" class="grammar-quiz" data-start-id="71" data-end-id="72"></div>
-                    <script src="js/grammar-quiz.js"></script>
-                </div>
-            </div>
+      <div class="page-title">🔗 COLLOCATIONS</div>
 
-            <!-- Mục 2 -->
-            <div class="accordion-item" id="collo-2">
-                <button class="accordion-header">
-                    <span>[2] 啊，在那儿呢。 - Ah, there it is!</span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>The meaning of the interjection “啊” ("ah") varies with the change of its tones. When pronounced in the 4th tone it means "I see" or "Now I understand". For example:</p>
-                    <p>啊，知道了。(Ah, I see!)</p>
-                    <p>The modal particle “呢” is used at the end of an indicative sentence to indicate confirmation.</p>
-                    
-                </div>
-            </div>
-            <!-- Mục 3 -->
-            <div class="accordion-item" id="collo-3">
-                <button class="accordion-header">
-                    <span>[3] 我只有两个弟弟。 - I have only two brothers.</span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>Both "两" and "二" mean "2", but they are used differently.</p>
-                    <p>两: <br>1. 2 + 量词： 两个、两本、两件、两家<br>2. 2 + 千、万：两千、两万</p>
-                    <p>二：<br>1. 1, 2, 3: 一、二、三、第二、二月、二楼<br>2. 2 + 十/百：二十、二百</p>
-                    
-                </div>
-            </div>
-            <!-- Mục 4 -->
-            <div class="accordion-item" id="collo-4">
-                <button class="accordion-header">
-                    <span>[4] 一百多个 - More than one hundred</span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>When "多" is added after a numeral, it indicates the number is rather more than the stated number.</p>
-                </div>
-            </div>          
-            <!-- Mục 5 -->
-            <div class="accordion-item" id="collo-5">
-                <button class="accordion-header">
-                    <span>[5] 不都是外国职员 - Not all (of them) are foreign employees</span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>"不都是" expresses partial negation; "都不是" expresses total negation.</p>
-                    <div id="quiz-container-2" class="grammar-type-quiz" data-start-id="82" data-end-id="83"></div>
-                    <script src="js/grammar-type-quiz.js"></script>
-                </div>
-            </div>
-            <!-- Mục 6 -->
-            <div class="accordion-item" id="collo-6">
-                <button class="accordion-header">
-                    <span>[6] 你跟我一起去，好吗？- You go with me, okay?</span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>An indicative sentence becomes inquisitive if it is followed by "......好吗？", which indicates a suggestion or a request.</p>
-                    <div id="quiz-container-3" class="grammar-type-quiz" data-start-id="97" data-end-id="98"></div>
-                    <script src="js/grammar-type-quiz.js"></script>
-                </div>
-            </div>
-            <!-- Mục 7 -->
-            <div class="accordion-item" id="collo-7">
-                <button class="accordion-header">
-                    <span>[7] 咱们走吧。- Let's go.</span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>"咱们" includes both the speaker and the listener. "咱们" has two usages: first, both the speaker and the listener are included; second, the listener is not included.</p>
-                    <div id="quiz-container-4" class="grammar-type-quiz" data-start-id="99" data-end-id="100"></div>
-                    <script src="js/grammar-type-quiz.js"></script>
-                </div>
-            </div> 
-            <!-- Mục 8 -->
-            <div class="accordion-item" id="collo-8">
-                <button class="accordion-header">
-                    <span>[8] 吧 - The modal particle "吧"</span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>The modal particle "吧" is used at the end of a sentence to lend it a suggestive, inquisitive or agreeing tone.</p>
-                    <div id="quiz-container-5" class="grammar-quiz" data-start-id="101" data-end-id="102"></div>
-                    <script src="js/grammar-quiz.js"></script>
-                </div>
-            </div>
-            <!-- Mục 9 -->
-            <div class="accordion-item" id="collo-9">
-                <button class="accordion-header">
-                    <span>[9] 我很少看 - I seldom watch (DVD)</span> 
-                    <span class="toggle-icon">+</span>
-                </button>
-                <div class="accordion-content">
-                    <p>"很少" (seldom) and "不常" (not often) are synonymous.</p>
-                    <p>"很少" can be used as an adverbial; "很多" cannot</p>
-                    <div id="quiz-container-5" class="grammar-quiz" data-start-id="103" data-end-id="104"></div>
-                    <script src="js/grammar-quiz.js"></script>
-                </div>
-            </div>     
+      <div class="accordion">
+
+        <div class="accordion-item" id="collo-1">
+          <button class="accordion-header">
+            <span>[1] 有（一）点儿忙 — a little (too) busy</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>有（一）点儿 means "slightly" (mostly used to refer to something unpleasant.)</p>
+            <p style="font-weight: bold; font-size: 25px; color: red; text-align: center;">有（一）点儿 + ADJ</p>
+            <div id="quiz-container-1" class="grammar-quiz" data-start-id="71" data-end-id="72"></div>
+            <script src="js/grammar-quiz.js"></script>
+          </div>
         </div>
+
+        <div class="accordion-item" id="collo-2">
+          <button class="accordion-header">
+            <span>[2] 啊，在那儿呢。 — Ah, there it is!</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>The meaning of the interjection "啊" ("ah") varies with the change of its tones. When pronounced in the 4th tone it means "I see" or "Now I understand". For example: 啊，知道了。(Ah, I see!)</p>
+            <p>The modal particle "呢" is used at the end of an indicative sentence to indicate confirmation.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="collo-3">
+          <button class="accordion-header">
+            <span>[3] 我只有两个弟弟。 — I have only two brothers.</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>Both "两" and "二" mean "2", but they are used differently.</p>
+            <p>两：<br>1. 2 + 量词：两个、两本、两件、两家<br>2. 2 + 千、万：两千、两万</p>
+            <p>二：<br>1. 1, 2, 3：一、二、三、第二、二月、二楼<br>2. 2 + 十/百：二十、二百</p>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="collo-4">
+          <button class="accordion-header">
+            <span>[4] 一百多个 — More than one hundred</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>When "多" is added after a numeral, it indicates the number is rather more than the stated number.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="collo-5">
+          <button class="accordion-header">
+            <span>[5] 不都是外国职员 — Not all (of them) are foreign employees</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>"不都是" expresses partial negation; "都不是" expresses total negation.</p>
+            <div id="quiz-container-2" class="grammar-type-quiz" data-start-id="82" data-end-id="83"></div>
+            <script src="js/grammar-type-quiz.js"></script>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="collo-6">
+          <button class="accordion-header">
+            <span>[6] 你跟我一起去，好吗？ — You go with me, okay?</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>An indicative sentence becomes inquisitive if it is followed by "......好吗？", which indicates a suggestion or a request.</p>
+            <div id="quiz-container-3" class="grammar-type-quiz" data-start-id="97" data-end-id="98"></div>
+            <script src="js/grammar-type-quiz.js"></script>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="collo-7">
+          <button class="accordion-header">
+            <span>[7] 咱们走吧。 — Let's go.</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>"咱们" includes both the speaker and the listener. "咱们" has two usages: first, both the speaker and the listener are included; second, the listener is not included.</p>
+            <div id="quiz-container-4" class="grammar-type-quiz" data-start-id="99" data-end-id="100"></div>
+            <script src="js/grammar-type-quiz.js"></script>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="collo-8">
+          <button class="accordion-header">
+            <span>[8] 吧 — The modal particle "吧"</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>The modal particle "吧" is used at the end of a sentence to lend it a suggestive, inquisitive or agreeing tone.</p>
+            <div id="quiz-container-5" class="grammar-quiz" data-start-id="101" data-end-id="102"></div>
+            <script src="js/grammar-quiz.js"></script>
+          </div>
+        </div>
+
+        <div class="accordion-item" id="collo-9">
+          <button class="accordion-header">
+            <span>[9] 我很少看 — I seldom watch (DVD)</span>
+            <span class="toggle-icon">+</span>
+          </button>
+          <div class="accordion-content">
+            <p>"很少" (seldom) and "不常" (not often) are synonymous.</p>
+            <p>"很少" can be used as an adverbial; "很多" cannot.</p>
+            <div id="quiz-container-6" class="grammar-quiz" data-start-id="103" data-end-id="104"></div>
+            <script src="js/grammar-quiz.js"></script>
+          </div>
+        </div>
+
+      </div><!-- /accordion -->
     </div>
+  </div>
 
-    <script src="js/grammar.js"></script>
-    <!-- Footer -->
-    <footer>
-      <p>Chinese60s</p>
-      <p>Learn Mandarin through images and videos</p>
-      <div class="social-icons">
-        <a href="#">Facebook</a>
-        <a href="#">YouTube</a>
-        <a href="#">TikTok</a>
-        <a href="#">Instagram</a>
-      </div>
-    </footer>
-    <script>
-    // JavaScript để điều khiển nút hamburger menu
-    document.addEventListener('DOMContentLoaded', function () {
-      const menuToggle = document.querySelector('.menu-toggle');
-      const nav = document.querySelector('nav');
+  <div class="donate-tag">
+    <a href="https://buymeacoffee.com/chinese60s" target="_blank">☕ Donate</a>
+  </div>
 
-      menuToggle.addEventListener('click', function () {
-        nav.classList.toggle('show');
+  <footer>
+    <p class="brand">CHINESE 60s</p>
+    <p>Learn Mandarin through images and videos</p>
+    <div class="social-icons">
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+      <a href="#">TikTok</a>
+      <a href="#">Instagram</a>
+    </div>
+  </footer>
 
-        // Chuyển đổi biểu tượng giữa ba gạch và dấu X
-        if (nav.classList.contains('show')) {
-          menuToggle.innerHTML = '&#10005;'; // Biểu tượng X
-        } else {
-          menuToggle.innerHTML = '&#9776;'; // Biểu tượng ba gạch
-        }
+  <script src="js/grammar.js"></script>
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('show');
+      toggle.innerHTML = nav.classList.contains('show') ? '&#10005;' : '&#9776;';
+    });
+
+    document.querySelectorAll('.accordion-header').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.accordion-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
       });
     });
   </script>
