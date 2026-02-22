@@ -1,0 +1,97 @@
+{
+  "$ref": "#/definitions/blog",
+  "definitions": {
+    "blog": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string",
+          "default": ""
+        },
+        "tag": {
+          "type": "string",
+          "default": "📚 Learning Guide"
+        },
+        "date": {
+          "type": "string",
+          "default": "2025"
+        },
+        "readTime": {
+          "type": "string",
+          "default": "5 min read"
+        },
+        "author": {
+          "type": "string",
+          "default": "Chinese60s Team"
+        },
+        "heroChar": {
+          "type": "string",
+          "default": "学"
+        },
+        "toc": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "label"
+            ],
+            "additionalProperties": false
+          },
+          "default": []
+        },
+        "prevPost": {
+          "type": "object",
+          "properties": {
+            "href": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "href",
+            "title"
+          ],
+          "additionalProperties": false
+        },
+        "nextPost": {
+          "type": "object",
+          "properties": {
+            "href": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "href",
+            "title"
+          ],
+          "additionalProperties": false
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
