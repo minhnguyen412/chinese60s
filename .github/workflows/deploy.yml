@@ -1,25 +1,34 @@
-name: Build and Deploy
+name: Build Blog
 
 on:
   push:
     branches:
-      - main  # hoặc nhánh mà bạn muốn tự động triển khai
+      - main
 
 jobs:
   build:
+    if: github.actor != 'github-actions'
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: '20'  # hoặc phiên bản Node.js mà bạn đang sử dụng
+          node-version: 20
 
       - name: Install dependencies
+        working-directory: blog-astro
         run: npm install
 
-      - name: Build the site
+      - name: Build Astro
+        working-directory: blog-astro
         run: npm run build
+
+      - name: Commit blog folder
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add blog
+          git commit -m "Auto build blog" || echo "No changes"
+          git push
