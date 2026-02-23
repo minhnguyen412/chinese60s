@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop — Chinese60s</title>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3235921032748480" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #222;
+      --green: #7cb83e;
+      --green-dark: #5a8f27;
+      --green-light: #d8f0a0;
+      --green-pale: #f2fde0;
+      --yellow: #ffd84d;
+      --yellow-pale: #fffbe6;
+      --peach: #ffb89a;
+      --peach-pale: #fff3ee;
+      --sky: #72c8f0;
+      --sky-pale: #eaf8ff;
+      --lavender: #c5b0f8;
+      --lavender-pale: #f3f0ff;
+      --pink: #ffadc5;
+      --pink-pale: #fff2f6;
+      --white: #fff;
+      --bg: #fffef5;
+      --shadow-sm: 3px 3px 0 var(--black);
+      --shadow-md: 4px 4px 0 var(--black);
+      --shadow-lg: 6px 6px 0 var(--black);
+      --border: 2.5px solid var(--black);
+      --border-thick: 3px solid var(--black);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 500;
+      background: var(--bg);
+      color: var(--black);
+      overflow-x: hidden;
+      display: flex; flex-direction: column; min-height: 100vh;
+    }
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px);
+      background-size: 22px 22px;
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--green); border-bottom: var(--border-thick);
+      padding: 0 50px; height: 66px;
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 100;
+    }
+    header a.brand { text-decoration: none; }
+    header h1 { font-weight: 700; font-size: 1.7rem; color: white; letter-spacing: 0.04em; text-shadow: 2px 2px 0 rgba(0,0,0,0.25); }
+    .menu-toggle { display: none; font-size: 24px; background: none; border: none; color: white; cursor: pointer; }
+    nav ul { list-style: none; display: flex; gap: 8px; }
+    nav ul li a {
+      text-decoration: none; color: var(--black); font-weight: 600; font-size: 1rem;
+      background: var(--white); border: var(--border); border-radius: 50px;
+      padding: 6px 18px; display: inline-block;
+      box-shadow: var(--shadow-sm); transition: transform 0.12s, box-shadow 0.12s;
+    }
+    nav ul li a:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+
+    @media (max-width: 768px) {
+      header { padding: 0 20px; position: relative; }
+      .menu-toggle { display: block; }
+      nav { display: none; position: absolute; top: 66px; left: 0; right: 0; background: var(--green); border-bottom: var(--border); padding: 12px 0; }
+      nav.show { display: flex; flex-direction: column; align-items: center; }
+      nav ul { flex-direction: column; align-items: center; gap: 8px; padding: 6px 0; }
+    }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: var(--peach-pale); border-bottom: var(--border-thick);
+      padding: 52px 24px 44px; text-align: center;
+      position: relative; overflow: hidden; z-index: 1;
+    }
+    .page-hero::before {
+      content: '🛒';
+      position: absolute; font-size: 180px; opacity: 0.08;
+      top: -20px; right: 40px; pointer-events: none; line-height: 1;
+    }
+    .page-hero .tag {
+      display: inline-block; background: var(--peach);
+      border: var(--border); border-radius: 50px;
+      padding: 6px 18px; font-weight: 700; font-size: 0.95rem;
+      box-shadow: var(--shadow-sm); margin-bottom: 16px;
+    }
+    .page-hero h2 { font-weight: 700; font-size: clamp(2rem, 4.5vw, 3.2rem); line-height: 1.2; margin-bottom: 10px; }
+    .page-hero p  { font-size: 1.05rem; color: #666; max-width: 520px; margin: 0 auto; line-height: 1.65; }
+
+    /* ── FILTER BAR ── */
+    .filter-bar {
+      background: var(--white); border-bottom: var(--border-thick);
+      padding: 14px 24px;
+      display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+      position: relative; z-index: 1;
+    }
+    .filter-btn {
+      font-family: 'Fredoka', sans-serif;
+      background: var(--yellow-pale); border: var(--border); border-radius: 50px;
+      padding: 7px 20px; font-weight: 700; font-size: 0.92rem;
+      cursor: pointer; box-shadow: var(--shadow-sm);
+      transition: transform 0.12s, box-shadow 0.12s, background 0.12s;
+      color: var(--black);
+    }
+    .filter-btn:hover { transform: translate(-1px,-2px); box-shadow: var(--shadow-md); }
+    .filter-btn.active { background: var(--green); color: white; box-shadow: var(--shadow-md); }
+
+    /* ── MAIN ── */
+    .main-content { flex: 1; padding: 52px 24px 80px; position: relative; z-index: 1; }
+    .container { max-width: 1140px; margin: 0 auto; }
+
+    /* ── SECTION TITLE ── */
+    .section-title {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--white); border: var(--border-thick); border-radius: 50px;
+      padding: 10px 24px; font-weight: 700; font-size: 1.1rem;
+      box-shadow: var(--shadow-md); margin-bottom: 28px;
+    }
+
+    /* ── FEATURED PRODUCT (first item) ── */
+    .featured-product {
+      margin-bottom: 44px;
+    }
+    .featured-card {
+      display: grid; grid-template-columns: 1fr 1fr;
+      background: var(--white);
+      border: var(--border-thick); border-radius: 24px;
+      box-shadow: var(--shadow-lg); overflow: hidden;
+      text-decoration: none; color: var(--black);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .featured-card:hover { transform: translate(-3px,-4px); box-shadow: 8px 8px 0 var(--black); }
+
+    .featured-img {
+      border-right: var(--border-thick);
+      overflow: hidden; display: flex; align-items: center; justify-content: center;
+      min-height: 300px; background: var(--peach-pale);
+      position: relative;
+    }
+    .featured-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s; }
+    .featured-card:hover .featured-img img { transform: scale(1.03); }
+    .featured-img .ph { display: flex; flex-direction: column; align-items: center; gap: 10px; color: #b84010; font-weight: 600; font-size: 0.9rem; }
+    .featured-img .ph span:first-child { font-size: 3.5rem; }
+
+    /* BEST SELLER badge */
+    .badge-bestseller {
+      position: absolute; top: 16px; left: 16px;
+      background: var(--yellow); border: var(--border); border-radius: 50px;
+      padding: 4px 14px; font-weight: 700; font-size: 0.8rem;
+      box-shadow: var(--shadow-sm); z-index: 2;
+    }
+    .badge-new {
+      position: absolute; top: 16px; left: 16px;
+      background: var(--sky); border: var(--border); border-radius: 50px;
+      padding: 4px 14px; font-weight: 700; font-size: 0.8rem;
+      box-shadow: var(--shadow-sm); z-index: 2;
+    }
+    .badge-sale {
+      position: absolute; top: 16px; left: 16px;
+      background: var(--pink); border: var(--border); border-radius: 50px;
+      padding: 4px 14px; font-weight: 700; font-size: 0.8rem;
+      box-shadow: var(--shadow-sm); z-index: 2;
+    }
+
+    .featured-body {
+      padding: 36px 32px;
+      display: flex; flex-direction: column; justify-content: center; gap: 12px;
+    }
+    .featured-body .cat-tag {
+      display: inline-block; align-self: flex-start;
+      background: var(--peach); border: var(--border); border-radius: 50px;
+      padding: 4px 14px; font-size: 0.8rem; font-weight: 700;
+      box-shadow: var(--shadow-sm);
+    }
+    .featured-body h3 { font-weight: 700; font-size: 1.6rem; line-height: 1.3; }
+    .featured-body .desc { font-size: 1rem; color: #666; line-height: 1.7; }
+    .featured-body .price {
+      font-size: 1.6rem; font-weight: 700; color: var(--green-dark);
+      display: flex; align-items: baseline; gap: 8px;
+    }
+    .featured-body .price .original {
+      font-size: 1rem; color: #aaa; text-decoration: line-through; font-weight: 500;
+    }
+    .buy-btn {
+      display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
+      background: var(--green); color: white;
+      border: var(--border); border-radius: 50px;
+      padding: 12px 28px; font-weight: 700; font-size: 1rem;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.12s, box-shadow 0.12s, background 0.12s;
+    }
+    .featured-card:hover .buy-btn { background: var(--green-dark); transform: translate(-1px,-1px); }
+
+    @media (max-width: 700px) {
+      .featured-card { grid-template-columns: 1fr; }
+      .featured-img { min-height: 200px; border-right: none; border-bottom: var(--border-thick); }
+      .featured-body { padding: 24px 20px; }
+    }
+
+    /* ── PRODUCT GRID ── */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    @media (max-width: 960px) { .product-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 560px)  { .product-grid { grid-template-columns: 1fr; } }
+
+    .product-card {
+      background: var(--white);
+      border: var(--border-thick); border-radius: 20px;
+      box-shadow: var(--shadow-md); overflow: hidden;
+      text-decoration: none; color: var(--black);
+      display: flex; flex-direction: column;
+      transition: transform 0.15s, box-shadow 0.15s;
+      position: relative;
+    }
+    .product-card:hover { transform: translate(-3px,-4px); box-shadow: 7px 7px 0 var(--black); }
+
+    .card-img {
+      width: 100%; aspect-ratio: 4/3;
+      overflow: hidden; border-bottom: var(--border-thick);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .card-img img { width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.3s; }
+    .product-card:hover .card-img img { transform: scale(1.05); }
+
+    /* placeholder bg colors */
+    .card-img .img-ph {
+      width:100%; height:100%;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      gap:8px; font-size:0.85rem; font-weight:600;
+    }
+    .card-img .img-ph .ph-emoji { font-size: 3rem; }
+    .ph-peach    { background: var(--peach-pale);   color: #b84010; }
+    .ph-yellow   { background: var(--yellow-pale);  color: #7a5c00; }
+    .ph-sky      { background: var(--sky-pale);     color: #1a6a9a; }
+    .ph-lavender { background: var(--lavender-pale);color: #4a2fa0; }
+    .ph-green    { background: var(--green-pale);   color: var(--green-dark); }
+    .ph-pink     { background: var(--pink-pale);    color: #a0305a; }
+
+    .card-body {
+      padding: 16px 18px 20px;
+      display: flex; flex-direction: column; flex: 1; gap: 6px;
+    }
+    .card-cat {
+      display: inline-block; align-self: flex-start;
+      padding: 3px 12px; border-radius: 50px; border: 1.5px solid var(--black);
+      font-size: 0.75rem; font-weight: 700;
+      box-shadow: 2px 2px 0 var(--black);
+    }
+    .cat-pdf      { background: var(--peach);   }
+    .cat-pack     { background: var(--yellow);  }
+    .cat-course   { background: var(--sky);     }
+    .cat-bundle   { background: var(--lavender);}
+
+    .card-body h4 { font-weight: 700; font-size: 1.05rem; line-height: 1.35; margin-top: 2px; }
+    .card-body .card-desc { font-size: 0.88rem; color: #666; line-height: 1.55; flex: 1; }
+    .card-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-top: 12px; padding-top: 12px;
+      border-top: var(--border);
+    }
+    .card-price { font-weight: 700; font-size: 1.15rem; color: var(--green-dark); }
+    .card-price .orig { font-size: 0.82rem; color: #aaa; text-decoration: line-through; font-weight: 500; margin-left: 4px; }
+    .card-cta {
+      background: var(--yellow); border: var(--border); border-radius: 50px;
+      padding: 6px 16px; font-weight: 700; font-size: 0.85rem;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.1s, box-shadow 0.1s;
+    }
+    .product-card:hover .card-cta { background: var(--green); color: white; transform: translate(-1px,-1px); box-shadow: var(--shadow-md); }
+
+    /* ── SECTION SEPARATOR ── */
+    .section-sep { border: none; border-top: var(--border-thick); margin: 56px 0 44px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #222; color: rgba(255,255,255,0.65);
+      padding: 28px 50px; text-align: center; position: relative; z-index: 1;
+    }
+    footer .brand { font-weight: 700; color: var(--green-light); font-size: 1.3rem; margin-bottom: 6px; }
+    footer p { font-size: 0.95rem; font-weight: 500; margin-bottom: 3px; }
+    .social-icons { margin-top: 14px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .social-icons a {
+      text-decoration: none; color: var(--black); font-weight: 600; font-size: 0.9rem;
+      background: var(--green-light); border: var(--border); border-radius: 50px;
+      padding: 5px 16px; box-shadow: var(--shadow-sm); transition: transform 0.12s;
+    }
+    .social-icons a:hover { transform: translate(-1px,-2px); }
+
+    .donate-tag {
+      position: fixed; top: 50%; right: 20px; transform: translateY(-50%);
+      background: var(--yellow); border: var(--border-thick); border-radius: 20px;
+      padding: 10px 14px; box-shadow: var(--shadow-md); font-weight: 700; font-size: 0.95rem; z-index: 50;
+    }
+    .donate-tag a { text-decoration: none; color: var(--black); }
+
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) { .main-content { padding: 36px 16px 60px; } footer { padding: 28px 20px; } }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="brand"><h1>CHINESE 60s</h1></a>
+    <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <nav>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="https://www.amazon.com/shop/studiorum60s" target="_blank">Amazon</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="page-hero">
+    <span class="tag">🛒 Digital Products</span>
+    <h2>Chinese60s Shop</h2>
+    <p>PDFs, practice packs, and learning resources — downloadable instantly via Gumroad.</p>
+  </div>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" data-filter="all">All Products</button>
+    <button class="filter-btn" data-filter="pdf">📄 PDFs</button>
+    <button class="filter-btn" data-filter="pack">📦 Packs</button>
+    <button class="filter-btn" data-filter="course">🎓 Courses</button>
+    <button class="filter-btn" data-filter="bundle">🎁 Bundles</button>
+  </div>
+
+  <div class="main-content">
+    <div class="container">
+
+      <!-- ═══ FEATURED ═══ -->
+      <div class="reveal" id="featured-section">
+        <div class="section-title">⭐ Featured</div>
+
+        <!--
+          ╔══════════════════════════════════════════════╗
+          ║  FEATURED PRODUCT — chỉnh sửa ở đây         ║
+          ║  img: đường dẫn ảnh, badge: bestseller/new   ║
+          ║  gumroad: link sản phẩm Gumroad              ║
+          ╚══════════════════════════════════════════════╝
+        -->
+        <div class="featured-product">
+          <a href="https://maxfilms.gumroad.com/l/mandarin-pronunciation-pack" target="_blank" class="featured-card" data-cat="pack">
+            <div class="featured-img">
+              <span class="badge-bestseller">⭐ Best Seller</span>
+              <!-- Thay bằng ảnh thật: <img src="assets/shop/pronunciation-pack.jpg" alt=""> -->
+              <img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1764554536/bigad_tz9jre.gif" alt="Mandarin Pronunciation Pack">
+            </div>
+            <div class="featured-body">
+              <span class="cat-tag">📦 Pack</span>
+              <h3>Mandarin Pronunciation Pack</h3>
+              <p class="desc">Master all 4 tones, initials, and finals with illustrated flashcards, audio guides, and practice exercises. Perfect for complete beginners.</p>
+              <div class="price">$9.99</div>
+              <span class="buy-btn">🛒 Get on Gumroad →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <hr class="section-sep">
+
+      <!-- ═══ ALL PRODUCTS GRID ═══ -->
+      <div class="reveal">
+        <div class="section-title">📦 All Products</div>
+      </div>
+
+      <!--
+        ╔══════════════════════════════════════════════╗
+        ║  PRODUCT GRID — thêm sản phẩm mới vào đây   ║
+        ║  Copy một .product-card và điền thông tin    ║
+        ╚══════════════════════════════════════════════╝
+      -->
+      <div class="product-grid reveal" id="product-grid">
+
+        <!-- Product 1 -->
+        <a href="https://maxfilms.gumroad.com/l/mandarin-pronunciation-pack" target="_blank" class="product-card" data-cat="pack">
+          <div class="card-img">
+            <img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1764554536/bigad_tz9jre.gif" alt="Mandarin Pronunciation Pack">
+            <span class="badge-bestseller">⭐ Best Seller</span>
+          </div>
+          <div class="card-body">
+            <span class="card-cat cat-pack">📦 Pack</span>
+            <h4>Mandarin Pronunciation Pack</h4>
+            <p class="card-desc">All 4 tones, initials & finals with illustrated flashcards and audio guides.</p>
+            <div class="card-footer">
+              <span class="card-price">$9.99</span>
+              <span class="card-cta">Get it →</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Product 2 — placeholder, thêm sản phẩm thật vào đây -->
+        <a href="https://gumroad.com" target="_blank" class="product-card" data-cat="pdf">
+          <div class="card-img">
+            <!-- <img src="assets/shop/product-2.jpg" alt=""> -->
+            <div class="img-ph ph-yellow">
+              <span class="ph-emoji">📄</span>
+              <span>Add image here</span>
+            </div>
+            <span class="badge-new">🆕 New</span>
+          </div>
+          <div class="card-body">
+            <span class="card-cat cat-pdf">📄 PDF</span>
+            <h4>Product Name Here</h4>
+            <p class="card-desc">Short description of this product — what it includes and who it's for.</p>
+            <div class="card-footer">
+              <span class="card-price">$0.00</span>
+              <span class="card-cta">Get it →</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Product 3 -->
+        <a href="https://gumroad.com" target="_blank" class="product-card" data-cat="course">
+          <div class="card-img">
+            <!-- <img src="assets/shop/product-3.jpg" alt=""> -->
+            <div class="img-ph ph-sky">
+              <span class="ph-emoji">🎓</span>
+              <span>Add image here</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-cat cat-course">🎓 Course</span>
+            <h4>Product Name Here</h4>
+            <p class="card-desc">Short description of this product — what it includes and who it's for.</p>
+            <div class="card-footer">
+              <span class="card-price">$0.00</span>
+              <span class="card-cta">Get it →</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Product 4 -->
+        <a href="https://gumroad.com" target="_blank" class="product-card" data-cat="bundle">
+          <div class="card-img">
+            <!-- <img src="assets/shop/product-4.jpg" alt=""> -->
+            <div class="img-ph ph-lavender">
+              <span class="ph-emoji">🎁</span>
+              <span>Add image here</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-cat cat-bundle">🎁 Bundle</span>
+            <h4>Product Name Here</h4>
+            <p class="card-desc">Short description of this product — what it includes and who it's for.</p>
+            <div class="card-footer">
+              <span class="card-price">$0.00</span>
+              <span class="card-cta">Get it →</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Product 5 -->
+        <a href="https://gumroad.com" target="_blank" class="product-card" data-cat="pdf">
+          <div class="card-img">
+            <div class="img-ph ph-green">
+              <span class="ph-emoji">📝</span>
+              <span>Add image here</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <span class="card-cat cat-pdf">📄 PDF</span>
+            <h4>Product Name Here</h4>
+            <p class="card-desc">Short description of this product — what it includes and who it's for.</p>
+            <div class="card-footer">
+              <span class="card-price">$0.00</span>
+              <span class="card-cta">Get it →</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Product 6 -->
+        <a href="https://gumroad.com" target="_blank" class="product-card" data-cat="pack">
+          <div class="card-img">
+            <div class="img-ph ph-pink">
+              <span class="ph-emoji">📦</span>
+              <span>Add image here</span>
+            </div>
+            <span class="badge-sale">🔥 Sale</span>
+          </div>
+          <div class="card-body">
+            <span class="card-cat cat-pack">📦 Pack</span>
+            <h4>Product Name Here</h4>
+            <p class="card-desc">Short description of this product — what it includes and who it's for.</p>
+            <div class="card-footer">
+              <span class="card-price">$0.00 <span class="orig">$0.00</span></span>
+              <span class="card-cta">Get it →</span>
+            </div>
+          </div>
+        </a>
+
+      </div><!-- /product-grid -->
+
+    </div>
+  </div>
+
+  <div class="donate-tag">
+    <a href="https://buymeacoffee.com/chinese60s" target="_blank">☕ Donate</a>
+  </div>
+
+  <footer>
+    <p class="brand">CHINESE 60s</p>
+    <p>Learn Mandarin through images and videos</p>
+    <div class="social-icons">
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+      <a href="#">TikTok</a>
+      <a href="#">Instagram</a>
+    </div>
+  </footer>
+
+  <script>
+    /* ── Header menu ── */
+    const toggle = document.querySelector('.menu-toggle');
+    const navEl  = document.querySelector('nav');
+    toggle.addEventListener('click', () => {
+      navEl.classList.toggle('show');
+      toggle.innerHTML = navEl.classList.contains('show') ? '&#10005;' : '&#9776;';
+    });
+
+    /* ── Filter ── */
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards      = document.querySelectorAll('.product-card');
+    const featSect   = document.getElementById('featured-section');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+
+        // Show/hide featured section
+        featSect.style.display = (filter === 'all') ? '' : 'none';
+
+        // Filter cards
+        cards.forEach(card => {
+          const match = filter === 'all' || card.dataset.cat === filter;
+          card.style.display = match ? '' : 'none';
+        });
+      });
+    });
+
+    /* ── Scroll reveal ── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 70);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
