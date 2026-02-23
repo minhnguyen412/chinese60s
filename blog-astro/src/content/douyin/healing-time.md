@@ -4,8 +4,8 @@ description: "Learn Chinese through a real Douyin video about Healing Time. Stud
 tag: "🎬 Douyin Script"
 date: "2025"
 readTime: "6 min read"
-level: "HSK 2–3 Level"
-heroChar: "租"
+level: "HSK 5 Level"
+heroChar: "治"
 heroBg: "var(--yellow-pale)"
 
 toc:
