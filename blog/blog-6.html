@@ -234,6 +234,8 @@
     ══════════════════════ */
     .image-card {
       position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
       z-index: 999;
       background: var(--white);
       border: var(--border-thick);
@@ -875,23 +877,6 @@
 
       document.body.appendChild(card);
       activeCard = card;
-
-      /* Position near clicked char but keep inside viewport */
-      const rect   = event.target.getBoundingClientRect();
-      const margin = 12;
-      let top  = rect.bottom + window.scrollY + margin;
-      let left = rect.left   + window.scrollX;
-
-      const cw = card.offsetWidth  || 280;
-      const ch = card.offsetHeight || 380;
-
-      if (left + cw > window.innerWidth - margin)  left = window.innerWidth - cw - margin;
-      if (left < margin) left = margin;
-      if (top  + ch > window.scrollY + window.innerHeight - margin)
-        top = rect.top + window.scrollY - ch - margin;
-
-      card.style.top  = top  + 'px';
-      card.style.left = left + 'px';
 
       /* Close button */
       card.querySelector('.card-close').addEventListener('click', (e) => {
