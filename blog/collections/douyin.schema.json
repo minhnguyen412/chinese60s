@@ -1,0 +1,234 @@
+{
+  "$ref": "#/definitions/douyin",
+  "definitions": {
+    "douyin": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string",
+          "default": ""
+        },
+        "tag": {
+          "type": "string",
+          "default": "🎬 Douyin Script"
+        },
+        "date": {
+          "type": "string",
+          "default": "2025"
+        },
+        "readTime": {
+          "type": "string",
+          "default": "6 min read"
+        },
+        "level": {
+          "type": "string",
+          "default": "HSK 2–3 Level"
+        },
+        "heroChar": {
+          "type": "string",
+          "default": "学"
+        },
+        "heroBg": {
+          "type": "string",
+          "default": "var(--yellow-pale)"
+        },
+        "lead": {
+          "type": "string",
+          "default": ""
+        },
+        "toc": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "label": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "label"
+            ],
+            "additionalProperties": false
+          },
+          "default": []
+        },
+        "script": {
+          "type": "object",
+          "properties": {
+            "cn": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "py": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "en": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "cn",
+            "py",
+            "en"
+          ],
+          "additionalProperties": false
+        },
+        "vocab": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "word": {
+                "type": "string"
+              },
+              "pinyin": {
+                "type": "string"
+              },
+              "meaning": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "word",
+              "pinyin",
+              "meaning"
+            ],
+            "additionalProperties": false
+          },
+          "default": []
+        },
+        "grammar": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "body": {
+                "type": "string"
+              },
+              "example": {
+                "type": "string"
+              },
+              "note": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "title",
+              "body"
+            ],
+            "additionalProperties": false
+          },
+          "default": []
+        },
+        "quickVocab": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "cn": {
+                "type": "string"
+              },
+              "pinyin": {
+                "type": "string"
+              },
+              "def": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "cn",
+              "pinyin",
+              "def"
+            ],
+            "additionalProperties": false
+          },
+          "default": []
+        },
+        "relatedPosts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "href": {
+                "type": "string"
+              },
+              "num": {
+                "type": [
+                  "number",
+                  "string"
+                ]
+              },
+              "label": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "href",
+              "num",
+              "label"
+            ],
+            "additionalProperties": false
+          },
+          "default": []
+        },
+        "ctaItems": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "prevPost": {
+          "type": "object",
+          "properties": {
+            "href": {
+              "type": "string"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "href",
+            "title"
+          ],
+          "additionalProperties": false
+        },
+        "nextPost": {
+          "$ref": "#/definitions/douyin/properties/prevPost"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "script"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
