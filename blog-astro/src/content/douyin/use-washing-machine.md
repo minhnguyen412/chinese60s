@@ -4,7 +4,7 @@ description: "Learn Chinese through a real Douyin video explaining how to use a 
 tag: "🎬 Douyin Script"
 date: "2025"
 readTime: "6 min read"
-level: "HSK 2–3 Level"
+level: "HSK 3 Level"
 heroChar: "洗"
 heroBg: "var(--sky-pale)"
 
