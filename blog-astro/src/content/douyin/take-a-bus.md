@@ -4,8 +4,8 @@ description: "Learn Chinese through a real Douyin video about taking a bus to go
 tag: "🎬 Douyin Script"
 date: "2025"
 readTime: "6 min read"
-level: "HSK 2–3 Level"
-heroChar: "租"
+level: "HSK 3-4 Level"
+heroChar: "车"
 heroBg: "var(--yellow-pale)"
 
 toc:
