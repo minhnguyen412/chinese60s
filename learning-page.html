@@ -281,6 +281,13 @@
     }
     .thumbnail .info h4 { margin-bottom: 4px; font-size: 1rem; font-weight: 700; }
     .thumbnail .info p { font-size: 0.875rem; color: #666; line-height: 1.5; }
+    .thumb-topic-tag {
+      display: inline-block;
+      background: var(--yellow); border: 1.5px solid var(--black); border-radius: 50px;
+      padding: 2px 12px; font-size: 0.75rem; font-weight: 700;
+      box-shadow: 2px 2px 0 var(--black);
+      margin-bottom: 6px;
+    }
 
     /* ══════════════════════════════════════
        🎬 REAL-LIFE CHINESE SECTION
@@ -601,6 +608,7 @@
           <a href="${item.htmlLink}">
             <img src="${item.thumbnail}" alt="${item.title} Thumbnail">
             <div class="info">
+              ${item.topic ? `<span class="thumb-topic-tag">${item.topic}</span>` : ''}
               <h4>${item.title}</h4>
               <p>${item.description}</p>
             </div>
