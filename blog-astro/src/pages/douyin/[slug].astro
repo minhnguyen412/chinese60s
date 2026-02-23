@@ -1,0 +1,46 @@
+---
+// src/pages/douyin/[slug].astro
+import { getCollection } from 'astro:content'
+import DouyinLayout from '../../layouts/DouyinLayout.astro'
+
+export async function getStaticPaths() {
+  const entries = await getCollection('douyin')
+  return entries.map(entry => ({
+    params: { slug: entry.slug },
+    props:  { entry },
+  }))
+}
+
+const { entry } = Astro.props
+const {
+  title, description, tag, date, readTime, level,
+  heroChar, heroBg, toc, script, vocab, grammar,
+  quickVocab, relatedPosts, ctaItems, prevPost, nextPost, lead,
+} = entry.data
+---
+
+<DouyinLayout
+  title={title}
+  description={description}
+  tag={tag}
+  date={date}
+  readTime={readTime}
+  level={level}
+  heroChar={heroChar}
+  heroBg={heroBg}
+  toc={toc}
+  script={script}
+  vocab={vocab}
+  grammar={grammar}
+  quickVocab={quickVocab}
+  relatedPosts={relatedPosts}
+  ctaItems={ctaItems}
+  prevPost={prevPost}
+  nextPost={nextPost}
+>
+  {lead && (
+    <div slot="lead" class="lead">
+      <p set:html={lead} />
+    </div>
+  )}
+</DouyinLayout>

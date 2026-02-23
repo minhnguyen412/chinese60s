@@ -1,0 +1,1077 @@
+---
+// src/layouts/DouyinLayout.astro
+export interface TocItem   { id: string; label: string }
+export interface NavLink   { href: string; title: string }
+export interface VocabRow  { word: string; pinyin: string; meaning: string }
+export interface QuickVocab { cn: string; pinyin: string; def: string }
+export interface RelatedPost { href: string; num: number | string; label: string }
+
+export interface GrammarCard {
+  id: string
+  title: string
+  body: string
+  example?: string
+  note?: string
+}
+
+export interface ScriptLines {
+  cn: string[]
+  py: string[]
+  en: string[]
+}
+
+export interface Props {
+  title: string
+  description?: string
+  tag?: string
+  date?: string
+  readTime?: string
+  level?: string
+  heroChar?: string
+  heroBg?: string
+  toc?: TocItem[]
+  script: ScriptLines
+  vocab: VocabRow[]
+  grammar: GrammarCard[]
+  quickVocab?: QuickVocab[]
+  relatedPosts?: RelatedPost[]
+  prevPost?: NavLink
+  nextPost?: NavLink
+  ctaItems?: string[]
+}
+
+const {
+  title,
+  description = '',
+  tag = '🎬 Douyin Script',
+  date = '2025',
+  readTime = '6 min read',
+  level = 'HSK 2–3 Level',
+  heroChar = '租',
+  heroBg = 'var(--yellow-pale)',
+  toc = [],
+  script,
+  vocab = [],
+  grammar = [],
+  quickVocab = [],
+  relatedPosts = [],
+  prevPost,
+  nextPost,
+  ctaItems = [],
+} = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <title>{title} — Chinese60s</title>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3235921032748480" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
+</head>
+<body>
+
+  <div id="progress-bar"></div>
+
+  <!-- ── HEADER ── -->
+  <header>
+    <a href="/index.html" class="brand"><h1>CHINESE 60s</h1></a>
+    <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <nav>
+      <ul>
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+        <li><a href="/courses.html">Courses</a></li>
+        <li><a href="https://www.amazon.com/shop/studiorum60s" target="_blank">Shop</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ── HERO ── -->
+  <div class="article-hero" style={`--hero-char:"${heroChar}"; --hero-bg:${heroBg}`}>
+    <div class="breadcrumb">
+      <a href="/index.html">Home</a><span>›</span>
+      <a href="/blog.html">Blog</a><span>›</span>
+      <span>Real-Life Chinese</span>
+    </div>
+    <span class="article-tag">{tag}</span>
+    <h1 set:html={title} />
+    <div class="article-meta">
+      <span class="meta-item">📅 {date}</span>
+      <span class="meta-sep">·</span>
+      <span class="meta-item">⏱ {readTime}</span>
+      <span class="meta-sep">·</span>
+      <span class="meta-item">📖 {level}</span>
+    </div>
+  </div>
+
+  <!-- ── PAGE LAYOUT ── -->
+  <div class="page-layout">
+    <main>
+      <article class="article-body">
+
+        <slot name="lead" />
+
+        <!-- ── SCRIPT ── -->
+        <h2 id="script">📽️ The Script</h2>
+
+        <div class="script-block">
+          <div class="script-tabs">
+            <button class="script-tab active" data-tab="cn">🇨🇳 Chinese</button>
+            <button class="script-tab" data-tab="py">🔤 Pinyin</button>
+            <button class="script-tab" data-tab="en">🇬🇧 English</button>
+          </div>
+
+          <!-- script CN: JS sẽ tokenize sau khi fetch JSON xong -->
+          <div class="script-panel cn active" id="tab-cn"
+               data-raw-lines={JSON.stringify(script.cn)}>
+            {script.cn.map((line, i) => (
+              <p class="cn-line">{line}{i < script.cn.length - 1 ? '' : ''}</p>
+            ))}
+          </div>
+          <div class="script-panel py" id="tab-py">
+            <p>{script.py.map((line, i) => <>{line}{i < script.py.length - 1 && <br />}</>)}</p>
+          </div>
+          <div class="script-panel en" id="tab-en">
+            <p>{script.en.map((line, i) => <>{line}{i < script.en.length - 1 && <br />}</>)}</p>
+          </div>
+        </div>
+
+        <hr class="post-divider" />
+
+        <!-- ── VOCAB TABLE ── -->
+        <h2 id="vocab">🧠 Useful Vocabulary</h2>
+
+        <div class="vocab-table-wrap">
+          <table class="vocab-table">
+            <thead>
+              <tr><th>Word</th><th>Pinyin</th><th>Meaning</th></tr>
+            </thead>
+            <tbody>
+              {vocab.map(row => (
+                <tr>
+                  <td>{row.word}</td>
+                  <td>{row.pinyin}</td>
+                  <td set:html={row.meaning}></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <hr class="post-divider" />
+
+        <!-- ── GRAMMAR CARDS ── -->
+        <h2 id="grammar">📚 Grammar Structures to Notice</h2>
+
+        <div class="grammar-cards">
+          {grammar.map((card, i) => (
+            <div class="grammar-card" id={card.id}>
+              <div class="grammar-card-head">
+                <span class="grammar-num">{i + 1}</span>
+                <h3>{card.title}</h3>
+              </div>
+              <div class="grammar-card-body">
+                <p set:html={card.body.replace(/\n/g, '<br />')} />
+                {card.example && <div class="example-line">{card.example}</div>}
+                {card.note && <div class="note" set:html={card.note.replace(/\n/g, '<br />')} />}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <hr class="post-divider" />
+
+        <!-- ── CTA ── -->
+        {ctaItems.length > 0 && (
+          <div class="cta-box">
+            <h3>✏️ Learn Chinese Naturally with Chinese60s</h3>
+            <ul>
+              {ctaItems.map(item => <li set:html={item} />)}
+            </ul>
+            <a href="https://chinese60s.com" target="_blank" class="cta-link">👉 Start at Chinese60s.com →</a>
+          </div>
+        )}
+
+        <!-- ── POST NAV ── -->
+        {(prevPost || nextPost) && (
+          <div class="post-nav">
+            <div>
+              {prevPost && (
+                <a href={prevPost.href}>
+                  <span class="nav-dir">← Previous</span>
+                  <span class="nav-title">{prevPost.title}</span>
+                </a>
+              )}
+            </div>
+            <div>
+              {nextPost && (
+                <a href={nextPost.href} class="next">
+                  <span class="nav-dir">Next →</span>
+                  <span class="nav-title">{nextPost.title}</span>
+                </a>
+              )}
+            </div>
+          </div>
+        )}
+
+        <p class="hint-text">💡 Click on each Chinese character to see its meaning and pronunciation</p>
+
+      </article>
+
+      <!-- ── COMMENTS ── -->
+      <div class="comments-section">
+        <h3>💬 Comments</h3>
+        <div id="disqus_thread"></div>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
+    </main>
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="sidebar">
+
+      {toc.length > 0 && (
+        <div class="sidebar-card">
+          <h3>📋 In this post</h3>
+          <ul class="toc-list">
+            {toc.map(item => (
+              <li><a href={`#${item.id}`}>{item.label}</a></li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {quickVocab.length > 0 && (
+        <div class="sidebar-card">
+          <h3>⚡ Quick Vocab</h3>
+          <div class="quick-vocab">
+            {quickVocab.map(v => (
+              <div class="qv-item">
+                <span class="qv-cn">{v.cn}</span>
+                <div>
+                  <div class="qv-py">{v.pinyin}</div>
+                  <div class="qv-def">{v.def}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {relatedPosts.length > 0 && (
+        <div class="sidebar-card">
+          <h3>🎬 More Scripts</h3>
+          <ul class="related-list">
+            {relatedPosts.map(p => (
+              <li>
+                <a href={p.href}>
+                  <span class="rp-num">{p.num}</span>
+                  {p.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <div class="sidebar-donate">
+        <span class="don-emoji">☕</span>
+        <h3>Support Chinese60s</h3>
+        <p>If this helped you learn, consider buying us a coffee!</p>
+        <a href="https://buymeacoffee.com/chinese60s" target="_blank">☕ Donate</a>
+      </div>
+
+    </aside>
+  </div>
+
+  <div class="donate-tag">
+    <a href="https://buymeacoffee.com/chinese60s" target="_blank">☕ Donate</a>
+  </div>
+
+  <footer>
+    <p class="brand">CHINESE 60s</p>
+    <p>Learn Mandarin through images and videos</p>
+    <div class="social-icons">
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+      <a href="#">TikTok</a>
+      <a href="#">Instagram</a>
+    </div>
+  </footer>
+
+  <!-- ── IMAGE CARD OVERLAY ── -->
+  <div id="ic-overlay" class="ic-overlay" style="display:none;"></div>
+  <div id="image-card" class="image-card" style="display:none;" role="dialog" aria-modal="true">
+    <button id="ic-close" class="ic-close" aria-label="Close">✕</button>
+    <!-- image hoặc placeholder sẽ được JS inject vào đây -->
+    <div id="ic-img-wrap"></div>
+    <div id="ic-char" class="card-char"></div>
+    <div id="ic-pinyin" class="card-pinyin"></div>
+    <div id="ic-meaning" class="card-meaning"></div>
+    <audio id="ic-audio" controls style="display:none;">
+      <source id="ic-audio-src" src="" type="audio/mpeg" />
+    </audio>
+    <div id="ic-writer-wrap" class="writer-area"></div>
+  </div>
+
+</body>
+</html>
+
+<script>
+  /* ── Menu toggle ── */
+  const toggle = document.querySelector('.menu-toggle')
+  const navEl  = document.querySelector('nav')
+  toggle?.addEventListener('click', () => {
+    navEl?.classList.toggle('show')
+    if (toggle) toggle.innerHTML = navEl?.classList.contains('show') ? '✕' : '☰'
+  })
+
+  /* ── Reading progress ── */
+  const bar = document.getElementById('progress-bar')
+  window.addEventListener('scroll', () => {
+    if (!bar) return
+    const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)
+    bar.style.width = Math.min(100, pct * 100) + '%'
+  })
+
+  /* ── Script tabs ── */
+  document.querySelectorAll('.script-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const key = (tab as HTMLElement).dataset.tab
+      document.querySelectorAll('.script-tab').forEach(t => t.classList.remove('active'))
+      document.querySelectorAll('.script-panel').forEach(p => p.classList.remove('active'))
+      tab.classList.add('active')
+      document.getElementById('tab-' + key)?.classList.add('active')
+    })
+  })
+
+  /* ── Image Card ── */
+  let activeCard    = false
+  let isOpening     = false
+  let writersList: any[] = []
+  let imagesData: any[] = []
+
+  const overlay    = document.getElementById('ic-overlay')!
+  const card       = document.getElementById('image-card')!
+  const closeBtn   = document.getElementById('ic-close')!
+  const icImgWrap  = document.getElementById('ic-img-wrap')!
+  const icChar     = document.getElementById('ic-char')!
+  const icMeaning  = document.getElementById('ic-meaning')!
+  const icPinyin   = document.getElementById('ic-pinyin')!
+  const icAudio    = document.getElementById('ic-audio') as HTMLAudioElement
+  const icAudioSrc = document.getElementById('ic-audio-src') as HTMLSourceElement
+  const icWrap     = document.getElementById('ic-writer-wrap')!
+
+  /* Fetch imagesData.json — tokenize script CN sau khi có data */
+  fetch('https://raw.githubusercontent.com/minhnguyen412/chinese60s/refs/heads/main/data/imagesData.json')
+    .then(r => r.ok ? r.json() : Promise.reject(r.status))
+    .then((data: any[]) => {
+      imagesData = data
+
+      // Build map: character string → entry (dùng Map để lookup nhanh)
+      const charMap = new Map<string, any>()
+      data.forEach(d => { if (d.character) charMap.set(d.character, d) })
+
+      // Sắp xếp keys theo độ dài giảm dần → match cụm dài trước
+      const sortedKeys = [...charMap.keys()].sort((a, b) => b.length - a.length)
+
+      // Tokenize 1 dòng text → array of {text, entry|null}
+      function tokenizeLine(line: string) {
+        const tokens: { text: string; entry: any | null }[] = []
+        let i = 0
+        while (i < line.length) {
+          let matched = false
+          // Thử match từ dài nhất
+          for (const key of sortedKeys) {
+            if (line.startsWith(key, i)) {
+              tokens.push({ text: key, entry: charMap.get(key)! })
+              i += key.length
+              matched = true
+              break
+            }
+          }
+          if (!matched) {
+            // Ký tự này không match bất kỳ entry nào → plain text
+            tokens.push({ text: line[i], entry: null })
+            i++
+          }
+        }
+        return tokens
+      }
+
+      // Re-render tab-cn
+      const tabCn = document.getElementById('tab-cn')!
+      const rawLines: string[] = JSON.parse(tabCn.dataset.rawLines || '[]')
+
+      tabCn.innerHTML = ''
+      rawLines.forEach((line, lineIdx) => {
+        const p = document.createElement('p')
+        p.className = 'cn-line'
+
+        const tokens = tokenizeLine(line)
+        tokens.forEach(tok => {
+          if (tok.entry) {
+            const span = document.createElement('span')
+            span.className = 'cn-char cn-char--clickable'
+            span.dataset.char = tok.text
+            span.textContent = tok.text
+            span.addEventListener('click', () => showImageCard(tok.entry))
+            p.appendChild(span)
+          } else {
+            // plain text node (dấu câu, khoảng trắng, ký tự không có trong JSON)
+            p.appendChild(document.createTextNode(tok.text))
+          }
+        })
+
+        tabCn.appendChild(p)
+      })
+    })
+    .catch(err => console.warn('imagesData.json load failed:', err))
+
+  /* Destroy writers */
+  function destroyWriters() {
+    writersList.forEach(w => { try { w.destroy() } catch (_) {} })
+    writersList = []
+    icWrap.innerHTML = ''
+  }
+
+  /* Open card */
+  function showImageCard(data: any) {
+    isOpening = true
+    setTimeout(() => { isOpening = false }, 150)
+
+    if (activeCard) closeImageCard()
+
+    // Image hoặc placeholder
+    icImgWrap.innerHTML = ''
+    if (data.imageSrc) {
+      const img = document.createElement('img')
+      img.src = data.imageSrc
+      img.alt = data.character || ''
+      icImgWrap.appendChild(img)
+    } else {
+      // No-image placeholder: hiện chữ Hán lớn
+      icImgWrap.innerHTML = `
+        <div class="card-no-img">
+          <span class="big-char">${data.character || ''}</span>
+          <small>no image</small>
+        </div>`
+    }
+
+    // Text — không có prefix "Meaning:" hay "Pinyin:" để gọn hơn
+    icChar.textContent    = data.character || ''
+    icPinyin.textContent  = data.pinyin    || ''
+    icMeaning.innerHTML = data.meaning || ''
+
+    // Ẩn/hiện meaning box nếu trống
+    ;(icMeaning as HTMLElement).style.display = data.meaning ? 'block' : 'none'
+
+    // Audio
+    if (data.audioSrc) {
+      icAudioSrc.src = data.audioSrc
+      icAudio.load()
+      icAudio.style.display = 'block'
+    } else {
+      icAudio.style.display = 'none'
+    }
+
+    // Xoá writers cũ
+    destroyWriters()
+
+    // Hiện card + overlay TRƯỚC
+    overlay.style.display = 'block'
+    card.style.display    = 'flex'
+    activeCard = true
+
+    // HanziWriter SAU khi card visible (requestAnimationFrame)
+    const chars = (data.character || '').split('').filter((c: string) => /[\u4E00-\u9FFF]/.test(c))
+    if (chars.length > 0) {
+      requestAnimationFrame(() => {
+        const size = 88 // fixed 88px như design
+        chars.forEach((char: string) => {
+          const box = document.createElement('div')
+          box.className = 'writer-box'
+
+          const hint = document.createElement('span')
+          hint.className = 'writer-hint'
+          hint.textContent = '▶ tap'
+          box.appendChild(hint)
+
+          icWrap.appendChild(box)
+          try {
+            const w = (window as any).HanziWriter.create(box, char, {
+              width: size, height: size, padding: 5,
+              showOutline: true,
+              strokeAnimationSpeed: 1.5,
+              delayBetweenStrokes: 250,
+            })
+            w.animateCharacter()
+            box.addEventListener('click', () => w.animateCharacter())
+            writersList.push(w)
+          } catch (e) { console.warn('HanziWriter error:', e) }
+        })
+      })
+    }
+  }
+
+  /* Close card */
+  function closeImageCard() {
+    card.style.display    = 'none'
+    overlay.style.display = 'none'
+    destroyWriters()
+    activeCard = false
+  }
+
+  /* Close triggers */
+  closeBtn.addEventListener('click', closeImageCard)
+  overlay.addEventListener('click', closeImageCard)
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeImageCard() })
+
+  /* Click outside card (not on overlay, since overlay already covers it) */
+  document.addEventListener('click', (e) => {
+    if (!isOpening && activeCard && !card.contains(e.target as Node) && e.target !== overlay) {
+      closeImageCard()
+    }
+  })
+
+  // Click listeners are added dynamically after JSON fetch above
+
+  /* ── Disqus ── */
+  ;(function () {
+    const d = document, s = d.createElement('script')
+    s.src = 'https://chinese60s-com.disqus.com/embed.js'
+    s.setAttribute('data-timestamp', String(+new Date()))
+    ;(d.head || d.body).appendChild(s)
+  })()
+</script>
+
+<style is:global>
+  /* ── TOKENS ── */
+  :root {
+    --black:         #222;
+    --green:         #7cb83e;
+    --green-dark:    #5a8f27;
+    --green-light:   #d8f0a0;
+    --green-pale:    #f2fde0;
+    --yellow:        #ffd84d;
+    --yellow-pale:   #fffbe6;
+    --peach:         #ffb89a;
+    --peach-pale:    #fff3ee;
+    --sky:           #72c8f0;
+    --sky-pale:      #eaf8ff;
+    --lavender:      #c5b0f8;
+    --lavender-pale: #f3f0ff;
+    --pink:          #ffadc5;
+    --white:         #fff;
+    --bg:            #fffef5;
+    --shadow-sm:     3px 3px 0 var(--black);
+    --shadow-md:     4px 4px 0 var(--black);
+    --shadow-lg:     6px 6px 0 var(--black);
+    --border:        2.5px solid var(--black);
+    --border-thick:  3px solid var(--black);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Fredoka', sans-serif; font-weight: 500;
+    background: var(--bg); color: var(--black);
+    overflow-x: hidden; display: flex; flex-direction: column; min-height: 100vh;
+  }
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background-image: radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px);
+    background-size: 22px 22px; pointer-events: none; z-index: 0;
+  }
+
+  /* ── PROGRESS ── */
+  #progress-bar {
+    position: fixed; top: 0; left: 0; height: 4px;
+    background: var(--yellow); width: 0%; z-index: 200;
+    border-right: 2px solid #b8860b; transition: width 0.1s linear;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--green); border-bottom: var(--border-thick);
+    padding: 0 50px; height: 66px;
+    display: flex; justify-content: space-between; align-items: center;
+    position: sticky; top: 0; z-index: 100;
+  }
+  header a.brand      { text-decoration: none; }
+  header h1           { font-weight: 700; font-size: 1.7rem; color: white; letter-spacing: 0.04em; text-shadow: 2px 2px 0 rgba(0,0,0,0.25); }
+  .menu-toggle        { display: none; font-size: 24px; background: none; border: none; color: white; cursor: pointer; }
+  nav ul              { list-style: none; display: flex; gap: 8px; }
+  nav ul li a {
+    text-decoration: none; color: var(--black); font-weight: 600; font-size: 1rem;
+    background: var(--white); border: var(--border); border-radius: 50px;
+    padding: 6px 18px; display: inline-block;
+    box-shadow: var(--shadow-sm); transition: transform 0.12s, box-shadow 0.12s;
+  }
+  nav ul li a:hover   { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+
+  @media (max-width: 768px) {
+    header              { padding: 0 20px; position: relative; }
+    .menu-toggle        { display: block; }
+    nav                 { display: none; position: absolute; top: 66px; left: 0; right: 0; background: var(--green); border-bottom: var(--border); padding: 12px 0; }
+    nav.show            { display: flex; flex-direction: column; align-items: center; }
+    nav ul              { flex-direction: column; align-items: center; gap: 8px; padding: 6px 0; }
+  }
+
+  /* ── HERO ── */
+  .article-hero {
+    background: var(--hero-bg, var(--yellow-pale));
+    border-bottom: var(--border-thick);
+    padding: 48px 24px 40px;
+    text-align: center; position: relative; overflow: hidden; z-index: 1;
+  }
+  .article-hero::before {
+    content: var(--hero-char, "租");
+    position: absolute; font-size: 260px; font-family: serif;
+    color: rgba(0,0,0,0.05); top: -30px; right: 20px;
+    line-height: 1; pointer-events: none;
+  }
+  .breadcrumb {
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    margin-bottom: 16px; font-size: 0.88rem; font-weight: 600; color: #666;
+  }
+  .breadcrumb a       { color: var(--green-dark); text-decoration: none; font-weight: 700; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span    { color: #bbb; }
+  .article-tag {
+    display: inline-block; background: var(--yellow); border: var(--border); border-radius: 50px;
+    padding: 5px 16px; font-weight: 700; font-size: 0.88rem;
+    box-shadow: var(--shadow-sm); margin-bottom: 16px;
+  }
+  .article-hero h1 {
+    font-weight: 700; font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    line-height: 1.3; max-width: 820px; margin: 0 auto 18px;
+  }
+  .article-meta {
+    display: flex; align-items: center; justify-content: center;
+    gap: 16px; flex-wrap: wrap; font-size: 0.88rem; font-weight: 600; color: #777;
+  }
+  .article-meta .meta-sep { color: #ccc; }
+
+  /* ── LAYOUT ── */
+  .page-layout {
+    flex: 1; max-width: 1180px; margin: 0 auto;
+    padding: 52px 24px 72px;
+    display: grid; grid-template-columns: 1fr 300px; gap: 48px;
+    align-items: start; position: relative; z-index: 1; width: 100%;
+  }
+  @media (max-width: 1024px) { .page-layout { grid-template-columns: 1fr; gap: 40px; } }
+  @media (max-width: 768px)  { .page-layout { padding: 36px 16px 60px; } }
+
+  /* ── ARTICLE BODY ── */
+  .article-body {
+    background: var(--white); border: var(--border-thick); border-radius: 24px;
+    box-shadow: var(--shadow-lg); padding: 44px 48px; min-width: 0;
+  }
+  @media (max-width: 768px) { .article-body { padding: 28px 22px; } }
+
+  .article-body h2 {
+    font-weight: 700; font-size: 1.4rem; line-height: 1.3;
+    margin: 36px 0 16px; padding-left: 16px;
+    border-left: 5px solid var(--yellow);
+  }
+  .article-body h2:first-child { margin-top: 0; }
+  .article-body h3 {
+    font-weight: 700; font-size: 1.1rem; margin: 24px 0 8px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .article-body h3::before {
+    content: ''; display: inline-block; width: 10px; height: 10px;
+    background: var(--green); border: 2px solid var(--black);
+    border-radius: 50%; flex-shrink: 0; box-shadow: 1px 1px 0 var(--black);
+  }
+  .article-body p   { font-size: 1.02rem; line-height: 1.8; color: #444; margin-bottom: 14px; }
+  .article-body strong { font-weight: 700; color: var(--black); }
+  .article-body em  { color: #666; }
+  .article-body a   { color: var(--green-dark); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+  .post-divider     { border: none; border-top: var(--border); margin: 36px 0; }
+
+  .hint-text {
+    font-size: 0.9rem; color: #888; margin-top: 28px;
+    border-top: var(--border); padding-top: 14px;
+  }
+
+  /* Lead */
+  .lead {
+    font-size: 1.06rem; line-height: 1.8; color: #555;
+    padding: 18px 22px; background: var(--yellow-pale);
+    border: var(--border); border-radius: 18px;
+    box-shadow: var(--shadow-sm); margin-bottom: 28px;
+  }
+  .lead p { margin: 0; font-size: inherit; color: inherit; }
+
+  /* ── SCRIPT TABS ── */
+  .script-block {
+    background: var(--bg); border: var(--border-thick); border-radius: 20px;
+    overflow: hidden; box-shadow: var(--shadow-md); margin: 20px 0 28px;
+  }
+  .script-tabs { display: flex; border-bottom: var(--border-thick); }
+  .script-tab {
+    flex: 1; padding: 12px 8px; font-family: 'Fredoka', sans-serif;
+    font-weight: 700; font-size: 0.95rem; background: var(--white);
+    border: none; cursor: pointer; border-right: var(--border);
+    transition: background 0.12s; display: flex; align-items: center; justify-content: center; gap: 6px;
+  }
+  .script-tab:last-child { border-right: none; }
+  .script-tab:hover  { background: var(--yellow-pale); }
+  .script-tab.active { background: var(--yellow); }
+  .script-panel      { display: none; padding: 22px 24px; }
+  .script-panel.active { display: block; }
+  .script-panel.cn p { font-size: 1.35rem; line-height: 2.2; color: var(--black); font-weight: 600; letter-spacing: 0.02em; }
+  .script-panel.py p { font-size: 1.05rem; line-height: 2.2; color: #555; font-style: italic; }
+  .script-panel.en p { font-size: 1.02rem; line-height: 2; color: #444; }
+  .script-panel p    { margin-bottom: 0; }
+
+  /* ── VOCAB TABLE ── */
+  .vocab-table-wrap {
+    overflow-x: auto; border: var(--border-thick); border-radius: 18px;
+    box-shadow: var(--shadow-md); margin: 16px 0 28px;
+  }
+  .vocab-table { width: 100%; border-collapse: collapse; font-size: 0.97rem; }
+  .vocab-table thead tr  { background: var(--green); color: white; }
+  .vocab-table thead th  {
+    padding: 12px 16px; font-weight: 700; font-size: 0.95rem;
+    text-align: left; border-bottom: var(--border-thick);
+  }
+  .vocab-table thead th:not(:last-child) { border-right: 2px solid rgba(255,255,255,0.25); }
+  .vocab-table tbody tr  { border-bottom: var(--border); }
+  .vocab-table tbody tr:last-child  { border-bottom: none; }
+  .vocab-table tbody tr:nth-child(even) { background: var(--green-pale); }
+  .vocab-table tbody tr:hover { background: var(--yellow-pale); }
+  .vocab-table tbody td  { padding: 11px 16px; vertical-align: middle; }
+  .vocab-table tbody td:first-child  { font-size: 1.2rem; font-weight: 700; color: var(--black); }
+  .vocab-table tbody td:nth-child(2) { color: #666; font-style: italic; }
+  .vocab-table tbody td:nth-child(3) { color: #444; }
+
+  /* ── GRAMMAR CARDS ── */
+  .grammar-cards { display: flex; flex-direction: column; gap: 16px; margin: 16px 0 8px; }
+  .grammar-card {
+    background: var(--white); border: var(--border-thick); border-radius: 20px;
+    box-shadow: var(--shadow-sm); overflow: hidden;
+    transition: transform 0.12s, box-shadow 0.12s;
+  }
+  .grammar-card:hover { transform: translate(-2px,-2px); box-shadow: var(--shadow-md); }
+  .grammar-card:nth-child(4n+1) { border-left: 6px solid var(--green); }
+  .grammar-card:nth-child(4n+2) { border-left: 6px solid var(--sky); }
+  .grammar-card:nth-child(4n+3) { border-left: 6px solid var(--lavender); }
+  .grammar-card:nth-child(4n+4) { border-left: 6px solid var(--peach); }
+  .grammar-card-head {
+    padding: 14px 18px 12px; display: flex; align-items: flex-start; gap: 12px;
+  }
+  .grammar-num {
+    min-width: 32px; height: 32px; border-radius: 50%;
+    background: var(--yellow); border: var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.9rem; flex-shrink: 0;
+    box-shadow: 2px 2px 0 var(--black);
+  }
+  .grammar-card-head h3 { font-weight: 700; font-size: 1.05rem; margin: 0; align-items: flex-start; }
+  .grammar-card-head h3::before { display: none; }
+  .grammar-card-body { padding: 0 18px 18px 62px; }
+  .grammar-card-body p { font-size: 0.97rem; color: #444; margin-bottom: 8px; line-height: 1.7; }
+  .grammar-card-body p:last-child { margin-bottom: 0; }
+  .example-line {
+    display: inline-block; background: var(--sky-pale); border: var(--border); border-radius: 10px;
+    padding: 4px 12px; font-size: 1.05rem; font-weight: 600;
+    box-shadow: 2px 2px 0 var(--black); margin: 4px 0 8px;
+  }
+  .grammar-card-body .note {
+    background: var(--yellow-pale); border: var(--border); border-radius: 12px;
+    padding: 8px 14px; font-size: 0.92rem; color: #555; box-shadow: var(--shadow-sm);
+  }
+
+  /* ── CTA BOX ── */
+  .cta-box {
+    background: var(--green-pale); border: var(--border-thick); border-radius: 20px;
+    padding: 24px 26px; margin: 28px 0 0; box-shadow: var(--shadow-md);
+  }
+  .cta-box h3 { font-size: 1.15rem; margin-bottom: 14px; }
+  .cta-box h3::before { display: none; }
+  .cta-box ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .cta-box ul li { display: flex; gap: 10px; font-size: 0.97rem; color: #444; line-height: 1.6; }
+  .cta-box ul li::before { content: '→'; color: var(--green-dark); font-weight: 700; flex-shrink: 0; }
+  .cta-link {
+    display: inline-block; margin-top: 16px;
+    background: var(--green); color: white !important;
+    border: var(--border); border-radius: 50px;
+    padding: 10px 24px; font-weight: 700; font-size: 0.97rem;
+    text-decoration: none !important; box-shadow: var(--shadow-sm);
+    transition: transform 0.12s, box-shadow 0.12s;
+  }
+  .cta-link:hover { transform: translate(-2px,-2px); box-shadow: var(--shadow-md); }
+
+  /* ── POST NAV ── */
+  .post-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 40px; }
+  .post-nav a {
+    background: var(--white); border: var(--border-thick); border-radius: 18px;
+    box-shadow: var(--shadow-sm); padding: 14px 18px;
+    text-decoration: none; color: var(--black);
+    display: flex; flex-direction: column; gap: 4px;
+    transition: transform 0.12s, box-shadow 0.12s;
+  }
+  .post-nav a:hover    { transform: translate(-2px,-2px); box-shadow: var(--shadow-md); }
+  .post-nav a .nav-dir   { font-size: 0.78rem; font-weight: 700; color: #aaa; text-transform: uppercase; letter-spacing: 0.07em; }
+  .post-nav a .nav-title { font-size: 0.92rem; font-weight: 700; line-height: 1.4; color: var(--green-dark); }
+  .post-nav a.next     { text-align: right; }
+  @media (max-width: 560px) { .post-nav { grid-template-columns: 1fr; } }
+
+  /* ── COMMENTS ── */
+  .comments-section {
+    margin-top: 40px; background: var(--white); border: var(--border-thick);
+    border-radius: 24px; box-shadow: var(--shadow-md); padding: 30px 40px;
+  }
+  .comments-section h3 {
+    font-weight: 700; font-size: 1.2rem; margin-bottom: 18px;
+    padding-bottom: 12px; border-bottom: var(--border);
+  }
+  @media (max-width: 768px) { .comments-section { padding: 22px 16px; } }
+
+  /* ── SIDEBAR ── */
+  .sidebar { display: flex; flex-direction: column; gap: 20px; position: sticky; top: 82px; }
+  .sidebar-card {
+    background: var(--white); border: var(--border-thick); border-radius: 20px;
+    box-shadow: var(--shadow-md); padding: 20px;
+  }
+  .sidebar-card h3 {
+    font-weight: 700; font-size: 1rem; margin-bottom: 14px; padding-bottom: 10px;
+    border-bottom: var(--border); display: flex; align-items: center; gap: 8px;
+  }
+
+  .toc-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .toc-list li a {
+    text-decoration: none; color: #555; font-size: 0.9rem; font-weight: 600;
+    display: flex; gap: 8px; padding: 5px 8px; border-radius: 10px; transition: background 0.12s;
+  }
+  .toc-list li a:hover { background: var(--yellow-pale); color: var(--green-dark); }
+
+  .quick-vocab { display: flex; flex-direction: column; gap: 8px; }
+  .qv-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    background: var(--green-pale); border: var(--border); border-radius: 12px;
+    padding: 8px 12px; box-shadow: 2px 2px 0 var(--black);
+  }
+  .qv-cn  { font-size: 1.25rem; font-weight: 700; color: var(--black); min-width: 44px; }
+  .qv-def { font-size: 0.82rem; color: #555; line-height: 1.45; }
+  .qv-py  { font-size: 0.78rem; color: #888; font-style: italic; }
+
+  .related-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .related-list li a {
+    text-decoration: none; color: var(--black); display: flex; gap: 10px;
+    align-items: flex-start; font-size: 0.87rem; font-weight: 600; line-height: 1.4; transition: color 0.12s;
+  }
+  .related-list li a:hover { color: var(--green-dark); }
+  .related-list li a .rp-num {
+    min-width: 26px; height: 26px; border-radius: 50%;
+    background: var(--yellow); border: var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem; font-weight: 700; flex-shrink: 0;
+    box-shadow: 2px 2px 0 var(--black);
+  }
+
+  .sidebar-donate {
+    background: var(--green); border: var(--border-thick); border-radius: 20px;
+    box-shadow: var(--shadow-md); padding: 22px 20px; text-align: center;
+  }
+  .sidebar-donate .don-emoji { font-size: 2.2rem; margin-bottom: 8px; display: block; }
+  .sidebar-donate h3  { font-weight: 700; font-size: 1rem; color: white; margin-bottom: 6px; border: none !important; padding: 0 !important; }
+  .sidebar-donate p   { font-size: 0.85rem; color: rgba(255,255,255,0.8); margin-bottom: 14px; line-height: 1.5; }
+  .sidebar-donate a {
+    display: inline-block; background: var(--yellow); color: var(--black);
+    border: var(--border); border-radius: 50px; padding: 8px 22px;
+    font-weight: 700; font-size: 0.92rem; box-shadow: var(--shadow-sm);
+    text-decoration: none; transition: transform 0.12s, box-shadow 0.12s;
+  }
+  .sidebar-donate a:hover { transform: translate(-1px,-2px); box-shadow: var(--shadow-md); }
+
+  /* ── FOOTER ── */
+  footer { background: #222; color: rgba(255,255,255,0.65); padding: 28px 50px; text-align: center; position: relative; z-index: 1; }
+  footer .brand { font-weight: 700; color: var(--green-light); font-size: 1.3rem; margin-bottom: 6px; }
+  footer p { font-size: 0.95rem; font-weight: 500; margin-bottom: 3px; }
+  .social-icons { margin-top: 14px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .social-icons a {
+    text-decoration: none; color: var(--black); font-weight: 600; font-size: 0.9rem;
+    background: var(--green-light); border: var(--border); border-radius: 50px;
+    padding: 5px 16px; box-shadow: var(--shadow-sm); transition: transform 0.12s;
+  }
+  .social-icons a:hover { transform: translate(-1px,-2px); }
+
+  .donate-tag {
+    position: fixed; top: 50%; right: 20px; transform: translateY(-50%);
+    background: var(--yellow); border: var(--border-thick); border-radius: 20px;
+    padding: 10px 14px; box-shadow: var(--shadow-md); font-weight: 700; font-size: 0.95rem; z-index: 50;
+  }
+  .donate-tag a { text-decoration: none; color: var(--black); }
+  @media (max-width: 1024px) { .donate-tag { display: none; } .sidebar { display: none; } }
+  @media (max-width: 768px)  { footer { padding: 28px 20px; } }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  /* Dùng riêng cho image-card để không conflict với translate(-50%,-50%) */
+  @keyframes cardFadeIn {
+    from { opacity: 0; transform: translate(-50%, -46%); }
+    to   { opacity: 1; transform: translate(-50%, -50%); }
+  }
+  .article-hero h1 { animation: fadeUp 0.5s ease both; }
+  .article-body    { animation: fadeUp 0.55s 0.1s ease both; }
+
+  /* ── CLICKABLE HANZI hint ── */
+  .hanzi-hint {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 0.82rem; font-weight: 600; color: #888;
+    background: var(--green-pale); border: var(--border); border-radius: 50px;
+    padding: 4px 14px; margin-bottom: 12px;
+    box-shadow: 2px 2px 0 var(--black);
+  }
+  .hanzi-hint span { font-size: 1rem; }
+
+  /* ── CLICKABLE CHINESE CHARS ── */
+  .cn-line { margin-bottom: 0; }
+  .script-panel.cn p {
+    font-size: 1.35rem; line-height: 2.4; color: var(--black);
+    font-weight: 600; letter-spacing: 0.03em;
+  }
+
+  /* Mặc định: plain text, không clickable */
+  .cn-char { display: inline; }
+
+  /* Chỉ ký tự CÓ trong JSON */
+  .cn-char--clickable {
+    display: inline-block; cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.12s, transform 0.1s;
+    padding: 0 1px;
+    position: relative;
+  }
+  .cn-char--clickable:hover {
+    background: var(--yellow);
+    transform: translateY(-2px);
+  }
+  .cn-char--clickable:hover::after {
+    content: '👆';
+    position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%);
+    font-size: 0.65rem; white-space: nowrap;
+    pointer-events: none;
+  }
+
+  /* ── IMAGE CARD OVERLAY ── */
+  .ic-overlay {
+    position: fixed; inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+  }
+
+  /* ── IMAGE CARD ── */
+  .image-card {
+    position: fixed;
+    top: 50%; left: 50%;
+    z-index: 999;
+    transform: translate(-50%, -50%);
+    background: var(--white);
+    border: var(--border-thick);
+    border-radius: 24px;
+    box-shadow: var(--shadow-lg);
+    padding: 24px 22px 20px;
+    width: 280px;
+    max-width: calc(100vw - 32px);
+    max-height: 90vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    animation: cardPop 0.2s cubic-bezier(.4,0,.2,1) both;
+  }
+  @keyframes cardPop {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.88) translateY(8px); }
+    to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  }
+
+  /* Close button */
+  .ic-close {
+    position: absolute; top: 10px; right: 12px;
+    background: var(--yellow); border: var(--border); border-radius: 50%;
+    width: 28px; height: 28px; font-size: 14px;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    box-shadow: 2px 2px 0 var(--black); font-weight: 700;
+    transition: transform 0.1s;
+    line-height: 1;
+  }
+  .ic-close:hover { transform: scale(1.15); }
+
+  /* Image */
+  .image-card img {
+    width: 130px; height: 130px; object-fit: contain;
+    border: var(--border); border-radius: 14px;
+    background: var(--green-pale); padding: 6px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* No image placeholder */
+  .card-no-img {
+    width: 130px; height: 130px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: var(--green-pale); border: var(--border); border-radius: 14px;
+    box-shadow: var(--shadow-sm); gap: 6px;
+  }
+  .card-no-img .big-char { font-size: 3.2rem; font-weight: 700; font-family: serif; }
+  .card-no-img small     { font-size: 0.7rem; color: #aaa; font-weight: 600; }
+
+  /* Char */
+  #ic-char {
+    font-size: 2.2rem; font-weight: 700; color: var(--black);
+    letter-spacing: 0.04em; margin: 0;
+  }
+  #ic-char::before { display: none !important; }
+
+  /* Pinyin */
+  #ic-pinyin {
+    font-size: 1rem; color: #666; font-style: italic;
+    font-weight: 600; margin: 0;
+  }
+
+  /* Meaning */
+  #ic-meaning {
+    font-size: 0.95rem; color: #444; text-align: center; line-height: 1.5;
+    background: var(--yellow-pale); border: var(--border); border-radius: 12px;
+    padding: 6px 14px; width: 100%; box-shadow: 2px 2px 0 var(--black);
+    margin: 0;
+  }
+
+  /* Audio */
+  .image-card audio {
+    width: 100%; height: 36px;
+    border: var(--border); border-radius: 50px;
+    outline: none;
+  }
+
+  /* HanziWriter area */
+  #ic-writer-wrap {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    justify-content: center; margin-top: 4px; width: 100%;
+  }
+  .writer-box {
+    width: 88px; height: 88px;
+    border: var(--border); border-radius: 12px;
+    cursor: pointer; overflow: hidden;
+    box-shadow: 2px 2px 0 var(--black);
+    transition: transform 0.1s, box-shadow 0.1s;
+    background: var(--white);
+    position: relative;
+  }
+  .writer-box:hover { transform: translate(-1px, -2px); box-shadow: 4px 4px 0 var(--black); }
+  .writer-hint {
+    position: absolute; bottom: 2px; right: 4px;
+    font-size: 0.55rem; color: #bbb; font-weight: 700; pointer-events: none;
+  }
+</style>

@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+
+const blogPosts = await getCollection('blog'); // Lấy collection blog
+const douyinPosts = await getCollection('douyin'); // Lấy collection douyin
+---
+
+<h1>Blog Posts</h1>
+<ul>
+  {blogPosts.map((post) => (
+    <li>
+      <a href={`/blog/${post.slug}`}>{post.title}</a> <!-- Đảm bảo slug chính xác -->
+    </li>
+  ))}
+</ul>
+
+<h1>Douyin Posts</h1>
+<ul>
+  {douyinPosts.map((post) => (
+    <li>
+      <a href={`/douyin/${post.slug}`}>{post.title}</a> <!-- Đảm bảo slug chính xác -->
+    </li>
+  ))}
+</ul>
