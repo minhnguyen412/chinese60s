@@ -10,6 +10,8 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3235921032748480" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- HanziWriter for stroke animation -->
+  <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
   <style>
     :root {
       --black: #222;
@@ -81,7 +83,6 @@
       box-shadow: var(--shadow-sm); transition: transform 0.12s, box-shadow 0.12s;
     }
     nav ul li a:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
-
     @media (max-width: 768px) {
       header { padding: 0 20px; position: relative; }
       .menu-toggle { display: block; }
@@ -92,15 +93,12 @@
 
     /* ── ARTICLE HERO ── */
     .article-hero {
-      background: var(--yellow-pale);
-      border-bottom: var(--border-thick);
-      padding: 48px 24px 40px;
-      text-align: center;
+      background: var(--yellow-pale); border-bottom: var(--border-thick);
+      padding: 48px 24px 40px; text-align: center;
       position: relative; overflow: hidden; z-index: 1;
     }
     .article-hero::before {
-      content: '租';
-      position: absolute; font-size: 260px; font-family: serif;
+      content: '租'; position: absolute; font-size: 260px; font-family: serif;
       color: rgba(0,0,0,0.05); top: -30px; right: 20px;
       line-height: 1; pointer-events: none;
     }
@@ -111,30 +109,24 @@
     .breadcrumb a { color: var(--green-dark); text-decoration: none; font-weight: 700; }
     .breadcrumb a:hover { text-decoration: underline; }
     .breadcrumb span { color: #bbb; }
-
     .article-tag {
-      display: inline-block;
-      background: var(--yellow); border: var(--border); border-radius: 50px;
+      display: inline-block; background: var(--yellow); border: var(--border); border-radius: 50px;
       padding: 5px 16px; font-weight: 700; font-size: 0.88rem;
       box-shadow: var(--shadow-sm); margin-bottom: 16px;
     }
     .article-hero h1 {
-      font-weight: 700;
-      font-size: clamp(1.5rem, 3.5vw, 2.5rem);
-      line-height: 1.3; max-width: 820px;
-      margin: 0 auto 18px;
+      font-weight: 700; font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+      line-height: 1.3; max-width: 820px; margin: 0 auto 18px;
     }
     .article-meta {
       display: flex; align-items: center; justify-content: center;
-      gap: 16px; flex-wrap: wrap;
-      font-size: 0.88rem; font-weight: 600; color: #777;
+      gap: 16px; flex-wrap: wrap; font-size: 0.88rem; font-weight: 600; color: #777;
     }
     .article-meta .meta-sep { color: #ccc; }
 
     /* ── PAGE LAYOUT ── */
     .page-layout {
-      flex: 1;
-      max-width: 1180px; margin: 0 auto;
+      flex: 1; max-width: 1180px; margin: 0 auto;
       padding: 52px 24px 72px;
       display: grid; grid-template-columns: 1fr 300px;
       gap: 48px; align-items: start;
@@ -145,119 +137,194 @@
 
     /* ── ARTICLE BODY ── */
     .article-body {
-      background: var(--white);
-      border: var(--border-thick); border-radius: 24px;
-      box-shadow: var(--shadow-lg);
-      padding: 44px 48px;
-      min-width: 0;
+      background: var(--white); border: var(--border-thick); border-radius: 24px;
+      box-shadow: var(--shadow-lg); padding: 44px 48px; min-width: 0;
     }
     @media (max-width: 768px) { .article-body { padding: 28px 22px; } }
 
-    /* ── SECTION HEADINGS ── */
     .article-body h2 {
       font-weight: 700; font-size: 1.4rem; line-height: 1.3;
-      margin: 36px 0 16px;
-      padding-left: 16px;
+      margin: 36px 0 16px; padding-left: 16px;
       border-left: 5px solid var(--yellow);
     }
     .article-body h2:first-child { margin-top: 0; }
-
     .article-body h3 {
-      font-weight: 700; font-size: 1.1rem;
-      margin: 24px 0 8px;
+      font-weight: 700; font-size: 1.1rem; margin: 24px 0 8px;
       display: flex; align-items: center; gap: 8px;
     }
     .article-body h3::before {
-      content: '';
-      display: inline-block; width: 10px; height: 10px;
-      background: var(--green); border: 2px solid var(--black);
-      border-radius: 50%; flex-shrink: 0;
-      box-shadow: 1px 1px 0 var(--black);
+      content: ''; display: inline-block; width: 10px; height: 10px;
+      background: var(--green); border: 2px solid var(--black); border-radius: 50%;
+      flex-shrink: 0; box-shadow: 1px 1px 0 var(--black);
     }
-
-    .article-body p {
-      font-size: 1.02rem; line-height: 1.8; color: #444;
-      margin-bottom: 14px;
-    }
+    .article-body p { font-size: 1.02rem; line-height: 1.8; color: #444; margin-bottom: 14px; }
     .article-body strong { font-weight: 700; color: var(--black); }
     .article-body em { color: #666; }
     .article-body a { color: var(--green-dark); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
-
     .post-divider { border: none; border-top: var(--border); margin: 36px 0; }
 
-    /* ── LEAD ── */
     .lead {
       font-size: 1.06rem; line-height: 1.8; color: #555;
-      padding: 18px 22px;
-      background: var(--yellow-pale);
+      padding: 18px 22px; background: var(--yellow-pale);
       border: var(--border); border-radius: 18px;
-      box-shadow: var(--shadow-sm);
-      margin-bottom: 28px;
+      box-shadow: var(--shadow-sm); margin-bottom: 28px;
     }
 
     /* ══════════════════════
        SCRIPT TABS
     ══════════════════════ */
     .script-block {
-      background: var(--bg);
-      border: var(--border-thick); border-radius: 20px;
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
-      margin: 20px 0 28px;
+      background: var(--bg); border: var(--border-thick); border-radius: 20px;
+      overflow: hidden; box-shadow: var(--shadow-md); margin: 20px 0 28px;
     }
-
-    .script-tabs {
-      display: flex; border-bottom: var(--border-thick);
-    }
+    .script-tabs { display: flex; border-bottom: var(--border-thick); }
     .script-tab {
       flex: 1; padding: 12px 8px;
       font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 0.95rem;
       background: var(--white); border: none; cursor: pointer;
-      border-right: var(--border);
-      transition: background 0.12s;
+      border-right: var(--border); transition: background 0.12s;
       display: flex; align-items: center; justify-content: center; gap: 6px;
     }
     .script-tab:last-child { border-right: none; }
     .script-tab:hover { background: var(--yellow-pale); }
     .script-tab.active { background: var(--yellow); }
-
     .script-panel { display: none; padding: 22px 24px; }
     .script-panel.active { display: block; }
 
-    /* Chinese text */
+    /* ── CLICKABLE HANZI hint ── */
+    .hanzi-hint {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.82rem; font-weight: 600; color: #888;
+      background: var(--green-pale); border: var(--border); border-radius: 50px;
+      padding: 4px 14px; margin-bottom: 12px;
+      box-shadow: 2px 2px 0 var(--black);
+    }
+    .hanzi-hint span { font-size: 1rem; }
+
+    /* Script Chinese panel — each char is a span */
     .script-panel.cn p {
-      font-size: 1.35rem; line-height: 2.2;
-      color: var(--black); font-weight: 600;
-      letter-spacing: 0.02em;
+      font-size: 1.35rem; line-height: 2.4; color: var(--black);
+      font-weight: 600; letter-spacing: 0.03em;
     }
-    /* Pinyin text */
-    .script-panel.py p {
-      font-size: 1.05rem; line-height: 2.2;
-      color: #555; font-style: italic;
+    /* clickable hanzi chars */
+    .hz {
+      display: inline-block; cursor: pointer;
+      border-radius: 6px;
+      transition: background 0.12s, transform 0.1s;
+      padding: 0 1px;
+      position: relative;
     }
-    /* English text */
-    .script-panel.en p {
-      font-size: 1.02rem; line-height: 2;
-      color: #444;
+    .hz:hover {
+      background: var(--yellow);
+      transform: translateY(-2px);
     }
+    .hz:hover::after {
+      content: '👆';
+      position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%);
+      font-size: 0.65rem; white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .script-panel.py p { font-size: 1.05rem; line-height: 2.2; color: #555; font-style: italic; }
+    .script-panel.en p { font-size: 1.02rem; line-height: 2; color: #444; }
     .script-panel p { margin-bottom: 0; }
+
+    /* ══════════════════════
+       IMAGE CARD POPUP
+    ══════════════════════ */
+    .image-card {
+      position: fixed;
+      z-index: 999;
+      background: var(--white);
+      border: var(--border-thick);
+      border-radius: 24px;
+      box-shadow: var(--shadow-lg);
+      padding: 24px 22px 20px;
+      width: 280px;
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      animation: cardPop 0.2s cubic-bezier(.4,0,.2,1) both;
+    }
+    @keyframes cardPop {
+      from { opacity: 0; transform: scale(0.88) translateY(8px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .image-card .card-close {
+      position: absolute; top: 10px; right: 12px;
+      background: var(--yellow); border: var(--border); border-radius: 50%;
+      width: 28px; height: 28px; font-size: 14px;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      box-shadow: 2px 2px 0 var(--black); font-weight: 700;
+      transition: transform 0.1s;
+    }
+    .image-card .card-close:hover { transform: scale(1.15); }
+
+    .image-card img {
+      width: 130px; height: 130px; object-fit: contain;
+      border: var(--border); border-radius: 14px;
+      background: var(--green-pale); padding: 6px;
+      box-shadow: var(--shadow-sm);
+    }
+    .image-card .card-char {
+      font-size: 2.2rem; font-weight: 700; color: var(--black); letter-spacing: 0.04em;
+    }
+    .image-card .card-pinyin {
+      font-size: 1rem; color: #666; font-style: italic; font-weight: 600;
+    }
+    .image-card .card-meaning {
+      font-size: 0.95rem; color: #444; text-align: center; line-height: 1.5;
+      background: var(--yellow-pale); border: var(--border); border-radius: 12px;
+      padding: 6px 14px; width: 100%; box-shadow: 2px 2px 0 var(--black);
+    }
+    .image-card audio {
+      width: 100%; height: 36px;
+      border: var(--border); border-radius: 50px;
+      outline: none;
+    }
+
+    /* Writer area inside card */
+    .image-card .writer-area {
+      display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
+      margin-top: 4px;
+    }
+    .image-card .writer-area .writer-box {
+      width: 88px; height: 88px;
+      border: var(--border); border-radius: 12px;
+      cursor: pointer; overflow: hidden;
+      box-shadow: 2px 2px 0 var(--black);
+      transition: transform 0.1s, box-shadow 0.1s;
+      background: var(--white);
+      position: relative;
+    }
+    .image-card .writer-area .writer-box:hover {
+      transform: translate(-1px, -2px); box-shadow: 4px 4px 0 var(--black);
+    }
+    .image-card .writer-area .writer-hint {
+      position: absolute; bottom: 2px; right: 4px;
+      font-size: 0.55rem; color: #bbb; font-weight: 700; pointer-events: none;
+    }
+
+    /* no-image placeholder */
+    .image-card .card-no-img {
+      width: 130px; height: 130px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: var(--green-pale); border: var(--border); border-radius: 14px;
+      box-shadow: var(--shadow-sm); gap: 6px;
+    }
+    .image-card .card-no-img .big-char {
+      font-size: 3.2rem; font-weight: 700; font-family: serif;
+    }
+    .image-card .card-no-img small { font-size: 0.7rem; color: #aaa; font-weight: 600; }
 
     /* ══════════════════════
        VOCAB TABLE
     ══════════════════════ */
     .vocab-table-wrap {
-      overflow-x: auto;
-      border: var(--border-thick); border-radius: 18px;
-      box-shadow: var(--shadow-md);
-      margin: 16px 0 28px;
+      overflow-x: auto; border: var(--border-thick); border-radius: 18px;
+      box-shadow: var(--shadow-md); margin: 16px 0 28px;
     }
-    .vocab-table {
-      width: 100%; border-collapse: collapse;
-      font-size: 0.97rem;
-    }
-    .vocab-table thead tr {
-      background: var(--green); color: white;
-    }
+    .vocab-table { width: 100%; border-collapse: collapse; font-size: 0.97rem; }
+    .vocab-table thead tr { background: var(--green); color: white; }
     .vocab-table thead th {
       padding: 12px 16px; font-weight: 700; font-size: 0.95rem;
       text-align: left; border-bottom: var(--border-thick);
@@ -267,12 +334,8 @@
     .vocab-table tbody tr:last-child { border-bottom: none; }
     .vocab-table tbody tr:nth-child(even) { background: var(--green-pale); }
     .vocab-table tbody tr:hover { background: var(--yellow-pale); }
-    .vocab-table tbody td {
-      padding: 11px 16px; vertical-align: middle;
-    }
-    .vocab-table tbody td:first-child {
-      font-size: 1.2rem; font-weight: 700; color: var(--black);
-    }
+    .vocab-table tbody td { padding: 11px 16px; vertical-align: middle; }
+    .vocab-table tbody td:first-child { font-size: 1.2rem; font-weight: 700; color: var(--black); }
     .vocab-table tbody td:nth-child(2) { color: #666; font-style: italic; }
     .vocab-table tbody td:nth-child(3) { color: #444; }
 
@@ -280,25 +343,17 @@
        GRAMMAR CARDS
     ══════════════════════ */
     .grammar-cards { display: flex; flex-direction: column; gap: 16px; margin: 16px 0 8px; }
-
     .grammar-card {
-      background: var(--white);
-      border: var(--border-thick); border-radius: 20px;
-      box-shadow: var(--shadow-sm);
-      overflow: hidden;
+      background: var(--white); border: var(--border-thick); border-radius: 20px;
+      box-shadow: var(--shadow-sm); overflow: hidden;
       transition: transform 0.12s, box-shadow 0.12s;
     }
     .grammar-card:hover { transform: translate(-2px,-2px); box-shadow: var(--shadow-md); }
-
     .grammar-card:nth-child(4n+1) { border-left: 6px solid var(--green); }
     .grammar-card:nth-child(4n+2) { border-left: 6px solid var(--sky); }
     .grammar-card:nth-child(4n+3) { border-left: 6px solid var(--lavender); }
     .grammar-card:nth-child(4n+4) { border-left: 6px solid var(--peach); }
-
-    .grammar-card-head {
-      padding: 14px 18px 12px;
-      display: flex; align-items: flex-start; gap: 12px;
-    }
+    .grammar-card-head { padding: 14px 18px 12px; display: flex; align-items: flex-start; gap: 12px; }
     .grammar-num {
       min-width: 32px; height: 32px; border-radius: 50%;
       background: var(--yellow); border: var(--border);
@@ -306,36 +361,25 @@
       font-weight: 700; font-size: 0.9rem; flex-shrink: 0;
       box-shadow: 2px 2px 0 var(--black);
     }
-    .grammar-card-head h3 {
-      font-weight: 700; font-size: 1.05rem; margin: 0;
-      align-items: flex-start;
-    }
+    .grammar-card-head h3 { font-weight: 700; font-size: 1.05rem; margin: 0; align-items: flex-start; }
     .grammar-card-head h3::before { display: none; }
-
-    .grammar-card-body {
-      padding: 0 18px 18px 62px;
-    }
+    .grammar-card-body { padding: 0 18px 18px 62px; }
     .grammar-card-body p { font-size: 0.97rem; color: #444; margin-bottom: 8px; line-height: 1.7; }
     .grammar-card-body p:last-child { margin-bottom: 0; }
-
     .example-line {
-      display: inline-block;
-      background: var(--sky-pale); border: var(--border); border-radius: 10px;
+      display: inline-block; background: var(--sky-pale); border: var(--border); border-radius: 10px;
       padding: 4px 12px; font-size: 1.05rem; font-weight: 600;
       box-shadow: 2px 2px 0 var(--black); margin: 4px 0 8px;
     }
     .grammar-card-body .note {
       background: var(--yellow-pale); border: var(--border); border-radius: 12px;
-      padding: 8px 14px; font-size: 0.92rem; color: #555;
-      box-shadow: var(--shadow-sm);
+      padding: 8px 14px; font-size: 0.92rem; color: #555; box-shadow: var(--shadow-sm);
     }
 
     /* ── CTA BOX ── */
     .cta-box {
-      background: var(--green-pale);
-      border: var(--border-thick); border-radius: 20px;
-      padding: 24px 26px; margin: 28px 0 0;
-      box-shadow: var(--shadow-md);
+      background: var(--green-pale); border: var(--border-thick); border-radius: 20px;
+      padding: 24px 26px; margin: 28px 0 0; box-shadow: var(--shadow-md);
     }
     .cta-box h3 { font-size: 1.15rem; margin-bottom: 14px; }
     .cta-box h3::before { display: none; }
@@ -343,20 +387,15 @@
     .cta-box ul li { display: flex; gap: 10px; font-size: 0.97rem; color: #444; line-height: 1.6; }
     .cta-box ul li::before { content: '→'; color: var(--green-dark); font-weight: 700; flex-shrink: 0; }
     .cta-box .cta-link {
-      display: inline-block; margin-top: 16px;
-      background: var(--green); color: white;
-      border: var(--border); border-radius: 50px;
-      padding: 10px 24px; font-weight: 700; font-size: 0.97rem;
-      text-decoration: none; box-shadow: var(--shadow-sm);
-      transition: transform 0.12s, box-shadow 0.12s;
+      display: inline-block; margin-top: 16px; background: var(--green); color: white;
+      border: var(--border); border-radius: 50px; padding: 10px 24px;
+      font-weight: 700; font-size: 0.97rem; text-decoration: none;
+      box-shadow: var(--shadow-sm); transition: transform 0.12s, box-shadow 0.12s;
     }
     .cta-box .cta-link:hover { transform: translate(-2px,-2px); box-shadow: var(--shadow-md); color: white; }
 
     /* ── POST NAV ── */
-    .post-nav {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 14px; margin-top: 40px;
-    }
+    .post-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 40px; }
     .post-nav a {
       background: var(--white); border: var(--border-thick); border-radius: 18px;
       box-shadow: var(--shadow-sm); padding: 14px 18px;
@@ -372,98 +411,40 @@
 
     /* ── COMMENTS ── */
     .comments-section {
-      margin-top: 40px;
-      background: var(--white); border: var(--border-thick); border-radius: 24px;
+      margin-top: 40px; background: var(--white); border: var(--border-thick); border-radius: 24px;
       box-shadow: var(--shadow-md); padding: 30px 40px;
     }
-    .comments-section h3 {
-      font-weight: 700; font-size: 1.2rem;
-      margin-bottom: 18px; padding-bottom: 12px;
-      border-bottom: var(--border);
-    }
+    .comments-section h3 { font-weight: 700; font-size: 1.2rem; margin-bottom: 18px; padding-bottom: 12px; border-bottom: var(--border); }
     @media (max-width: 768px) { .comments-section { padding: 22px 16px; } }
 
     /* ── SIDEBAR ── */
-    .sidebar {
-      display: flex; flex-direction: column; gap: 20px;
-      position: sticky; top: 82px;
-    }
-    .sidebar-card {
-      background: var(--white);
-      border: var(--border-thick); border-radius: 20px;
-      box-shadow: var(--shadow-md); padding: 20px;
-    }
-    .sidebar-card h3 {
-      font-weight: 700; font-size: 1rem;
-      margin-bottom: 14px; padding-bottom: 10px;
-      border-bottom: var(--border);
-      display: flex; align-items: center; gap: 8px;
-    }
-
-    /* quick vocab in sidebar */
+    .sidebar { display: flex; flex-direction: column; gap: 20px; position: sticky; top: 82px; }
+    .sidebar-card { background: var(--white); border: var(--border-thick); border-radius: 20px; box-shadow: var(--shadow-md); padding: 20px; }
+    .sidebar-card h3 { font-weight: 700; font-size: 1rem; margin-bottom: 14px; padding-bottom: 10px; border-bottom: var(--border); display: flex; align-items: center; gap: 8px; }
     .quick-vocab { display: flex; flex-direction: column; gap: 8px; }
-    .qv-item {
-      display: flex; align-items: flex-start; gap: 10px;
-      background: var(--green-pale); border: var(--border); border-radius: 12px;
-      padding: 8px 12px; box-shadow: 2px 2px 0 var(--black);
-    }
+    .qv-item { display: flex; align-items: flex-start; gap: 10px; background: var(--green-pale); border: var(--border); border-radius: 12px; padding: 8px 12px; box-shadow: 2px 2px 0 var(--black); }
     .qv-cn { font-size: 1.25rem; font-weight: 700; color: var(--black); min-width: 44px; }
     .qv-def { font-size: 0.82rem; color: #555; line-height: 1.45; }
     .qv-py  { font-size: 0.78rem; color: #888; font-style: italic; }
-
-    /* related posts */
     .related-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .related-list li a {
-      text-decoration: none; color: var(--black);
-      display: flex; gap: 10px; align-items: flex-start;
-      font-size: 0.87rem; font-weight: 600; line-height: 1.4;
-      transition: color 0.12s;
-    }
+    .related-list li a { text-decoration: none; color: var(--black); display: flex; gap: 10px; align-items: flex-start; font-size: 0.87rem; font-weight: 600; line-height: 1.4; transition: color 0.12s; }
     .related-list li a:hover { color: var(--green-dark); }
-    .related-list li a .rp-num {
-      min-width: 26px; height: 26px; border-radius: 50%;
-      background: var(--yellow); border: var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.75rem; font-weight: 700; flex-shrink: 0;
-      box-shadow: 2px 2px 0 var(--black);
-    }
-
-    /* donate */
-    .sidebar-donate {
-      background: var(--green); border: var(--border-thick); border-radius: 20px;
-      box-shadow: var(--shadow-md); padding: 22px 20px; text-align: center;
-    }
+    .related-list li a .rp-num { min-width: 26px; height: 26px; border-radius: 50%; background: var(--yellow); border: var(--border); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; box-shadow: 2px 2px 0 var(--black); }
+    .sidebar-donate { background: var(--green); border: var(--border-thick); border-radius: 20px; box-shadow: var(--shadow-md); padding: 22px 20px; text-align: center; }
     .sidebar-donate .don-emoji { font-size: 2.2rem; margin-bottom: 8px; display: block; }
     .sidebar-donate h3 { font-weight: 700; font-size: 1rem; color: white; margin-bottom: 6px; border: none; padding: 0; }
     .sidebar-donate p  { font-size: 0.85rem; color: rgba(255,255,255,0.8); margin-bottom: 14px; line-height: 1.5; }
-    .sidebar-donate a {
-      display: inline-block; background: var(--yellow); color: var(--black);
-      border: var(--border); border-radius: 50px; padding: 8px 22px;
-      font-weight: 700; font-size: 0.92rem; box-shadow: var(--shadow-sm);
-      text-decoration: none; transition: transform 0.12s, box-shadow 0.12s;
-    }
+    .sidebar-donate a { display: inline-block; background: var(--yellow); color: var(--black); border: var(--border); border-radius: 50px; padding: 8px 22px; font-weight: 700; font-size: 0.92rem; box-shadow: var(--shadow-sm); text-decoration: none; transition: transform 0.12s, box-shadow 0.12s; }
     .sidebar-donate a:hover { transform: translate(-1px,-2px); box-shadow: var(--shadow-md); }
 
     /* ── FOOTER ── */
-    footer {
-      background: #222; color: rgba(255,255,255,0.65);
-      padding: 28px 50px; text-align: center; position: relative; z-index: 1;
-    }
+    footer { background: #222; color: rgba(255,255,255,0.65); padding: 28px 50px; text-align: center; position: relative; z-index: 1; }
     footer .brand { font-weight: 700; color: var(--green-light); font-size: 1.3rem; margin-bottom: 6px; }
     footer p { font-size: 0.95rem; font-weight: 500; margin-bottom: 3px; }
     .social-icons { margin-top: 14px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-    .social-icons a {
-      text-decoration: none; color: var(--black); font-weight: 600; font-size: 0.9rem;
-      background: var(--green-light); border: var(--border); border-radius: 50px;
-      padding: 5px 16px; box-shadow: var(--shadow-sm); transition: transform 0.12s;
-    }
+    .social-icons a { text-decoration: none; color: var(--black); font-weight: 600; font-size: 0.9rem; background: var(--green-light); border: var(--border); border-radius: 50px; padding: 5px 16px; box-shadow: var(--shadow-sm); transition: transform 0.12s; }
     .social-icons a:hover { transform: translate(-1px,-2px); }
-
-    .donate-tag {
-      position: fixed; top: 50%; right: 20px; transform: translateY(-50%);
-      background: var(--yellow); border: var(--border-thick); border-radius: 20px;
-      padding: 10px 14px; box-shadow: var(--shadow-md); font-weight: 700; font-size: 0.95rem; z-index: 50;
-    }
+    .donate-tag { position: fixed; top: 50%; right: 20px; transform: translateY(-50%); background: var(--yellow); border: var(--border-thick); border-radius: 20px; padding: 10px 14px; box-shadow: var(--shadow-md); font-weight: 700; font-size: 0.95rem; z-index: 50; }
     .donate-tag a { text-decoration: none; color: var(--black); }
     @media (max-width: 1024px) { .donate-tag { display: none; } }
     @media (max-width: 768px) { footer { padding: 28px 20px; } }
@@ -493,7 +474,6 @@
     </nav>
   </header>
 
-  <!-- HERO -->
   <div class="article-hero">
     <div class="breadcrumb">
       <a href="../index.html">Home</a><span>›</span>
@@ -511,14 +491,12 @@
     </div>
   </div>
 
-  <!-- LAYOUT -->
   <div class="page-layout">
     <main>
       <article class="article-body">
 
-        <p class="lead">Learning Chinese doesn't have to be limited to textbooks. One of the best ways to boost your language skills is by studying how native speakers talk in real life. Here we break down a short Douyin (Chinese TikTok) video where a young woman introduces the apartment she just rented.</p>
+        <p class="lead">Learning Chinese doesn't have to be limited to textbooks. One of the best ways to boost your language skills is by studying how native speakers talk in real life. Here we break down a short Douyin video where a young woman introduces the apartment she just rented.</p>
 
-        <!-- SCRIPT SECTION -->
         <h2 id="script">📽️ The Script: Renting a New Apartment</h2>
 
         <div class="script-block">
@@ -528,9 +506,10 @@
             <button class="script-tab" data-tab="en">🇬🇧 English</button>
           </div>
 
-          <!-- Chinese -->
+          <!-- Chinese — chars will be wrapped by JS -->
           <div class="script-panel cn active" id="tab-cn">
-            <p>
+            <div class="hanzi-hint"><span>✨</span> Click any character to see its meaning!</div>
+            <p id="cn-text">
               九十后第五天租房。<br>
               看一下我今天又租到了一套怎么样的房子。<br>
               哇这客厅好大！<br>
@@ -548,7 +527,6 @@
             </p>
           </div>
 
-          <!-- Pinyin -->
           <div class="script-panel py" id="tab-py">
             <p>
               jiǔshí hòu dì wǔ tiān zūfáng.<br>
@@ -568,7 +546,6 @@
             </p>
           </div>
 
-          <!-- English -->
           <div class="script-panel en" id="tab-en">
             <p>
               <strong>Day 5 of house hunting as a post-90s renter!</strong><br>
@@ -591,17 +568,11 @@
 
         <hr class="post-divider">
 
-        <!-- VOCAB TABLE -->
         <h2 id="vocab">🧠 Useful Vocabulary</h2>
-
         <div class="vocab-table-wrap">
           <table class="vocab-table">
             <thead>
-              <tr>
-                <th>Word</th>
-                <th>Pinyin</th>
-                <th>Meaning</th>
-              </tr>
+              <tr><th>Word</th><th>Pinyin</th><th>Meaning</th></tr>
             </thead>
             <tbody>
               <tr><td>九十后</td><td>jiǔshí hòu</td><td>Post-90s generation (born after 1990)</td></tr>
@@ -619,11 +590,8 @@
 
         <hr class="post-divider">
 
-        <!-- GRAMMAR CARDS -->
         <h2 id="grammar">📚 Grammar Structures to Notice</h2>
-
         <div class="grammar-cards">
-
           <div class="grammar-card" id="g1">
             <div class="grammar-card-head">
               <span class="grammar-num">1</span>
@@ -635,7 +603,6 @@
               <div class="note">📝 Example: 你喜欢什么样的衣服？<br><em>(What kind of clothes do you like?)</em></div>
             </div>
           </div>
-
           <div class="grammar-card" id="g2">
             <div class="grammar-card-head">
               <span class="grammar-num">2</span>
@@ -647,7 +614,6 @@
               <div class="note">📝 好漂亮 = so beautiful &nbsp;|&nbsp; 好冷 = so cold &nbsp;|&nbsp; 好大 = so big</div>
             </div>
           </div>
-
           <div class="grammar-card" id="g3">
             <div class="grammar-card-head">
               <span class="grammar-num">3</span>
@@ -659,7 +625,6 @@
               <div class="note">📝 Structure: [did X for a long time] + 才 + [result]</div>
             </div>
           </div>
-
           <div class="grammar-card" id="g4">
             <div class="grammar-card-head">
               <span class="grammar-num">4</span>
@@ -671,12 +636,10 @@
               <div class="note">📝 你最近呢？(How have you been?)<br>我现在住的地方呢，特别方便。</div>
             </div>
           </div>
-
         </div>
 
         <hr class="post-divider">
 
-        <!-- CTA -->
         <div class="cta-box">
           <h3>✏️ Learn Chinese Naturally with Chinese60s</h3>
           <ul>
@@ -690,7 +653,6 @@
           <a href="https://chinese60s.com" target="_blank" class="cta-link">👉 Start at Chinese60s.com →</a>
         </div>
 
-        <!-- POST NAV -->
         <div class="post-nav">
           <a href="blog-5.html" class="prev">
             <span class="nav-dir">← Previous</span>
@@ -704,7 +666,6 @@
 
       </article>
 
-      <!-- COMMENTS -->
       <div class="comments-section">
         <h3>💬 Comments</h3>
         <div id="disqus_thread"></div>
@@ -720,51 +681,29 @@
             (d.head || d.body).appendChild(s);
           })();
         </script>
-        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments.</a></noscript>
       </div>
     </main>
 
-    <!-- SIDEBAR -->
     <aside class="sidebar">
-
-      <!-- Table of contents -->
       <div class="sidebar-card">
         <h3>📋 In this post</h3>
-        <ul class="toc-list" style="list-style:none; display:flex; flex-direction:column; gap:6px;">
-          <li><a href="#script" style="text-decoration:none; color:#555; font-size:0.9rem; font-weight:600; display:flex; gap:8px; padding:5px 8px; border-radius:10px; transition:background 0.12s;" onmouseover="this.style.background='var(--yellow-pale)'" onmouseout="this.style.background='none'">📽️ The Script</a></li>
-          <li><a href="#vocab"  style="text-decoration:none; color:#555; font-size:0.9rem; font-weight:600; display:flex; gap:8px; padding:5px 8px; border-radius:10px; transition:background 0.12s;" onmouseover="this.style.background='var(--yellow-pale)'" onmouseout="this.style.background='none'">🧠 Vocabulary</a></li>
-          <li><a href="#grammar" style="text-decoration:none; color:#555; font-size:0.9rem; font-weight:600; display:flex; gap:8px; padding:5px 8px; border-radius:10px; transition:background 0.12s;" onmouseover="this.style.background='var(--yellow-pale)'" onmouseout="this.style.background='none'">📚 Grammar</a></li>
+        <ul class="toc-list" style="list-style:none;display:flex;flex-direction:column;gap:6px;">
+          <li><a href="#script" style="text-decoration:none;color:#555;font-size:0.9rem;font-weight:600;display:flex;gap:8px;padding:5px 8px;border-radius:10px;transition:background 0.12s;" onmouseover="this.style.background='var(--yellow-pale)'" onmouseout="this.style.background='none'">📽️ The Script</a></li>
+          <li><a href="#vocab"  style="text-decoration:none;color:#555;font-size:0.9rem;font-weight:600;display:flex;gap:8px;padding:5px 8px;border-radius:10px;transition:background 0.12s;" onmouseover="this.style.background='var(--yellow-pale)'" onmouseout="this.style.background='none'">🧠 Vocabulary</a></li>
+          <li><a href="#grammar" style="text-decoration:none;color:#555;font-size:0.9rem;font-weight:600;display:flex;gap:8px;padding:5px 8px;border-radius:10px;transition:background 0.12s;" onmouseover="this.style.background='var(--yellow-pale)'" onmouseout="this.style.background='none'">📚 Grammar</a></li>
         </ul>
       </div>
-
-      <!-- Quick Vocab -->
       <div class="sidebar-card">
         <h3>⚡ Quick Vocab</h3>
         <div class="quick-vocab">
-          <div class="qv-item">
-            <span class="qv-cn">格局</span>
-            <div><div class="qv-py">géjú</div><div class="qv-def">Room layout / floor plan</div></div>
-          </div>
-          <div class="qv-item">
-            <span class="qv-cn">精装</span>
-            <div><div class="qv-py">jīngzhuāng</div><div class="qv-def">Fully furnished & decorated</div></div>
-          </div>
-          <div class="qv-item">
-            <span class="qv-cn">衣帽间</span>
-            <div><div class="qv-py">yīmàojiān</div><div class="qv-def">Walk-in closet</div></div>
-          </div>
-          <div class="qv-item">
-            <span class="qv-cn">干湿分离</span>
-            <div><div class="qv-py">gān-shī fēnlí</div><div class="qv-def">Wet-dry bathroom separation</div></div>
-          </div>
-          <div class="qv-item">
-            <span class="qv-cn">不见不散</span>
-            <div><div class="qv-py">bùjiàn bú sàn</div><div class="qv-def">Don't leave till we meet!</div></div>
-          </div>
+          <div class="qv-item"><span class="qv-cn">格局</span><div><div class="qv-py">géjú</div><div class="qv-def">Room layout / floor plan</div></div></div>
+          <div class="qv-item"><span class="qv-cn">精装</span><div><div class="qv-py">jīngzhuāng</div><div class="qv-def">Fully furnished & decorated</div></div></div>
+          <div class="qv-item"><span class="qv-cn">衣帽间</span><div><div class="qv-py">yīmàojiān</div><div class="qv-def">Walk-in closet</div></div></div>
+          <div class="qv-item"><span class="qv-cn">干湿分离</span><div><div class="qv-py">gān-shī fēnlí</div><div class="qv-def">Wet-dry bathroom separation</div></div></div>
+          <div class="qv-item"><span class="qv-cn">不见不散</span><div><div class="qv-py">bùjiàn bú sàn</div><div class="qv-def">Don't leave till we meet!</div></div></div>
         </div>
       </div>
-
-      <!-- More Scripts -->
       <div class="sidebar-card">
         <h3>🎬 More Scripts</h3>
         <ul class="related-list">
@@ -774,15 +713,12 @@
           <li><a href="blog-10.html"><span class="rp-num">10</span>来菜市场买菜买水果</a></li>
         </ul>
       </div>
-
-      <!-- Donate -->
       <div class="sidebar-donate">
         <span class="don-emoji">☕</span>
         <h3>Support Chinese60s</h3>
         <p>If this helped you learn, consider buying us a coffee!</p>
         <a href="https://buymeacoffee.com/chinese60s" target="_blank">☕ Donate</a>
       </div>
-
     </aside>
   </div>
 
@@ -794,15 +730,13 @@
     <p class="brand">CHINESE 60s</p>
     <p>Learn Mandarin through images and videos</p>
     <div class="social-icons">
-      <a href="#">Facebook</a>
-      <a href="#">YouTube</a>
-      <a href="#">TikTok</a>
-      <a href="#">Instagram</a>
+      <a href="#">Facebook</a><a href="#">YouTube</a>
+      <a href="#">TikTok</a><a href="#">Instagram</a>
     </div>
   </footer>
 
   <script>
-    /* Header menu */
+    /* ── Header menu ── */
     const toggle = document.querySelector('.menu-toggle');
     const navEl  = document.querySelector('nav');
     toggle.addEventListener('click', () => {
@@ -810,14 +744,14 @@
       toggle.innerHTML = navEl.classList.contains('show') ? '&#10005;' : '&#9776;';
     });
 
-    /* Reading progress */
+    /* ── Reading progress ── */
     const bar = document.getElementById('progress-bar');
     window.addEventListener('scroll', () => {
       const pct = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
       bar.style.width = Math.min(100, pct * 100) + '%';
     });
 
-    /* Script tabs */
+    /* ── Script tabs ── */
     document.querySelectorAll('.script-tab').forEach(tab => {
       tab.addEventListener('click', () => {
         const key = tab.dataset.tab;
@@ -826,6 +760,187 @@
         tab.classList.add('active');
         document.getElementById('tab-' + key).classList.add('active');
       });
+    });
+
+    /* ══════════════════════════════════════════════════════
+       HANZI CLICK — IMAGE CARD SYSTEM
+       Only characters/words present in imagesData.json are clickable.
+       Supports multi-char entries (e.g. "格局", "衣帽间", "干湿分离").
+    ══════════════════════════════════════════════════════ */
+
+    let imagesData = [];
+    let activeCard = null;
+    let isOpening  = false;
+
+    /* 1 — After JSON loads, scan the script text and wrap only matches */
+    function wrapHanziFromJSON() {
+      const cnP = document.getElementById('cn-text');
+
+      /* Sort entries longest-first so multi-char words match before single chars */
+      const entries = [...imagesData].sort((a, b) => b.character.length - a.character.length);
+
+      /* Collect all text nodes (skip <br> etc.) */
+      const walker = document.createTreeWalker(cnP, NodeFilter.SHOW_TEXT);
+      const textNodes = [];
+      let node;
+      while ((node = walker.nextNode())) textNodes.push(node);
+
+      textNodes.forEach(tn => {
+        const text = tn.textContent;
+        const frag = document.createDocumentFragment();
+        let i = 0;
+
+        while (i < text.length) {
+          /* Try to match an entry starting at position i (longest first) */
+          let matched = false;
+          for (const entry of entries) {
+            const ch = entry.character;
+            if (text.startsWith(ch, i)) {
+              const span = document.createElement('span');
+              span.className = 'hz';
+              span.textContent = ch;
+              span.dataset.char = ch;
+              span.addEventListener('click', (e) => {
+                e.stopPropagation();
+                onHanziClick(ch, e);
+              });
+              frag.appendChild(span);
+              i += ch.length;
+              matched = true;
+              break;
+            }
+          }
+          /* No match — output character as plain text */
+          if (!matched) {
+            const last = frag.lastChild;
+            if (last && last.nodeType === Node.TEXT_NODE) {
+              last.textContent += text[i];
+            } else {
+              frag.appendChild(document.createTextNode(text[i]));
+            }
+            i++;
+          }
+        }
+
+        tn.parentNode.replaceChild(frag, tn);
+      });
+    }
+
+    /* 2 — Load JSON then wrap */
+    async function initHanziSystem() {
+      try {
+        const res = await fetch('../data/imagesData.json');
+        imagesData = await res.json();
+      } catch {
+        imagesData = []; // JSON not ready yet — no chars wrapped, no cards shown
+      }
+      if (imagesData.length > 0) wrapHanziFromJSON();
+    }
+    initHanziSystem();
+
+    /* 3 — Click handler */
+    function onHanziClick(char, event) {
+      isOpening = true;
+      setTimeout(() => isOpening = false, 120);
+      closeCard();
+      const data = imagesData.find(d => d.character === char) || null;
+      showCard(char, data, event);
+    }
+
+    /* 4 — Build & position card */
+    function showCard(char, data, event) {
+      const card = document.createElement('div');
+      card.className = 'image-card';
+
+      // Content
+      const imgHtml = data?.imageSrc
+        ? `<img src="${data.imageSrc}" alt="${char}">`
+        : `<div class="card-no-img">
+             <span class="big-char">${char}</span>
+             <small>No image yet</small>
+           </div>`;
+
+      const audioHtml = data?.audioSrc
+        ? `<audio controls src="${data.audioSrc}"></audio>`
+        : '';
+
+      card.innerHTML = `
+        <button class="card-close" title="Close">✕</button>
+        ${imgHtml}
+        <div class="card-char">${data?.character ?? char}</div>
+        <div class="card-pinyin">${data?.pinyin ?? '—'}</div>
+        <div class="card-meaning">${data?.meaning ?? 'No data yet — add to imagesData.json'}</div>
+        ${audioHtml}
+        <div class="writer-area" id="writer-area-${char.codePointAt(0)}"></div>`;
+
+      document.body.appendChild(card);
+      activeCard = card;
+
+      /* Position near clicked char but keep inside viewport */
+      const rect   = event.target.getBoundingClientRect();
+      const margin = 12;
+      let top  = rect.bottom + window.scrollY + margin;
+      let left = rect.left   + window.scrollX;
+
+      const cw = card.offsetWidth  || 280;
+      const ch = card.offsetHeight || 380;
+
+      if (left + cw > window.innerWidth - margin)  left = window.innerWidth - cw - margin;
+      if (left < margin) left = margin;
+      if (top  + ch > window.scrollY + window.innerHeight - margin)
+        top = rect.top + window.scrollY - ch - margin;
+
+      card.style.top  = top  + 'px';
+      card.style.left = left + 'px';
+
+      /* Close button */
+      card.querySelector('.card-close').addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeCard();
+      });
+
+      /* HanziWriter stroke animation for each CJK char in the word */
+      const chars = (data?.character ?? char).split('').filter(c => HANZI_RE.test(c));
+      const writerArea = card.querySelector(`#writer-area-${char.codePointAt(0)}`);
+      if (chars.length && typeof HanziWriter !== 'undefined') {
+        chars.forEach(c => {
+          const box = document.createElement('div');
+          box.className = 'writer-box';
+          box.title = `Click to animate ${c}`;
+          const hint = document.createElement('span');
+          hint.className = 'writer-hint';
+          hint.textContent = '▶ tap';
+          box.appendChild(hint);
+          writerArea.appendChild(box);
+
+          try {
+            const writer = HanziWriter.create(box, c, {
+              width: 88, height: 88, padding: 5,
+              showOutline: true,
+              strokeAnimationSpeed: 1.4,
+              delayBetweenStrokes: 220,
+            });
+            box.addEventListener('click', () => writer.animateCharacter());
+          } catch(err) {
+            box.style.display = 'none';
+          }
+        });
+      } else {
+        writerArea.style.display = 'none';
+      }
+    }
+
+    /* 5 — Close card */
+    function closeCard() {
+      if (activeCard) {
+        activeCard.remove();
+        activeCard = null;
+      }
+    }
+
+    /* 6 — Click outside to close */
+    document.addEventListener('click', () => {
+      if (!isOpening) closeCard();
     });
   </script>
 </body>
