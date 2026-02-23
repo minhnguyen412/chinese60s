@@ -4,7 +4,7 @@ description: "Learn Chinese through a real Douyin video about going to the marke
 tag: "🎬 Douyin Script"
 date: "2025"
 readTime: "6 min read"
-level: "HSK 2–3 Level"
+level: "HSK 3-4 Level"
 heroChar: "菜"
 heroBg: "var(--yellow-pale)"
 
