@@ -4,7 +4,7 @@ description: "Learn Chinese through a real Douyin video about SPA Massage. Study
 tag: "🎬 Douyin Script"
 date: "2025"
 readTime: "6 min read"
-level: "HSK 2–3 Level"
+level: "HSK 4-5 Level"
 heroChar: "租"
 heroBg: "var(--yellow-pale)"
 
