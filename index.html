@@ -245,19 +245,10 @@
     }
     @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
 
-    .img-slot {
-      min-height: 280px; border-radius: 24px;
-      border: var(--border-thick); box-shadow: var(--shadow-lg);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 8px; font-weight: 600; font-size: 1rem;
-    }
-    .img-slot .ph-icon { font-size: 3rem; }
-    .img-slot .ph-hint { font-size: 0.8rem; opacity: 0.5; }
-    .slot-sky    { background: var(--sky-pale); color: #1a6a9a; }
-    .slot-yellow { background: var(--yellow-pale); color: #7a5c00; }
-    @media (max-width: 768px) { .img-slot { min-height: 200px; } }
-
+    /* YouTube embed slot — replaces img-slot */
+    .yt-slot { border-radius: 20px; border: var(--border-thick); overflow: hidden; box-shadow: var(--shadow-lg); aspect-ratio: 16/9; }
+    .yt-slot iframe { width: 100%; height: 100%; display: block; border: none; }
+    @media (max-width: 768px) { .yt-slot { aspect-ratio: 16/9; } }
     /* ── PROBLEM ── */
     .problem { background: var(--peach-pale); border-top: var(--border-thick); border-bottom: var(--border-thick); }
     .problem-grid {
@@ -522,42 +513,33 @@
       <p class="section-sub reveal">Not five tools. One system — where every piece leads to the next.</p>
       <div class="two-col">
         <!-- 👇 Replace with <img src="your-image.gif"> when ready -->
-        <div class="img-slot slot-sky reveal">
-          <span class="ph-icon">🖼️</span>
-          <span>Animated image here</span>
-          <span class="ph-hint">Replace this div with &lt;img&gt;</span>
+        <div class="yt-slot reveal">
+          <iframe src="https://www.youtube.com/embed/ng-E83Dg-KU?si=5E5ZZ4GMMHq4IL2c" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="flow-diagram">
           <div class="flow-node comic-card reveal">
-            <div class="flow-icon">🎬</div>
-            <div class="flow-text">
-              <h4>Watch the Dialogue</h4>
-              <p>Slow animated conversations from real textbook content & daily life.</p>
-            </div>
+            <div class="flow-icon">&#127916;</div>
+            <div class="flow-text"><h4>Watch the Dialogue</h4><p>Slow animated conversations from real textbook content &amp; everyday life.</p></div>
           </div>
-          <div class="flow-arrow reveal">↓</div>
+          <div class="flow-arrow reveal">&#8595;</div>
           <div class="flow-node comic-card reveal">
-            <div class="flow-icon">👆</div>
-            <div class="flow-text">
-              <h4>Click Any Word</h4>
-              <p>Meaning + pinyin + audio + stroke order. No tab switching.</p>
-            </div>
+            <div class="flow-icon">&#128269;</div>
+            <div class="flow-text"><h4>Analyse Each Line</h4><p>Break down every sentence &#8212; structure, grammar pattern, and usage in context.</p></div>
           </div>
-          <div class="flow-arrow reveal">↓</div>
+          <div class="flow-arrow reveal">&#8595;</div>
           <div class="flow-node comic-card reveal">
-            <div class="flow-icon">📚</div>
-            <div class="flow-text">
-              <h4>Explore the Grammar</h4>
-              <p>Explanation + examples + practice — inside the same dialogue.</p>
-            </div>
+            <div class="flow-icon">&#128070;</div>
+            <div class="flow-text"><h4>Click Any Character</h4><p>Tap a word &#8212; instantly get meaning, pinyin, audio, stroke order, and illustration.</p></div>
           </div>
-          <div class="flow-arrow reveal">↓</div>
+          <div class="flow-arrow reveal">&#8595;</div>
           <div class="flow-node comic-card reveal">
-            <div class="flow-icon">🎙️</div>
-            <div class="flow-text">
-              <h4>Train Your Speaking</h4>
-              <p>Hide sentence, record yourself, compare to native audio.</p>
-            </div>
+            <div class="flow-icon">&#127183;</div>
+            <div class="flow-text"><h4>Review with Flashcards</h4><p>Dialogue vocab becomes flashcards &#8212; audio, image, character, and pinyin all built in.</p></div>
+          </div>
+          <div class="flow-arrow reveal">&#8595;</div>
+          <div class="flow-node comic-card reveal">
+            <div class="flow-icon">&#9997;&#65039;</div>
+            <div class="flow-text"><h4>Practise Writing</h4><p>Trace stroke order with guided animation &#8212; same characters you just learned, reinforced.</p></div>
           </div>
         </div>
       </div>
@@ -592,7 +574,7 @@
           </ul>
         </div>
         <div class="path-connector reveal">
-          ↔ Both layers share the same connected system — same vocabulary, grammar, and speaking tools
+          ↔ Both layers share the same connected system — same vocabulary, grammar, and tools
         </div>
       </div>
     </div>
@@ -616,9 +598,9 @@
             <p>Learn grammar from real conversations, not isolated drills.</p>
           </div>
           <div class="feature-card comic-card reveal">
-            <span class="feature-emoji">🎙️</span>
-            <h4>Speaking Practice</h4>
-            <p>Hide, record yourself, compare to native audio.</p>
+            <span class="feature-emoji">&#9997;&#65039;</span>
+            <h4>Character Writing</h4>
+            <p>Animated stroke-order guides for your learning.</p>
           </div>
           <div class="feature-card comic-card reveal">
             <span class="feature-emoji">🧠</span>
@@ -627,10 +609,8 @@
           </div>
         </div>
         <!-- 👇 Replace with <img src="your-image.gif"> when ready -->
-        <div class="img-slot slot-yellow reveal">
-          <span class="ph-icon">✨</span>
-          <span>Animated image here</span>
-          <span class="ph-hint">Replace this div with &lt;img&gt;</span>
+        <div class="yt-slot reveal">
+          <iframe src="https://www.youtube.com/embed/s0QazUhB3v4?si=jnrnk4ZI_cv2DKEM" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
     </div>
