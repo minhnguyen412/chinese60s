@@ -595,9 +595,26 @@
       });
     });
   </script>
+<script type="module">
+  import { loginWithGoogle, listenAuthState } from "js/auth.js";
 
+  const loginBtn = document.getElementById("loginBtn");
+
+  loginBtn.addEventListener("click", async () => {
+    await loginWithGoogle();
+  });
+
+  listenAuthState((user) => {
+    if (user) {
+      console.log("Đã đăng nhập:", user.displayName);
+    } else {
+      console.log("Chưa đăng nhập");
+    }
+  });
+</script>
 </body>
 </html>
+
 
 
 
