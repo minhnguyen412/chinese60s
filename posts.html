@@ -87,6 +87,52 @@
     #authNavItem a {
       background: var(--yellow);
     }
+    /* Dropdown */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 45px;
+      right: 0;
+      background: var(--white);
+      border: var(--border);
+      border-radius: 16px;
+      box-shadow: var(--shadow-md);
+      display: none;
+      flex-direction: column;
+      min-width: 160px;
+      padding: 8px;
+      z-index: 999;
+    }
+
+    .dropdown-menu a {
+      padding: 8px 12px;
+      border-radius: 12px;
+      background: var(--bg);
+      margin: 4px 0;
+      text-decoration: none;
+      color: var(--black);
+      font-weight: 600;
+    }
+
+    .dropdown-menu a:hover {
+      background: var(--green-pale);
+    }
+
+    .dropdown.show .dropdown-menu {
+      display: flex;
+    }
+
+    .avatar-small {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: var(--border);
+      margin-right: 6px;
+      vertical-align: middle;
+    }
     @media (max-width: 768px) {
       header { padding: 0 20px; position: relative; }
       .menu-toggle { display: block; }
@@ -469,7 +515,7 @@
         <li><a href="about.html">About Us</a></li>
         <li><a href="courses.html">Courses</a></li>
         <li><a href="https://www.amazon.com/shop/studiorum60s" target="_blank">Shop</a></li>
-        <li id="authNavItem">
+        <li id="authNavItem" class="dropdown">
           <a href="#" id="loginBtn">Login</a>
         </li>
       </ul>
@@ -600,38 +646,53 @@
     });
   </script>
 <script type="module">
-  import { loginWithGoogle, logoutUser, listenAuthState } from "./js/auth.js";
+import { loginWithGoogle, logoutUser, listenAuthState } from "./js/auth.js";
 
-  const loginBtn = document.getElementById("loginBtn");
-  const authNavItem = document.getElementById("authNavItem");
+const authNavItem = document.getElementById("authNavItem");
 
-  loginBtn.addEventListener("click", async (e) => {
-    e.preventDefault();
-    await loginWithGoogle();
-  });
+listenAuthState((user) => {
 
-  listenAuthState((user) => {
-    if (user) {
-      authNavItem.innerHTML = `
-        <a href="#" id="logoutBtn">Logout (${user.displayName})</a>
-      `;
+  if (user) {
 
-      document.getElementById("logoutBtn").addEventListener("click", async (e) => {
-        e.preventDefault();
-        await logoutUser();
-      });
+    authNavItem.innerHTML = `
+      <a href="#" id="userToggle">
+        <img src="${user.photoURL}" class="avatar-small">
+        ${user.displayName} ▼
+      </a>
+      <div class="dropdown-menu">
+        <a href="profile.html">Profile</a>
+        <a href="#" id="logoutBtn">Logout</a>
+      </div>
+    `;
 
-    } else {
-      authNavItem.innerHTML = `
-        <a href="#" id="loginBtn">Login</a>
-      `;
+    const toggle = document.getElementById("userToggle");
+    const logoutBtn = document.getElementById("logoutBtn");
 
-      document.getElementById("loginBtn").addEventListener("click", async (e) => {
-        e.preventDefault();
-        await loginWithGoogle();
-      });
-    }
-  });
+    toggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      authNavItem.classList.toggle("show");
+    });
+
+    logoutBtn.addEventListener("click", async (e) => {
+      e.preventDefault();
+      await logoutUser();
+    });
+
+  } else {
+
+    authNavItem.innerHTML = `
+      <a href="#" id="loginBtn">Login</a>
+    `;
+
+    document.getElementById("loginBtn").addEventListener("click", async (e) => {
+      e.preventDefault();
+      await loginWithGoogle();
+    });
+
+  }
+
+});
 </script>
 </body>
 </html>
+
