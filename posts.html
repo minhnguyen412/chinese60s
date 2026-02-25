@@ -415,6 +415,19 @@
 
     .hint-text { font-size: 0.9rem; color: #888; margin-top: 12px; border-top: var(--border); padding-top: 10px; }
 
+    /* replay audio button */
+    .replay-btn {
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 0.95rem;
+      background: var(--sky-pale); border: var(--border); border-radius: 50px;
+      padding: 8px 18px; box-shadow: var(--shadow-sm); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s; margin: 5px;
+    }
+    .replay-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+
+    /* inline image in sentence / option */
+    .img-token { display: inline-flex; align-items: center; vertical-align: middle; margin: 0 2px; }
+    .img-token img { max-height: 44px; width: auto; border: var(--border); border-radius: 8px; }
+
     /* ══════════════════════════════
        WORD POPUP OVERLAY
     ══════════════════════════════ */
@@ -678,8 +691,7 @@
     </div>
   </footer>
 
-  <!-- Load quiz.js (original, we override below) -->
-  
+  <!-- quiz.js NOT loaded — logic fully inlined below -->
 
   <!-- Sidebar thumbnails -->
   <script>
@@ -798,23 +810,68 @@
     });
   </script>
 
-  <!-- ═══════════════════════════════════════════════════
-       QUIZ LOGIC
-       - No retry button
-       - Click selected word to deselect
-       - Complete sentence → Next → reveal correct/wrong
-       - Final score summary
-  ══════════════════════════════════════════════════════ -->
+  <!-- ═══════════════════════════════════════════════════════════════════
+       QUIZ LOGIC — based on original quiz.js data structure:
+         quiz.json → { questions: [ { id, sentence, blanks:[{answer}], words:[], audio? } ] }
+
+       Rules:
+         ✔ Auth gate on Start (open modal if not logged in)
+         ✔ Multi-blank support (matches original quiz.js)
+         ✔ Click a selected word again → deselect (unfill that blank)
+         ✔ All blanks filled → Next/Finish button enables
+         ✔ Next → reveal correct/wrong colour on every option → show feedback
+         ✔ No Retry button
+         ✔ Final score summary with colour-coded circle
+  ═══════════════════════════════════════════════════════════════════ -->
   <script>
   (function () {
-    /* ── State ── */
-    let questions     = [];
-    let currentIndex  = 0;
-    let selectedWord  = null;   // { text, el }
-    let scoreCorrect  = 0;
-    let revealed      = false;  // has Next been clicked for current Q
 
-    /* ── DOM refs ── */
+    /* ══════════════════ HELPERS ══════════════════ */
+    function isImagePath(p) { return /\.(jpe?g|png|gif|bmp|webp|svg)$/i.test(p); }
+
+    /* Render a word/sentence token — text or inline image */
+    function renderToken(token) {
+      if (!token && token !== 0) return '';
+      const s = String(token);
+      if (isImagePath(s)) {
+        return `<span class="img-token"><img src="${s}" alt="" class="content-image"></span>`;
+      }
+      return s;
+    }
+
+    /* Build sentence HTML, replacing each '___' with a numbered blank span */
+    function buildSentenceHTML(sentence, blankCount) {
+      let html = Array.isArray(sentence)
+        ? sentence.map(renderToken).join('')
+        : renderToken(sentence);
+
+      let i = 0;
+      html = html.replace(/___/g, () =>
+        `<span class="blank" data-blank-index="${i++}"></span>`
+      );
+      return html;
+    }
+
+    /* ══════════════════ STATE ══════════════════ */
+    let allQuestions  = [];   // filtered from JSON
+    let currentIndex  = 0;
+    let scoreCorrect  = 0;
+    let revealed      = false;
+
+    /*
+      selectedSlots: array parallel to blanks[]
+      each slot: { wordText, wordEl } | null
+    */
+    let selectedSlots = [];
+
+    /* audio elements */
+    const clickAudio     = new Audio('assets/click.mp3');
+    const correctAudio   = new Audio('assets/correct.mp3');
+    const incorrectAudio = new Audio('assets/incorrect.mp3');
+    const victoryAudio   = new Audio('assets/victory.mp3');
+    let   questionAudio  = null;
+
+    /* ══════════════════ DOM REFS ══════════════════ */
     const startContainer = document.getElementById('start-container');
     const startBtn       = document.getElementById('start-button');
     const sentenceEl     = document.getElementById('sentence');
@@ -831,94 +888,137 @@
     const scoreCircle    = document.getElementById('score-circle');
     const restartBtn     = document.getElementById('restart-btn');
 
-    /* ── Fetch questions from quiz.js data (same API as original) ── */
-    function fetchQuestions (startId, endId) {
-      return fetch('https://raw.githubusercontent.com/minhnguyen412/chinese60s/refs/heads/main/data/quiz.json')
-        .then(r => r.json())
-        .then(data => data.filter(q => q.id >= startId && q.id <= endId))
-        .catch(() => {
-          /* fallback demo questions */
-          return [
-            { id:1, sentence:"我___苹果", blank:"喜欢", options:["喜欢","不是","很好","去"] },
-            { id:2, sentence:"他___老师", blank:"是",   options:["是","有","在","很"] },
-            { id:3, sentence:"我们___学习", blank:"一起", options:["一起","不好","是的","很大"] },
-          ];
-        });
+    /* ══════════════════ LOAD JSON ══════════════════ */
+    async function loadQuestions(startId, endId) {
+      try {
+        const res  = await fetch('data/quiz.json');
+        const json = await res.json();
+
+        /* Support both shapes:
+           Shape A (original): { questions: [...] }
+           Shape B (flat):     [...]                */
+        const raw = Array.isArray(json) ? json : (json.questions || []);
+
+        return raw.filter(q => q.id >= startId && q.id <= endId);
+      } catch (e) {
+        console.warn('quiz.json load failed, using demo data:', e);
+        /* Fallback demo — uses original data shape */
+        return [
+          {
+            id: 1,
+            sentence: '我___苹果。',
+            blanks: [{ answer: '喜欢' }],
+            words: ['喜欢', '不是', '很好', '去']
+          },
+          {
+            id: 2,
+            sentence: '他___老师。',
+            blanks: [{ answer: '是' }],
+            words: ['是', '有', '在', '很']
+          },
+          {
+            id: 3,
+            sentence: '我们___一起___学习。',
+            blanks: [{ answer: '可以' }, { answer: '好好' }],
+            words: ['可以', '不好', '好好', '很大']
+          }
+        ];
+      }
     }
 
-    /* ── Start quiz ── */
+    /* ══════════════════ START ══════════════════ */
     startBtn.addEventListener('click', async () => {
-      /* ── Auth gate: intercept here, not in UI ── */
+      /* Auth gate */
       if (!window.__currentUser) {
         openLoginModal();
         return;
       }
 
-      const qc = document.getElementById('quiz-container');
-      const startId = parseInt(qc.dataset.startId) || 1;
-      const endId   = parseInt(qc.dataset.endId)   || 10;
+      const qc      = document.getElementById('quiz-container');
+      const p       = new URLSearchParams(window.location.search);
+      const startId = parseInt(p.get('quizStartId')) || parseInt(qc.dataset.startId) || 1;
+      const endId   = parseInt(p.get('quizEndId'))   || parseInt(qc.dataset.endId)   || 10;
 
-      /* also read from URL params */
-      const p = new URLSearchParams(window.location.search);
-      const qStart = parseInt(p.get('quizStartId')) || startId;
-      const qEnd   = parseInt(p.get('quizEndId'))   || endId;
+      allQuestions  = await loadQuestions(startId, endId);
+      if (!allQuestions.length) {
+        resultEl.textContent    = '⚠️ No questions found for this lesson.';
+        resultEl.style.display  = 'block';
+        return;
+      }
 
-      questions    = await fetchQuestions(qStart, qEnd);
       currentIndex = 0;
       scoreCorrect = 0;
 
-      startContainer.style.display   = 'none';
-      progressWrap.style.display     = 'block';
-      counterEl.style.display        = 'block';
-      summaryEl.style.display        = 'none';
+      startContainer.style.display  = 'none';
+      progressWrap.style.display    = 'block';
+      counterEl.style.display       = 'block';
+      summaryEl.style.display       = 'none';
+      resultEl.style.display        = 'none';
 
       showQuestion();
     });
 
-    /* ── Render one question ── */
-    function showQuestion () {
-      if (currentIndex >= questions.length) { showSummary(); return; }
+    /* ══════════════════ SHOW QUESTION ══════════════════ */
+    function showQuestion() {
+      if (currentIndex >= allQuestions.length) { showSummary(); return; }
 
-      const q     = questions[currentIndex];
-      revealed    = false;
-      selectedWord = null;
+      const q      = allQuestions[currentIndex];
+      const blanks = q.blanks || [];
+      revealed     = false;
+      selectedSlots = blanks.map(() => null);
 
-      /* progress */
-      const pct = (currentIndex / questions.length) * 100;
+      /* ── Progress ── */
+      const pct = (currentIndex / allQuestions.length) * 100;
       progressFill.style.width = pct + '%';
-      counterEl.textContent    = `Question ${currentIndex + 1} of ${questions.length}`;
+      counterEl.textContent    = `Question ${currentIndex + 1} of ${allQuestions.length}`;
 
-      /* sentence with blank */
-      const parts  = q.sentence.split('___');
-      sentenceEl.innerHTML = (parts[0] || '') +
-        `<span class="blank" id="q-blank">___</span>` +
-        (parts[1] || '');
+      /* ── Sentence ── */
+      sentenceEl.innerHTML     = buildSentenceHTML(q.sentence, blanks.length);
       sentenceEl.style.display = 'block';
 
-      /* shuffle options */
-      const opts = [...q.options].sort(() => Math.random() - 0.5);
+      /* ── Options (shuffle words) ── */
+      const words = [...(q.words || [])].sort(() => Math.random() - 0.5);
       optionsEl.innerHTML = '';
-      opts.forEach(word => {
-        const btn = document.createElement('button');
-        btn.className   = 'word';
-        btn.textContent = word;
-        btn.addEventListener('click', () => handleWordClick(btn, word, q.blank));
+
+      words.forEach(word => {
+        const btn     = document.createElement('button');
+        btn.className = 'word';
+        btn.innerHTML = renderToken(word);
+        btn.dataset.word = String(word);
+        btn.addEventListener('click', () => handleWordClick(btn));
         optionsEl.appendChild(btn);
       });
       optionsEl.style.display = 'block';
 
-      /* result hidden */
-      resultEl.style.display  = 'none';
-      resultEl.textContent    = '';
-      resultEl.className      = 'result';
+      /* ── Feedback hidden ── */
+      resultEl.style.display = 'none';
+      resultEl.textContent   = '';
+      resultEl.className     = 'result';
 
-      /* buttons: Next disabled until a word is selected */
+      /* ── Buttons ── */
       buttonsEl.innerHTML = '';
       buttonsEl.style.display = 'block';
 
-      const isLast = currentIndex === questions.length - 1;
+      /* Replay audio button (if question has audio) */
+      if (q.audio) {
+        if (questionAudio) { questionAudio.pause(); }
+        questionAudio = new Audio(q.audio);
+        questionAudio.play().catch(() => {});
+
+        const replayBtn = document.createElement('button');
+        replayBtn.className   = 'replay-btn';
+        replayBtn.textContent = '🔊 Replay';
+        replayBtn.addEventListener('click', () => {
+          questionAudio.currentTime = 0;
+          questionAudio.play().catch(() => {});
+        });
+        buttonsEl.appendChild(replayBtn);
+      }
+
+      /* Next/Finish — disabled until all blanks filled */
+      const isLast    = currentIndex === allQuestions.length - 1;
       const actionBtn = document.createElement('button');
-      actionBtn.textContent = isLast ? 'Finish' : 'Next →';
+      actionBtn.textContent = isLast ? 'Finish ✓' : 'Next →';
       actionBtn.className   = isLast ? 'finish' : 'next';
       actionBtn.disabled    = true;
       actionBtn.id          = 'action-btn';
@@ -926,119 +1026,185 @@
       buttonsEl.appendChild(actionBtn);
     }
 
-    /* ── Word click: select / deselect ── */
-    function handleWordClick (btn, word, correctAnswer) {
+    /* ══════════════════ WORD CLICK ══════════════════ */
+    function handleWordClick(btn) {
       if (revealed) return;
+      clickAudio.currentTime = 0;
+      clickAudio.play().catch(() => {});
 
-      /* deselect if clicking the already-selected word */
-      if (selectedWord && selectedWord.el === btn) {
+      const word = btn.dataset.word;
+
+      /* Check if this word button is already placed in a slot */
+      const existingSlotIndex = selectedSlots.findIndex(
+        s => s && s.wordEl === btn
+      );
+
+      if (existingSlotIndex !== -1) {
+        /* ── DESELECT: remove from blank ── */
+        selectedSlots[existingSlotIndex] = null;
         btn.classList.remove('selected');
-        selectedWord = null;
-        document.getElementById('q-blank').textContent = '___';
-        document.getElementById('q-blank').classList.remove('filled');
-        document.getElementById('action-btn').disabled = true;
+        const blankEl = sentenceEl.querySelector(`[data-blank-index="${existingSlotIndex}"]`);
+        if (blankEl) { blankEl.innerHTML = ''; blankEl.classList.remove('filled'); }
+        updateActionBtn();
         return;
       }
 
-      /* deselect previous */
-      if (selectedWord) {
-        selectedWord.el.classList.remove('selected');
+      /* ── SELECT: fill the first empty blank ── */
+      const emptyIndex = selectedSlots.findIndex(s => s === null);
+      if (emptyIndex === -1) return; // all blanks filled by other words — shouldn't happen if UI is correct
+
+      selectedSlots[emptyIndex] = { wordText: word, wordEl: btn };
+      btn.classList.add('selected');
+
+      const blankEl = sentenceEl.querySelector(`[data-blank-index="${emptyIndex}"]`);
+      if (blankEl) {
+        blankEl.innerHTML = renderToken(word);
+        blankEl.classList.add('filled');
       }
 
-      /* select new */
-      btn.classList.add('selected');
-      selectedWord = { text: word, el: btn };
-
-      /* fill blank */
-      const blank = document.getElementById('q-blank');
-      blank.textContent = word;
-      blank.classList.add('filled');
-
-      /* enable Next */
-      document.getElementById('action-btn').disabled = false;
+      updateActionBtn();
     }
 
-    /* ── Next clicked: reveal result then advance ── */
-    function revealAndAdvance (q) {
-      if (!selectedWord || revealed) return;
+    function updateActionBtn() {
+      const btn = document.getElementById('action-btn');
+      if (!btn) return;
+      const allFilled = selectedSlots.every(s => s !== null);
+      btn.disabled = !allFilled;
+    }
+
+    /* ══════════════════ REVEAL (after Next) ══════════════════ */
+    function revealAndAdvance(q) {
+      if (revealed) return;
+      const allFilled = selectedSlots.every(s => s !== null);
+      if (!allFilled) return;
+
       revealed = true;
+      const blanks = q.blanks || [];
 
-      const isCorrect = selectedWord.text === q.blank;
-      if (isCorrect) scoreCorrect++;
+      /* Check correctness per blank */
+      let questionCorrect = true;
+      blanks.forEach((blank, i) => {
+        const slot = selectedSlots[i];
+        if (!slot || String(slot.wordText) !== String(blank.answer)) {
+          questionCorrect = false;
+        }
+      });
 
-      /* disable all option buttons */
+      if (questionCorrect) scoreCorrect++;
+
+      /* Colour all option buttons */
       optionsEl.querySelectorAll('.word').forEach(btn => {
         btn.classList.add('disabled');
-        if (btn.textContent === q.blank) btn.classList.add('correct-reveal');
-      });
-      if (!isCorrect) {
-        selectedWord.el.classList.remove('selected');
-        selectedWord.el.classList.add('incorrect-reveal');
-      }
+        btn.style.pointerEvents = 'none';
 
-      /* show feedback */
-      resultEl.style.display = 'block';
-      if (isCorrect) {
+        const isCorrectWord = blanks.some(b => String(b.answer) === btn.dataset.word);
+        const wasSelected   = selectedSlots.some(s => s && s.wordEl === btn);
+
+        if (isCorrectWord) {
+          btn.classList.add('correct-reveal');
+        } else if (wasSelected && !isCorrectWord) {
+          btn.classList.remove('selected');
+          btn.classList.add('incorrect-reveal');
+        }
+      });
+
+      /* Also colour the blanks in the sentence */
+      blanks.forEach((blank, i) => {
+        const blankEl = sentenceEl.querySelector(`[data-blank-index="${i}"]`);
+        const slot    = selectedSlots[i];
+        if (!blankEl) return;
+        if (slot && String(slot.wordText) === String(blank.answer)) {
+          blankEl.style.color       = 'var(--green-dark)';
+          blankEl.style.borderColor = 'var(--green)';
+        } else {
+          blankEl.style.color       = '#e53935';
+          blankEl.style.borderColor = '#e53935';
+          /* show correct answer beside */
+          blankEl.innerHTML += ` <small style="font-size:0.7em;opacity:0.8">(${blank.answer})</small>`;
+        }
+      });
+
+      /* Play sound */
+      if (questionCorrect) {
+        correctAudio.currentTime = 0;
+        correctAudio.play().catch(() => {});
         resultEl.textContent = '✅ Correct!';
         resultEl.className   = 'result correct';
       } else {
-        resultEl.textContent = `❌ The answer is: ${q.blank}`;
+        incorrectAudio.currentTime = 0;
+        incorrectAudio.play().catch(() => {});
+        const correctList = blanks.map(b => b.answer).join('、');
+        resultEl.textContent = `❌ Answer: ${correctList}`;
         resultEl.className   = 'result incorrect';
       }
+      resultEl.style.display = 'block';
 
-      /* update action button to "Continue" */
+      /* Swap Next/Finish → Continue */
       const actionBtn = document.getElementById('action-btn');
-      actionBtn.disabled    = false;
-      actionBtn.textContent = currentIndex === questions.length - 1 ? 'See Results 🏆' : 'Continue →';
-      actionBtn.onclick     = () => {
-        currentIndex++;
-        showQuestion();
-      };
+      if (actionBtn) {
+        actionBtn.disabled    = false;
+        actionBtn.textContent = currentIndex === allQuestions.length - 1
+          ? 'See Results 🏆'
+          : 'Continue →';
+        actionBtn.className   = currentIndex === allQuestions.length - 1 ? 'finish' : 'next';
+
+        /* remove old listener, add new */
+        const fresh = actionBtn.cloneNode(true);
+        actionBtn.replaceWith(fresh);
+        fresh.addEventListener('click', () => {
+          currentIndex++;
+          showQuestion();
+        });
+      }
     }
 
-    /* ── Final score summary ── */
-    function showSummary () {
-      sentenceEl.style.display  = 'none';
-      optionsEl.style.display   = 'none';
-      resultEl.style.display    = 'none';
-      buttonsEl.style.display   = 'none';
+    /* ══════════════════ SUMMARY ══════════════════ */
+    function showSummary() {
+      sentenceEl.style.display   = 'none';
+      optionsEl.style.display    = 'none';
+      resultEl.style.display     = 'none';
+      buttonsEl.style.display    = 'none';
       progressWrap.style.display = 'none';
-      counterEl.style.display   = 'none';
+      counterEl.style.display    = 'none';
 
-      const total   = questions.length;
-      const pct     = total > 0 ? Math.round((scoreCorrect / total) * 100) : 0;
+      victoryAudio.play().catch(() => {});
 
+      const total = allQuestions.length;
+      const pct   = total > 0 ? Math.round((scoreCorrect / total) * 100) : 0;
       progressFill.style.width = '100%';
       scoreNumEl.textContent   = `${scoreCorrect}/${total}`;
 
-      /* color circle by score */
       if (pct >= 80) {
-        scoreCircle.style.background   = 'var(--green-pale)';
-        scoreCircle.style.borderColor  = 'var(--green)';
-        scoreTitleEl.textContent        = '🎉 Excellent!';
-        scoreMsgEl.textContent          = `You got ${scoreCorrect} out of ${total} correct (${pct}%). Great work!`;
+        scoreCircle.style.background  = 'var(--green-pale)';
+        scoreCircle.style.borderColor = 'var(--green)';
+        scoreTitleEl.textContent      = '🎉 Excellent!';
+        scoreMsgEl.textContent        = `You got ${scoreCorrect} out of ${total} correct (${pct}%). Outstanding!`;
       } else if (pct >= 50) {
-        scoreCircle.style.background   = 'var(--yellow-pale)';
-        scoreCircle.style.borderColor  = 'var(--yellow)';
-        scoreTitleEl.textContent        = '👍 Good effort!';
-        scoreMsgEl.textContent          = `You got ${scoreCorrect} out of ${total} correct (${pct}%). Keep practicing!`;
+        scoreCircle.style.background  = 'var(--yellow-pale)';
+        scoreCircle.style.borderColor = 'var(--yellow)';
+        scoreTitleEl.textContent      = '👍 Good effort!';
+        scoreMsgEl.textContent        = `You got ${scoreCorrect} out of ${total} correct (${pct}%). Keep it up!`;
       } else {
-        scoreCircle.style.background   = 'var(--pink-pale)';
-        scoreCircle.style.borderColor  = 'var(--pink)';
-        scoreTitleEl.textContent        = '💪 Keep going!';
-        scoreMsgEl.textContent          = `You got ${scoreCorrect} out of ${total} correct (${pct}%). Try again to improve!`;
+        scoreCircle.style.background  = 'var(--pink-pale)';
+        scoreCircle.style.borderColor = 'var(--pink)';
+        scoreTitleEl.textContent      = '💪 Keep going!';
+        scoreMsgEl.textContent        = `You got ${scoreCorrect} out of ${total} correct (${pct}%). Try again!`;
       }
 
       summaryEl.style.display = 'block';
     }
 
-    /* ── Restart ── */
+    /* ══════════════════ RESTART ══════════════════ */
     restartBtn.addEventListener('click', () => {
-      summaryEl.style.display     = 'none';
+      summaryEl.style.display      = 'none';
       startContainer.style.display = 'block';
-      progressWrap.style.display  = 'none';
-      counterEl.style.display     = 'none';
-      progressFill.style.width    = '0%';
+      progressWrap.style.display   = 'none';
+      counterEl.style.display      = 'none';
+      progressFill.style.width     = '0%';
+      sentenceEl.style.display     = 'none';
+      optionsEl.style.display      = 'none';
+      buttonsEl.style.display      = 'none';
+      resultEl.style.display       = 'none';
     });
 
   })();
@@ -1046,6 +1212,3 @@
 
 </body>
 </html>
-
-
-
