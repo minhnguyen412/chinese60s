@@ -342,33 +342,79 @@
       margin-bottom: 10px; display: none;
     }
 
-    /* sentence */
+    /* ── SENTENCE ZONE ── */
     .sentence {
-      margin: 20px 0; font-size: 1.8rem; font-weight: 700; line-height: 1.6; display: none;
+      margin: 20px 0 10px; font-size: 1.7rem; font-weight: 700;
+      line-height: 2.2; display: none; flex-wrap: wrap;
+      align-items: center; gap: 4px;
     }
-    .blank {
-      display: inline-block; width: 100px;
-      border-bottom: 3px solid var(--black);
-      text-align: center; margin: 0 5px; color: #888;
-    }
-    .blank.filled { color: var(--green-dark); border-color: var(--green); }
 
-    /* options */
-    .options { margin: 16px 0; display: none; }
+    /* Empty blank — dashed slot, same pill shape as words */
+    .blank {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-width: 80px; height: 46px;
+      border: 2.5px dashed #aaa; border-radius: 50px;
+      margin: 0 4px; padding: 0 14px;
+      background: transparent; color: transparent;
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.2rem;
+      cursor: pointer; vertical-align: middle;
+      transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+      user-select: none; position: relative;
+    }
+    .blank::after {
+      content: attr(data-placeholder);
+      position: absolute; color: #ccc; font-size: 0.9rem; pointer-events: none;
+    }
+    /* Filled blank — looks like a placed word pill */
+    .blank.filled {
+      background: var(--sky);
+      border: var(--border-thick);
+      color: var(--black);
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+    }
+    .blank.filled::after { display: none; }
+    .blank.filled:hover  { background: #a8dfff; box-shadow: var(--shadow-md); transform: translate(-1px,-2px); }
+
+    /* After reveal */
+    .blank.reveal-correct { background: var(--green-light); border-color: var(--green-dark); color: var(--green-dark); border-style: solid; cursor: default; }
+    .blank.reveal-wrong   { background: var(--pink-pale); border-color: #e53935; color: #c0392b; border-style: solid; cursor: default; }
+
+    /* ── OPTIONS ZONE ── */
+    .options {
+      margin: 16px 0 8px; display: none;
+      min-height: 60px; /* keeps layout stable when words fly up */
+    }
+    /* Ghost placeholder when word is used */
+    .word-ghost {
+      display: inline-block;
+      min-width: 80px; height: 46px;
+      margin: 5px; padding: 0 18px;
+      border: 2.5px dashed #ddd; border-radius: 50px;
+      background: transparent; vertical-align: middle;
+    }
+
     .word {
-      font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1.3rem;
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.2rem;
       padding: 10px 20px; margin: 5px;
       background: var(--pink); color: var(--black);
       border: var(--border-thick); border-radius: 50px;
       box-shadow: var(--shadow-sm); cursor: pointer;
-      transition: transform 0.12s, box-shadow 0.12s, background 0.12s;
-      user-select: none;
+      transition: transform 0.14s ease, box-shadow 0.14s ease, background 0.12s;
+      user-select: none; vertical-align: middle;
+      display: inline-block; position: relative;
     }
-    .word:hover:not(.selected):not(.disabled) { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); background: var(--peach); }
-    .word.selected { background: var(--sky); box-shadow: var(--shadow-md); transform: translate(-1px,-2px); }
-    .word.disabled { opacity: 0.5; cursor: default; pointer-events: none; }
-    .word.correct-reveal  { background: var(--green-light); border-color: var(--green-dark); }
-    .word.incorrect-reveal { background: var(--pink); border-color: #e53935; }
+    .word:hover:not(.used):not(.disabled) {
+      transform: translate(-2px,-3px);
+      box-shadow: 5px 5px 0 var(--black);
+      background: var(--peach);
+    }
+    .word:active:not(.used):not(.disabled) { transform: translate(0,0); box-shadow: var(--shadow-sm); }
+    /* Word hidden (placed in blank) — becomes invisible, ghost takes its space */
+    .word.used { visibility: hidden; pointer-events: none; }
+    .word.disabled { opacity: 0.4; pointer-events: none; }
+    .word.correct-reveal { background: var(--green-light); border-color: var(--green-dark); }
+    .word.incorrect-reveal { background: var(--pink-pale); border-color: #e53935; }
 
     /* result feedback (shown after Next) */
     .result { margin-top: 14px; font-size: 1.05rem; font-weight: 700; display: none; }
@@ -427,6 +473,101 @@
     /* inline image in sentence / option */
     .img-token { display: inline-flex; align-items: center; vertical-align: middle; margin: 0 2px; }
     .img-token img { max-height: 44px; width: auto; border: var(--border); border-radius: 8px; }
+
+    /* ══ DUOLINGO-STYLE QUIZ LAYOUT ══ */
+
+    /* Answer zone — blank slots above, word bank below */
+    .answer-zone {
+      min-height: 56px;
+      border: var(--border-thick); border-radius: 16px;
+      padding: 10px 14px;
+      background: var(--white);
+      display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+      margin: 18px 0 10px;
+    }
+    .answer-zone .blank-slot {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-width: 80px; height: 44px;
+      border-bottom: 3px solid var(--black);
+      padding: 0 10px;
+      font-size: 1.25rem; font-weight: 700;
+      cursor: pointer; transition: border-color 0.15s, background 0.15s;
+      border-radius: 0;
+      position: relative;
+    }
+    .answer-zone .blank-slot:empty::after {
+      content: '';
+      display: block; width: 60px; height: 2px;
+      background: #ccc; border-radius: 2px;
+    }
+    .answer-zone .blank-slot.filled {
+      border-bottom-color: var(--green);
+      background: var(--green-pale); border-radius: 10px;
+      border: var(--border); border-bottom: 3px solid var(--green);
+    }
+    .answer-zone .blank-slot.filled:hover {
+      background: var(--yellow-pale); border-color: var(--yellow);
+      border-bottom-color: var(--yellow);
+    }
+    /* After reveal */
+    .answer-zone .blank-slot.reveal-correct {
+      background: var(--green-pale); border-color: var(--green) !important;
+      border-bottom-color: var(--green) !important;
+      color: var(--green-dark);
+    }
+    .answer-zone .blank-slot.reveal-wrong {
+      background: var(--pink-pale); border-color: #e53935 !important;
+      border-bottom-color: #e53935 !important;
+      color: #e53935;
+    }
+
+    /* Word bank — pool of words at bottom */
+    .word-bank {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      justify-content: center;
+      min-height: 56px;
+      padding: 10px 0; margin-bottom: 14px;
+    }
+    .word-chip {
+      font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1.2rem;
+      padding: 10px 20px;
+      background: var(--white); color: var(--black);
+      border: var(--border-thick); border-radius: 12px;
+      box-shadow: 0 4px 0 var(--black);
+      cursor: pointer;
+      transition: transform 0.1s, box-shadow 0.1s;
+      user-select: none;
+      /* fly animation */
+    }
+    .word-chip:hover:not(.used):not(.ghost) {
+      transform: translateY(-3px);
+      box-shadow: 0 7px 0 var(--black);
+    }
+    .word-chip:active:not(.used):not(.ghost) {
+      transform: translateY(1px);
+      box-shadow: 0 2px 0 var(--black);
+    }
+    /* Ghost = placeholder space when word is in answer zone */
+    .word-chip.ghost {
+      visibility: hidden;
+      pointer-events: none;
+    }
+    /* Reveal colours in bank */
+    .word-chip.reveal-correct { background: var(--green-light); border-color: var(--green-dark); box-shadow: 0 4px 0 var(--green-dark); }
+    .word-chip.reveal-wrong   { background: var(--pink);        border-color: #e53935;           box-shadow: 0 4px 0 #e53935; }
+
+    /* Flying animation */
+    @keyframes flyUp   { from { transform: translateY(0) scale(1); opacity:1; } to { transform: translateY(-60px) scale(0.85); opacity:0; } }
+    @keyframes flyDown { from { transform: translateY(0) scale(0.85); opacity:0; } to { transform: translateY(40px) scale(1); opacity:1; } }
+    .fly-up   { animation: flyUp   0.2s ease forwards; }
+    .fly-down { animation: flyDown 0.18s ease forwards; }
+
+    /* Modal auth error */
+    .modal-error {
+      background: var(--pink-pale); border: 2px solid #e53935; border-radius: 12px;
+      padding: 10px 14px; font-size: 0.9rem; color: #c0392b;
+      margin-top: 14px; display: none; text-align: left;
+    }
 
     /* ══════════════════════════════
        WORD POPUP OVERLAY
@@ -585,16 +726,17 @@
       <div class="modal-icon">🔐</div>
       <h2>Sign in to continue</h2>
       <p>Sign in with your Google account to access the practice quiz and track your progress.</p>
-      <button class="google-btn" onclick="doGoogleSignIn()">
-        <!-- Google G logo SVG -->
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <button class="google-btn" id="google-signin-btn" onclick="doGoogleSignIn()">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
           <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
           <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
           <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
           <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
         </svg>
-        Continue with Google
+        <span id="signin-btn-text">Continue with Google</span>
       </button>
+      <!-- Inline error message -->
+      <div class="modal-error" id="modal-error"></div>
     </div>
   </div>
 
@@ -632,24 +774,36 @@
       <div class="qcontainer" id="quiz-container" data-start-id="24" data-end-id="38">
         <h1>Let's Practice! 🎯</h1>
 
-        <!-- Quiz content — always visible; Start button checks auth -->
         <div id="quiz-unlocked">
+          <!-- Start screen -->
           <div id="start-container">
             <button id="start-button">▶ Start Quiz</button>
           </div>
 
-          <!-- Progress -->
+          <!-- Progress bar -->
           <div class="quiz-counter" id="quiz-counter"></div>
           <div class="quiz-progress-wrap" id="quiz-progress-wrap">
             <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
           </div>
 
+          <!-- Sentence (static text parts + blank slots inline) -->
           <div class="sentence" id="sentence"></div>
-          <div class="options"  id="options"></div>
-          <div class="result"   id="result"></div>
+
+          <!--
+            Answer zone: clickable blank slots appear here as chips
+            (Only used for Duolingo mode — sentence blanks are embedded above)
+          -->
+
+          <!-- Word bank: chips to pick from -->
+          <div class="word-bank" id="word-bank" style="display:none;"></div>
+
+          <!-- Feedback -->
+          <div class="result" id="result"></div>
+
+          <!-- Buttons (Replay / Next / Continue) -->
           <div id="buttons"></div>
 
-          <!-- Score summary (end screen) -->
+          <!-- Score summary -->
           <div class="score-summary" id="score-summary">
             <div class="score-circle" id="score-circle">
               <span class="score-num" id="score-num">0/0</span>
@@ -723,21 +877,74 @@
   </script>
 
   <!-- ═══════════════════════════════════════════════════
-       AUTH — Firebase + Google Sign-In
-       (replace firebaseConfig with your actual config)
+       AUTH — Firebase Google Sign-In
+       ✔ Tries signInWithPopup first (fast, no page leave)
+       ✔ Falls back to signInWithRedirect if popup blocked
+       ✔ getRedirectResult() handles return after redirect
+       ✔ window helpers exposed BEFORE auth resolves so
+         onclick= attributes always work
+       📝 Replace firebaseConfig values with your project's
   ══════════════════════════════════════════════════════ -->
+
+  <!-- ═══════════════════════════════════════════════════
+       AUTH — Firebase Google Sign-In
+       ✔ signInWithPopup (no page leave, no redirect issues)
+       ✔ Inline error shown inside modal (no alert)
+       ✔ window helpers stubbed immediately for onclick=
+       📝 Replace firebaseConfig with your project values
+  ══════════════════════════════════════════════════════ -->
+
+  <!-- Stub helpers immediately so onclick= never throws ReferenceError -->
+  <script>
+    window.__currentUser   = null;
+
+    window.openLoginModal  = function() {
+      const m = document.getElementById('login-modal');
+      m.classList.add('open');
+      /* reset error & button state */
+      const err = document.getElementById('modal-error');
+      const txt = document.getElementById('signin-btn-text');
+      if (err) { err.style.display = 'none'; err.textContent = ''; }
+      if (txt) txt.textContent = 'Continue with Google';
+      const btn = document.getElementById('google-signin-btn');
+      if (btn) btn.disabled = false;
+    };
+
+    window.closeLoginModal = function() {
+      document.getElementById('login-modal').classList.remove('open');
+    };
+
+    /* Temporary stub — replaced by module */
+    window.doGoogleSignIn  = function() { openLoginModal(); };
+    window.signOut         = function() {};
+    window.toggleUserMenu  = function() {
+      document.getElementById('user-menu-wrap').classList.toggle('open');
+    };
+
+    /* Close modal on backdrop click; close dropdown on outside click */
+    document.addEventListener('click', function(e) {
+      const modal = document.getElementById('login-modal');
+      if (e.target === modal) closeLoginModal();
+      const wrap = document.getElementById('user-menu-wrap');
+      if (wrap && !wrap.contains(e.target) && !e.target.closest('#auth-nav-item')) {
+        wrap.classList.remove('open');
+      }
+    });
+  </script>
+
   <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { initializeApp }  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
     import {
       getAuth,
       GoogleAuthProvider,
-      signInWithRedirect,
-      getRedirectResult,
+      signInWithPopup,
       signOut as fbSignOut,
       onAuthStateChanged
     } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
-    /* ── Replace with your actual Firebase config ── */
+    /* ════════════════════════════════════════════
+       🔧 PASTE YOUR FIREBASE CONFIG HERE
+    ════════════════════════════════════════════ */
     const firebaseConfig = {
       apiKey:            "AIzaSyAm-qQrpXKNdqFLITRAGCug7rkskGzyAkg",
       authDomain:        "chinese60s.firebaseapp.com",
@@ -745,466 +952,488 @@
       storageBucket:     "chinese60s.firebasestorage.app",
       messagingSenderId: "835657861121",
       appId:             "1:835657861121:web:f31727eb7ea3b876a5d800",
-      measurementId: "G-70NQ4PFTSN"
+      measurementId:     "G-70NQ4PFTSN"
     };
 
     const app      = initializeApp(firebaseConfig);
     const auth     = getAuth(app);
     const provider = new GoogleAuthProvider();
+    /* Always show account picker */
+    provider.setCustomParameters({ prompt: 'select_account' });
 
-    /* handle redirect result on page load (after Google sends user back) */
-    getRedirectResult(auth).catch(err => console.error("Redirect result error:", err));
+    /* ── Helper: show error inside modal ── */
+    function showModalError(msg) {
+      const el = document.getElementById('modal-error');
+      if (!el) return;
+      el.textContent    = msg;
+      el.style.display  = 'block';
+      const btn = document.getElementById('google-signin-btn');
+      const txt = document.getElementById('signin-btn-text');
+      if (btn) btn.disabled = false;
+      if (txt) txt.textContent = 'Continue with Google';
+    }
 
-    /* ── Expose helpers to window so onclick= attributes work ── */
-    window.doGoogleSignIn = function () {
-      /* redirect — no popup, no browser block */
-      signInWithRedirect(auth, provider);
+    function setSignInLoading(loading) {
+      const btn = document.getElementById('google-signin-btn');
+      const txt = document.getElementById('signin-btn-text');
+      if (!btn || !txt) return;
+      btn.disabled     = loading;
+      txt.textContent  = loading ? 'Opening Google…' : 'Continue with Google';
+    }
+
+    /* ── Google Sign-In with Popup ── */
+    window.doGoogleSignIn = async function() {
+      /* Clear previous error */
+      const errEl = document.getElementById('modal-error');
+      if (errEl) { errEl.style.display = 'none'; errEl.textContent = ''; }
+
+      setSignInLoading(true);
+      try {
+        await signInWithPopup(auth, provider);
+        /* onAuthStateChanged will fire and update UI */
+        closeLoginModal();
+      } catch (err) {
+        setSignInLoading(false);
+        console.error('Sign-in error:', err.code, err.message);
+
+        /* Map common Firebase error codes to friendly messages */
+        const msgs = {
+          'auth/popup-blocked':
+            '🚫 Popup was blocked. Please allow popups for this site in your browser settings, then try again.',
+          'auth/popup-closed-by-user':
+            '❌ Sign-in window was closed. Please try again.',
+          'auth/cancelled-popup-request':
+            '❌ Sign-in was cancelled. Please try again.',
+          'auth/network-request-failed':
+            '🌐 Network error. Check your internet connection and try again.',
+          'auth/invalid-api-key':
+            '⚙️ Firebase configuration error. Please contact the site admin.',
+          'auth/operation-not-allowed':
+            '⚙️ Google sign-in is not enabled. Please contact the site admin.',
+          'auth/unauthorized-domain':
+            '⚙️ This domain is not authorised for sign-in. Please contact the site admin.',
+          'auth/user-disabled':
+            '🚫 This account has been disabled.',
+        };
+        showModalError(msgs[err.code] || `Sign-in failed: ${err.message}`);
+      }
     };
 
-    window.signOut = async function () {
-      await fbSignOut(auth);
+    /* ── Sign Out ── */
+    window.signOut = async function() {
+      try { await fbSignOut(auth); } catch(e) { console.error('Sign-out error:', e); }
     };
 
-    window.openLoginModal  = () => document.getElementById('login-modal').classList.add('open');
-    window.closeLoginModal = () => document.getElementById('login-modal').classList.remove('open');
-
-    /* close modal on overlay click */
-    document.getElementById('login-modal').addEventListener('click', function(e) {
-      if (e.target === this) closeLoginModal();
-    });
-
-    window.toggleUserMenu = function () {
-      document.getElementById('user-menu-wrap').classList.toggle('open');
-    };
-    /* close dropdown on outside click */
-    document.addEventListener('click', (e) => {
-      const wrap = document.getElementById('user-menu-wrap');
-      if (wrap && !wrap.contains(e.target)) wrap.classList.remove('open');
-    });
-
-    /* ── Auth state → update header only ── */
-    onAuthStateChanged(auth, (user) => {
-      const signInBtn      = document.getElementById('sign-in-btn');
-      const userMenuWrap   = document.getElementById('user-menu-wrap');
-      const navUsername    = document.getElementById('nav-username');
-      const navAvatar      = document.getElementById('nav-avatar');
+    /* ── Update nav UI on auth state change ── */
+    onAuthStateChanged(auth, function(user) {
+      const signInBtn    = document.getElementById('sign-in-btn');
+      const userMenuWrap = document.getElementById('user-menu-wrap');
+      const navUsername  = document.getElementById('nav-username');
+      const navAvatar    = document.getElementById('nav-avatar');
 
       if (user) {
-        /* logged in → show user pill in header */
-        signInBtn.style.display    = 'none';
-        userMenuWrap.style.display = 'block';
-        navUsername.textContent    = user.displayName?.split(' ')[0] || 'User';
-        if (user.photoURL) {
-          navAvatar.innerHTML = `<img src="${user.photoURL}" alt="avatar">`;
-        } else {
-          navAvatar.textContent = user.displayName?.[0]?.toUpperCase() || '?';
-        }
-        /* expose user so quiz can check */
+        if (signInBtn)    signInBtn.style.display    = 'none';
+        if (userMenuWrap) userMenuWrap.style.display = 'block';
+        if (navUsername)  navUsername.textContent    = user.displayName?.split(' ')[0] || 'User';
+        if (navAvatar)    navAvatar.innerHTML        = user.photoURL
+          ? `<img src="${user.photoURL}" alt="avatar" referrerpolicy="no-referrer">`
+          : `<span>${(user.displayName?.[0] || '?').toUpperCase()}</span>`;
         window.__currentUser = user;
       } else {
-        /* logged out → show Sign In button */
-        signInBtn.style.display    = 'inline-flex';
-        userMenuWrap.style.display = 'none';
-        window.__currentUser       = null;
+        if (signInBtn)    signInBtn.style.display    = 'inline-flex';
+        if (userMenuWrap) userMenuWrap.style.display = 'none';
+        window.__currentUser = null;
       }
     });
   </script>
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       QUIZ LOGIC — based on original quiz.js data structure:
-         quiz.json → { questions: [ { id, sentence, blanks:[{answer}], words:[], audio? } ] }
-
-       Rules:
-         ✔ Auth gate on Start (open modal if not logged in)
-         ✔ Multi-blank support (matches original quiz.js)
-         ✔ Click a selected word again → deselect (unfill that blank)
-         ✔ All blanks filled → Next/Finish button enables
-         ✔ Next → reveal correct/wrong colour on every option → show feedback
-         ✔ No Retry button
-         ✔ Final score summary with colour-coded circle
+       QUIZ LOGIC — Duolingo-style
+       Data: quiz.json → { questions:[{ id, sentence, blanks:[{answer}], words:[], audio? }] }
+       ✔ Auth gate on Start
+       ✔ Sentence shown with ___ replaced by clickable blank slots
+       ✔ Word bank chips below — click chip → flies up into blank slot
+       ✔ Click filled blank slot → chip returns to word bank
+       ✔ All blanks filled → Next button enables
+       ✔ Next → reveal correct (green) / wrong (red) on slots + bank
+       ✔ No Retry; final score summary
   ═══════════════════════════════════════════════════════════════════ -->
   <script>
   (function () {
 
-    /* ══════════════════ HELPERS ══════════════════ */
-    function isImagePath(p) { return /\.(jpe?g|png|gif|bmp|webp|svg)$/i.test(p); }
-
-    /* Render a word/sentence token — text or inline image */
-    function renderToken(token) {
-      if (!token && token !== 0) return '';
-      const s = String(token);
-      if (isImagePath(s)) {
-        return `<span class="img-token"><img src="${s}" alt="" class="content-image"></span>`;
-      }
-      return s;
+    /* ══ HELPERS ══ */
+    function isImg(s) { return /\.(jpe?g|png|gif|bmp|webp|svg)$/i.test(String(s)); }
+    function renderToken(t) {
+      if (t === null || t === undefined) return '';
+      return isImg(t)
+        ? `<span class="img-token"><img src="${t}" alt=""></span>`
+        : String(t);
     }
 
-    /* Build sentence HTML, replacing each '___' with a numbered blank span */
-    function buildSentenceHTML(sentence, blankCount) {
-      let html = Array.isArray(sentence)
-        ? sentence.map(renderToken).join('')
-        : renderToken(sentence);
-
-      let i = 0;
-      html = html.replace(/___/g, () =>
-        `<span class="blank" data-blank-index="${i++}"></span>`
-      );
-      return html;
-    }
-
-    /* ══════════════════ STATE ══════════════════ */
-    let allQuestions  = [];   // filtered from JSON
-    let currentIndex  = 0;
-    let scoreCorrect  = 0;
-    let revealed      = false;
-
+    /* ══ STATE ══ */
+    let questions    = [];
+    let curIdx       = 0;
+    let scoreCorrect = 0;
+    let revealed     = false;
     /*
-      selectedSlots: array parallel to blanks[]
-      each slot: { wordText, wordEl } | null
+      slots[i] = null | { chipEl }
+      Each slot matches blanks[i] of the current question.
     */
-    let selectedSlots = [];
+    let slots = [];
 
-    /* audio elements */
     const clickAudio     = new Audio('assets/click.mp3');
     const correctAudio   = new Audio('assets/correct.mp3');
     const incorrectAudio = new Audio('assets/incorrect.mp3');
     const victoryAudio   = new Audio('assets/victory.mp3');
-    let   questionAudio  = null;
+    let   qAudio         = null;
 
-    /* ══════════════════ DOM REFS ══════════════════ */
-    const startContainer = document.getElementById('start-container');
-    const startBtn       = document.getElementById('start-button');
-    const sentenceEl     = document.getElementById('sentence');
-    const optionsEl      = document.getElementById('options');
-    const resultEl       = document.getElementById('result');
-    const buttonsEl      = document.getElementById('buttons');
-    const progressWrap   = document.getElementById('quiz-progress-wrap');
-    const progressFill   = document.getElementById('quiz-progress-fill');
-    const counterEl      = document.getElementById('quiz-counter');
-    const summaryEl      = document.getElementById('score-summary');
-    const scoreNumEl     = document.getElementById('score-num');
-    const scoreTitleEl   = document.getElementById('score-title');
-    const scoreMsgEl     = document.getElementById('score-msg');
-    const scoreCircle    = document.getElementById('score-circle');
-    const restartBtn     = document.getElementById('restart-btn');
+    /* ══ DOM ══ */
+    const startCont  = document.getElementById('start-container');
+    const startBtn   = document.getElementById('start-button');
+    const sentenceEl = document.getElementById('sentence');
+    const wordBankEl = document.getElementById('word-bank');
+    const resultEl   = document.getElementById('result');
+    const buttonsEl  = document.getElementById('buttons');
+    const progWrap   = document.getElementById('quiz-progress-wrap');
+    const progFill   = document.getElementById('quiz-progress-fill');
+    const counterEl  = document.getElementById('quiz-counter');
+    const summaryEl  = document.getElementById('score-summary');
+    const scoreNumEl = document.getElementById('score-num');
+    const scoreTitleEl = document.getElementById('score-title');
+    const scoreMsgEl   = document.getElementById('score-msg');
+    const scoreCircle  = document.getElementById('score-circle');
+    const restartBtn   = document.getElementById('restart-btn');
 
-    /* ══════════════════ LOAD JSON ══════════════════ */
-    async function loadQuestions(startId, endId) {
+    /* ══ LOAD JSON ══ */
+    async function loadQ(startId, endId) {
       try {
-        const res  = await fetch('data/quiz.json');
-        const json = await res.json();
-
-        /* Support both shapes:
-           Shape A (original): { questions: [...] }
-           Shape B (flat):     [...]                */
-        const raw = Array.isArray(json) ? json : (json.questions || []);
-
+        const r    = await fetch('data/quiz.json');
+        const json = await r.json();
+        const raw  = Array.isArray(json) ? json : (json.questions || []);
         return raw.filter(q => q.id >= startId && q.id <= endId);
-      } catch (e) {
-        console.warn('quiz.json load failed, using demo data:', e);
-        /* Fallback demo — uses original data shape */
+      } catch(e) {
+        console.warn('quiz.json failed, using demo:', e);
         return [
-          {
-            id: 1,
-            sentence: '我___苹果。',
-            blanks: [{ answer: '喜欢' }],
-            words: ['喜欢', '不是', '很好', '去']
-          },
-          {
-            id: 2,
-            sentence: '他___老师。',
-            blanks: [{ answer: '是' }],
-            words: ['是', '有', '在', '很']
-          },
-          {
-            id: 3,
-            sentence: '我们___一起___学习。',
-            blanks: [{ answer: '可以' }, { answer: '好好' }],
-            words: ['可以', '不好', '好好', '很大']
-          }
+          { id:1, sentence:'我___苹果。', blanks:[{answer:'喜欢'}], words:['喜欢','不是','很好','去'] },
+          { id:2, sentence:'他___老师。', blanks:[{answer:'是'}],   words:['是','有','在','很'] },
+          { id:3, sentence:'我们可以___一起___学习。', blanks:[{answer:'好好'},{answer:'快乐'}], words:['好好','快乐','不好','很大'] }
         ];
       }
     }
 
-    /* ══════════════════ START ══════════════════ */
+    /* ══ START ══ */
     startBtn.addEventListener('click', async () => {
-      /* Auth gate */
-      if (!window.__currentUser) {
-        openLoginModal();
-        return;
-      }
+      if (!window.__currentUser) { openLoginModal(); return; }
 
-      const qc      = document.getElementById('quiz-container');
-      const p       = new URLSearchParams(window.location.search);
-      const startId = parseInt(p.get('quizStartId')) || parseInt(qc.dataset.startId) || 1;
-      const endId   = parseInt(p.get('quizEndId'))   || parseInt(qc.dataset.endId)   || 10;
+      const qc     = document.getElementById('quiz-container');
+      const p      = new URLSearchParams(window.location.search);
+      const sId    = parseInt(p.get('quizStartId')) || parseInt(qc.dataset.startId) || 1;
+      const eId    = parseInt(p.get('quizEndId'))   || parseInt(qc.dataset.endId)   || 10;
 
-      allQuestions  = await loadQuestions(startId, endId);
-      if (!allQuestions.length) {
-        resultEl.textContent    = '⚠️ No questions found for this lesson.';
-        resultEl.style.display  = 'block';
-        return;
-      }
-
-      currentIndex = 0;
+      questions    = await loadQ(sId, eId);
+      curIdx       = 0;
       scoreCorrect = 0;
 
-      startContainer.style.display  = 'none';
-      progressWrap.style.display    = 'block';
-      counterEl.style.display       = 'block';
-      summaryEl.style.display       = 'none';
-      resultEl.style.display        = 'none';
-
-      showQuestion();
+      startCont.style.display  = 'none';
+      progWrap.style.display   = 'block';
+      counterEl.style.display  = 'block';
+      summaryEl.style.display  = 'none';
+      showQ();
     });
 
-    /* ══════════════════ SHOW QUESTION ══════════════════ */
-    function showQuestion() {
-      if (currentIndex >= allQuestions.length) { showSummary(); return; }
+    /* ══ SHOW QUESTION ══ */
+    function showQ() {
+      if (curIdx >= questions.length) { showSummary(); return; }
 
-      const q      = allQuestions[currentIndex];
+      const q     = questions[curIdx];
       const blanks = q.blanks || [];
-      revealed     = false;
-      selectedSlots = blanks.map(() => null);
+      revealed    = false;
+      slots       = blanks.map(() => null);
 
-      /* ── Progress ── */
-      const pct = (currentIndex / allQuestions.length) * 100;
-      progressFill.style.width = pct + '%';
-      counterEl.textContent    = `Question ${currentIndex + 1} of ${allQuestions.length}`;
+      /* Progress */
+      progFill.style.width = (curIdx / questions.length * 100) + '%';
+      counterEl.textContent = `Question ${curIdx + 1} of ${questions.length}`;
 
-      /* ── Sentence ── */
-      sentenceEl.innerHTML     = buildSentenceHTML(q.sentence, blanks.length);
+      /* ── Build sentence: replace each ___ with a blank-slot span ── */
+      let sentHTML = Array.isArray(q.sentence)
+        ? q.sentence.map(renderToken).join('')
+        : renderToken(q.sentence);
+
+      let bi = 0;
+      sentHTML = sentHTML.replace(/___/g, () =>
+        `<span class="blank-slot" data-bi="${bi++}" title="Click to return word"></span>`
+      );
+      sentenceEl.innerHTML     = sentHTML;
       sentenceEl.style.display = 'block';
 
-      /* ── Options (shuffle words) ── */
-      const words = [...(q.words || [])].sort(() => Math.random() - 0.5);
-      optionsEl.innerHTML = '';
-
-      words.forEach(word => {
-        const btn     = document.createElement('button');
-        btn.className = 'word';
-        btn.innerHTML = renderToken(word);
-        btn.dataset.word = String(word);
-        btn.addEventListener('click', () => handleWordClick(btn));
-        optionsEl.appendChild(btn);
+      /* Attach click handlers to blank slots */
+      sentenceEl.querySelectorAll('.blank-slot').forEach(slot => {
+        slot.addEventListener('click', () => handleSlotClick(slot));
       });
-      optionsEl.style.display = 'block';
 
-      /* ── Feedback hidden ── */
-      resultEl.style.display = 'none';
-      resultEl.textContent   = '';
-      resultEl.className     = 'result';
+      /* ── Build word bank ── */
+      const shuffled = [...(q.words || [])].sort(() => Math.random() - 0.5);
+      wordBankEl.innerHTML = '';
+      wordBankEl.style.display = 'flex';
 
-      /* ── Buttons ── */
+      shuffled.forEach(word => {
+        const chip = document.createElement('button');
+        chip.className       = 'word-chip';
+        chip.innerHTML       = renderToken(word);
+        chip.dataset.word    = String(word);
+        chip.addEventListener('click', () => handleChipClick(chip));
+        wordBankEl.appendChild(chip);
+      });
+
+      /* ── Reset feedback / buttons ── */
+      resultEl.style.display  = 'none';
+      resultEl.textContent    = '';
+      resultEl.className      = 'result';
+
       buttonsEl.innerHTML = '';
       buttonsEl.style.display = 'block';
 
-      /* Replay audio button (if question has audio) */
+      /* Audio */
       if (q.audio) {
-        if (questionAudio) { questionAudio.pause(); }
-        questionAudio = new Audio(q.audio);
-        questionAudio.play().catch(() => {});
-
-        const replayBtn = document.createElement('button');
-        replayBtn.className   = 'replay-btn';
-        replayBtn.textContent = '🔊 Replay';
-        replayBtn.addEventListener('click', () => {
-          questionAudio.currentTime = 0;
-          questionAudio.play().catch(() => {});
-        });
-        buttonsEl.appendChild(replayBtn);
+        if (qAudio) { qAudio.pause(); }
+        qAudio = new Audio(q.audio);
+        qAudio.play().catch(() => {});
+        const rb = document.createElement('button');
+        rb.className   = 'replay-btn';
+        rb.textContent = '🔊 Replay';
+        rb.addEventListener('click', () => { qAudio.currentTime = 0; qAudio.play().catch(() => {}); });
+        buttonsEl.appendChild(rb);
       }
 
-      /* Next/Finish — disabled until all blanks filled */
-      const isLast    = currentIndex === allQuestions.length - 1;
+      /* Next/Finish button — starts disabled */
+      const isLast   = curIdx === questions.length - 1;
       const actionBtn = document.createElement('button');
       actionBtn.textContent = isLast ? 'Finish ✓' : 'Next →';
       actionBtn.className   = isLast ? 'finish' : 'next';
       actionBtn.disabled    = true;
       actionBtn.id          = 'action-btn';
-      actionBtn.addEventListener('click', () => revealAndAdvance(q));
+      actionBtn.addEventListener('click', () => reveal(q));
       buttonsEl.appendChild(actionBtn);
     }
 
-    /* ══════════════════ WORD CLICK ══════════════════ */
-    function handleWordClick(btn) {
-      if (revealed) return;
-      clickAudio.currentTime = 0;
-      clickAudio.play().catch(() => {});
+    /* ══ CHIP CLICK → fly up into blank ══ */
+    function handleChipClick(chip) {
+      if (revealed || chip.classList.contains('ghost')) return;
 
-      const word = btn.dataset.word;
+      clickAudio.currentTime = 0; clickAudio.play().catch(() => {});
 
-      /* Check if this word button is already placed in a slot */
-      const existingSlotIndex = selectedSlots.findIndex(
-        s => s && s.wordEl === btn
-      );
+      /* Find first empty slot */
+      const emptyBi = slots.findIndex(s => s === null);
+      if (emptyBi === -1) return;
 
-      if (existingSlotIndex !== -1) {
-        /* ── DESELECT: remove from blank ── */
-        selectedSlots[existingSlotIndex] = null;
-        btn.classList.remove('selected');
-        const blankEl = sentenceEl.querySelector(`[data-blank-index="${existingSlotIndex}"]`);
-        if (blankEl) { blankEl.innerHTML = ''; blankEl.classList.remove('filled'); }
+      const slotEl = sentenceEl.querySelector(`[data-bi="${emptyBi}"]`);
+      if (!slotEl) return;
+
+      /* ── Animate: ghost stays in word bank, chip "moves" ── */
+      chip.classList.add('ghost'); /* invisible placeholder */
+
+      /* Create a flying clone */
+      const clone = chip.cloneNode(true);
+      clone.classList.remove('ghost');
+      clone.style.cssText = `
+        position:fixed; pointer-events:none; z-index:999;
+        font-family:'Fredoka',sans-serif; font-weight:600; font-size:1.2rem;
+        padding:10px 20px; border:2.5px solid #222; border-radius:12px;
+        background:var(--white); box-shadow:0 4px 0 #222;
+        transition: none;
+      `;
+      document.body.appendChild(clone);
+
+      /* Positions */
+      const chipRect  = chip.getBoundingClientRect();
+      const slotRect  = slotEl.getBoundingClientRect();
+
+      clone.style.left   = chipRect.left + 'px';
+      clone.style.top    = chipRect.top  + 'px';
+      clone.style.width  = chipRect.width  + 'px';
+      clone.style.height = chipRect.height + 'px';
+
+      /* Force repaint then start transition */
+      requestAnimationFrame(() => {
+        clone.style.transition = 'left 0.22s cubic-bezier(.4,0,.2,1), top 0.22s cubic-bezier(.4,0,.2,1), transform 0.22s, opacity 0.22s';
+        clone.style.left    = slotRect.left   + slotRect.width/2  - chipRect.width/2  + 'px';
+        clone.style.top     = slotRect.top    + slotRect.height/2 - chipRect.height/2 + 'px';
+        clone.style.opacity = '0';
+        clone.style.transform = 'scale(0.85)';
+      });
+
+      setTimeout(() => {
+        clone.remove();
+        /* Fill slot */
+        slotEl.innerHTML = renderToken(chip.dataset.word);
+        slotEl.classList.add('filled');
+        slotEl.dataset.word = chip.dataset.word;
+        slots[emptyBi] = { chipEl: chip, word: chip.dataset.word };
         updateActionBtn();
-        return;
-      }
+      }, 230);
+    }
 
-      /* ── SELECT: fill the first empty blank ── */
-      const emptyIndex = selectedSlots.findIndex(s => s === null);
-      if (emptyIndex === -1) return; // all blanks filled by other words — shouldn't happen if UI is correct
+    /* ══ SLOT CLICK → return chip to bank ══ */
+    function handleSlotClick(slotEl) {
+      if (revealed) return;
+      const bi   = parseInt(slotEl.dataset.bi);
+      const slot = slots[bi];
+      if (!slot) return; /* empty slot */
 
-      selectedSlots[emptyIndex] = { wordText: word, wordEl: btn };
-      btn.classList.add('selected');
+      clickAudio.currentTime = 0; clickAudio.play().catch(() => {});
 
-      const blankEl = sentenceEl.querySelector(`[data-blank-index="${emptyIndex}"]`);
-      if (blankEl) {
-        blankEl.innerHTML = renderToken(word);
-        blankEl.classList.add('filled');
-      }
+      const chipEl  = slot.chipEl;
+      const chipRect = chipEl.getBoundingClientRect();
+      const slotRect = slotEl.getBoundingClientRect();
 
+      /* Clone for return flight */
+      const clone = chipEl.cloneNode(true);
+      clone.classList.remove('ghost');
+      clone.style.cssText = `
+        position:fixed; pointer-events:none; z-index:999;
+        font-family:'Fredoka',sans-serif; font-weight:600; font-size:1.2rem;
+        padding:10px 20px; border:2.5px solid #222; border-radius:12px;
+        background:var(--white); box-shadow:0 4px 0 #222;
+        left:${slotRect.left + slotRect.width/2 - chipRect.width/2}px;
+        top:${slotRect.top   + slotRect.height/2 - chipRect.height/2}px;
+        width:${chipRect.width}px; height:${chipRect.height}px;
+        opacity:0; transform:scale(0.85);
+        transition: left 0.22s cubic-bezier(.4,0,.2,1), top 0.22s cubic-bezier(.4,0,.2,1), transform 0.22s, opacity 0.22s;
+      `;
+      document.body.appendChild(clone);
+
+      /* Clear slot immediately */
+      slotEl.innerHTML = '';
+      slotEl.classList.remove('filled');
+      delete slotEl.dataset.word;
+      slots[bi] = null;
       updateActionBtn();
+
+      /* Start return flight */
+      requestAnimationFrame(() => {
+        clone.style.left      = chipRect.left + 'px';
+        clone.style.top       = chipRect.top  + 'px';
+        clone.style.opacity   = '1';
+        clone.style.transform = 'scale(1)';
+      });
+
+      setTimeout(() => {
+        clone.remove();
+        chipEl.classList.remove('ghost');
+      }, 230);
     }
 
     function updateActionBtn() {
       const btn = document.getElementById('action-btn');
-      if (!btn) return;
-      const allFilled = selectedSlots.every(s => s !== null);
-      btn.disabled = !allFilled;
+      if (btn) btn.disabled = slots.some(s => s === null);
     }
 
-    /* ══════════════════ REVEAL (after Next) ══════════════════ */
-    function revealAndAdvance(q) {
-      if (revealed) return;
-      const allFilled = selectedSlots.every(s => s !== null);
-      if (!allFilled) return;
-
+    /* ══ REVEAL (after Next) ══ */
+    function reveal(q) {
+      if (revealed || slots.some(s => s === null)) return;
       revealed = true;
+
       const blanks = q.blanks || [];
-
-      /* Check correctness per blank */
-      let questionCorrect = true;
+      let allOk = true;
       blanks.forEach((blank, i) => {
-        const slot = selectedSlots[i];
-        if (!slot || String(slot.wordText) !== String(blank.answer)) {
-          questionCorrect = false;
-        }
+        if (!slots[i] || String(slots[i].word) !== String(blank.answer)) allOk = false;
       });
 
-      if (questionCorrect) scoreCorrect++;
+      if (allOk) scoreCorrect++;
 
-      /* Colour all option buttons */
-      optionsEl.querySelectorAll('.word').forEach(btn => {
-        btn.classList.add('disabled');
-        btn.style.pointerEvents = 'none';
-
-        const isCorrectWord = blanks.some(b => String(b.answer) === btn.dataset.word);
-        const wasSelected   = selectedSlots.some(s => s && s.wordEl === btn);
-
-        if (isCorrectWord) {
-          btn.classList.add('correct-reveal');
-        } else if (wasSelected && !isCorrectWord) {
-          btn.classList.remove('selected');
-          btn.classList.add('incorrect-reveal');
-        }
+      /* Colour blank slots */
+      blanks.forEach((blank, i) => {
+        const slotEl = sentenceEl.querySelector(`[data-bi="${i}"]`);
+        if (!slotEl) return;
+        const ok = slots[i] && String(slots[i].word) === String(blank.answer);
+        slotEl.classList.add(ok ? 'reveal-correct' : 'reveal-wrong');
+        if (!ok) slotEl.innerHTML += ` <small style="font-size:.65em;opacity:.75">(${blank.answer})</small>`;
       });
 
-      /* Also colour the blanks in the sentence */
-      blanks.forEach((blank, i) => {
-        const blankEl = sentenceEl.querySelector(`[data-blank-index="${i}"]`);
-        const slot    = selectedSlots[i];
-        if (!blankEl) return;
-        if (slot && String(slot.wordText) === String(blank.answer)) {
-          blankEl.style.color       = 'var(--green-dark)';
-          blankEl.style.borderColor = 'var(--green)';
+      /* Colour word bank chips */
+      wordBankEl.querySelectorAll('.word-chip').forEach(chip => {
+        chip.style.pointerEvents = 'none';
+        const isCorrect = blanks.some(b => String(b.answer) === chip.dataset.word);
+        const wasUsed   = slots.some(s => s && s.chipEl === chip);
+        if (chip.classList.contains('ghost')) {
+          /* this chip is in a slot — colour the slot already done above */
         } else {
-          blankEl.style.color       = '#e53935';
-          blankEl.style.borderColor = '#e53935';
-          /* show correct answer beside */
-          blankEl.innerHTML += ` <small style="font-size:0.7em;opacity:0.8">(${blank.answer})</small>`;
+          /* chip still in bank */
+          if (isCorrect) chip.classList.add('reveal-correct');
         }
       });
 
-      /* Play sound */
-      if (questionCorrect) {
-        correctAudio.currentTime = 0;
-        correctAudio.play().catch(() => {});
+      /* Sound + feedback */
+      if (allOk) {
+        correctAudio.currentTime = 0; correctAudio.play().catch(() => {});
         resultEl.textContent = '✅ Correct!';
         resultEl.className   = 'result correct';
       } else {
-        incorrectAudio.currentTime = 0;
-        incorrectAudio.play().catch(() => {});
-        const correctList = blanks.map(b => b.answer).join('、');
-        resultEl.textContent = `❌ Answer: ${correctList}`;
+        incorrectAudio.currentTime = 0; incorrectAudio.play().catch(() => {});
+        resultEl.textContent = `❌ Answer: ${blanks.map(b => b.answer).join(' / ')}`;
         resultEl.className   = 'result incorrect';
       }
       resultEl.style.display = 'block';
 
-      /* Swap Next/Finish → Continue */
+      /* Swap Next → Continue */
       const actionBtn = document.getElementById('action-btn');
       if (actionBtn) {
-        actionBtn.disabled    = false;
-        actionBtn.textContent = currentIndex === allQuestions.length - 1
-          ? 'See Results 🏆'
-          : 'Continue →';
-        actionBtn.className   = currentIndex === allQuestions.length - 1 ? 'finish' : 'next';
-
-        /* remove old listener, add new */
-        const fresh = actionBtn.cloneNode(true);
+        const isLast = curIdx === questions.length - 1;
+        const fresh  = actionBtn.cloneNode(false);
+        fresh.textContent = isLast ? 'See Results 🏆' : 'Continue →';
+        fresh.className   = isLast ? 'finish' : 'next';
+        fresh.disabled    = false;
+        fresh.addEventListener('click', () => { curIdx++; showQ(); });
         actionBtn.replaceWith(fresh);
-        fresh.addEventListener('click', () => {
-          currentIndex++;
-          showQuestion();
-        });
       }
     }
 
-    /* ══════════════════ SUMMARY ══════════════════ */
+    /* ══ SUMMARY ══ */
     function showSummary() {
-      sentenceEl.style.display   = 'none';
-      optionsEl.style.display    = 'none';
-      resultEl.style.display     = 'none';
-      buttonsEl.style.display    = 'none';
-      progressWrap.style.display = 'none';
-      counterEl.style.display    = 'none';
+      sentenceEl.style.display  = 'none';
+      wordBankEl.style.display  = 'none';
+      resultEl.style.display    = 'none';
+      buttonsEl.style.display   = 'none';
+      progWrap.style.display    = 'none';
+      counterEl.style.display   = 'none';
 
       victoryAudio.play().catch(() => {});
 
-      const total = allQuestions.length;
-      const pct   = total > 0 ? Math.round((scoreCorrect / total) * 100) : 0;
-      progressFill.style.width = '100%';
-      scoreNumEl.textContent   = `${scoreCorrect}/${total}`;
+      const total = questions.length;
+      const pct   = total ? Math.round(scoreCorrect / total * 100) : 0;
+      progFill.style.width = '100%';
+      scoreNumEl.textContent = `${scoreCorrect}/${total}`;
 
       if (pct >= 80) {
         scoreCircle.style.background  = 'var(--green-pale)';
         scoreCircle.style.borderColor = 'var(--green)';
-        scoreTitleEl.textContent      = '🎉 Excellent!';
-        scoreMsgEl.textContent        = `You got ${scoreCorrect} out of ${total} correct (${pct}%). Outstanding!`;
+        scoreTitleEl.textContent = '🎉 Excellent!';
+        scoreMsgEl.textContent   = `You got ${scoreCorrect}/${total} correct (${pct}%). Outstanding!`;
       } else if (pct >= 50) {
         scoreCircle.style.background  = 'var(--yellow-pale)';
         scoreCircle.style.borderColor = 'var(--yellow)';
-        scoreTitleEl.textContent      = '👍 Good effort!';
-        scoreMsgEl.textContent        = `You got ${scoreCorrect} out of ${total} correct (${pct}%). Keep it up!`;
+        scoreTitleEl.textContent = '👍 Good effort!';
+        scoreMsgEl.textContent   = `You got ${scoreCorrect}/${total} correct (${pct}%). Keep it up!`;
       } else {
         scoreCircle.style.background  = 'var(--pink-pale)';
         scoreCircle.style.borderColor = 'var(--pink)';
-        scoreTitleEl.textContent      = '💪 Keep going!';
-        scoreMsgEl.textContent        = `You got ${scoreCorrect} out of ${total} correct (${pct}%). Try again!`;
+        scoreTitleEl.textContent = '💪 Keep going!';
+        scoreMsgEl.textContent   = `You got ${scoreCorrect}/${total} correct (${pct}%). Try again!`;
       }
-
       summaryEl.style.display = 'block';
     }
 
-    /* ══════════════════ RESTART ══════════════════ */
+    /* ══ RESTART ══ */
     restartBtn.addEventListener('click', () => {
-      summaryEl.style.display      = 'none';
-      startContainer.style.display = 'block';
-      progressWrap.style.display   = 'none';
-      counterEl.style.display      = 'none';
-      progressFill.style.width     = '0%';
-      sentenceEl.style.display     = 'none';
-      optionsEl.style.display      = 'none';
-      buttonsEl.style.display      = 'none';
-      resultEl.style.display       = 'none';
+      summaryEl.style.display   = 'none';
+      startCont.style.display   = 'block';
+      progWrap.style.display    = 'none';
+      counterEl.style.display   = 'none';
+      progFill.style.width      = '0%';
+      sentenceEl.style.display  = 'none';
+      wordBankEl.style.display  = 'none';
+      buttonsEl.style.display   = 'none';
+      resultEl.style.display    = 'none';
     });
 
   })();
