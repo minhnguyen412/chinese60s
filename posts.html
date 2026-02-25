@@ -84,7 +84,9 @@
       transition: transform 0.12s, box-shadow 0.12s;
     }
     nav ul li a:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
-
+    #authNavItem a {
+      background: var(--yellow);
+    }
     @media (max-width: 768px) {
       header { padding: 0 20px; position: relative; }
       .menu-toggle { display: block; }
@@ -467,10 +469,12 @@
         <li><a href="about.html">About Us</a></li>
         <li><a href="courses.html">Courses</a></li>
         <li><a href="https://www.amazon.com/shop/studiorum60s" target="_blank">Shop</a></li>
+        <li id="authNavItem">
+          <a href="#" id="loginBtn">Login</a>
+        </li>
       </ul>
     </nav>
   </header>
-
   <!-- Banner -->
   <div class="logos-and-title">
     <img src="assets/banner.png" alt="Chinese 60s" class="logo">
@@ -595,13 +599,39 @@
       });
     });
   </script>
+<script type="module">
+  import { loginWithGoogle, logoutUser, listenAuthState } from "./js/auth.js";
 
+  const loginBtn = document.getElementById("loginBtn");
+  const authNavItem = document.getElementById("authNavItem");
+
+  loginBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
+    await loginWithGoogle();
+  });
+
+  listenAuthState((user) => {
+    if (user) {
+      authNavItem.innerHTML = `
+        <a href="#" id="logoutBtn">Logout (${user.displayName})</a>
+      `;
+
+      document.getElementById("logoutBtn").addEventListener("click", async (e) => {
+        e.preventDefault();
+        await logoutUser();
+      });
+
+    } else {
+      authNavItem.innerHTML = `
+        <a href="#" id="loginBtn">Login</a>
+      `;
+
+      document.getElementById("loginBtn").addEventListener("click", async (e) => {
+        e.preventDefault();
+        await loginWithGoogle();
+      });
+    }
+  });
+</script>
 </body>
 </html>
-
-
-
-
-
-
-
