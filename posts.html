@@ -345,55 +345,76 @@
     /* ── SENTENCE ZONE ── */
     .sentence {
       margin: 20px 0 10px; font-size: 1.7rem; font-weight: 700;
-      line-height: 2.2; display: none; flex-wrap: wrap;
-      align-items: center; gap: 4px;
+      line-height: 2.6; display: none; flex-wrap: wrap;
+      align-items: center; gap: 6px;
+    }
+    /* When sentence IS an image only — show it properly */
+    .sentence img {
+      display: inline-block; vertical-align: middle;
+      max-width: 200px; max-height: 200px; height: auto; width: auto;
+      border: var(--border); border-radius: 14px;
+      box-shadow: var(--shadow-sm);
     }
 
-    /* Empty blank — dashed slot, same pill shape as words */
+    /* Empty blank — dashed slot */
     .blank {
       display: inline-flex; align-items: center; justify-content: center;
-      min-width: 80px; height: 46px;
-      border: 2.5px dashed #aaa; border-radius: 50px;
-      margin: 0 4px; padding: 0 14px;
-      background: transparent; color: transparent;
+      min-width: 80px; min-height: 46px;
+      border: 2.5px dashed #aaa; border-radius: 14px;
+      margin: 0 4px; padding: 4px 14px;
+      background: transparent; color: #aaa;
       font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.2rem;
       cursor: pointer; vertical-align: middle;
       transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
       user-select: none; position: relative;
     }
-    .blank::after {
-      content: attr(data-placeholder);
-      position: absolute; color: #ccc; font-size: 0.9rem; pointer-events: none;
+    .blank:not(.filled):not(.reveal-correct):not(.reveal-wrong)::after {
+      content: '　'; /* em-space keeps height */
+      color: transparent; pointer-events: none;
     }
-    /* Filled blank — looks like a placed word pill */
+    /* Filled blank — shows content, sky bg */
     .blank.filled {
       background: var(--sky);
-      border: var(--border-thick);
+      border: var(--border-thick); border-style: solid; border-radius: 14px;
       color: var(--black);
       box-shadow: var(--shadow-sm);
       cursor: pointer;
+      padding: 4px 10px;
+      min-height: 46px; height: auto; /* auto for image content */
     }
-    .blank.filled::after { display: none; }
     .blank.filled:hover  { background: #a8dfff; box-shadow: var(--shadow-md); transform: translate(-1px,-2px); }
-
+    /* Image inside filled blank */
+    .blank.filled img {
+      display: block; width: 70px; height: 70px;
+      object-fit: cover; border-radius: 8px; border: none;
+      pointer-events: none;
+    }
     /* After reveal */
-    .blank.reveal-correct { background: var(--green-light); border-color: var(--green-dark); color: var(--green-dark); border-style: solid; cursor: default; }
-    .blank.reveal-wrong   { background: var(--pink-pale); border-color: #e53935; color: #c0392b; border-style: solid; cursor: default; }
+    .blank.reveal-correct {
+      background: var(--green-light); border-color: var(--green-dark) !important;
+      color: var(--green-dark); border-style: solid; cursor: default;
+    }
+    .blank.reveal-wrong {
+      background: var(--pink-pale); border-color: #e53935 !important;
+      color: #c0392b; border-style: solid; cursor: default;
+    }
+    .blank.reveal-correct img, .blank.reveal-wrong img {
+      width: 70px; height: 70px; object-fit: cover; border-radius: 8px;
+    }
 
     /* ── OPTIONS ZONE ── */
     .options {
       margin: 16px 0 8px; display: none;
-      min-height: 60px; /* keeps layout stable when words fly up */
-    }
-    /* Ghost placeholder when word is used */
-    .word-ghost {
-      display: inline-block;
-      min-width: 80px; height: 46px;
-      margin: 5px; padding: 0 18px;
-      border: 2.5px dashed #ddd; border-radius: 50px;
-      background: transparent; vertical-align: middle;
+      min-height: 60px;
     }
 
+    /* Ghost placeholder — keeps layout space */
+    .word-ghost {
+      display: inline-block; visibility: hidden; pointer-events: none;
+      vertical-align: middle; margin: 5px;
+    }
+
+    /* TEXT word — pill style (original) */
     .word {
       font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.2rem;
       padding: 10px 20px; margin: 5px;
@@ -410,11 +431,28 @@
       background: var(--peach);
     }
     .word:active:not(.used):not(.disabled) { transform: translate(0,0); box-shadow: var(--shadow-sm); }
-    /* Word hidden (placed in blank) — becomes invisible, ghost takes its space */
+
+    /* IMAGE word — square card, NOT pill */
+    .word.has-image {
+      border-radius: 16px;       /* square-ish, not pill */
+      padding: 6px;
+      line-height: 0;
+      background: var(--white);  /* neutral bg so image shows true */
+    }
+    .word.has-image img {
+      display: block;
+      width: 90px; height: 90px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: none;
+      pointer-events: none;
+    }
+
+    /* Word hidden (placed in blank) */
     .word.used { visibility: hidden; pointer-events: none; }
     .word.disabled { opacity: 0.4; pointer-events: none; }
-    .word.correct-reveal { background: var(--green-light); border-color: var(--green-dark); }
-    .word.incorrect-reveal { background: var(--pink-pale); border-color: #e53935; }
+    .word.correct-reveal   { background: var(--green-light); border-color: var(--green-dark); }
+    .word.incorrect-reveal { background: var(--pink-pale);   border-color: #e53935; }
 
     /* result feedback (shown after Next) */
     .result { margin-top: 14px; font-size: 1.05rem; font-weight: 700; display: none; }
@@ -469,31 +507,6 @@
       transition: transform 0.12s, box-shadow 0.12s; margin: 5px;
     }
     .replay-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
-
-    /* Image word option — larger pill to fit image */
-    .word.has-image {
-      padding: 6px 10px; line-height: 1;
-    }
-    .word.has-image img {
-      display: block; width: 80px; height: 80px;
-      object-fit: cover; border-radius: 10px;
-      border: var(--border); pointer-events: none;
-    }
-    /* Blank filled with image — auto height */
-    .blank.has-image {
-      height: auto; width: auto; min-width: 100px;
-      padding: 4px 8px;
-    }
-    .blank.has-image img {
-      display: block; width: 80px; height: 80px;
-      object-fit: cover; border-radius: 10px;
-      border: none; pointer-events: none;
-    }
-    /* Ghost placeholder — keeps space in options when word is used */
-    .word-ghost {
-      display: inline-block; visibility: hidden; pointer-events: none;
-      vertical-align: middle; margin: 5px;
-    }
 
     /* Modal auth error */
     .modal-error {
@@ -1086,14 +1099,24 @@
       counterEl.textContent = `Question ${curIdx + 1} of ${questions.length}`;
 
       /* ── Build sentence with inline blank pills ── */
-      let sentHTML = String(q.sentence || '');
+      let sentRaw = q.sentence || '';
+      /* If sentence is an array (mixed tokens), join them */
+      if (Array.isArray(sentRaw)) {
+        sentRaw = sentRaw.map(tok => isImg(tok) ? `<img src="${tok}" alt="">` : String(tok)).join('');
+      } else {
+        /* Replace any image paths in text with img tags */
+        sentRaw = String(sentRaw).replace(/([\S]+\.(?:jpe?g|png|gif|bmp|webp|svg))/gi,
+          '<img src="$1" alt="">');
+      }
+
       let bi = 0;
-      sentHTML = sentHTML.replace(/___/g, () => {
+      const sentHTML = sentRaw.replace(/___/g, () => {
         const idx = bi++;
-        return `<span class="blank" data-bi="${idx}" title="Click to return word"></span>`;
+        return `<span class="blank" data-bi="${idx}"></span>`;
       });
-      sentenceEl.innerHTML     = sentHTML;
-      sentenceEl.style.display = 'block';
+      sentenceEl.innerHTML = sentHTML;
+      /* Use flex so images + text + blanks all align nicely */
+      sentenceEl.style.display = 'flex';
 
       /* Attach click to each blank */
       sentenceEl.querySelectorAll('.blank').forEach(blankEl => {
@@ -1106,25 +1129,33 @@
       optionsEl.style.display = 'block';
 
       words.forEach(word => {
-        /* Ghost sibling — keeps layout space when word is used */
+        const hasImg = isImg(word);
+
+        /* Ghost sibling — invisible, keeps layout space */
         const ghost = document.createElement('span');
         ghost.className = 'word-ghost';
+        /* Size set after btn is in DOM (below) */
 
         const btn = document.createElement('button');
         btn.className    = 'word';
         btn.dataset.word = String(word);
         btn.innerHTML    = wordHTML(word);
-        if (isImg(word)) btn.classList.add('has-image');
+        if (hasImg) btn.classList.add('has-image');
 
         btn.addEventListener('click', () => handleWordClick(btn, ghost));
 
-        /* wrap in a span so ghost stays in same position */
         const wrap = document.createElement('span');
-        wrap.style.display       = 'inline-block';
-        wrap.style.verticalAlign = 'middle';
+        wrap.style.cssText = 'display:inline-block;vertical-align:middle;';
         wrap.appendChild(ghost);
         wrap.appendChild(btn);
         optionsEl.appendChild(wrap);
+
+        /* Size ghost after btn renders */
+        requestAnimationFrame(() => {
+          ghost.style.width  = btn.offsetWidth  + 'px';
+          ghost.style.height = btn.offsetHeight + 'px';
+          ghost.style.display = 'inline-block';
+        });
       });
 
       /* ── Reset feedback & buttons ── */
@@ -1150,7 +1181,7 @@
       /* Next/Finish — disabled until all blanks filled */
       const isLast    = curIdx === questions.length - 1;
       const actionBtn = document.createElement('button');
-      actionBtn.id        = 'action-btn';
+      actionBtn.id          = 'action-btn';
       actionBtn.textContent = isLast ? 'Finish ✓' : 'Next →';
       actionBtn.className   = isLast ? 'finish' : 'next';
       actionBtn.disabled    = true;
@@ -1168,18 +1199,17 @@
 
       play(clickAudio);
 
-      /* Hide btn, show ghost in its place */
+      /* Match ghost size to btn before hiding */
+      ghost.style.width   = btn.offsetWidth  + 'px';
+      ghost.style.height  = btn.offsetHeight + 'px';
+      ghost.style.display = 'inline-block';
       btn.classList.add('used');
-      ghost.style.width  = btn.offsetWidth  + 'px';
-      ghost.style.height = btn.offsetHeight + 'px';
-      ghost.style.visibility = 'visible'; /* ghost is always invisible but takes space */
 
       /* Fill blank */
       const blankEl = sentenceEl.querySelector(`[data-bi="${emptyBi}"]`);
       if (!blankEl) return;
       blankEl.innerHTML = wordHTML(btn.dataset.word);
       blankEl.classList.add('filled');
-      if (isImg(btn.dataset.word)) blankEl.classList.add('has-image');
 
       slots[emptyBi] = { optBtn: btn, ghostEl: ghost, word: btn.dataset.word };
       checkAllFilled();
@@ -1190,23 +1220,22 @@
       if (revealed) return;
       const bi   = parseInt(blankEl.dataset.bi);
       const slot = slots[bi];
-      if (!slot) return; /* empty blank */
+      if (!slot) return;
 
       play(clickAudio);
 
       /* Restore word button */
       slot.optBtn.classList.remove('used');
-      slot.ghostEl.style.visibility = 'hidden'; /* back to invisible (but still takes space) */
 
-      /* Clear blank */
+      /* Clear blank — keep data-bi for re-attach */
       blankEl.innerHTML = '';
       blankEl.className = 'blank';
-      blankEl.dataset.bi = String(bi); /* keep index */
+      blankEl.setAttribute('data-bi', String(bi));
 
       slots[bi] = null;
       checkAllFilled();
 
-      /* Re-attach click (was removed when blank cleared) */
+      /* Re-attach click listener */
       blankEl.addEventListener('click', () => handleBlankClick(blankEl));
     }
 
