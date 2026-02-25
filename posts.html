@@ -852,7 +852,7 @@
 
     /* ── Fetch questions from quiz.js data (same API as original) ── */
     function fetchQuestions (startId, endId) {
-      return fetch(`data/quiz.json`)
+      return fetch('data/quiz.json')
         .then(r => r.json())
         .then(data => data.filter(q => q.id >= startId && q.id <= endId))
         .catch(() => {
@@ -1059,4 +1059,5 @@
 
 </body>
 </html>
+
 
