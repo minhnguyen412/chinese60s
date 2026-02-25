@@ -470,7 +470,14 @@
       </ul>
     </nav>
   </header>
+<button id="loginBtn">Đăng nhập với Google</button>
+<button id="logoutBtn" style="display:none;">Đăng xuất</button>
 
+<div id="userInfo" style="display:none;">
+  <img id="userAvatar" width="40" style="border-radius:50%;" />
+  <span id="userName"></span>
+  <a href="/profile.html">Trang cá nhân</a>
+</div>
   <!-- Banner -->
   <div class="logos-and-title">
     <img src="assets/banner.png" alt="Chinese 60s" class="logo">
@@ -612,8 +619,42 @@
     }
   });
 </script>
+  <script type="module">
+  import { loginWithGoogle, logoutUser, listenAuthState } from "js/auth.js";
+
+  const loginBtn = document.getElementById("loginBtn");
+  const logoutBtn = document.getElementById("logoutBtn");
+  const userInfo = document.getElementById("userInfo");
+  const userName = document.getElementById("userName");
+  const userAvatar = document.getElementById("userAvatar");
+
+  loginBtn.addEventListener("click", async () => {
+    await loginWithGoogle();
+  });
+
+  logoutBtn.addEventListener("click", async () => {
+    await logoutUser();
+  });
+
+  listenAuthState((user) => {
+    if (user) {
+      loginBtn.style.display = "none";
+      logoutBtn.style.display = "inline-block";
+      userInfo.style.display = "block";
+
+      userName.textContent = user.displayName;
+      userAvatar.src = user.photoURL;
+
+    } else {
+      loginBtn.style.display = "inline-block";
+      logoutBtn.style.display = "none";
+      userInfo.style.display = "none";
+    }
+  });
+</script>
 </body>
 </html>
+
 
 
 
