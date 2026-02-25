@@ -1,3 +1,4 @@
+let score = 0;
 // Hàm lấy tham số từ URL
 function getQueryParam(param) {
     const urlParams = new URLSearchParams(window.location.search);
@@ -47,7 +48,22 @@ document.addEventListener('DOMContentLoaded', () => {
             
             
             // Add event listener for the start button
+            import { auth } from "./auth.js";
+
             document.getElementById('start-button').addEventListener('click', () => {
+
+                if (!auth.currentUser) {
+                    alert("Please login to start the quiz.");
+                    return;
+                }
+
+                startContainer.style.display = 'none';
+                sentenceDiv.style.display = 'block';
+                optionsDiv.style.display = 'block';
+                buttonsDiv.style.display = 'block';
+
+                displayQuestion(currentQuestionIndex);
+            });
                 // Hide the start button and show the question elements
                 startContainer.style.display = 'none';
                 sentenceDiv.style.display = 'block';
@@ -114,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     initialAudio.play();
                 });
                 buttonsDiv.appendChild(replayButton);
-                showRetryButton();
+                
             }
 
             // Hàm kiểm tra nếu một chuỗi là đường dẫn hình ảnh
@@ -134,32 +150,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            function handleWordClick(button, blanks) {
+            function handleWordClick(button) {
                 clickAudio.play();
+
                 const blanksArray = document.querySelectorAll('.blank');
-                const currentBlankIndex = Array.from(blanksArray).findIndex(blank => blank.textContent === "");
+                const emptyBlank = Array.from(blanksArray).find(b => b.textContent === "");
 
-                if (currentBlankIndex >= 0) {
-                    const blank = blanksArray[currentBlankIndex];
-                    blank.innerHTML = button.innerHTML; // Sử dụng innerHTML để bao gồm cả hình ảnh
-                    blank.classList.add('filled');
+                if (!emptyBlank) return;
 
-                    const currentQuestion = filteredQuestions[currentQuestionIndex];
-                    const correctAnswer = currentQuestion.blanks[currentBlankIndex].answer;
+                emptyBlank.innerHTML = button.innerHTML;
+                emptyBlank.dataset.value = button.textContent;
 
-                    if (button.textContent === correctAnswer) {
-                        button.disabled = true;
-                        button.style.backgroundColor = '#28a745';
-                        button.style.color = 'white';
-                    } else {
-                        button.style.backgroundColor = '#dc3545';
-                        button.style.color = 'white';
-                    }
+                button.disabled = true;
 
-                    if (Array.from(blanksArray).every(b => b.innerHTML !== "")) {
-                        checkAnswers();
-                    }
-                }
+                emptyBlank.addEventListener("click", () => {
+                    button.disabled = false;
+                    emptyBlank.innerHTML = "";
+                    emptyBlank.dataset.value = "";
+                });
             }
 
             function checkAnswers() {
@@ -179,7 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     correctAudio.play();
                     showNextButton();
                 } else {
-                    resultDiv.textContent = 'Incorrect. Try again!';
+                    resultDiv.textContent = 'Incorrect';
                     resultDiv.classList.add('incorrect');
                     incorrectAudio.play();
                     
@@ -190,28 +198,40 @@ document.addEventListener('DOMContentLoaded', () => {
                 const nextButton = document.createElement('button');
                 nextButton.textContent = 'Next';
                 nextButton.classList.add('next');
+
                 nextButton.addEventListener('click', () => {
+
+                    const blanksArray = document.querySelectorAll('.blank');
+                    const currentQuestion = filteredQuestions[currentQuestionIndex];
+
+                    let correct = true;
+
+                    blanksArray.forEach((blank, index) => {
+                        if (blank.dataset.value !== currentQuestion.blanks[index].answer) {
+                            correct = false;
+                        }
+                    });
+
+                    if (correct) {
+                        correctAudio.play();
+                        score++;
+                    } else {
+                        incorrectAudio.play();
+                    }
+
                     currentQuestionIndex++;
+
                     if (currentQuestionIndex < filteredQuestions.length) {
                         displayQuestion(currentQuestionIndex);
                     } else {
-                        resultDiv.textContent = 'You have completed all the questions!';
-                        resultDiv.classList.add('correct');
-                        completionAudio.play();
-                        showReplayButton();
+                        showFinalResult();
                     }
-                });
-                buttonsDiv.appendChild(nextButton);
-            }
-            function showRetryButton() {
-                const retryButton = document.createElement('button');
-                retryButton.textContent = 'Retry';
-                retryButton.classList.add('retry');
-                retryButton.addEventListener('click', () => {
-                    displayQuestion(currentQuestionIndex);
-                });
-                buttonsDiv.appendChild(retryButton);
-            }
+            });
+
+            buttonsDiv.innerHTML = "";
+            buttonsDiv.appendChild(nextButton);
+        }
+            
 
             
 
@@ -226,7 +246,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 buttonsDiv.innerHTML = ''; // Xóa các nút hiện tại
                 buttonsDiv.appendChild(replayButton); // Thêm nút Replay
             }
+            function showFinalResult() {
+                sentenceDiv.style.display = "none";
+                optionsDiv.style.display = "none";
+                buttonsDiv.style.display = "none";
 
+                resultDiv.style.display = "block";
+                resultDiv.textContent = `Quiz Completed! You scored ${score} / ${filteredQuestions.length}`;
+            }
             // Hiển thị câu hỏi đầu tiên
             displayQuestion(currentQuestionIndex);
         })
