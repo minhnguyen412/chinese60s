@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Profile</title>
+  <style>
+    body { font-family: Arial; max-width: 800px; margin: 40px auto; }
+    .card { border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; border-radius: 10px; }
+    img { border-radius: 50%; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 8px; border-bottom: 1px solid #eee; text-align: left; }
+  </style>
+</head>
+<body>
+
+  <h1>Profile</h1>
+
+  <div class="card">
+    <img id="avatar" width="60" />
+    <h2 id="name"></h2>
+    <p id="email"></p>
+  </div>
+
+  <div class="card">
+    <h3>Overview</h3>
+    <p>Total Score: <strong id="totalScore"></strong></p>
+    <p>Total Quizzes: <strong id="totalQuizzes"></strong></p>
+    <p>Total Study Time: <strong id="totalTime"></strong></p>
+  </div>
+
+  <div class="card">
+    <h3>Activity History</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Lesson</th>
+          <th>Type</th>
+          <th>Score</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody id="attemptTable"></tbody>
+    </table>
+  </div>
+
+<script type="module">
+import { auth, db, listenAuthState } from "./auth.js";
+import { doc, getDoc, collection, query, where, getDocs, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+function formatTime(ms) {
+  const minutes = Math.floor(ms / 60000);
+  return minutes + " minutes";
+}
+
+function formatDate(timestamp) {
+  if (!timestamp) return "";
+  const date = timestamp.toDate();
+  return date.toLocaleString("en-US");
+}
+
+listenAuthState(async (user) => {
+  if (!user) {
+    alert("You must log in first.");
+    window.location.href = "/learning.html";
+    return;
+  }
+
+  // ===== GET USER DATA =====
+  const userRef = doc(db, "users", user.uid);
+  const userSnap = await getDoc(userRef);
+  const userData = userSnap.data();
+
+  document.getElementById("avatar").src = user.photoURL;
+  document.getElementById("name").textContent = user.displayName;
+  document.getElementById("email").textContent = user.email;
+
+  document.getElementById("totalScore").textContent = userData.totalScore || 0;
+  document.getElementById("totalQuizzes").textContent = userData.totalQuizzes || 0;
+  document.getElementById("totalTime").textContent = formatTime(userData.totalStudyTime || 0);
+
+  // ===== GET QUIZ ATTEMPTS =====
+  const q = query(
+    collection(db, "quiz_attempts"),
+    where("uid", "==", user.uid),
+    orderBy("startTime", "desc")
+  );
+
+  const snapshot = await getDocs(q);
+  const table = document.getElementById("attemptTable");
+
+  snapshot.forEach((doc) => {
+    const data = doc.data();
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+      <td>${data.postId}</td>
+      <td>${data.type}</td>
+      <td>${data.score}/${data.totalQuestions}</td>
+      <td>${formatDate(data.startTime)}</td>
+    `;
+
+    table.appendChild(row);
+  });
+
+});
+</script>
+
+</body>
+</html>
