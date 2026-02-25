@@ -470,97 +470,30 @@
     }
     .replay-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
 
-    /* inline image in sentence / option */
-    .img-token { display: inline-flex; align-items: center; vertical-align: middle; margin: 0 2px; }
-    .img-token img { max-height: 44px; width: auto; border: var(--border); border-radius: 8px; }
-
-    /* ══ DUOLINGO-STYLE QUIZ LAYOUT ══ */
-
-    /* Answer zone — blank slots above, word bank below */
-    .answer-zone {
-      min-height: 56px;
-      border: var(--border-thick); border-radius: 16px;
-      padding: 10px 14px;
-      background: var(--white);
-      display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
-      margin: 18px 0 10px;
+    /* Image word option — larger pill to fit image */
+    .word.has-image {
+      padding: 6px 10px; line-height: 1;
     }
-    .answer-zone .blank-slot {
-      display: inline-flex; align-items: center; justify-content: center;
-      min-width: 80px; height: 44px;
-      border-bottom: 3px solid var(--black);
-      padding: 0 10px;
-      font-size: 1.25rem; font-weight: 700;
-      cursor: pointer; transition: border-color 0.15s, background 0.15s;
-      border-radius: 0;
-      position: relative;
+    .word.has-image img {
+      display: block; width: 80px; height: 80px;
+      object-fit: cover; border-radius: 10px;
+      border: var(--border); pointer-events: none;
     }
-    .answer-zone .blank-slot:empty::after {
-      content: '';
-      display: block; width: 60px; height: 2px;
-      background: #ccc; border-radius: 2px;
+    /* Blank filled with image — auto height */
+    .blank.has-image {
+      height: auto; width: auto; min-width: 100px;
+      padding: 4px 8px;
     }
-    .answer-zone .blank-slot.filled {
-      border-bottom-color: var(--green);
-      background: var(--green-pale); border-radius: 10px;
-      border: var(--border); border-bottom: 3px solid var(--green);
+    .blank.has-image img {
+      display: block; width: 80px; height: 80px;
+      object-fit: cover; border-radius: 10px;
+      border: none; pointer-events: none;
     }
-    .answer-zone .blank-slot.filled:hover {
-      background: var(--yellow-pale); border-color: var(--yellow);
-      border-bottom-color: var(--yellow);
+    /* Ghost placeholder — keeps space in options when word is used */
+    .word-ghost {
+      display: inline-block; visibility: hidden; pointer-events: none;
+      vertical-align: middle; margin: 5px;
     }
-    /* After reveal */
-    .answer-zone .blank-slot.reveal-correct {
-      background: var(--green-pale); border-color: var(--green) !important;
-      border-bottom-color: var(--green) !important;
-      color: var(--green-dark);
-    }
-    .answer-zone .blank-slot.reveal-wrong {
-      background: var(--pink-pale); border-color: #e53935 !important;
-      border-bottom-color: #e53935 !important;
-      color: #e53935;
-    }
-
-    /* Word bank — pool of words at bottom */
-    .word-bank {
-      display: flex; flex-wrap: wrap; gap: 10px;
-      justify-content: center;
-      min-height: 56px;
-      padding: 10px 0; margin-bottom: 14px;
-    }
-    .word-chip {
-      font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1.2rem;
-      padding: 10px 20px;
-      background: var(--white); color: var(--black);
-      border: var(--border-thick); border-radius: 12px;
-      box-shadow: 0 4px 0 var(--black);
-      cursor: pointer;
-      transition: transform 0.1s, box-shadow 0.1s;
-      user-select: none;
-      /* fly animation */
-    }
-    .word-chip:hover:not(.used):not(.ghost) {
-      transform: translateY(-3px);
-      box-shadow: 0 7px 0 var(--black);
-    }
-    .word-chip:active:not(.used):not(.ghost) {
-      transform: translateY(1px);
-      box-shadow: 0 2px 0 var(--black);
-    }
-    /* Ghost = placeholder space when word is in answer zone */
-    .word-chip.ghost {
-      visibility: hidden;
-      pointer-events: none;
-    }
-    /* Reveal colours in bank */
-    .word-chip.reveal-correct { background: var(--green-light); border-color: var(--green-dark); box-shadow: 0 4px 0 var(--green-dark); }
-    .word-chip.reveal-wrong   { background: var(--pink);        border-color: #e53935;           box-shadow: 0 4px 0 #e53935; }
-
-    /* Flying animation */
-    @keyframes flyUp   { from { transform: translateY(0) scale(1); opacity:1; } to { transform: translateY(-60px) scale(0.85); opacity:0; } }
-    @keyframes flyDown { from { transform: translateY(0) scale(0.85); opacity:0; } to { transform: translateY(40px) scale(1); opacity:1; } }
-    .fly-up   { animation: flyUp   0.2s ease forwards; }
-    .fly-down { animation: flyDown 0.18s ease forwards; }
 
     /* Modal auth error */
     .modal-error {
@@ -786,21 +719,16 @@
             <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
           </div>
 
-          <!-- Sentence (static text parts + blank slots inline) -->
+          <!-- Sentence with inline blanks -->
           <div class="sentence" id="sentence"></div>
 
-          <!--
-            Answer zone: clickable blank slots appear here as chips
-            (Only used for Duolingo mode — sentence blanks are embedded above)
-          -->
-
-          <!-- Word bank: chips to pick from -->
-          <div class="word-bank" id="word-bank" style="display:none;"></div>
+          <!-- Word options (original pink pill style) -->
+          <div class="options" id="options"></div>
 
           <!-- Feedback -->
           <div class="result" id="result"></div>
 
-          <!-- Buttons (Replay / Next / Continue) -->
+          <!-- Buttons -->
           <div id="buttons"></div>
 
           <!-- Score summary -->
@@ -952,7 +880,7 @@
       storageBucket:     "chinese60s.firebasestorage.app",
       messagingSenderId: "835657861121",
       appId:             "1:835657861121:web:f31727eb7ea3b876a5d800",
-      measurementId:     "G-70NQ4PFTSN"
+      measurementId: "G-70NQ4PFTSN"
     };
 
     const app      = initializeApp(firebaseConfig);
@@ -1048,26 +976,29 @@
   </script>
 
   <!-- ═══════════════════════════════════════════════════════════════════
-       QUIZ LOGIC — Duolingo-style
-       Data: quiz.json → { questions:[{ id, sentence, blanks:[{answer}], words:[], audio? }] }
+       QUIZ LOGIC
+       Data shape: quiz.json → { questions:[{ id, sentence, blanks:[{answer}], words:[], audio? }] }
+
+       UX:
        ✔ Auth gate on Start
-       ✔ Sentence shown with ___ replaced by clickable blank slots
-       ✔ Word bank chips below — click chip → flies up into blank slot
-       ✔ Click filled blank slot → chip returns to word bank
-       ✔ All blanks filled → Next button enables
-       ✔ Next → reveal correct (green) / wrong (red) on slots + bank
+       ✔ Sentence shown with ___ as dashed pill blanks (original style)
+       ✔ Options below as pink pill buttons — text or image
+       ✔ Click option → hides (ghost), content appears in blank inline
+       ✔ Click filled blank → option returns, blank resets
+       ✔ All blanks filled → Next enables
+       ✔ Next → reveal green/red on blanks + options, show feedback
        ✔ No Retry; final score summary
   ═══════════════════════════════════════════════════════════════════ -->
   <script>
   (function () {
 
     /* ══ HELPERS ══ */
-    function isImg(s) { return /\.(jpe?g|png|gif|bmp|webp|svg)$/i.test(String(s)); }
-    function renderToken(t) {
-      if (t === null || t === undefined) return '';
-      return isImg(t)
-        ? `<span class="img-token"><img src="${t}" alt=""></span>`
-        : String(t);
+    function isImg(s) { return /\.(jpe?g|png|gif|bmp|webp|svg)$/i.test(String(s || '')); }
+
+    /* Inner HTML for a word — image or text */
+    function wordHTML(w) {
+      if (isImg(w)) return `<img src="${w}" alt="">`;
+      return String(w);
     }
 
     /* ══ STATE ══ */
@@ -1076,8 +1007,8 @@
     let scoreCorrect = 0;
     let revealed     = false;
     /*
-      slots[i] = null | { chipEl }
-      Each slot matches blanks[i] of the current question.
+      slots[i] = null | { optBtn, ghostEl, word }
+      parallel to blanks[] of current question
     */
     let slots = [];
 
@@ -1088,17 +1019,17 @@
     let   qAudio         = null;
 
     /* ══ DOM ══ */
-    const startCont  = document.getElementById('start-container');
-    const startBtn   = document.getElementById('start-button');
-    const sentenceEl = document.getElementById('sentence');
-    const wordBankEl = document.getElementById('word-bank');
-    const resultEl   = document.getElementById('result');
-    const buttonsEl  = document.getElementById('buttons');
-    const progWrap   = document.getElementById('quiz-progress-wrap');
-    const progFill   = document.getElementById('quiz-progress-fill');
-    const counterEl  = document.getElementById('quiz-counter');
-    const summaryEl  = document.getElementById('score-summary');
-    const scoreNumEl = document.getElementById('score-num');
+    const startCont    = document.getElementById('start-container');
+    const startBtn     = document.getElementById('start-button');
+    const sentenceEl   = document.getElementById('sentence');
+    const optionsEl    = document.getElementById('options');
+    const resultEl     = document.getElementById('result');
+    const buttonsEl    = document.getElementById('buttons');
+    const progWrap     = document.getElementById('quiz-progress-wrap');
+    const progFill     = document.getElementById('quiz-progress-fill');
+    const counterEl    = document.getElementById('quiz-counter');
+    const summaryEl    = document.getElementById('score-summary');
+    const scoreNumEl   = document.getElementById('score-num');
     const scoreTitleEl = document.getElementById('score-title');
     const scoreMsgEl   = document.getElementById('score-msg');
     const scoreCircle  = document.getElementById('score-circle');
@@ -1116,7 +1047,7 @@
         return [
           { id:1, sentence:'我___苹果。', blanks:[{answer:'喜欢'}], words:['喜欢','不是','很好','去'] },
           { id:2, sentence:'他___老师。', blanks:[{answer:'是'}],   words:['是','有','在','很'] },
-          { id:3, sentence:'我们可以___一起___学习。', blanks:[{answer:'好好'},{answer:'快乐'}], words:['好好','快乐','不好','很大'] }
+          { id:3, sentence:'我们___一起___学习。', blanks:[{answer:'可以'},{answer:'好好'}], words:['可以','不好','好好','很大'] }
         ];
       }
     }
@@ -1125,10 +1056,10 @@
     startBtn.addEventListener('click', async () => {
       if (!window.__currentUser) { openLoginModal(); return; }
 
-      const qc     = document.getElementById('quiz-container');
-      const p      = new URLSearchParams(window.location.search);
-      const sId    = parseInt(p.get('quizStartId')) || parseInt(qc.dataset.startId) || 1;
-      const eId    = parseInt(p.get('quizEndId'))   || parseInt(qc.dataset.endId)   || 10;
+      const qc   = document.getElementById('quiz-container');
+      const p    = new URLSearchParams(window.location.search);
+      const sId  = parseInt(p.get('quizStartId')) || parseInt(qc.dataset.startId) || 1;
+      const eId  = parseInt(p.get('quizEndId'))   || parseInt(qc.dataset.endId)   || 10;
 
       questions    = await loadQ(sId, eId);
       curIdx       = 0;
@@ -1145,55 +1076,66 @@
     function showQ() {
       if (curIdx >= questions.length) { showSummary(); return; }
 
-      const q     = questions[curIdx];
+      const q      = questions[curIdx];
       const blanks = q.blanks || [];
-      revealed    = false;
-      slots       = blanks.map(() => null);
+      revealed     = false;
+      slots        = blanks.map(() => null);
 
       /* Progress */
-      progFill.style.width = (curIdx / questions.length * 100) + '%';
+      progFill.style.width  = (curIdx / questions.length * 100) + '%';
       counterEl.textContent = `Question ${curIdx + 1} of ${questions.length}`;
 
-      /* ── Build sentence: replace each ___ with a blank-slot span ── */
-      let sentHTML = Array.isArray(q.sentence)
-        ? q.sentence.map(renderToken).join('')
-        : renderToken(q.sentence);
-
+      /* ── Build sentence with inline blank pills ── */
+      let sentHTML = String(q.sentence || '');
       let bi = 0;
-      sentHTML = sentHTML.replace(/___/g, () =>
-        `<span class="blank-slot" data-bi="${bi++}" title="Click to return word"></span>`
-      );
+      sentHTML = sentHTML.replace(/___/g, () => {
+        const idx = bi++;
+        return `<span class="blank" data-bi="${idx}" title="Click to return word"></span>`;
+      });
       sentenceEl.innerHTML     = sentHTML;
       sentenceEl.style.display = 'block';
 
-      /* Attach click handlers to blank slots */
-      sentenceEl.querySelectorAll('.blank-slot').forEach(slot => {
-        slot.addEventListener('click', () => handleSlotClick(slot));
+      /* Attach click to each blank */
+      sentenceEl.querySelectorAll('.blank').forEach(blankEl => {
+        blankEl.addEventListener('click', () => handleBlankClick(blankEl));
       });
 
-      /* ── Build word bank ── */
-      const shuffled = [...(q.words || [])].sort(() => Math.random() - 0.5);
-      wordBankEl.innerHTML = '';
-      wordBankEl.style.display = 'flex';
+      /* ── Build options (shuffled) ── */
+      const words = [...(q.words || [])].sort(() => Math.random() - 0.5);
+      optionsEl.innerHTML = '';
+      optionsEl.style.display = 'block';
 
-      shuffled.forEach(word => {
-        const chip = document.createElement('button');
-        chip.className       = 'word-chip';
-        chip.innerHTML       = renderToken(word);
-        chip.dataset.word    = String(word);
-        chip.addEventListener('click', () => handleChipClick(chip));
-        wordBankEl.appendChild(chip);
+      words.forEach(word => {
+        /* Ghost sibling — keeps layout space when word is used */
+        const ghost = document.createElement('span');
+        ghost.className = 'word-ghost';
+
+        const btn = document.createElement('button');
+        btn.className    = 'word';
+        btn.dataset.word = String(word);
+        btn.innerHTML    = wordHTML(word);
+        if (isImg(word)) btn.classList.add('has-image');
+
+        btn.addEventListener('click', () => handleWordClick(btn, ghost));
+
+        /* wrap in a span so ghost stays in same position */
+        const wrap = document.createElement('span');
+        wrap.style.display       = 'inline-block';
+        wrap.style.verticalAlign = 'middle';
+        wrap.appendChild(ghost);
+        wrap.appendChild(btn);
+        optionsEl.appendChild(wrap);
       });
 
-      /* ── Reset feedback / buttons ── */
+      /* ── Reset feedback & buttons ── */
       resultEl.style.display  = 'none';
       resultEl.textContent    = '';
       resultEl.className      = 'result';
 
-      buttonsEl.innerHTML = '';
+      buttonsEl.innerHTML     = '';
       buttonsEl.style.display = 'block';
 
-      /* Audio */
+      /* Audio replay */
       if (q.audio) {
         if (qAudio) { qAudio.pause(); }
         qAudio = new Audio(q.audio);
@@ -1205,177 +1147,126 @@
         buttonsEl.appendChild(rb);
       }
 
-      /* Next/Finish button — starts disabled */
-      const isLast   = curIdx === questions.length - 1;
+      /* Next/Finish — disabled until all blanks filled */
+      const isLast    = curIdx === questions.length - 1;
       const actionBtn = document.createElement('button');
+      actionBtn.id        = 'action-btn';
       actionBtn.textContent = isLast ? 'Finish ✓' : 'Next →';
       actionBtn.className   = isLast ? 'finish' : 'next';
       actionBtn.disabled    = true;
-      actionBtn.id          = 'action-btn';
       actionBtn.addEventListener('click', () => reveal(q));
       buttonsEl.appendChild(actionBtn);
     }
 
-    /* ══ CHIP CLICK → fly up into blank ══ */
-    function handleChipClick(chip) {
-      if (revealed || chip.classList.contains('ghost')) return;
+    /* ══ CLICK OPTION WORD → fill blank ══ */
+    function handleWordClick(btn, ghost) {
+      if (revealed || btn.classList.contains('used')) return;
 
-      clickAudio.currentTime = 0; clickAudio.play().catch(() => {});
-
-      /* Find first empty slot */
+      /* find first empty slot */
       const emptyBi = slots.findIndex(s => s === null);
       if (emptyBi === -1) return;
 
-      const slotEl = sentenceEl.querySelector(`[data-bi="${emptyBi}"]`);
-      if (!slotEl) return;
+      play(clickAudio);
 
-      /* ── Animate: ghost stays in word bank, chip "moves" ── */
-      chip.classList.add('ghost'); /* invisible placeholder */
+      /* Hide btn, show ghost in its place */
+      btn.classList.add('used');
+      ghost.style.width  = btn.offsetWidth  + 'px';
+      ghost.style.height = btn.offsetHeight + 'px';
+      ghost.style.visibility = 'visible'; /* ghost is always invisible but takes space */
 
-      /* Create a flying clone */
-      const clone = chip.cloneNode(true);
-      clone.classList.remove('ghost');
-      clone.style.cssText = `
-        position:fixed; pointer-events:none; z-index:999;
-        font-family:'Fredoka',sans-serif; font-weight:600; font-size:1.2rem;
-        padding:10px 20px; border:2.5px solid #222; border-radius:12px;
-        background:var(--white); box-shadow:0 4px 0 #222;
-        transition: none;
-      `;
-      document.body.appendChild(clone);
+      /* Fill blank */
+      const blankEl = sentenceEl.querySelector(`[data-bi="${emptyBi}"]`);
+      if (!blankEl) return;
+      blankEl.innerHTML = wordHTML(btn.dataset.word);
+      blankEl.classList.add('filled');
+      if (isImg(btn.dataset.word)) blankEl.classList.add('has-image');
 
-      /* Positions */
-      const chipRect  = chip.getBoundingClientRect();
-      const slotRect  = slotEl.getBoundingClientRect();
-
-      clone.style.left   = chipRect.left + 'px';
-      clone.style.top    = chipRect.top  + 'px';
-      clone.style.width  = chipRect.width  + 'px';
-      clone.style.height = chipRect.height + 'px';
-
-      /* Force repaint then start transition */
-      requestAnimationFrame(() => {
-        clone.style.transition = 'left 0.22s cubic-bezier(.4,0,.2,1), top 0.22s cubic-bezier(.4,0,.2,1), transform 0.22s, opacity 0.22s';
-        clone.style.left    = slotRect.left   + slotRect.width/2  - chipRect.width/2  + 'px';
-        clone.style.top     = slotRect.top    + slotRect.height/2 - chipRect.height/2 + 'px';
-        clone.style.opacity = '0';
-        clone.style.transform = 'scale(0.85)';
-      });
-
-      setTimeout(() => {
-        clone.remove();
-        /* Fill slot */
-        slotEl.innerHTML = renderToken(chip.dataset.word);
-        slotEl.classList.add('filled');
-        slotEl.dataset.word = chip.dataset.word;
-        slots[emptyBi] = { chipEl: chip, word: chip.dataset.word };
-        updateActionBtn();
-      }, 230);
+      slots[emptyBi] = { optBtn: btn, ghostEl: ghost, word: btn.dataset.word };
+      checkAllFilled();
     }
 
-    /* ══ SLOT CLICK → return chip to bank ══ */
-    function handleSlotClick(slotEl) {
+    /* ══ CLICK FILLED BLANK → return word ══ */
+    function handleBlankClick(blankEl) {
       if (revealed) return;
-      const bi   = parseInt(slotEl.dataset.bi);
+      const bi   = parseInt(blankEl.dataset.bi);
       const slot = slots[bi];
-      if (!slot) return; /* empty slot */
+      if (!slot) return; /* empty blank */
 
-      clickAudio.currentTime = 0; clickAudio.play().catch(() => {});
+      play(clickAudio);
 
-      const chipEl  = slot.chipEl;
-      const chipRect = chipEl.getBoundingClientRect();
-      const slotRect = slotEl.getBoundingClientRect();
+      /* Restore word button */
+      slot.optBtn.classList.remove('used');
+      slot.ghostEl.style.visibility = 'hidden'; /* back to invisible (but still takes space) */
 
-      /* Clone for return flight */
-      const clone = chipEl.cloneNode(true);
-      clone.classList.remove('ghost');
-      clone.style.cssText = `
-        position:fixed; pointer-events:none; z-index:999;
-        font-family:'Fredoka',sans-serif; font-weight:600; font-size:1.2rem;
-        padding:10px 20px; border:2.5px solid #222; border-radius:12px;
-        background:var(--white); box-shadow:0 4px 0 #222;
-        left:${slotRect.left + slotRect.width/2 - chipRect.width/2}px;
-        top:${slotRect.top   + slotRect.height/2 - chipRect.height/2}px;
-        width:${chipRect.width}px; height:${chipRect.height}px;
-        opacity:0; transform:scale(0.85);
-        transition: left 0.22s cubic-bezier(.4,0,.2,1), top 0.22s cubic-bezier(.4,0,.2,1), transform 0.22s, opacity 0.22s;
-      `;
-      document.body.appendChild(clone);
+      /* Clear blank */
+      blankEl.innerHTML = '';
+      blankEl.className = 'blank';
+      blankEl.dataset.bi = String(bi); /* keep index */
 
-      /* Clear slot immediately */
-      slotEl.innerHTML = '';
-      slotEl.classList.remove('filled');
-      delete slotEl.dataset.word;
       slots[bi] = null;
-      updateActionBtn();
+      checkAllFilled();
 
-      /* Start return flight */
-      requestAnimationFrame(() => {
-        clone.style.left      = chipRect.left + 'px';
-        clone.style.top       = chipRect.top  + 'px';
-        clone.style.opacity   = '1';
-        clone.style.transform = 'scale(1)';
-      });
-
-      setTimeout(() => {
-        clone.remove();
-        chipEl.classList.remove('ghost');
-      }, 230);
+      /* Re-attach click (was removed when blank cleared) */
+      blankEl.addEventListener('click', () => handleBlankClick(blankEl));
     }
 
-    function updateActionBtn() {
+    function checkAllFilled() {
       const btn = document.getElementById('action-btn');
       if (btn) btn.disabled = slots.some(s => s === null);
     }
 
-    /* ══ REVEAL (after Next) ══ */
+    /* ══ REVEAL (Next clicked) ══ */
     function reveal(q) {
       if (revealed || slots.some(s => s === null)) return;
       revealed = true;
 
       const blanks = q.blanks || [];
       let allOk = true;
-      blanks.forEach((blank, i) => {
-        if (!slots[i] || String(slots[i].word) !== String(blank.answer)) allOk = false;
+      blanks.forEach((b, i) => {
+        if (!slots[i] || String(slots[i].word) !== String(b.answer)) allOk = false;
       });
-
       if (allOk) scoreCorrect++;
 
-      /* Colour blank slots */
-      blanks.forEach((blank, i) => {
-        const slotEl = sentenceEl.querySelector(`[data-bi="${i}"]`);
-        if (!slotEl) return;
-        const ok = slots[i] && String(slots[i].word) === String(blank.answer);
-        slotEl.classList.add(ok ? 'reveal-correct' : 'reveal-wrong');
-        if (!ok) slotEl.innerHTML += ` <small style="font-size:.65em;opacity:.75">(${blank.answer})</small>`;
-      });
-
-      /* Colour word bank chips */
-      wordBankEl.querySelectorAll('.word-chip').forEach(chip => {
-        chip.style.pointerEvents = 'none';
-        const isCorrect = blanks.some(b => String(b.answer) === chip.dataset.word);
-        const wasUsed   = slots.some(s => s && s.chipEl === chip);
-        if (chip.classList.contains('ghost')) {
-          /* this chip is in a slot — colour the slot already done above */
-        } else {
-          /* chip still in bank */
-          if (isCorrect) chip.classList.add('reveal-correct');
+      /* Colour blanks */
+      blanks.forEach((b, i) => {
+        const blankEl = sentenceEl.querySelector(`[data-bi="${i}"]`);
+        if (!blankEl) return;
+        const ok = slots[i] && String(slots[i].word) === String(b.answer);
+        blankEl.classList.add(ok ? 'reveal-correct' : 'reveal-wrong');
+        blankEl.style.cursor = 'default';
+        if (!ok && !isImg(b.answer)) {
+          /* Append correct text answer hint */
+          const hint = document.createElement('small');
+          hint.textContent = ` (${b.answer})`;
+          hint.style.cssText = 'font-size:0.65em;opacity:0.75;margin-left:4px;';
+          blankEl.appendChild(hint);
         }
       });
 
-      /* Sound + feedback */
+      /* Colour option buttons */
+      optionsEl.querySelectorAll('.word').forEach(btn => {
+        btn.disabled = true;
+        btn.style.cursor = 'default';
+        const isCorrect = blanks.some(b => String(b.answer) === btn.dataset.word);
+        const wasUsed   = slots.some(s => s && s.optBtn === btn);
+        if (wasUsed && isCorrect)  btn.classList.add('correct-reveal');
+        if (wasUsed && !isCorrect) btn.classList.add('incorrect-reveal');
+        if (!wasUsed && isCorrect) btn.classList.add('correct-reveal');
+      });
+
+      /* Feedback */
       if (allOk) {
-        correctAudio.currentTime = 0; correctAudio.play().catch(() => {});
+        play(correctAudio);
         resultEl.textContent = '✅ Correct!';
         resultEl.className   = 'result correct';
       } else {
-        incorrectAudio.currentTime = 0; incorrectAudio.play().catch(() => {});
+        play(incorrectAudio);
         resultEl.textContent = `❌ Answer: ${blanks.map(b => b.answer).join(' / ')}`;
         resultEl.className   = 'result incorrect';
       }
       resultEl.style.display = 'block';
 
-      /* Swap Next → Continue */
+      /* Swap action button to Continue */
       const actionBtn = document.getElementById('action-btn');
       if (actionBtn) {
         const isLast = curIdx === questions.length - 1;
@@ -1391,17 +1282,16 @@
     /* ══ SUMMARY ══ */
     function showSummary() {
       sentenceEl.style.display  = 'none';
-      wordBankEl.style.display  = 'none';
+      optionsEl.style.display   = 'none';
       resultEl.style.display    = 'none';
       buttonsEl.style.display   = 'none';
       progWrap.style.display    = 'none';
       counterEl.style.display   = 'none';
-
-      victoryAudio.play().catch(() => {});
+      play(victoryAudio);
 
       const total = questions.length;
       const pct   = total ? Math.round(scoreCorrect / total * 100) : 0;
-      progFill.style.width = '100%';
+      progFill.style.width   = '100%';
       scoreNumEl.textContent = `${scoreCorrect}/${total}`;
 
       if (pct >= 80) {
@@ -1425,16 +1315,20 @@
 
     /* ══ RESTART ══ */
     restartBtn.addEventListener('click', () => {
-      summaryEl.style.display   = 'none';
-      startCont.style.display   = 'block';
-      progWrap.style.display    = 'none';
-      counterEl.style.display   = 'none';
-      progFill.style.width      = '0%';
-      sentenceEl.style.display  = 'none';
-      wordBankEl.style.display  = 'none';
-      buttonsEl.style.display   = 'none';
-      resultEl.style.display    = 'none';
+      summaryEl.style.display  = 'none';
+      startCont.style.display  = 'block';
+      progWrap.style.display   = 'none';
+      counterEl.style.display  = 'none';
+      progFill.style.width     = '0%';
+      sentenceEl.style.display = 'none';
+      optionsEl.style.display  = 'none';
+      buttonsEl.style.display  = 'none';
+      resultEl.style.display   = 'none';
     });
+
+    function play(audio) {
+      try { audio.currentTime = 0; audio.play().catch(() => {}); } catch(e) {}
+    }
 
   })();
   </script>
