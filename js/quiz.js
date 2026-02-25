@@ -1,4 +1,4 @@
-import { auth } from "/auth.js";
+import { auth } from "./auth.js";
 
 let score = 0;
 
