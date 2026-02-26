@@ -126,7 +126,6 @@ document.addEventListener('click', (event) => {
             margin: 0;
         }
 
-        /* Audio sample player */
         .rec-audio-wrap {
             display: flex;
             align-items: center;
@@ -154,7 +153,6 @@ document.addEventListener('click', (event) => {
             font-weight: 600;
         }
 
-        /* Wave */
         .rec-wave {
             display: flex;
             align-items: center;
@@ -191,7 +189,6 @@ document.addEventListener('click', (event) => {
         .rec-status.done      { color: #16a34a; font-weight: 600; }
         .rec-status.error     { color: #dc2626; }
 
-        /* Result box */
         .rec-result {
             border-radius: 12px;
             padding: 12px 14px;
@@ -235,7 +232,6 @@ document.addEventListener('click', (event) => {
             color: #b91c1c;
         }
 
-        /* Buttons */
         .rec-actions {
             display: flex;
             gap: 10px;
@@ -263,12 +259,25 @@ document.addEventListener('click', (event) => {
 // Normalize: strip punctuation + spaces for comparison
 // ============================================================
 function normalize(str) {
-    // Remove all punctuation (CJK, ASCII, spaces, newlines)
     return str
-        .replace(/[\s\u0020\u3000]+/g, '')                        // spaces
-        .replace(/[.,!?;:'"()\-–—…，。！？；：、''""「」【】《》]/g, '') // common punct
-        .replace(/[\u2018\u2019\u201C\u201D]/g, '')               // curly quotes
+        .replace(/[\s\u0020\u3000]+/g, '')
+        .replace(/[.,!?;:'"()\-–—…，。！？；：、''""「」【】《》]/g, '')
+        .replace(/[\u2018\u2019\u201C\u201D]/g, '')
         .toLowerCase();
+}
+
+// ============================================================
+// SAVE RECORDING — dùng window.saveRecording từ post.html
+// ============================================================
+function saveRecordingToFirestore({ transcript, correctSentence, postId }) {
+    // window.saveRecording được định nghĩa trong post.html
+    // có sẵn Firebase import và __currentUser check bên trong
+    if (typeof window.saveRecording === 'function') {
+        window.saveRecording(String(postId), transcript, correctSentence);
+        console.log('[posts-loader] saveRecording called:', { postId, transcript });
+    } else {
+        console.warn('[posts-loader] window.saveRecording chưa được định nghĩa trong post.html');
+    }
 }
 
 // ============================================================
@@ -379,31 +388,27 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
             return;
         }
 
-        // Abort any previous instance first (important for mobile Safari/Chrome)
         if (recognition) {
             try { recognition.abort(); } catch(e) {}
             recognition = null;
         }
 
-        // Fresh instance every time — mobile reuse causes silent failures
         recognition = new SR();
         recognition.lang            = 'zh-CN';
-        recognition.interimResults  = true;   // show text while speaking
+        recognition.interimResults  = true;
         recognition.maxAlternatives = 1;
-        recognition.continuous      = true;   // keep mic open until user presses Stop
+        recognition.continuous      = true;
 
         resultBox.style.display = 'none';
         let finalTranscript = '';
 
         recognition.onresult = (e) => {
-            // Accumulate all final segments
             finalTranscript = '';
             for (let i = 0; i < e.results.length; i++) {
                 if (e.results[i].isFinal) {
                     finalTranscript += e.results[i][0].transcript;
                 }
             }
-            // Show live interim text so user sees what's being heard
             const interim = Array.from(e.results)
                 .filter(r => !r.isFinal)
                 .map(r => r[0].transcript).join('');
@@ -412,7 +417,7 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
         };
 
         recognition.onerror = (e) => {
-            if (e.error === 'aborted') return; // our own abort() — ignore
+            if (e.error === 'aborted') return;
             setListening(false);
             const msgs = {
                 'not-allowed'         : 'Microphone permission denied.',
@@ -425,20 +430,21 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
         };
 
         recognition.onend = () => {
-            // onend fires when stop() is called — show result
             setListening(false);
             if (finalTranscript.trim()) {
                 showResult(finalTranscript.trim());
-                saveRecordingToFirestore({ transcript: finalTranscript.trim(), correctSentence, postId });
+                // ✅ Gọi saveRecordingToFirestore — hàm này dùng window.saveRecording từ post.html
+                saveRecordingToFirestore({
+                    transcript:      finalTranscript.trim(),
+                    correctSentence: correctSentence,
+                    postId:          postId,
+                });
             } else if (!status.className.includes('error')) {
                 status.textContent = 'No speech detected. Try again.';
                 status.className   = 'rec-status error';
             }
         };
 
-        // Must call start() synchronously within the click event —
-        // mobile browsers (Safari iOS / Chrome Android) revoke the mic
-        // permission token after the current JS tick
         try {
             recognition.start();
             setListening(true);
@@ -450,7 +456,6 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
     }
 
     function stopRec() {
-        // stop() (not abort()) so onend fires and we get the transcript
         if (recognition) { try { recognition.stop(); } catch (e) {} }
     }
 
@@ -465,31 +470,6 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
     btnClose.addEventListener('click', closePopup);
     overlay.addEventListener('click', (e) => { if (e.target === overlay) closePopup(); });
 }
-
-// ============================================================
-// SAVE TO FIRESTORE
-// ============================================================
-async function saveRecordingToFirestore({ transcript, correctSentence, postId }) {
-    try {
-        const db = window.firestoreDb;
-        if (!db) { console.warn('window.firestoreDb is not set.'); return; }
-        const { collection, addDoc, serverTimestamp } = window.firestoreModules;
-        const uid = (window.firebaseAuth && window.firebaseAuth.currentUser)
-            ? window.firebaseAuth.currentUser.uid : 'anonymous';
-        await addDoc(collection(db, 'recordings'), {
-            transcript, correctSentence, postId,
-            uid, timestamp: serverTimestamp(),
-        });
-        console.log('✅ Firestore saved:', { transcript, postId, uid });
-    } catch (e) {
-        console.error('Firestore error:', e);
-    }
-}
-
-// ============================================================
-// ============================================================
-// LOGIN PROMPT POPUP
-// ============================================================
 
 // ============================================================
 // MAIN: loadPosts
@@ -520,28 +500,24 @@ function loadPosts(startpId, endpId, listId) {
             user.className = 'user';
             user.textContent = item.user;
 
-            // Phát âm thanh
             const audioBtn = document.createElement('span');
             audioBtn.className = 'audio';
             audioBtn.textContent = '☊';
             audioBtn.style.cursor = 'pointer';
             audioBtn.addEventListener('click', () => new Audio(item.audioSrc).play());
 
-            // 👁 Nút mắt — LUÔN hiện
             const eyeBtn = document.createElement('button');
             eyeBtn.className = 'eye-btn';
             eyeBtn.innerHTML = '👁️';
             eyeBtn.title = item.structure ? 'View sentence structure' : 'Hide sentence';
             eyeBtn.style.cssText = 'background:none;border:none;cursor:pointer;font-size:16px;padding:2px 4px;';
 
-            // 🎙 Nút ghi âm — LUÔN hiện
             const micBtn = document.createElement('button');
             micBtn.className = 'mic-btn';
             micBtn.innerHTML = '🎙️';
             micBtn.title = 'Record pronunciation';
             micBtn.style.cssText = 'background:none;border:none;cursor:pointer;font-size:16px;padding:2px 4px;';
 
-            // Toggle description
             const toggleButton = document.createElement('button');
             toggleButton.className = 'toggle-description';
             toggleButton.textContent = '⬇️';
@@ -567,7 +543,7 @@ function loadPosts(startpId, endpId, listId) {
                 h2.appendChild(span);
             });
 
-            // --- Cấu trúc câu (chỉ tạo nếu có JSON field "structure") ---
+            // --- Cấu trúc câu ---
             let structureDiv = null;
             if (item.structure) {
                 structureDiv = document.createElement('div');
@@ -585,36 +561,28 @@ function loadPosts(startpId, endpId, listId) {
                 `;
             }
 
-            // Logic nút mắt:
-            //   Không có structure → toggle ẩn/hiện h2
-            //   Có structure       → nhấn 1: ẩn h2 + hiện structure
-            //                        nhấn 2: hiện h2 + ẩn structure
-            let eyeOpen = true; // true = đang hiện h2
+            let eyeOpen = true;
             eyeBtn.addEventListener('click', () => {
                 eyeOpen = !eyeOpen;
                 if (eyeOpen) {
-                    // Hiện h2, ẩn structure
                     h2.style.display = '';
                     if (structureDiv) structureDiv.style.display = 'none';
                     eyeBtn.innerHTML = '👁️';
                     eyeBtn.title = item.structure ? 'View sentence structure' : 'Hide sentence';
                 } else {
-                    // Ẩn h2
                     h2.style.display = 'none';
                     if (structureDiv) {
-                        // Có structure → hiện cấu trúc
                         structureDiv.style.display = 'block';
                         eyeBtn.innerHTML = '🔒';
                         eyeBtn.title = 'Hide structure';
                     } else {
-                        // Không có structure → chỉ ẩn câu
                         eyeBtn.innerHTML = '🔑';
                         eyeBtn.title = 'Show sentence';
                     }
                 }
             });
 
-            // Recording button → uses page's openLoginModal if not signed in
+            // ✅ Recording button — yêu cầu đăng nhập, sau đó mở popup
             micBtn.addEventListener('click', () => {
                 if (!window.__currentUser) {
                     if (typeof window.openLoginModal === 'function') window.openLoginModal();
