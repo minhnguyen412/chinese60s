@@ -20,7 +20,7 @@
   'use strict';
 
   /* ═══════════════ CONSTANTS ════════════════ */
-  const HW_CDN = 'https://cdn.jsdelivr.net/npm/hanzi-writer-data@latest/';
+  const HW_CDN = 'https://raw.githubusercontent.com/chanind/hanzi-writer-data/master/';
 
   /* ═══════════════ STYLES ════════════════ */
   function injectStyles() {
