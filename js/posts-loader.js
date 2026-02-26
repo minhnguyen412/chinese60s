@@ -267,6 +267,12 @@ function normalize(str) {
 // RECORDING POPUP
 // ============================================================
 function showRecordingPopup(correctSentence, audioSrc, postId) {
+    // Auth gate — require login
+    if (!window.__currentUser) {
+        if (typeof window.openLoginModal === "function") window.openLoginModal();
+        return;
+    }
+
     const old = document.getElementById('rec-overlay');
     if (old) old.remove();
 
@@ -471,6 +477,113 @@ async function saveRecordingToFirestore({ transcript, correctSentence, postId })
 }
 
 // ============================================================
+// ============================================================
+// LOGIN PROMPT POPUP
+// ============================================================
+function showLoginPrompt() {
+    const old = document.getElementById('login-prompt-overlay');
+    if (old) old.remove();
+
+    // Inject styles once
+    if (!document.getElementById('login-prompt-style')) {
+        const s = document.createElement('style');
+        s.id = 'login-prompt-style';
+        s.textContent = `
+            .lp-overlay {
+                position: fixed; inset: 0;
+                background: rgba(0,0,0,.5);
+                display: flex; align-items: center; justify-content: center;
+                z-index: 10000;
+                animation: recFadeIn .2s ease;
+            }
+            .lp-popup {
+                background: #fff;
+                border-radius: 20px;
+                padding: 32px 28px 24px;
+                width: min(88vw, 360px);
+                box-shadow: 0 24px 64px rgba(0,0,0,.28);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+                text-align: center;
+                animation: recSlideUp .25s ease;
+            }
+            .lp-icon {
+                font-size: 42px;
+                line-height: 1;
+            }
+            .lp-title {
+                font-size: 18px;
+                font-weight: 700;
+                color: #1a1a2e;
+                margin: 0;
+            }
+            .lp-desc {
+                font-size: 14px;
+                color: #64748b;
+                margin: 0;
+                line-height: 1.5;
+            }
+            .lp-actions {
+                display: flex;
+                gap: 10px;
+                width: 100%;
+                margin-top: 4px;
+            }
+            .lp-btn {
+                flex: 1;
+                padding: 12px 0;
+                border: none;
+                border-radius: 12px;
+                font-size: 14px;
+                font-weight: 700;
+                cursor: pointer;
+                transition: transform .1s, opacity .15s;
+            }
+            .lp-btn:active { transform: scale(.96); }
+            .lp-btn.primary { background: #6366f1; color: #fff; }
+            .lp-btn.secondary { background: #f1f5f9; color: #475569; }
+        `;
+        document.head.appendChild(s);
+    }
+
+    const overlay = document.createElement('div');
+    overlay.className = 'lp-overlay';
+    overlay.id = 'login-prompt-overlay';
+    overlay.innerHTML = `
+        <div class="lp-popup">
+            <div class="lp-icon">🔒</div>
+            <p class="lp-title">Sign in required</p>
+            <p class="lp-desc">You need to be signed in to use the pronunciation practice feature.</p>
+            <div class="lp-actions">
+                <button class="lp-btn primary" id="lp-btn-login">Sign in</button>
+                <button class="lp-btn secondary" id="lp-btn-cancel">Cancel</button>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(overlay);
+
+    function close() { overlay.remove(); }
+
+    overlay.querySelector('#lp-btn-cancel').addEventListener('click', close);
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+
+    overlay.querySelector('#lp-btn-login').addEventListener('click', () => {
+        close();
+        // Trigger whatever sign-in flow your app uses.
+        // If you have a global openSignIn() or similar, call it here.
+        if (typeof openSignIn === 'function') {
+            openSignIn();
+        } else if (typeof window.showLoginModal === 'function') {
+            window.showLoginModal();
+        } else {
+            // Fallback: redirect to login page
+            window.location.href = '/login';
+        }
+    });
+}
+
 // HÀM CHÍNH loadPosts
 // ============================================================
 function loadPosts(startpId, endpId, listId) {
@@ -593,8 +706,13 @@ function loadPosts(startpId, endpId, listId) {
                 }
             });
 
-            // Nút ghi âm → mở popup
+            // Recording button → require login first
             micBtn.addEventListener('click', () => {
+                const user = window.firebaseAuth && window.firebaseAuth.currentUser;
+                if (!user) {
+                    showLoginPrompt();
+                    return;
+                }
                 const correct = item.segments ? item.segments.join('') : '';
                 showRecordingPopup(correct, item.audioSrc, item.id);
             });
