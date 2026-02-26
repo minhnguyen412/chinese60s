@@ -287,7 +287,7 @@
       padding: 8px 26px; box-shadow: var(--shadow-sm);
     }
 
-    #start-container { margin-bottom: 12px; }
+    #start-container { margin-bottom: 12px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
     #start-button {
       font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.3rem;
       background: var(--green); color: white;
@@ -296,6 +296,17 @@
       transition: transform 0.12s, box-shadow 0.12s;
     }
     #start-button:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); }
+
+    /* Writing Practice button */
+    #write-button {
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.1rem;
+      background: var(--lavender); color: var(--black);
+      padding: 12px 28px; border: var(--border-thick); border-radius: 50px;
+      box-shadow: var(--shadow-md); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s;
+      display: flex; align-items: center; gap: 8px;
+    }
+    #write-button:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); background: #b89cf5; }
 
     /* progress bar */
     .quiz-progress-wrap {
@@ -686,6 +697,7 @@
         <div id="quiz-unlocked">
           <div id="start-container">
             <button id="start-button">▶ Start Quiz</button>
+            <button id="write-button">✏️ Practice Writing</button>
           </div>
 
           <div class="quiz-counter" id="quiz-counter"></div>
@@ -1378,6 +1390,36 @@
       recognition.onerror = function() { micBtn.textContent = '🎤'; };
       recognition.onend   = function() { micBtn.textContent = '🎤'; };
     };
+  </script>
+  <!-- Writing Quiz JS (standalone module) -->
+  <script src="js/writing-quiz.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const writeBtn = document.getElementById('write-button');
+      if (!writeBtn) return;
+
+      writeBtn.addEventListener('click', () => {
+        const p      = new URLSearchParams(window.location.search);
+        const qc     = document.getElementById('quiz-container');
+
+        // Lấy range ID từ URL params hoặc data attributes trên quiz container
+        // URL: ?writeStartId=1&writeEndId=10 (nếu không có thì dùng quizStartId/endId)
+        const startId = parseInt(p.get('writeStartId'))
+                     || parseInt(p.get('quizStartId'))
+                     || parseInt(qc?.dataset.startId)
+                     || 1;
+        const endId   = parseInt(p.get('writeEndId'))
+                     || parseInt(p.get('quizEndId'))
+                     || parseInt(qc?.dataset.endId)
+                     || 30;
+
+        WritingQuiz.open({
+          startId: startId,
+          endId:   endId,
+          dataUrl: 'data/writing-quiz.json'
+        });
+      });
+    });
   </script>
 
 </body>
