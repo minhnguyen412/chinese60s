@@ -402,28 +402,44 @@
       width: 70px; height: 70px; object-fit: cover; border-radius: 8px;
     }
 
-    /* ── OPTIONS ZONE ── */
+    /* ── OPTIONS ZONE — CSS Grid, thẳng lề ── */
     .options {
-      margin: 16px 0 8px; display: none;
-      min-height: 60px;
+      margin: 16px 0 8px;
+      display: none;   /* JS sets display:grid */
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    /* Image-heavy quiz: 2×2 on desktop looks better — JS adds .options-img class */
+    .options.options-img {
+      grid-template-columns: repeat(4, 1fr);
     }
 
-    /* Ghost placeholder — keeps layout space */
+    /* Each cell = ghost (absolute) + btn — cell keeps size even when btn hidden */
+    .word-cell {
+      position: relative;
+      display: flex;
+      min-height: 50px; /* fallback height so cell never collapses */
+    }
+
+    /* Ghost placeholder — takes button's place when used */
     .word-ghost {
-      display: inline-block; visibility: hidden; pointer-events: none;
-      vertical-align: middle; margin: 5px;
+      position: absolute; inset: 0;
+      visibility: hidden; pointer-events: none;
     }
 
-    /* TEXT word — pill style (original) */
+    /* TEXT word — pill, Quicksand Bold */
     .word {
-      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.2rem;
-      padding: 10px 20px; margin: 5px;
+      font-family: 'Quicksand', sans-serif; font-weight: 700; font-size: 1.1rem;
+      padding: 12px 10px;
+      width: 100%;                    /* fill the grid cell */
       background: var(--pink); color: var(--black);
       border: var(--border-thick); border-radius: 50px;
       box-shadow: var(--shadow-sm); cursor: pointer;
       transition: transform 0.14s ease, box-shadow 0.14s ease, background 0.12s;
-      user-select: none; vertical-align: middle;
-      display: inline-block; position: relative;
+      user-select: none;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; line-height: 1.2;
+      position: relative;
     }
     .word:hover:not(.used):not(.disabled) {
       transform: translate(-2px,-3px);
@@ -432,19 +448,18 @@
     }
     .word:active:not(.used):not(.disabled) { transform: translate(0,0); box-shadow: var(--shadow-sm); }
 
-    /* IMAGE word — square card, NOT pill */
+    /* IMAGE word — square card */
     .word.has-image {
-      border-radius: 16px;       /* square-ish, not pill */
+      border-radius: 16px;
       padding: 6px;
-      line-height: 0;
-      background: var(--white);  /* neutral bg so image shows true */
+      background: var(--white);
+      aspect-ratio: 1;              /* keeps cell square */
     }
     .word.has-image img {
       display: block;
-      width: 110px; height: 110px;
+      width: 100%; height: 100%;
       object-fit: cover;
       border-radius: 10px;
-      border: none;
       pointer-events: none;
     }
 
@@ -453,6 +468,12 @@
     .word.disabled { opacity: 0.4; pointer-events: none; }
     .word.correct-reveal   { background: var(--green-light); border-color: var(--green-dark); }
     .word.incorrect-reveal { background: var(--pink-pale);   border-color: #e53935; }
+
+    /* ── MOBILE: 2 columns ── */
+    @media (max-width: 600px) {
+      .options,
+      .options.options-img { grid-template-columns: repeat(2, 1fr); }
+    }
 
     /* result feedback (shown after Next) */
     .result { margin-top: 14px; font-size: 1.05rem; font-weight: 700; display: none; }
@@ -617,7 +638,6 @@
       .sentence { font-size: 1.3rem; }
       .word { font-size: 1.1rem; }
       .content-image { max-width: 80px; }
-      .word.has-image img { width: 100px; height: 100px;}
     }
     @media (max-width: 480px) {
       header h1 { font-size: 1.3rem; }
@@ -637,7 +657,7 @@
     <nav>
       <ul>
         <li><a href="about.html">About Us</a></li>
-        <li><a href="learning-page.html">Lessons</a></li>
+        <li><a href="courses.html">Courses</a></li>
         <li><a href="shop.html">Shop</a></li>
         <li><a href="https://www.amazon.com/shop/studiorum60s" target="_blank">Amazon</a></li>
 
@@ -894,7 +914,7 @@
       storageBucket:     "chinese60s.firebasestorage.app",
       messagingSenderId: "835657861121",
       appId:             "1:835657861121:web:f31727eb7ea3b876a5d800",
-      measurementId: "G-70NQ4PFTSN"
+      measurementId:     "G-70NQ4PFTSN"
     };
 
     const app      = initializeApp(firebaseConfig);
@@ -1127,15 +1147,25 @@
       /* ── Build options (shuffled) ── */
       const words = [...(q.words || [])].sort(() => Math.random() - 0.5);
       optionsEl.innerHTML = '';
-      optionsEl.style.display = 'block';
+
+      /* Detect if this question is image-based (majority of words are images) */
+      const imgCount = words.filter(w => isImg(w)).length;
+      const isImgQ   = imgCount > words.length / 2;
+
+      /* Show as grid */
+      optionsEl.style.display = 'grid';
+      optionsEl.classList.toggle('options-img', isImgQ);
 
       words.forEach(word => {
         const hasImg = isImg(word);
 
-        /* Ghost sibling — invisible, keeps layout space */
+        /* Cell wrapper — ghost + btn */
+        const cell = document.createElement('div');
+        cell.className = 'word-cell';
+
+        /* Ghost — fills cell space when word is used */
         const ghost = document.createElement('span');
         ghost.className = 'word-ghost';
-        /* Size set after btn is in DOM (below) */
 
         const btn = document.createElement('button');
         btn.className    = 'word';
@@ -1145,17 +1175,14 @@
 
         btn.addEventListener('click', () => handleWordClick(btn, ghost));
 
-        const wrap = document.createElement('span');
-        wrap.style.cssText = 'display:inline-block;vertical-align:middle;';
-        wrap.appendChild(ghost);
-        wrap.appendChild(btn);
-        optionsEl.appendChild(wrap);
+        cell.appendChild(ghost);
+        cell.appendChild(btn);
+        optionsEl.appendChild(cell);
 
         /* Size ghost after btn renders */
         requestAnimationFrame(() => {
           ghost.style.width  = btn.offsetWidth  + 'px';
           ghost.style.height = btn.offsetHeight + 'px';
-          ghost.style.display = 'inline-block';
         });
       });
 
@@ -1200,10 +1227,7 @@
 
       play(clickAudio);
 
-      /* Match ghost size to btn before hiding */
-      ghost.style.width   = btn.offsetWidth  + 'px';
-      ghost.style.height  = btn.offsetHeight + 'px';
-      ghost.style.display = 'inline-block';
+      /* Ghost is position:absolute inset:0 — just make it visible to block clicks */
       btn.classList.add('used');
 
       /* Fill blank */
@@ -1365,5 +1389,3 @@
 
 </body>
 </html>
-
-
