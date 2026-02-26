@@ -106,7 +106,7 @@
   box-shadow:3px 3px 0 #222;object-fit:cover;
 }
 .wq-char-display{
-  font-size:2.6rem;font-weight:700;color:#222;
+  font-size:3rem;font-weight:700;color:#222;
   line-height:1;letter-spacing:.05em;user-select:none;
 }
 .wq-pinyin{
@@ -572,7 +572,6 @@
       <div class="wq-card">
         <!-- LEFT: word info -->
         <div class="wq-col-info">
-          ${card.imageSrc ? `<img class="wq-word-img" src="${card.imageSrc}" alt="${card.character}">` : ''}
           <div class="wq-char-display">${card.character}</div>
           <div class="wq-pinyin">${card.pinyin || ''}</div>
           <div class="wq-meaning">${card.meaning || ''}</div>
