@@ -462,7 +462,7 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
 async function saveRecordingToFirestore({ transcript, correctSentence, postId }) {
     try {
         const db = window.firestoreDb;
-        if (!db) { console.warn('window.firestoreDb is not set.') return; }
+        if (!db) { console.warn('window.firestoreDb is not set.'); return; }
         const { collection, addDoc, serverTimestamp } = window.firestoreModules;
         const uid = (window.firebaseAuth && window.firebaseAuth.currentUser)
             ? window.firebaseAuth.currentUser.uid : 'anonymous';
