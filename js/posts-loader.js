@@ -500,14 +500,14 @@ function loadPosts(startpId, endpId, listId) {
             // 👁 Nút mắt — LUÔN hiện
             const eyeBtn = document.createElement('button');
             eyeBtn.className = 'eye-btn';
-            eyeBtn.innerHTML = '👁';
+            eyeBtn.innerHTML = '👁️';
             eyeBtn.title = item.structure ? 'View sentence structure' : 'Hide sentence';
             eyeBtn.style.cssText = 'background:none;border:none;cursor:pointer;font-size:16px;padding:2px 4px;';
 
             // 🎙 Nút ghi âm — LUÔN hiện
             const micBtn = document.createElement('button');
             micBtn.className = 'mic-btn';
-            micBtn.innerHTML = '🎙';
+            micBtn.innerHTML = '🎙️';
             micBtn.title = 'Record pronunciation';
             micBtn.style.cssText = 'background:none;border:none;cursor:pointer;font-size:16px;padding:2px 4px;';
 
@@ -566,7 +566,7 @@ function loadPosts(startpId, endpId, listId) {
                     // Hiện h2, ẩn structure
                     h2.style.display = '';
                     if (structureDiv) structureDiv.style.display = 'none';
-                    eyeBtn.innerHTML = '👁';
+                    eyeBtn.innerHTML = '👁️';
                     eyeBtn.title = item.structure ? 'View sentence structure' : 'Hide sentence';
                 } else {
                     // Ẩn h2
@@ -574,11 +574,11 @@ function loadPosts(startpId, endpId, listId) {
                     if (structureDiv) {
                         // Có structure → hiện cấu trúc
                         structureDiv.style.display = 'block';
-                        eyeBtn.innerHTML = '🙈';
+                        eyeBtn.innerHTML = '🔓';
                         eyeBtn.title = 'Hide structure';
                     } else {
                         // Không có structure → chỉ ẩn câu
-                        eyeBtn.innerHTML = '🙈';
+                        eyeBtn.innerHTML = '🔓';
                         eyeBtn.title = 'Show sentence';
                     }
                 }
@@ -624,4 +624,5 @@ function loadPosts(startpId, endpId, listId) {
     })
     .catch(err => console.error('Error fetching JSON:', err));
 }
+
 
