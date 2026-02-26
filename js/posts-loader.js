@@ -71,24 +71,22 @@ document.addEventListener('click', (event) => {
 });
 
 // ============================================================
-// INJECT CSS một lần duy nhất
+// INJECT CSS (once)
 // ============================================================
 (function injectStyles() {
     if (document.getElementById('posts-extra-styles')) return;
     const s = document.createElement('style');
     s.id = 'posts-extra-styles';
     s.textContent = `
-        /* Mic pulse khi đang ghi */
         @keyframes pulse-mic {
             0%,100% { transform: scale(1); opacity: 1; }
             50%      { transform: scale(1.35); opacity: 0.6; }
         }
         .mic-btn.recording { animation: pulse-mic 0.75s ease-in-out infinite; }
 
-        /* === POPUP GHI ÂM === */
         .rec-overlay {
             position: fixed; inset: 0;
-            background: rgba(0,0,0,.45);
+            background: rgba(0,0,0,.5);
             display: flex; align-items: center; justify-content: center;
             z-index: 9999;
             animation: recFadeIn .2s ease;
@@ -97,41 +95,58 @@ document.addEventListener('click', (event) => {
 
         .rec-popup {
             background: #fff;
-            border-radius: 18px;
+            border-radius: 20px;
             padding: 28px 24px 22px;
-            width: min(92vw, 420px);
-            box-shadow: 0 20px 60px rgba(0,0,0,.25);
+            width: min(92vw, 440px);
+            box-shadow: 0 24px 64px rgba(0,0,0,.28);
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 14px;
             animation: recSlideUp .25s ease;
         }
         @keyframes recSlideUp {
-            from { transform: translateY(30px); opacity:0 }
+            from { transform: translateY(28px); opacity:0 }
             to   { transform: translateY(0);    opacity:1 }
         }
 
-        .rec-popup .rec-title {
-            font-size: 13px;
-            font-weight: 600;
-            color: #888;
+        .rec-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #aaa;
             text-transform: uppercase;
-            letter-spacing: .08em;
+            letter-spacing: .1em;
             margin: 0;
         }
 
-        .rec-popup .rec-correct {
-            font-size: 22px;
-            font-weight: 700;
-            color: #1a1a2e;
-            background: #f0f0ff;
+        /* Audio sample player */
+        .rec-audio-wrap {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #f5f5ff;
+            border-radius: 12px;
             padding: 10px 14px;
-            border-radius: 10px;
-            line-height: 1.5;
-            word-break: break-all;
+        }
+        .rec-play-btn {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            background: #6366f1;
+            border: none;
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            transition: transform .15s, background .15s;
+        }
+        .rec-play-btn:active { transform: scale(.92); }
+        .rec-play-btn svg { fill: #fff; width: 16px; height: 16px; }
+        .rec-play-btn.playing { background: #4f46e5; }
+        .rec-audio-label {
+            font-size: 13px;
+            color: #6366f1;
+            font-weight: 600;
         }
 
-        /* Sóng âm */
+        /* Wave */
         .rec-wave {
             display: flex;
             align-items: center;
@@ -145,7 +160,6 @@ document.addEventListener('click', (event) => {
             border-radius: 3px;
             background: #6366f1;
             height: 4px;
-            transition: height .1s;
             animation: recWavebar .65s ease-in-out infinite;
         }
         .rec-wave span:nth-child(2) { animation-delay: .1s; }
@@ -160,7 +174,7 @@ document.addEventListener('click', (event) => {
 
         .rec-status {
             font-size: 13px;
-            color: #999;
+            color: #aaa;
             text-align: center;
             min-height: 18px;
             margin: 0;
@@ -169,67 +183,90 @@ document.addEventListener('click', (event) => {
         .rec-status.done      { color: #16a34a; font-weight: 600; }
         .rec-status.error     { color: #dc2626; }
 
-        /* Kết quả */
+        /* Result box */
         .rec-result {
-            border-radius: 10px;
+            border-radius: 12px;
             padding: 12px 14px;
             font-size: 16px;
-            line-height: 1.6;
+            line-height: 1.7;
             word-break: break-all;
             display: none;
+            flex-direction: column;
+            gap: 8px;
         }
         .rec-result.correct {
             background: #f0fdf4;
             border: 1.5px solid #86efac;
-            color: #15803d;
         }
         .rec-result.wrong {
             background: #fef2f2;
             border: 1.5px solid #fca5a5;
-            color: #991b1b;
         }
-        .rec-result .rec-label {
-            font-size: 11px;
+        .rec-result-row {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        .rec-result-label {
+            font-size: 10px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: .08em;
-            opacity: .7;
-            margin-bottom: 4px;
+            letter-spacing: .1em;
+            opacity: .55;
         }
-        .rec-result .char-wrong {
+        .rec-result.correct .rec-result-label { color: #15803d; }
+        .rec-result.wrong   .rec-result-label { color: #991b1b; }
+        .rec-result-text { font-size: 17px; font-weight: 600; }
+        .rec-result.correct .rec-result-text { color: #15803d; }
+        .rec-result.wrong   .rec-result-text { color: #1a1a2e; }
+        .rec-original-text { color: #6366f1; }
+        .char-wrong {
             background: #fecaca;
             border-radius: 3px;
             padding: 0 2px;
+            color: #b91c1c;
         }
 
-        /* Nút */
+        /* Buttons */
         .rec-actions {
             display: flex;
             gap: 10px;
         }
         .rec-btn {
             flex: 1;
-            padding: 11px 0;
+            padding: 12px 0;
             border: none;
             border-radius: 12px;
-            font-size: 15px;
-            font-weight: 600;
+            font-size: 14px;
+            font-weight: 700;
             cursor: pointer;
             transition: opacity .15s, transform .1s;
         }
-        .rec-btn:active  { transform: scale(.96); }
-        .rec-btn.start   { background: #6366f1; color: #fff; }
-        .rec-btn.stop    { background: #ef4444; color: #fff; display: none; }
-        .rec-btn.cls     { background: #f1f5f9; color: #475569; }
+        .rec-btn:active   { transform: scale(.96); }
+        .rec-btn.start    { background: #6366f1; color: #fff; }
+        .rec-btn.stop     { background: #ef4444; color: #fff; display: none; }
+        .rec-btn.cls      { background: #f1f5f9; color: #64748b; }
         .rec-btn:disabled { opacity: .4; cursor: default; }
     `;
     document.head.appendChild(s);
 })();
 
 // ============================================================
-// POPUP GHI ÂM
+// Normalize: strip punctuation + spaces for comparison
 // ============================================================
-function showRecordingPopup(correctSentence, postId) {
+function normalize(str) {
+    // Remove all punctuation (CJK, ASCII, spaces, newlines)
+    return str
+        .replace(/[\s\u0020\u3000]+/g, '')                        // spaces
+        .replace(/[.,!?;:'"()\-–—…，。！？；：、''""「」【】《》]/g, '') // common punct
+        .replace(/[\u2018\u2019\u201C\u201D]/g, '')               // curly quotes
+        .toLowerCase();
+}
+
+// ============================================================
+// RECORDING POPUP
+// ============================================================
+function showRecordingPopup(correctSentence, audioSrc, postId) {
     const old = document.getElementById('rec-overlay');
     if (old) old.remove();
 
@@ -238,17 +275,26 @@ function showRecordingPopup(correctSentence, postId) {
     overlay.id = 'rec-overlay';
     overlay.innerHTML = `
         <div class="rec-popup" id="rec-popup">
-            <p class="rec-title">Luyện phát âm</p>
-            <div class="rec-correct">${correctSentence}</div>
+            <p class="rec-title">Pronunciation Practice</p>
+
+            <div class="rec-audio-wrap">
+                <button class="rec-play-btn" id="rec-play-btn" title="Listen to sample">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <span class="rec-audio-label">Listen to the sample first</span>
+            </div>
+
             <div class="rec-wave idle" id="rec-wave">
                 <span></span><span></span><span></span><span></span><span></span>
             </div>
-            <p class="rec-status" id="rec-status">Nhấn 🎙 để bắt đầu</p>
+            <p class="rec-status" id="rec-status">Press 🎙 to start recording</p>
+
             <div class="rec-result" id="rec-result"></div>
+
             <div class="rec-actions">
-                <button class="rec-btn start" id="rec-btn-start">🎙 Ghi âm</button>
-                <button class="rec-btn stop"  id="rec-btn-stop">⏹ Dừng</button>
-                <button class="rec-btn cls"   id="rec-btn-close">✕ Đóng</button>
+                <button class="rec-btn start" id="rec-btn-start">🎙 Record</button>
+                <button class="rec-btn stop"  id="rec-btn-stop">⏹ Stop</button>
+                <button class="rec-btn cls"   id="rec-btn-close">✕ Close</button>
             </div>
         </div>
     `;
@@ -260,62 +306,94 @@ function showRecordingPopup(correctSentence, postId) {
     const btnStart  = overlay.querySelector('#rec-btn-start');
     const btnStop   = overlay.querySelector('#rec-btn-stop');
     const btnClose  = overlay.querySelector('#rec-btn-close');
+    const playBtn   = overlay.querySelector('#rec-play-btn');
 
+    // --- Audio sample ---
+    let sampleAudio = null;
+    playBtn.addEventListener('click', () => {
+        if (sampleAudio && !sampleAudio.paused) {
+            sampleAudio.pause();
+            sampleAudio.currentTime = 0;
+            playBtn.classList.remove('playing');
+            return;
+        }
+        sampleAudio = new Audio(audioSrc);
+        playBtn.classList.add('playing');
+        sampleAudio.play();
+        sampleAudio.onended = () => playBtn.classList.remove('playing');
+        sampleAudio.onerror = () => playBtn.classList.remove('playing');
+    });
+
+    // --- Recording logic ---
     let recognition = null;
 
     function setListening(on) {
         wave.classList.toggle('idle', !on);
         btnStart.style.display = on ? 'none' : 'flex';
         btnStop.style.display  = on ? 'flex'  : 'none';
-        btnStart.disabled      = on;
+        btnStart.disabled = on;
         if (on) {
-            status.textContent  = '🔴 Đang nghe...';
-            status.className    = 'rec-status listening';
+            status.textContent = '🔴 Listening...';
+            status.className   = 'rec-status listening';
         } else {
             if (status.className.includes('listening')) {
-                status.textContent = 'Đã dừng. Nhấn lại để thử.';
+                status.textContent = 'Stopped. Press Record to try again.';
                 status.className   = 'rec-status';
             }
         }
     }
 
     function showResult(transcript) {
+        const normCorrect = normalize(correctSentence);
+        const normSaid    = normalize(transcript);
+        const isMatch     = normSaid === normCorrect;
+
+        // Character-by-character highlight on raw transcript vs raw correct
         const correct = correctSentence.trim();
         const said    = transcript.trim();
-        const isMatch = said === correct;
-
-        // Highlight từng ký tự khác nhau
-        let highlighted = '';
+        let highlightedSaid = '';
         for (let i = 0; i < said.length; i++) {
-            const ch = said[i];
-            if (i < correct.length && ch === correct[i]) {
-                highlighted += ch;
-            } else {
-                highlighted += `<span class="char-wrong">${ch}</span>`;
-            }
+            const ch    = said[i];
+            const normCh = normalize(ch);
+            // Find matching position in correct ignoring punct
+            const normSlice = normalize(correct.slice(0, i + 1));
+            const normSaidSlice = normalize(said.slice(0, i + 1));
+            const ok = normSaidSlice.length <= normCorrect.length &&
+                       normCorrect.startsWith(normSaidSlice);
+            highlightedSaid += ok
+                ? ch
+                : `<span class="char-wrong">${ch}</span>`;
         }
-        if (!highlighted) highlighted = '<em style="opacity:.5">(không nghe được)</em>';
+        if (!highlightedSaid) highlightedSaid = '<em style="opacity:.4">— nothing detected —</em>';
 
-        resultBox.className   = `rec-result ${isMatch ? 'correct' : 'wrong'}`;
-        resultBox.style.display = 'block';
-        resultBox.innerHTML   = `
-            <div class="rec-label">${isMatch ? '✅ Chính xác!' : '❌ Bạn đã nói:'}</div>
-            <div>${highlighted}</div>
+        resultBox.className     = `rec-result ${isMatch ? 'correct' : 'wrong'}`;
+        resultBox.style.display = 'flex';
+        resultBox.innerHTML = `
+            <div class="rec-result-row">
+                <span class="rec-result-label">You said</span>
+                <span class="rec-result-text">${highlightedSaid}</span>
+            </div>
+            <div class="rec-result-row">
+                <span class="rec-result-label">Original</span>
+                <span class="rec-result-text rec-original-text">${correctSentence}</span>
+            </div>
         `;
 
-        status.textContent = isMatch ? 'Tuyệt vời! Phát âm chuẩn 🎉' : 'Chưa khớp — thử lại nhé!';
-        status.className   = `rec-status ${isMatch ? 'done' : 'error'}`;
+        status.textContent = isMatch
+            ? '✅ Perfect match! Great pronunciation 🎉'
+            : '❌ Not quite — listen again and retry';
+        status.className = `rec-status ${isMatch ? 'done' : 'error'}`;
     }
 
     function startRec() {
         const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
         if (!SR) {
-            status.textContent = 'Trình duyệt không hỗ trợ ghi âm.';
+            status.textContent = 'Your browser does not support speech recognition.';
             status.className   = 'rec-status error';
             return;
         }
 
-        // Instance MỚI mỗi lần — fix Safari / Chrome mobile im lặng sau vài lần
+        // New instance every time — fixes Safari / Chrome mobile silence bug
         recognition = new SR();
         recognition.lang            = 'zh-CN';
         recognition.interimResults  = false;
@@ -334,22 +412,22 @@ function showRecordingPopup(correctSentence, postId) {
         recognition.onerror = (e) => {
             setListening(false);
             const msgs = {
-                'not-allowed' : 'Cần cấp quyền microphone!',
-                'no-speech'   : 'Không nghe thấy gì. Thử lại.',
-                'network'     : 'Lỗi mạng, thử lại.',
+                'not-allowed' : 'Microphone permission denied.',
+                'no-speech'   : 'No speech detected. Try again.',
+                'network'     : 'Network error. Try again.',
             };
-            status.textContent = msgs[e.error] || `Lỗi: ${e.error}`;
+            status.textContent = msgs[e.error] || `Error: ${e.error}`;
             status.className   = 'rec-status error';
         };
 
         recognition.onend = () => setListening(false);
 
-        // setTimeout 80ms — fix "already started" trên mobile
+        // 80ms delay fixes "already started" on mobile
         setTimeout(() => {
             try { recognition.start(); }
             catch (e) {
                 setListening(false);
-                status.textContent = 'Không thể bắt đầu ghi âm.';
+                status.textContent = 'Could not start recording.';
                 status.className   = 'rec-status error';
             }
         }, 80);
@@ -362,6 +440,7 @@ function showRecordingPopup(correctSentence, postId) {
 
     function closePopup() {
         stopRec();
+        if (sampleAudio) { sampleAudio.pause(); sampleAudio = null; }
         overlay.remove();
     }
 
@@ -372,12 +451,12 @@ function showRecordingPopup(correctSentence, postId) {
 }
 
 // ============================================================
-// LƯU FIRESTORE
+// SAVE TO FIRESTORE
 // ============================================================
 async function saveRecordingToFirestore({ transcript, correctSentence, postId }) {
     try {
         const db = window.firestoreDb;
-        if (!db) { console.warn('window.firestoreDb chưa được gán.'); return; }
+        if (!db) { console.warn('window.firestoreDb is not set.') return; }
         const { collection, addDoc, serverTimestamp } = window.firestoreModules;
         const uid = (window.firebaseAuth && window.firebaseAuth.currentUser)
             ? window.firebaseAuth.currentUser.uid : 'anonymous';
@@ -431,14 +510,14 @@ function loadPosts(startpId, endpId, listId) {
             const eyeBtn = document.createElement('button');
             eyeBtn.className = 'eye-btn';
             eyeBtn.innerHTML = '👁';
-            eyeBtn.title = item.structure ? 'Xem cấu trúc câu' : 'Ẩn câu';
+            eyeBtn.title = item.structure ? 'View sentence structure' : 'Hide sentence';
             eyeBtn.style.cssText = 'background:none;border:none;cursor:pointer;font-size:16px;padding:2px 4px;';
 
             // 🎙 Nút ghi âm — LUÔN hiện
             const micBtn = document.createElement('button');
             micBtn.className = 'mic-btn';
             micBtn.innerHTML = '🎙';
-            micBtn.title = 'Ghi âm luyện tập';
+            micBtn.title = 'Record pronunciation';
             micBtn.style.cssText = 'background:none;border:none;cursor:pointer;font-size:16px;padding:2px 4px;';
 
             // Toggle description
@@ -497,7 +576,7 @@ function loadPosts(startpId, endpId, listId) {
                     h2.style.display = '';
                     if (structureDiv) structureDiv.style.display = 'none';
                     eyeBtn.innerHTML = '👁';
-                    eyeBtn.title = item.structure ? 'Xem cấu trúc câu' : 'Ẩn câu';
+                    eyeBtn.title = item.structure ? 'View sentence structure' : 'Hide sentence';
                 } else {
                     // Ẩn h2
                     h2.style.display = 'none';
@@ -505,11 +584,11 @@ function loadPosts(startpId, endpId, listId) {
                         // Có structure → hiện cấu trúc
                         structureDiv.style.display = 'block';
                         eyeBtn.innerHTML = '🙈';
-                        eyeBtn.title = 'Ẩn cấu trúc';
+                        eyeBtn.title = 'Hide structure';
                     } else {
                         // Không có structure → chỉ ẩn câu
                         eyeBtn.innerHTML = '🙈';
-                        eyeBtn.title = 'Hiện câu';
+                        eyeBtn.title = 'Show sentence';
                     }
                 }
             });
@@ -517,7 +596,7 @@ function loadPosts(startpId, endpId, listId) {
             // Nút ghi âm → mở popup
             micBtn.addEventListener('click', () => {
                 const correct = item.segments ? item.segments.join('') : '';
-                showRecordingPopup(correct, item.id);
+                showRecordingPopup(correct, item.audioSrc, item.id);
             });
 
             // --- Description ---
