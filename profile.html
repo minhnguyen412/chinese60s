@@ -53,7 +53,7 @@
       pointer-events: none; z-index: 0;
     }
 
-    /* ══ HEADER ══ */
+    /* HEADER */
     header {
       background: var(--green);
       border-bottom: var(--border-thick);
@@ -87,7 +87,7 @@
       header { padding: 0 16px; }
     }
 
-    /* ══ MAIN ══ */
+    /* MAIN */
     .container {
       max-width: 1000px; margin: 0 auto; width: 100%;
       padding: 36px 24px 80px;
@@ -95,7 +95,7 @@
       display: flex; flex-direction: column; gap: 24px;
     }
 
-    /* ══ LOADING STATE ══ */
+    /* LOADING STATE */
     .loading-screen {
       display: flex; flex-direction: column; align-items: center;
       justify-content: center; gap: 16px; padding: 80px 0;
@@ -114,7 +114,7 @@
     }
     .loading-screen p { font-size: 1rem; color: #888; font-weight: 600; }
 
-    /* ══ PROFILE HERO ══ */
+    /* PROFILE HERO */
     .profile-hero {
       background: var(--white);
       border: var(--border-thick); border-radius: 24px;
@@ -127,9 +127,7 @@
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    .profile-avatar-wrap {
-      position: relative; flex-shrink: 0;
-    }
+    .profile-avatar-wrap { position: relative; flex-shrink: 0; }
     .profile-avatar {
       width: 80px; height: 80px; border-radius: 50%;
       border: var(--border-thick);
@@ -153,7 +151,7 @@
       margin-top: 10px; box-shadow: var(--shadow-sm);
     }
 
-    /* ══ STATS ROW ══ */
+    /* STATS ROW */
     .stats-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -180,7 +178,7 @@
       .stats-row { grid-template-columns: repeat(2, 1fr); }
     }
 
-    /* ══ SECTION CARD ══ */
+    /* SECTION CARD */
     .section-card {
       background: var(--white);
       border: var(--border-thick); border-radius: 22px;
@@ -203,7 +201,7 @@
       font-size: 0.85rem; color: #888; font-weight: 600;
     }
 
-    /* ══ TODAY SUMMARY ══ */
+    /* TODAY SUMMARY */
     .today-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -226,7 +224,7 @@
     .today-block.quiz-block     { background: var(--yellow-pale); }
     .today-block.rec-block      { background: var(--lavender-pale); }
 
-    /* Lesson pill list */
+    /* Pill list */
     .pill-list { display: flex; flex-wrap: wrap; gap: 8px; }
     .pill {
       background: var(--white); border: var(--border); border-radius: 50px;
@@ -285,6 +283,19 @@
     .rec-item .rec-said { font-weight: 600; color: #1a1a2e; }
     .rec-item .rec-original { color: #6366f1; font-weight: 600; font-size: 0.82rem; }
 
+    /* Lesson items */
+    .lesson-item {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      padding: 8px 12px; border-radius: 12px;
+      background: var(--white); border: var(--border);
+      margin-bottom: 6px; font-size: 0.9rem;
+      text-decoration: none; color: var(--black);
+      transition: transform .1s, box-shadow .1s;
+    }
+    .lesson-item:hover { transform: translate(-1px,-1px); box-shadow: var(--shadow-sm); }
+    .lesson-item .lesson-title { font-weight: 700; flex: 1; }
+    .lesson-item .lesson-time  { font-size: 0.78rem; color: #aaa; white-space: nowrap; }
+
     /* Empty state */
     .empty-state {
       text-align: center; padding: 20px 0;
@@ -292,7 +303,7 @@
     }
     .empty-state span { font-size: 1.8rem; display: block; margin-bottom: 6px; }
 
-    /* ══ HISTORY TABLE ══ */
+    /* HISTORY TABLE */
     .history-table-wrap { overflow-x: auto; }
     table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
     thead tr { background: var(--yellow-pale); }
@@ -310,8 +321,9 @@
     }
     .type-badge.quiz { background: var(--yellow); }
     .type-badge.rec  { background: var(--lavender); }
+    .type-badge.lesson { background: var(--green-light); }
 
-    /* ══ SIGN OUT ══ */
+    /* SIGN OUT */
     .signout-btn {
       background: var(--pink-pale); border: var(--border); border-radius: 50px;
       padding: 8px 22px; font-family: 'Fredoka', sans-serif;
@@ -321,7 +333,7 @@
     }
     .signout-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
 
-    /* ══ FOOTER ══ */
+    /* FOOTER */
     footer {
       background: #222; color: rgba(255,255,255,0.65);
       padding: 28px 50px; text-align: center;
@@ -330,7 +342,7 @@
     footer .brand { font-weight: 700; color: var(--green-light); font-size: 1.3rem; margin-bottom: 6px; }
     footer p { font-size: 0.95rem; }
 
-    /* Tab switcher for history */
+    /* Tab switcher */
     .tabs { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
     .tab-btn {
       padding: 7px 18px; border: var(--border); border-radius: 50px;
@@ -342,11 +354,19 @@
     .tab-btn.active { background: var(--green); color: white; }
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
+
+    /* Streak badge */
+    .streak-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--peach-pale); border: var(--border); border-radius: 50px;
+      padding: 4px 14px; font-size: 0.85rem; font-weight: 700;
+      margin-top: 8px; box-shadow: var(--shadow-sm);
+    }
   </style>
 </head>
 <body>
 
-  <!-- ══ HEADER ══ -->
+  <!-- HEADER -->
   <header>
     <h1><a href="index.html" class="homepage-link">CHINESE 60s</a></h1>
     <nav>
@@ -357,7 +377,6 @@
   </header>
 
   <div class="container" id="app">
-    <!-- Loading -->
     <div class="loading-screen" id="loading">
       <div class="loading-dots">
         <span></span><span></span><span></span>
@@ -392,7 +411,7 @@ const app  = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db   = getFirestore(app);
 
-// ── Helpers ──
+/* ── Helpers ── */
 function today() {
   const d = new Date();
   d.setHours(0,0,0,0);
@@ -406,12 +425,12 @@ function isToday(ts) {
 function fmtDate(ts) {
   if (!ts) return '—';
   const d = ts.toDate ? ts.toDate() : new Date(ts);
-  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+  return d.toLocaleDateString('en-US', { month:'short', day:'numeric', hour:'2-digit', minute:'2-digit' });
 }
-function fmtDateShort(ts) {
+function fmtTime(ts) {
   if (!ts) return '—';
   const d = ts.toDate ? ts.toDate() : new Date(ts);
-  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  return d.toLocaleTimeString('en-US', { hour:'2-digit', minute:'2-digit' });
 }
 function scoreColor(score, total) {
   const pct = total ? score / total : 0;
@@ -420,28 +439,73 @@ function scoreColor(score, total) {
   return 'low';
 }
 
-// ── Build UI ──
-function buildProfile(user, userData, quizAttempts, recordings) {
-  const app = document.getElementById('app');
+/* ── Count active streak (consecutive days with any activity) ── */
+function calcStreak(quizAttempts, recordings, lessonViews) {
+  // Tập hợp tất cả ngày có hoạt động
+  const allDates = new Set();
+  const toDateStr = (ts) => {
+    if (!ts) return null;
+    const d = ts.toDate ? ts.toDate() : new Date(ts);
+    return d.toISOString().split('T')[0]; // 'YYYY-MM-DD'
+  };
+  quizAttempts.forEach(a => { const s = toDateStr(a.startTime); if (s) allDates.add(s); });
+  recordings.forEach(r   => { const s = toDateStr(r.timestamp); if (s) allDates.add(s); });
+  lessonViews.forEach(v  => { const s = toDateStr(v.timestamp); if (s) allDates.add(s); });
 
-  // Today's data
-  const todayQuizzes   = quizAttempts.filter(a => isToday(a.startTime));
-  const todayRecs      = recordings.filter(r => isToday(r.timestamp));
-  const todayLessons   = [...new Set(quizAttempts.filter(a => isToday(a.startTime)).map(a => a.postId))];
-  const todayPhrases   = todayRecs.map(r => ({ said: r.transcript, original: r.correctSentence }));
-  const todayWrong     = todayQuizzes.flatMap(a => (a.wrongAnswers || []));
-  const todayScore     = todayQuizzes.reduce((s, a) => s + (a.score || 0), 0);
-  const todayTotal     = todayQuizzes.reduce((s, a) => s + (a.totalQuestions || 0), 0);
+  if (allDates.size === 0) return 0;
 
-  // All-time stats
-  const totalScore   = userData.totalScore   || quizAttempts.reduce((s,a) => s + (a.score||0), 0);
-  const totalQuizzes = userData.totalQuizzes || quizAttempts.length;
-  const totalRecs    = recordings.length;
-  const allLessons   = new Set(quizAttempts.map(a => a.postId)).size;
+  const todayStr = new Date().toISOString().split('T')[0];
+  let streak = 0;
+  let check  = new Date();
+
+  while (true) {
+    const str = check.toISOString().split('T')[0];
+    if (allDates.has(str)) {
+      streak++;
+      check.setDate(check.getDate() - 1);
+    } else if (str === todayStr) {
+      // Hôm nay chưa làm gì — streak vẫn dựa vào hôm qua
+      check.setDate(check.getDate() - 1);
+      const yesterdayStr = check.toISOString().split('T')[0];
+      if (!allDates.has(yesterdayStr)) break;
+    } else {
+      break;
+    }
+  }
+  return streak;
+}
+
+/* ── Build UI ── */
+function buildProfile(user, userData, quizAttempts, recordings, lessonViews) {
+  const appEl = document.getElementById('app');
+
+  /* Dedup lesson views: giữ lần đầu nhìn thấy của mỗi postId trong ngày */
+  const todayLessonMap = new Map();
+  lessonViews
+    .filter(v => isToday(v.timestamp))
+    .forEach(v => {
+      if (!todayLessonMap.has(v.postId)) todayLessonMap.set(v.postId, v);
+    });
+  const todayLessons = [...todayLessonMap.values()];
+
+  const todayQuizzes = quizAttempts.filter(a => isToday(a.startTime));
+  const todayRecs    = recordings.filter(r => isToday(r.timestamp));
+  const todayWrong   = todayQuizzes.flatMap(a => (a.wrongAnswers || []));
+  const todayScore   = todayQuizzes.reduce((s, a) => s + (a.score || 0), 0);
+  const todayTotal   = todayQuizzes.reduce((s, a) => s + (a.totalQuestions || 0), 0);
+
+  /* All-time stats */
+  const totalScore    = userData.totalScore   || quizAttempts.reduce((s,a) => s + (a.score||0), 0);
+  const totalQuizzes  = userData.totalQuizzes || quizAttempts.length;
+  const totalRecs     = recordings.length;
+  // Số bài học duy nhất (unique postId) từ lesson_views
+  const allLessonIds  = new Set(lessonViews.map(v => v.postId));
+  const totalLessons  = allLessonIds.size;
+  const streak        = calcStreak(quizAttempts, recordings, lessonViews);
 
   const todayStr = new Date().toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric' });
 
-  app.innerHTML = `
+  appEl.innerHTML = `
     <!-- Profile Hero -->
     <div class="profile-hero">
       <div class="profile-avatar-wrap">
@@ -454,6 +518,7 @@ function buildProfile(user, userData, quizAttempts, recordings) {
         <h2>${user.displayName || 'Learner'}</h2>
         <p>${user.email}</p>
         <div class="profile-badge">🎓 Chinese Learner</div>
+        ${streak > 0 ? `<div class="streak-badge">🔥 ${streak}-day streak</div>` : ''}
       </div>
       <button class="signout-btn" id="signout-btn">🚪 Sign Out</button>
     </div>
@@ -473,7 +538,7 @@ function buildProfile(user, userData, quizAttempts, recordings) {
         <div class="stat-label">Phrases Practiced</div>
       </div>
       <div class="stat-card">
-        <div class="stat-num">📚 ${allLessons}</div>
+        <div class="stat-num">📚 ${totalLessons}</div>
         <div class="stat-label">Lessons Studied</div>
       </div>
     </div>
@@ -486,29 +551,33 @@ function buildProfile(user, userData, quizAttempts, recordings) {
       </div>
       <div class="today-grid">
 
-        <!-- Lessons studied -->
+        <!-- Lessons studied today -->
         <div class="today-block lessons-block">
-          <h4>📚 Lessons</h4>
+          <h4>📚 Lessons Visited <span style="color:#999;font-size:0.85em;font-weight:500;text-transform:none">(${todayLessons.length})</span></h4>
           ${todayLessons.length
-            ? `<div class="pill-list">${todayLessons.map(id => `<span class="pill green">Lesson #${id}</span>`).join('')}</div>`
+            ? todayLessons.map(v => `
+                <a class="lesson-item" href="${v.postLink || '#'}">
+                  <span class="lesson-title">${v.postTitle || 'Lesson #' + v.postId}</span>
+                  <span class="lesson-time">${fmtTime(v.timestamp)}</span>
+                </a>`).join('')
             : `<div class="empty-state"><span>📭</span>No lessons yet today</div>`
           }
         </div>
 
-        <!-- Phrases recorded -->
+        <!-- Phrases recorded today -->
         <div class="today-block phrases-block">
-          <h4>🎙 Phrases Practiced</h4>
-          ${todayPhrases.length ? todayPhrases.slice(0, 5).map(p => `
+          <h4>🎙 Phrases Practiced <span style="color:#999;font-size:0.85em;font-weight:500;text-transform:none">(${todayRecs.length})</span></h4>
+          ${todayRecs.length ? todayRecs.slice(0, 6).map(r => `
             <div class="phrase-item">
-              <span class="phrase-zh">${p.original || '—'}</span>
+              <span class="phrase-zh">${r.correctSentence || '—'}</span>
               <span class="phrase-divider">→</span>
-              <span>${p.said || '—'}</span>
+              <span style="font-size:0.85em;color:#555">${r.transcript || '—'}</span>
             </div>`).join('')
             : `<div class="empty-state"><span>🎤</span>No recordings yet today</div>`
           }
         </div>
 
-        <!-- Quiz scores -->
+        <!-- Quiz scores today -->
         <div class="today-block quiz-block">
           <h4>📝 Quizzes
             ${todayTotal ? `<span class="pill yellow">${todayScore}/${todayTotal} pts</span>` : ''}
@@ -522,15 +591,17 @@ function buildProfile(user, userData, quizAttempts, recordings) {
           }
         </div>
 
-        <!-- Wrong answers -->
+        <!-- Wrong answers today -->
         <div class="today-block">
-          <h4>❌ Missed Answers</h4>
+          <h4>❌ Missed Answers
+            ${todayWrong.length ? `<span style="color:#e53935;font-weight:700">(${todayWrong.length})</span>` : ''}
+          </h4>
           ${todayWrong.length ? `<div class="wrong-list">${todayWrong.slice(0,6).map(w => `
             <div class="wrong-item">
               <span class="wrong-x">✗</span>
               <div class="wrong-text">
-                ${w.question ? `<div>${w.question}</div>` : ''}
-                <div>You: <em>${w.given || '?'}</em> → <span class="correct">✓ ${w.answer || '?'}</span></div>
+                ${w.question ? `<div style="font-size:0.82em;color:#888;margin-bottom:2px">${w.question}</div>` : ''}
+                <div>You: <em style="color:#c0392b">${w.given || '?'}</em> → <span class="correct">✓ ${w.answer || '?'}</span></div>
               </div>
             </div>`).join('')}</div>`
             : `<div class="empty-state"><span>✅</span>No mistakes today!</div>`
@@ -543,58 +614,84 @@ function buildProfile(user, userData, quizAttempts, recordings) {
     <!-- Full History -->
     <div class="section-card">
       <div class="section-header">
-        <div class="section-title">📋 History</div>
+        <div class="section-title">📋 Full History</div>
       </div>
       <div class="tabs">
-        <button class="tab-btn active" data-tab="quizzes">📝 Quizzes</button>
+        <button class="tab-btn active" data-tab="lessons">📚 Lessons</button>
+        <button class="tab-btn" data-tab="quizzes">📝 Quizzes</button>
         <button class="tab-btn" data-tab="recordings">🎙 Recordings</button>
       </div>
 
-      <div class="tab-panel active" id="tab-quizzes">
+      <!-- TAB: Lessons -->
+      <div class="tab-panel active" id="tab-lessons">
+        ${lessonViews.length ? `
+          <div class="history-table-wrap">
+            <table>
+              <thead><tr>
+                <th>Lesson</th>
+                <th>Title</th>
+                <th>Date</th>
+              </tr></thead>
+              <tbody>
+                ${lessonViews.slice(0, 50).map(v => `
+                <tr>
+                  <td><span class="type-badge lesson">#${v.postId}</span></td>
+                  <td>${v.postTitle || '—'}</td>
+                  <td style="font-size:.85rem;color:#888">${fmtDate(v.timestamp)}</td>
+                </tr>`).join('')}
+              </tbody>
+            </table>
+          </div>`
+          : `<div class="empty-state"><span>📚</span>No lesson history yet</div>`}
+      </div>
+
+      <!-- TAB: Quizzes -->
+      <div class="tab-panel" id="tab-quizzes">
         ${quizAttempts.length ? `
         <div class="history-table-wrap">
           <table>
             <thead><tr>
               <th>Lesson</th>
               <th>Score</th>
-              <th>Questions</th>
+              <th>Missed</th>
               <th>Date</th>
             </tr></thead>
             <tbody>
               ${quizAttempts.map(a => `
               <tr>
-                <td><span class="pill">Lesson #${a.postId}</span></td>
+                <td><span class="type-badge quiz">#${a.postId}</span></td>
                 <td><span class="quiz-score-badge ${scoreColor(a.score, a.totalQuestions)}">${a.score}/${a.totalQuestions}</span></td>
-                <td style="font-size:.85rem;color:#666;">${(a.wrongAnswers||[]).length > 0
-                  ? `${(a.wrongAnswers||[]).length} missed`
+                <td style="font-size:.85rem;color:#666">${(a.wrongAnswers||[]).length > 0
+                  ? `${(a.wrongAnswers||[]).length} wrong`
                   : '✅ Perfect'}</td>
-                <td style="font-size:.85rem;color:#888;">${fmtDate(a.startTime)}</td>
+                <td style="font-size:.85rem;color:#888">${fmtDate(a.startTime)}</td>
               </tr>`).join('')}
             </tbody>
           </table>
         </div>` : `<div class="empty-state"><span>📝</span>No quiz history yet</div>`}
       </div>
 
+      <!-- TAB: Recordings -->
       <div class="tab-panel" id="tab-recordings">
-        ${recordings.length ? recordings.map(r => `
+        ${recordings.length ? recordings.slice(0, 50).map(r => `
           <div class="rec-item">
             <div class="rec-label">You said</div>
             <div class="rec-said">${r.transcript || '—'}</div>
             <div class="rec-original">Original: ${r.correctSentence || '—'}</div>
-            <div style="font-size:.78rem;color:#bbb;margin-top:4px;">${fmtDate(r.timestamp)} · Lesson #${r.postId || '?'}</div>
+            <div style="font-size:.78rem;color:#bbb;margin-top:4px">${fmtDate(r.timestamp)} · Lesson #${r.postId || '?'}</div>
           </div>`).join('')
           : `<div class="empty-state"><span>🎙</span>No recordings yet</div>`}
       </div>
     </div>
   `;
 
-  // Sign out
+  /* Sign out */
   document.getElementById('signout-btn').addEventListener('click', async () => {
     await signOut(auth);
     window.location.href = 'index.html';
   });
 
-  // Tabs
+  /* Tab switching */
   document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -605,7 +702,7 @@ function buildProfile(user, userData, quizAttempts, recordings) {
   });
 }
 
-// ── Main ──
+/* ── Main: wait for auth then fetch all data ── */
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
     window.location.href = 'index.html';
@@ -613,11 +710,11 @@ onAuthStateChanged(auth, async (user) => {
   }
 
   try {
-    // User doc
+    /* 1. User doc (totals) */
     const userSnap = await getDoc(doc(db, 'users', user.uid));
     const userData = userSnap.exists() ? userSnap.data() : {};
 
-    // Quiz attempts
+    /* 2. Quiz attempts */
     let quizAttempts = [];
     try {
       const qSnap = await getDocs(query(
@@ -628,7 +725,7 @@ onAuthStateChanged(auth, async (user) => {
       quizAttempts = qSnap.docs.map(d => d.data());
     } catch(e) { console.warn('quiz_attempts:', e); }
 
-    // Recordings (speech practice)
+    /* 3. Recordings */
     let recordings = [];
     try {
       const rSnap = await getDocs(query(
@@ -639,8 +736,20 @@ onAuthStateChanged(auth, async (user) => {
       recordings = rSnap.docs.map(d => d.data());
     } catch(e) { console.warn('recordings:', e); }
 
+    /* 4. Lesson views — tracking bài học đã click vào */
+    let lessonViews = [];
+    try {
+      const lSnap = await getDocs(query(
+        collection(db, 'lesson_views'),
+        where('uid', '==', user.uid),
+        orderBy('timestamp', 'desc')
+      ));
+      lessonViews = lSnap.docs.map(d => d.data());
+    } catch(e) { console.warn('lesson_views:', e); }
+
+    /* Render */
     document.getElementById('loading').style.display = 'none';
-    buildProfile(user, userData, quizAttempts, recordings);
+    buildProfile(user, userData, quizAttempts, recordings, lessonViews);
 
   } catch(err) {
     console.error(err);
