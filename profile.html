@@ -2,108 +2,652 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Profile</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Profile — Chinese60s</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial; max-width: 800px; margin: 40px auto; }
-    .card { border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; border-radius: 10px; }
-    img { border-radius: 50%; }
-    table { width: 100%; border-collapse: collapse; }
-    th, td { padding: 8px; border-bottom: 1px solid #eee; text-align: left; }
+    :root {
+      --black: #222;
+      --green: #7cb83e;
+      --green-dark: #5a8f27;
+      --green-light: #d8f0a0;
+      --green-pale: #f2fde0;
+      --yellow: #ffd84d;
+      --yellow-pale: #fffbe6;
+      --peach: #ffb89a;
+      --peach-pale: #fff3ee;
+      --sky: #72c8f0;
+      --sky-pale: #eaf8ff;
+      --lavender: #c5b0f8;
+      --lavender-pale: #f3f0ff;
+      --pink: #ffadc5;
+      --pink-pale: #fff2f6;
+      --white: #fff;
+      --bg: #fffef5;
+      --shadow-sm: 3px 3px 0 var(--black);
+      --shadow-md: 4px 4px 0 var(--black);
+      --shadow-lg: 6px 6px 0 var(--black);
+      --border: 2.5px solid var(--black);
+      --border-thick: 3px solid var(--black);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 500;
+      background: var(--bg);
+      color: var(--black);
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+    }
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: radial-gradient(circle, rgba(0,0,0,0.045) 1px, transparent 1px);
+      background-size: 22px 22px;
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ══ HEADER ══ */
+    header {
+      background: var(--green);
+      border-bottom: var(--border-thick);
+      padding: 0 50px; height: 66px;
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 100;
+    }
+    header h1 {
+      font-weight: 700; font-size: 1.7rem; color: white;
+      letter-spacing: 0.04em; text-shadow: 2px 2px 0 rgba(0,0,0,0.25);
+    }
+    .homepage-link { text-decoration: none; color: inherit; }
+    nav ul { list-style: none; display: flex; gap: 8px; align-items: center; }
+    nav ul li a {
+      text-decoration: none; color: var(--black);
+      font-weight: 600; font-size: 0.95rem;
+      background: var(--white); border: var(--border); border-radius: 50px;
+      padding: 6px 16px; display: inline-block;
+      box-shadow: var(--shadow-sm); transition: transform 0.12s, box-shadow 0.12s;
+    }
+    nav ul li a:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+    .back-btn {
+      background: var(--white); border: var(--border); border-radius: 50px;
+      padding: 6px 18px; font-weight: 700; font-size: 0.9rem; font-family: 'Fredoka', sans-serif;
+      box-shadow: var(--shadow-sm); cursor: pointer; text-decoration: none; color: var(--black);
+      transition: transform 0.12s, box-shadow 0.12s; display: inline-block;
+    }
+    .back-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+
+    @media (max-width: 768px) {
+      header { padding: 0 16px; }
+    }
+
+    /* ══ MAIN ══ */
+    .container {
+      max-width: 1000px; margin: 0 auto; width: 100%;
+      padding: 36px 24px 80px;
+      position: relative; z-index: 1;
+      display: flex; flex-direction: column; gap: 24px;
+    }
+
+    /* ══ LOADING STATE ══ */
+    .loading-screen {
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; gap: 16px; padding: 80px 0;
+    }
+    .loading-dots { display: flex; gap: 8px; }
+    .loading-dots span {
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--green);
+      animation: bounce 0.8s ease-in-out infinite;
+    }
+    .loading-dots span:nth-child(2) { animation-delay: .15s; background: var(--yellow); }
+    .loading-dots span:nth-child(3) { animation-delay: .3s;  background: var(--pink); }
+    @keyframes bounce {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-10px); }
+    }
+    .loading-screen p { font-size: 1rem; color: #888; font-weight: 600; }
+
+    /* ══ PROFILE HERO ══ */
+    .profile-hero {
+      background: var(--white);
+      border: var(--border-thick); border-radius: 24px;
+      box-shadow: var(--shadow-md);
+      padding: 28px 32px;
+      display: flex; align-items: center; gap: 24px;
+      animation: slideUp .35s ease both;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .profile-avatar-wrap {
+      position: relative; flex-shrink: 0;
+    }
+    .profile-avatar {
+      width: 80px; height: 80px; border-radius: 50%;
+      border: var(--border-thick);
+      object-fit: cover; display: block;
+      background: var(--green-light);
+    }
+    .profile-avatar-fallback {
+      width: 80px; height: 80px; border-radius: 50%;
+      border: var(--border-thick);
+      background: var(--green-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; font-weight: 700;
+    }
+    .profile-info { flex: 1; min-width: 0; }
+    .profile-info h2 { font-size: 1.8rem; font-weight: 700; line-height: 1.2; }
+    .profile-info p  { font-size: 0.95rem; color: #666; margin-top: 4px; }
+    .profile-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--green-pale); border: var(--border); border-radius: 50px;
+      padding: 4px 14px; font-size: 0.85rem; font-weight: 700;
+      margin-top: 10px; box-shadow: var(--shadow-sm);
+    }
+
+    /* ══ STATS ROW ══ */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      animation: slideUp .35s .1s ease both;
+    }
+    .stat-card {
+      background: var(--white);
+      border: var(--border-thick); border-radius: 20px;
+      box-shadow: var(--shadow-sm);
+      padding: 20px 16px;
+      text-align: center;
+      transition: transform .12s, box-shadow .12s;
+    }
+    .stat-card:hover { transform: translate(-2px,-2px); box-shadow: var(--shadow-md); }
+    .stat-card:nth-child(1) { background: var(--yellow-pale); }
+    .stat-card:nth-child(2) { background: var(--green-pale); }
+    .stat-card:nth-child(3) { background: var(--sky-pale); }
+    .stat-card:nth-child(4) { background: var(--pink-pale); }
+    .stat-num { font-size: 2.2rem; font-weight: 700; line-height: 1; }
+    .stat-label { font-size: 0.82rem; color: #666; font-weight: 600; margin-top: 6px; text-transform: uppercase; letter-spacing: .05em; }
+
+    @media (max-width: 600px) {
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ══ SECTION CARD ══ */
+    .section-card {
+      background: var(--white);
+      border: var(--border-thick); border-radius: 22px;
+      box-shadow: var(--shadow-md);
+      padding: 24px 28px;
+      animation: slideUp .35s .2s ease both;
+    }
+    .section-card + .section-card { animation-delay: .28s; }
+    .section-header {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 20px;
+    }
+    .section-title {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-weight: 700; font-size: 1.2rem;
+      background: var(--yellow); border: var(--border); border-radius: 50px;
+      padding: 6px 20px; box-shadow: var(--shadow-sm);
+    }
+    .section-date {
+      font-size: 0.85rem; color: #888; font-weight: 600;
+    }
+
+    /* ══ TODAY SUMMARY ══ */
+    .today-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 600px) { .today-grid { grid-template-columns: 1fr; } }
+
+    .today-block {
+      border: var(--border); border-radius: 16px;
+      padding: 16px 18px;
+      background: var(--bg);
+    }
+    .today-block h4 {
+      font-size: 0.82rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .07em; color: #888; margin-bottom: 12px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .today-block.lessons-block  { background: var(--green-pale); }
+    .today-block.phrases-block  { background: var(--sky-pale); }
+    .today-block.quiz-block     { background: var(--yellow-pale); }
+    .today-block.rec-block      { background: var(--lavender-pale); }
+
+    /* Lesson pill list */
+    .pill-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pill {
+      background: var(--white); border: var(--border); border-radius: 50px;
+      padding: 4px 14px; font-size: 0.88rem; font-weight: 600;
+      box-shadow: var(--shadow-sm);
+    }
+    .pill.green  { background: var(--green-light); }
+    .pill.sky    { background: var(--sky); }
+    .pill.yellow { background: var(--yellow); }
+    .pill.lavender { background: var(--lavender); }
+
+    /* Quiz mini result */
+    .quiz-result-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 10px; border-radius: 10px; margin-bottom: 6px;
+      background: var(--white); border: var(--border);
+      font-size: 0.9rem; font-weight: 600;
+    }
+    .quiz-score-badge {
+      padding: 2px 10px; border-radius: 50px; font-size: 0.82rem; font-weight: 700;
+      border: 2px solid var(--black);
+    }
+    .quiz-score-badge.good { background: var(--green-light); }
+    .quiz-score-badge.ok   { background: var(--yellow); }
+    .quiz-score-badge.low  { background: var(--pink); }
+
+    /* Wrong answers */
+    .wrong-list { display: flex; flex-direction: column; gap: 6px; }
+    .wrong-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 8px 12px; border-radius: 12px;
+      background: var(--white); border: var(--border);
+      font-size: 0.88rem;
+    }
+    .wrong-x { color: #e53935; font-weight: 700; font-size: 1rem; flex-shrink: 0; }
+    .wrong-text { line-height: 1.4; }
+    .wrong-text .correct { color: var(--green-dark); font-weight: 700; }
+
+    /* Phrase cards */
+    .phrase-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 8px 12px; border-radius: 12px;
+      background: var(--white); border: var(--border);
+      margin-bottom: 6px; font-size: 0.9rem;
+    }
+    .phrase-zh { font-size: 1.1rem; font-weight: 700; }
+    .phrase-divider { color: #ccc; }
+
+    /* Recording items */
+    .rec-item {
+      padding: 8px 12px; border-radius: 12px;
+      background: var(--white); border: var(--border);
+      margin-bottom: 6px; font-size: 0.88rem; line-height: 1.5;
+    }
+    .rec-item .rec-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: #aaa; letter-spacing: .06em; }
+    .rec-item .rec-said { font-weight: 600; color: #1a1a2e; }
+    .rec-item .rec-original { color: #6366f1; font-weight: 600; font-size: 0.82rem; }
+
+    /* Empty state */
+    .empty-state {
+      text-align: center; padding: 20px 0;
+      color: #bbb; font-size: 0.95rem; font-weight: 600;
+    }
+    .empty-state span { font-size: 1.8rem; display: block; margin-bottom: 6px; }
+
+    /* ══ HISTORY TABLE ══ */
+    .history-table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+    thead tr { background: var(--yellow-pale); }
+    th {
+      padding: 10px 14px; text-align: left; font-weight: 700;
+      border-bottom: var(--border); white-space: nowrap;
+    }
+    td { padding: 10px 14px; border-bottom: 1.5px solid #f0f0f0; vertical-align: middle; }
+    tbody tr:hover { background: var(--bg); }
+    tbody tr:last-child td { border-bottom: none; }
+
+    .type-badge {
+      display: inline-block; padding: 2px 10px; border-radius: 50px;
+      font-size: 0.78rem; font-weight: 700; border: 1.5px solid var(--black);
+    }
+    .type-badge.quiz { background: var(--yellow); }
+    .type-badge.rec  { background: var(--lavender); }
+
+    /* ══ SIGN OUT ══ */
+    .signout-btn {
+      background: var(--pink-pale); border: var(--border); border-radius: 50px;
+      padding: 8px 22px; font-family: 'Fredoka', sans-serif;
+      font-weight: 700; font-size: 0.95rem; cursor: pointer;
+      box-shadow: var(--shadow-sm); color: #c0392b;
+      transition: transform .12s, box-shadow .12s;
+    }
+    .signout-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+
+    /* ══ FOOTER ══ */
+    footer {
+      background: #222; color: rgba(255,255,255,0.65);
+      padding: 28px 50px; text-align: center;
+      position: relative; z-index: 1; margin-top: auto;
+    }
+    footer .brand { font-weight: 700; color: var(--green-light); font-size: 1.3rem; margin-bottom: 6px; }
+    footer p { font-size: 0.95rem; }
+
+    /* Tab switcher for history */
+    .tabs { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+    .tab-btn {
+      padding: 7px 18px; border: var(--border); border-radius: 50px;
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 0.9rem;
+      cursor: pointer; background: var(--white); box-shadow: var(--shadow-sm);
+      transition: transform .1s, box-shadow .1s;
+    }
+    .tab-btn:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--black); }
+    .tab-btn.active { background: var(--green); color: white; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
   </style>
 </head>
 <body>
 
-  <h1>Profile</h1>
+  <!-- ══ HEADER ══ -->
+  <header>
+    <h1><a href="index.html" class="homepage-link">CHINESE 60s</a></h1>
+    <nav>
+      <ul>
+        <li><a href="index.html" class="back-btn">← Back</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <div class="card">
-    <img id="avatar" width="60" />
-    <h2 id="name"></h2>
-    <p id="email"></p>
+  <div class="container" id="app">
+    <!-- Loading -->
+    <div class="loading-screen" id="loading">
+      <div class="loading-dots">
+        <span></span><span></span><span></span>
+      </div>
+      <p>Loading your profile...</p>
+    </div>
   </div>
 
-  <div class="card">
-    <h3>Overview</h3>
-    <p>Total Score: <strong id="totalScore"></strong></p>
-    <p>Total Quizzes: <strong id="totalQuizzes"></strong></p>
-    <p>Total Study Time: <strong id="totalTime"></strong></p>
-  </div>
-
-  <div class="card">
-    <h3>Activity History</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Lesson</th>
-          <th>Type</th>
-          <th>Score</th>
-          <th>Date</th>
-        </tr>
-      </thead>
-      <tbody id="attemptTable"></tbody>
-    </table>
-  </div>
+  <footer>
+    <p class="brand">CHINESE 60s</p>
+    <p>Learn Mandarin through images and videos</p>
+  </footer>
 
 <script type="module">
-import { auth, db, listenAuthState } from "./auth.js";
-import { doc, getDoc, collection, query, where, getDocs, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import {
+  getFirestore, doc, getDoc, collection,
+  query, where, getDocs, orderBy
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-function formatTime(ms) {
-  const minutes = Math.floor(ms / 60000);
-  return minutes + " minutes";
+const firebaseConfig = {
+  apiKey:            "AIzaSyAm-qQrpXKNdqFLITRAGCug7rkskGzyAkg",
+  authDomain:        "chinese60s.firebaseapp.com",
+  projectId:         "chinese60s",
+  storageBucket:     "chinese60s.firebasestorage.app",
+  messagingSenderId: "835657861121",
+  appId:             "1:835657861121:web:f31727eb7ea3b876a5d800",
+};
+
+const app  = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db   = getFirestore(app);
+
+// ── Helpers ──
+function today() {
+  const d = new Date();
+  d.setHours(0,0,0,0);
+  return d;
+}
+function isToday(ts) {
+  if (!ts) return false;
+  const d = ts.toDate ? ts.toDate() : new Date(ts);
+  return d >= today();
+}
+function fmtDate(ts) {
+  if (!ts) return '—';
+  const d = ts.toDate ? ts.toDate() : new Date(ts);
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+}
+function fmtDateShort(ts) {
+  if (!ts) return '—';
+  const d = ts.toDate ? ts.toDate() : new Date(ts);
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+}
+function scoreColor(score, total) {
+  const pct = total ? score / total : 0;
+  if (pct >= 0.8) return 'good';
+  if (pct >= 0.5) return 'ok';
+  return 'low';
 }
 
-function formatDate(timestamp) {
-  if (!timestamp) return "";
-  const date = timestamp.toDate();
-  return date.toLocaleString("en-US");
+// ── Build UI ──
+function buildProfile(user, userData, quizAttempts, recordings) {
+  const app = document.getElementById('app');
+
+  // Today's data
+  const todayQuizzes   = quizAttempts.filter(a => isToday(a.startTime));
+  const todayRecs      = recordings.filter(r => isToday(r.timestamp));
+  const todayLessons   = [...new Set(quizAttempts.filter(a => isToday(a.startTime)).map(a => a.postId))];
+  const todayPhrases   = todayRecs.map(r => ({ said: r.transcript, original: r.correctSentence }));
+  const todayWrong     = todayQuizzes.flatMap(a => (a.wrongAnswers || []));
+  const todayScore     = todayQuizzes.reduce((s, a) => s + (a.score || 0), 0);
+  const todayTotal     = todayQuizzes.reduce((s, a) => s + (a.totalQuestions || 0), 0);
+
+  // All-time stats
+  const totalScore   = userData.totalScore   || quizAttempts.reduce((s,a) => s + (a.score||0), 0);
+  const totalQuizzes = userData.totalQuizzes || quizAttempts.length;
+  const totalRecs    = recordings.length;
+  const allLessons   = new Set(quizAttempts.map(a => a.postId)).size;
+
+  const todayStr = new Date().toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric' });
+
+  app.innerHTML = `
+    <!-- Profile Hero -->
+    <div class="profile-hero">
+      <div class="profile-avatar-wrap">
+        ${user.photoURL
+          ? `<img class="profile-avatar" src="${user.photoURL}" referrerpolicy="no-referrer" alt="avatar">`
+          : `<div class="profile-avatar-fallback">${(user.displayName?.[0] || '?').toUpperCase()}</div>`
+        }
+      </div>
+      <div class="profile-info">
+        <h2>${user.displayName || 'Learner'}</h2>
+        <p>${user.email}</p>
+        <div class="profile-badge">🎓 Chinese Learner</div>
+      </div>
+      <button class="signout-btn" id="signout-btn">🚪 Sign Out</button>
+    </div>
+
+    <!-- Stats Row -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-num">🏆 ${totalScore}</div>
+        <div class="stat-label">Total Score</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">📝 ${totalQuizzes}</div>
+        <div class="stat-label">Quizzes Done</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">🎙 ${totalRecs}</div>
+        <div class="stat-label">Phrases Practiced</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">📚 ${allLessons}</div>
+        <div class="stat-label">Lessons Studied</div>
+      </div>
+    </div>
+
+    <!-- Today Section -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-title">📅 Today</div>
+        <span class="section-date">${todayStr}</span>
+      </div>
+      <div class="today-grid">
+
+        <!-- Lessons studied -->
+        <div class="today-block lessons-block">
+          <h4>📚 Lessons</h4>
+          ${todayLessons.length
+            ? `<div class="pill-list">${todayLessons.map(id => `<span class="pill green">Lesson #${id}</span>`).join('')}</div>`
+            : `<div class="empty-state"><span>📭</span>No lessons yet today</div>`
+          }
+        </div>
+
+        <!-- Phrases recorded -->
+        <div class="today-block phrases-block">
+          <h4>🎙 Phrases Practiced</h4>
+          ${todayPhrases.length ? todayPhrases.slice(0, 5).map(p => `
+            <div class="phrase-item">
+              <span class="phrase-zh">${p.original || '—'}</span>
+              <span class="phrase-divider">→</span>
+              <span>${p.said || '—'}</span>
+            </div>`).join('')
+            : `<div class="empty-state"><span>🎤</span>No recordings yet today</div>`
+          }
+        </div>
+
+        <!-- Quiz scores -->
+        <div class="today-block quiz-block">
+          <h4>📝 Quizzes
+            ${todayTotal ? `<span class="pill yellow">${todayScore}/${todayTotal} pts</span>` : ''}
+          </h4>
+          ${todayQuizzes.length ? todayQuizzes.map(a => `
+            <div class="quiz-result-row">
+              <span>Lesson #${a.postId}</span>
+              <span class="quiz-score-badge ${scoreColor(a.score, a.totalQuestions)}">${a.score}/${a.totalQuestions}</span>
+            </div>`).join('')
+            : `<div class="empty-state"><span>🎯</span>No quizzes yet today</div>`
+          }
+        </div>
+
+        <!-- Wrong answers -->
+        <div class="today-block">
+          <h4>❌ Missed Answers</h4>
+          ${todayWrong.length ? `<div class="wrong-list">${todayWrong.slice(0,6).map(w => `
+            <div class="wrong-item">
+              <span class="wrong-x">✗</span>
+              <div class="wrong-text">
+                ${w.question ? `<div>${w.question}</div>` : ''}
+                <div>You: <em>${w.given || '?'}</em> → <span class="correct">✓ ${w.answer || '?'}</span></div>
+              </div>
+            </div>`).join('')}</div>`
+            : `<div class="empty-state"><span>✅</span>No mistakes today!</div>`
+          }
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Full History -->
+    <div class="section-card">
+      <div class="section-header">
+        <div class="section-title">📋 History</div>
+      </div>
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="quizzes">📝 Quizzes</button>
+        <button class="tab-btn" data-tab="recordings">🎙 Recordings</button>
+      </div>
+
+      <div class="tab-panel active" id="tab-quizzes">
+        ${quizAttempts.length ? `
+        <div class="history-table-wrap">
+          <table>
+            <thead><tr>
+              <th>Lesson</th>
+              <th>Score</th>
+              <th>Questions</th>
+              <th>Date</th>
+            </tr></thead>
+            <tbody>
+              ${quizAttempts.map(a => `
+              <tr>
+                <td><span class="pill">Lesson #${a.postId}</span></td>
+                <td><span class="quiz-score-badge ${scoreColor(a.score, a.totalQuestions)}">${a.score}/${a.totalQuestions}</span></td>
+                <td style="font-size:.85rem;color:#666;">${(a.wrongAnswers||[]).length > 0
+                  ? `${(a.wrongAnswers||[]).length} missed`
+                  : '✅ Perfect'}</td>
+                <td style="font-size:.85rem;color:#888;">${fmtDate(a.startTime)}</td>
+              </tr>`).join('')}
+            </tbody>
+          </table>
+        </div>` : `<div class="empty-state"><span>📝</span>No quiz history yet</div>`}
+      </div>
+
+      <div class="tab-panel" id="tab-recordings">
+        ${recordings.length ? recordings.map(r => `
+          <div class="rec-item">
+            <div class="rec-label">You said</div>
+            <div class="rec-said">${r.transcript || '—'}</div>
+            <div class="rec-original">Original: ${r.correctSentence || '—'}</div>
+            <div style="font-size:.78rem;color:#bbb;margin-top:4px;">${fmtDate(r.timestamp)} · Lesson #${r.postId || '?'}</div>
+          </div>`).join('')
+          : `<div class="empty-state"><span>🎙</span>No recordings yet</div>`}
+      </div>
+    </div>
+  `;
+
+  // Sign out
+  document.getElementById('signout-btn').addEventListener('click', async () => {
+    await signOut(auth);
+    window.location.href = 'index.html';
+  });
+
+  // Tabs
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
 }
 
-listenAuthState(async (user) => {
+// ── Main ──
+onAuthStateChanged(auth, async (user) => {
   if (!user) {
-    alert("You must log in first.");
-    window.location.href = "/learning.html";
+    window.location.href = 'index.html';
     return;
   }
 
-  // ===== GET USER DATA =====
-  const userRef = doc(db, "users", user.uid);
-  const userSnap = await getDoc(userRef);
-  const userData = userSnap.data();
+  try {
+    // User doc
+    const userSnap = await getDoc(doc(db, 'users', user.uid));
+    const userData = userSnap.exists() ? userSnap.data() : {};
 
-  document.getElementById("avatar").src = user.photoURL;
-  document.getElementById("name").textContent = user.displayName;
-  document.getElementById("email").textContent = user.email;
+    // Quiz attempts
+    let quizAttempts = [];
+    try {
+      const qSnap = await getDocs(query(
+        collection(db, 'quiz_attempts'),
+        where('uid', '==', user.uid),
+        orderBy('startTime', 'desc')
+      ));
+      quizAttempts = qSnap.docs.map(d => d.data());
+    } catch(e) { console.warn('quiz_attempts:', e); }
 
-  document.getElementById("totalScore").textContent = userData.totalScore || 0;
-  document.getElementById("totalQuizzes").textContent = userData.totalQuizzes || 0;
-  document.getElementById("totalTime").textContent = formatTime(userData.totalStudyTime || 0);
+    // Recordings (speech practice)
+    let recordings = [];
+    try {
+      const rSnap = await getDocs(query(
+        collection(db, 'recordings'),
+        where('uid', '==', user.uid),
+        orderBy('timestamp', 'desc')
+      ));
+      recordings = rSnap.docs.map(d => d.data());
+    } catch(e) { console.warn('recordings:', e); }
 
-  // ===== GET QUIZ ATTEMPTS =====
-  const q = query(
-    collection(db, "quiz_attempts"),
-    where("uid", "==", user.uid),
-    orderBy("startTime", "desc")
-  );
+    document.getElementById('loading').style.display = 'none';
+    buildProfile(user, userData, quizAttempts, recordings);
 
-  const snapshot = await getDocs(q);
-  const table = document.getElementById("attemptTable");
-
-  snapshot.forEach((doc) => {
-    const data = doc.data();
-    const row = document.createElement("tr");
-
-    row.innerHTML = `
-      <td>${data.postId}</td>
-      <td>${data.type}</td>
-      <td>${data.score}/${data.totalQuestions}</td>
-      <td>${formatDate(data.startTime)}</td>
-    `;
-
-    table.appendChild(row);
-  });
-
+  } catch(err) {
+    console.error(err);
+    document.getElementById('loading').innerHTML =
+      `<div class="empty-state"><span>⚠️</span>Failed to load profile. Please try again.</div>`;
+  }
 });
 </script>
-
 </body>
 </html>
