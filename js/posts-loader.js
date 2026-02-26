@@ -352,27 +352,7 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
     }
 
     function showResult(transcript) {
-        const normCorrect = normalize(correctSentence);
-        const normSaid    = normalize(transcript);
-        const isMatch     = normSaid === normCorrect;
-
-        // Character-by-character highlight on raw transcript vs raw correct
-        const correct = correctSentence.trim();
-        const said    = transcript.trim();
-        let highlightedSaid = '';
-        for (let i = 0; i < said.length; i++) {
-            const ch    = said[i];
-            const normCh = normalize(ch);
-            // Find matching position in correct ignoring punct
-            const normSlice = normalize(correct.slice(0, i + 1));
-            const normSaidSlice = normalize(said.slice(0, i + 1));
-            const ok = normSaidSlice.length <= normCorrect.length &&
-                       normCorrect.startsWith(normSaidSlice);
-            highlightedSaid += ok
-                ? ch
-                : `<span class="char-wrong">${ch}</span>`;
-        }
-        if (!highlightedSaid) highlightedSaid = '<em style="opacity:.4">— nothing detected —</em>';
+        
 
         resultBox.className     = `rec-result ${isMatch ? 'correct' : 'wrong'}`;
         resultBox.style.display = 'flex';
@@ -387,10 +367,8 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
             </div>
         `;
 
-        status.textContent = isMatch
-            ? '✅ Perfect match! Great pronunciation 🎉'
-            : '❌ Not quite — listen again and retry';
-        status.className = `rec-status ${isMatch ? 'done' : 'error'}`;
+        status.textContent = 'Recording complete.';
+        status.className = 'rec-status';
     }
 
     function startRec() {
@@ -646,3 +624,4 @@ function loadPosts(startpId, endpId, listId) {
     })
     .catch(err => console.error('Error fetching JSON:', err));
 }
+
