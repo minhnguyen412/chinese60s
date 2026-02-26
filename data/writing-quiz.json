@@ -1,0 +1,212 @@
+[
+  {
+    "id": 1,
+    "character": "人",
+    "pinyin": "rén",
+    "meaning": "person / people",
+    "strokeCount": 2
+  },
+  {
+    "id": 2,
+    "character": "大",
+    "pinyin": "dà",
+    "meaning": "big / large",
+    "strokeCount": 3
+  },
+  {
+    "id": 3,
+    "character": "小",
+    "pinyin": "xiǎo",
+    "meaning": "small / little",
+    "strokeCount": 3
+  },
+  {
+    "id": 4,
+    "character": "山",
+    "pinyin": "shān",
+    "meaning": "mountain",
+    "strokeCount": 3
+  },
+  {
+    "id": 5,
+    "character": "口",
+    "pinyin": "kǒu",
+    "meaning": "mouth / opening",
+    "strokeCount": 3
+  },
+  {
+    "id": 6,
+    "character": "日",
+    "pinyin": "rì",
+    "meaning": "sun / day",
+    "strokeCount": 4
+  },
+  {
+    "id": 7,
+    "character": "月",
+    "pinyin": "yuè",
+    "meaning": "moon / month",
+    "strokeCount": 4
+  },
+  {
+    "id": 8,
+    "character": "水",
+    "pinyin": "shuǐ",
+    "meaning": "water",
+    "strokeCount": 4
+  },
+  {
+    "id": 9,
+    "character": "火",
+    "pinyin": "huǒ",
+    "meaning": "fire",
+    "strokeCount": 4
+  },
+  {
+    "id": 10,
+    "character": "木",
+    "pinyin": "mù",
+    "meaning": "wood / tree",
+    "strokeCount": 4
+  },
+  {
+    "id": 11,
+    "character": "中",
+    "pinyin": "zhōng",
+    "meaning": "middle / center / China",
+    "strokeCount": 4
+  },
+  {
+    "id": 12,
+    "character": "国",
+    "pinyin": "guó",
+    "meaning": "country / nation",
+    "strokeCount": 8
+  },
+  {
+    "id": 13,
+    "character": "你",
+    "pinyin": "nǐ",
+    "meaning": "you",
+    "strokeCount": 7
+  },
+  {
+    "id": 14,
+    "character": "好",
+    "pinyin": "hǎo",
+    "meaning": "good / well",
+    "strokeCount": 6
+  },
+  {
+    "id": 15,
+    "character": "我",
+    "pinyin": "wǒ",
+    "meaning": "I / me",
+    "strokeCount": 7
+  },
+  {
+    "id": 16,
+    "character": "他",
+    "pinyin": "tā",
+    "meaning": "he / him",
+    "strokeCount": 5
+  },
+  {
+    "id": 17,
+    "character": "她",
+    "pinyin": "tā",
+    "meaning": "she / her",
+    "strokeCount": 6
+  },
+  {
+    "id": 18,
+    "character": "们",
+    "pinyin": "men",
+    "meaning": "plural suffix",
+    "strokeCount": 5
+  },
+  {
+    "id": 19,
+    "character": "是",
+    "pinyin": "shì",
+    "meaning": "to be / is / are",
+    "strokeCount": 9
+  },
+  {
+    "id": 20,
+    "character": "不",
+    "pinyin": "bù",
+    "meaning": "not / no",
+    "strokeCount": 4
+  },
+  {
+    "id": 21,
+    "character": "有",
+    "pinyin": "yǒu",
+    "meaning": "to have / there is",
+    "strokeCount": 6
+  },
+  {
+    "id": 22,
+    "character": "来",
+    "pinyin": "lái",
+    "meaning": "to come",
+    "strokeCount": 7
+  },
+  {
+    "id": 23,
+    "character": "去",
+    "pinyin": "qù",
+    "meaning": "to go",
+    "strokeCount": 5
+  },
+  {
+    "id": 24,
+    "character": "说",
+    "pinyin": "shuō",
+    "meaning": "to speak / to say",
+    "strokeCount": 9
+  },
+  {
+    "id": 25,
+    "character": "看",
+    "pinyin": "kàn",
+    "meaning": "to look / to watch",
+    "strokeCount": 9
+  },
+  {
+    "id": 26,
+    "character": "吃",
+    "pinyin": "chī",
+    "meaning": "to eat",
+    "strokeCount": 6
+  },
+  {
+    "id": 27,
+    "character": "喝",
+    "pinyin": "hē",
+    "meaning": "to drink",
+    "strokeCount": 12
+  },
+  {
+    "id": 28,
+    "character": "学",
+    "pinyin": "xué",
+    "meaning": "to study / to learn",
+    "strokeCount": 8
+  },
+  {
+    "id": 29,
+    "character": "习",
+    "pinyin": "xí",
+    "meaning": "to practice / to review",
+    "strokeCount": 3
+  },
+  {
+    "id": 30,
+    "character": "汉",
+    "pinyin": "hàn",
+    "meaning": "Han Chinese / Chinese language",
+    "strokeCount": 5
+  }
+]
