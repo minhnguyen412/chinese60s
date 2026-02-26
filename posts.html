@@ -363,7 +363,7 @@
       border: 2.5px dashed #aaa; border-radius: 14px;
       margin: 0 4px; padding: 4px 14px;
       background: transparent; color: #aaa;
-      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.2rem;
+      font-family: 'Quicksand', sans-serif; font-weight: 800; font-size: 1.2rem;
       cursor: pointer; vertical-align: middle;
       transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
       user-select: none; position: relative;
@@ -406,7 +406,7 @@
     .options {
       margin: 16px 0 8px;
       display: none;   /* JS sets display:grid */
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(9, 1fr);
       gap: 10px;
     }
     /* Image-heavy quiz: 2×2 on desktop looks better — JS adds .options-img class */
@@ -429,11 +429,11 @@
 
     /* TEXT word — pill, Quicksand Bold */
     .word {
-      font-family: 'Quicksand', sans-serif; font-weight: 700; font-size: 1.1rem;
-      padding: 12px 10px;
+      font-family: 'Quicksand', sans-serif; font-weight: 800; font-size: 1.1rem;
+      padding: 8px 8px;
       width: 100%;                    /* fill the grid cell */
       background: var(--pink); color: var(--black);
-      border: var(--border-thick); border-radius: 50px;
+      border: var(--border-thick); border-radius: 40px;
       box-shadow: var(--shadow-sm); cursor: pointer;
       transition: transform 0.14s ease, box-shadow 0.14s ease, background 0.12s;
       user-select: none;
@@ -1389,3 +1389,4 @@
 
 </body>
 </html>
+
