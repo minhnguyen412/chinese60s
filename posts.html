@@ -286,7 +286,16 @@
       background: var(--yellow); border: var(--border); border-radius: 50px;
       padding: 8px 26px; box-shadow: var(--shadow-sm);
     }
+    .quiz-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
 
+    .quiz-header h1 {
+      margin: 0;
+    }
     #start-container { margin-bottom: 12px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
     #start-button {
       font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.3rem;
@@ -692,7 +701,7 @@
 
       <!-- QUIZ SECTION -->
       <div class="qcontainer" id="quiz-container" data-start-id="24" data-end-id="38">
-        <h1>
+        <h1 class="quiz-header">
           <span>Let's Practice! 🎯</span>
           <button id="write-button">✏️ Practice Writing</button>
         </h1>
@@ -1426,4 +1435,5 @@
 
 </body>
 </html>
+
 
