@@ -653,7 +653,7 @@
      * @param {object} opts
      *   opts.startId  — ID bắt đầu trong writing-quiz.json (inclusive)
      *   opts.endId    — ID kết thúc (inclusive)
-     *   opts.dataUrl  — đường dẫn tới JSON (default: 'data/writing-quiz.json')
+     *   opts.dataUrl  — đường dẫn tới JSON (default: '../data/writing-quiz.json')
      */
     open: async function (opts) {
       opts = opts || {};
