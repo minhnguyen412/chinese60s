@@ -240,9 +240,6 @@
       position: relative; z-index: 1;
     }
 
-    /* ══════════════════════════════════════
-       SECTION WRAPPER — chung cho cả 2 khối
-    ══════════════════════════════════════ */
     .content-section {
       padding: 40px 40px 0;
       max-width: 1240px;
@@ -392,7 +389,7 @@
     }
 
     /* ══════════════════════════════════════
-       🎬 REAL-LIFE CHINESE SECTION
+       REAL-LIFE CHINESE SECTION
     ══════════════════════════════════════ */
     .reallife-section {
       padding: 40px 40px 0;
@@ -449,7 +446,6 @@
     }
     .script-card:hover .script-card-thumb img { transform: scale(1.05); }
 
-    /* emoji placeholder khi không có ảnh */
     .script-ph {
       width: 100%; height: 100%;
       display: flex; flex-direction: column;
@@ -458,7 +454,6 @@
     .script-ph .ph-emoji { font-size: 2.6rem; }
     .script-ph .ph-label { font-size: 0.78rem; font-weight: 600; }
 
-    /* palette cho placeholders */
     .ph-teal    { background: #d0f5ef; color: #1a6a5c; }
     .ph-coral   { background: #fde8e0; color: #a03020; }
     .ph-amber   { background: #fff3cc; color: #7a5500; }
@@ -470,7 +465,6 @@
     .ph-mint    { background: #d8f5e8; color: #1a6a40; }
     .ph-grape   { background: #e8d8f5; color: #5a1a8a; }
 
-    /* play badge overlay */
     .play-badge {
       position: absolute; bottom: 8px; right: 8px;
       background: rgba(0,0,0,0.7); color: white;
@@ -499,7 +493,6 @@
       font-size: 0.78rem; color: #bbb; font-weight: 600; margin-top: 8px;
     }
 
-    /* "Load more" row */
     .scripts-load-row {
       display: flex; justify-content: center;
       margin-top: 28px;
@@ -566,15 +559,11 @@
         <li><a href="blog.html">Blog</a></li>
         <li><a href="courses.html">Courses</a></li>
         <li><a href="https://www.amazon.com/shop/studiorum60s" target="_blank">Shop</a></li>
-      <!-- AUTH AREA — toggled by JS -->
         <li id="auth-nav-item">
-          <!-- State A: not logged in -->
           <button id="sign-in-btn" onclick="openLoginModal()">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" fill="#333"/></svg>
             Sign In
           </button>
-
-          <!-- State B: logged in (hidden by default) -->
           <div class="user-menu-wrap" id="user-menu-wrap" style="display:none;">
             <div class="auth-pill" id="user-pill" onclick="toggleUserMenu()">
               <div class="avatar" id="nav-avatar">👤</div>
@@ -590,7 +579,8 @@
       </ul>
     </nav>
   </header>
-<!-- ═══ LOGIN MODAL ═══ -->
+
+  <!-- LOGIN MODAL -->
   <div class="modal-overlay" id="login-modal">
     <div class="modal">
       <button class="modal-close" onclick="closeLoginModal()">✕</button>
@@ -606,10 +596,10 @@
         </svg>
         <span id="signin-btn-text">Continue with Google</span>
       </button>
-      <!-- Inline error message -->
       <div class="modal-error" id="modal-error"></div>
     </div>
   </div>
+
   <!-- Hero Banner -->
   <div class="hero-banner">
     <img src="assets/banner-home.png" alt="Chinese 60s" class="logo">
@@ -631,7 +621,7 @@
   <!-- Main Content -->
   <main>
 
-    <!-- ══════════ HSK 1–2 SECTION ══════════ -->
+    <!-- HSK 1–2 SECTION -->
     <div class="content-section">
       <div class="section-header">
         <span class="section-badge">🎓 初级 · BEGINNER · HSK 1–2</span>
@@ -683,10 +673,10 @@
       </div>
     </div>
 
-    <!-- ══════════ DIVIDER ══════════ -->
+    <!-- DIVIDER -->
     <hr class="section-divider" style="margin-top: 48px;">
 
-    <!-- ══════════ REAL-LIFE CHINESE ══════════ -->
+    <!-- REAL-LIFE CHINESE -->
     <div class="reallife-section">
       <div class="reallife-header">
         <div class="reallife-header-left">
@@ -696,9 +686,7 @@
         <a href="blog.html#scripts" class="view-all-btn">View All Scripts →</a>
       </div>
 
-      <div class="scripts-grid" id="scripts-grid">
-        <!-- JS populated -->
-      </div>
+      <div class="scripts-grid" id="scripts-grid"></div>
 
       <div class="scripts-load-row">
         <button class="load-more-btn" id="load-more-btn">Load More ↓</button>
@@ -724,8 +712,8 @@
     </div>
   </footer>
 
+  <!-- Hamburger menu -->
   <script>
-    /* ── Hamburger menu ── */
     document.addEventListener('DOMContentLoaded', function () {
       const menuToggle = document.querySelector('.menu-toggle');
       const nav = document.querySelector('nav');
@@ -734,20 +722,54 @@
         menuToggle.innerHTML = nav.classList.contains('show') ? '&#10005;' : '&#9776;';
       });
     });
+  </script>
 
-    /* ── Textbook thumbnails (from JSON) with Load More ── */
+  <!-- ══════════════════════════════════════════
+       LESSON TRACKING HELPER
+       Gọi trackLesson(item) sau khi user click vào thumbnail
+  ══════════════════════════════════════════ -->
+  <script>
+    /**
+     * trackLesson(item)
+     * item = object từ thumbnail.json, cần có: id, title, htmlLink
+     * Lưu vào Firestore collection 'lesson_views'
+     * Chỉ track nếu user đã login (window.__currentUser != null)
+     */
+    window.trackLesson = async function(item) {
+      if (!window.__currentUser) return;
+      try {
+        const { getFirestore, collection, addDoc, serverTimestamp } =
+          await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js");
+        const db = getFirestore();
+        await addDoc(collection(db, 'lesson_views'), {
+          uid:        window.__currentUser.uid,
+          postId:     String(item.id || item.htmlLink || ''),
+          postTitle:  item.title  || '',
+          postLink:   item.htmlLink || '',
+          timestamp:  serverTimestamp()
+        });
+      } catch(e) {
+        console.warn('[tracking] lesson_views write failed:', e);
+      }
+    };
+  </script>
+
+  <!-- ══════════════════════════════════════════
+       TEXTBOOK THUMBNAILS — Load from JSON + tracking
+  ══════════════════════════════════════════ -->
+  <script>
     const PER_PAGE_THUMB = 9;
     let thumbData = [];
     let thumbPage = 0;
 
     function renderThumbCards(start, count) {
-      const container  = document.getElementById('thumbnails-container');
-      const slice      = thumbData.slice(start, start + count);
+      const container = document.getElementById('thumbnails-container');
+      const slice     = thumbData.slice(start, start + count);
       slice.forEach(item => {
         const el = document.createElement('div');
         el.className = 'thumbnail';
         el.innerHTML = `
-          <a href="${item.htmlLink}">
+          <a href="${item.htmlLink}" data-track="lesson">
             <img src="${item.thumbnail}" alt="${item.title} Thumbnail">
             <div class="info">
               ${item.topic ? `<span class="thumb-topic-tag">${item.topic}</span>` : ''}
@@ -755,47 +777,52 @@
               <p>${item.description}</p>
             </div>
           </a>`;
+
+        // ── TRACKING: click vào link bài học ──
+        const link = el.querySelector('a');
+        link.addEventListener('click', () => {
+          window.trackLesson(item);   // fire-and-forget
+        });
+
         container.appendChild(el);
       });
     }
 
     function loadThumbs() {
-      const btn = document.getElementById('thumb-load-more-btn');
+      const btn   = document.getElementById('thumb-load-more-btn');
       const start = thumbPage * PER_PAGE_THUMB;
       if (start >= thumbData.length) { btn.style.display = 'none'; return; }
       renderThumbCards(start, PER_PAGE_THUMB);
       thumbPage++;
-      const done = thumbPage * PER_PAGE_THUMB >= thumbData.length;
-      if (done) {
+      if (thumbPage * PER_PAGE_THUMB >= thumbData.length) {
         btn.style.display = 'none';
       }
     }
 
     document.addEventListener('DOMContentLoaded', async () => {
-      const btn      = document.getElementById('thumb-load-more-btn');
-      const viewAll  = document.getElementById('thumb-view-all');
+      const btn     = document.getElementById('thumb-load-more-btn');
+      const viewAll = document.getElementById('thumb-view-all');
       try {
         const response = await fetch('data/thumbnail.json');
         thumbData = await response.json();
-
-        /* Show View All + Load More only if there are more than PER_PAGE_THUMB items */
         if (thumbData.length > PER_PAGE_THUMB) {
           viewAll.style.display = 'inline-flex';
           btn.style.display     = 'inline-block';
           btn.addEventListener('click', loadThumbs);
         }
-
-        loadThumbs(); /* render first batch */
+        loadThumbs();
       } catch (error) {
         console.error('Error loading thumbnails:', error);
         document.getElementById('thumbnails-container').innerHTML =
           '<p style="color:#999">Failed to load thumbnails.</p>';
       }
     });
+  </script>
 
-    /* ── Video slider ── */
+  <!-- Video slider -->
+  <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const slider = document.querySelector('.video-slider');
+      const slider  = document.querySelector('.video-slider');
       const prevBtn = document.querySelector('.slider-btn.prev');
       const nextBtn = document.querySelector('.slider-btn.next');
       const items   = document.querySelectorAll('.video-item');
@@ -821,23 +848,21 @@
       });
       window.addEventListener('resize', updateSlider);
     });
+  </script>
 
-    /* ══════════════════════════════════════════
-       🎬 REAL-LIFE CHINESE — Script cards
-       Bạn có thể chuyển sang fetch JSON nếu có file
-       Hiện tại dùng data inline (đồng bộ với blog.html)
-    ══════════════════════════════════════════ */
+  <!-- REAL-LIFE CHINESE Script cards -->
+  <script>
     const SCRIPTS = [
       { num:6,  url:'blog/douyin/house-hunting',  title:'九十后租房',             subtitle:'House hunting as a post-90s renter',       emoji:'🏠' },
-      { num:7,  url:'blog/douyin/spa-massage',  title:'SPA 按摩',               subtitle:'SPA Massage',                              emoji:'💆' },
-      { num:8,  url:'blog/douyin/healing-time',  title:'治愈时',                 subtitle:'Healing Time',                             emoji:'🌿' },
-      { num:9,  url:'blog/douyin/take-a-bus',  title:'坐大巴车回家',           subtitle:'Take a bus to go back home',               emoji:'🚌' },
-      { num:10, url:'blog/douyin/go-to-the-market', title:'来菜市场买菜买水果',     subtitle:'Go to the market to buy vegetables',       emoji:'🥦' },
-      { num:11, url:'blog/douyin/her-cooking-is-great', title:'她的厨艺真的是可以的',   subtitle:'Her cooking is really great',             emoji:'🍳' },
-      { num:12, url:'blog/douyin/scary-dream', title:'刚梦到一个让人害怕的梦', subtitle:'I just dreamed a really scary dream',      emoji:'😱' },
-      { num:13, url:'blog/douyin/losing-my-voice', title:'失声',                   subtitle:'Losing My Voice',                          emoji:'🤐' },
-      { num:14, url:'blog/douyin/quick-way-to-lose-weight', title:'一个快速掉秤的方法',     subtitle:'A quick way to lose weight',               emoji:'⚖️' },
-      { num:15, url:'blog/douyin/use-washing-machine', title:'如何使用洗衣机',         subtitle:'How to use a washing machine',             emoji:'🫧' },
+      { num:7,  url:'blog/douyin/spa-massage',    title:'SPA 按摩',               subtitle:'SPA Massage',                              emoji:'💆' },
+      { num:8,  url:'blog/douyin/healing-time',   title:'治愈时',                 subtitle:'Healing Time',                             emoji:'🌿' },
+      { num:9,  url:'blog/douyin/take-a-bus',     title:'坐大巴车回家',           subtitle:'Take a bus to go back home',               emoji:'🚌' },
+      { num:10, url:'blog/douyin/go-to-the-market', title:'来菜市场买菜买水果',   subtitle:'Go to the market to buy vegetables',       emoji:'🥦' },
+      { num:11, url:'blog/douyin/her-cooking-is-great', title:'她的厨艺真的是可以的', subtitle:'Her cooking is really great',         emoji:'🍳' },
+      { num:12, url:'blog/douyin/scary-dream',    title:'刚梦到一个让人害怕的梦', subtitle:'I just dreamed a really scary dream',     emoji:'😱' },
+      { num:13, url:'blog/douyin/losing-my-voice', title:'失声',                  subtitle:'Losing My Voice',                          emoji:'🤐' },
+      { num:14, url:'blog/douyin/quick-way-to-lose-weight', title:'一个快速掉秤的方法', subtitle:'A quick way to lose weight',        emoji:'⚖️' },
+      { num:15, url:'blog/douyin/use-washing-machine', title:'如何使用洗衣机',   subtitle:'How to use a washing machine',             emoji:'🫧' },
     ];
 
     const PH_PALETTES = ['ph-teal','ph-coral','ph-amber','ph-violet','ph-rose','ph-lime','ph-sky2','ph-peach2','ph-mint','ph-grape'];
@@ -871,6 +896,16 @@
             <h4>${s.title}<br><span style="font-weight:500;font-size:0.85em;color:#777">${s.subtitle}</span></h4>
             <span class="script-card-num">#${s.num}</span>
           </div>`;
+
+        // ── TRACKING: script card click ──
+        card.addEventListener('click', () => {
+          window.trackLesson({
+            id:       'script-' + s.num,
+            title:    s.title,
+            htmlLink: s.url
+          });
+        });
+
         grid.appendChild(card);
       });
     }
@@ -886,44 +921,19 @@
       }
     }
 
-    /* Initial load */
     document.addEventListener('DOMContentLoaded', () => {
       loadScripts();
       loadMoreBtn.addEventListener('click', loadScripts);
-
-      /* Optional: replace with fetch if you have a scripts JSON */
-      // fetch('data/scripts.json').then(r=>r.json()).then(data => {
-      //   SCRIPTS.length = 0; data.forEach(s => SCRIPTS.push(s));
-      //   loadScripts();
-      // });
     });
   </script>
-  <!-- ═══════════════════════════════════════════════════
-       AUTH — Firebase Google Sign-In
-       ✔ Tries signInWithPopup first (fast, no page leave)
-       ✔ Falls back to signInWithRedirect if popup blocked
-       ✔ getRedirectResult() handles return after redirect
-       ✔ window helpers exposed BEFORE auth resolves so
-         onclick= attributes always work
-       📝 Replace firebaseConfig values with your project's
-  ══════════════════════════════════════════════════════ -->
 
-  <!-- ═══════════════════════════════════════════════════
-       AUTH — Firebase Google Sign-In
-       ✔ signInWithPopup (no page leave, no redirect issues)
-       ✔ Inline error shown inside modal (no alert)
-       ✔ window helpers stubbed immediately for onclick=
-       📝 Replace firebaseConfig with your project values
-  ══════════════════════════════════════════════════════ -->
-
-  <!-- Stub helpers immediately so onclick= never throws ReferenceError -->
+  <!-- Auth stubs -->
   <script>
     window.__currentUser   = null;
 
     window.openLoginModal  = function() {
       const m = document.getElementById('login-modal');
       m.classList.add('open');
-      /* reset error & button state */
       const err = document.getElementById('modal-error');
       const txt = document.getElementById('signin-btn-text');
       if (err) { err.style.display = 'none'; err.textContent = ''; }
@@ -936,14 +946,12 @@
       document.getElementById('login-modal').classList.remove('open');
     };
 
-    /* Temporary stub — replaced by module */
     window.doGoogleSignIn  = function() { openLoginModal(); };
     window.signOut         = function() {};
     window.toggleUserMenu  = function() {
       document.getElementById('user-menu-wrap').classList.toggle('open');
     };
 
-    /* Close modal on backdrop click; close dropdown on outside click */
     document.addEventListener('click', function(e) {
       const modal = document.getElementById('login-modal');
       if (e.target === modal) closeLoginModal();
@@ -954,6 +962,7 @@
     });
   </script>
 
+  <!-- Firebase Auth -->
   <script type="module">
     import { initializeApp }  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
     import {
@@ -964,9 +973,6 @@
       onAuthStateChanged
     } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
-    /* ════════════════════════════════════════════
-       🔧 PASTE YOUR FIREBASE CONFIG HERE
-    ════════════════════════════════════════════ */
     const firebaseConfig = {
       apiKey:            "AIzaSyAm-qQrpXKNdqFLITRAGCug7rkskGzyAkg",
       authDomain:        "chinese60s.firebaseapp.com",
@@ -974,21 +980,19 @@
       storageBucket:     "chinese60s.firebasestorage.app",
       messagingSenderId: "835657861121",
       appId:             "1:835657861121:web:f31727eb7ea3b876a5d800",
-      measurementId: "G-70NQ4PFTSN"
+      measurementId:     "G-70NQ4PFTSN"
     };
 
     const app      = initializeApp(firebaseConfig);
     const auth     = getAuth(app);
     const provider = new GoogleAuthProvider();
-    /* Always show account picker */
     provider.setCustomParameters({ prompt: 'select_account' });
 
-    /* ── Helper: show error inside modal ── */
     function showModalError(msg) {
       const el = document.getElementById('modal-error');
       if (!el) return;
-      el.textContent    = msg;
-      el.style.display  = 'block';
+      el.textContent   = msg;
+      el.style.display = 'block';
       const btn = document.getElementById('google-signin-btn');
       const txt = document.getElementById('signin-btn-text');
       if (btn) btn.disabled = false;
@@ -999,54 +1003,36 @@
       const btn = document.getElementById('google-signin-btn');
       const txt = document.getElementById('signin-btn-text');
       if (!btn || !txt) return;
-      btn.disabled     = loading;
-      txt.textContent  = loading ? 'Opening Google…' : 'Continue with Google';
+      btn.disabled    = loading;
+      txt.textContent = loading ? 'Opening Google…' : 'Continue with Google';
     }
 
-    /* ── Google Sign-In with Popup ── */
     window.doGoogleSignIn = async function() {
-      /* Clear previous error */
       const errEl = document.getElementById('modal-error');
       if (errEl) { errEl.style.display = 'none'; errEl.textContent = ''; }
-
       setSignInLoading(true);
       try {
         await signInWithPopup(auth, provider);
-        /* onAuthStateChanged will fire and update UI */
         closeLoginModal();
       } catch (err) {
         setSignInLoading(false);
         console.error('Sign-in error:', err.code, err.message);
-
-        /* Map common Firebase error codes to friendly messages */
         const msgs = {
-          'auth/popup-blocked':
-            '🚫 Popup was blocked. Please allow popups for this site in your browser settings, then try again.',
-          'auth/popup-closed-by-user':
-            '❌ Sign-in window was closed. Please try again.',
-          'auth/cancelled-popup-request':
-            '❌ Sign-in was cancelled. Please try again.',
-          'auth/network-request-failed':
-            '🌐 Network error. Check your internet connection and try again.',
-          'auth/invalid-api-key':
-            '⚙️ Firebase configuration error. Please contact the site admin.',
-          'auth/operation-not-allowed':
-            '⚙️ Google sign-in is not enabled. Please contact the site admin.',
-          'auth/unauthorized-domain':
-            '⚙️ This domain is not authorised for sign-in. Please contact the site admin.',
-          'auth/user-disabled':
-            '🚫 This account has been disabled.',
+          'auth/popup-blocked':           '🚫 Popup was blocked. Please allow popups for this site.',
+          'auth/popup-closed-by-user':    '❌ Sign-in window was closed. Please try again.',
+          'auth/cancelled-popup-request': '❌ Sign-in was cancelled. Please try again.',
+          'auth/network-request-failed':  '🌐 Network error. Check your connection.',
+          'auth/unauthorized-domain':     '⚙️ Domain not authorised. Contact admin.',
+          'auth/user-disabled':           '🚫 This account has been disabled.',
         };
         showModalError(msgs[err.code] || `Sign-in failed: ${err.message}`);
       }
     };
 
-    /* ── Sign Out ── */
     window.signOut = async function() {
-      try { await fbSignOut(auth); } catch(e) { console.error('Sign-out error:', e); }
+      try { await fbSignOut(auth); } catch(e) { console.error(e); }
     };
 
-    /* ── Update nav UI on auth state change ── */
     onAuthStateChanged(auth, function(user) {
       const signInBtn    = document.getElementById('sign-in-btn');
       const userMenuWrap = document.getElementById('user-menu-wrap');
@@ -1071,5 +1057,3 @@
 
 </body>
 </html>
-
-
