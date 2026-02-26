@@ -352,14 +352,14 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
     }
 
     function showResult(transcript) {
-        
+        const said = transcript.trim() || '<em style="opacity:.4">— nothing detected —</em>';
 
-        resultBox.className     = `rec-result ${isMatch ? 'correct' : 'wrong'}`;
+        resultBox.className     = 'rec-result neutral';
         resultBox.style.display = 'flex';
         resultBox.innerHTML = `
             <div class="rec-result-row">
                 <span class="rec-result-label">You said</span>
-                <span class="rec-result-text">${highlightedSaid}</span>
+                <span class="rec-result-text">${said}</span>
             </div>
             <div class="rec-result-row">
                 <span class="rec-result-label">Original</span>
@@ -367,8 +367,8 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
             </div>
         `;
 
-        status.textContent = 'Recording complete.';
-        status.className = 'rec-status';
+        status.textContent = '✅ Done! Try again or close.';
+        status.className   = 'rec-status done';
     }
 
     function startRec() {
@@ -379,49 +379,79 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
             return;
         }
 
-        // New instance every time — fixes Safari / Chrome mobile silence bug
+        // Abort any previous instance first (important for mobile Safari/Chrome)
+        if (recognition) {
+            try { recognition.abort(); } catch(e) {}
+            recognition = null;
+        }
+
+        // Fresh instance every time — mobile reuse causes silent failures
         recognition = new SR();
         recognition.lang            = 'zh-CN';
-        recognition.interimResults  = false;
+        recognition.interimResults  = true;   // show text while speaking
         recognition.maxAlternatives = 1;
-        recognition.continuous      = false;
+        recognition.continuous      = true;   // keep mic open until user presses Stop
 
         resultBox.style.display = 'none';
-        setListening(true);
+        let finalTranscript = '';
 
         recognition.onresult = (e) => {
-            const transcript = e.results[0][0].transcript;
-            showResult(transcript);
-            saveRecordingToFirestore({ transcript, correctSentence, postId });
+            // Accumulate all final segments
+            finalTranscript = '';
+            for (let i = 0; i < e.results.length; i++) {
+                if (e.results[i].isFinal) {
+                    finalTranscript += e.results[i][0].transcript;
+                }
+            }
+            // Show live interim text so user sees what's being heard
+            const interim = Array.from(e.results)
+                .filter(r => !r.isFinal)
+                .map(r => r[0].transcript).join('');
+            status.textContent = (finalTranscript + (interim ? ' ' + interim : '')) || '🔴 Listening...';
+            status.className   = 'rec-status listening';
         };
 
         recognition.onerror = (e) => {
+            if (e.error === 'aborted') return; // our own abort() — ignore
             setListening(false);
             const msgs = {
-                'not-allowed' : 'Microphone permission denied.',
-                'no-speech'   : 'No speech detected. Try again.',
-                'network'     : 'Network error. Try again.',
+                'not-allowed'         : 'Microphone permission denied.',
+                'no-speech'           : 'No speech detected. Try again.',
+                'network'             : 'Network error. Try again.',
+                'service-not-allowed' : 'Speech service not allowed.',
             };
             status.textContent = msgs[e.error] || `Error: ${e.error}`;
             status.className   = 'rec-status error';
         };
 
-        recognition.onend = () => setListening(false);
-
-        // 80ms delay fixes "already started" on mobile
-        setTimeout(() => {
-            try { recognition.start(); }
-            catch (e) {
-                setListening(false);
-                status.textContent = 'Could not start recording.';
+        recognition.onend = () => {
+            // onend fires when stop() is called — show result
+            setListening(false);
+            if (finalTranscript.trim()) {
+                showResult(finalTranscript.trim());
+                saveRecordingToFirestore({ transcript: finalTranscript.trim(), correctSentence, postId });
+            } else if (!status.className.includes('error')) {
+                status.textContent = 'No speech detected. Try again.';
                 status.className   = 'rec-status error';
             }
-        }, 80);
+        };
+
+        // Must call start() synchronously within the click event —
+        // mobile browsers (Safari iOS / Chrome Android) revoke the mic
+        // permission token after the current JS tick
+        try {
+            recognition.start();
+            setListening(true);
+        } catch (e) {
+            setListening(false);
+            status.textContent = 'Could not start recording. Try again.';
+            status.className   = 'rec-status error';
+        }
     }
 
     function stopRec() {
+        // stop() (not abort()) so onend fires and we get the transcript
         if (recognition) { try { recognition.stop(); } catch (e) {} }
-        setListening(false);
     }
 
     function closePopup() {
@@ -574,11 +604,11 @@ function loadPosts(startpId, endpId, listId) {
                     if (structureDiv) {
                         // Có structure → hiện cấu trúc
                         structureDiv.style.display = 'block';
-                        eyeBtn.innerHTML = '🔓';
+                        eyeBtn.innerHTML = '🔒';
                         eyeBtn.title = 'Hide structure';
                     } else {
                         // Không có structure → chỉ ẩn câu
-                        eyeBtn.innerHTML = '🔓';
+                        eyeBtn.innerHTML = '🔑';
                         eyeBtn.title = 'Show sentence';
                     }
                 }
@@ -624,5 +654,3 @@ function loadPosts(startpId, endpId, listId) {
     })
     .catch(err => console.error('Error fetching JSON:', err));
 }
-
-
