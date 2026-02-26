@@ -20,7 +20,7 @@
   'use strict';
 
   /* ═══════════════ CONSTANTS ════════════════ */
-  const HW_CDN = 'https://cdn.jsdelivr.net/npm/hanzi-writer-data@2.0/';
+  const HW_CDN = 'https://cdn.jsdelivr.net/npm/hanzi-writer-data@latest/';
 
   /* ═══════════════ STYLES ════════════════ */
   function injectStyles() {
@@ -349,7 +349,7 @@
 
   /* ═══════════════ FETCH HANZIWRITER DATA ════════════════ */
   async function fetchCharData(char) {
-    const code = char.codePointAt(0).toString(16).padStart(5, '0');
+    const code = char.codePointAt(0).toString(16).toLowerCase();
     try {
       const r = await fetch(`${HW_CDN}${code}.json`);
       if (!r.ok) throw new Error('HTTP ' + r.status);
