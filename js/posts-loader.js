@@ -16,6 +16,7 @@ function showImageCard(imageData) {
     const card = document.createElement('div');
     card.className = 'image-card';
     card.innerHTML = `
+        <img src="${imageData.imageSrc}" alt="${imageData.character}">
         <h3>${imageData.character}</h3>
         <p>Meaning: ${imageData.meaning}</p>
         <p>Pinyin: ${imageData.pinyin}</p>
