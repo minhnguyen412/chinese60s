@@ -286,14 +286,14 @@
       background: var(--yellow); border: var(--border); border-radius: 50px;
       padding: 8px 26px; box-shadow: var(--shadow-sm);
     }
-    .quiz-header {
+    .quiz-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 16px;
     }
 
-    .quiz-header h1 {
+    .quiz-top h1 {
       margin: 0;
     }
     #start-container { margin-bottom: 12px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
@@ -701,10 +701,10 @@
 
       <!-- QUIZ SECTION -->
       <div class="qcontainer" id="quiz-container" data-start-id="24" data-end-id="38">
-        <h1 class="quiz-header">
-          <span>Let's Practice! 🎯</span>
+        <div class="quiz-top">
+          <h1>Let's Practice! 🎯</h1>
           <button id="write-button">✏️ Practice Writing</button>
-        </h1>
+        </div>
 
         <div id="quiz-unlocked">
           <div id="start-container">
@@ -1435,5 +1435,6 @@
 
 </body>
 </html>
+
 
 
