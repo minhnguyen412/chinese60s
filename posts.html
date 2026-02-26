@@ -55,9 +55,7 @@
       pointer-events: none; z-index: 0;
     }
 
-    /* ══════════════════════════════
-       HEADER
-    ══════════════════════════════ */
+    /* HEADER */
     header {
       background: var(--green);
       border-bottom: var(--border-thick);
@@ -83,13 +81,11 @@
     }
     nav ul li a:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
 
-    /* ── AUTH PILL in nav ── */
     .auth-pill {
       display: flex; align-items: center; gap: 8px;
       background: var(--white); border: var(--border); border-radius: 50px;
       padding: 5px 14px 5px 6px;
-      box-shadow: var(--shadow-sm);
-      cursor: pointer;
+      box-shadow: var(--shadow-sm); cursor: pointer;
       transition: transform 0.12s, box-shadow 0.12s;
       font-weight: 600; font-size: 0.9rem; color: var(--black);
       text-decoration: none; white-space: nowrap;
@@ -105,7 +101,6 @@
     }
     .auth-pill .avatar img { width: 100%; height: 100%; object-fit: cover; }
 
-    /* sign-in pill (no avatar) */
     #sign-in-btn {
       background: var(--yellow); border: var(--border); border-radius: 50px;
       padding: 6px 18px; font-weight: 700; font-size: 0.9rem;
@@ -116,7 +111,6 @@
     }
     #sign-in-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
 
-    /* user dropdown */
     .user-menu-wrap { position: relative; }
     .user-dropdown {
       display: none;
@@ -152,9 +146,7 @@
       .user-dropdown { right: auto; left: 0; }
     }
 
-    /* ══════════════════════════════
-       LOGIN MODAL
-    ══════════════════════════════ */
+    /* LOGIN MODAL */
     .modal-overlay {
       position: fixed; inset: 0;
       background: rgba(0,0,0,0.5);
@@ -192,9 +184,7 @@
     .google-btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); }
     .google-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
 
-    /* ══════════════════════════════
-       BANNER
-    ══════════════════════════════ */
+    /* BANNER */
     .logos-and-title {
       display: flex; justify-content: center; align-items: flex-end;
       background: var(--green-pale); border-bottom: var(--border-thick);
@@ -204,9 +194,7 @@
       width: 100%; height: auto; max-height: 160px; object-fit: contain; display: block;
     }
 
-    /* ══════════════════════════════
-       MAIN LAYOUT
-    ══════════════════════════════ */
+    /* MAIN LAYOUT */
     .container {
       display: flex; gap: 24px;
       padding: 32px 60px 80px;
@@ -227,7 +215,7 @@
       border: var(--border); border-radius: 14px; display: block;
     }
 
-    /* ── POST CONTENT ── */
+    /* POST CONTENT */
     .pcontainer {
       background: var(--white); border: var(--border-thick);
       border-radius: 22px; box-shadow: var(--shadow-md); padding: 24px;
@@ -287,9 +275,7 @@
     }
     .image-wrapper { display: inline-flex; align-items: center; justify-content: center; }
 
-    /* ══════════════════════════════
-       QUIZ SECTION
-    ══════════════════════════════ */
+    /* QUIZ SECTION */
     .qcontainer {
       background: var(--white); border: var(--border-thick);
       border-radius: 22px; box-shadow: var(--shadow-md); padding: 28px 32px;
@@ -301,22 +287,6 @@
       padding: 8px 26px; box-shadow: var(--shadow-sm);
     }
 
-    /* locked state */
-    .quiz-locked {
-      text-align: center; padding: 16px 0;
-    }
-    .quiz-locked p { color: #666; margin-bottom: 16px; font-size: 1rem; line-height: 1.6; }
-    #quiz-login-btn {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: var(--yellow); border: var(--border-thick); border-radius: 50px;
-      padding: 12px 28px; font-family: 'Fredoka', sans-serif;
-      font-weight: 700; font-size: 1.05rem; cursor: pointer;
-      box-shadow: var(--shadow-md);
-      transition: transform 0.12s, box-shadow 0.12s;
-    }
-    #quiz-login-btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); }
-
-    /* start button (logged in) */
     #start-container { margin-bottom: 12px; }
     #start-button {
       font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.3rem;
@@ -342,13 +312,12 @@
       margin-bottom: 10px; display: none;
     }
 
-    /* ── SENTENCE ZONE ── */
+    /* SENTENCE ZONE */
     .sentence {
       margin: 20px 0 10px; font-size: 1.7rem; font-weight: 700;
       line-height: 2.6; display: none; flex-wrap: wrap;
       align-items: center; gap: 6px;
     }
-    /* When sentence IS an image only — show it properly */
     .sentence img {
       display: inline-block; vertical-align: middle;
       max-width: 200px; max-height: 200px; height: auto; width: auto;
@@ -356,7 +325,6 @@
       box-shadow: var(--shadow-sm);
     }
 
-    /* Empty blank — dashed slot */
     .blank {
       display: inline-flex; align-items: center; justify-content: center;
       min-width: 80px; min-height: 46px;
@@ -369,10 +337,9 @@
       user-select: none; position: relative;
     }
     .blank:not(.filled):not(.reveal-correct):not(.reveal-wrong)::after {
-      content: '　'; /* em-space keeps height */
+      content: '　';
       color: transparent; pointer-events: none;
     }
-    /* Filled blank — shows content, sky bg */
     .blank.filled {
       background: var(--sky);
       border: var(--border-thick); border-style: solid; border-radius: 14px;
@@ -380,16 +347,14 @@
       box-shadow: var(--shadow-sm);
       cursor: pointer;
       padding: 4px 10px;
-      min-height: 46px; height: auto; /* auto for image content */
+      min-height: 46px; height: auto;
     }
     .blank.filled:hover  { background: #a8dfff; box-shadow: var(--shadow-md); transform: translate(-1px,-2px); }
-    /* Image inside filled blank */
     .blank.filled img {
       display: block; width: 70px; height: 70px;
       object-fit: cover; border-radius: 8px; border: none;
       pointer-events: none;
     }
-    /* After reveal */
     .blank.reveal-correct {
       background: var(--green-light); border-color: var(--green-dark) !important;
       color: var(--green-dark); border-style: solid; cursor: default;
@@ -402,36 +367,30 @@
       width: 70px; height: 70px; object-fit: cover; border-radius: 8px;
     }
 
-    /* ── OPTIONS ZONE — CSS Grid, thẳng lề ── */
+    /* OPTIONS ZONE */
     .options {
       margin: 16px 0 8px;
-      display: none;   /* JS sets display:grid */
+      display: none;
       grid-template-columns: repeat(9, 1fr);
       gap: 10px;
     }
-    /* Image-heavy quiz: 2×2 on desktop looks better — JS adds .options-img class */
-    .options.options-img {
-      grid-template-columns: repeat(4, 1fr);
-    }
+    .options.options-img { grid-template-columns: repeat(4, 1fr); }
 
-    /* Each cell = ghost (absolute) + btn — cell keeps size even when btn hidden */
     .word-cell {
       position: relative;
       display: flex;
-      min-height: 50px; /* fallback height so cell never collapses */
+      min-height: 50px;
     }
 
-    /* Ghost placeholder — takes button's place when used */
     .word-ghost {
       position: absolute; inset: 0;
       visibility: hidden; pointer-events: none;
     }
 
-    /* TEXT word — pill, Quicksand Bold */
     .word {
       font-family: 'Quicksand', sans-serif; font-weight: 800; font-size: 1.1rem;
       padding: 8px 8px;
-      width: 100%;                    /* fill the grid cell */
+      width: 100%;
       background: var(--pink); color: var(--black);
       border: var(--border-thick); border-radius: 40px;
       box-shadow: var(--shadow-sm); cursor: pointer;
@@ -448,12 +407,11 @@
     }
     .word:active:not(.used):not(.disabled) { transform: translate(0,0); box-shadow: var(--shadow-sm); }
 
-    /* IMAGE word — square card */
     .word.has-image {
       border-radius: 16px;
       padding: 6px;
       background: var(--white);
-      aspect-ratio: 1;              /* keeps cell square */
+      aspect-ratio: 1;
     }
     .word.has-image img {
       display: block;
@@ -463,24 +421,20 @@
       pointer-events: none;
     }
 
-    /* Word hidden (placed in blank) */
     .word.used { visibility: hidden; pointer-events: none; }
     .word.disabled { opacity: 0.4; pointer-events: none; }
     .word.correct-reveal   { background: var(--green-light); border-color: var(--green-dark); }
     .word.incorrect-reveal { background: var(--pink-pale);   border-color: #e53935; }
 
-    /* ── MOBILE: 2 columns ── */
     @media (max-width: 600px) {
       .options,
       .options.options-img { grid-template-columns: repeat(2, 1fr); }
     }
 
-    /* result feedback (shown after Next) */
     .result { margin-top: 14px; font-size: 1.05rem; font-weight: 700; display: none; }
     .correct   { color: var(--green-dark); }
     .incorrect { color: #e53935; }
 
-    /* next / finish buttons */
     #buttons { display: none; margin-top: 10px; }
     #buttons button {
       font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem;
@@ -493,7 +447,7 @@
     #buttons button.finish { background: var(--yellow); color: var(--black); }
     #buttons button:disabled { opacity: 0.4; cursor: not-allowed; }
 
-    /* ── SCORE SUMMARY ── */
+    /* SCORE SUMMARY */
     .score-summary {
       display: none; text-align: center; padding: 24px 0 8px;
     }
@@ -520,7 +474,6 @@
 
     .hint-text { font-size: 0.9rem; color: #888; margin-top: 12px; border-top: var(--border); padding-top: 10px; }
 
-    /* replay audio button */
     .replay-btn {
       font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 0.95rem;
       background: var(--sky-pale); border: var(--border); border-radius: 50px;
@@ -529,16 +482,13 @@
     }
     .replay-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
 
-    /* Modal auth error */
     .modal-error {
       background: var(--pink-pale); border: 2px solid #e53935; border-radius: 12px;
       padding: 10px 14px; font-size: 0.9rem; color: #c0392b;
       margin-top: 14px; display: none; text-align: left;
     }
 
-    /* ══════════════════════════════
-       WORD POPUP OVERLAY
-    ══════════════════════════════ */
+    /* WORD POPUP OVERLAY */
     .overlay {
       position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 999;
     }
@@ -561,9 +511,7 @@
     #writer-container { display: flex; gap: 12px; justify-content: center; align-items: center; flex-wrap: wrap; }
     .image-card audio { width: 100%; margin-top: 10px; }
 
-    /* ══════════════════════════════
-       SIDEBAR
-    ══════════════════════════════ */
+    /* SIDEBAR */
     .thumbnails-section {
       flex: 1; min-width: 260px; max-width: 320px;
       position: sticky; top: 86px; align-self: flex-start;
@@ -591,7 +539,7 @@
     .thumbnail h4 { font-size: 0.9rem; font-weight: 600; color: var(--black); margin: 0 0 3px; }
     .thumbnail p  { font-size: 0.78rem; color: #777; margin: 0; }
 
-    /* ── FIXED TAGS ── */
+    /* FIXED TAGS */
     .buy-coffee, .new-words {
       position: fixed; right: 20px;
       background: var(--yellow); border: var(--border-thick);
@@ -605,7 +553,7 @@
     .buy-coffee:hover { transform: translate(-2px,-2px); }
     .new-words:hover  { transform: translateY(-50%) translate(-2px,-2px); }
 
-    /* ── FOOTER ── */
+    /* FOOTER */
     footer {
       background: #222; color: rgba(255,255,255,0.65);
       padding: 28px 50px; text-align: center; position: relative; z-index: 1;
@@ -650,7 +598,7 @@
 </head>
 <body>
 
-  <!-- ═══ HEADER ═══ -->
+  <!-- HEADER -->
   <header>
     <h1><a href="index.html" class="homepage-link">CHINESE 60s</a></h1>
     <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
@@ -660,16 +608,11 @@
         <li><a href="courses.html">Courses</a></li>
         <li><a href="shop.html">Shop</a></li>
         <li><a href="https://www.amazon.com/shop/studiorum60s" target="_blank">Amazon</a></li>
-
-        <!-- AUTH AREA — toggled by JS -->
         <li id="auth-nav-item">
-          <!-- State A: not logged in -->
           <button id="sign-in-btn" onclick="openLoginModal()">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" fill="#333"/></svg>
             Sign In
           </button>
-
-          <!-- State B: logged in (hidden by default) -->
           <div class="user-menu-wrap" id="user-menu-wrap" style="display:none;">
             <div class="auth-pill" id="user-pill" onclick="toggleUserMenu()">
               <div class="avatar" id="nav-avatar">👤</div>
@@ -686,7 +629,7 @@
     </nav>
   </header>
 
-  <!-- ═══ LOGIN MODAL ═══ -->
+  <!-- LOGIN MODAL -->
   <div class="modal-overlay" id="login-modal">
     <div class="modal">
       <button class="modal-close" onclick="closeLoginModal()">✕</button>
@@ -702,17 +645,16 @@
         </svg>
         <span id="signin-btn-text">Continue with Google</span>
       </button>
-      <!-- Inline error message -->
       <div class="modal-error" id="modal-error"></div>
     </div>
   </div>
 
-  <!-- ═══ BANNER ═══ -->
+  <!-- BANNER -->
   <div class="logos-and-title">
     <img src="assets/banner.png" alt="Chinese 60s" class="logo">
   </div>
 
-  <!-- ═══ MAIN LAYOUT ═══ -->
+  <!-- MAIN LAYOUT -->
   <div class="container">
 
     <div class="video-section">
@@ -737,35 +679,25 @@
         });
       </script>
 
-      <!-- ═══ QUIZ SECTION ═══ -->
+      <!-- QUIZ SECTION -->
       <div class="qcontainer" id="quiz-container" data-start-id="24" data-end-id="38">
         <h1>Let's Practice! 🎯</h1>
 
         <div id="quiz-unlocked">
-          <!-- Start screen -->
           <div id="start-container">
             <button id="start-button">▶ Start Quiz</button>
           </div>
 
-          <!-- Progress bar -->
           <div class="quiz-counter" id="quiz-counter"></div>
           <div class="quiz-progress-wrap" id="quiz-progress-wrap">
             <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
           </div>
 
-          <!-- Sentence with inline blanks -->
           <div class="sentence" id="sentence"></div>
-
-          <!-- Word options (original pink pill style) -->
           <div class="options" id="options"></div>
-
-          <!-- Feedback -->
           <div class="result" id="result"></div>
-
-          <!-- Buttons -->
           <div id="buttons"></div>
 
-          <!-- Score summary -->
           <div class="score-summary" id="score-summary">
             <div class="score-circle" id="score-circle">
               <span class="score-num" id="score-num">0/0</span>
@@ -791,8 +723,6 @@
 
   </div>
 
-  
-
   <!-- Footer -->
   <footer>
     <p class="brand">CHINESE 60s</p>
@@ -804,8 +734,6 @@
       <a href="#">Instagram</a>
     </div>
   </footer>
-
-  <!-- quiz.js NOT loaded — logic fully inlined below -->
 
   <!-- Sidebar thumbnails -->
   <script>
@@ -836,32 +764,13 @@
     });
   </script>
 
-  <!-- ═══════════════════════════════════════════════════
-       AUTH — Firebase Google Sign-In
-       ✔ Tries signInWithPopup first (fast, no page leave)
-       ✔ Falls back to signInWithRedirect if popup blocked
-       ✔ getRedirectResult() handles return after redirect
-       ✔ window helpers exposed BEFORE auth resolves so
-         onclick= attributes always work
-       📝 Replace firebaseConfig values with your project's
-  ══════════════════════════════════════════════════════ -->
-
-  <!-- ═══════════════════════════════════════════════════
-       AUTH — Firebase Google Sign-In
-       ✔ signInWithPopup (no page leave, no redirect issues)
-       ✔ Inline error shown inside modal (no alert)
-       ✔ window helpers stubbed immediately for onclick=
-       📝 Replace firebaseConfig with your project values
-  ══════════════════════════════════════════════════════ -->
-
-  <!-- Stub helpers immediately so onclick= never throws ReferenceError -->
+  <!-- Auth stubs -->
   <script>
     window.__currentUser   = null;
 
     window.openLoginModal  = function() {
       const m = document.getElementById('login-modal');
       m.classList.add('open');
-      /* reset error & button state */
       const err = document.getElementById('modal-error');
       const txt = document.getElementById('signin-btn-text');
       if (err) { err.style.display = 'none'; err.textContent = ''; }
@@ -874,14 +783,12 @@
       document.getElementById('login-modal').classList.remove('open');
     };
 
-    /* Temporary stub — replaced by module */
     window.doGoogleSignIn  = function() { openLoginModal(); };
     window.signOut         = function() {};
     window.toggleUserMenu  = function() {
       document.getElementById('user-menu-wrap').classList.toggle('open');
     };
 
-    /* Close modal on backdrop click; close dropdown on outside click */
     document.addEventListener('click', function(e) {
       const modal = document.getElementById('login-modal');
       if (e.target === modal) closeLoginModal();
@@ -892,6 +799,7 @@
     });
   </script>
 
+  <!-- Firebase Auth -->
   <script type="module">
     import { initializeApp }  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
     import {
@@ -902,9 +810,6 @@
       onAuthStateChanged
     } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
-    /* ════════════════════════════════════════════
-       🔧 PASTE YOUR FIREBASE CONFIG HERE
-    ════════════════════════════════════════════ */
     const firebaseConfig = {
       apiKey:            "AIzaSyAm-qQrpXKNdqFLITRAGCug7rkskGzyAkg",
       authDomain:        "chinese60s.firebaseapp.com",
@@ -918,15 +823,13 @@
     const app      = initializeApp(firebaseConfig);
     const auth     = getAuth(app);
     const provider = new GoogleAuthProvider();
-    /* Always show account picker */
     provider.setCustomParameters({ prompt: 'select_account' });
 
-    /* ── Helper: show error inside modal ── */
     function showModalError(msg) {
       const el = document.getElementById('modal-error');
       if (!el) return;
-      el.textContent    = msg;
-      el.style.display  = 'block';
+      el.textContent   = msg;
+      el.style.display = 'block';
       const btn = document.getElementById('google-signin-btn');
       const txt = document.getElementById('signin-btn-text');
       if (btn) btn.disabled = false;
@@ -937,54 +840,36 @@
       const btn = document.getElementById('google-signin-btn');
       const txt = document.getElementById('signin-btn-text');
       if (!btn || !txt) return;
-      btn.disabled     = loading;
-      txt.textContent  = loading ? 'Opening Google…' : 'Continue with Google';
+      btn.disabled    = loading;
+      txt.textContent = loading ? 'Opening Google…' : 'Continue with Google';
     }
 
-    /* ── Google Sign-In with Popup ── */
     window.doGoogleSignIn = async function() {
-      /* Clear previous error */
       const errEl = document.getElementById('modal-error');
       if (errEl) { errEl.style.display = 'none'; errEl.textContent = ''; }
-
       setSignInLoading(true);
       try {
         await signInWithPopup(auth, provider);
-        /* onAuthStateChanged will fire and update UI */
         closeLoginModal();
       } catch (err) {
         setSignInLoading(false);
         console.error('Sign-in error:', err.code, err.message);
-
-        /* Map common Firebase error codes to friendly messages */
         const msgs = {
-          'auth/popup-blocked':
-            '🚫 Popup was blocked. Please allow popups for this site in your browser settings, then try again.',
-          'auth/popup-closed-by-user':
-            '❌ Sign-in window was closed. Please try again.',
-          'auth/cancelled-popup-request':
-            '❌ Sign-in was cancelled. Please try again.',
-          'auth/network-request-failed':
-            '🌐 Network error. Check your internet connection and try again.',
-          'auth/invalid-api-key':
-            '⚙️ Firebase configuration error. Please contact the site admin.',
-          'auth/operation-not-allowed':
-            '⚙️ Google sign-in is not enabled. Please contact the site admin.',
-          'auth/unauthorized-domain':
-            '⚙️ This domain is not authorised for sign-in. Please contact the site admin.',
-          'auth/user-disabled':
-            '🚫 This account has been disabled.',
+          'auth/popup-blocked':           '🚫 Popup was blocked. Please allow popups for this site.',
+          'auth/popup-closed-by-user':    '❌ Sign-in window was closed. Please try again.',
+          'auth/cancelled-popup-request': '❌ Sign-in was cancelled. Please try again.',
+          'auth/network-request-failed':  '🌐 Network error. Check your connection.',
+          'auth/unauthorized-domain':     '⚙️ Domain not authorised. Contact admin.',
+          'auth/user-disabled':           '🚫 This account has been disabled.',
         };
         showModalError(msgs[err.code] || `Sign-in failed: ${err.message}`);
       }
     };
 
-    /* ── Sign Out ── */
     window.signOut = async function() {
-      try { await fbSignOut(auth); } catch(e) { console.error('Sign-out error:', e); }
+      try { await fbSignOut(auth); } catch(e) { console.error(e); }
     };
 
-    /* ── Update nav UI on auth state change ── */
     onAuthStateChanged(auth, function(user) {
       const signInBtn    = document.getElementById('sign-in-btn');
       const userMenuWrap = document.getElementById('user-menu-wrap');
@@ -1007,27 +892,90 @@
     });
   </script>
 
-  <!-- ═══════════════════════════════════════════════════════════════════
-       QUIZ LOGIC
-       Data shape: quiz.json → { questions:[{ id, sentence, blanks:[{answer}], words:[], audio? }] }
+  <!-- ═══════════════════════════════════════════════════════════
+       TRACKING HELPERS
+       - saveQuizAttempt(postId, scoreCorrect, totalQ, wrongAnswers[])
+       - saveRecording(postId, transcript, correctSentence)
+       Cả 2 đều fire-and-forget, chỉ chạy khi đã login
+  ═══════════════════════════════════════════════════════════ -->
+  <script>
+    /**
+     * Lưu kết quả quiz vào Firestore
+     * @param {string} postId      - ID bài học (từ URL param ?id=)
+     * @param {number} score       - số câu đúng
+     * @param {number} totalQ      - tổng số câu
+     * @param {Array}  wrongList   - [{question, given, answer}]
+     */
+    window.saveQuizAttempt = async function(postId, score, totalQ, wrongList) {
+      if (!window.__currentUser) return;
+      try {
+        const { getFirestore, collection, addDoc, doc, setDoc, serverTimestamp, increment } =
+          await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js");
+        const db  = getFirestore();
+        const uid = window.__currentUser.uid;
 
-       UX:
-       ✔ Auth gate on Start
-       ✔ Sentence shown with ___ as dashed pill blanks (original style)
-       ✔ Options below as pink pill buttons — text or image
-       ✔ Click option → hides (ghost), content appears in blank inline
-       ✔ Click filled blank → option returns, blank resets
-       ✔ All blanks filled → Next enables
-       ✔ Next → reveal green/red on blanks + options, show feedback
-       ✔ No Retry; final score summary
-  ═══════════════════════════════════════════════════════════════════ -->
+        // Lưu chi tiết lần làm quiz này
+        await addDoc(collection(db, 'quiz_attempts'), {
+          uid,
+          postId:         String(postId),
+          score:          score,
+          totalQuestions: totalQ,
+          wrongAnswers:   wrongList || [],
+          startTime:      serverTimestamp()
+        });
+
+        // Cộng dồn vào user document
+        await setDoc(doc(db, 'users', uid), {
+          totalScore:   increment(score),
+          totalQuizzes: increment(1)
+        }, { merge: true });
+
+        console.log('[tracking] quiz_attempt saved ✓', { postId, score, totalQ });
+      } catch(e) {
+        console.warn('[tracking] saveQuizAttempt failed:', e);
+      }
+    };
+
+    /**
+     * Lưu 1 lượt thu âm vào Firestore
+     * Gọi hàm này mỗi khi Speech Recognition trả về kết quả
+     *
+     * @param {string} postId          - ID bài học
+     * @param {string} transcript      - chuỗi user đã nói
+     * @param {string} correctSentence - câu gốc cần nói đúng
+     */
+    window.saveRecording = async function(postId, transcript, correctSentence) {
+      if (!window.__currentUser) return;
+      try {
+        const { getFirestore, collection, addDoc, serverTimestamp } =
+          await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js");
+        const db = getFirestore();
+        await addDoc(collection(db, 'recordings'), {
+          uid:             window.__currentUser.uid,
+          postId:          String(postId),
+          transcript:      transcript      || '',
+          correctSentence: correctSentence || '',
+          timestamp:       serverTimestamp()
+        });
+        console.log('[tracking] recording saved ✓', { postId, transcript });
+      } catch(e) {
+        console.warn('[tracking] saveRecording failed:', e);
+      }
+    };
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       QUIZ LOGIC — tích hợp tracking đầy đủ
+       Tracking points:
+         1. wrongAnswerLog[] — tích luỹ câu sai trong suốt quiz
+         2. showSummary()   — gọi saveQuizAttempt() khi quiz kết thúc
+  ═══════════════════════════════════════════════════════════════ -->
   <script>
   (function () {
 
     /* ══ HELPERS ══ */
     function isImg(s) { return /\.(jpe?g|png|gif|bmp|webp|svg)$/i.test(String(s || '')); }
 
-    /* Inner HTML for a word — image or text */
     function wordHTML(w) {
       if (isImg(w)) return `<img src="${w}" alt="">`;
       return String(w);
@@ -1038,11 +986,10 @@
     let curIdx       = 0;
     let scoreCorrect = 0;
     let revealed     = false;
-    /*
-      slots[i] = null | { optBtn, ghostEl, word }
-      parallel to blanks[] of current question
-    */
-    let slots = [];
+    let slots        = [];
+
+    // ── TRACKING: tích luỹ câu sai qua toàn bộ quiz ──
+    let wrongAnswerLog = [];
 
     const clickAudio     = new Audio('assets/click.mp3');
     const correctAudio   = new Audio('assets/correct.mp3');
@@ -1086,6 +1033,7 @@
 
     /* ══ START ══ */
     startBtn.addEventListener('click', async () => {
+      // Yêu cầu đăng nhập trước khi làm quiz
       if (!window.__currentUser) { openLoginModal(); return; }
 
       const qc   = document.getElementById('quiz-container');
@@ -1093,9 +1041,10 @@
       const sId  = parseInt(p.get('quizStartId')) || parseInt(qc.dataset.startId) || 1;
       const eId  = parseInt(p.get('quizEndId'))   || parseInt(qc.dataset.endId)   || 10;
 
-      questions    = await loadQ(sId, eId);
-      curIdx       = 0;
-      scoreCorrect = 0;
+      questions      = await loadQ(sId, eId);
+      curIdx         = 0;
+      scoreCorrect   = 0;
+      wrongAnswerLog = []; // reset log câu sai
 
       startCont.style.display  = 'none';
       progWrap.style.display   = 'block';
@@ -1117,13 +1066,11 @@
       progFill.style.width  = (curIdx / questions.length * 100) + '%';
       counterEl.textContent = `Question ${curIdx + 1} of ${questions.length}`;
 
-      /* ── Build sentence with inline blank pills ── */
+      /* Build sentence with inline blank pills */
       let sentRaw = q.sentence || '';
-      /* If sentence is an array (mixed tokens), join them */
       if (Array.isArray(sentRaw)) {
         sentRaw = sentRaw.map(tok => isImg(tok) ? `<img src="${tok}" alt="">` : String(tok)).join('');
       } else {
-        /* Replace any image paths in text with img tags */
         sentRaw = String(sentRaw).replace(/([\S]+\.(?:jpe?g|png|gif|bmp|webp|svg))/gi,
           '<img src="$1" alt="">');
       }
@@ -1134,34 +1081,27 @@
         return `<span class="blank" data-bi="${idx}"></span>`;
       });
       sentenceEl.innerHTML = sentHTML;
-      /* Use flex so images + text + blanks all align nicely */
       sentenceEl.style.display = 'flex';
 
-      /* Attach click to each blank */
       sentenceEl.querySelectorAll('.blank').forEach(blankEl => {
         blankEl.addEventListener('click', () => handleBlankClick(blankEl));
       });
 
-      /* ── Build options (shuffled) ── */
+      /* Build options */
       const words = [...(q.words || [])].sort(() => Math.random() - 0.5);
       optionsEl.innerHTML = '';
 
-      /* Detect if this question is image-based (majority of words are images) */
       const imgCount = words.filter(w => isImg(w)).length;
       const isImgQ   = imgCount > words.length / 2;
 
-      /* Show as grid */
       optionsEl.style.display = 'grid';
       optionsEl.classList.toggle('options-img', isImgQ);
 
       words.forEach(word => {
         const hasImg = isImg(word);
-
-        /* Cell wrapper — ghost + btn */
-        const cell = document.createElement('div');
+        const cell   = document.createElement('div');
         cell.className = 'word-cell';
 
-        /* Ghost — fills cell space when word is used */
         const ghost = document.createElement('span');
         ghost.className = 'word-ghost';
 
@@ -1177,14 +1117,13 @@
         cell.appendChild(btn);
         optionsEl.appendChild(cell);
 
-        /* Size ghost after btn renders */
         requestAnimationFrame(() => {
           ghost.style.width  = btn.offsetWidth  + 'px';
           ghost.style.height = btn.offsetHeight + 'px';
         });
       });
 
-      /* ── Reset feedback & buttons ── */
+      /* Reset feedback & buttons */
       resultEl.style.display  = 'none';
       resultEl.textContent    = '';
       resultEl.className      = 'result';
@@ -1204,7 +1143,7 @@
         buttonsEl.appendChild(rb);
       }
 
-      /* Next/Finish — disabled until all blanks filled */
+      /* Next/Finish button — disabled cho đến khi điền đủ chỗ trống */
       const isLast    = curIdx === questions.length - 1;
       const actionBtn = document.createElement('button');
       actionBtn.id          = 'action-btn';
@@ -1219,16 +1158,12 @@
     function handleWordClick(btn, ghost) {
       if (revealed || btn.classList.contains('used')) return;
 
-      /* find first empty slot */
       const emptyBi = slots.findIndex(s => s === null);
       if (emptyBi === -1) return;
 
       play(clickAudio);
-
-      /* Ghost is position:absolute inset:0 — just make it visible to block clicks */
       btn.classList.add('used');
 
-      /* Fill blank */
       const blankEl = sentenceEl.querySelector(`[data-bi="${emptyBi}"]`);
       if (!blankEl) return;
       blankEl.innerHTML = wordHTML(btn.dataset.word);
@@ -1246,11 +1181,7 @@
       if (!slot) return;
 
       play(clickAudio);
-
-      /* Restore word button */
       slot.optBtn.classList.remove('used');
-
-      /* Clear blank — keep data-bi for re-attach */
       blankEl.innerHTML = '';
       blankEl.className = 'blank';
       blankEl.setAttribute('data-bi', String(bi));
@@ -1258,7 +1189,6 @@
       slots[bi] = null;
       checkAllFilled();
 
-      /* Re-attach click listener */
       blankEl.addEventListener('click', () => handleBlankClick(blankEl));
     }
 
@@ -1274,9 +1204,21 @@
 
       const blanks = q.blanks || [];
       let allOk = true;
+
       blanks.forEach((b, i) => {
-        if (!slots[i] || String(slots[i].word) !== String(b.answer)) allOk = false;
+        const given = slots[i]?.word;
+        const ok    = String(given) === String(b.answer);
+        if (!ok) {
+          allOk = false;
+          // ── TRACKING: ghi nhận câu sai ──
+          wrongAnswerLog.push({
+            question: String(q.sentence || ''),
+            given:    String(given || '(empty)'),
+            answer:   String(b.answer)
+          });
+        }
       });
+
       if (allOk) scoreCorrect++;
 
       /* Colour blanks */
@@ -1287,7 +1229,6 @@
         blankEl.classList.add(ok ? 'reveal-correct' : 'reveal-wrong');
         blankEl.style.cursor = 'default';
         if (!ok && !isImg(b.answer)) {
-          /* Append correct text answer hint */
           const hint = document.createElement('small');
           hint.textContent = ` (${b.answer})`;
           hint.style.cssText = 'font-size:0.65em;opacity:0.75;margin-left:4px;';
@@ -1331,7 +1272,7 @@
       }
     }
 
-    /* ══ SUMMARY ══ */
+    /* ══ SUMMARY — gọi saveQuizAttempt ══ */
     function showSummary() {
       sentenceEl.style.display  = 'none';
       optionsEl.style.display   = 'none';
@@ -1363,6 +1304,11 @@
         scoreMsgEl.textContent   = `You got ${scoreCorrect}/${total} correct (${pct}%). Try again!`;
       }
       summaryEl.style.display = 'block';
+
+      // ── TRACKING: lưu quiz attempt lên Firestore ──
+      const p      = new URLSearchParams(window.location.search);
+      const postId = p.get('id') || 'unknown';
+      window.saveQuizAttempt(postId, scoreCorrect, total, wrongAnswerLog);
     }
 
     /* ══ RESTART ══ */
@@ -1385,7 +1331,54 @@
   })();
   </script>
 
+  <!-- ═══════════════════════════════════════════════════════════
+       SPEECH RECORDING — ví dụ tích hợp Web Speech API
+       Nếu trang đã có code STT riêng, chỉ cần gọi:
+         window.saveRecording(postId, transcript, correctSentence)
+       sau khi STT trả về kết quả.
+
+       Đây là skeleton để tích hợp vào button thu âm hiện tại.
+  ═══════════════════════════════════════════════════════════ -->
+  <script>
+    /**
+     * Khởi tạo speech recognition cho 1 item trong content-list
+     * @param {string} correctSentence  - câu tiếng Trung cần nói
+     * @param {HTMLElement} micBtn      - button mic người dùng click
+     */
+    window.initSpeechRecognition = function(correctSentence, micBtn) {
+      if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+        console.warn('Speech Recognition not supported');
+        return;
+      }
+
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      const recognition = new SpeechRecognition();
+      recognition.lang        = 'zh-CN';
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+
+      micBtn.addEventListener('click', () => {
+        recognition.start();
+        micBtn.textContent = '🔴';
+      });
+
+      recognition.onresult = function(event) {
+        const transcript = event.results[0][0].transcript;
+        micBtn.textContent = '🎤';
+
+        // Hiển thị kết quả (tùy code gốc của mày)
+        console.log('STT result:', transcript);
+
+        // ── TRACKING: lưu recording lên Firestore ──
+        const p      = new URLSearchParams(window.location.search);
+        const postId = p.get('id') || 'unknown';
+        window.saveRecording(postId, transcript, correctSentence);
+      };
+
+      recognition.onerror = function() { micBtn.textContent = '🎤'; };
+      recognition.onend   = function() { micBtn.textContent = '🎤'; };
+    };
+  </script>
+
 </body>
 </html>
-
-
