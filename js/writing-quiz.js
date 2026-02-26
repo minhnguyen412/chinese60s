@@ -348,17 +348,23 @@
   }
 
   /* ═══════════════ FETCH HANZIWRITER DATA ════════════════ */
-  async function fetchCharData(char) {
-    const code = char.codePointAt(0).toString(16).toLowerCase();
-    try {
-      const r = await fetch(`${HW_CDN}${code}.json`);
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      return await r.json();
-    } catch (e) {
-      console.warn('[WritingQuiz] No stroke data for', char, e.message);
-      return null;
-    }
+ async function fetchCharData(char) {
+  if (!char) return null;
+  
+  // Lấy chính chữ đó, ví dụ: "我"
+  const cleanChar = char.trim().charAt(0); 
+
+  try {
+    // Gọi trực tiếp: https://cdn.jsdelivr.net/npm/hanzi-writer-data@latest/我.json
+    const r = await fetch(`${HW_CDN}${cleanChar}.json`);
+    
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    return await r.json();
+  } catch (e) {
+    console.warn('[WritingQuiz] Không tìm thấy dữ liệu cho:', cleanChar, e.message);
+    return null;
   }
+}
 
   /* ═══════════════ SHUFFLE ════════════════ */
   function shuffle(arr) {
