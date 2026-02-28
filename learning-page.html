@@ -852,24 +852,12 @@
 
   <!-- REAL-LIFE CHINESE Script cards -->
   <script>
-    const SCRIPTS = [
-      { num:6,  url:'blog/douyin/house-hunting',  title:'九十后租房',             subtitle:'House hunting as a post-90s renter',       emoji:'🏠' },
-      { num:7,  url:'blog/douyin/spa-massage',    title:'SPA 按摩',               subtitle:'SPA Massage',                              emoji:'💆' },
-      { num:8,  url:'blog/douyin/healing-time',   title:'治愈时',                 subtitle:'Healing Time',                             emoji:'🌿' },
-      { num:9,  url:'blog/douyin/take-a-bus',     title:'坐大巴车回家',           subtitle:'Take a bus to go back home',               emoji:'🚌' },
-      { num:10, url:'blog/douyin/go-to-the-market', title:'来菜市场买菜买水果',   subtitle:'Go to the market to buy vegetables',       emoji:'🥦' },
-      { num:11, url:'blog/douyin/her-cooking-is-great', title:'她的厨艺真的是可以的', subtitle:'Her cooking is really great',         emoji:'🍳' },
-      { num:12, url:'blog/douyin/scary-dream',    title:'刚梦到一个让人害怕的梦', subtitle:'I just dreamed a really scary dream',     emoji:'😱' },
-      { num:13, url:'blog/douyin/losing-my-voice', title:'失声',                  subtitle:'Losing My Voice',                          emoji:'🤐' },
-      { num:14, url:'blog/douyin/quick-way-to-lose-weight', title:'一个快速掉秤的方法', subtitle:'A quick way to lose weight',        emoji:'⚖️' },
-      { num:15, url:'blog/douyin/use-washing-machine', title:'如何使用洗衣机',   subtitle:'How to use a washing machine',             emoji:'🫧' },
-    ];
-
     const PH_PALETTES = ['ph-teal','ph-coral','ph-amber','ph-violet','ph-rose','ph-lime','ph-sky2','ph-peach2','ph-mint','ph-grape'];
 
     const PER_PAGE_SCRIPTS = 8;
-    let scriptsPage = 0;
-    const grid = document.getElementById('scripts-grid');
+    let SCRIPTS      = [];
+    let scriptsPage  = 0;
+    const grid       = document.getElementById('scripts-grid');
     const loadMoreBtn = document.getElementById('load-more-btn');
 
     function renderScriptCards(start, count) {
@@ -897,13 +885,8 @@
             <span class="script-card-num">#${s.num}</span>
           </div>`;
 
-        // ── TRACKING: script card click ──
         card.addEventListener('click', () => {
-          window.trackLesson({
-            id:       'script-' + s.num,
-            title:    s.title,
-            htmlLink: s.url
-          });
+          window.trackLesson({ id: 'script-' + s.num, title: s.title, htmlLink: s.url });
         });
 
         grid.appendChild(card);
@@ -916,12 +899,18 @@
       renderScriptCards(start, PER_PAGE_SCRIPTS);
       scriptsPage++;
       if (scriptsPage * PER_PAGE_SCRIPTS >= SCRIPTS.length) {
-        loadMoreBtn.disabled = true;
+        loadMoreBtn.disabled    = true;
         loadMoreBtn.textContent = 'All scripts loaded ✓';
       }
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        const res = await fetch('data/scripts.json');
+        SCRIPTS   = await res.json();
+      } catch(e) {
+        console.error('Failed to load scripts.json:', e);
+      }
       loadScripts();
       loadMoreBtn.addEventListener('click', loadScripts);
     });
@@ -1057,3 +1046,4 @@
 
 </body>
 </html>
+
