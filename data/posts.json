@@ -2779,5 +2779,95 @@
     "description": "wǎnshang wǒ zuò liànxí, xiě hànzì, yùxí kèwén hé shēngcí, ránhòu kànkan  diànshì, tīngting yīnyuè, shíyī diǎn shuì jiào.<br>In the evening, I do exercises, write Chinese characters, preview the text and new words, and then watch some TV and listen to some music, at 11:00 I go to sleep.",
     "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200930/309_fagxjg.mp3"
+  },
+  {
+    "id": 310,
+    "user": "老师",
+    "title": "同学们，明天我们去爬山。",
+    "segments": ["同学", "们", "，", "明天", "我们", "去", "爬", "山", "。"],
+    "description": "tóngxuémen, míngtiān wǒmen qù pá shān.<br>Classmates, tomorrow we will go climbing a mountain.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200929/310_xktjwl.mp3"
+  },
+  {
+    "id": 311,
+    "user": "山本",
+    "title": "太好了！老师，您去吗？",
+    "segments": ["太", "好", "了", "！", "老师", "，", "您", "去", "吗", "？"],
+    "description": "tài hǎo le! lǎoshī, nín qù ma?<br>That’s great! Teacher, will you go?",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200930/311_xql3v1.mp3"
+  },
+  {
+    "id": 312,
+    "user": "老师",
+    "title": "去。一年级的老师和学生都去。",
+    "segments": ["去", "。", "一", "年级", "的", "老师", "和", "学生", "都", "去", "。"],
+    "description": "qù. yī niánjí de lǎoshī hé xuésheng dōu qù.<br>Yes. The teachers and students of the first grade will all go.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200931/312_zbx9uj.mp3"
+  },
+  {
+    "id": 313,
+    "user": "山本",
+    "title": "明天什么时候出发？",
+    "segments": ["明天", "什么", "时候", "出发", "？"],
+    "description": "míngtiān shénme shíhou chūfā?<br>What time will we leave tomorrow?",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200931/313_vqby1r.mp3"
+  },
+  {
+    "id": 314,
+    "user": "老师",
+    "title": "明天早上七点在楼前集合上车，",
+    "segments": ["明天", "早上", "七", "点", "在", "楼", "前", "集合", "上车", "，"],
+    "description": "míngtiān zǎoshang qī diǎn zài lóu qián jíhé shàng chē,<br>Tomorrow morning at 7:00, gather in front of the building and get on the bus,",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200931/314_whsgp1.mp3"
+  },
+  {
+    "id": 315,
+    "user": "老师",
+    "title": "七点一刻准时出发。",
+    "segments": ["七", "点", "一", "刻", "准时", "出发", "。"],
+    "description": "qī diǎn yí kè zhǔnshí chūfā.<br>We will leave on time at 7:15.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200932/315_qgupgu.mp3"
+  },
+  {
+    "id": 316,
+    "user": "山本",
+    "title": "中午回来吗？",
+    "segments": ["中午", "回来", "吗", "？"],
+    "description": "zhōngwǔ huílai ma?<br>Will we come back at noon?",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200931/316_zv8biv.mp3"
+  },
+  {
+    "id": 317,
+    "user": "老师",
+    "title": "不回来，要带午饭。",
+    "segments": ["不", "回来", "，", "要", "带", "午饭", "。"],
+    "description": "bù huílai, yào dài wǔfàn.<br>No, we won’t, you need to bring lunch.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200932/317_iejzc2.mp3"
+  },
+  {
+    "id": 318,
+    "user": "山本",
+    "title": "什么时候回来？",
+    "segments": ["什么", "时候", "回来", "？"],
+    "description": "shénme shíhou huílai?<br>What time will we come back?",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200932/318_fe6qmf.mp3"
+  },
+  {
+    "id": 319,
+    "user": "老师",
+    "title": "下午四点。",
+    "segments": ["下午", "四", "点", "。"],
+    "description": "xiàwǔ sì diǎn.<br>At 4:00 in the afternoon.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200932/319_aank72.mp3"
   }
 ]
