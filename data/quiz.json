@@ -4776,9 +4776,166 @@
 
             ],
             "words": ["参加", "就", "点种", "举行"]
-        }
+        },
+        {
+    "id": 403,
+    "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200927/300_aj3cor.mp3",
+    "sentence": "___ ___ ___ ___ ___ ___， ___ ___ ___。",
+    "blanks": [{ "answer": "我" }, { "answer": "每天" }, { "answer": "早上" }, { "answer": "六点" }, { "answer": "半" }, { "answer": "起床" }, { "answer": "七点" }, { "answer": "吃" }, { "answer": "早饭" }],
+    "words": ["六点", "七点", "每天", "吃", "我", "早饭", "早上", "半", "起床"]
+  },
+  {
+    "id": 404,
+    "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200928/301_venuyf.mp3",
+    "sentence": "___ ___ ___ ___ ___， ___ ___。",
+    "blanks": [{ "answer": "差" }, { "answer": "十分" }, { "answer": "八点" }, { "answer": "去" }, { "answer": "教室" }, { "answer": "八点" }, { "answer": "上课" }],
+    "words": ["差", "去", "十分", "上课", "教室", "八点", "八点"]
+  },
+  {
+    "id": 405,
+    "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200928/302_yoszcl.mp3",
+    "sentence": "___ ___ ___ ___ ___ ___， ___ ___ ___。",
+    "blanks": [{ "answer": "上午" }, { "answer": "我们" }, { "answer": "有" }, { "answer": "四" }, { "answer": "节" }, { "answer": "课" }, { "answer": "十二" }, { "answer": "点" }, { "answer": "下课" }],
+    "words": ["下课", "上午", "点", "节", "我们", "十二", "课", "有", "四"]
+  },
+  {
+    "id": 406,
+    "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200928/303_o0kje1.mp3",
+    "sentence": "___ ___ ___ ___ ___ ___。",
+    "blanks": [{ "answer": "中午" }, { "answer": "我" }, { "answer": "去" }, { "answer": "食堂" }, { "answer": "吃" }, { "answer": "午饭" }],
+    "words": ["吃", "食堂", "中午", "午饭", "我", "去"]
+  },
+  {
+    "id": 407,
+    "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200929/304_g1pdls.mp3",
+    "sentence": "___ ___， ___ ___ ___ ___ ___ ___。",
+    "blanks": [{ "answer": "午饭" }, { "answer": "以后" }, { "answer": "我" }, { "answer": "常常" }, { "answer": "去" }, { "answer": "朋友" }, { "answer": "那儿" }, { "answer": "聊天儿" }],
+    "words": ["去", "聊天儿", "以后", "午饭", "我", "那儿", "常常", "朋友"]
+  },
+  {
+    "id": 408,
+    "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200931/305_fmjxt5.mp3",
+    "sentence": "___ ___ ___ ___ ___， ___ ___ ___ ___ ___， ___ ___ ___ ___ ___ ___ ___。",
+    "blanks": [{ "answer": "下午" }, { "answer": "没有" }, { "answer": "课" }, { "answer": "的" }, { "answer": "时候" }, { "answer": "我" }, { "answer": "去" }, { "answer": "图书馆" }, { "answer": "看" }, { "answer": "书" }, { "answer": "或者" }, { "answer": "跟" }, { "answer": "中国" }, { "answer": "朋友" }, { "answer": "一起" }, { "answer": "练习" }, { "answer": "口语" }],
+    "words": ["图书馆", "中国", "的", "一起", "跟", "口语", "课", "去", "看", "下午", "没有", "练习", "时候", "朋友", "书", "或者", "我"]
+  },
+  {
+    "id": 409,
+    "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200932/306_kdwwve.mp3",
+    "sentence": "___ ___ ___ ___ ___ ___。",
+    "blanks": [{ "answer": "有时候" }, { "answer": "在" }, { "answer": "宿舍" }, { "answer": "看" }, { "answer": "电影" }, { "answer": "光盘" }],
+    "words": ["看", "光盘", "宿舍", "电影", "有时候", "在"]
+  },
+  {
+    "id": 410,
+    "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200928/307_s6xfbo.mp3",
+    "sentence": "___ ___ ___ ___ ___ ___。",
+    "blanks": [{ "answer": "四点" }, { "answer": "我" }, { "answer": "去" }, { "answer": "操场" }, { "answer": "锻炼" }, { "answer": "身体" }],
+    "words": ["锻炼", "身体", "我", "四点", "去", "操场"]
+  },
+  {
+    "id": 411,
+    "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200928/308_gdflyr.mp3",
+    "sentence": "___ ___ ___ ___， ___ ___， ___ ___ ___ ___ ___ ___。",
+    "blanks": [{ "answer": "五点" }, { "answer": "回" }, { "answer": "宿舍" }, { "answer": "洗澡" }, { "answer": "洗" }, { "answer": "衣服" }, { "answer": "六点" }, { "answer": "半" }, { "answer": "或者" }, { "answer": "七点" }, { "answer": "吃" }, { "answer": "晚饭" }],
+    "words": ["或者", "五点", "吃", "回", "半", "六点", "宿舍", "衣服", "七点", "晚饭", "洗", "洗澡"]
+  },
+  {
+    "id": 412,
+    "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200930/309_fagxjg.mp3",
+    "sentence": "___ ___ ___ ___、 ___ ___、 ___ ___ ___ ___， ___ ___ ___、 ___ ___， ___ ___ ___。",
+    "blanks": [{ "answer": "晚上" }, { "answer": "我" }, { "answer": "做" }, { "answer": "练习" }, { "answer": "写" }, { "answer": "汉字" }, { "answer": "预习" }, { "answer": "课文" }, { "answer": "和" }, { "answer": "生词" }, { "answer": "然后" }, { "answer": "看看" }, { "answer": "电视" }, { "answer": "听听" }, { "answer": "音乐" }, { "answer": "十一" }, { "answer": "点" }, { "answer": "睡觉" }],
+    "words": ["课文", "听听", "练习", "电视", "音乐", "和", "我", "做", "十一", "晚上", "睡觉", "汉字", "然后", "生词", "写", "预习", "点", "看看"]
+  },
+  {
+    "id": 413,
+    "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200929/310_xktjwl.mp3",
+    "sentence": "___， ___ ___ ___ ___。",
+    "blanks": [{ "answer": "同学们" }, { "answer": "明天" }, { "answer": "我们" }, { "answer": "去" }, { "answer": "爬山" }],
+    "words": ["明天", "去", "同学们", "我们", "爬山"]
+  },
+  {
+    "id": 414,
+    "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772984896/%E7%88%AC_env8nc.mp3",
+    "sentence": "爬 : ___",
+    "blanks": [{ "answer": "" }],
+    "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772983929/%E6%B8%B8%E6%B3%B3_f82puu.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981248/%E7%88%AC_zvungd.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1752648100/%E4%BD%93%E8%82%B2-min_st0zjq.png"]
+  },
+  {
+    "id": 415,
+    "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200931/312_zbx9uj.mp3",
+    "sentence": "___。 ___ ___ ___ ___ ___ ___ ___ ___。",
+    "blanks": [{ "answer": "去" }, { "answer": "一" }, { "answer": "年级" }, { "answer": "的" }, { "answer": "老师" }, { "answer": "和" }, { "answer": "学生" }, { "answer": "都" }, { "answer": "去" }],
+    "words": ["去", "都", "的", "和", "年级", "去", "学生", "一", "老师"]
+  },
+  {
+    "id": 416,
+    "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772984867/%E5%B9%B4%E7%BA%A7_oly8c8.mp3",
+    "sentence": "年级 : ___",
+    "blanks": [{ "answer": "" }],
+    "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772983820/%E5%9D%8F%E5%A4%84_xg27gn.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982468/%E9%9D%A2%E7%A7%AF_yk8qq4.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981228/%E5%B9%B4%E7%BA%AA_zljois.png"]
+  },
+  {
+    "id": 417,
+    "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200931/313_vqby1r.mp3",
+    "sentence": "___ ___ ___ ___？",
+    "blanks": [{ "answer": "明天" }, { "answer": "什么" }, { "answer": "时候" }, { "answer": "出发" }],
+    "words": ["明天", "时候", "出发", "什么"]
+  },
+  {
+    "id": 418,
+    "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200931/314_whsgp1.mp3",
+    "sentence": "___ ___ ___ ___ ___ ___ ___ ___",
+    "blanks": [{ "answer": "明天" }, { "answer": "早上" }, { "answer": "七点" }, { "answer": "在" }, { "answer": "楼" }, { "answer": "前" }, { "answer": "集合" }, { "answer": "上车" }],
+    "words": ["楼", "七点", "集合", "明天", "前", "早上", "在", "上车"]
+  },
+  {
+    "id": 419,
+    "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772984838/%E5%87%BA%E5%8F%91_fxidnv.mp3",
+    "sentence": [
+      "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981227/%E5%87%BA%E5%8F%91_lktxh0.png",
+      ": ___"
+    ],
+    "blanks": [{ "answer": "出发" }],
+    "words": ["回来", "出发", "出来"]
+  },
+  {
+    "id": 420,
+    "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200932/315_qgupgu.mp3",
+    "sentence": "___ ___ ___ ___ ___ ___。",
+    "blanks": [{ "answer": "七" }, { "answer": "点" }, { "answer": "一" }, { "answer": "刻" }, { "answer": "准时" }, { "answer": "出发" }],
+    "words": ["出发", "准时", "一", "点", "刻", "七"]
+  },
+  {
+    "id": 421,
+    "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772984835/%E5%87%86%E6%97%B6_dnojad.mp3",
+    "sentence": [
+      "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981225/%E5%87%86%E6%97%B6_ubeegz.png",
+      ": ___"
+    ],
+    "blanks": [{ "answer": "准时" }],
+    "words": ["准时", "出发", "上课"]
+  },
+  {
+    "id": 422,
+    "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200932/317_iejzc2.mp3",
+    "sentence": "___ ___， ___ ___ ___。",
+    "blanks": [{ "answer": "不" }, { "answer": "回来" }, { "answer": "要" }, { "answer": "带" }, { "answer": "午饭" }],
+    "words": ["不", "回来", "带", "要", "午饭"]
+  },
+  {
+    "id": 423,
+    "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772984862/%E5%B8%A6_wasy0d.mp3",
+    "sentence": [
+      "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981228/%E5%B8%A6_rduo1a.png",
+      ": ___"
+    ],
+    "blanks": [{ "answer": "带" }],
+    "words": ["起", "带", "爬"]
+  }
     ]
 }
+
 
 
 
