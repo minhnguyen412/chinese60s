@@ -4858,7 +4858,7 @@
     "id": 414,
     "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772984896/%E7%88%AC_env8nc.mp3",
     "sentence": "爬 : ___",
-    "blanks": [{ "answer": "" }],
+    "blanks": [{ "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981248/%E7%88%AC_zvungd.png" }],
     "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772983929/%E6%B8%B8%E6%B3%B3_f82puu.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981248/%E7%88%AC_zvungd.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1752648100/%E4%BD%93%E8%82%B2-min_st0zjq.png"]
   },
   {
@@ -4872,7 +4872,7 @@
     "id": 416,
     "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772984867/%E5%B9%B4%E7%BA%A7_oly8c8.mp3",
     "sentence": "年级 : ___",
-    "blanks": [{ "answer": "" }],
+    "blanks": [{ "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981228/%E5%B9%B4%E7%BA%AA_zljois.png" }],
     "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772983820/%E5%9D%8F%E5%A4%84_xg27gn.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982468/%E9%9D%A2%E7%A7%AF_yk8qq4.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981228/%E5%B9%B4%E7%BA%AA_zljois.png"]
   },
   {
@@ -4935,6 +4935,7 @@
   }
     ]
 }
+
 
 
 
