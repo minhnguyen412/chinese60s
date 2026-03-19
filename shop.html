@@ -1,574 +1,606 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shop — Chinese60s</title>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3235921032748480" crossorigin="anonymous"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --black: #222;
-      --green: #7cb83e;
-      --green-dark: #5a8f27;
-      --green-light: #d8f0a0;
-      --green-pale: #f2fde0;
-      --yellow: #ffd84d;
-      --yellow-pale: #fffbe6;
-      --peach: #ffb89a;
-      --peach-pale: #fff3ee;
-      --sky: #72c8f0;
-      --sky-pale: #eaf8ff;
-      --lavender: #c5b0f8;
-      --lavender-pale: #f3f0ff;
-      --pink: #ffadc5;
-      --pink-pale: #fff2f6;
-      --white: #fff;
-      --bg: #fffef5;
-      --shadow-sm: 3px 3px 0 var(--black);
-      --shadow-md: 4px 4px 0 var(--black);
-      --shadow-lg: 6px 6px 0 var(--black);
-      --border: 2.5px solid var(--black);
-      --border-thick: 3px solid var(--black);
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop & Learn — Chinese60s</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--black:#222;--pink:#f472b6;--pink-dark:#db2777;--pink-mid:#ec4899;--pink-light:#fbcfe8;--pink-pale:#fdf2f8;--pink-xpale:#fff0f8;--yellow:#ffd84d;--yellow-pale:#fffbe6;--peach:#ffb89a;--sky:#72c8f0;--sky-pale:#eaf8ff;--lavender:#c5b0f8;--lavender-pale:#f3f0ff;--mint:#6ee7b7;--mint-pale:#ecfdf5;--white:#fff;--bg:#fff8fc;--sh-sm:3px 3px 0 #222;--sh-md:4px 4px 0 #222;--sh-lg:6px 6px 0 #222;--bd:2.5px solid #222;--bdt:3px solid #222;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'Fredoka',sans-serif;font-weight:500;background:var(--bg);color:var(--black);overflow-x:hidden;min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle,rgba(244,114,182,.07) 1px,transparent 1px);background-size:22px 22px;pointer-events:none;z-index:0;}
 
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+/* HEADER */
+header{background:var(--pink-mid);border-bottom:var(--bdt);padding:0 48px;height:66px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:200;}
+header h1{font-weight:700;font-size:1.7rem;color:#fff;letter-spacing:.04em;text-shadow:2px 2px 0 rgba(0,0,0,.2);}
+nav ul{list-style:none;display:flex;gap:8px;}
+nav ul li a{text-decoration:none;color:var(--black);font-weight:600;font-size:.95rem;background:#fff;border:var(--bd);border-radius:50px;padding:6px 16px;display:inline-block;box-shadow:var(--sh-sm);transition:transform .12s,box-shadow .12s;}
+nav ul li a:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 #222;}
+@media(max-width:680px){header{padding:0 16px;}nav{display:none;}}
 
-    body {
-      font-family: 'Fredoka', sans-serif;
-      font-weight: 500;
-      background: var(--bg);
-      color: var(--black);
-      overflow-x: hidden;
-      display: flex; flex-direction: column; min-height: 100vh;
-    }
-    body::before {
-      content: '';
-      position: fixed; inset: 0;
-      background-image: radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px);
-      background-size: 22px 22px;
-      pointer-events: none; z-index: 0;
-    }
+/* HERO */
+.hero{background:var(--pink-pale);border-bottom:var(--bdt);padding:52px 24px 40px;text-align:center;position:relative;overflow:hidden;z-index:1;}
+.hero::before{content:'🛒';position:absolute;font-size:180px;opacity:.06;top:-10px;right:30px;pointer-events:none;}
+.hero .tag{display:inline-block;background:var(--pink-light);border:var(--bd);border-radius:50px;padding:6px 20px;font-weight:700;font-size:.95rem;box-shadow:var(--sh-sm);margin-bottom:14px;}
+.hero h2{font-weight:700;font-size:clamp(2rem,4.5vw,3.2rem);line-height:1.2;margin-bottom:8px;}
+.hero p{font-size:1.05rem;color:#888;max-width:520px;margin:0 auto;line-height:1.65;}
 
-    /* ── HEADER ── */
-    header {
-      background: var(--green); border-bottom: var(--border-thick);
-      padding: 0 50px; height: 66px;
-      display: flex; justify-content: space-between; align-items: center;
-      position: sticky; top: 0; z-index: 100;
-    }
-    header a.brand { text-decoration: none; }
-    header h1 { font-weight: 700; font-size: 1.7rem; color: white; letter-spacing: 0.04em; text-shadow: 2px 2px 0 rgba(0,0,0,0.25); }
-    .menu-toggle { display: none; font-size: 24px; background: none; border: none; color: white; cursor: pointer; }
-    nav ul { list-style: none; display: flex; gap: 8px; }
-    nav ul li a {
-      text-decoration: none; color: var(--black); font-weight: 600; font-size: 1rem;
-      background: var(--white); border: var(--border); border-radius: 50px;
-      padding: 6px 18px; display: inline-block;
-      box-shadow: var(--shadow-sm); transition: transform 0.12s, box-shadow 0.12s;
-    }
-    nav ul li a:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+/* STICKY GIFT BAR */
+.gift-bar{position:sticky;top:66px;z-index:150;background:var(--pink-light);border-bottom:var(--bdt);padding:10px 24px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.gb-title{font-weight:700;font-size:1rem;display:flex;align-items:center;gap:8px;white-space:nowrap;}
+.count-badge{background:var(--pink-dark);color:#fff;border:var(--bd);border-radius:50%;width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:700;box-shadow:var(--sh-sm);}
+.gift-preview{display:flex;gap:6px;flex-wrap:wrap;flex:1;}
+.gift-chip{background:#fff;border:var(--bd);border-radius:50px;padding:3px 10px 3px 6px;font-size:.8rem;font-weight:600;box-shadow:2px 2px 0 #222;display:flex;align-items:center;gap:4px;animation:chipIn .25s ease;}
+@keyframes chipIn{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+.gift-chip .rm{background:none;border:none;cursor:pointer;color:#bbb;font-size:.75rem;margin-left:2px;line-height:1;}
+.gift-chip .rm:hover{color:var(--pink-dark);}
+.bar-cta{font-family:'Fredoka',sans-serif;font-weight:700;font-size:.9rem;background:var(--pink-dark);color:#fff;border:var(--bd);border-radius:50px;padding:8px 20px;box-shadow:var(--sh-sm);cursor:pointer;transition:transform .12s,box-shadow .12s;white-space:nowrap;display:none;}
+.bar-cta.visible{display:inline-flex;align-items:center;gap:6px;}
+.bar-cta:hover{transform:translate(-1px,-2px);box-shadow:var(--sh-md);}
 
-    @media (max-width: 768px) {
-      header { padding: 0 20px; position: relative; }
-      .menu-toggle { display: block; }
-      nav { display: none; position: absolute; top: 66px; left: 0; right: 0; background: var(--green); border-bottom: var(--border); padding: 12px 0; }
-      nav.show { display: flex; flex-direction: column; align-items: center; }
-      nav ul { flex-direction: column; align-items: center; gap: 8px; padding: 6px 0; }
-    }
+/* SECTION TITLE */
+.sec-title{display:inline-flex;align-items:center;gap:8px;background:#fff;border:var(--bdt);border-radius:50px;padding:10px 24px;font-weight:700;font-size:1.05rem;box-shadow:var(--sh-md);margin-bottom:24px;}
 
-    /* ── PAGE HERO ── */
-    .page-hero {
-      background: var(--peach-pale); border-bottom: var(--border-thick);
-      padding: 52px 24px 44px; text-align: center;
-      position: relative; overflow: hidden; z-index: 1;
-    }
-    .page-hero::before {
-      content: '🛒';
-      position: absolute; font-size: 180px; opacity: 0.08;
-      top: -20px; right: 40px; pointer-events: none; line-height: 1;
-    }
-    .page-hero .tag {
-      display: inline-block; background: var(--peach);
-      border: var(--border); border-radius: 50px;
-      padding: 6px 18px; font-weight: 700; font-size: 0.95rem;
-      box-shadow: var(--shadow-sm); margin-bottom: 16px;
-    }
-    .page-hero h2 { font-weight: 700; font-size: clamp(2rem, 4.5vw, 3.2rem); line-height: 1.2; margin-bottom: 10px; }
-    .page-hero p  { font-size: 1.05rem; color: #666; max-width: 520px; margin: 0 auto; line-height: 1.65; }
+main{position:relative;z-index:1;padding-bottom:80px;}
+.container{max-width:1160px;margin:0 auto;padding:48px 24px 0;}
+.sep{border:none;border-top:var(--bdt);margin:52px 0 0;}
 
-    /* ── FILTER BAR ── */
-    .filter-bar {
-      background: var(--white); border-bottom: var(--border-thick);
-      padding: 14px 24px;
-      display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
-      position: relative; z-index: 1;
-    }
-    .filter-btn {
-      font-family: 'Fredoka', sans-serif;
-      background: var(--yellow-pale); border: var(--border); border-radius: 50px;
-      padding: 7px 20px; font-weight: 700; font-size: 0.92rem;
-      cursor: pointer; box-shadow: var(--shadow-sm);
-      transition: transform 0.12s, box-shadow 0.12s, background 0.12s;
-      color: var(--black);
-    }
-    .filter-btn:hover { transform: translate(-1px,-2px); box-shadow: var(--shadow-md); }
-    .filter-btn.active { background: var(--green); color: white; box-shadow: var(--shadow-md); }
+/* CATEGORY HEADER */
+.cat-hdr{display:flex;align-items:center;gap:12px;margin-bottom:24px;flex-wrap:wrap;}
+.cat-badge{display:inline-flex;align-items:center;gap:6px;border:var(--bdt);border-radius:50px;padding:8px 20px;font-weight:700;font-size:1rem;box-shadow:var(--sh-md);}
+.b1{background:var(--pink-light);} .b2{background:var(--yellow);} .b3{background:var(--lavender);} .b4{background:var(--mint);}
+.cat-sub{font-size:.88rem;color:#aaa;font-weight:600;}
 
-    /* ── MAIN ── */
-    .main-content { flex: 1; padding: 52px 24px 80px; position: relative; z-index: 1; }
-    .container { max-width: 1140px; margin: 0 auto; }
+/* SPIN CARD */
+.spin-card{background:#fff;border:var(--bdt);border-radius:24px;box-shadow:var(--sh-lg);padding:28px 24px;display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:start;}
+@media(max-width:700px){.spin-card{grid-template-columns:1fr;justify-items:center;}}
+.wheel-col{display:flex;flex-direction:column;align-items:center;gap:14px;}
+.wheel-wrap{position:relative;width:260px;height:260px;flex-shrink:0;}
+.wheel-wrap canvas{display:block;border-radius:50%;}
+.w-ptr{position:absolute;top:-15px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:12px solid transparent;border-right:12px solid transparent;border-top:28px solid var(--pink-dark);filter:drop-shadow(0 2px 4px rgba(0,0,0,.2));z-index:10;}
+.w-ctr{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:38px;height:38px;background:#fff;border-radius:50%;border:var(--bdt);display:flex;align-items:center;justify-content:center;font-size:1rem;z-index:10;box-shadow:var(--sh-sm);}
+.spin-btn{font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.1rem;background:var(--pink-mid);color:#fff;border:var(--bdt);border-radius:50px;padding:11px 34px;box-shadow:var(--sh-md);cursor:pointer;transition:transform .12s,box-shadow .12s,background .12s;}
+.spin-btn:hover:not(:disabled){transform:translate(-2px,-3px);box-shadow:6px 6px 0 #222;background:var(--pink-dark);}
+.spin-btn:disabled{opacity:.6;cursor:not-allowed;}
 
-    /* ── SECTION TITLE ── */
-    .section-title {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--white); border: var(--border-thick); border-radius: 50px;
-      padding: 10px 24px; font-weight: 700; font-size: 1.1rem;
-      box-shadow: var(--shadow-md); margin-bottom: 28px;
-    }
+/* right info col */
+.info-col{display:flex;flex-direction:column;gap:14px;min-width:0;}
+.items-list{display:flex;flex-wrap:wrap;gap:7px;}
+.il-item{background:var(--pink-xpale);border:var(--bd);border-radius:10px;padding:6px 10px;display:flex;align-items:center;gap:6px;font-size:.82rem;font-weight:600;box-shadow:2px 2px 0 #222;}
+.il-item span:first-child{font-size:1.1rem;}
 
-    /* ── FEATURED PRODUCT (first item) ── */
-    .featured-product {
-      margin-bottom: 44px;
-    }
-    .featured-card {
-      display: grid; grid-template-columns: 1fr 1fr;
-      background: var(--white);
-      border: var(--border-thick); border-radius: 24px;
-      box-shadow: var(--shadow-lg); overflow: hidden;
-      text-decoration: none; color: var(--black);
-      transition: transform 0.15s, box-shadow 0.15s;
-    }
-    .featured-card:hover { transform: translate(-3px,-4px); box-shadow: 8px 8px 0 var(--black); }
+/* result */
+.spin-result{display:none;background:var(--pink-xpale);border:var(--bdt);border-radius:18px;padding:20px 16px;text-align:center;animation:popIn .3s cubic-bezier(.34,1.56,.64,1);}
+.spin-result.show{display:block;}
+@keyframes popIn{from{opacity:0;transform:scale(.75)}to{opacity:1;transform:scale(1)}}
+.sr-emoji{font-size:2.6rem;margin-bottom:6px;}
+.sr-cn{font-size:1.8rem;font-weight:700;}
+.sr-py{font-size:.88rem;color:#aaa;margin:2px 0;}
+.sr-en{font-size:.95rem;font-weight:600;color:var(--pink-dark);}
+.add-btn{margin-top:12px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:.88rem;background:var(--yellow);color:var(--black);border:var(--bd);border-radius:50px;padding:9px 22px;box-shadow:var(--sh-sm);cursor:pointer;transition:transform .12s,box-shadow .12s,background .12s;}
+.add-btn:hover:not(:disabled){transform:translate(-1px,-2px);box-shadow:var(--sh-md);background:var(--pink-mid);color:#fff;}
+.add-btn:disabled{background:var(--mint);color:#444;cursor:default;transform:none;box-shadow:none;}
 
-    .featured-img {
-      border-right: var(--border-thick);
-      overflow: hidden; display: flex; align-items: center; justify-content: center;
-      min-height: 300px; background: var(--peach-pale);
-      position: relative;
-    }
-    .featured-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s; }
-    .featured-card:hover .featured-img img { transform: scale(1.03); }
-    .featured-img .ph { display: flex; flex-direction: column; align-items: center; gap: 10px; color: #b84010; font-weight: 600; font-size: 0.9rem; }
-    .featured-img .ph span:first-child { font-size: 3.5rem; }
+/* GIFT BOX */
+.giftbox-area{background:var(--pink-pale);border:var(--bdt);border-radius:18px;min-height:160px;padding:18px;position:relative;overflow:hidden;}
+.giftbox-area::before{content:'🎁';position:absolute;font-size:120px;opacity:.05;bottom:-10px;right:-10px;pointer-events:none;}
+.box-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:120px;color:#ccc;gap:8px;font-size:.9rem;}
+.box-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+@media(max-width:480px){.box-grid{grid-template-columns:repeat(2,1fr);}}
+.box-item{background:#fff;border:var(--bd);border-radius:14px;padding:10px 6px;text-align:center;box-shadow:var(--sh-sm);position:relative;animation:dropIn .3s cubic-bezier(.34,1.56,.64,1);}
+@keyframes dropIn{from{opacity:0;transform:translateY(-16px) scale(.8)}to{opacity:1;transform:none}}
+.bi-emoji{font-size:1.9rem;margin-bottom:4px;}
+.bi-cn{font-size:.9rem;font-weight:700;}
+.bi-en{font-size:.68rem;color:#aaa;font-weight:600;}
+.bi-rm{position:absolute;top:4px;right:5px;background:none;border:none;cursor:pointer;font-size:.7rem;color:#ccc;}
+.bi-rm:hover{color:var(--pink-dark);}
+.checkout-btn{width:100%;margin-top:16px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.1rem;background:var(--pink-mid);color:#fff;border:var(--bdt);border-radius:50px;padding:14px;box-shadow:var(--sh-md);cursor:pointer;transition:transform .12s,box-shadow .12s,background .12s;display:none;}
+.checkout-btn.visible{display:block;}
+.checkout-btn:hover{transform:translate(-2px,-3px);box-shadow:6px 6px 0 #222;background:var(--pink-dark);}
 
-    /* BEST SELLER badge */
-    .badge-bestseller {
-      position: absolute; top: 16px; left: 16px;
-      background: var(--yellow); border: var(--border); border-radius: 50px;
-      padding: 4px 14px; font-weight: 700; font-size: 0.8rem;
-      box-shadow: var(--shadow-sm); z-index: 2;
-    }
-    .badge-new {
-      position: absolute; top: 16px; left: 16px;
-      background: var(--sky); border: var(--border); border-radius: 50px;
-      padding: 4px 14px; font-weight: 700; font-size: 0.8rem;
-      box-shadow: var(--shadow-sm); z-index: 2;
-    }
-    .badge-sale {
-      position: absolute; top: 16px; left: 16px;
-      background: var(--pink); border: var(--border); border-radius: 50px;
-      padding: 4px 14px; font-weight: 700; font-size: 0.8rem;
-      box-shadow: var(--shadow-sm); z-index: 2;
-    }
+/* BOOKS */
+.books-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:20px;}
+.book-entry{display:flex;flex-direction:column;gap:8px;}
+.book-img-wrap{display:block;border:var(--bdt);border-radius:14px;overflow:hidden;box-shadow:var(--sh-md);transition:transform .15s,box-shadow .15s;background:var(--pink-pale);}
+.book-img-wrap:hover{transform:translate(-3px,-4px);box-shadow:7px 7px 0 #222;}
+.book-img-wrap img{width:100%;display:block;aspect-ratio:2/3;object-fit:cover;}
+.book-btns{display:flex;flex-direction:column;gap:6px;}
+.book-btn{font-family:'Fredoka',sans-serif;font-weight:700;font-size:.82rem;text-decoration:none;border:var(--bd);border-radius:50px;padding:7px 12px;text-align:center;box-shadow:var(--sh-sm);transition:transform .1s,box-shadow .1s;display:block;}
+.book-btn:hover{transform:translate(-1px,-2px);box-shadow:var(--sh-md);}
+.bb-amazon{background:var(--yellow);color:var(--black);}
+.bb-shopee{background:#EE4D2D;color:#fff;}
 
-    .featured-body {
-      padding: 36px 32px;
-      display: flex; flex-direction: column; justify-content: center; gap: 12px;
-    }
-    .featured-body .cat-tag {
-      display: inline-block; align-self: flex-start;
-      background: var(--peach); border: var(--border); border-radius: 50px;
-      padding: 4px 14px; font-size: 0.8rem; font-weight: 700;
-      box-shadow: var(--shadow-sm);
-    }
-    .featured-body h3 { font-weight: 700; font-size: 1.6rem; line-height: 1.3; }
-    .featured-body .desc { font-size: 1rem; color: #666; line-height: 1.7; }
-    .featured-body .price {
-      font-size: 1.6rem; font-weight: 700; color: var(--green-dark);
-      display: flex; align-items: baseline; gap: 8px;
-    }
-    .featured-body .price .original {
-      font-size: 1rem; color: #aaa; text-decoration: line-through; font-weight: 500;
-    }
-    .buy-btn {
-      display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
-      background: var(--green); color: white;
-      border: var(--border); border-radius: 50px;
-      padding: 12px 28px; font-weight: 700; font-size: 1rem;
-      box-shadow: var(--shadow-md);
-      transition: transform 0.12s, box-shadow 0.12s, background 0.12s;
-    }
-    .featured-card:hover .buy-btn { background: var(--green-dark); transform: translate(-1px,-1px); }
+/* DIGITAL */
+.digital-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;}
+.dc{background:#fff;border:var(--bdt);border-radius:20px;box-shadow:var(--sh-md);overflow:hidden;text-decoration:none;color:var(--black);display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s;}
+.dc:hover{transform:translate(-3px,-4px);box-shadow:7px 7px 0 #222;}
+.dc-img{width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;border-bottom:var(--bdt);font-size:3rem;position:relative;}
+.dc-img img{width:100%;height:100%;object-fit:cover;}
+.c1{background:var(--pink-pale);}.c2{background:var(--yellow-pale);}.c3{background:var(--lavender-pale);}.c4{background:var(--mint-pale);}
+.dc-badge{position:absolute;top:12px;left:12px;border:var(--bd);border-radius:50px;padding:3px 12px;font-size:.75rem;font-weight:700;box-shadow:2px 2px 0 #222;}
+.bs{background:var(--yellow);}.nw{background:var(--sky);}.fr{background:var(--mint);}
+.dc-body{padding:16px 18px 20px;flex:1;display:flex;flex-direction:column;gap:6px;}
+.dc-cat{display:inline-block;align-self:flex-start;padding:3px 12px;border-radius:50px;border:1.5px solid #222;font-size:.75rem;font-weight:700;box-shadow:2px 2px 0 #222;}
+.cpdf{background:var(--pink-light);}.cpack{background:var(--yellow);}.cbundle{background:var(--lavender);}
+.dc-body h4{font-weight:700;font-size:1rem;line-height:1.35;margin-top:2px;}
+.dc-body p{font-size:.85rem;color:#777;line-height:1.55;flex:1;}
+.dc-footer{display:flex;align-items:center;justify-content:space-between;margin-top:10px;padding-top:10px;border-top:var(--bd);}
+.dc-price{font-weight:700;font-size:1.1rem;color:var(--pink-dark);}
+.dc-cta{background:var(--yellow);border:var(--bd);border-radius:50px;padding:6px 14px;font-weight:700;font-size:.82rem;box-shadow:var(--sh-sm);}
+.dc:hover .dc-cta{background:var(--pink-mid);color:#fff;}
 
-    @media (max-width: 700px) {
-      .featured-card { grid-template-columns: 1fr; }
-      .featured-img { min-height: 200px; border-right: none; border-bottom: var(--border-thick); }
-      .featured-body { padding: 24px 20px; }
-    }
+/* SHOP PAGE */
+#shop-page{display:none;}
+#shop-page.show{display:block;}
+#main-page.hidden{display:none;}
+.shop-hero{background:var(--pink-pale);border-bottom:var(--bdt);padding:44px 24px;text-align:center;position:relative;z-index:1;}
+.shop-hero h2{font-weight:700;font-size:2.4rem;}
+.shop-hero p{color:#999;margin-top:6px;}
+.shop-list{max-width:860px;margin:0 auto;padding:40px 24px 60px;position:relative;z-index:1;}
+.si{background:#fff;border:var(--bdt);border-radius:20px;box-shadow:var(--sh-md);display:flex;align-items:center;gap:16px;padding:18px 22px;margin-bottom:14px;transition:transform .12s,box-shadow .12s;}
+.si:hover{transform:translate(-2px,-3px);box-shadow:6px 6px 0 #222;}
+.si-ico{font-size:2rem;background:var(--pink-pale);border:var(--bd);border-radius:12px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:var(--sh-sm);}
+.si-info{flex:1;}
+.si-cn{font-size:1.4rem;font-weight:700;}
+.si-py{font-size:.82rem;color:#bbb;}
+.si-en{font-size:.95rem;font-weight:600;color:var(--pink-dark);margin-top:2px;}
+.si-links{display:flex;gap:8px;flex-wrap:wrap;flex-shrink:0;}
+.si-btn{font-family:'Fredoka',sans-serif;font-weight:700;font-size:.85rem;text-decoration:none;border:var(--bd);border-radius:50px;padding:7px 16px;box-shadow:var(--sh-sm);transition:transform .1s,box-shadow .1s;display:flex;align-items:center;gap:4px;white-space:nowrap;}
+.si-btn:hover{transform:translate(-1px,-2px);box-shadow:var(--sh-md);}
+.si-shopee{background:#EE4D2D;color:#fff;}.si-temu{background:var(--yellow);color:var(--black);}
+.back-btn{display:block;margin:0 auto;font-family:'Fredoka',sans-serif;font-weight:700;font-size:.95rem;background:#fff;color:var(--black);border:var(--bdt);border-radius:50px;padding:10px 30px;box-shadow:var(--sh-sm);cursor:pointer;transition:transform .12s,box-shadow .12s;}
+.back-btn:hover{transform:translate(-2px,-2px);box-shadow:var(--sh-md);}
 
-    /* ── PRODUCT GRID ── */
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-    }
-    @media (max-width: 960px) { .product-grid { grid-template-columns: repeat(2,1fr); } }
-    @media (max-width: 560px)  { .product-grid { grid-template-columns: 1fr; } }
+/* FOOTER */
+footer{background:#222;color:rgba(255,255,255,.65);padding:28px 50px;text-align:center;position:relative;z-index:1;}
+footer .brand{font-weight:700;color:var(--pink-light);font-size:1.3rem;margin-bottom:6px;}
+.social-icons{margin-top:14px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.social-icons a{text-decoration:none;color:var(--black);font-weight:600;font-size:.9rem;background:var(--pink-light);border:var(--bd);border-radius:50px;padding:5px 16px;box-shadow:var(--sh-sm);transition:transform .12s;}
+.social-icons a:hover{transform:translate(-1px,-2px);}
 
-    .product-card {
-      background: var(--white);
-      border: var(--border-thick); border-radius: 20px;
-      box-shadow: var(--shadow-md); overflow: hidden;
-      text-decoration: none; color: var(--black);
-      display: flex; flex-direction: column;
-      transition: transform 0.15s, box-shadow 0.15s;
-      position: relative;
-    }
-    .product-card:hover { transform: translate(-3px,-4px); box-shadow: 7px 7px 0 var(--black); }
-
-    .card-img {
-      width: 100%; aspect-ratio: 4/3;
-      overflow: hidden; border-bottom: var(--border-thick);
-      display: flex; align-items: center; justify-content: center;
-      position: relative;
-    }
-    .card-img img { width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.3s; }
-    .product-card:hover .card-img img { transform: scale(1.05); }
-
-    /* placeholder bg colors */
-    .card-img .img-ph {
-      width:100%; height:100%;
-      display:flex; flex-direction:column; align-items:center; justify-content:center;
-      gap:8px; font-size:0.85rem; font-weight:600;
-    }
-    .card-img .img-ph .ph-emoji { font-size: 3rem; }
-    .ph-peach    { background: var(--peach-pale);   color: #b84010; }
-    .ph-yellow   { background: var(--yellow-pale);  color: #7a5c00; }
-    .ph-sky      { background: var(--sky-pale);     color: #1a6a9a; }
-    .ph-lavender { background: var(--lavender-pale);color: #4a2fa0; }
-    .ph-green    { background: var(--green-pale);   color: var(--green-dark); }
-    .ph-pink     { background: var(--pink-pale);    color: #a0305a; }
-
-    .card-body {
-      padding: 16px 18px 20px;
-      display: flex; flex-direction: column; flex: 1; gap: 6px;
-    }
-    .card-cat {
-      display: inline-block; align-self: flex-start;
-      padding: 3px 12px; border-radius: 50px; border: 1.5px solid var(--black);
-      font-size: 0.75rem; font-weight: 700;
-      box-shadow: 2px 2px 0 var(--black);
-    }
-    .cat-pdf      { background: var(--peach);   }
-    .cat-pack     { background: var(--yellow);  }
-    .cat-course   { background: var(--sky);     }
-    .cat-bundle   { background: var(--lavender);}
-
-    .card-body h4 { font-weight: 700; font-size: 1.05rem; line-height: 1.35; margin-top: 2px; }
-    .card-body .card-desc { font-size: 0.88rem; color: #666; line-height: 1.55; flex: 1; }
-    .card-footer {
-      display: flex; align-items: center; justify-content: space-between;
-      margin-top: 12px; padding-top: 12px;
-      border-top: var(--border);
-    }
-    .card-price { font-weight: 700; font-size: 1.15rem; color: var(--green-dark); }
-    .card-price .orig { font-size: 0.82rem; color: #aaa; text-decoration: line-through; font-weight: 500; margin-left: 4px; }
-    .card-cta {
-      background: var(--yellow); border: var(--border); border-radius: 50px;
-      padding: 6px 16px; font-weight: 700; font-size: 0.85rem;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.1s, box-shadow 0.1s;
-    }
-    .product-card:hover .card-cta { background: var(--green); color: white; transform: translate(-1px,-1px); box-shadow: var(--shadow-md); }
-
-    /* ── SECTION SEPARATOR ── */
-    .section-sep { border: none; border-top: var(--border-thick); margin: 56px 0 44px; }
-
-    /* ── FOOTER ── */
-    footer {
-      background: #222; color: rgba(255,255,255,0.65);
-      padding: 28px 50px; text-align: center; position: relative; z-index: 1;
-    }
-    footer .brand { font-weight: 700; color: var(--green-light); font-size: 1.3rem; margin-bottom: 6px; }
-    footer p { font-size: 0.95rem; font-weight: 500; margin-bottom: 3px; }
-    .social-icons { margin-top: 14px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-    .social-icons a {
-      text-decoration: none; color: var(--black); font-weight: 600; font-size: 0.9rem;
-      background: var(--green-light); border: var(--border); border-radius: 50px;
-      padding: 5px 16px; box-shadow: var(--shadow-sm); transition: transform 0.12s;
-    }
-    .social-icons a:hover { transform: translate(-1px,-2px); }
-
-    .donate-tag {
-      position: fixed; top: 50%; right: 20px; transform: translateY(-50%);
-      background: var(--yellow); border: var(--border-thick); border-radius: 20px;
-      padding: 10px 14px; box-shadow: var(--shadow-md); font-weight: 700; font-size: 0.95rem; z-index: 50;
-    }
-    .donate-tag a { text-decoration: none; color: var(--black); }
-
-    .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.5s ease, transform 0.5s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    @media (max-width: 768px) { .main-content { padding: 36px 16px 60px; } footer { padding: 28px 20px; } }
-  </style>
+.cp{position:fixed;top:-14px;width:10px;height:14px;border-radius:2px;opacity:0;pointer-events:none;z-index:999;animation:cfFall 2.2s ease-in forwards;}
+@keyframes cfFall{0%{opacity:1;transform:translateY(0) rotate(0deg)}100%{opacity:0;transform:translateY(105vh) rotate(720deg)}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+</style>
 </head>
 <body>
 
-  <header>
-    <a href="index.html" class="brand"><h1>CHINESE 60s</h1></a>
-    <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
-    <nav>
-      <ul>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="courses.html">Courses</a></li>
-        <li><a href="https://www.amazon.com/shop/studiorum60s" target="_blank">Amazon</a></li>
-      </ul>
-    </nav>
-  </header>
+<header>
+  <h1>CHINESE 60s</h1>
+  <nav><ul>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Blog</a></li>
+    <li><a href="#">Courses</a></li>
+    <li><a href="https://www.amazon.com/shop/studiorum60s" target="_blank">Amazon</a></li>
+  </ul></nav>
+</header>
 
-  <div class="page-hero">
-    <span class="tag">🛒 Digital Products</span>
-    <h2>Chinese60s Shop</h2>
-    <p>PDFs, practice packs, and learning resources — downloadable instantly via Gumroad.</p>
+<!-- ══════ MAIN PAGE ══════ -->
+<div id="main-page">
+
+<div class="hero">
+  <span class="tag">🛒 Shop & Learn</span>
+  <h2>Spin, Learn & Shop!</h2>
+  <p>Each spinner is a full product category — spin to learn the Chinese word, then find it on Shopee or Temu!</p>
+</div>
+
+<div class="gift-bar">
+  <div class="gb-title">🎁 Gift Box <span class="count-badge" id="bar-count">0</span></div>
+  <div class="gift-preview" id="gift-preview"><span style="color:#bbb;font-size:.85rem;font-weight:600;">— empty —</span></div>
+  <button class="bar-cta" id="bar-cta" onclick="goToShop()">🛍️ Shop Now →</button>
+</div>
+
+<main>
+
+<!-- I -->
+<div class="container reveal">
+  <div class="cat-hdr">
+    <span class="cat-badge b1">🎒 I. Everyday Essentials</span>
+    <span class="cat-sub">Bags · Wallets · Bottles</span>
   </div>
-
-  <div class="filter-bar">
-    <button class="filter-btn active" data-filter="all">All Products</button>
-    <button class="filter-btn" data-filter="pdf">📄 PDFs</button>
-    <button class="filter-btn" data-filter="pack">📦 Packs</button>
-    <button class="filter-btn" data-filter="course">🎓 Courses</button>
-    <button class="filter-btn" data-filter="bundle">🎁 Bundles</button>
-  </div>
-
-  <div class="main-content">
-    <div class="container">
-
-      <!-- ═══ FEATURED ═══ -->
-      <div class="reveal" id="featured-section">
-        <div class="section-title">⭐ Featured</div>
-
-        <!--
-          ╔══════════════════════════════════════════════╗
-          ║  FEATURED PRODUCT — chỉnh sửa ở đây         ║
-          ║  img: đường dẫn ảnh, badge: bestseller/new   ║
-          ║  gumroad: link sản phẩm Gumroad              ║
-          ╚══════════════════════════════════════════════╝
-        -->
-        <div class="featured-product">
-          <a href="https://maxfilms.gumroad.com/l/mandarin-pronunciation-pack" target="_blank" class="featured-card" data-cat="pack">
-            <div class="featured-img">
-              <span class="badge-bestseller">⭐ Best Seller</span>
-              <!-- Thay bằng ảnh thật: <img src="assets/shop/pronunciation-pack.jpg" alt=""> -->
-              <img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1764554536/bigad_tz9jre.gif" alt="Mandarin Pronunciation Pack">
-            </div>
-            <div class="featured-body">
-              <span class="cat-tag">📦 Pack</span>
-              <h3>Mandarin Pronunciation Pack</h3>
-              <p class="desc">Master all 4 tones, initials, and finals with illustrated flashcards, audio guides, and practice exercises. Perfect for complete beginners.</p>
-              <div class="price">$9.99</div>
-              <span class="buy-btn">🛒 Get on Gumroad →</span>
-            </div>
-          </a>
-        </div>
+  <div class="spin-card">
+    <div class="wheel-col">
+      <div class="wheel-wrap"><div class="w-ptr"></div><canvas id="c_g1" width="260" height="260"></canvas><div class="w-ctr">🎯</div></div>
+      <button class="spin-btn" id="btn_g1" onclick="spin('g1')">🎲 Spin!</button>
+    </div>
+    <div class="info-col">
+      <div class="items-list" id="list_g1"></div>
+      <div class="spin-result" id="res_g1">
+        <div class="sr-emoji" id="re_g1"></div><div class="sr-cn" id="rc_g1"></div>
+        <div class="sr-py" id="rp_g1"></div><div class="sr-en" id="ren_g1"></div>
+        <button class="add-btn" id="ab_g1" onclick="addToBox('g1')">🎁 Add to Gift Box</button>
       </div>
-
-      <hr class="section-sep">
-
-      <!-- ═══ ALL PRODUCTS GRID ═══ -->
-      <div class="reveal">
-        <div class="section-title">📦 All Products</div>
-      </div>
-
-      <!--
-        ╔══════════════════════════════════════════════╗
-        ║  PRODUCT GRID — thêm sản phẩm mới vào đây   ║
-        ║  Copy một .product-card và điền thông tin    ║
-        ╚══════════════════════════════════════════════╝
-      -->
-      <div class="product-grid reveal" id="product-grid">
-
-        <!-- Product 1 -->
-        <a href="https://maxfilms.gumroad.com/l/mandarin-pronunciation-pack" target="_blank" class="product-card" data-cat="pack">
-          <div class="card-img">
-            <img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1764554536/bigad_tz9jre.gif" alt="Mandarin Pronunciation Pack">
-            <span class="badge-bestseller">⭐ Best Seller</span>
-          </div>
-          <div class="card-body">
-            <span class="card-cat cat-pack">📦 Pack</span>
-            <h4>Mandarin Pronunciation Pack</h4>
-            <p class="card-desc">All 4 tones, initials & finals with illustrated flashcards and audio guides.</p>
-            <div class="card-footer">
-              <span class="card-price">$9.99</span>
-              <span class="card-cta">Get it →</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Product 2 — placeholder, thêm sản phẩm thật vào đây -->
-        <a href="https://gumroad.com" target="_blank" class="product-card" data-cat="pdf">
-          <div class="card-img">
-            <!-- <img src="assets/shop/product-2.jpg" alt=""> -->
-            <div class="img-ph ph-yellow">
-              <span class="ph-emoji">📄</span>
-              <span>Add image here</span>
-            </div>
-            <span class="badge-new">🆕 New</span>
-          </div>
-          <div class="card-body">
-            <span class="card-cat cat-pdf">📄 PDF</span>
-            <h4>Product Name Here</h4>
-            <p class="card-desc">Short description of this product — what it includes and who it's for.</p>
-            <div class="card-footer">
-              <span class="card-price">$0.00</span>
-              <span class="card-cta">Get it →</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Product 3 -->
-        <a href="https://gumroad.com" target="_blank" class="product-card" data-cat="course">
-          <div class="card-img">
-            <!-- <img src="assets/shop/product-3.jpg" alt=""> -->
-            <div class="img-ph ph-sky">
-              <span class="ph-emoji">🎓</span>
-              <span>Add image here</span>
-            </div>
-          </div>
-          <div class="card-body">
-            <span class="card-cat cat-course">🎓 Course</span>
-            <h4>Product Name Here</h4>
-            <p class="card-desc">Short description of this product — what it includes and who it's for.</p>
-            <div class="card-footer">
-              <span class="card-price">$0.00</span>
-              <span class="card-cta">Get it →</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Product 4 -->
-        <a href="https://gumroad.com" target="_blank" class="product-card" data-cat="bundle">
-          <div class="card-img">
-            <!-- <img src="assets/shop/product-4.jpg" alt=""> -->
-            <div class="img-ph ph-lavender">
-              <span class="ph-emoji">🎁</span>
-              <span>Add image here</span>
-            </div>
-          </div>
-          <div class="card-body">
-            <span class="card-cat cat-bundle">🎁 Bundle</span>
-            <h4>Product Name Here</h4>
-            <p class="card-desc">Short description of this product — what it includes and who it's for.</p>
-            <div class="card-footer">
-              <span class="card-price">$0.00</span>
-              <span class="card-cta">Get it →</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Product 5 -->
-        <a href="https://gumroad.com" target="_blank" class="product-card" data-cat="pdf">
-          <div class="card-img">
-            <div class="img-ph ph-green">
-              <span class="ph-emoji">📝</span>
-              <span>Add image here</span>
-            </div>
-          </div>
-          <div class="card-body">
-            <span class="card-cat cat-pdf">📄 PDF</span>
-            <h4>Product Name Here</h4>
-            <p class="card-desc">Short description of this product — what it includes and who it's for.</p>
-            <div class="card-footer">
-              <span class="card-price">$0.00</span>
-              <span class="card-cta">Get it →</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Product 6 -->
-        <a href="https://gumroad.com" target="_blank" class="product-card" data-cat="pack">
-          <div class="card-img">
-            <div class="img-ph ph-pink">
-              <span class="ph-emoji">📦</span>
-              <span>Add image here</span>
-            </div>
-            <span class="badge-sale">🔥 Sale</span>
-          </div>
-          <div class="card-body">
-            <span class="card-cat cat-pack">📦 Pack</span>
-            <h4>Product Name Here</h4>
-            <p class="card-desc">Short description of this product — what it includes and who it's for.</p>
-            <div class="card-footer">
-              <span class="card-price">$0.00 <span class="orig">$0.00</span></span>
-              <span class="card-cta">Get it →</span>
-            </div>
-          </div>
-        </a>
-
-      </div><!-- /product-grid -->
-
     </div>
   </div>
+</div>
 
-  <div class="donate-tag">
-    <a href="https://buymeacoffee.com/chinese60s" target="_blank">☕ Donate</a>
+<hr class="sep">
+
+<!-- II -->
+<div class="container reveal">
+  <div class="cat-hdr">
+    <span class="cat-badge b2">💼 II. Desk & Study</span>
+    <span class="cat-sub">Stationery · Organisation</span>
   </div>
-
-  <footer>
-    <p class="brand">CHINESE 60s</p>
-    <p>Learn Mandarin through images and videos</p>
-    <div class="social-icons">
-      <a href="#">Facebook</a>
-      <a href="#">YouTube</a>
-      <a href="#">TikTok</a>
-      <a href="#">Instagram</a>
+  <div class="spin-card">
+    <div class="wheel-col">
+      <div class="wheel-wrap"><div class="w-ptr"></div><canvas id="c_g2" width="260" height="260"></canvas><div class="w-ctr">🎯</div></div>
+      <button class="spin-btn" id="btn_g2" onclick="spin('g2')">🎲 Spin!</button>
     </div>
-  </footer>
+    <div class="info-col">
+      <div class="items-list" id="list_g2"></div>
+      <div class="spin-result" id="res_g2">
+        <div class="sr-emoji" id="re_g2"></div><div class="sr-cn" id="rc_g2"></div>
+        <div class="sr-py" id="rp_g2"></div><div class="sr-en" id="ren_g2"></div>
+        <button class="add-btn" id="ab_g2" onclick="addToBox('g2')">🎁 Add to Gift Box</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <script>
-    /* ── Header menu ── */
-    const toggle = document.querySelector('.menu-toggle');
-    const navEl  = document.querySelector('nav');
-    toggle.addEventListener('click', () => {
-      navEl.classList.toggle('show');
-      toggle.innerHTML = navEl.classList.contains('show') ? '&#10005;' : '&#9776;';
-    });
+<hr class="sep">
 
-    /* ── Filter ── */
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const cards      = document.querySelectorAll('.product-card');
-    const featSect   = document.getElementById('featured-section');
+<!-- III -->
+<div class="container reveal">
+  <div class="cat-hdr">
+    <span class="cat-badge b3">💇‍♀️ III. Personal Accessories</span>
+    <span class="cat-sub">Hair · Mirrors · Mini bags</span>
+  </div>
+  <div class="spin-card">
+    <div class="wheel-col">
+      <div class="wheel-wrap"><div class="w-ptr"></div><canvas id="c_g3" width="260" height="260"></canvas><div class="w-ctr">🎯</div></div>
+      <button class="spin-btn" id="btn_g3" onclick="spin('g3')">🎲 Spin!</button>
+    </div>
+    <div class="info-col">
+      <div class="items-list" id="list_g3"></div>
+      <div class="spin-result" id="res_g3">
+        <div class="sr-emoji" id="re_g3"></div><div class="sr-cn" id="rc_g3"></div>
+        <div class="sr-py" id="rp_g3"></div><div class="sr-en" id="ren_g3"></div>
+        <button class="add-btn" id="ab_g3" onclick="addToBox('g3')">🎁 Add to Gift Box</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filter = btn.dataset.filter;
+<hr class="sep">
 
-        // Show/hide featured section
-        featSect.style.display = (filter === 'all') ? '' : 'none';
+<!-- IV -->
+<div class="container reveal">
+  <div class="cat-hdr">
+    <span class="cat-badge b4">🕯️ IV. Lifestyle Décor</span>
+    <span class="cat-sub">Candles · Lights · Plants</span>
+  </div>
+  <div class="spin-card">
+    <div class="wheel-col">
+      <div class="wheel-wrap"><div class="w-ptr"></div><canvas id="c_g4" width="260" height="260"></canvas><div class="w-ctr">🎯</div></div>
+      <button class="spin-btn" id="btn_g4" onclick="spin('g4')">🎲 Spin!</button>
+    </div>
+    <div class="info-col">
+      <div class="items-list" id="list_g4"></div>
+      <div class="spin-result" id="res_g4">
+        <div class="sr-emoji" id="re_g4"></div><div class="sr-cn" id="rc_g4"></div>
+        <div class="sr-py" id="rp_g4"></div><div class="sr-en" id="ren_g4"></div>
+        <button class="add-btn" id="ab_g4" onclick="addToBox('g4')">🎁 Add to Gift Box</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-        // Filter cards
-        cards.forEach(card => {
-          const match = filter === 'all' || card.dataset.cat === filter;
-          card.style.display = match ? '' : 'none';
-        });
-      });
-    });
+<hr class="sep">
 
-    /* ── Scroll reveal ── */
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('visible'), i * 70);
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.08 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
+<!-- GIFT BOX -->
+<div class="container reveal">
+  <div class="sec-title">🎁 Your Gift Box</div>
+  <div style="background:#fff;border:var(--bdt);border-radius:24px;box-shadow:var(--sh-lg);padding:28px 24px;">
+    <div class="giftbox-area">
+      <div class="box-empty" id="box-empty"><div style="font-size:2.4rem;">🎁</div><div>Spin any wheel above and add words here!</div></div>
+      <div class="box-grid" id="box-grid" style="display:none;"></div>
+    </div>
+    <button class="checkout-btn" id="checkout-btn" onclick="goToShop()">🛍️ Shop All Items →</button>
+  </div>
+</div>
+
+<hr class="sep">
+
+<!-- BOOKS -->
+<div class="container reveal">
+  <div class="sec-title">📚 Recommended Textbooks</div>
+  <div style="background:#fff;border:var(--bdt);border-radius:24px;box-shadow:var(--sh-lg);padding:32px 28px;">
+    <p style="color:#aaa;font-size:.95rem;margin-bottom:24px;font-weight:600;">Essential Mandarin textbooks — buy on Amazon or Shopee</p>
+    <div class="books-grid" id="books-grid"></div>
+  </div>
+</div>
+
+<hr class="sep">
+
+<!-- DIGITAL -->
+<div class="container reveal" style="padding-bottom:0;">
+  <div class="sec-title">📦 Digital Products</div>
+  <div class="digital-grid">
+    <a class="dc" href="https://maxfilms.gumroad.com/l/mandarin-pronunciation-pack" target="_blank">
+      <div class="dc-img c1"><img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1764554536/bigad_tz9jre.gif" alt="Pronunciation Pack"><span class="dc-badge bs">⭐ Best Seller</span></div>
+      <div class="dc-body"><span class="dc-cat cpack">📦 Pack</span><h4>Mandarin Pronunciation Pack</h4><p>Master all 4 tones, initials &amp; finals — illustrated flashcards, audio guides &amp; exercises.</p><div class="dc-footer"><span class="dc-price">$9.99</span><span class="dc-cta">Get it →</span></div></div>
+    </a>
+    <a class="dc" href="https://gumroad.com" target="_blank">
+      <div class="dc-img c2" style="font-size:3.5rem;">📄<span class="dc-badge nw">🆕 New</span></div>
+      <div class="dc-body"><span class="dc-cat cpdf">📄 PDF</span><h4>HSK 1 Vocabulary Cheat Sheet</h4><p>All 150 HSK 1 words with pinyin, stroke order &amp; example sentences — printable PDF.</p><div class="dc-footer"><span class="dc-price">$4.99</span><span class="dc-cta">Get it →</span></div></div>
+    </a>
+    <a class="dc" href="https://gumroad.com" target="_blank">
+      <div class="dc-img c3" style="font-size:3.5rem;">🎁</div>
+      <div class="dc-body"><span class="dc-cat cbundle">🎁 Bundle</span><h4>Starter Bundle</h4><p>Pronunciation Pack + HSK 1 Cheat Sheet + Tone Drill Worksheet — best value combo.</p><div class="dc-footer"><span class="dc-price">$14.99</span><span class="dc-cta">Get it →</span></div></div>
+    </a>
+    <a class="dc" href="https://gumroad.com" target="_blank">
+      <div class="dc-img c4" style="font-size:3.5rem;">🖊️<span class="dc-badge fr">✨ Soon</span></div>
+      <div class="dc-body"><span class="dc-cat cpdf">📄 PDF</span><h4>Stroke Order Workbook</h4><p>Practice the 100 most common characters with guided stroke order grids — printable.</p><div class="dc-footer"><span class="dc-price">Coming soon</span><span class="dc-cta">Notify me →</span></div></div>
+    </a>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <p class="brand">CHINESE 60s</p><p>Learn Mandarin through images &amp; games</p>
+  <div class="social-icons"><a href="#">Facebook</a><a href="#">YouTube</a><a href="#">TikTok</a><a href="#">Instagram</a></div>
+</footer>
+</div>
+
+<!-- ══════ SHOP PAGE ══════ -->
+<div id="shop-page">
+  <div class="shop-hero">
+    <span style="display:inline-block;background:var(--pink-mid);color:#fff;border:var(--bd);border-radius:50px;padding:6px 20px;font-weight:700;font-size:.95rem;box-shadow:var(--sh-sm);margin-bottom:14px;">🛍️ Shopping List</span>
+    <h2>Your Word Collection!</h2><p>Find each item on Shopee or Temu 🛒</p>
+  </div>
+  <div class="shop-list" id="shop-list"></div>
+  <div style="text-align:center;padding-bottom:60px;position:relative;z-index:1;">
+    <button class="back-btn" onclick="goBack()">← Back to the Game</button>
+  </div>
+  <footer><p class="brand">CHINESE 60s</p><p>Learn Mandarin through images &amp; games</p></footer>
+</div>
+
+<script>
+const GROUPS={
+  g1:{items:[
+    {emoji:'👜',cn:'帆布包',pinyin:'fān bù bāo',en:'Canvas Tote',shopee:'https://shopee.vn/search?keyword=tui+tote+canvas',temu:'https://www.temu.com/search_result.html?search_key=canvas+tote+bag'},
+    {emoji:'👝',cn:'单肩包',pinyin:'dān jiān bāo',en:'Shoulder Bag',shopee:'https://shopee.vn/search?keyword=tui+deo+vai',temu:'https://www.temu.com/search_result.html?search_key=shoulder+bag'},
+    {emoji:'🎒',cn:'小背包',pinyin:'xiǎo bèi bāo',en:'Mini Backpack',shopee:'https://shopee.vn/search?keyword=balo+mini',temu:'https://www.temu.com/search_result.html?search_key=mini+backpack'},
+    {emoji:'💼',cn:'手提包',pinyin:'shǒu tí bāo',en:'Handbag',shopee:'https://shopee.vn/search?keyword=tui+xach+tay',temu:'https://www.temu.com/search_result.html?search_key=handbag'},
+    {emoji:'🛍️',cn:'购物袋',pinyin:'gòu wù dài',en:'Shopping Bag',shopee:'https://shopee.vn/search?keyword=tui+vai+di+cho',temu:'https://www.temu.com/search_result.html?search_key=reusable+bag'},
+    {emoji:'💳',cn:'钱包',pinyin:'qián bāo',en:'Wallet',shopee:'https://shopee.vn/search?keyword=vi+da+ngan',temu:'https://www.temu.com/search_result.html?search_key=slim+wallet'},
+    {emoji:'🗂️',cn:'卡包',pinyin:'kǎ bāo',en:'Card Holder',shopee:'https://shopee.vn/search?keyword=vi+dung+the',temu:'https://www.temu.com/search_result.html?search_key=card+holder'},
+    {emoji:'👛',cn:'零钱包',pinyin:'líng qián bāo',en:'Coin Pouch',shopee:'https://shopee.vn/search?keyword=vi+xu+nho',temu:'https://www.temu.com/search_result.html?search_key=coin+pouch'},
+    {emoji:'🫖',cn:'保温杯',pinyin:'bǎo wēn bēi',en:'Thermos',shopee:'https://shopee.vn/search?keyword=binh+giu+nhiet',temu:'https://www.temu.com/search_result.html?search_key=thermos+bottle'},
+    {emoji:'💧',cn:'透明水杯',pinyin:'tòu míng shuǐ bēi',en:'Clear Bottle',shopee:'https://shopee.vn/search?keyword=binh+nuoc+trong',temu:'https://www.temu.com/search_result.html?search_key=clear+water+bottle'},
+    {emoji:'🥤',cn:'吸管杯',pinyin:'xī guǎn bēi',en:'Straw Tumbler',shopee:'https://shopee.vn/search?keyword=binh+ong+hut',temu:'https://www.temu.com/search_result.html?search_key=straw+tumbler'},
+    {emoji:'🍵',cn:'玻璃杯',pinyin:'bō li bēi',en:'Glass Cup',shopee:'https://shopee.vn/search?keyword=coc+thuy+tinh',temu:'https://www.temu.com/search_result.html?search_key=glass+cup'},
+  ]},
+  g2:{items:[
+    {emoji:'📓',cn:'计划本',pinyin:'jì huà běn',en:'Planner',shopee:'https://shopee.vn/search?keyword=so+planner',temu:'https://www.temu.com/search_result.html?search_key=planner+notebook'},
+    {emoji:'📒',cn:'方格本',pinyin:'fāng gé běn',en:'Grid Notebook',shopee:'https://shopee.vn/search?keyword=so+luoi',temu:'https://www.temu.com/search_result.html?search_key=grid+notebook'},
+    {emoji:'🗒️',cn:'便利贴',pinyin:'biàn lì tiē',en:'Sticky Notes',shopee:'https://shopee.vn/search?keyword=giay+note',temu:'https://www.temu.com/search_result.html?search_key=sticky+notes'},
+    {emoji:'🖊️',cn:'中性笔',pinyin:'zhōng xìng bǐ',en:'Gel Pen',shopee:'https://shopee.vn/search?keyword=but+gel',temu:'https://www.temu.com/search_result.html?search_key=gel+pen'},
+    {emoji:'✏️',cn:'铅笔',pinyin:'qiān bǐ',en:'Pencil',shopee:'https://shopee.vn/search?keyword=but+chi',temu:'https://www.temu.com/search_result.html?search_key=pencil'},
+    {emoji:'💡',cn:'荧光笔',pinyin:'yíng guāng bǐ',en:'Highlighter',shopee:'https://shopee.vn/search?keyword=but+da+quang',temu:'https://www.temu.com/search_result.html?search_key=highlighter'},
+    {emoji:'📏',cn:'直尺',pinyin:'zhí chǐ',en:'Ruler',shopee:'https://shopee.vn/search?keyword=thuoc+ke',temu:'https://www.temu.com/search_result.html?search_key=ruler'},
+    {emoji:'🗃️',cn:'笔筒',pinyin:'bǐ tǒng',en:'Pen Holder',shopee:'https://shopee.vn/search?keyword=hop+dung+but',temu:'https://www.temu.com/search_result.html?search_key=pen+holder'},
+    {emoji:'📦',cn:'收纳盒',pinyin:'shōu nà hé',en:'Storage Box',shopee:'https://shopee.vn/search?keyword=hop+dung+do',temu:'https://www.temu.com/search_result.html?search_key=mini+storage+box'},
+    {emoji:'📎',cn:'回形针',pinyin:'huí xíng zhēn',en:'Paper Clips',shopee:'https://shopee.vn/search?keyword=kep+giay',temu:'https://www.temu.com/search_result.html?search_key=paper+clips'},
+    {emoji:'🗂️',cn:'文件夹',pinyin:'wén jiàn jiā',en:'Folder',shopee:'https://shopee.vn/search?keyword=bia+ho+so',temu:'https://www.temu.com/search_result.html?search_key=document+folder'},
+    {emoji:'🗑️',cn:'和纸胶带',pinyin:'hé zhǐ jiāo dài',en:'Washi Tape',shopee:'https://shopee.vn/search?keyword=bang+keo+washi',temu:'https://www.temu.com/search_result.html?search_key=washi+tape'},
+    {emoji:'🔢',cn:'计算器',pinyin:'jì suàn qì',en:'Calculator',shopee:'https://shopee.vn/search?keyword=may+tinh+cam+tay',temu:'https://www.temu.com/search_result.html?search_key=calculator'},
+    {emoji:'✂️',cn:'剪刀',pinyin:'jiǎn dāo',en:'Scissors',shopee:'https://shopee.vn/search?keyword=keo+cat',temu:'https://www.temu.com/search_result.html?search_key=scissors'},
+  ]},
+  g3:{items:[
+    {emoji:'🦀',cn:'鸭嘴夹',pinyin:'yā zuǐ jiā',en:'Claw Clip',shopee:'https://shopee.vn/search?keyword=kep+toc+cang+cua',temu:'https://www.temu.com/search_result.html?search_key=claw+clip'},
+    {emoji:'🎀',cn:'发绳',pinyin:'fā shéng',en:'Scrunchie',shopee:'https://shopee.vn/search?keyword=scrunchie',temu:'https://www.temu.com/search_result.html?search_key=scrunchie'},
+    {emoji:'👑',cn:'发箍',pinyin:'fā gū',en:'Headband',shopee:'https://shopee.vn/search?keyword=bang+do+toc',temu:'https://www.temu.com/search_result.html?search_key=headband'},
+    {emoji:'📌',cn:'发夹',pinyin:'fā jiā',en:'Hair Pin',shopee:'https://shopee.vn/search?keyword=kep+toc',temu:'https://www.temu.com/search_result.html?search_key=hair+pin'},
+    {emoji:'🪢',cn:'发带',pinyin:'fā dài',en:'Hair Tie',shopee:'https://shopee.vn/search?keyword=day+buoc+toc',temu:'https://www.temu.com/search_result.html?search_key=hair+tie'},
+    {emoji:'🌸',cn:'发卡',pinyin:'fā kǎ',en:'Barrette',shopee:'https://shopee.vn/search?keyword=kep+banh+mi',temu:'https://www.temu.com/search_result.html?search_key=barrette'},
+    {emoji:'🔑',cn:'钥匙扣',pinyin:'yào shi kòu',en:'Keychain',shopee:'https://shopee.vn/search?keyword=moc+khoa',temu:'https://www.temu.com/search_result.html?search_key=keychain'},
+    {emoji:'🪞',cn:'小镜子',pinyin:'xiǎo jìng zi',en:'Pocket Mirror',shopee:'https://shopee.vn/search?keyword=guong+mini',temu:'https://www.temu.com/search_result.html?search_key=pocket+mirror'},
+    {emoji:'💄',cn:'化妆包',pinyin:'huà zhuāng bāo',en:'Makeup Bag',shopee:'https://shopee.vn/search?keyword=tui+my+pham',temu:'https://www.temu.com/search_result.html?search_key=makeup+bag'},
+    {emoji:'🧴',cn:'护手霜',pinyin:'hù shǒu shuāng',en:'Hand Cream',shopee:'https://shopee.vn/search?keyword=kem+tay',temu:'https://www.temu.com/search_result.html?search_key=hand+cream'},
+    {emoji:'🌂',cn:'折叠伞',pinyin:'zhé dié sǎn',en:'Compact Umbrella',shopee:'https://shopee.vn/search?keyword=o+du+gap',temu:'https://www.temu.com/search_result.html?search_key=compact+umbrella'},
+    {emoji:'🧣',cn:'围巾',pinyin:'wéi jīn',en:'Scarf',shopee:'https://shopee.vn/search?keyword=khan+co',temu:'https://www.temu.com/search_result.html?search_key=scarf'},
+  ]},
+  g4:{items:[
+    {emoji:'🕯️',cn:'香薰蜡烛',pinyin:'xiāng xūn là zhú',en:'Scented Candle',shopee:'https://shopee.vn/search?keyword=nen+thom',temu:'https://www.temu.com/search_result.html?search_key=scented+candle'},
+    {emoji:'💡',cn:'小夜灯',pinyin:'xiǎo yè dēng',en:'Night Light',shopee:'https://shopee.vn/search?keyword=den+ngu',temu:'https://www.temu.com/search_result.html?search_key=night+light'},
+    {emoji:'🖼️',cn:'相框',pinyin:'xiàng kuāng',en:'Photo Frame',shopee:'https://shopee.vn/search?keyword=khung+anh',temu:'https://www.temu.com/search_result.html?search_key=photo+frame'},
+    {emoji:'🌿',cn:'仿真植物',pinyin:'fǎng zhēn zhí wù',en:'Fake Plant',shopee:'https://shopee.vn/search?keyword=cay+gia',temu:'https://www.temu.com/search_result.html?search_key=artificial+plant'},
+    {emoji:'🧸',cn:'公仔',pinyin:'gōng zǎi',en:'Plushie',shopee:'https://shopee.vn/search?keyword=thu+bong',temu:'https://www.temu.com/search_result.html?search_key=plushie'},
+    {emoji:'🪴',cn:'花盆',pinyin:'huā pén',en:'Plant Pot',shopee:'https://shopee.vn/search?keyword=chau+cay',temu:'https://www.temu.com/search_result.html?search_key=plant+pot'},
+    {emoji:'🌙',cn:'月亮灯',pinyin:'yuè liang dēng',en:'Moon Lamp',shopee:'https://shopee.vn/search?keyword=den+mat+trang',temu:'https://www.temu.com/search_result.html?search_key=moon+lamp'},
+    {emoji:'🎴',cn:'挂画',pinyin:'guà huà',en:'Wall Print',shopee:'https://shopee.vn/search?keyword=tranh+tuong',temu:'https://www.temu.com/search_result.html?search_key=wall+art'},
+    {emoji:'🪔',cn:'香薰机',pinyin:'xiāng xūn jī',en:'Diffuser',shopee:'https://shopee.vn/search?keyword=may+phun+tinh+dau',temu:'https://www.temu.com/search_result.html?search_key=aroma+diffuser'},
+    {emoji:'🎋',cn:'干花',pinyin:'gān huā',en:'Dried Flowers',shopee:'https://shopee.vn/search?keyword=hoa+kho',temu:'https://www.temu.com/search_result.html?search_key=dried+flowers'},
+  ]}
+};
+
+const BOOKS=[
+  {img:'https://res.cloudinary.com/dndwvsqib/image/upload/v1754799160/hyjc-1_waystv.png',alt:'Hanyu Jiaocheng 1A',amazon:'https://amzn.to/458N8Q2',shopee:'https://shopee.vn/search?keyword=hanyu+jiaocheng+1a+tieng+trung'},
+  {img:'https://res.cloudinary.com/dndwvsqib/image/upload/v1754799156/hyjc-2_tan7ou.png',alt:'Hanyu Jiaocheng 1B',amazon:'https://amzn.to/45aBnZn',shopee:'https://shopee.vn/search?keyword=hanyu+jiaocheng+1b'},
+  {img:'https://res.cloudinary.com/dndwvsqib/image/upload/v1754799159/boyachinese_kfccp5.png',alt:'Boya Chinese 1',amazon:'https://amzn.to/3HnBGXF',shopee:'https://shopee.vn/search?keyword=boya+chinese+sach+tieng+trung'},
+  {img:'https://res.cloudinary.com/dndwvsqib/image/upload/v1754799156/msutong_vgdjwf.png',alt:'Msutong 1',amazon:'https://amzn.to/45I9DLQ',shopee:'https://shopee.vn/search?keyword=msutong+1+tieng+trung'},
+  {img:'https://res.cloudinary.com/dndwvsqib/image/upload/v1754800464/msutong-2_y51aus.png',alt:'Msutong 2',amazon:'https://amzn.to/3HnBNm3',shopee:'https://shopee.vn/search?keyword=msutong+2+tieng+trung'},
+  {img:'https://res.cloudinary.com/dndwvsqib/image/upload/v1754799158/sutong-3_uhjady.png',alt:'Msutong 3',amazon:'https://amzn.to/3UlUI3v',shopee:'https://shopee.vn/search?keyword=msutong+3+tieng+trung'},
+  {img:'https://res.cloudinary.com/dndwvsqib/image/upload/v1754799158/sutong-4_ewgkav.png',alt:'Msutong 4',amazon:'https://amzn.to/41lxGhh',shopee:'https://shopee.vn/search?keyword=msutong+4+tieng+trung'},
+];
+
+const PALETTE=['#f9a8d4','#fcd34d','#86efac','#93c5fd','#c4b5fd','#fdba74','#a5f3fc','#fda4af','#bbf7d0','#fef08a','#d8b4fe','#fed7aa','#bfdbfe','#f0abfc','#99f6e4','#fecaca'];
+
+let box=[];
+const ST={g1:{spinning:false,angle:0,current:null},g2:{spinning:false,angle:0,current:null},g3:{spinning:false,angle:0,current:null},g4:{spinning:false,angle:0,current:null}};
+
+function init(){
+  Object.keys(GROUPS).forEach(gid=>{
+    const items=GROUPS[gid].items;
+    const el=document.getElementById('list_'+gid);
+    el.innerHTML=items.map(it=>`<div class="il-item"><span>${it.emoji}</span><span>${it.cn}</span></div>`).join('');
+    drawWheel(gid,0);
+  });
+  const bg=document.getElementById('books-grid');
+  bg.innerHTML=BOOKS.map(b=>`
+    <div class="book-entry">
+      <a class="book-img-wrap" href="${b.amazon}" target="_blank"><img src="${b.img}" alt="${b.alt}" loading="lazy"></a>
+      <div class="book-btns">
+        <a class="book-btn bb-amazon" href="${b.amazon}" target="_blank">📦 Amazon</a>
+        <a class="book-btn bb-shopee" href="${b.shopee}" target="_blank">🛒 Shopee</a>
+      </div>
+    </div>`).join('');
+}
+
+function drawWheel(gid,rot){
+  const canvas=document.getElementById('c_'+gid);
+  if(!canvas)return;
+  const ctx=canvas.getContext('2d');
+  const W=canvas.width,R=W/2-6,cx=W/2,cy=W/2;
+  const items=GROUPS[gid].items,n=items.length,slice=(2*Math.PI)/n;
+  ctx.clearRect(0,0,W,W);
+  ctx.save();ctx.translate(cx,cy);ctx.rotate(rot);
+  items.forEach((item,i)=>{
+    const s=i*slice-Math.PI/2,e=s+slice;
+    ctx.beginPath();ctx.moveTo(0,0);ctx.arc(0,0,R,s,e);ctx.closePath();
+    ctx.fillStyle=PALETTE[i%PALETTE.length];ctx.fill();
+    ctx.strokeStyle='#222';ctx.lineWidth=2;ctx.stroke();
+    ctx.save();ctx.rotate(s+slice/2);ctx.translate(R*.62,0);
+    ctx.font=n>10?'10px serif':'13px serif';
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText(item.emoji,0,-8);
+    ctx.font=`bold ${n>10?7:8}px Fredoka,sans-serif`;ctx.fillStyle='#333';
+    const lbl=item.cn.length>4?item.cn.slice(0,3)+'…':item.cn;
+    ctx.fillText(lbl,0,5);ctx.restore();
+  });
+  ctx.restore();
+  ctx.beginPath();ctx.arc(cx,cy,R,0,2*Math.PI);ctx.strokeStyle='#222';ctx.lineWidth=3;ctx.stroke();
+}
+
+function spin(gid){
+  const st=ST[gid];if(st.spinning)return;
+  st.spinning=true;document.getElementById('btn_'+gid).disabled=true;
+  document.getElementById('res_'+gid).classList.remove('show');
+  const extra=(5+Math.random()*6)*2*Math.PI;
+  const target=st.angle+extra+Math.random()*2*Math.PI;
+  const dur=3000+Math.random()*700;
+  const t0=performance.now(),a0=st.angle;
+  const ease=t=>1-Math.pow(1-t,3);
+  const tick=now=>{
+    const t=Math.min((now-t0)/dur,1);
+    st.angle=a0+(target-a0)*ease(t);
+    drawWheel(gid,st.angle);
+    if(t<1){requestAnimationFrame(tick);return;}
+    st.angle=st.angle%(2*Math.PI);st.spinning=false;
+    document.getElementById('btn_'+gid).disabled=false;
+    showResult(gid);
+  };
+  requestAnimationFrame(tick);
+}
+
+function showResult(gid){
+  const st=ST[gid],items=GROUPS[gid].items;
+  const n=items.length,slice=(2*Math.PI)/n;
+  const norm=((-st.angle%(2*Math.PI))+2*Math.PI)%(2*Math.PI);
+  const idx=Math.floor(((norm+Math.PI/2)%(2*Math.PI))/slice)%n;
+  st.current=items[idx];
+  document.getElementById('re_'+gid).textContent=st.current.emoji;
+  document.getElementById('rc_'+gid).textContent=st.current.cn;
+  document.getElementById('rp_'+gid).textContent=st.current.pinyin;
+  document.getElementById('ren_'+gid).textContent=st.current.en;
+  const btn=document.getElementById('ab_'+gid);
+  const inBox=box.some(b=>b.cn===st.current.cn);
+  btn.textContent=inBox?'✅ Already in box!':'🎁 Add to Gift Box';
+  btn.disabled=inBox;
+  document.getElementById('res_'+gid).classList.add('show');
+}
+
+function addToBox(gid){
+  const item=ST[gid].current;
+  if(!item||box.some(b=>b.cn===item.cn))return;
+  box.push(item);
+  const btn=document.getElementById('ab_'+gid);
+  btn.textContent='✅ Added!';btn.disabled=true;
+  renderBox();renderBar();confetti(18);
+}
+
+function removeItem(cn){
+  box=box.filter(b=>b.cn!==cn);
+  renderBox();renderBar();
+  Object.keys(ST).forEach(gid=>{
+    const st=ST[gid];
+    if(st.current&&st.current.cn===cn){
+      const btn=document.getElementById('ab_'+gid);
+      if(btn){btn.textContent='🎁 Add to Gift Box';btn.disabled=false;}
+    }
+  });
+}
+
+function renderBox(){
+  const empty=document.getElementById('box-empty');
+  const grid=document.getElementById('box-grid');
+  const cBtn=document.getElementById('checkout-btn');
+  if(box.length===0){empty.style.display='flex';grid.style.display='none';cBtn.classList.remove('visible');return;}
+  empty.style.display='none';grid.style.display='grid';cBtn.classList.add('visible');
+  grid.innerHTML=box.map(it=>`
+    <div class="box-item">
+      <button class="bi-rm" onclick="removeItem('${it.cn}')">✕</button>
+      <div class="bi-emoji">${it.emoji}</div>
+      <div class="bi-cn">${it.cn}</div>
+      <div class="bi-en">${it.en}</div>
+    </div>`).join('');
+}
+
+function renderBar(){
+  const preview=document.getElementById('gift-preview');
+  const cta=document.getElementById('bar-cta');
+  document.getElementById('bar-count').textContent=box.length;
+  if(box.length===0){preview.innerHTML='<span style="color:#bbb;font-size:.85rem;font-weight:600;">— empty —</span>';cta.classList.remove('visible');return;}
+  preview.innerHTML=box.map(it=>`<span class="gift-chip">${it.emoji} ${it.cn}<button class="rm" onclick="removeItem('${it.cn}')">✕</button></span>`).join('');
+  cta.classList.add('visible');
+}
+
+function goToShop(){
+  document.getElementById('main-page').classList.add('hidden');
+  document.getElementById('shop-page').classList.add('show');
+  document.getElementById('shop-list').innerHTML=box.map(it=>`
+    <div class="si">
+      <div class="si-ico">${it.emoji}</div>
+      <div class="si-info"><div class="si-cn">${it.cn}</div><div class="si-py">${it.pinyin}</div><div class="si-en">${it.en}</div></div>
+      <div class="si-links">
+        <a class="si-btn si-shopee" href="${it.shopee}" target="_blank">🛒 Shopee</a>
+        <a class="si-btn si-temu" href="${it.temu}" target="_blank">🌐 Temu</a>
+      </div>
+    </div>`).join('');
+  confetti(50);window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function goBack(){
+  document.getElementById('shop-page').classList.remove('show');
+  document.getElementById('main-page').classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function confetti(n=28){
+  const cols=['#f472b6','#fcd34d','#86efac','#93c5fd','#c4b5fd','#fdba74','#fb7185'];
+  for(let i=0;i<n;i++){
+    const p=document.createElement('div');p.className='cp';
+    p.style.left=Math.random()*100+'vw';
+    p.style.background=cols[Math.floor(Math.random()*cols.length)];
+    p.style.animationDelay=Math.random()*1.2+'s';
+    p.style.animationDuration=(1.4+Math.random()*1.2)+'s';
+    p.style.transform=`rotate(${Math.random()*360}deg)`;
+    document.body.appendChild(p);setTimeout(()=>p.remove(),3500);
+  }
+}
+
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);obs.unobserve(e.target);}});
+},{threshold:.05});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+init();
+</script>
 </body>
 </html>
