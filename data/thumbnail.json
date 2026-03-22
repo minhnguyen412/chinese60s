@@ -263,5 +263,13 @@
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1773217835/hyjc-1-21-2_y41uwz.png",
     "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
     "htmlLink": "posts.html?postStartId=310&postEndId=319&quizStartId=413&quizEndId=423&writeStartId=468&writeEndId=479&id=33"
+  },
+  {
+    "id": 34,
+    "title": "第二十二课：我打算请老师教我京剧",
+    "description": "Lesson 22: I plan to hire a teacher to teach me Peking Opera",
+    "thumbnail": "",
+    "videoLink": "",
+    "htmlLink": "posts.html?postStartId=320&postEndId=338&quizStartId=424&quizEndId=449&writeStartId=480&writeEndId=505&id=34"
   }
 ]
