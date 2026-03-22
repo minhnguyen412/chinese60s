@@ -372,7 +372,7 @@
     "id": 42,
     "user": "B",
     "title": "对。",
-    "segments": ["对", "。"],
+    "segments": ["对¹", "。"],
     "description": "duì<br>Yes.",
     "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/KAT.0001_weeiww.png",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277879/%E5%AF%B9_jmgtfe.mp3"
@@ -903,7 +903,7 @@
     "id": 101,
     "user": "麦克",
     "title": "对了。谢谢！",
-    "segments": ["对", "了", "。", "谢谢", "！"],
+    "segments": ["对¹", "了", "。", "谢谢", "！"],
     "description": "duì le xièxie<br>It's correct. Thank you!",
     "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738653785/%E5%AF%B9%E4%BA%86%E8%B0%A2%E8%B0%A2_w03vlu.mp3"
@@ -3009,7 +3009,7 @@
     "id": 335,
     "user": "田中",
     "title": "我来中国以前就对书法特别感兴趣。",
-    "segments": ["我", "来", "中国", "以前", "就", "对", "书法", "特别", "感兴趣", "。"],
+    "segments": ["我", "来", "中国", "以前", "就", "对²", "书法", "特别", "感兴趣", "。"],
     "description": "Wǒ lái zhōngguó yǐqián jiù duì shūfǎ tèbié gǎn xìngqù.<br>Before coming to China, I was already very interested in calligraphy.",
     "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673385/zhangdong_llur8t.png",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157470/335_sh2nt1.mp3"
