@@ -274,7 +274,7 @@
   {
     "id": "35",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672818/%E5%AF%B9_kivn0g.png",
-    "character": "对",
+    "character": "对¹",
     "meaning": "Right; OK; Correct; True",
     "pinyin": "duì",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673277/%E5%AF%B9_mvladp.mp3"
@@ -723,7 +723,7 @@
     "id": "91",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672813/%E5%8F%AB_bg2tz1.png",
     "character": "叫",
-    "meaning": "to call; to name",
+    "meaning": "to call; to name; to ask",
     "pinyin": "jiào",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673246/%E5%8F%AB_oxmi4q.mp3"
   },
@@ -3539,7 +3539,7 @@
     "id": "443",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797895/%E5%B0%B1-min_nwgfpw.png",
     "character": "就",
-    "meaning": "exactly; precisely",
+    "meaning": "exactly; precisely; as early as; already",
     "pinyin": "jiù",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756737214/%E5%B0%B1_e3p4ss.mp3"
   },
