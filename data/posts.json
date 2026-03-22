@@ -2869,5 +2869,176 @@
     "description": "xiàwǔ sì diǎn.<br>At 4:00 in the afternoon.",
     "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200932/319_aank72.mp3"
+  },
+  {
+    "id": 320,
+    "user": "老师",
+    "title": "今天想请大家谈谈自己的爱好。",
+    "segments": ["今天", "想", "请", "大家", "谈", "谈", "自己", "的", "爱好", "。"],
+    "description": "Jīntiān xiǎng qǐng dàjiā tántan zìjǐ de àihào.<br>Today I’d like to ask everyone to talk about your hobbies.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157468/320_qdk9lb.mp3"
+  },
+  {
+    "id": 321,
+    "user": "老师",
+    "title": "谁先说？",
+    "segments": ["谁", "先", "说", "？"],
+    "description": "Shéi xiān shuō?<br>Who will go first?",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157468/321_czoof8.mp3"
+  },
+  {
+    "id": 322,
+    "user": "玛丽",
+    "title": "老师，让我先说吧。",
+    "segments": ["老师", "，", "让", "我", "先", "说", "吧", "。"],
+    "description": "Lǎoshī, ràng wǒ xiān shuō ba.<br>Teacher, let me go first.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157468/322_pv8jjk.mp3"
+  },
+  {
+    "id": 323,
+    "user": "老师",
+    "title": "好，你说吧。你有什么爱好？",
+    "segments": ["好", "，", "你", "说", "吧", "。", "你", "有", "什么", "爱好", "？"],
+    "description": "Hǎo, nǐ shuō ba. Nǐ yǒu shénme àihào?<br>Okay, you go first. What hobbies do you have?",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157469/323_wgehbm.mp3"
+  },
+  {
+    "id": 324,
+    "user": "玛丽",
+    "title": "我的爱好是看京剧。",
+    "segments": ["我", "的", "爱好", "是", "看", "京剧", "。"],
+    "description": "Wǒ de àihào shì kàn jīngjù.<br>My hobby is watching Peking Opera.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157469/323_wgehbm.mp3"
+  },
+  {
+    "id": 325,
+    "user": "老师",
+    "title": "你喜欢看京剧？",
+    "segments": ["你", "喜欢", "看", "京剧", "？"],
+    "description": "Nǐ xǐhuan kàn jīngjù?<br>You like watching Peking Opera?",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157469/325_jkokur.mp3"
+  },
+  {
+    "id": 326,
+    "user": "玛丽",
+    "title": "是啊，非常喜欢。",
+    "segments": ["是", "啊", "，", "非常", "喜欢", "。"],
+    "description": "Shì a, fēicháng xǐhuan.<br>Yes, I like it very much.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157469/326_x34j6y.mp3"
+  },
+  {
+    "id": 327,
+    "user": "玛丽",
+    "title": "我还想学唱京剧，打算请一个老师教我。",
+    "segments": ["我", "还", "想", "学", "唱", "京剧", "，", "打算", "请", "一", "个", "老师", "教", "我", "。"],
+    "description": "Wǒ hái xiǎng xué chàng jīngjù, dǎsuan qǐng yí ge lǎoshī jiāo wǒ.<br>I also want to learn to sing Peking Opera. I plan to hire a teacher to teach me.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157470/327_yuq2pw.mp3"
+  },
+  {
+    "id": 328,
+    "user": "老师",
+    "title": "麦克，你喜欢做什么？",
+    "segments": ["麦克", "，", "你", "喜欢", "做", "什么", "？"],
+    "description": "Màikè, nǐ xǐhuan zuò shénme?<br>Mike, what do you like to do?",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157470/328_la5mq5.mp3"
+  },
+  {
+    "id": 329,
+    "user": "麦克",
+    "title": "我喜欢玩电脑。",
+    "segments": ["我", "喜欢", "玩", "电脑", "。"],
+    "description": "Wǒ xǐhuan wán diànnǎo.<br>I like playing on the computer.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/nvcodinh.0001_yazunu.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157470/329_r3ke4v.mp3"
+  },
+  {
+    "id": 330,
+    "user": "老师",
+    "title": "罗兰呢？",
+    "segments": ["罗兰", "呢", "？"],
+    "description": "Luólán ne?<br>What about Roland?",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157470/330_zixdqo.mp3"
+  },
+  {
+    "id": 331,
+    "user": "罗兰",
+    "title": "我喜欢听音乐，",
+    "segments": ["我", "喜欢", "听", "音乐", "，"],
+    "description": "Wǒ xǐhuan tīng yīnyuè,<br>I like listening to music,",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753432295/roland_xvp4bn.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157468/331_cdpyid.mp3"
+  },
+  {
+    "id": 332,
+    "user": "罗兰",
+    "title": "下课以后，听听音乐或者跟朋友聊聊天儿，",
+    "segments": ["下课", "以后", "，", "听", "听", "音乐", "或者", "跟", "朋友", "聊", "聊天儿", "，"],
+    "description": "xià ke yǐhòu, tīngting yīnyuè huòzhě gēn péngyou liáoliao tiānr,<br>After class, listening to music or chatting with friends,",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753432295/roland_xvp4bn.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157468/332_yh1baw.mp3"
+  },
+  {
+    "id": 333,
+    "user": "罗兰",
+    "title": "感到心情很愉快。",
+    "segments": ["感到", "心情", "很", "愉快", "。"],
+    "description": "gǎndào xīnqíng hěn yúkuài.<br>makes me feel very happy.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753432295/roland_xvp4bn.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157468/333_yaqnnu.mp3"
+  },
+  {
+    "id": 334,
+    "user": "老师",
+    "title": "田中业余时间常常做什么？",
+    "segments": ["田中", "业余", "时间", "常常", "做", "什么", "？"],
+    "description": "Tiánzhōng yèyú shíjiān chángcháng zuò shénme?<br>Tanaka, what do you often do in your spare time?",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673384/thaywang_xaxpqe.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157469/334_unnjrp.mp3"
+  },
+  {
+    "id": 335,
+    "user": "田中",
+    "title": "我来中国以前就对书法特别感兴趣。",
+    "segments": ["我", "来", "中国", "以前", "就", "对", "书法", "特别", "感兴趣", "。"],
+    "description": "Wǒ lái zhōngguó yǐqián jiù duì shūfǎ tèbié gǎn xìngqù.<br>Before coming to China, I was already very interested in calligraphy.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673385/zhangdong_llur8t.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157470/335_sh2nt1.mp3"
+  },
+  {
+    "id": 336,
+    "user": "田中",
+    "title": "今年公司派我来中国，我非常高兴。",
+    "segments": ["今年", "公司", "派", "我", "来", "中国", "，", "我", "非常", "高兴", "。"],
+    "description": "Jīnnián gōngsī pài wǒ lái zhōngguó, wǒ fēicháng gāoxìng.<br>This year my company sent me to China, and I’m very happy. ",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673385/zhangdong_llur8t.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157470/336_akz0ps.mp3"
+  },
+  {
+    "id": 337,
+    "user": "田中",
+    "title": "现在我正跟一个老师学书法，",
+    "segments": ["现在", "我", "正", "跟", "一", "个", "老师", "学", "书法", "，"],
+    "description": "xiànzài wǒ zhèng gēn yí ge lǎoshī xué shūfǎ,<br>Now I’m learning calligraphy with a teacher,",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673385/zhangdong_llur8t.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157471/337_xrhq3e.mp3"
+  },
+  {
+    "id": 338,
+    "user": "田中",
+    "title": "还学画中国画儿。",
+    "segments": ["还", "学", "画", "中国", "画儿", "。"],
+    "description": "hái xué huà zhōngguó huàr.<br>and I’m also learning to paint Chinese paintings.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673385/zhangdong_llur8t.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157471/338_uwnhs2.mp3"
   }
 ]
