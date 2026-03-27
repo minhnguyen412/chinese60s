@@ -276,16 +276,16 @@
     "id": 35,
     "title": "第二十三课 (一)：学校里边有邮局吗？",
     "description": "Lesson 23 (1): : Is there a post office in the school?",
-    "thumbnail": "",
-    "videoLink": "",
+    "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1774591863/hyjc-1-23-1_i8db8s.png",
+    "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
     "htmlLink": "posts.html?postStartId=339&postEndId=346&quizStartId=450&quizEndId=456&writeStartId=506&writeEndId=524&id=35"
   },
   {
     "id": 36,
     "title": "第二十三课 (二)：从这儿到博物馆有多远？",
-    "description": "Lesson 23 (2): How far is it from here to the museum??",
-    "thumbnail": "",
-    "videoLink": "",
+    "description": "Lesson 23 (2): How far is it from here to the museum?",
+    "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1774591879/hyjc-1-23-2_gcnuix.png",
+    "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
     "htmlLink": "posts.html?postStartId=347&postEndId=356&quizStartId=457&quizEndId=470&writeStartId=525&writeEndId=545&id=36"
   }
 ]
