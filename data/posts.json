@@ -3040,5 +3040,167 @@
     "description": "hái xué huà zhōngguó huàr.<br>and I’m also learning to paint Chinese paintings.",
     "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673385/zhangdong_llur8t.png",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157471/338_uwnhs2.mp3"
+  },
+  {
+    "id": 339,
+    "user": "山本",
+    "title": "学校里边有邮局吗？",
+    "segments": ["学校", "里边", "有", "邮局", "吗", "？"],
+    "description": "Xuéxiào lǐbian yǒu yóujú ma?<br>Is there a post office in the school?",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577850/339_r7d7if.mp3"
+  },
+  {
+    "id": 340,
+    "user": "张东",
+    "title": "有。",
+    "segments": ["有", "。"],
+    "description": "Yǒu.<br>Yes.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577850/340_cnrbna.mp3"
+  },
+  {
+    "id": 341,
+    "user": "山本",
+    "title": "邮局在哪儿？",
+    "segments": ["邮局", "在", "哪儿", "？"],
+    "description": "Yóujú zài nǎr?<br>Where is the post office?",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577850/341_jdkihf.mp3"
+  },
+  {
+    "id": 342,
+    "user": "张东",
+    "title": "在图书馆西边。",
+    "segments": ["在", "图书馆", "西边", "。"],
+    "description": "Zài túshūguǎn xībian.<br>It’s on the west side of the library.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577851/342_junmei.mp3"
+  },
+  {
+    "id": 343,
+    "user": "山本",
+    "title": "里这儿远吗？",
+    "segments": ["里", "这儿", "远", "吗", "？"],
+    "description": "Lí zhèr yuǎn ma?<br>Is it far from here?",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577851/343_nbcwc7.mp3"
+  },
+  {
+    "id": 344,
+    "user": "张东",
+    "title": "不远。很近。",
+    "segments": ["不", "远", "。", "很", "近", "。"],
+    "description": "Bù yuǎn. Hěn jìn.<br>Not far, very close.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577852/344_mubexk.mp3"
+  },
+  {
+    "id": 345,
+    "user": "山本",
+    "title": "图书馆东边是什么地方？",
+    "segments": ["图书馆", "东边", "是", "什么", "地方", "？"],
+    "description": "Túshūguǎn dōngbian shì shénme dìfang?<br>What is on the east side of the library?",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577850/345_yqktdw.mp3"
+  },
+  {
+    "id": 346,
+    "user": "张东",
+    "title": "图书馆东边是一个足球场。",
+    "segments": ["图书馆", "东边", "是", "一", "个", "足球场", "。"],
+    "description": "Túshūguǎn dōngbian shì yí ge zúqiúchǎng.<br>There is a football field on the east side of the library.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673383/nate_vqg4dx.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577850/346_eqci69.mp3"
+  },
+  {
+    "id": 347,
+    "user": "玛丽",
+    "title": "劳驾，我打听一下儿，博物馆在哪儿？",
+    "segments": ["劳驾", "，", "我", "打听", "一下儿", "，", "博物馆", "在", "哪儿", "？"],
+    "description": "Láojià, wǒ dǎting yíxiàr, bówùguǎn zài nǎr?<br>Excuse me, let me ask, where is the museum?",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753432295/roland_xvp4bn.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577850/347_vphhoh.mp3"
+  },
+  {
+    "id": 348,
+    "user": "路人",
+    "title": "博物馆在东边，在和平公园和人民广场中间。",
+    "segments": ["博物馆", "在", "东边", "，", "在", "和平", "公园", "和", "人民", "广场", "中间", "。"],
+    "description": "Bówùguǎn zài dōngbian, zài hépíng gōngyuán hé rénmín guǎngchǎng zhōngjiān,<br>The museum is on the east side, between Heping Park and Renmin Square.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577851/348_bj50kv.mp3"
+  },
+  {
+    "id": 349,
+    "user": "玛丽",
+    "title": "离这儿有多远？",
+    "segments": ["离", "这儿", "有", "多", "远", "？"],
+    "description": "Lí zhèr yǒu duō yuǎn?<br>How far is it from here?",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753432295/roland_xvp4bn.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577851/349_hefgyn.mp3"
+  },
+  {
+    "id": 350,
+    "user": "路人",
+    "title": "从这儿到那儿大概有七八百米。",
+    "segments": ["从", "这儿", "到", "那儿", "大概", "有", "七", "八", "百", "米", "。"],
+    "description": "Cóng zhèr dào nàr dàgài yǒu qī bā bǎi mǐ.<br>From here to there is about seven to eight hundred meters.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577851/350_v2t81t.mp3"
+  },
+  {
+    "id": 351,
+    "user": "玛丽",
+    "title": "怎么走？",
+    "segments": ["怎么", "走", "？"],
+    "description": "Zěnme zǒu ne?<br>How do I get there?",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753432295/roland_xvp4bn.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577852/351_tvpast.mp3"
+  },
+  {
+    "id": 352,
+    "user": "路人",
+    "title": "你从这儿一直往东走",
+    "segments": ["你", "从", "这儿", "一直", "往", "东", "走"],
+    "description": "Nǐ cóng zhèr yìzhí wǎng dōng zǒu<br>Go straight east from here ",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577852/352_g2g0xj.mp3"
+  },
+  {
+    "id": 353,
+    "user": "路人",
+    "title": "到红路灯那儿往左拐",
+    "segments": ["到", "红路灯", "那儿", "往", "左", "拐"],
+    "description": "dào hónglǜdēng nàr wǎng zuǒ guǎi<br>until you reach the traffic lights then turn left",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577852/353_rtnrms.mp3"
+  },
+  {
+    "id": 354,
+    "user": "路人",
+    "title": "马路东边有一座白色的大楼，那就是博物馆。",
+    "segments": ["马路", "东边", "有", "一", "座", "白色", "的", "大", "楼", "，", "那", "就", "是", "博物馆", "。"],
+    "description": "mǎlù dōngbian yǒu yí zuò báisè de dà lóu, nà jiù shì bówùguǎn.<br>On the east side of the road, there is a white building—that is the museum",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577852/354_e9qbh3.mp3"
+  },
+  {
+    "id": 355,
+    "user": "玛丽",
+    "title": "谢谢您！",
+    "segments": ["谢谢", "您", "！"],
+    "description": "Xièxie nín!<br>Thank you!",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753432295/roland_xvp4bn.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577852/355_hnq1xt.mp3"
+  },
+  {
+    "id": 356,
+    "user": "路人",
+    "title": "不客气。",
+    "segments": ["不", "客气", "。"],
+    "description": "Bú kèqi.<br>You’re welcome.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577858/356_vxfnph.mp3"
   }
 ]
