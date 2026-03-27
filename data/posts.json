@@ -3170,8 +3170,8 @@
   {
     "id": 353,
     "user": "路人",
-    "title": "到红路灯那儿往左拐",
-    "segments": ["到", "红路灯", "那儿", "往", "左", "拐"],
+    "title": "到红绿灯那儿往左拐",
+    "segments": ["到", "红绿灯", "那儿", "往", "左", "拐"],
     "description": "dào hónglǜdēng nàr wǎng zuǒ guǎi<br>until you reach the traffic lights then turn left",
     "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577852/353_rtnrms.mp3"
