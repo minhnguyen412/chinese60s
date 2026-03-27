@@ -4038,5 +4038,325 @@
     "meaning": "picture; drawing",
     "pinyin": "huàr",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772984977/%E7%94%BB%E5%84%BF_jub0jz.mp3"
+  },
+  {
+    "id": 506,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981385/%E8%BE%B9_xjosiz.png",
+    "character": "边",
+    "meaning": "side",
+    "pinyin": "biān",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985076/%E8%BE%B9_kcprwn.mp3"
+  },
+  {
+    "id": 507,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981326/%E4%B8%9C%E8%BE%B9_bbadin.png",
+    "character": "东边",
+    "meaning": "in the east",
+    "pinyin": "dōng bian",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772984998/%E4%B8%9C%E8%BE%B9_p6tklz.mp3"
+  },
+  {
+    "id": 508,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981383/%E8%A5%BF%E8%BE%B9_z7ai6u.png",
+    "character": "西边",
+    "meaning": "in the west",
+    "pinyin": "xī bian",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985067/%E8%A5%BF%E8%BE%B9_yyjhcy.mp3"
+  },
+  {
+    "id": 509,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981338/%E5%8D%97%E8%BE%B9_auwgmp.png",
+    "character": "南边",
+    "meaning": "in the south",
+    "pinyin": "nán bian",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985017/%E5%8D%97%E8%BE%B9_bfdxnh.mp3"
+  },
+  {
+    "id": 510,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981336/%E5%8C%97%E8%BE%B9_mkgtbj.png",
+    "character": "北边",
+    "meaning": "in the north",
+    "pinyin": "běi bian",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985016/%E5%8C%97%E8%BE%B9_t4teyw.mp3"
+  },
+  {
+    "id": 511,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981336/%E5%89%8D%E8%BE%B9_miiguf.png",
+    "character": "前边",
+    "meaning": "in the front",
+    "pinyin": "qián bian",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985010/%E5%89%8D%E8%BE%B9_gribwb.mp3"
+  },
+  {
+    "id": 512,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981351/%E5%90%8E%E8%BE%B9_efwhy0.png",
+    "character": "后边",
+    "meaning": "at the back",
+    "pinyin": "hòu bian",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985025/%E5%90%8E%E8%BE%B9_tyozfu.mp3"
+  },
+  {
+    "id": 513,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981357/%E5%B7%A6%E8%BE%B9_gerx3n.png",
+    "character": "左边",
+    "meaning": "on the left",
+    "pinyin": "zuǒ bian",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985039/%E5%B7%A6%E8%BE%B9_h3p71m.mp3"
+  },
+  {
+    "id": 514,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981348/%E5%8F%B3%E8%BE%B9_hpfzau.png",
+    "character": "右边",
+    "meaning": "on the right",
+    "pinyin": "yòu bian",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985024/%E5%8F%B3%E8%BE%B9_tfwxui.mp3"
+  },
+  {
+    "id": 515,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981397/%E9%87%8C%E8%BE%B9_jmbqqq.png",
+    "character": "里边",
+    "meaning": "inside",
+    "pinyin": "lǐ bian",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985085/%E9%87%8C%E8%BE%B9_ukbrpg.mp3"
+  },
+  {
+    "id": 516,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981353/%E5%A4%96%E8%BE%B9_xmnvfz.png",
+    "character": "外边",
+    "meaning": "outside",
+    "pinyin": "wài bian",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985034/%E5%A4%96%E8%BE%B9_n8k3zu.mp3"
+  },
+  {
+    "id": 517,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981325/%E4%B8%8A%E8%BE%B9_c7bumn.png",
+    "character": "上边",
+    "meaning": "above; over",
+    "pinyin": "shàng bian",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772984990/%E4%B8%8A%E8%BE%B9_f4pt2q.mp3"
+  },
+  {
+    "id": 518,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981325/%E4%B8%8B%E8%BE%B9_o3jbxa.png",
+    "character": "下边",
+    "meaning": "under; below",
+    "pinyin": "xià bian",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772984997/%E4%B8%8B%E8%BE%B9_yurpbq.mp3"
+  },
+  {
+    "id": 519,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981375/%E7%A6%BB_lo9s3a.png",
+    "character": "离",
+    "meaning": "from",
+    "pinyin": "lí",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985055/%E7%A6%BB_zraudv.mp3"
+  },
+  {
+    "id": 520,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981395/%E8%BF%9C_nnmomi.png",
+    "character": "远",
+    "meaning": "far away in time or space; distant",
+    "pinyin": "yuǎn",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985082/%E8%BF%9C_r9aojp.mp3"
+  },
+  {
+    "id": 521,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981387/%E8%BF%91_axxmoi.png",
+    "character": "近",
+    "meaning": "near; close",
+    "pinyin": "jìn",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985080/%E8%BF%91_rt8plj.mp3"
+  },
+  {
+    "id": 522,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981352/%E5%9C%B0%E6%96%B9_vw3hwj.png",
+    "character": "地方",
+    "meaning": "place",
+    "pinyin": "dì fang",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985032/%E5%9C%B0%E6%96%B9_nw6o00.mp3"
+  },
+  {
+    "id": 523,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981385/%E8%B6%B3%E7%90%83%E5%9C%BA_cnbupu.png",
+    "character": "足球场",
+    "meaning": "football field",
+    "pinyin": "zú qiú chǎng",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985072/%E8%B6%B3%E7%90%83%E5%9C%BA_fc7sog.mp3"
+  },
+  {
+    "id": 524,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981384/%E8%B6%B3%E7%90%83_hkktro.png",
+    "character": "足球",
+    "meaning": "football; soccer",
+    "pinyin": "zú qiú",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985070/%E8%B6%B3%E7%90%83_w6ja9w.mp3"
+  },
+  {
+    "id": 525,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981336/%E5%8A%B3%E9%A9%BE_jamkq2.png",
+    "character": "劳驾",
+    "meaning": "excuse me; may I trouble you; would you please",
+    "pinyin": "láo jià",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985011/%E5%8A%B3%E9%A9%BE_iisbhn.mp3"
+  },
+  {
+    "id": 526,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981363/%E6%89%93%E5%90%AC_qrzvrk.png",
+    "character": "打听",
+    "meaning": "to ask about",
+    "pinyin": "dǎ ting",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985048/%E6%89%93%E5%90%AC_z5wqik.mp3"
+  },
+  {
+    "id": 527,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981345/%E5%8D%9A%E7%89%A9%E9%A6%86_dfmllw.png",
+    "character": "博物馆",
+    "meaning": "museum",
+    "pinyin": "bó wù guǎn",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985019/%E5%8D%9A%E7%89%A9%E9%A6%86_oxsgq0.mp3"
+  },
+  {
+    "id": 528,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981352/%E5%92%8C%E5%B9%B3_zouen7.png",
+    "character": "和平",
+    "meaning": "peace",
+    "pinyin": "hé píng",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985029/%E5%92%8C%E5%B9%B3_id20e2.mp3"
+  },
+  {
+    "id": 529,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981362/%E5%B9%BF%E5%9C%BA_zodndy.png",
+    "character": "广场",
+    "meaning": "square",
+    "pinyin": "guǎng chǎng",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985042/%E5%B9%BF%E5%9C%BA_fu04x2.mp3"
+  },
+  {
+    "id": 530,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981335/%E4%B8%AD%E9%97%B4_u7bnzq.png",
+    "character": "中间",
+    "meaning": "middle",
+    "pinyin": "zhōng jiān",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985001/%E4%B8%AD%E9%97%B4_jfyxud.mp3"
+  },
+  {
+    "id": 531,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981326/%E4%BB%8E_tauew8.png",
+    "character": "从",
+    "meaning": "from (a time, a place, or a point of view)",
+    "pinyin": "cóng",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985004/%E4%BB%8E_soeoq6.mp3"
+  },
+  {
+    "id": 532,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981335/%E5%88%B0_mspniz.png",
+    "character": "到",
+    "meaning": "to arrive; to reach",
+    "pinyin": "dào",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985007/%E5%88%B0_fgok69.mp3"
+  },
+  {
+    "id": 533,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981376/%E7%B1%B3_klkj2f.png",
+    "character": "米",
+    "meaning": "metre",
+    "pinyin": "mǐ",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673327/%E7%B1%B3_lxyady.mp3"
+  },
+  {
+    "id": 534,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981324/%E4%B8%80%E7%9B%B4_wwcla4.png",
+    "character": "一直",
+    "meaning": "(indicating one direction); straight",
+    "pinyin": "yì zhí",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772984988/%E4%B8%80%E7%9B%B4_ijvmjt.mp3"
+  },
+  {
+    "id": 535,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981378/%E7%BA%A2%E7%BB%BF%E7%81%AF_hijujn.png",
+    "character": "红绿灯",
+    "meaning": "traffic lights",
+    "pinyin": "hóng lǜ dēng",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985062/%E7%BA%A2%E7%BB%BF%E7%81%AF_wbhoyv.mp3"
+  },
+  {
+    "id": 536,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981383/%E7%BB%BF_qm4dag.png",
+    "character": "绿",
+    "meaning": "green",
+    "pinyin": "lǜ",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985064/%E7%BB%BF_vqww0k.mp3"
+  },
+  {
+    "id": 537,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981370/%E7%81%AF_ki3cut.png",
+    "character": "灯",
+    "meaning": "lamp; lights",
+    "pinyin": "dēng",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985049/%E7%81%AF_pjqplc.mp3"
+  },
+  {
+    "id": 538,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981362/%E5%BE%80_q3ezje.png",
+    "character": "往",
+    "meaning": "towards; to",
+    "pinyin": "wǎng",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985044/%E5%BE%80_lniefa.mp3"
+  },
+  {
+    "id": 539,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981353/%E5%B7%A6_fjfi4e.png",
+    "character": "左",
+    "meaning": "left; the left side",
+    "pinyin": "zuǒ",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985037/%E5%B7%A6_b4bzju.mp3"
+  },
+  {
+    "id": 540,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981346/%E5%8F%B3_padii7.png",
+    "character": "右",
+    "meaning": "right",
+    "pinyin": "yòu",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985023/%E5%8F%B3_brva1z.mp3"
+  },
+  {
+    "id": 541,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981363/%E6%8B%90_yvtgxs.png",
+    "character": "拐",
+    "meaning": "to turn",
+    "pinyin": "guǎi",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985049/%E6%8B%90_wvml3u.mp3"
+  },
+  {
+    "id": 542,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981398/%E9%A9%AC%E8%B7%AF_mywoj2.png",
+    "character": "马路",
+    "meaning": "road; street",
+    "pinyin": "mǎ lù",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985088/%E9%A9%AC%E8%B7%AF_ltqj0y.mp3"
+  },
+  {
+    "id": 543,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981385/%E8%B7%AF_zoj61z.png",
+    "character": "路",
+    "meaning": "road",
+    "pinyin": "lù",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985074/%E8%B7%AF_fyuly4.mp3"
+  },
+  {
+    "id": 544,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981362/%E5%BA%A7_z6cma5.png",
+    "character": "座",
+    "meaning": "(a classifier for building, mountain, etc.)",
+    "pinyin": "zuò",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985043/%E5%BA%A7_ibfpwf.mp3"
+  },
+  {
+    "id": 545,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981371/%E7%99%BD%E8%89%B2_xlglyc.png",
+    "character": "白色",
+    "meaning": "white",
+    "pinyin": "bái sè",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985054/%E7%99%BD%E8%89%B2_fkvtrm.mp3"
   }
 ]
