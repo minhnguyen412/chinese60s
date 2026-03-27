@@ -3080,8 +3080,8 @@
   {
     "id": 343,
     "user": "山本",
-    "title": "里这儿远吗？",
-    "segments": ["里", "这儿", "远", "吗", "？"],
+    "title": "离这儿远吗？",
+    "segments": ["离", "这儿", "远", "吗", "？"],
     "description": "Lí zhèr yuǎn ma?<br>Is it far from here?",
     "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673378/chamu-1_vuvfb3.png",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577851/343_nbcwc7.mp3"
