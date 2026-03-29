@@ -184,6 +184,36 @@
     .google-btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); }
     .google-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
 
+    /* UPGRADE MODAL */
+    #upgrade-modal .modal { width: 420px; max-width: 92vw; }
+    .upgrade-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--lavender); border: var(--border); border-radius: 50px;
+      padding: 4px 16px; font-size: 0.85rem; font-weight: 700;
+      box-shadow: var(--shadow-sm); margin-bottom: 14px;
+    }
+    .perks-list {
+      list-style: none; text-align: left;
+      background: var(--yellow-pale); border: var(--border); border-radius: 16px;
+      padding: 14px 18px; margin: 0 0 22px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .perks-list li { font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+    .perks-list li span.perk-icon { font-size: 1.1rem; flex-shrink: 0; }
+    .price-row { display: flex; align-items: baseline; justify-content: center; gap: 6px; margin-bottom: 20px; }
+    .price-big { font-size: 2.4rem; font-weight: 700; line-height: 1; }
+    .price-period { font-size: 0.9rem; color: #888; font-weight: 500; }
+    .upgrade-btn {
+      display: inline-flex; align-items: center; gap: 8px; justify-content: center;
+      width: 100%; padding: 14px 20px;
+      background: var(--green); color: white;
+      border: var(--border-thick); border-radius: 50px;
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.1rem;
+      box-shadow: var(--shadow-md); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s; text-decoration: none;
+    }
+    .upgrade-btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); background: var(--green-dark); }
+
     /* BANNER */
     .logos-and-title {
       display: flex; justify-content: center; align-items: flex-end;
@@ -280,24 +310,14 @@
       background: var(--white); border: var(--border-thick);
       border-radius: 22px; box-shadow: var(--shadow-md); padding: 28px 32px;
     }
-    
     .quiz-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
     }
-
     .quiz-top h1 {
-      font-weight: 700;
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      display: inline-block;
-      background: var(--yellow);
-      border: var(--border);
-      border-radius: 50px;
-      padding: 8px 26px;
-      box-shadow: var(--shadow-sm);
+      font-weight: 700; font-size: 1.8rem; margin-bottom: 20px;
+      display: inline-block; background: var(--yellow);
+      border: var(--border); border-radius: 50px;
+      padding: 8px 26px; box-shadow: var(--shadow-sm);
     }
     #start-container { margin-bottom: 12px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
     #start-button {
@@ -309,7 +329,6 @@
     }
     #start-button:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); }
 
-    /* Writing Practice button */
     #write-button {
       font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.1rem;
       background: var(--lavender); color: var(--black);
@@ -320,32 +339,23 @@
     }
     #write-button:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); background: #b89cf5; }
 
-    /* progress bar */
     .quiz-progress-wrap {
       background: #eee; border: var(--border); border-radius: 50px;
-      height: 10px; margin: 0 0 20px; overflow: hidden;
-      display: none;
+      height: 10px; margin: 0 0 20px; overflow: hidden; display: none;
     }
     .quiz-progress-fill {
-      height: 100%; background: var(--green); border-radius: 50px;
-      transition: width 0.3s ease;
+      height: 100%; background: var(--green); border-radius: 50px; transition: width 0.3s ease;
     }
-    .quiz-counter {
-      font-size: 0.88rem; font-weight: 700; color: #888;
-      margin-bottom: 10px; display: none;
-    }
+    .quiz-counter { font-size: 0.88rem; font-weight: 700; color: #888; margin-bottom: 10px; display: none; }
 
-    /* SENTENCE ZONE */
     .sentence {
       margin: 20px 0 10px; font-size: 1.7rem; font-weight: 700;
-      line-height: 2.6; display: none; flex-wrap: wrap;
-      align-items: center; gap: 6px;
+      line-height: 2.6; display: none; flex-wrap: wrap; align-items: center; gap: 6px;
     }
     .sentence img {
       display: inline-block; vertical-align: middle;
       max-width: 200px; max-height: 200px; height: auto; width: auto;
-      border: var(--border); border-radius: 14px;
-      box-shadow: var(--shadow-sm);
+      border: var(--border); border-radius: 14px; box-shadow: var(--shadow-sm);
     }
 
     .blank {
@@ -360,98 +370,50 @@
       user-select: none; position: relative;
     }
     .blank:not(.filled):not(.reveal-correct):not(.reveal-wrong)::after {
-      content: '　';
-      color: transparent; pointer-events: none;
+      content: '　'; color: transparent; pointer-events: none;
     }
     .blank.filled {
-      background: var(--sky);
-      border: var(--border-thick); border-style: solid; border-radius: 14px;
-      color: var(--black);
-      box-shadow: var(--shadow-sm);
-      cursor: pointer;
-      padding: 4px 10px;
-      min-height: 46px; height: auto;
+      background: var(--sky); border: var(--border-thick); border-style: solid; border-radius: 14px;
+      color: var(--black); box-shadow: var(--shadow-sm); cursor: pointer;
+      padding: 4px 10px; min-height: 46px; height: auto;
     }
     .blank.filled:hover  { background: #a8dfff; box-shadow: var(--shadow-md); transform: translate(-1px,-2px); }
-    .blank.filled img {
-      display: block; width: 70px; height: 70px;
-      object-fit: cover; border-radius: 8px; border: none;
-      pointer-events: none;
-    }
-    .blank.reveal-correct {
-      background: var(--green-light); border-color: var(--green-dark) !important;
-      color: var(--green-dark); border-style: solid; cursor: default;
-    }
-    .blank.reveal-wrong {
-      background: var(--pink-pale); border-color: #e53935 !important;
-      color: #c0392b; border-style: solid; cursor: default;
-    }
-    .blank.reveal-correct img, .blank.reveal-wrong img {
-      width: 70px; height: 70px; object-fit: cover; border-radius: 8px;
-    }
+    .blank.filled img { display: block; width: 70px; height: 70px; object-fit: cover; border-radius: 8px; border: none; pointer-events: none; }
+    .blank.reveal-correct { background: var(--green-light); border-color: var(--green-dark) !important; color: var(--green-dark); border-style: solid; cursor: default; }
+    .blank.reveal-wrong   { background: var(--pink-pale);   border-color: #e53935 !important;       color: #c0392b;           border-style: solid; cursor: default; }
+    .blank.reveal-correct img, .blank.reveal-wrong img { width: 70px; height: 70px; object-fit: cover; border-radius: 8px; }
 
-    /* OPTIONS ZONE */
     .options {
-      margin: 16px 0 8px;
-      display: none;
-      grid-template-columns: repeat(9, 1fr);
-      gap: 10px;
+      margin: 16px 0 8px; display: none;
+      grid-template-columns: repeat(9, 1fr); gap: 10px;
     }
     .options.options-img { grid-template-columns: repeat(4, 1fr); }
 
-    .word-cell {
-      position: relative;
-      display: flex;
-      min-height: 50px;
-    }
-
-    .word-ghost {
-      position: absolute; inset: 0;
-      visibility: hidden; pointer-events: none;
-    }
+    .word-cell { position: relative; display: flex; min-height: 50px; }
+    .word-ghost { position: absolute; inset: 0; visibility: hidden; pointer-events: none; }
 
     .word {
       font-family: 'Quicksand', sans-serif; font-weight: 800; font-size: 1.1rem;
-      padding: 8px 8px;
-      width: 100%;
+      padding: 8px 8px; width: 100%;
       background: var(--pink); color: var(--black);
       border: var(--border-thick); border-radius: 40px;
       box-shadow: var(--shadow-sm); cursor: pointer;
       transition: transform 0.14s ease, box-shadow 0.14s ease, background 0.12s;
       user-select: none;
       display: flex; align-items: center; justify-content: center;
-      text-align: center; line-height: 1.2;
-      position: relative;
+      text-align: center; line-height: 1.2; position: relative;
     }
-    .word:hover:not(.used):not(.disabled) {
-      transform: translate(-2px,-3px);
-      box-shadow: 5px 5px 0 var(--black);
-      background: var(--peach);
-    }
+    .word:hover:not(.used):not(.disabled) { transform: translate(-2px,-3px); box-shadow: 5px 5px 0 var(--black); background: var(--peach); }
     .word:active:not(.used):not(.disabled) { transform: translate(0,0); box-shadow: var(--shadow-sm); }
-
-    .word.has-image {
-      border-radius: 16px;
-      padding: 6px;
-      background: var(--white);
-      aspect-ratio: 1;
-    }
-    .word.has-image img {
-      display: block;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      border-radius: 10px;
-      pointer-events: none;
-    }
-
+    .word.has-image { border-radius: 16px; padding: 6px; background: var(--white); aspect-ratio: 1; }
+    .word.has-image img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 10px; pointer-events: none; }
     .word.used { visibility: hidden; pointer-events: none; }
     .word.disabled { opacity: 0.4; pointer-events: none; }
     .word.correct-reveal   { background: var(--green-light); border-color: var(--green-dark); }
     .word.incorrect-reveal { background: var(--pink-pale);   border-color: #e53935; }
 
     @media (max-width: 600px) {
-      .options,
-      .options.options-img { grid-template-columns: repeat(2, 1fr); }
+      .options, .options.options-img { grid-template-columns: repeat(2, 1fr); }
     }
 
     .result { margin-top: 14px; font-size: 1.05rem; font-weight: 700; display: none; }
@@ -470,18 +432,14 @@
     #buttons button.finish { background: var(--yellow); color: var(--black); }
     #buttons button:disabled { opacity: 0.4; cursor: not-allowed; }
 
-    /* SCORE SUMMARY */
-    .score-summary {
-      display: none; text-align: center; padding: 24px 0 8px;
-    }
+    .score-summary { display: none; text-align: center; padding: 24px 0 8px; }
     .score-circle {
       width: 120px; height: 120px; border-radius: 50%;
       border: var(--border-thick); margin: 0 auto 16px;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      box-shadow: var(--shadow-lg);
-      font-weight: 700;
+      box-shadow: var(--shadow-lg); font-weight: 700;
     }
-    .score-circle .score-num { font-size: 2.2rem; line-height: 1; }
+    .score-circle .score-num   { font-size: 2.2rem; line-height: 1; }
     .score-circle .score-label { font-size: 0.85rem; color: #666; }
     .score-summary h2 { font-size: 1.4rem; margin-bottom: 8px; }
     .score-summary p  { color: #666; font-size: 0.97rem; margin-bottom: 18px; }
@@ -512,12 +470,9 @@
     }
 
     /* WORD POPUP OVERLAY */
-    .overlay {
-      position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 999;
-    }
+    .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 999; }
     .image-card {
-      position: fixed; top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
+      position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
       background: var(--white); border: var(--border-thick); border-radius: 22px;
       padding: 24px; box-shadow: var(--shadow-lg); z-index: 1000;
       width: 320px; text-align: center;
@@ -546,21 +501,58 @@
     }
     .sidebar-card h3 {
       font-weight: 700; font-size: 1.15rem; margin-bottom: 16px;
-      display: inline-block;
-      background: var(--sky); border: var(--border); border-radius: 50px;
+      display: inline-block; background: var(--sky); border: var(--border); border-radius: 50px;
       padding: 5px 18px; box-shadow: var(--shadow-sm);
     }
+
+    /* THUMBNAIL (base) */
     .thumbnail {
       display: flex; gap: 10px; margin-bottom: 14px; align-items: center;
-      cursor: pointer; border: var(--border); border-radius: 14px;
+      border: var(--border); border-radius: 14px;
       overflow: hidden; background: var(--bg);
       transition: transform 0.12s, box-shadow 0.12s;
     }
     .thumbnail:hover { transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--black); }
-    .thumbnail a { text-decoration: none; color: inherit; display: flex; gap: 10px; align-items: center; width: 100%; padding: 8px; }
-    .thumbnail img { width: 90px; height: 56px; border-radius: 8px; border: var(--border); object-fit: cover; flex-shrink: 0; }
-    .thumbnail h4 { font-size: 0.9rem; font-weight: 600; color: var(--black); margin: 0 0 3px; }
-    .thumbnail p  { font-size: 0.78rem; color: #777; margin: 0; }
+
+    /* Free thumbnail — clickable link */
+    .thumbnail.free a {
+      text-decoration: none; color: inherit; display: flex;
+      gap: 10px; align-items: center; width: 100%; padding: 8px;
+    }
+    .thumbnail.free a img { width: 90px; height: 56px; border-radius: 8px; border: var(--border); object-fit: cover; flex-shrink: 0; }
+    .thumbnail.free a h4 { font-size: 0.9rem; font-weight: 600; color: var(--black); margin: 0 0 3px; }
+    .thumbnail.free a p  { font-size: 0.78rem; color: #777; margin: 0; }
+
+    /* Locked thumbnail */
+    .thumbnail.locked { cursor: pointer; }
+    .thumb-inner { display: flex; gap: 10px; align-items: center; width: 100%; padding: 8px; }
+
+    .thumb-img-wrap { position: relative; flex-shrink: 0; }
+    .thumb-img-wrap img { width: 90px; height: 56px; border-radius: 8px; border: var(--border); object-fit: cover; display: block; }
+
+    .thumb-lock-overlay {
+      position: absolute; inset: 0;
+      background: rgba(30,20,60,0.58);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 3px;
+      backdrop-filter: blur(3px); border-radius: 8px;
+    }
+    .thumb-lock-icon  { font-size: 1.1rem; line-height: 1; }
+    .thumb-lock-label {
+      background: var(--lavender); border: 1.5px solid var(--black); border-radius: 50px;
+      padding: 1px 7px; font-size: 0.6rem; font-weight: 700;
+      box-shadow: 1px 1px 0 var(--black); color: var(--black); white-space: nowrap;
+    }
+
+    .thumb-info { flex: 1; min-width: 0; }
+    .thumb-premium-tag {
+      display: inline-block;
+      background: var(--lavender); border: 1.5px solid var(--black); border-radius: 50px;
+      padding: 1px 8px; font-size: 0.68rem; font-weight: 700;
+      box-shadow: 1px 1px 0 var(--black); margin-bottom: 3px;
+    }
+    .thumb-info h4 { font-size: 0.9rem; font-weight: 600; color: var(--black); margin: 0 0 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .thumb-info p  { font-size: 0.78rem; color: #777; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
     /* FIXED TAGS */
     .buy-coffee, .new-words {
@@ -665,11 +657,41 @@
           <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
           <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
           <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
-          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84z" fill="#EA4335"/>
         </svg>
         <span id="signin-btn-text">Continue with Google</span>
       </button>
       <div class="modal-error" id="modal-error"></div>
+    </div>
+  </div>
+
+  <!-- UPGRADE MODAL -->
+  <div class="modal-overlay" id="upgrade-modal">
+    <div class="modal" style="width:420px;max-width:92vw;">
+      <button class="modal-close" onclick="closeUpgradeModal()">✕</button>
+      <div class="modal-icon">⭐</div>
+      <div class="upgrade-badge">✨ Lifetime Access — One-time</div>
+      <h2>HSK 1 + 2 Full Pack</h2>
+      <p>Pay once. Yours forever. No subscription, no renewals.</p>
+      <ul class="perks-list">
+        <li><span class="perk-icon">💬</span> Dialogue Lessons HSK 1 &amp; 2</li>
+        <li><span class="perk-icon">📖</span> Grammar Explained Simply</li>
+        <li><span class="perk-icon">📚</span> Essential Vocabulary</li>
+        <li><span class="perk-icon">🎙️</span> Speaking Practice</li>
+        <li><span class="perk-icon">✏️</span> Writing Practice</li>
+        <li><span class="perk-icon">🧠</span> Interactive Quizzes</li>
+      </ul>
+      <div class="price-row">
+        <span class="price-big">$9</span>
+        <span class="price-period">one-time · lifetime</span>
+      </div>
+      <button class="upgrade-btn" onclick="goToBMAC()">☕ Buy on Buy Me a Coffee</button>
+      <p style="font-size:0.78rem;color:#bbb;margin-top:10px">
+        ⚠️ Use the SAME email as your login when paying<br>(or your account won't unlock)
+      </p>
+      <p style="font-size:0.78rem;color:#bbb;margin-top:6px">
+        📩 <a href="https://instagram.com/chinese60s" target="_blank" style="color:#888">Message us on Instagram (@chinese60s)</a>
+      </p>
     </div>
   </div>
 
@@ -712,7 +734,7 @@
 
         <div id="quiz-unlocked">
           <div id="start-container">
-            <button id="start-button">▶ Start Quiz</button>  
+            <button id="start-button">▶ Start Quiz</button>
           </div>
 
           <div class="quiz-counter" id="quiz-counter"></div>
@@ -762,24 +784,9 @@
     </div>
   </footer>
 
-  <!-- Sidebar thumbnails -->
-  <script>
-    fetch('data/thumbnail.json')
-      .then(r => r.json())
-      .then(videos => {
-        videos.sort((a, b) => b.id - a.id);
-        const container = document.getElementById('thumbnails-container');
-        videos.slice(0, 20).forEach(video => {
-          const div = document.createElement('div');
-          div.classList.add('thumbnail');
-          div.innerHTML = `<a href="${video.htmlLink}"><img src="${video.thumbnail}" alt="${video.title}"><div><h4>${video.title}</h4><p>${video.description}</p></div></a>`;
-          container.appendChild(div);
-        });
-      })
-      .catch(err => console.error('Error loading JSON:', err));
-  </script>
-
-  <!-- Hamburger -->
+  <!-- ═══════════════════════════════════════════════════════════
+       HAMBURGER
+  ═══════════════════════════════════════════════════════════ -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const menuToggle = document.querySelector('.menu-toggle');
@@ -791,11 +798,16 @@
     });
   </script>
 
-  <!-- Auth stubs -->
+  <!-- ═══════════════════════════════════════════════════════════
+       GLOBAL STATE & MODAL HELPERS
+  ═══════════════════════════════════════════════════════════ -->
   <script>
     window.__currentUser   = null;
+    window.__userIsPremium = false;
+    window.__premiumLoaded = false;
 
-    window.openLoginModal  = function() {
+    /* Login modal */
+    window.openLoginModal = function () {
       const m = document.getElementById('login-modal');
       m.classList.add('open');
       const err = document.getElementById('modal-error');
@@ -805,184 +817,189 @@
       const btn = document.getElementById('google-signin-btn');
       if (btn) btn.disabled = false;
     };
-
-    window.closeLoginModal = function() {
+    window.closeLoginModal = function () {
       document.getElementById('login-modal').classList.remove('open');
     };
 
-    window.doGoogleSignIn  = function() { openLoginModal(); };
-    window.signOut         = function() {};
-    window.toggleUserMenu  = function() {
+    /* Upgrade modal */
+    window.openUpgradeModal = function () {
+      document.getElementById('upgrade-modal').classList.add('open');
+    };
+    window.closeUpgradeModal = function () {
+      document.getElementById('upgrade-modal').classList.remove('open');
+    };
+
+    /* BMAC link */
+    const BMAC_LINK = 'https://buymeacoffee.com/chinese60s/e/524382';
+    window.goToBMAC = function () {
+      if (!window.__currentUser) {
+        window.__afterLoginAction = openUpgradeModal;
+        closeUpgradeModal();
+        openLoginModal();
+        return;
+      }
+      const email = encodeURIComponent(window.__currentUser.email || '');
+      const sep   = BMAC_LINK.includes('?') ? '&' : '?';
+      window.open(BMAC_LINK + sep + 'ref=' + email, '_blank');
+    };
+
+    /* User dropdown */
+    window.toggleUserMenu = function () {
       document.getElementById('user-menu-wrap').classList.toggle('open');
     };
 
-    document.addEventListener('click', function(e) {
-      const modal = document.getElementById('login-modal');
-      if (e.target === modal) closeLoginModal();
+    /* Close on outside click */
+    document.addEventListener('click', function (e) {
+      const loginModal   = document.getElementById('login-modal');
+      const upgradeModal = document.getElementById('upgrade-modal');
+      if (e.target === loginModal)   closeLoginModal();
+      if (e.target === upgradeModal) closeUpgradeModal();
       const wrap = document.getElementById('user-menu-wrap');
       if (wrap && !wrap.contains(e.target) && !e.target.closest('#auth-nav-item')) {
         wrap.classList.remove('open');
       }
     });
+
+    window.doGoogleSignIn = function () { openLoginModal(); };
+    window.signOut        = function () {};
   </script>
 
-  <!-- Firebase Auth -->
-  <script type="module">
-    import { initializeApp }  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import {
-      getAuth,
-      GoogleAuthProvider,
-      signInWithPopup,
-      signOut as fbSignOut,
-      onAuthStateChanged
-    } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-
-    const firebaseConfig = {
-      apiKey:            "AIzaSyAm-qQrpXKNdqFLITRAGCug7rkskGzyAkg",
-      authDomain:        "chinese60s.firebaseapp.com",
-      projectId:         "chinese60s",
-      storageBucket:     "chinese60s.firebasestorage.app",
-      messagingSenderId: "835657861121",
-      appId:             "1:835657861121:web:f31727eb7ea3b876a5d800",
-      measurementId:     "G-70NQ4PFTSN"
-    };
-
-    const app      = initializeApp(firebaseConfig);
-    const auth     = getAuth(app);
-    const provider = new GoogleAuthProvider();
-    provider.setCustomParameters({ prompt: 'select_account' });
-
-    function showModalError(msg) {
-      const el = document.getElementById('modal-error');
-      if (!el) return;
-      el.textContent   = msg;
-      el.style.display = 'block';
-      const btn = document.getElementById('google-signin-btn');
-      const txt = document.getElementById('signin-btn-text');
-      if (btn) btn.disabled = false;
-      if (txt) txt.textContent = 'Continue with Google';
-    }
-
-    function setSignInLoading(loading) {
-      const btn = document.getElementById('google-signin-btn');
-      const txt = document.getElementById('signin-btn-text');
-      if (!btn || !txt) return;
-      btn.disabled    = loading;
-      txt.textContent = loading ? 'Opening Google…' : 'Continue with Google';
-    }
-
-    window.doGoogleSignIn = async function() {
-      const errEl = document.getElementById('modal-error');
-      if (errEl) { errEl.style.display = 'none'; errEl.textContent = ''; }
-      setSignInLoading(true);
+  <!-- ═══════════════════════════════════════════════════════════
+       PREMIUM CHECK
+  ═══════════════════════════════════════════════════════════ -->
+  <script>
+    window.refreshPremiumStatus = async function () {
+      if (!window.__currentUser) {
+        window.__userIsPremium = false;
+        window.__premiumLoaded = true;
+        renderSidebarThumbnails();
+        return;
+      }
       try {
-        await signInWithPopup(auth, provider);
-        closeLoginModal();
-      } catch (err) {
-        setSignInLoading(false);
-        console.error('Sign-in error:', err.code, err.message);
-        const msgs = {
-          'auth/popup-blocked':           '🚫 Popup was blocked. Please allow popups for this site.',
-          'auth/popup-closed-by-user':    '❌ Sign-in window was closed. Please try again.',
-          'auth/cancelled-popup-request': '❌ Sign-in was cancelled. Please try again.',
-          'auth/network-request-failed':  '🌐 Network error. Check your connection.',
-          'auth/unauthorized-domain':     '⚙️ Domain not authorised. Contact admin.',
-          'auth/user-disabled':           '🚫 This account has been disabled.',
-        };
-        showModalError(msgs[err.code] || `Sign-in failed: ${err.message}`);
+        const { getFirestore, doc, getDoc } =
+          await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
+        const db   = getFirestore();
+        const snap = await getDoc(doc(db, 'users', window.__currentUser.uid));
+        if (snap.exists()) {
+          const data     = snap.data();
+          const forever  = data.isPremium === true;
+          const hasUntil = data.premiumUntil && data.premiumUntil.toDate() > new Date();
+          window.__userIsPremium = forever || hasUntil;
+        } else {
+          window.__userIsPremium = false;
+        }
+      } catch (e) {
+        console.warn('[premium] Firestore check failed:', e);
+        window.__userIsPremium = false;
       }
+      window.__premiumLoaded = true;
+      renderSidebarThumbnails();
     };
+  </script>
 
-    window.signOut = async function() {
-      try { await fbSignOut(auth); } catch(e) { console.error(e); }
-    };
+  <!-- ═══════════════════════════════════════════════════════════
+       SIDEBAR THUMBNAILS — paywall-aware
+  ═══════════════════════════════════════════════════════════ -->
+  <script>
+    let _sidebarData = [];
 
-    onAuthStateChanged(auth, function(user) {
-      const signInBtn    = document.getElementById('sign-in-btn');
-      const userMenuWrap = document.getElementById('user-menu-wrap');
-      const navUsername  = document.getElementById('nav-username');
-      const navAvatar    = document.getElementById('nav-avatar');
+    function buildThumbCard(video) {
+      const isPremiumLocked = video.premium && !window.__userIsPremium;
+      const div = document.createElement('div');
 
-      if (user) {
-        if (signInBtn)    signInBtn.style.display    = 'none';
-        if (userMenuWrap) userMenuWrap.style.display = 'block';
-        if (navUsername)  navUsername.textContent    = user.displayName?.split(' ')[0] || 'User';
-        if (navAvatar)    navAvatar.innerHTML        = user.photoURL
-          ? `<img src="${user.photoURL}" alt="avatar" referrerpolicy="no-referrer">`
-          : `<span>${(user.displayName?.[0] || '?').toUpperCase()}</span>`;
-        window.__currentUser = user;
+      if (isPremiumLocked) {
+        div.className = 'thumbnail locked';
+        div.innerHTML = `
+          <div class="thumb-inner">
+            <div class="thumb-img-wrap">
+              <img src="${video.thumbnail}" alt="${video.title}" style="filter:blur(2px) brightness(0.6)">
+              <div class="thumb-lock-overlay">
+                <span class="thumb-lock-icon">🔒</span>
+                <span class="thumb-lock-label">⭐ Premium</span>
+              </div>
+            </div>
+            <div class="thumb-info">
+              <span class="thumb-premium-tag">⭐ Lifetime</span>
+              <h4>${video.title}</h4>
+              <p>${video.description}</p>
+            </div>
+          </div>`;
+        div.addEventListener('click', () => {
+          if (window.__currentUser) {
+            openUpgradeModal();
+          } else {
+            window.__afterLoginAction = openUpgradeModal;
+            openLoginModal();
+          }
+        });
+
       } else {
-        if (signInBtn)    signInBtn.style.display    = 'inline-flex';
-        if (userMenuWrap) userMenuWrap.style.display = 'none';
-        window.__currentUser = null;
+        div.className = 'thumbnail free';
+        div.innerHTML = `
+          <a href="${video.htmlLink}">
+            <img src="${video.thumbnail}" alt="${video.title}">
+            <div>
+              <h4>${video.title}</h4>
+              <p>${video.description}</p>
+            </div>
+          </a>`;
       }
-    });
+
+      return div;
+    }
+
+    function renderSidebarThumbnails() {
+      const container = document.getElementById('thumbnails-container');
+      if (!container || !_sidebarData.length) return;
+      container.innerHTML = '';
+      _sidebarData.forEach(video => container.appendChild(buildThumbCard(video)));
+    }
+
+    fetch('data/thumbnail.json')
+      .then(r => r.json())
+      .then(videos => {
+        videos.sort((a, b) => b.id - a.id);
+        _sidebarData = videos.slice(0, 20);
+        // Render ngay với trạng thái free; sẽ re-render sau khi premium check xong
+        renderSidebarThumbnails();
+      })
+      .catch(err => console.error('Error loading thumbnail.json:', err));
   </script>
 
   <!-- ═══════════════════════════════════════════════════════════
        TRACKING HELPERS
-       - saveQuizAttempt(postId, scoreCorrect, totalQ, wrongAnswers[])
-       - saveRecording(postId, transcript, correctSentence)
-       Cả 2 đều fire-and-forget, chỉ chạy khi đã login
   ═══════════════════════════════════════════════════════════ -->
   <script>
-    /**
-     * Lưu kết quả quiz vào Firestore
-     * @param {string} postId      - ID bài học (từ URL param ?id=)
-     * @param {number} score       - số câu đúng
-     * @param {number} totalQ      - tổng số câu
-     * @param {Array}  wrongList   - [{question, given, answer}]
-     */
-    window.saveQuizAttempt = async function(postId, score, totalQ, wrongList) {
+    window.saveQuizAttempt = async function (postId, score, totalQ, wrongList) {
       if (!window.__currentUser) return;
       try {
         const { getFirestore, collection, addDoc, doc, setDoc, serverTimestamp, increment } =
-          await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js");
+          await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
         const db  = getFirestore();
         const uid = window.__currentUser.uid;
-
-        // Lưu chi tiết lần làm quiz này
         await addDoc(collection(db, 'quiz_attempts'), {
-          uid,
-          postId:         String(postId),
-          score:          score,
-          totalQuestions: totalQ,
-          wrongAnswers:   wrongList || [],
-          startTime:      serverTimestamp()
+          uid, postId: String(postId), score, totalQuestions: totalQ,
+          wrongAnswers: wrongList || [], startTime: serverTimestamp()
         });
-
-        // Cộng dồn vào user document
         await setDoc(doc(db, 'users', uid), {
-          totalScore:   increment(score),
-          totalQuizzes: increment(1)
+          totalScore: increment(score), totalQuizzes: increment(1)
         }, { merge: true });
-
         console.log('[tracking] quiz_attempt saved ✓', { postId, score, totalQ });
       } catch(e) {
         console.warn('[tracking] saveQuizAttempt failed:', e);
       }
     };
 
-    /**
-     * Lưu 1 lượt thu âm vào Firestore
-     * Gọi hàm này mỗi khi Speech Recognition trả về kết quả
-     *
-     * @param {string} postId          - ID bài học
-     * @param {string} transcript      - chuỗi user đã nói
-     * @param {string} correctSentence - câu gốc cần nói đúng
-     */
-    window.saveRecording = async function(postId, transcript, correctSentence) {
+    window.saveRecording = async function (postId, transcript, correctSentence) {
       if (!window.__currentUser) return;
       try {
         const { getFirestore, collection, addDoc, serverTimestamp } =
-          await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js");
+          await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
         const db = getFirestore();
         await addDoc(collection(db, 'recordings'), {
-          uid:             window.__currentUser.uid,
-          postId:          String(postId),
-          transcript:      transcript      || '',
-          correctSentence: correctSentence || '',
-          timestamp:       serverTimestamp()
+          uid: window.__currentUser.uid, postId: String(postId),
+          transcript: transcript || '', correctSentence: correctSentence || '',
+          timestamp: serverTimestamp()
         });
         console.log('[tracking] recording saved ✓', { postId, transcript });
       } catch(e) {
@@ -991,31 +1008,23 @@
     };
   </script>
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       QUIZ LOGIC — tích hợp tracking đầy đủ
-       Tracking points:
-         1. wrongAnswerLog[] — tích luỹ câu sai trong suốt quiz
-         2. showSummary()   — gọi saveQuizAttempt() khi quiz kết thúc
-  ═══════════════════════════════════════════════════════════════ -->
+  <!-- ═══════════════════════════════════════════════════════════
+       QUIZ LOGIC
+  ═══════════════════════════════════════════════════════════ -->
   <script>
   (function () {
 
-    /* ══ HELPERS ══ */
     function isImg(s) { return /\.(jpe?g|png|gif|bmp|webp|svg)$/i.test(String(s || '')); }
-
     function wordHTML(w) {
       if (isImg(w)) return `<img src="${w}" alt="">`;
       return String(w);
     }
 
-    /* ══ STATE ══ */
     let questions    = [];
     let curIdx       = 0;
     let scoreCorrect = 0;
     let revealed     = false;
     let slots        = [];
-
-    // ── TRACKING: tích luỹ câu sai qua toàn bộ quiz ──
     let wrongAnswerLog = [];
 
     const clickAudio     = new Audio('assets/click.mp3');
@@ -1024,7 +1033,6 @@
     const victoryAudio   = new Audio('assets/victory.mp3');
     let   qAudio         = null;
 
-    /* ══ DOM ══ */
     const startCont    = document.getElementById('start-container');
     const startBtn     = document.getElementById('start-button');
     const sentenceEl   = document.getElementById('sentence');
@@ -1041,7 +1049,6 @@
     const scoreCircle  = document.getElementById('score-circle');
     const restartBtn   = document.getElementById('restart-btn');
 
-    /* ══ LOAD JSON ══ */
     async function loadQ(startId, endId) {
       try {
         const r    = await fetch('data/quiz.json');
@@ -1058,9 +1065,7 @@
       }
     }
 
-    /* ══ START ══ */
     startBtn.addEventListener('click', async () => {
-      // Yêu cầu đăng nhập trước khi làm quiz
       if (!window.__currentUser) { openLoginModal(); return; }
 
       const qc   = document.getElementById('quiz-container');
@@ -1071,7 +1076,7 @@
       questions      = await loadQ(sId, eId);
       curIdx         = 0;
       scoreCorrect   = 0;
-      wrongAnswerLog = []; // reset log câu sai
+      wrongAnswerLog = [];
 
       startCont.style.display  = 'none';
       progWrap.style.display   = 'block';
@@ -1080,7 +1085,6 @@
       showQ();
     });
 
-    /* ══ SHOW QUESTION ══ */
     function showQ() {
       if (curIdx >= questions.length) { showSummary(); return; }
 
@@ -1089,11 +1093,9 @@
       revealed     = false;
       slots        = blanks.map(() => null);
 
-      /* Progress */
       progFill.style.width  = (curIdx / questions.length * 100) + '%';
       counterEl.textContent = `Question ${curIdx + 1} of ${questions.length}`;
 
-      /* Build sentence with inline blank pills */
       let sentRaw = q.sentence || '';
       if (Array.isArray(sentRaw)) {
         sentRaw = sentRaw.map(tok => isImg(tok) ? `<img src="${tok}" alt="">` : String(tok)).join('');
@@ -1114,13 +1116,10 @@
         blankEl.addEventListener('click', () => handleBlankClick(blankEl));
       });
 
-      /* Build options */
-      const words = [...(q.words || [])].sort(() => Math.random() - 0.5);
+      const words  = [...(q.words || [])].sort(() => Math.random() - 0.5);
       optionsEl.innerHTML = '';
-
       const imgCount = words.filter(w => isImg(w)).length;
       const isImgQ   = imgCount > words.length / 2;
-
       optionsEl.style.display = 'grid';
       optionsEl.classList.toggle('options-img', isImgQ);
 
@@ -1128,37 +1127,29 @@
         const hasImg = isImg(word);
         const cell   = document.createElement('div');
         cell.className = 'word-cell';
-
         const ghost = document.createElement('span');
         ghost.className = 'word-ghost';
-
         const btn = document.createElement('button');
         btn.className    = 'word';
         btn.dataset.word = String(word);
         btn.innerHTML    = wordHTML(word);
         if (hasImg) btn.classList.add('has-image');
-
         btn.addEventListener('click', () => handleWordClick(btn, ghost));
-
         cell.appendChild(ghost);
         cell.appendChild(btn);
         optionsEl.appendChild(cell);
-
         requestAnimationFrame(() => {
           ghost.style.width  = btn.offsetWidth  + 'px';
           ghost.style.height = btn.offsetHeight + 'px';
         });
       });
 
-      /* Reset feedback & buttons */
       resultEl.style.display  = 'none';
       resultEl.textContent    = '';
       resultEl.className      = 'result';
-
       buttonsEl.innerHTML     = '';
       buttonsEl.style.display = 'block';
 
-      /* Audio replay */
       if (q.audio) {
         if (qAudio) { qAudio.pause(); }
         qAudio = new Audio(q.audio);
@@ -1170,7 +1161,6 @@
         buttonsEl.appendChild(rb);
       }
 
-      /* Next/Finish button — disabled cho đến khi điền đủ chỗ trống */
       const isLast    = curIdx === questions.length - 1;
       const actionBtn = document.createElement('button');
       actionBtn.id          = 'action-btn';
@@ -1181,41 +1171,32 @@
       buttonsEl.appendChild(actionBtn);
     }
 
-    /* ══ CLICK OPTION WORD → fill blank ══ */
     function handleWordClick(btn, ghost) {
       if (revealed || btn.classList.contains('used')) return;
-
       const emptyBi = slots.findIndex(s => s === null);
       if (emptyBi === -1) return;
-
       play(clickAudio);
       btn.classList.add('used');
-
       const blankEl = sentenceEl.querySelector(`[data-bi="${emptyBi}"]`);
       if (!blankEl) return;
       blankEl.innerHTML = wordHTML(btn.dataset.word);
       blankEl.classList.add('filled');
-
       slots[emptyBi] = { optBtn: btn, ghostEl: ghost, word: btn.dataset.word };
       checkAllFilled();
     }
 
-    /* ══ CLICK FILLED BLANK → return word ══ */
     function handleBlankClick(blankEl) {
       if (revealed) return;
       const bi   = parseInt(blankEl.dataset.bi);
       const slot = slots[bi];
       if (!slot) return;
-
       play(clickAudio);
       slot.optBtn.classList.remove('used');
       blankEl.innerHTML = '';
       blankEl.className = 'blank';
       blankEl.setAttribute('data-bi', String(bi));
-
       slots[bi] = null;
       checkAllFilled();
-
       blankEl.addEventListener('click', () => handleBlankClick(blankEl));
     }
 
@@ -1224,7 +1205,6 @@
       if (btn) btn.disabled = slots.some(s => s === null);
     }
 
-    /* ══ REVEAL (Next clicked) ══ */
     function reveal(q) {
       if (revealed || slots.some(s => s === null)) return;
       revealed = true;
@@ -1237,7 +1217,6 @@
         const ok    = String(given) === String(b.answer);
         if (!ok) {
           allOk = false;
-          // ── TRACKING: ghi nhận câu sai ──
           wrongAnswerLog.push({
             question: String(q.sentence || ''),
             given:    String(given || '(empty)'),
@@ -1248,7 +1227,6 @@
 
       if (allOk) scoreCorrect++;
 
-      /* Colour blanks */
       blanks.forEach((b, i) => {
         const blankEl = sentenceEl.querySelector(`[data-bi="${i}"]`);
         if (!blankEl) return;
@@ -1263,7 +1241,6 @@
         }
       });
 
-      /* Colour option buttons */
       optionsEl.querySelectorAll('.word').forEach(btn => {
         btn.disabled = true;
         btn.style.cursor = 'default';
@@ -1274,7 +1251,6 @@
         if (!wasUsed && isCorrect) btn.classList.add('correct-reveal');
       });
 
-      /* Feedback */
       if (allOk) {
         play(correctAudio);
         resultEl.textContent = '✅ Correct!';
@@ -1286,7 +1262,6 @@
       }
       resultEl.style.display = 'block';
 
-      /* Swap action button to Continue */
       const actionBtn = document.getElementById('action-btn');
       if (actionBtn) {
         const isLast = curIdx === questions.length - 1;
@@ -1299,7 +1274,6 @@
       }
     }
 
-    /* ══ SUMMARY — gọi saveQuizAttempt ══ */
     function showSummary() {
       sentenceEl.style.display  = 'none';
       optionsEl.style.display   = 'none';
@@ -1332,13 +1306,11 @@
       }
       summaryEl.style.display = 'block';
 
-      // ── TRACKING: lưu quiz attempt lên Firestore ──
       const p      = new URLSearchParams(window.location.search);
       const postId = p.get('id') || 'unknown';
       window.saveQuizAttempt(postId, scoreCorrect, total, wrongAnswerLog);
     }
 
-    /* ══ RESTART ══ */
     restartBtn.addEventListener('click', () => {
       summaryEl.style.display  = 'none';
       startCont.style.display  = 'block';
@@ -1359,66 +1331,46 @@
   </script>
 
   <!-- ═══════════════════════════════════════════════════════════
-       SPEECH RECORDING — ví dụ tích hợp Web Speech API
-       Nếu trang đã có code STT riêng, chỉ cần gọi:
-         window.saveRecording(postId, transcript, correctSentence)
-       sau khi STT trả về kết quả.
-
-       Đây là skeleton để tích hợp vào button thu âm hiện tại.
+       SPEECH RECOGNITION
   ═══════════════════════════════════════════════════════════ -->
   <script>
-    /**
-     * Khởi tạo speech recognition cho 1 item trong content-list
-     * @param {string} correctSentence  - câu tiếng Trung cần nói
-     * @param {HTMLElement} micBtn      - button mic người dùng click
-     */
-    window.initSpeechRecognition = function(correctSentence, micBtn) {
+    window.initSpeechRecognition = function (correctSentence, micBtn) {
       if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
         console.warn('Speech Recognition not supported');
         return;
       }
-
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
       const recognition = new SpeechRecognition();
-      recognition.lang        = 'zh-CN';
-      recognition.interimResults = false;
+      recognition.lang            = 'zh-CN';
+      recognition.interimResults  = false;
       recognition.maxAlternatives = 1;
 
       micBtn.addEventListener('click', () => {
         recognition.start();
         micBtn.textContent = '🔴';
       });
-
-      recognition.onresult = function(event) {
+      recognition.onresult = function (event) {
         const transcript = event.results[0][0].transcript;
         micBtn.textContent = '🎤';
-
-        // Hiển thị kết quả (tùy code gốc của mày)
         console.log('STT result:', transcript);
-
-        // ── TRACKING: lưu recording lên Firestore ──
         const p      = new URLSearchParams(window.location.search);
         const postId = p.get('id') || 'unknown';
         window.saveRecording(postId, transcript, correctSentence);
       };
-
-      recognition.onerror = function() { micBtn.textContent = '🎤'; };
-      recognition.onend   = function() { micBtn.textContent = '🎤'; };
+      recognition.onerror = function () { micBtn.textContent = '🎤'; };
+      recognition.onend   = function () { micBtn.textContent = '🎤'; };
     };
   </script>
-  <!-- Writing Quiz JS (standalone module) -->
+
+  <!-- Writing Quiz JS -->
   <script src="js/writing-quiz.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const writeBtn = document.getElementById('write-button');
       if (!writeBtn) return;
-
       writeBtn.addEventListener('click', () => {
         const p      = new URLSearchParams(window.location.search);
         const qc     = document.getElementById('quiz-container');
-
-        // Lấy range ID từ URL params hoặc data attributes trên quiz container
-        // URL: ?writeStartId=1&writeEndId=10 (nếu không có thì dùng quizStartId/endId)
         const startId = parseInt(p.get('writeStartId'))
                      || parseInt(p.get('quizStartId'))
                      || parseInt(qc?.dataset.startId)
@@ -1427,22 +1379,120 @@
                      || parseInt(p.get('quizEndId'))
                      || parseInt(qc?.dataset.endId)
                      || 30;
-
-        WritingQuiz.open({
-          startId: startId,
-          endId:   endId,
-          dataUrl: 'data/writing-strokes.json'
-        });
+        WritingQuiz.open({ startId, endId, dataUrl: 'data/writing-strokes.json' });
       });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FIREBASE AUTH
+  ═══════════════════════════════════════════════════════════ -->
+  <script type="module">
+    import { initializeApp }  from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+    import {
+      getAuth,
+      GoogleAuthProvider,
+      signInWithPopup,
+      signOut as fbSignOut,
+      onAuthStateChanged
+    } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+
+    const firebaseConfig = {
+      apiKey:            'AIzaSyAm-qQrpXKNdqFLITRAGCug7rkskGzyAkg',
+      authDomain:        'chinese60s.firebaseapp.com',
+      projectId:         'chinese60s',
+      storageBucket:     'chinese60s.firebasestorage.app',
+      messagingSenderId: '835657861121',
+      appId:             '1:835657861121:web:f31727eb7ea3b876a5d800',
+      measurementId:     'G-70NQ4PFTSN'
+    };
+
+    const app      = initializeApp(firebaseConfig);
+    const auth     = getAuth(app);
+    const provider = new GoogleAuthProvider();
+    provider.setCustomParameters({ prompt: 'select_account' });
+
+    function showModalError(msg) {
+      const el = document.getElementById('modal-error');
+      if (!el) return;
+      el.textContent   = msg;
+      el.style.display = 'block';
+      const btn = document.getElementById('google-signin-btn');
+      const txt = document.getElementById('signin-btn-text');
+      if (btn) btn.disabled = false;
+      if (txt) txt.textContent = 'Continue with Google';
+    }
+
+    function setSignInLoading(loading) {
+      const btn = document.getElementById('google-signin-btn');
+      const txt = document.getElementById('signin-btn-text');
+      if (!btn || !txt) return;
+      btn.disabled    = loading;
+      txt.textContent = loading ? 'Opening Google…' : 'Continue with Google';
+    }
+
+    window.doGoogleSignIn = async function () {
+      const errEl = document.getElementById('modal-error');
+      if (errEl) { errEl.style.display = 'none'; errEl.textContent = ''; }
+      setSignInLoading(true);
+      try {
+        await signInWithPopup(auth, provider);
+        closeLoginModal();
+        if (typeof window.__afterLoginAction === 'function') {
+          window.__afterLoginAction();
+          window.__afterLoginAction = null;
+        }
+      } catch (err) {
+        setSignInLoading(false);
+        console.error('Sign-in error:', err.code, err.message);
+        const msgs = {
+          'auth/popup-blocked':           '🚫 Popup was blocked. Please allow popups for this site.',
+          'auth/popup-closed-by-user':    '❌ Sign-in window was closed. Please try again.',
+          'auth/cancelled-popup-request': '❌ Sign-in was cancelled. Please try again.',
+          'auth/network-request-failed':  '🌐 Network error. Check your connection.',
+          'auth/unauthorized-domain':     '⚙️ Domain not authorised. Contact admin.',
+          'auth/user-disabled':           '🚫 This account has been disabled.',
+        };
+        showModalError(msgs[err.code] || `Sign-in failed: ${err.message}`);
+      }
+    };
+
+    window.signOut = async function () {
+      try { await fbSignOut(auth); } catch(e) { console.error(e); }
+    };
+
+    onAuthStateChanged(auth, async function (user) {
+      const signInBtn    = document.getElementById('sign-in-btn');
+      const userMenuWrap = document.getElementById('user-menu-wrap');
+      const navUsername  = document.getElementById('nav-username');
+      const navAvatar    = document.getElementById('nav-avatar');
+
+      if (user) {
+        window.__currentUser = user;
+
+        if (signInBtn)    signInBtn.style.display    = 'none';
+        if (userMenuWrap) userMenuWrap.style.display = 'block';
+        if (navUsername)  navUsername.textContent    = user.displayName?.split(' ')[0] || 'User';
+        if (navAvatar)    navAvatar.innerHTML        = user.photoURL
+          ? `<img src="${user.photoURL}" alt="avatar" referrerpolicy="no-referrer">`
+          : `<span>${(user.displayName?.[0] || '?').toUpperCase()}</span>`;
+
+        // ── Kiểm tra premium & re-render sidebar ──
+        await window.refreshPremiumStatus();
+
+      } else {
+        window.__currentUser   = null;
+        window.__userIsPremium = false;
+        window.__premiumLoaded = true;
+
+        if (signInBtn)    signInBtn.style.display    = 'inline-flex';
+        if (userMenuWrap) userMenuWrap.style.display = 'none';
+
+        // Re-render sidebar về trạng thái free / locked
+        renderSidebarThumbnails();
+      }
     });
   </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
