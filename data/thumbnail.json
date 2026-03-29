@@ -4,6 +4,7 @@
     "title": "第一课：你好!",
     "description": "Lesson 1: Hello!",
     "topic": "Greetings",
+    "premium": false,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734941420/hyjc-1-1_bjq7nu.png",
     "videoLink": "https://www.youtube.com/embed/8-K3yCoRO28?si=RIj312_3MRyLe1Vd",
     "htmlLink": "posts.html?postStartId=33&postEndId=34&quizStartId=39&quizEndId=59&id=1&writeStartId=1&writeEndId=12"
@@ -12,6 +13,7 @@
     "id": 2,
     "title": "第二课：汉语不太难",
     "description": "Lesson 2: Chinese is not too difficult",
+    "premium": false,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734941423/hyjc-1-2_lkcjmf.png",
     "videoLink": "https://www.youtube.com/embed/U9F7Ag_FFEQ?si=r7zBDylIL7649TT-",
     "htmlLink": "posts.html?postStartId=35&postEndId=38&quizStartId=60&quizEndId=73&id=2&writeStartId=13&writeEndId=23"
@@ -20,6 +22,7 @@
     "id": 3,
     "title": "第三课：明天见!",
     "description": "Lesson 3: See you tomorrow!",
+    "premium": false,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734941448/hyjc-1-3_ndzqok.png",
     "videoLink": "https://www.youtube.com/embed/XKR7QOmo93I?si=53N3tZwcfHodkSeY",
     "htmlLink": "posts.html?postStartId=39&postEndId=47&quizStartId=74&quizEndId=97&writeStartId=24&writeEndId=47&id=3"
@@ -28,6 +31,7 @@
     "id": 4,
     "title": "第四课：你去哪儿？",
     "description": "Lesson 4: Where are you going?",
+    "premium": false,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734941430/hyjc-1-4_x0rj2g.png",
     "videoLink": "https://www.youtube.com/embed/naPFobg_xys?si=ycub8JmYk5_PBato",
     "htmlLink": "posts.html?postStartId=48&postEndId=57&quizStartId=98&quizEndId=125&writeStartId=48&writeEndId=70&id=4"
@@ -36,6 +40,7 @@
     "id": 5,
     "title": "第五课：这是王老师",
     "description": "Lesson 5: This is Teacher Wang",
+    "premium": false,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734941436/hyjc-1-5_npzxth.png",
     "videoLink": "https://www.youtube.com/embed/5U0J6_hVmA8?si=ZDoSSeM4pA8YKwTq",
     "htmlLink": "posts.html?postStartId=1&postEndId=9&quizStartId=1&quizEndId=16&writeStartId=71&writeEndId=85&id=5"
@@ -44,6 +49,7 @@
     "id": 6,
     "title": "第六课（一)：我学习汉语",
     "description": "Lesson 6 (1): I study Chinese",
+    "premium": false,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734941454/hyjc-1-6-1_ga8j9u.png",
     "videoLink": "https://www.youtube.com/embed/d84tgGgLcX0?si=ju2cuO6VtSO7ubYg",
     "htmlLink": "posts.html?postStartId=10&postEndId=20&quizStartId=17&quizEndId=23&writeStartId=86&writeEndId=106&id=6"
@@ -52,6 +58,7 @@
     "id": 7,
     "title": "第六课（二)：这是什么书？",
     "description": "Lesson 6 (2): What book is this?",
+    "premium": false,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/f_auto,q_auto/v1734941442/hyjc-1-6-2_xxbwoz.png",
     "videoLink": "https://www.youtube.com/embed/MpPAY0yn8RQ?si=mmBk2DjeRT8amQcm",
     "htmlLink": "posts.html?postStartId=21&postEndId=32&quizStartId=24&quizEndId=38&writeStartId=107&writeEndId=123&id=7"
@@ -60,6 +67,7 @@
     "id": 8,
     "title": "第七课：你吃什么？",
     "description": "Lesson 7: What would you like to eat?",
+    "premium": false,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1737606316/hyjc-1-7_ghwe6u.png",
     "videoLink": "https://www.youtube.com/embed/BYBN2psHm98?si=lUbfvxVBDFyY2vB-",
     "htmlLink": "posts.html?postStartId=58&postEndId=72&quizStartId=126&quizEndId=147&writeStartId=124&writeEndId=146&id=8"
@@ -68,6 +76,7 @@
     "id": 9,
     "title": "第八课：苹果一斤多少钱？",
     "description": "Lesson 8: How much does half a kilogram of apples cost?",
+    "premium": false,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738308245/hyjc-1-8_xvqzn1.png",
     "videoLink": "https://www.youtube.com/embed/QLmF1lYQK5c?si=gd356fV3KrRABdej",
     "htmlLink": "posts.html?postStartId=73&postEndId=90&quizStartId=148&quizEndId=168&writeStartId=147&writeEndId=171&id=9"
@@ -76,6 +85,7 @@
     "id": 10,
     "title": "第九课：我换人民币",
     "description": "Lesson 9: I exchange Chinese yuan",
+    "premium": false,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738656821/hyjc-1-9_k7q53d.png",
     "videoLink": "https://www.youtube.com/embed/MoVyFjZcpyo?si=2gSaMfUY4lZu1QCj",
     "htmlLink": "posts.html?postStartId=91&postEndId=102&quizStartId=169&quizEndId=185&writeStartId=172&writeEndId=190&id=10"
@@ -84,6 +94,7 @@
     "id": 11,
     "title": "第十课：他住哪儿？",
     "description": "Lesson 10: Where does he live?",
+    "premium": false,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739261467/hyjc-1-10_a3ocq3.png",
     "videoLink": "https://www.youtube.com/embed/IgTz6jOs6YY?si=S6UvAK47AcgkYAsK",
     "htmlLink": "posts.html?postStartId=103&postEndId=115&quizStartId=186&quizEndId=205&writeStartId=191&writeEndId=210&id=11"
@@ -92,6 +103,7 @@
     "id": 12,
     "title": "第十一课 (一)：这位是王教授",
     "description": "Lesson 11 (1): This is Professor Wang",
+    "premium": true,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739864691/hyjc-1-11-1_cctuhg.png",
     "videoLink": "https://www.youtube.com/embed/lZl4i1Ebqz0?si=ZwxKzd_H3E51o7iA",
     "htmlLink": "posts.html?postStartId=116&postEndId=120&quizStartId=206&quizEndId=212&writeStartId=212&writeEndId=219&id=12"
@@ -100,6 +112,7 @@
     "id": 13,
     "title": "第十一课 (二)：我们都是留学生",
     "description": "Lesson 11 (2): We are both international students",
+    "premium": true,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739864691/hyjc-1-11-2_mkoo67.png",
     "videoLink": "https://www.youtube.com/embed/lZl4i1Ebqz0?si=ZwxKzd_H3E51o7iA",
     "htmlLink": "posts.html?postStartId=121&postEndId=128&quizStartId=213&quizEndId=220&writeStartId=220&writeEndId=224&id=13"
@@ -108,6 +121,7 @@
     "id": 14,
     "title": "第十一课 (三)：你也是中国人吗？",
     "description": "Lesson 11 (3): Are you Chinese too?",
+    "premium": true,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739864698/hyjc-1-11-3_a9jbj4.png",
     "videoLink": "https://www.youtube.com/embed/lZl4i1Ebqz0?si=ZwxKzd_H3E51o7iA",
     "htmlLink": "posts.html?postStartId=129&postEndId=134&quizStartId=221&quizEndId=224&writeStartId=225&writeEndId=229&id=14"
@@ -116,6 +130,7 @@
     "id": 15,
     "title": "第十二课 (一)：你在哪儿学习汉语？",
     "description": "Lesson 12 (1): Where do you study Chinese?",
+    "premium": true,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1740468951/hyjc-1-12-1_1_rdnz2m.png",
     "videoLink": "https://www.youtube.com/embed/fMUqqVvT5G4?si=JomgMHReTPiK2E_w",
     "htmlLink": "posts.html?postStartId=135&postEndId=141&quizStartId=225&quizEndId=233&writeStartId=230&writeEndId=242&id=15"
@@ -124,6 +139,7 @@
     "id": 16,
     "title": "第十二课 (二)：你们的老师是谁？",
     "description": "Lesson 12 (2): Who is your teacher?",
+    "premium": true,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1740469078/hyjc-1-12-2_fgppy0.png",
     "videoLink": "https://www.youtube.com/embed/fMUqqVvT5G4?si=JomgMHReTPiK2E_w",
     "htmlLink": "posts.html?postStartId=142&postEndId=147&quizStartId=234&quizEndId=238&writeStartId=243&writeEndId=247&id=16"
@@ -132,6 +148,7 @@
     "id": 17,
     "title": "第十三课 (一)：这个黑箱子很重",
     "description": "Lesson 13 (1): This black suitcase is very heavy",
+    "premium": true,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741163450/hyjc-1-13-1_xgxxzu.png",
     "videoLink": "https://www.youtube.com/embed/6j6oR6WWy4M?si=7b9UZyJcU_4C87I-",
     "htmlLink": "posts.html?postStartId=148&postEndId=154&quizStartId=239&quizEndId=247&writeStartId=248&writeEndId=256&id=17"
@@ -140,6 +157,7 @@
     "id": 18,
     "title": "第十三课 (二)：这是不是中药？",
     "description": "Lesson 13 (2): Is this Chinese medicine?",
+    "premium": true,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741163449/hyjc-1-13-2_vnjms0.png",
     "videoLink": "https://www.youtube.com/embed/6j6oR6WWy4M?si=7b9UZyJcU_4C87I-",
     "htmlLink": "posts.html?postStartId=155&postEndId=164&quizStartId=248&quizEndId=258&writeStartId=257&writeEndId=276&id=18"
@@ -148,6 +166,7 @@
     "id": 19,
     "title": "第十四课 (一)：您身体好吗？",
     "description": "Lesson 14 (1): How is your health?",
+    "premium": true,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1742438732/hyjc-1-14-1_hu7np4.png",
     "videoLink": "https://www.youtube.com/embed/i-APNxlEjO0?si=q7dRPlcccmuvylPn",
     "htmlLink": "posts.html?postStartId=165&postEndId=174&quizStartId=259&quizEndId=267&writeStartId=277&writeEndId=288&id=19"
@@ -156,6 +175,7 @@
     "id": 20,
     "title": "第十四课 (二)：你的车是新的还是旧的？",
     "description": "Lesson 14 (2): Is your bike the new one or the old one?",
+    "premium": true,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1742438733/hyjc-1-14-2_s7ajxy.png",
     "videoLink": "https://www.youtube.com/embed/i-APNxlEjO0?si=q7dRPlcccmuvylPn",
     "htmlLink": "posts.html?postStartId=175&postEndId=183&quizStartId=268&quizEndId=273&writeStartId=289&writeEndId=297&id=20"
@@ -164,6 +184,7 @@
     "id": 21,
     "title": "第十五课 (一)：你家有几口人？",
     "description": "Lesson 15 (1): How many people are in your family?",
+    "premium": true,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1744080182/hyjc-1-15-1_rrkf48.png",
     "videoLink": "https://www.youtube.com/embed/ng-E83Dg-KU?si=lAmjTgpd_KVG1OrK",
     "htmlLink": "posts.html?postStartId=184&postEndId=192&quizStartId=274&quizEndId=278&writeStartId=298&writeEndId=308&id=21"
@@ -172,6 +193,7 @@
     "id": 22,
     "title": "第十五课 (二)：你们公司有多少职员？",
     "description": "Lesson 15 (2): How many employees are in your company?",
+    "premium": true,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1744080182/hyjc-1-15-2_rywb49.png",
     "videoLink": "https://www.youtube.com/embed/ng-E83Dg-KU?si=lAmjTgpd_KVG1OrK",
     "htmlLink": "posts.html?postStartId=193&postEndId=200&quizStartId=279&quizEndId=284&writeStartId=309&writeEndId=313&id=22"
@@ -180,6 +202,7 @@
     "id": 23,
     "title": "第十六课 (一)：你常去图书馆吗？",
     "description": "Lesson 16 (1): Do you often go to the library?",
+    "premium": true,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1744259267/hyjc-1-16-1_orsmcq.png",
     "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
     "htmlLink": "posts.html?postStartId=201&postEndId=210&quizStartId=285&quizEndId=292&writeStartId=314&writeEndId=330&id=23"
@@ -188,6 +211,7 @@
     "id": 24,
     "title": "第十六课 (二)：晚上你常做什么？",
     "description": "Lesson 16 (2): What do you often do in the evening?",
+    "premium": true,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1744259266/hyjc-1-16-2_voofck.png",
     "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
     "htmlLink": "posts.html?postStartId=211&postEndId=218&quizStartId=293&quizEndId=301&writeStartId=331&writeEndId=350&id=24"
@@ -196,6 +220,7 @@
     "id": 25,
     "title": "第十七课 (一)：他在做什么呢？",
     "description": "Lesson 17 (1): What is he doing?",
+    "premium": true,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1749714680/hyjc-1-17-1_ltg8qr.png",
     "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
     "htmlLink": "posts.html?postStartId=219&postEndId=233&quizStartId=302&quizEndId=317&writeStartId=351&writeEndId=364&id=25"
@@ -204,6 +229,7 @@
     "id": 26,
     "title": "第十七课 (二)：谁教你们语法？",
     "description": "Lesson 17 (2): Who teaches you guys Grammar?",
+    "premium": true,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1752650641/hyjc-1-17-2_jvveud.png",
     "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
     "htmlLink": "posts.html?postStartId=234&postEndId=241&quizStartId=318&quizEndId=330&writeStartId=365&writeEndId=373&id=26"
@@ -212,6 +238,7 @@
     "id": 27,
     "title": "第十八课 (一)：我去邮局寄包裹",
     "description": "Lesson 18 (1): I'm going to the post office to send a parcel",
+    "premium": true,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753023814/hyjc-1-18-1_x9flul.png",
     "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
     "htmlLink": "posts.html?postStartId=242&postEndId=249&quizStartId=331&quizEndId=344&writeStartId=374&writeEndId=384&id=27"
@@ -220,6 +247,7 @@
     "id": 28,
     "title": "第十八课 (二)：外贸代表团明天去上海参观",
     "description": "Lesson 18 (2): A foreign trade delegation is going to visit Shanghai tomorrow",
+    "premium": true,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753433402/hyjc-1-18-2_kik0sf.png",
     "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
     "htmlLink": "posts.html?postStartId=250&postEndId=261&quizStartId=345&quizEndId=361&writeStartId=385&writeEndId=400&id=28"
@@ -228,6 +256,7 @@
     "id": 29,
     "title": "第十九课：可以试试吗？",
     "description": "Lesson 19: Can I try it on?",
+    "premium": true,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1755825026/hyjc-1-19_h9gsgs.png",
     "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
     "htmlLink": "posts.html?postStartId=262&postEndId=281&quizStartId=362&quizEndId=380&writeStartId=401&writeEndId=418&id=29"
@@ -236,6 +265,7 @@
     "id": 30,
     "title": "第二十课（一）：你哪一年大学毕业？",
     "description": "Lesson 20 (1): What year will you graduate from university?",
+    "premium": true,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756800723/hyjc-1-20-1_wejn3x.png",
     "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
     "htmlLink": "posts.html?postStartId=282&postEndId=288&quizStartId=381&quizEndId=390&writeStartId=419&writeEndId=429&id=30"
@@ -244,6 +274,7 @@
     "id": 31,
     "title": "第二十课（二）：祝你生日快乐！",
     "description": "Lesson 20 (2): Happy birthday!",
+    "premium": true,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756800724/hyjc-1-20-2_w2u43p.png",
     "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
     "htmlLink": "posts.html?postStartId=289&postEndId=299&quizStartId=391&quizEndId=402&writeStartId=430&writeEndId=446&id=31"
@@ -252,6 +283,7 @@
     "id": 32,
     "title": "第二十一课 (一): 我的一天",
     "description": "Lesson 21 (1): A day in my life",
+    "premium": true,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1773217833/hyjc-1-21-1_svbaaa.png",
     "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
     "htmlLink": "posts.html?postStartId=300&postEndId=309&quizStartId=403&quizEndId=412&writeStartId=447&writeEndId=467&id=32"
@@ -260,6 +292,7 @@
     "id": 33,
     "title": "第二十一课 (二): 明天早上七点一刻出发",
     "description": "Lesson 21 (2): Tomorrow morning, we will leave at 7:15",
+    "premium": true,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1773217835/hyjc-1-21-2_y41uwz.png",
     "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
     "htmlLink": "posts.html?postStartId=310&postEndId=319&quizStartId=413&quizEndId=423&writeStartId=468&writeEndId=479&id=33"
@@ -268,6 +301,7 @@
     "id": 34,
     "title": "第二十二课：我打算请老师教我京剧",
     "description": "Lesson 22: I plan to hire a teacher to teach me Peking Opera",
+    "premium": true,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1774168663/hyjc-1-22_a9kfui.png",
     "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
     "htmlLink": "posts.html?postStartId=320&postEndId=338&quizStartId=424&quizEndId=449&writeStartId=480&writeEndId=505&id=34"
@@ -276,6 +310,7 @@
     "id": 35,
     "title": "第二十三课 (一)：学校里边有邮局吗？",
     "description": "Lesson 23 (1): : Is there a post office in the school?",
+    "premium": true,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1774591863/hyjc-1-23-1_i8db8s.png",
     "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
     "htmlLink": "posts.html?postStartId=339&postEndId=346&quizStartId=450&quizEndId=456&writeStartId=506&writeEndId=524&id=35"
@@ -284,6 +319,7 @@
     "id": 36,
     "title": "第二十三课 (二)：从这儿到博物馆有多远？",
     "description": "Lesson 23 (2): How far is it from here to the museum?",
+    "premium": true,
     "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1774591879/hyjc-1-23-2_gcnuix.png",
     "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
     "htmlLink": "posts.html?postStartId=347&postEndId=356&quizStartId=457&quizEndId=470&writeStartId=525&writeEndId=545&id=36"
