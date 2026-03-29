@@ -622,12 +622,12 @@
       <p>Pay once. Yours forever. No subscription, no renewals.</p>
 
       <ul class="perks-list">
-        <li><span class="perk-icon">🎬</span> Dialogue Lessons HSK 1 &amp; 2</li>
-        <li><span class="perk-icon">📖</span> Grammar Explained Simply</li>
-        <li><span class="perk-icon">📚</span> Essential Vocabulary</li>
-        <li><span class="perk-icon">🗣️</span> Speaking Practice</li>
-        <li><span class="perk-icon">✏️</span> Writing Practice</li>
-        <li><span class="perk-icon">📝</span> Interactive Quizzes</li>
+        <li><span class="perk-icon">💬</span> 🎬 Dialogue Lessons HSK 1 &amp; 2 </li>
+        <li><span class="perk-icon">📖</span> 📖 Grammar Explained Simply</li>
+        <li><span class="perk-icon">📚</span> 📚 Essential Vocabulary</li>
+        <li><span class="perk-icon">🎙️</span> 🗣️ Speaking Practice</li>
+        <li><span class="perk-icon">✏️</span> ✏️ Writing Practice</li>
+        <li><span class="perk-icon">🧠</span> 📝 Interactive Quizzes</li>
       </ul>
 
       <div class="price-row">
@@ -638,87 +638,6 @@
       <button class="upgrade-btn" id="upgrade-btn" onclick="goToBMAC()">
         ☕ Buy on Buy Me a Coffee
       </button>
-
-      <!-- Shown after clicking Buy — tells user exactly what to do next -->
-      <div id="upgrade-steps" style="display:none; margin-top:16px; text-align:left;">
-        <div style="
-          background: var(--green-pale);
-          border: var(--border);
-          border-radius: 14px;
-          padding: 14px 16px;
-          font-size: 0.88rem;
-          line-height: 1.7;
-        ">
-          <div style="font-weight:700; color:var(--black); margin-bottom:8px;">
-            📋 After payment, send us this Gmail:
-          </div>
-          <div style="
-            background: white;
-            border: var(--border);
-            border-radius: 10px;
-            padding: 8px 12px;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 8px;
-          ">
-            <span id="upgrade-email-value" style="
-              font-family: monospace;
-              font-size: 0.92rem;
-              color: var(--green-dark);
-              font-weight: 700;
-              word-break: break-all;
-            ">—</span>
-            <button onclick="copyLoginEmail()" id="copy-email-btn" style="
-              background: var(--yellow);
-              border: 1.5px solid var(--black);
-              border-radius: 8px;
-              padding: 3px 12px;
-              font-family: 'Fredoka', sans-serif;
-              font-weight: 700;
-              font-size: 0.8rem;
-              cursor: pointer;
-              white-space: nowrap;
-              flex-shrink: 0;
-              box-shadow: 2px 2px 0 var(--black);
-            ">Copy</button>
-          </div>
-          <div style="color:#666; font-size:0.82rem; margin-bottom:8px;">
-            Contact us via any of these:
-          </div>
-          <div style="display:flex; gap:8px; flex-wrap:wrap;">
-            <a href="https://www.instagram.com/chinese60s" target="_blank" style="
-              display:inline-flex; align-items:center; gap:4px;
-              background: var(--pink-pale); border: 1.5px solid var(--black);
-              border-radius: 50px; padding: 5px 14px;
-              font-size: 0.82rem; font-weight: 700;
-              text-decoration: none; color: var(--black);
-              box-shadow: 2px 2px 0 var(--black);
-            ">📸 Instagram</a>
-            <a href="https://www.tiktok.com/@chinese60s" target="_blank" style="
-              display:inline-flex; align-items:center; gap:4px;
-              background: var(--sky-pale); border: 1.5px solid var(--black);
-              border-radius: 50px; padding: 5px 14px;
-              font-size: 0.82rem; font-weight: 700;
-              text-decoration: none; color: var(--black);
-              box-shadow: 2px 2px 0 var(--black);
-            ">🎵 TikTok</a>
-            <a href="https://buymeacoffee.com/chinese60s" target="_blank" style="
-              display:inline-flex; align-items:center; gap:4px;
-              background: var(--yellow-pale); border: 1.5px solid var(--black);
-              border-radius: 50px; padding: 5px 14px;
-              font-size: 0.82rem; font-weight: 700;
-              text-decoration: none; color: var(--black);
-              box-shadow: 2px 2px 0 var(--black);
-            ">☕ BMAC</a>
-          </div>
-          <div style="color:#aaa; font-size:0.78rem; margin-top:10px;">
-            ⏱ We'll activate your account within 24 hours.
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 
@@ -832,7 +751,7 @@
   <!-- ══════════════════════════════════════════════════════════
        HAMBURGER MENU
   ══════════════════════════════════════════════════════════ -->
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     document.addEventListener('DOMContentLoaded', function () {
       const menuToggle = document.querySelector('.menu-toggle');
       const nav = document.querySelector('nav');
@@ -867,11 +786,6 @@
 
     /* ── Upgrade modal ── */
     window.openUpgradeModal = function () {
-      // Reset steps panel mỗi lần mở lại
-      const steps = document.getElementById('upgrade-steps');
-      if (steps) steps.style.display = 'none';
-      const copyBtn = document.getElementById('copy-email-btn');
-      if (copyBtn) copyBtn.textContent = 'Copy';
       document.getElementById('upgrade-modal').classList.add('open');
     };
     window.closeUpgradeModal = function () {
@@ -940,41 +854,16 @@
 
     window.goToBMAC = function () {
       if (!window.__currentUser) {
+        // Chưa login → mở login modal trước, sau đó mở upgrade
         window.__afterLoginAction = openUpgradeModal;
         closeUpgradeModal();
         openLoginModal();
         return;
       }
-
-      const email = window.__currentUser.email || '';
-
-      // Hiện email + hướng dẫn liên hệ trong modal
-      const emailVal = document.getElementById('upgrade-email-value');
-      const steps    = document.getElementById('upgrade-steps');
-      if (emailVal) emailVal.textContent = email;
-      if (steps)    steps.style.display  = 'block';
-
-      // Mở BMAC tab
-      const sep = BMAC_LINK.includes('?') ? '&' : '?';
-      window.open(BMAC_LINK + sep + 'ref=' + encodeURIComponent(email), '_blank');
-    };
-
-    window.copyLoginEmail = function () {
-      const email = document.getElementById('upgrade-email-value')?.textContent || '';
-      if (!email || email === '—') return;
-      navigator.clipboard.writeText(email).then(() => {
-        const btn = document.getElementById('copy-email-btn');
-        if (btn) { btn.textContent = 'Copied!'; setTimeout(() => btn.textContent = 'Copy', 2000); }
-      }).catch(() => {
-        // Fallback nếu clipboard API không được
-        const ta = document.createElement('textarea');
-        ta.value = email; ta.style.position = 'fixed'; ta.style.opacity = '0';
-        document.body.appendChild(ta); ta.select();
-        document.execCommand('copy');
-        document.body.removeChild(ta);
-        const btn = document.getElementById('copy-email-btn');
-        if (btn) { btn.textContent = 'Copied!'; setTimeout(() => btn.textContent = 'Copy', 2000); }
-      });
+      // Gắn email vào ref để biết activate cho ai
+      const email = encodeURIComponent(window.__currentUser.email || '');
+      const sep   = BMAC_LINK.includes('?') ? '&' : '?';
+      window.open(BMAC_LINK + sep + 'ref=' + email, '_blank');
     };
   </script>
 
@@ -1300,6 +1189,16 @@
 
       if (user) {
         window.__currentUser = user;
+        // Tự động tạo/update document trong Firestore khi user login
+        const { getFirestore, doc, setDoc, serverTimestamp } =
+          await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
+        const db = getFirestore();
+        await setDoc(doc(db, 'users', user.uid), {
+          email:       user.email,
+          displayName: user.displayName,
+          photoURL:    user.photoURL,
+          lastLogin:   serverTimestamp(),
+        }, { merge: true });
 
         if (signInBtn)    signInBtn.style.display    = 'none';
         if (userMenuWrap) userMenuWrap.style.display = 'block';
@@ -1317,4 +1216,14 @@
 
       } else {
         window.__currentUser   = null;
-        windo
+        window.__userIsPremium = false;
+        window.__premiumLoaded = true;
+
+        if (signInBtn)    signInBtn.style.display    = 'inline-flex';
+        if (userMenuWrap) userMenuWrap.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>
