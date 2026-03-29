@@ -68,481 +68,205 @@
       position: sticky; top: 0; z-index: 100;
       box-shadow: 0 2px 0 var(--black);
     }
-    header h1 {
-      font-family: 'Fredoka', sans-serif; font-weight: 700;
-      font-size: 1.7rem; color: white;
-      letter-spacing: 0.04em;
-      text-shadow: 2px 2px 0 rgba(0,0,0,0.25);
-    }
+    header h1 { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.7rem; color: white; letter-spacing: 0.04em; text-shadow: 2px 2px 0 rgba(0,0,0,0.25); }
     .homepage-link { text-decoration: none; color: inherit; }
     .menu-toggle { display: none; font-size: 24px; background: none; border: none; color: white; cursor: pointer; }
     nav ul { list-style: none; display: flex; gap: 8px; }
-    nav ul li a {
-      text-decoration: none; color: var(--black);
-      font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1rem;
-      background: var(--white); border: var(--border); border-radius: 50px;
-      padding: 6px 18px; display: inline-block;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.12s, box-shadow 0.12s;
-    }
+    nav ul li a { text-decoration: none; color: var(--black); font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1rem; background: var(--white); border: var(--border); border-radius: 50px; padding: 6px 18px; display: inline-block; box-shadow: var(--shadow-sm); transition: transform 0.12s, box-shadow 0.12s; }
     nav ul li a:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
 
-    .auth-pill {
-      display: flex; align-items: center; gap: 8px;
-      background: var(--white); border: var(--border); border-radius: 50px;
-      padding: 5px 14px 5px 6px;
-      box-shadow: var(--shadow-sm);
-      cursor: pointer;
-      transition: transform 0.12s, box-shadow 0.12s;
-      font-weight: 600; font-size: 0.9rem; color: var(--black);
-      text-decoration: none; white-space: nowrap;
-    }
+    .auth-pill { display: flex; align-items: center; gap: 8px; background: var(--white); border: var(--border); border-radius: 50px; padding: 5px 14px 5px 6px; box-shadow: var(--shadow-sm); cursor: pointer; transition: transform 0.12s, box-shadow 0.12s; font-weight: 600; font-size: 0.9rem; color: var(--black); text-decoration: none; white-space: nowrap; }
     .auth-pill:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
-    .auth-pill .avatar {
-      width: 28px; height: 28px; border-radius: 50%;
-      border: 2px solid var(--black); object-fit: cover;
-      background: var(--green-light);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.85rem; font-weight: 700; overflow: hidden;
-      flex-shrink: 0;
-    }
+    .auth-pill .avatar { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--black); background: var(--green-light); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700; overflow: hidden; flex-shrink: 0; }
     .auth-pill .avatar img { width: 100%; height: 100%; object-fit: cover; }
 
-    #sign-in-btn {
-      background: var(--yellow); border: var(--border); border-radius: 50px;
-      padding: 6px 18px; font-weight: 700; font-size: 0.9rem;
-      box-shadow: var(--shadow-sm); cursor: pointer;
-      transition: transform 0.12s, box-shadow 0.12s;
-      display: flex; align-items: center; gap: 6px;
-      font-family: 'Fredoka', sans-serif;
-    }
+    #sign-in-btn { background: var(--yellow); border: var(--border); border-radius: 50px; padding: 6px 18px; font-weight: 700; font-size: 0.9rem; box-shadow: var(--shadow-sm); cursor: pointer; transition: transform 0.12s, box-shadow 0.12s; display: flex; align-items: center; gap: 6px; font-family: 'Fredoka', sans-serif; }
     #sign-in-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
 
     .user-menu-wrap { position: relative; }
-    .user-dropdown {
-      display: none;
-      position: absolute; top: calc(100% + 10px); right: 0;
-      background: var(--white); border: var(--border-thick); border-radius: 18px;
-      box-shadow: var(--shadow-lg); padding: 8px;
-      min-width: 180px; z-index: 200;
-    }
-    .user-menu-wrap:hover .user-dropdown,
-    .user-menu-wrap.open .user-dropdown { display: flex; flex-direction: column; gap: 4px; }
-    .user-dropdown a, .user-dropdown button {
-      display: block; width: 100%;
-      padding: 9px 14px; border-radius: 12px;
-      font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 0.92rem;
-      text-decoration: none; color: var(--black); text-align: left;
-      background: none; border: none; cursor: pointer;
-      transition: background 0.1s;
-    }
+    .user-dropdown { display: none; position: absolute; top: calc(100% + 10px); right: 0; background: var(--white); border: var(--border-thick); border-radius: 18px; box-shadow: var(--shadow-lg); padding: 8px; min-width: 200px; z-index: 200; }
+    .user-menu-wrap:hover .user-dropdown, .user-menu-wrap.open .user-dropdown { display: flex; flex-direction: column; gap: 4px; }
+    .user-dropdown a, .user-dropdown button { display: block; width: 100%; padding: 9px 14px; border-radius: 12px; font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 0.92rem; text-decoration: none; color: var(--black); text-align: left; background: none; border: none; cursor: pointer; transition: background 0.1s; }
     .user-dropdown a:hover, .user-dropdown button:hover { background: var(--yellow-pale); }
     .user-dropdown .sign-out { color: #c0392b; }
     .user-dropdown .sep { border: none; border-top: var(--border); margin: 4px 0; }
 
     @media (max-width: 768px) {
-      header { padding: 0 16px; position: relative; height: auto; min-height: 66px; flex-wrap: wrap; gap: 8px; padding: 8px 16px; }
+      header { padding: 8px 16px; position: relative; height: auto; min-height: 66px; flex-wrap: wrap; gap: 8px; }
       .menu-toggle { display: block; }
-      nav {
-        display: none; position: absolute; top: 66px; left: 0; right: 0;
-        background: var(--green); border-bottom: var(--border);
-        padding: 12px 0; flex-direction: column;
-      }
+      nav { display: none; position: absolute; top: 66px; left: 0; right: 0; background: var(--green); border-bottom: var(--border); padding: 12px 0; flex-direction: column; }
       nav.show { display: flex; }
       nav ul { flex-direction: column; align-items: center; gap: 8px; padding: 6px 0; }
       .user-dropdown { right: auto; left: 0; }
     }
 
-    /* ══════════════════════════════
-       LOGIN MODAL
-    ══════════════════════════════ */
-    .modal-overlay {
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,0.5);
-      z-index: 500; display: flex; align-items: center; justify-content: center;
-      opacity: 0; pointer-events: none;
-      transition: opacity 0.2s;
-    }
+    /* ══ MODALS ══ */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 500; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
     .modal-overlay.open { opacity: 1; pointer-events: all; }
 
-    .modal {
-      background: var(--white);
-      border: var(--border-thick); border-radius: 24px;
-      box-shadow: var(--shadow-lg);
-      padding: 36px 32px; width: 360px; max-width: 90vw;
-      text-align: center; position: relative;
-    }
-    .modal-close {
-      position: absolute; top: 14px; right: 18px;
-      font-size: 1.5rem; cursor: pointer; color: #aaa; line-height: 1;
-      background: none; border: none; font-family: inherit;
-    }
+    .modal { background: var(--white); border: var(--border-thick); border-radius: 24px; box-shadow: var(--shadow-lg); padding: 36px 32px; width: 380px; max-width: 92vw; text-align: center; position: relative; max-height: 90vh; overflow-y: auto; }
+    .modal-close { position: absolute; top: 14px; right: 18px; font-size: 1.5rem; cursor: pointer; color: #aaa; line-height: 1; background: none; border: none; font-family: inherit; }
     .modal-close:hover { color: var(--black); }
     .modal .modal-icon { font-size: 3rem; margin-bottom: 10px; }
     .modal h2 { font-weight: 700; font-size: 1.5rem; margin-bottom: 8px; }
-    .modal p  { font-size: 0.97rem; color: #666; margin-bottom: 24px; line-height: 1.6; }
+    .modal p { font-size: 0.97rem; color: #666; margin-bottom: 20px; line-height: 1.6; }
 
-    .google-btn {
-      display: inline-flex; align-items: center; gap: 10px; justify-content: center;
-      width: 100%; padding: 13px 20px;
-      background: var(--white); border: var(--border-thick); border-radius: 50px;
-      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem;
-      box-shadow: var(--shadow-md); cursor: pointer;
-      transition: transform 0.12s, box-shadow 0.12s;
-    }
+    .google-btn { display: inline-flex; align-items: center; gap: 10px; justify-content: center; width: 100%; padding: 13px 20px; background: var(--white); border: var(--border-thick); border-radius: 50px; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem; box-shadow: var(--shadow-md); cursor: pointer; transition: transform 0.12s, box-shadow 0.12s; }
     .google-btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); }
-    .google-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
 
-    /* ══════════════════════════════
-       UPGRADE MODAL (PREMIUM)
-    ══════════════════════════════ */
-    #upgrade-modal .modal {
-      width: 420px;
-      max-width: 92vw;
-    }
-    .upgrade-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: var(--lavender); border: var(--border); border-radius: 50px;
-      padding: 4px 16px; font-size: 0.85rem; font-weight: 700;
-      box-shadow: var(--shadow-sm); margin-bottom: 14px;
-    }
-    .perks-list {
-      list-style: none;
-      text-align: left;
-      background: var(--yellow-pale);
-      border: var(--border); border-radius: 16px;
-      padding: 14px 18px; margin: 0 0 22px;
-      display: flex; flex-direction: column; gap: 8px;
-    }
-    .perks-list li {
-      font-size: 0.95rem; font-weight: 600;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .perks-list li span.perk-icon { font-size: 1.1rem; flex-shrink: 0; }
-    .price-row {
-      display: flex; align-items: baseline; justify-content: center; gap: 6px;
-      margin-bottom: 20px;
-    }
-    .price-big {
-      font-size: 2.4rem; font-weight: 700; line-height: 1;
-    }
-    .price-period {
-      font-size: 0.9rem; color: #888; font-weight: 500;
-    }
-    .upgrade-btn {
-      display: inline-flex; align-items: center; gap: 8px; justify-content: center;
-      width: 100%; padding: 14px 20px;
-      background: var(--green); color: white;
-      border: var(--border-thick); border-radius: 50px;
-      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.1rem;
-      box-shadow: var(--shadow-md); cursor: pointer;
-      transition: transform 0.12s, box-shadow 0.12s;
-      text-decoration: none;
-    }
+    /* ══ UPGRADE MODAL ══ */
+    #upgrade-modal .modal { width: 440px; }
+
+    .upgrade-badge { display: inline-flex; align-items: center; gap: 6px; background: var(--lavender); border: var(--border); border-radius: 50px; padding: 4px 16px; font-size: 0.85rem; font-weight: 700; box-shadow: var(--shadow-sm); margin-bottom: 14px; }
+
+    .plan-tabs { display: flex; gap: 6px; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
+    .plan-tab { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 0.82rem; background: var(--white); border: var(--border); border-radius: 50px; padding: 5px 14px; cursor: pointer; box-shadow: var(--shadow-sm); transition: transform 0.1s, box-shadow 0.1s; }
+    .plan-tab:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--black); }
+    .plan-tab.active { background: var(--green); color: white; }
+    .plan-tab.bundle.active { background: var(--yellow-dark); }
+
+    .perks-list { list-style: none; text-align: left; background: var(--yellow-pale); border: var(--border); border-radius: 16px; padding: 12px 16px; margin: 0 0 18px; display: flex; flex-direction: column; gap: 7px; }
+    .perks-list li { font-size: 0.92rem; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+    .perks-list li .perk-icon { font-size: 1rem; flex-shrink: 0; }
+
+    .price-row { display: flex; align-items: baseline; justify-content: center; gap: 6px; margin-bottom: 16px; }
+    .price-big { font-size: 2.4rem; font-weight: 700; line-height: 1; }
+    .price-period { font-size: 0.9rem; color: #888; font-weight: 500; }
+    .price-original { font-size: 1rem; color: #bbb; font-weight: 500; text-decoration: line-through; }
+
+    .buy-buttons { display: flex; flex-direction: column; gap: 10px; margin-bottom: 4px; }
+    .upgrade-btn { display: inline-flex; align-items: center; gap: 8px; justify-content: center; width: 100%; padding: 13px 20px; background: var(--green); color: white; border: var(--border-thick); border-radius: 50px; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem; box-shadow: var(--shadow-md); cursor: pointer; transition: transform 0.12s, box-shadow 0.12s; text-decoration: none; }
     .upgrade-btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); background: var(--green-dark); }
-    .upgrade-btn:disabled { opacity: 0.5; cursor: default; transform: none; }
-    .upgrade-secure {
-      font-size: 0.78rem; color: #bbb; margin-top: 10px;
-      display: flex; align-items: center; justify-content: center; gap: 4px;
-      flex-wrap: wrap;
-    }
-    .upgrade-email-note {
-      font-size: 0.78rem; color: #aaa; margin-top: 6px;
-    }
-    .upgrade-email-note a { color: #888; }
+    .upgrade-btn.gumroad { background: #f6416c; }
+    .upgrade-btn.gumroad:hover { background: #d63060; }
 
-    /* ══════════════════════════════
-       SUCCESS TOAST
-    ══════════════════════════════ */
-    #premium-toast {
-      position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(80px);
-      background: var(--green); color: white;
-      border: var(--border-thick); border-radius: 50px;
-      padding: 12px 28px; font-weight: 700; font-size: 1rem;
-      box-shadow: var(--shadow-md); z-index: 999;
-      transition: transform 0.35s cubic-bezier(.4,0,.2,1), opacity 0.35s;
-      opacity: 0; pointer-events: none;
-      display: flex; align-items: center; gap: 8px; white-space: nowrap;
-    }
-    #premium-toast.show {
-      transform: translateX(-50%) translateY(0);
-      opacity: 1;
-    }
+    .or-divider { display: flex; align-items: center; gap: 10px; font-size: 0.8rem; color: #bbb; font-weight: 600; }
+    .or-divider::before, .or-divider::after { content: ''; flex: 1; border-top: 1.5px solid #e5e5e5; }
 
-    /* ── HERO BANNER ── */
-    .hero-banner {
-      background: var(--green-pale);
-      border-bottom: var(--border-thick);
-      display: flex; justify-content: center; align-items: flex-end;
-      position: relative; z-index: 1;
-      overflow: hidden;
-    }
-    .hero-banner .logo {
-      width: 100%; height: auto; max-height: 320px; object-fit: contain; display: block;
-    }
+    .after-buy-box { display: none; margin-top: 14px; text-align: left; background: var(--green-pale); border: var(--border); border-radius: 14px; padding: 14px 16px; font-size: 0.87rem; line-height: 1.7; }
+    .after-buy-box .step-title { font-weight: 700; color: var(--black); margin-bottom: 8px; }
+    .email-copy-row { background: white; border: var(--border); border-radius: 10px; padding: 8px 12px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .email-copy-row span { font-family: monospace; font-size: 0.9rem; color: var(--green-dark); font-weight: 700; word-break: break-all; }
+    .copy-btn { background: var(--yellow); border: 1.5px solid var(--black); border-radius: 8px; padding: 3px 12px; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 0.78rem; cursor: pointer; white-space: nowrap; flex-shrink: 0; box-shadow: 2px 2px 0 var(--black); }
+    .contact-links { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 8px; }
+    .contact-link { display: inline-flex; align-items: center; gap: 4px; border: 1.5px solid var(--black); border-radius: 50px; padding: 4px 12px; font-size: 0.8rem; font-weight: 700; text-decoration: none; color: var(--black); box-shadow: 2px 2px 0 var(--black); }
+    .contact-link.ig { background: var(--pink-pale); }
+    .contact-link.tt { background: var(--sky-pale); }
+    .contact-link.bmac { background: var(--yellow-pale); }
+    .activate-note { color: #aaa; font-size: 0.78rem; margin-top: 10px; }
 
-    /* ── TOOL BUTTONS ── */
-    .tools-section {
-      background: var(--white);
-      border-bottom: var(--border-thick);
-      padding: 20px 24px;
-      position: relative; z-index: 1;
-      display: flex; flex-direction: column; gap: 12px; align-items: center;
-    }
-    .button-container {
-      display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
-    }
-    .button-container button {
-      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem;
-      background: var(--yellow); color: var(--black);
-      padding: 10px 24px; border: var(--border-thick); border-radius: 50px;
-      box-shadow: var(--shadow-sm); cursor: pointer;
-      transition: transform 0.12s, box-shadow 0.12s;
-    }
+    /* ══ KEY MODAL ══ */
+    #key-modal .modal { width: 400px; }
+    .key-input { width: 100%; padding: 12px 16px; border: var(--border-thick); border-radius: 14px; font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1rem; background: var(--white); color: var(--black); box-shadow: var(--shadow-sm); margin-bottom: 12px; text-align: center; letter-spacing: 0.05em; outline: none; }
+    .key-input:focus { border-color: var(--green); box-shadow: 3px 3px 0 var(--green); }
+    .key-submit-btn { width: 100%; padding: 13px; background: var(--green); color: white; border: var(--border-thick); border-radius: 50px; font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem; box-shadow: var(--shadow-md); cursor: pointer; transition: transform 0.12s, box-shadow 0.12s; }
+    .key-submit-btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); }
+    .key-submit-btn:disabled { opacity: 0.5; cursor: default; transform: none; }
+    .key-error { color: #c0392b; font-size: 0.88rem; margin-top: 8px; display: none; }
+    .key-success { color: var(--green-dark); font-size: 0.88rem; margin-top: 8px; display: none; font-weight: 700; }
+    .key-open-link { display: inline; margin-top: 10px; font-size: 0.8rem; color: #888; cursor: pointer; background: none; border: none; font-family: 'Fredoka', sans-serif; font-weight: 600; text-decoration: underline; }
+
+    /* ══ TOAST ══ */
+    #premium-toast { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(80px); background: var(--green); color: white; border: var(--border-thick); border-radius: 50px; padding: 12px 28px; font-weight: 700; font-size: 1rem; box-shadow: var(--shadow-md); z-index: 999; transition: transform 0.35s cubic-bezier(.4,0,.2,1), opacity 0.35s; opacity: 0; pointer-events: none; display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+    #premium-toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+    /* ── HERO ── */
+    .hero-banner { background: var(--green-pale); border-bottom: var(--border-thick); display: flex; justify-content: center; align-items: flex-end; position: relative; z-index: 1; overflow: hidden; }
+    .hero-banner .logo { width: 100%; height: auto; max-height: 320px; object-fit: contain; display: block; }
+
+    /* ── TOOLS ── */
+    .tools-section { background: var(--white); border-bottom: var(--border-thick); padding: 20px 24px; position: relative; z-index: 1; display: flex; flex-direction: column; gap: 12px; align-items: center; }
+    .button-container { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .button-container button { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem; background: var(--yellow); color: var(--black); padding: 10px 24px; border: var(--border-thick); border-radius: 50px; box-shadow: var(--shadow-sm); cursor: pointer; transition: transform 0.12s, box-shadow 0.12s; }
     .button-container button:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+    @media (max-width: 480px) { .button-container button { font-size: 0.88rem; padding: 8px 16px; } }
 
-    @media (max-width: 480px) {
-      .button-container button { font-size: 0.88rem; padding: 8px 16px; }
-    }
-
-    /* ── MAIN CONTENT ── */
+    /* ── MAIN ── */
     main { flex: 1; padding: 0 0 80px; position: relative; z-index: 1; }
     .content-section { padding: 40px 40px 0; max-width: 1240px; margin: 0 auto; }
-
     .section-header { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 24px; }
-    .section-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--peach); border: var(--border-thick); border-radius: 50px;
-      padding: 10px 24px; font-weight: 700; font-size: 1.1rem;
-      box-shadow: var(--shadow-sm);
-    }
-    .section-badge.teal   { background: #b2f0e8; }
+    .section-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--peach); border: var(--border-thick); border-radius: 50px; padding: 10px 24px; font-weight: 700; font-size: 1.1rem; box-shadow: var(--shadow-sm); }
     .section-badge.orange { background: #ffd6b0; }
     .section-sub { font-size: 0.95rem; color: #888; font-weight: 500; }
-
     .section-divider { border: none; border-top: var(--border-thick); margin: 48px 40px 0; max-width: 1160px; }
 
     /* ── VIDEO SLIDER ── */
     .slider-wrap { position: relative; }
-    .video-slider-container {
-      position: relative; width: 100%; overflow: hidden;
-      border: var(--border-thick); border-radius: 20px; box-shadow: var(--shadow-lg);
-    }
+    .video-slider-container { position: relative; width: 100%; overflow: hidden; border: var(--border-thick); border-radius: 20px; box-shadow: var(--shadow-lg); }
     .video-slider { display: flex; transition: transform 0.4s cubic-bezier(.4,0,.2,1); }
     .video-item { min-width: 33.33%; padding: 12px; box-sizing: border-box; }
     .video-item iframe { width: 100%; height: 210px; border-radius: 12px; border: var(--border); display: block; }
-    .slider-btn {
-      position: absolute; top: 50%; transform: translateY(-50%);
-      background: var(--yellow); color: var(--black);
-      border: var(--border-thick); border-radius: 50%;
-      width: 44px; height: 44px; font-size: 16px;
-      cursor: pointer; z-index: 5; box-shadow: var(--shadow-sm);
-      transition: transform 0.12s, box-shadow 0.12s;
-      display: flex; align-items: center; justify-content: center;
-    }
+    .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: var(--yellow); color: var(--black); border: var(--border-thick); border-radius: 50%; width: 44px; height: 44px; font-size: 16px; cursor: pointer; z-index: 5; box-shadow: var(--shadow-sm); transition: transform 0.12s, box-shadow 0.12s; display: flex; align-items: center; justify-content: center; }
     .slider-btn:hover { transform: translateY(-50%) translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
-    .slider-btn.prev { left: -22px; }
-    .slider-btn.next { right: -22px; }
+    .slider-btn.prev { left: -22px; } .slider-btn.next { right: -22px; }
+    @media (max-width: 768px) { .video-item { min-width: 50%; } .slider-btn.prev { left: -14px; } .slider-btn.next { right: -14px; } }
+    @media (max-width: 480px) { .video-item { min-width: 100%; } .video-item iframe { height: 180px; } }
 
-    @media (max-width: 768px) {
-      .video-item { min-width: 50%; }
-      .slider-btn.prev { left: -14px; }
-      .slider-btn.next { right: -14px; }
-    }
-    @media (max-width: 480px) {
-      .video-item { min-width: 100%; }
-      .video-item iframe { height: 180px; }
-    }
-
-    /* ── AMAZON BOOKS ── */
+    /* ── BOOKS ── */
     .books-block { margin-top: 32px; }
-    .books-label {
-      display: inline-block;
-      background: var(--sky); border: var(--border); border-radius: 50px;
-      padding: 6px 18px; font-weight: 600; font-size: 0.95rem;
-      box-shadow: var(--shadow-sm); margin-bottom: 16px;
-    }
+    .books-label { display: inline-block; background: var(--sky); border: var(--border); border-radius: 50px; padding: 6px 18px; font-weight: 600; font-size: 0.95rem; box-shadow: var(--shadow-sm); margin-bottom: 16px; }
     .amazon-images { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; }
-    .amazon-images a {
-      border: var(--border); border-radius: 12px; overflow: hidden; display: block;
-      box-shadow: var(--shadow-sm); transition: transform 0.15s, box-shadow 0.15s;
-    }
+    .amazon-images a { border: var(--border); border-radius: 12px; overflow: hidden; display: block; box-shadow: var(--shadow-sm); transition: transform 0.15s, box-shadow 0.15s; }
     .amazon-images a:hover { transform: translate(-2px,-3px); box-shadow: 5px 5px 0 var(--black); }
     .amazon-images img { width: 100%; height: auto; display: block; }
-
     @media (max-width: 768px) { .amazon-images { grid-template-columns: repeat(4, 1fr); } }
     @media (max-width: 480px) { .amazon-images { grid-template-columns: repeat(3, 1fr); } }
 
-    /* ── TEXTBOOK THUMBNAILS ── */
+    /* ── THUMBNAILS ── */
     .thumbnails-block { margin-top: 32px; }
-    .thumbnails-header {
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 12px; margin-bottom: 16px;
-    }
-    .thumbnails-label {
-      display: inline-block;
-      background: var(--lavender); border: var(--border); border-radius: 50px;
-      padding: 6px 18px; font-weight: 600; font-size: 0.95rem;
-      box-shadow: var(--shadow-sm);
-    }
+    .thumbnails-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; }
+    .thumbnails-label { display: inline-block; background: var(--lavender); border: var(--border); border-radius: 50px; padding: 6px 18px; font-weight: 600; font-size: 0.95rem; box-shadow: var(--shadow-sm); }
     .thumbnails { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
-
-    /* ── THUMBNAIL CARD (free) ── */
-    .thumbnail {
-      border: var(--border-thick); border-radius: 18px;
-      overflow: hidden; box-shadow: var(--shadow-sm);
-      background: var(--white);
-      transition: transform 0.15s, box-shadow 0.15s;
-    }
+    .thumbnail { border: var(--border-thick); border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-sm); background: var(--white); transition: transform 0.15s, box-shadow 0.15s; }
     .thumbnail:hover { transform: translate(-2px,-3px); box-shadow: 6px 6px 0 var(--black); }
     .thumbnail a { text-decoration: none; color: inherit; display: block; }
     .thumbnail img { width: 100%; height: auto; display: block; }
     .thumbnail .info { padding: 12px 14px; background: var(--green-pale); border-top: var(--border); }
     .thumbnail .info h4 { margin-bottom: 4px; font-size: 1rem; font-weight: 700; }
     .thumbnail .info p { font-size: 0.875rem; color: #666; line-height: 1.5; }
-    .thumb-topic-tag {
-      display: inline-block;
-      background: var(--yellow); border: 1.5px solid var(--black); border-radius: 50px;
-      padding: 2px 12px; font-size: 0.75rem; font-weight: 700;
-      box-shadow: 2px 2px 0 var(--black); margin-bottom: 6px;
-    }
-
-    /* ── THUMBNAIL CARD (premium locked) ── */
+    .thumb-topic-tag { display: inline-block; background: var(--yellow); border: 1.5px solid var(--black); border-radius: 50px; padding: 2px 12px; font-size: 0.75rem; font-weight: 700; box-shadow: 2px 2px 0 var(--black); margin-bottom: 6px; }
     .thumbnail.locked { cursor: pointer; }
-    .thumbnail.locked:hover { transform: translate(-2px,-3px); box-shadow: 6px 6px 0 var(--black); }
-
-    .thumb-img-wrap {
-      position: relative; overflow: hidden;
-    }
+    .thumb-img-wrap { position: relative; overflow: hidden; }
     .thumb-img-wrap img { width: 100%; height: auto; display: block; }
-
-    .thumb-lock-overlay {
-      position: absolute; inset: 0;
-      background: rgba(30,20,60,0.55);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 8px;
-      backdrop-filter: blur(3px);
-    }
+    .thumb-lock-overlay { position: absolute; inset: 0; background: rgba(30,20,60,0.55); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; backdrop-filter: blur(3px); }
     .thumb-lock-icon { font-size: 2.2rem; line-height: 1; }
-    .thumb-lock-label {
-      background: var(--lavender); border: 2px solid var(--black); border-radius: 50px;
-      padding: 4px 16px; font-size: 0.8rem; font-weight: 700;
-      box-shadow: 2px 2px 0 var(--black); color: var(--black);
-    }
+    .thumb-lock-label { background: var(--lavender); border: 2px solid var(--black); border-radius: 50px; padding: 4px 16px; font-size: 0.8rem; font-weight: 700; box-shadow: 2px 2px 0 var(--black); color: var(--black); }
+    .thumb-premium-tag { display: inline-block; background: var(--lavender); border: 1.5px solid var(--black); border-radius: 50px; padding: 2px 12px; font-size: 0.75rem; font-weight: 700; box-shadow: 2px 2px 0 var(--black); margin-bottom: 6px; }
 
-    .thumb-premium-tag {
-      display: inline-block;
-      background: var(--lavender); border: 1.5px solid var(--black); border-radius: 50px;
-      padding: 2px 12px; font-size: 0.75rem; font-weight: 700;
-      box-shadow: 2px 2px 0 var(--black); margin-bottom: 6px;
-    }
-
-    /* ══════════════════════════════════════
-       REAL-LIFE CHINESE SECTION
-    ══════════════════════════════════════ */
+    /* ── REAL-LIFE CHINESE ── */
     .reallife-section { padding: 40px 40px 0; max-width: 1240px; margin: 0 auto; }
-    .reallife-header {
-      display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 12px; margin-bottom: 28px;
-    }
+    .reallife-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
     .reallife-header-left { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
-
-    .view-all-btn {
-      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 0.95rem;
-      background: var(--black); color: white;
-      padding: 8px 22px; border: var(--border-thick); border-radius: 50px;
-      box-shadow: var(--shadow-sm); cursor: pointer; text-decoration: none;
-      transition: transform 0.12s, box-shadow 0.12s;
-      display: inline-flex; align-items: center; gap: 6px;
-    }
+    .view-all-btn { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 0.95rem; background: var(--black); color: white; padding: 8px 22px; border: var(--border-thick); border-radius: 50px; box-shadow: var(--shadow-sm); cursor: pointer; text-decoration: none; transition: transform 0.12s, box-shadow 0.12s; display: inline-flex; align-items: center; gap: 6px; }
     .view-all-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); background: var(--green-dark); }
-
     .scripts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; }
-
-    .script-card {
-      background: var(--white); border: var(--border-thick); border-radius: 18px;
-      overflow: hidden; box-shadow: var(--shadow-sm);
-      text-decoration: none; color: var(--black);
-      display: flex; flex-direction: column;
-      transition: transform 0.15s, box-shadow 0.15s;
-    }
+    .script-card { background: var(--white); border: var(--border-thick); border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-sm); text-decoration: none; color: var(--black); display: flex; flex-direction: column; transition: transform 0.15s, box-shadow 0.15s; }
     .script-card:hover { transform: translate(-2px,-3px); box-shadow: 6px 6px 0 var(--black); }
-    .script-card-thumb {
-      width: 100%; aspect-ratio: 16/9; overflow: hidden;
-      border-bottom: var(--border-thick);
-      display: flex; align-items: center; justify-content: center; position: relative;
-    }
+    .script-card-thumb { width: 100%; aspect-ratio: 16/9; overflow: hidden; border-bottom: var(--border-thick); display: flex; align-items: center; justify-content: center; position: relative; }
     .script-card-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
     .script-card:hover .script-card-thumb img { transform: scale(1.05); }
-
     .script-ph { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
-    .script-ph .ph-emoji { font-size: 2.6rem; }
-    .script-ph .ph-label { font-size: 0.78rem; font-weight: 600; }
-
-    .ph-teal    { background: #d0f5ef; color: #1a6a5c; }
-    .ph-coral   { background: #fde8e0; color: #a03020; }
-    .ph-amber   { background: #fff3cc; color: #7a5500; }
-    .ph-violet  { background: #ede8fd; color: #4a2a9a; }
-    .ph-rose    { background: #fde8f0; color: #9a2050; }
-    .ph-lime    { background: #e8facc; color: #3a6a00; }
-    .ph-sky2    { background: #ddf0fa; color: #1a5a8a; }
-    .ph-peach2  { background: #feecd8; color: #8a3a00; }
-    .ph-mint    { background: #d8f5e8; color: #1a6a40; }
-    .ph-grape   { background: #e8d8f5; color: #5a1a8a; }
-
-    .play-badge {
-      position: absolute; bottom: 8px; right: 8px;
-      background: rgba(0,0,0,0.7); color: white;
-      border-radius: 50px; padding: 3px 10px;
-      font-size: 0.72rem; font-weight: 700;
-      border: 1.5px solid rgba(255,255,255,0.25);
-      backdrop-filter: blur(4px);
-    }
-
+    .script-ph .ph-emoji { font-size: 2.6rem; } .script-ph .ph-label { font-size: 0.78rem; font-weight: 600; }
+    .ph-teal{background:#d0f5ef;color:#1a6a5c}.ph-coral{background:#fde8e0;color:#a03020}.ph-amber{background:#fff3cc;color:#7a5500}.ph-violet{background:#ede8fd;color:#4a2a9a}.ph-rose{background:#fde8f0;color:#9a2050}.ph-lime{background:#e8facc;color:#3a6a00}.ph-sky2{background:#ddf0fa;color:#1a5a8a}.ph-peach2{background:#feecd8;color:#8a3a00}.ph-mint{background:#d8f5e8;color:#1a6a40}.ph-grape{background:#e8d8f5;color:#5a1a8a}
+    .play-badge { position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.7); color: white; border-radius: 50px; padding: 3px 10px; font-size: 0.72rem; font-weight: 700; border: 1.5px solid rgba(255,255,255,0.25); backdrop-filter: blur(4px); }
     .script-card-body { padding: 12px 14px 16px; display: flex; flex-direction: column; flex: 1; }
-    .script-tag {
-      display: inline-flex; align-items: center; gap: 4px;
-      background: #ffd6b0; border: 1.5px solid var(--black); border-radius: 50px;
-      padding: 3px 12px; font-size: 0.75rem; font-weight: 700;
-      box-shadow: 2px 2px 0 var(--black);
-      align-self: flex-start; margin-bottom: 8px;
-    }
+    .script-tag { display: inline-flex; align-items: center; gap: 4px; background: #ffd6b0; border: 1.5px solid var(--black); border-radius: 50px; padding: 3px 12px; font-size: 0.75rem; font-weight: 700; box-shadow: 2px 2px 0 var(--black); align-self: flex-start; margin-bottom: 8px; }
     .script-card-body h4 { font-weight: 700; font-size: 0.97rem; line-height: 1.4; flex: 1; }
     .script-card-num { font-size: 0.78rem; color: #bbb; font-weight: 600; margin-top: 8px; }
-
     .scripts-load-row { display: flex; justify-content: center; margin-top: 28px; }
-    .load-more-btn {
-      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem;
-      background: var(--yellow); color: var(--black);
-      padding: 10px 32px; border: var(--border-thick); border-radius: 50px;
-      box-shadow: var(--shadow-sm); cursor: pointer;
-      transition: transform 0.12s, box-shadow 0.12s;
-    }
+    .load-more-btn { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem; background: var(--yellow); color: var(--black); padding: 10px 32px; border: var(--border-thick); border-radius: 50px; box-shadow: var(--shadow-sm); cursor: pointer; transition: transform 0.12s, box-shadow 0.12s; }
     .load-more-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
     .load-more-btn:disabled { opacity: 0.4; cursor: default; transform: none; }
 
-    .new-words {
-      position: fixed; top: 50%; right: 20px; transform: translateY(-50%);
-      background: var(--yellow); border: var(--border-thick);
-      border-radius: 20px; padding: 10px 14px;
-      box-shadow: var(--shadow-md); font-weight: 700; font-size: 0.95rem; z-index: 50;
-    }
+    .new-words { position: fixed; top: 50%; right: 20px; transform: translateY(-50%); background: var(--yellow); border: var(--border-thick); border-radius: 20px; padding: 10px 14px; box-shadow: var(--shadow-md); font-weight: 700; font-size: 0.95rem; z-index: 50; }
     .new-words a { text-decoration: none; color: var(--black); }
     .new-words a:hover { color: var(--green-dark); }
 
-    footer {
-      background: #222; color: rgba(255,255,255,0.65);
-      padding: 28px 50px; text-align: center; position: relative; z-index: 1;
-    }
+    footer { background: #222; color: rgba(255,255,255,0.65); padding: 28px 50px; text-align: center; position: relative; z-index: 1; }
     footer .brand { font-weight: 700; color: var(--green-light); font-size: 1.3rem; margin-bottom: 6px; }
     footer p { font-size: 0.95rem; font-weight: 500; margin-bottom: 3px; }
     .social-icons { margin-top: 14px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-    .social-icons a {
-      text-decoration: none; color: var(--black);
-      font-weight: 600; font-size: 0.9rem;
-      background: var(--green-light); border: var(--border); border-radius: 50px;
-      padding: 5px 16px; box-shadow: var(--shadow-sm); transition: transform 0.12s;
-    }
+    .social-icons a { text-decoration: none; color: var(--black); font-weight: 600; font-size: 0.9rem; background: var(--green-light); border: var(--border); border-radius: 50px; padding: 5px 16px; box-shadow: var(--shadow-sm); transition: transform 0.12s; }
     .social-icons a:hover { transform: translate(-1px,-2px); }
 
     @media (max-width: 768px) {
@@ -552,14 +276,12 @@
       .new-words { right: 10px; padding: 8px; font-size: 0.85rem; }
       .scripts-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
     }
-    @media (max-width: 480px) {
-      .scripts-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-    }
+    @media (max-width: 480px) { .scripts-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- ── HEADER ── -->
   <header>
     <h1><a href="index.html" class="homepage-link">CHINESE 60s</a></h1>
     <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
@@ -581,6 +303,7 @@
             </div>
             <div class="user-dropdown" id="user-dropdown">
               <a href="profile.html">👤 My Profile</a>
+              <button onclick="openKeyModal()">🔑 Enter License Key</button>
               <hr class="sep">
               <button class="sign-out" onclick="signOut()">🚪 Sign Out</button>
             </div>
@@ -590,15 +313,15 @@
     </nav>
   </header>
 
-  <!-- LOGIN MODAL -->
+  <!-- ══ LOGIN MODAL ══ -->
   <div class="modal-overlay" id="login-modal">
     <div class="modal">
       <button class="modal-close" onclick="closeLoginModal()">✕</button>
       <div class="modal-icon">🔐</div>
       <h2>Sign in to continue</h2>
-      <p>Sign in with your Google account to access the practice quiz and track your progress.</p>
+      <p>Sign in with your Google account to access lessons and track your progress.</p>
       <button class="google-btn" id="google-signin-btn" onclick="doGoogleSignIn()">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+        <svg viewBox="0 0 24 24" width="20" height="20">
           <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
           <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
           <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
@@ -606,57 +329,103 @@
         </svg>
         <span id="signin-btn-text">Continue with Google</span>
       </button>
-      <div class="modal-error" id="modal-error" style="display:none;color:#c0392b;font-size:0.9rem;margin-top:12px;"></div>
+      <div id="modal-error" style="display:none;color:#c0392b;font-size:0.9rem;margin-top:12px;"></div>
     </div>
   </div>
 
-  <!-- ══════════════════════════════
-       UPGRADE TO PREMIUM MODAL — LIFETIME $9
-  ══════════════════════════════ -->
+  <!-- ══ UPGRADE MODAL ══ -->
   <div class="modal-overlay" id="upgrade-modal">
     <div class="modal">
       <button class="modal-close" onclick="closeUpgradeModal()">✕</button>
       <div class="modal-icon">⭐</div>
       <div class="upgrade-badge">✨ Lifetime Access — One-time</div>
-      <h2>HSK 1 + 2 Full Pack</h2>
-      <p>Pay once. Yours forever. No subscription, no renewals.</p>
+      <h2 id="modal-plan-name">HSK 1+2 Full Pack</h2>
+      <p>Pay once. Yours forever. No subscription.</p>
 
-      <ul class="perks-list">
-        <li><span class="perk-icon">💬</span> Dialogue Lessons HSK 1 &amp; 2 </li>
-        <li><span class="perk-icon">📖</span> Grammar Explained Simply</li>
-        <li><span class="perk-icon">📚</span> Essential Vocabulary</li>
-        <li><span class="perk-icon">🎙️</span> Speaking Practice</li>
-        <li><span class="perk-icon">✏️</span> Writing Practice</li>
-        <li><span class="perk-icon">🧠</span> Interactive Quizzes</li>
-      </ul>
+      <div class="plan-tabs">
+        <button class="plan-tab active" onclick="switchPlan('hsk12')">HSK 1+2</button>
+        <button class="plan-tab" onclick="switchPlan('hsk3')">HSK 3</button>
+        <button class="plan-tab" onclick="switchPlan('hsk4')">HSK 4</button>
+        <button class="plan-tab bundle" onclick="switchPlan('hsk1234')">🔥 Bundle 1–4</button>
+      </div>
+
+      <ul class="perks-list" id="modal-perks"></ul>
 
       <div class="price-row">
-        <span class="price-big">$9</span>
+        <span class="price-big" id="modal-price">$9</span>
+        <span class="price-original" id="modal-price-original" style="display:none"></span>
         <span class="price-period">one-time · lifetime</span>
       </div>
 
-      <button class="upgrade-btn" id="upgrade-btn" onclick="goToBMAC()">
-        ☕ Buy on Buy Me a Coffee
-      </button>
-      <p class="upgrade-secure">⚠️ Use the SAME email as your login when paying
-(or your account won’t unlock)</p>
-    <p style="font-size:0.78rem;color:#bbb;margin-top:6px">
-      📩 <a href="https://instagram.com/chinese60s" target="_blank" style="color:#888">
-        Message us on Instagram (@chinese60s)
-      </a>
-    </p>
+      <div class="buy-buttons">
+        <button class="upgrade-btn" onclick="goToBMAC()">☕ Buy on Buy Me a Coffee</button>
+        <div class="or-divider">or</div>
+        <button class="upgrade-btn gumroad" onclick="goToGumroad()">🛒 Buy on Gumroad</button>
+      </div>
+
+      <!-- After BMAC: show email to send us -->
+      <div class="after-buy-box" id="after-bmac-box">
+        <div class="step-title">📋 After payment, send us your Gmail:</div>
+        <div class="email-copy-row">
+          <span id="upgrade-email-value">—</span>
+          <button class="copy-btn" id="copy-email-btn" onclick="copyLoginEmail()">Copy</button>
+        </div>
+        <div style="color:#666;font-size:0.82rem;">Contact us via:</div>
+        <div class="contact-links">
+          <a href="https://www.instagram.com/chinese60s" target="_blank" class="contact-link ig">📸 Instagram</a>
+          <a href="https://www.tiktok.com/@chinese60s" target="_blank" class="contact-link tt">🎵 TikTok</a>
+          <a href="https://buymeacoffee.com/chinese60s" target="_blank" class="contact-link bmac">☕ BMAC</a>
+        </div>
+        <div class="activate-note">⏱ We'll activate your account within 24 hours.</div>
+      </div>
+
+      <!-- After Gumroad: prompt to enter key -->
+      <div class="after-buy-box" id="after-gumroad-box">
+        <div class="step-title">🎉 Got your key from Gumroad?</div>
+        <div style="color:#555;font-size:0.88rem;margin-bottom:12px;">
+          Check your purchase email — Gumroad sends a license key automatically.
+        </div>
+        <button class="key-submit-btn" onclick="closeUpgradeModal(); openKeyModal()">
+          🔑 Enter License Key Now
+        </button>
+      </div>
     </div>
   </div>
 
-  <!-- PREMIUM SUCCESS TOAST -->
-  <div id="premium-toast">🎉 Welcome to Premium! Enjoy all lessons.</div>
+  <!-- ══ LICENSE KEY MODAL ══ -->
+  <div class="modal-overlay" id="key-modal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeKeyModal()">✕</button>
+      <div class="modal-icon">🔑</div>
+      <h2>Enter License Key</h2>
+      <p>Paste the key from your Gumroad purchase email to instantly unlock your content.</p>
+      <input
+        type="text" class="key-input" id="license-key-input"
+        placeholder="XXXX-XXXX-XXXX-XXXX" maxlength="40"
+        oninput="this.value = this.value.toUpperCase()"
+        onkeydown="if(event.key==='Enter') submitLicenseKey()"
+      >
+      <button class="key-submit-btn" id="key-submit-btn" onclick="submitLicenseKey()">
+        Activate Key
+      </button>
+      <div class="key-error" id="key-error"></div>
+      <div class="key-success" id="key-success"></div>
+      <div style="margin-top:14px;font-size:0.8rem;color:#aaa;">
+        Bought on Buy Me a Coffee instead?
+        <button class="key-open-link" onclick="closeKeyModal(); openUpgradeModal()">Contact us here →</button>
+      </div>
+    </div>
+  </div>
 
-  <!-- Hero Banner -->
+  <!-- TOAST -->
+  <div id="premium-toast">🎉 Unlocked! Enjoy your lessons.</div>
+
+  <!-- ── HERO ── -->
   <div class="hero-banner">
     <img src="assets/banner-home.png" alt="Chinese 60s" class="logo">
   </div>
 
-  <!-- Tool Buttons -->
+  <!-- ── TOOL BUTTONS ── -->
   <div class="tools-section">
     <div class="button-container">
       <button onclick="location.href='pronunciation.html'">🔊 Pronunciation</button>
@@ -669,7 +438,7 @@
     </div>
   </div>
 
-  <!-- Main Content -->
+  <!-- ── MAIN CONTENT ── -->
   <main>
     <div class="content-section">
       <div class="section-header">
@@ -677,7 +446,6 @@
         <span class="section-sub">Start here if you're new to Mandarin</span>
       </div>
 
-      <!-- Video Slider -->
       <div class="slider-wrap">
         <div class="video-slider-container">
           <button class="slider-btn prev">&#10094;</button>
@@ -695,7 +463,6 @@
         </div>
       </div>
 
-      <!-- Recommended Books -->
       <div class="books-block">
         <span class="books-label">📦 Recommended Textbooks</span>
         <div class="amazon-images">
@@ -709,7 +476,6 @@
         </div>
       </div>
 
-      <!-- Textbook Thumbnails -->
       <div class="thumbnails-block">
         <div class="thumbnails-header">
           <span class="thumbnails-label">🎬 HANYU JIAOCHENG · 汉语教程</span>
@@ -722,9 +488,8 @@
       </div>
     </div>
 
-    <hr class="section-divider" style="margin-top: 48px;">
+    <hr class="section-divider" style="margin-top:48px;">
 
-    <!-- REAL-LIFE CHINESE -->
     <div class="reallife-section">
       <div class="reallife-header">
         <div class="reallife-header-left">
@@ -741,136 +506,292 @@
   </main>
 
   <div class="new-words">
-    <a href="https://buymeacoffee.com/chinese60s" target="_blank">☕ UNLOCK!</a>
+    <a href="https://buymeacoffee.com/chinese60s" target="_blank">☕ Donate</a>
   </div>
 
   <footer>
     <p class="brand">CHINESE 60s</p>
     <p>Learn Mandarin through images and videos</p>
     <div class="social-icons">
-      <a href="#">Facebook</a>
-      <a href="#">YouTube</a>
-      <a href="#">TikTok</a>
-      <a href="#">Instagram</a>
+      <a href="#">Facebook</a><a href="#">YouTube</a><a href="#">TikTok</a><a href="#">Instagram</a>
     </div>
   </footer>
 
   <!-- ══════════════════════════════════════════════════════════
-       HAMBURGER MENU
+       HAMBURGER
   ══════════════════════════════════════════════════════════ -->
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const menuToggle = document.querySelector('.menu-toggle');
-      const nav = document.querySelector('nav');
-      menuToggle.addEventListener('click', function () {
-        nav.classList.toggle('show');
-        menuToggle.innerHTML = nav.classList.contains('show') ? '&#10005;' : '&#9776;';
-      });
+    document.addEventListener('DOMContentLoaded', () => {
+      const t = document.querySelector('.menu-toggle'), n = document.querySelector('nav');
+      t.addEventListener('click', () => { n.classList.toggle('show'); t.innerHTML = n.classList.contains('show') ? '&#10005;' : '&#9776;'; });
     });
   </script>
 
   <!-- ══════════════════════════════════════════════════════════
-       GLOBAL STATE & MODAL HELPERS
+       PLAN CONFIG
+       👉 Điền BMAC Extra ID và Gumroad link thật vào đây
+  ══════════════════════════════════════════════════════════ -->
+  <script>
+    const PLANS = {
+      hsk12: {
+        name: 'HSK 1+2 Full Pack', price: '$9',
+        bmac:    'https://buymeacoffee.com/chinese60s/e/524382',
+        gumroad: 'https://chinese60s.gumroad.com/l/hsk12', // 👈 thay link thật
+        perks: ['🎬 Dialogue Lessons HSK 1 & 2','📖 Grammar Explained Simply','📚 Essential Vocabulary','🗣️ Speaking Practice','✏️ Writing Practice','📝 Interactive Quizzes']
+      },
+      hsk3: {
+        name: 'HSK 3 Full Pack', price: '$9',
+        bmac:    'https://buymeacoffee.com/chinese60s/e/HSK3_ID', // 👈 thay
+        gumroad: 'https://chinese60s.gumroad.com/l/hsk3',         // 👈 thay
+        perks: ['🎬 Dialogue Lessons HSK 3','📖 Grammar Explained Simply','📚 Essential Vocabulary','🗣️ Speaking Practice','✏️ Writing Practice','📝 Interactive Quizzes']
+      },
+      hsk4: {
+        name: 'HSK 4 Full Pack', price: '$9',
+        bmac:    'https://buymeacoffee.com/chinese60s/e/HSK4_ID', // 👈 thay
+        gumroad: 'https://chinese60s.gumroad.com/l/hsk4',         // 👈 thay
+        perks: ['🎬 Dialogue Lessons HSK 4','📖 Grammar Explained Simply','📚 Essential Vocabulary','🗣️ Speaking Practice','✏️ Writing Practice','📝 Interactive Quizzes']
+      },
+      hsk1234: {
+        name: 'HSK 1–4 Bundle', price: '$29', priceOriginal: '$36',
+        bmac:    'https://buymeacoffee.com/chinese60s/e/BUNDLE_ID', // 👈 thay
+        gumroad: 'https://chinese60s.gumroad.com/l/hsk1234',        // 👈 thay
+        perks: ['✅ Everything in HSK 1+2','✅ Everything in HSK 3','✅ Everything in HSK 4','🔥 Save $7 vs buying separately','🆕 All future HSK content included']
+      }
+    };
+    window.__currentPlan = 'hsk12';
+  </script>
+
+  <!-- ══════════════════════════════════════════════════════════
+       GLOBAL STATE & MODALS
   ══════════════════════════════════════════════════════════ -->
   <script>
     window.__currentUser   = null;
-    window.__userIsPremium = false;
+    window.__userPlans     = {};
     window.__premiumLoaded = false;
-
-    /* ── Login modal ── */
-    window.openLoginModal = function () {
-      document.getElementById('login-modal').classList.add('open');
-      const err = document.getElementById('modal-error');
-      const txt = document.getElementById('signin-btn-text');
-      if (err) { err.style.display = 'none'; err.textContent = ''; }
-      if (txt) txt.textContent = 'Continue with Google';
-      const btn = document.getElementById('google-signin-btn');
-      if (btn) btn.disabled = false;
-    };
-    window.closeLoginModal = function () {
-      document.getElementById('login-modal').classList.remove('open');
-    };
-
-    /* ── Upgrade modal ── */
-    window.openUpgradeModal = function () {
-      document.getElementById('upgrade-modal').classList.add('open');
-    };
-    window.closeUpgradeModal = function () {
-      document.getElementById('upgrade-modal').classList.remove('open');
-    };
-
-    /* ── Premium toast ── */
-    window.showPremiumToast = function () {
-      const t = document.getElementById('premium-toast');
-      t.classList.add('show');
-      setTimeout(() => t.classList.remove('show'), 4000);
-    };
-
-    /* ── User dropdown ── */
-    window.toggleUserMenu = function () {
-      document.getElementById('user-menu-wrap').classList.toggle('open');
-    };
-
-    /* Close modals / dropdown on outside click */
-    document.addEventListener('click', function (e) {
-      const loginModal   = document.getElementById('login-modal');
-      const upgradeModal = document.getElementById('upgrade-modal');
-      if (e.target === loginModal)   closeLoginModal();
-      if (e.target === upgradeModal) closeUpgradeModal();
-      const wrap = document.getElementById('user-menu-wrap');
-      if (wrap && !wrap.contains(e.target) && !e.target.closest('#auth-nav-item')) {
-        wrap.classList.remove('open');
-      }
+    // Backward compat
+    Object.defineProperty(window, '__userIsPremium', {
+      get: () => Object.values(window.__userPlans).some(v => v === true), set: () => {}
     });
 
-    window.doGoogleSignIn = function () { openLoginModal(); };
-    window.signOut        = function () {};
+    window.openLoginModal = () => {
+      document.getElementById('login-modal').classList.add('open');
+      const e = document.getElementById('modal-error'), t = document.getElementById('signin-btn-text'), b = document.getElementById('google-signin-btn');
+      if (e) { e.style.display='none'; e.textContent=''; }
+      if (t) t.textContent = 'Continue with Google';
+      if (b) b.disabled = false;
+    };
+    window.closeLoginModal = () => document.getElementById('login-modal').classList.remove('open');
+
+    window.openUpgradeModal = (plan = null) => {
+      if (plan) window.__currentPlan = plan;
+      switchPlan(window.__currentPlan);
+      document.getElementById('after-bmac-box').style.display    = 'none';
+      document.getElementById('after-gumroad-box').style.display = 'none';
+      const c = document.getElementById('copy-email-btn'); if (c) c.textContent = 'Copy';
+      document.getElementById('upgrade-modal').classList.add('open');
+    };
+    window.closeUpgradeModal = () => document.getElementById('upgrade-modal').classList.remove('open');
+
+    window.openKeyModal = () => {
+      if (!window.__currentUser) { window.__afterLoginAction = openKeyModal; openLoginModal(); return; }
+      document.getElementById('license-key-input').value = '';
+      document.getElementById('key-error').style.display   = 'none';
+      document.getElementById('key-success').style.display = 'none';
+      const b = document.getElementById('key-submit-btn'); b.disabled = false; b.textContent = 'Activate Key';
+      document.getElementById('key-modal').classList.add('open');
+    };
+    window.closeKeyModal = () => document.getElementById('key-modal').classList.remove('open');
+
+    window.switchPlan = (planKey) => {
+      window.__currentPlan = planKey;
+      const p = PLANS[planKey]; if (!p) return;
+      document.getElementById('modal-plan-name').textContent = p.name;
+      document.getElementById('modal-price').textContent     = p.price;
+      const orig = document.getElementById('modal-price-original');
+      if (p.priceOriginal) { orig.textContent = p.priceOriginal; orig.style.display = 'inline'; }
+      else orig.style.display = 'none';
+      document.getElementById('modal-perks').innerHTML = p.perks
+        .map(pk => `<li><span class="perk-icon">${pk.slice(0,2)}</span>${pk.slice(2)}</li>`).join('');
+      document.querySelectorAll('.plan-tab').forEach(t => t.classList.remove('active'));
+      const idx = {hsk12:0,hsk3:1,hsk4:2,hsk1234:3}[planKey];
+      if (idx !== undefined) document.querySelectorAll('.plan-tab')[idx].classList.add('active');
+      // Reset after-buy panels when switching plan
+      document.getElementById('after-bmac-box').style.display    = 'none';
+      document.getElementById('after-gumroad-box').style.display = 'none';
+    };
+
+    window.showPremiumToast = (msg = '🎉 Unlocked! Enjoy your lessons.') => {
+      const t = document.getElementById('premium-toast');
+      t.textContent = msg; t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 4000);
+    };
+    window.toggleUserMenu = () => document.getElementById('user-menu-wrap').classList.toggle('open');
+
+    document.addEventListener('click', (e) => {
+      ['login-modal','upgrade-modal','key-modal'].forEach(id => {
+        const el = document.getElementById(id); if (e.target === el) el.classList.remove('open');
+      });
+      const w = document.getElementById('user-menu-wrap');
+      if (w && !w.contains(e.target) && !e.target.closest('#auth-nav-item')) w.classList.remove('open');
+    });
+
+    // Initialize modal perks on load
+    document.addEventListener('DOMContentLoaded', () => switchPlan('hsk12'));
+
+    window.doGoogleSignIn = () => openLoginModal();
+    window.signOut        = () => {};
   </script>
 
   <!-- ══════════════════════════════════════════════════════════
-       LESSON TRACKING HELPER
+       BMAC + GUMROAD HANDLERS
   ══════════════════════════════════════════════════════════ -->
   <script>
-    window.trackLesson = async function (item) {
-      if (!window.__currentUser) return;
-      try {
-        const { getFirestore, collection, addDoc, serverTimestamp } =
-          await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
-        const db = getFirestore();
-        await addDoc(collection(db, 'lesson_views'), {
-          uid:       window.__currentUser.uid,
-          postId:    String(item.id || item.htmlLink || ''),
-          postTitle: item.title  || '',
-          postLink:  item.htmlLink || '',
-          timestamp: serverTimestamp()
-        });
-      } catch (e) {
-        console.warn('[tracking] lesson_views write failed:', e);
+    window.goToBMAC = () => {
+      if (!window.__currentUser) {
+        window.__afterLoginAction = () => openUpgradeModal(window.__currentPlan);
+        closeUpgradeModal(); openLoginModal(); return;
       }
+      const p = PLANS[window.__currentPlan] || PLANS.hsk12;
+      const email = window.__currentUser.email || '';
+      document.getElementById('upgrade-email-value').textContent   = email;
+      document.getElementById('after-bmac-box').style.display      = 'block';
+      document.getElementById('after-gumroad-box').style.display   = 'none';
+      document.getElementById('copy-email-btn').textContent        = 'Copy';
+      const sep = p.bmac.includes('?') ? '&' : '?';
+      window.open(p.bmac + sep + 'ref=' + encodeURIComponent(email), '_blank');
+    };
+
+    window.goToGumroad = () => {
+      if (!window.__currentUser) {
+        window.__afterLoginAction = () => openUpgradeModal(window.__currentPlan);
+        closeUpgradeModal(); openLoginModal(); return;
+      }
+      const p = PLANS[window.__currentPlan] || PLANS.hsk12;
+      document.getElementById('after-gumroad-box').style.display = 'block';
+      document.getElementById('after-bmac-box').style.display    = 'none';
+      window.open(p.gumroad, '_blank');
+    };
+
+    window.copyLoginEmail = () => {
+      const email = document.getElementById('upgrade-email-value')?.textContent || '';
+      if (!email || email === '—') return;
+      const btn = document.getElementById('copy-email-btn');
+      const done = () => { btn.textContent = 'Copied!'; setTimeout(() => btn.textContent = 'Copy', 2000); };
+      navigator.clipboard.writeText(email).then(done).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = email; ta.style.cssText = 'position:fixed;opacity:0';
+        document.body.appendChild(ta); ta.select(); document.execCommand('copy');
+        document.body.removeChild(ta); done();
+      });
     };
   </script>
 
   <!-- ══════════════════════════════════════════════════════════
-       BUY ME A COFFEE — LIFETIME $9
-       👉 Thay BMAC_LINK bằng link Extra thật của mày
-          Tạo Extra tại: buymeacoffee.com/dashboard → Extras → New
+       LICENSE KEY SYSTEM
+       
+       Firestore collection: license_keys
+       Document ID = key string (vd: "C60S-HSK1-ABCD-1234")
+       Fields:
+         plan:      "hsk12" | "hsk3" | "hsk4" | "hsk1234"
+         used:      false
+         usedBy:    null
+         usedAt:    null
+         createdAt: Timestamp
+       
+       Tạo key thủ công trong Firestore Console, hoặc dùng
+       Gumroad webhook → Make.com để tự generate.
+       
+       Firestore rules cần thêm:
+         match /license_keys/{key} {
+           allow read: if request.auth != null;
+           allow update: if request.auth != null
+             && resource.data.used == false
+             && request.resource.data.used == true
+             && request.resource.data.usedBy == request.auth.uid;
+         }
   ══════════════════════════════════════════════════════════ -->
   <script>
-    // 👇 Thay link này sau khi tạo Extra $9 trên BMAC
-    const BMAC_LINK = 'https://buymeacoffee.com/chinese60s/e/524382';
+    window.submitLicenseKey = async () => {
+      if (!window.__currentUser) { openKeyModal(); return; }
 
-    window.goToBMAC = function () {
-      if (!window.__currentUser) {
-        // Chưa login → mở login modal trước, sau đó mở upgrade
-        window.__afterLoginAction = openUpgradeModal;
-        closeUpgradeModal();
-        openLoginModal();
-        return;
+      const rawKey = document.getElementById('license-key-input').value.trim().toUpperCase();
+      const errEl  = document.getElementById('key-error');
+      const okEl   = document.getElementById('key-success');
+      const btn    = document.getElementById('key-submit-btn');
+
+      errEl.style.display = okEl.style.display = 'none';
+
+      if (!rawKey) { errEl.textContent = '⚠️ Please enter a key.'; errEl.style.display = 'block'; return; }
+
+      btn.disabled = true; btn.textContent = 'Checking…';
+
+      try {
+        const { getFirestore, doc, getDoc, updateDoc, serverTimestamp } =
+          await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
+        const db = getFirestore();
+
+        // 1. Check key exists
+        const keyRef  = doc(db, 'license_keys', rawKey);
+        const keySnap = await getDoc(keyRef);
+
+        if (!keySnap.exists()) {
+          errEl.textContent = '❌ Key not found. Check and try again.';
+          errEl.style.display = 'block';
+          btn.disabled = false; btn.textContent = 'Activate Key'; return;
+        }
+
+        const keyData = keySnap.data();
+
+        // 2. Already used?
+        if (keyData.used) {
+          if (keyData.usedBy === window.__currentUser.uid) {
+            errEl.textContent = '✅ This key is already activated on your account.';
+          } else {
+            errEl.textContent = '❌ This key has already been used by another account.';
+          }
+          errEl.style.display = 'block';
+          btn.disabled = false; btn.textContent = 'Activate Key'; return;
+        }
+
+        // 3. Valid key — mark used
+        const plan = keyData.plan || 'hsk12';
+        await updateDoc(keyRef, { used: true, usedBy: window.__currentUser.uid, usedAt: serverTimestamp() });
+
+        // 4. Unlock plans in user document
+        const planUpdates = {};
+        if (plan === 'hsk1234') {
+          planUpdates['plans.hsk12'] = true;
+          planUpdates['plans.hsk3']  = true;
+          planUpdates['plans.hsk4']  = true;
+        } else {
+          planUpdates[`plans.${plan}`] = true;
+        }
+        await updateDoc(doc(db, 'users', window.__currentUser.uid), planUpdates);
+
+        // 5. Update local state
+        if (plan === 'hsk1234') {
+          window.__userPlans.hsk12 = window.__userPlans.hsk3 = window.__userPlans.hsk4 = true;
+        } else {
+          window.__userPlans[plan] = true;
+        }
+
+        // 6. Success UI
+        okEl.textContent = `🎉 ${PLANS[plan]?.name || 'Content'} unlocked!`;
+        okEl.style.display = 'block';
+        btn.textContent = '✓ Activated!';
+
+        setTimeout(() => {
+          closeKeyModal();
+          window.rerenderThumbnails();
+          showPremiumToast(`🎉 ${PLANS[plan]?.name} unlocked!`);
+        }, 1500);
+
+      } catch (e) {
+        console.error('[key]', e);
+        errEl.textContent = '⚠️ Something went wrong. Please try again.';
+        errEl.style.display = 'block';
+        btn.disabled = false; btn.textContent = 'Activate Key';
       }
-      // Gắn email vào ref để biết activate cho ai
-      const email = encodeURIComponent(window.__currentUser.email || '');
-      const sep   = BMAC_LINK.includes('?') ? '&' : '?';
-      window.open(BMAC_LINK + sep + 'ref=' + email, '_blank');
     };
   </script>
 
@@ -878,202 +799,151 @@
        PREMIUM CHECK (Firestore)
   ══════════════════════════════════════════════════════════ -->
   <script>
-    /**
-     * refreshPremiumStatus()
-     * Đọc Firestore document users/{uid}
-     * isPremium: true  → lifetime (set thủ công sau khi user mua BMAC)
-     * premiumUntil: Timestamp → subscription (giữ lại để tương thích)
-     */
-    window.refreshPremiumStatus = async function () {
-      if (!window.__currentUser) { window.__userIsPremium = false; return; }
+    window.refreshPremiumStatus = async () => {
+      if (!window.__currentUser) { window.__userPlans = {}; window.__premiumLoaded = true; return; }
       try {
         const { getFirestore, doc, getDoc } =
           await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
-        const db   = getFirestore();
-        const snap = await getDoc(doc(db, 'users', window.__currentUser.uid));
+        const snap = await getDoc(doc(getFirestore(), 'users', window.__currentUser.uid));
         if (snap.exists()) {
-          const data = snap.data();
-          const forever  = data.isPremium === true;
-          const hasUntil = data.premiumUntil && data.premiumUntil.toDate() > new Date();
-          window.__userIsPremium = forever || hasUntil;
-        } else {
-          window.__userIsPremium = false;
-        }
-      } catch (e) {
-        console.warn('[premium] Firestore check failed:', e);
-        window.__userIsPremium = false;
-      }
+          const d = snap.data();
+          const plans = { ...(d.plans || {}) };
+          if (d.isPremium === true) plans.hsk12 = true;                                    // backward compat
+          if (d.premiumUntil && d.premiumUntil.toDate() > new Date()) plans.hsk12 = true;  // subscription cũ
+          window.__userPlans = plans;
+        } else { window.__userPlans = {}; }
+      } catch (e) { console.warn('[premium]', e); window.__userPlans = {}; }
       window.__premiumLoaded = true;
     };
   </script>
 
   <!-- ══════════════════════════════════════════════════════════
-       TEXTBOOK THUMBNAILS — paywall-aware render
+       LESSON TRACKING
+  ══════════════════════════════════════════════════════════ -->
+  <script>
+    window.trackLesson = async (item) => {
+      if (!window.__currentUser) return;
+      try {
+        const { getFirestore, collection, addDoc, serverTimestamp } =
+          await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
+        await addDoc(collection(getFirestore(), 'lesson_views'), {
+          uid: window.__currentUser.uid, postId: String(item.id || item.htmlLink || ''),
+          postTitle: item.title || '', postLink: item.htmlLink || '', timestamp: serverTimestamp()
+        });
+      } catch(e) { console.warn('[tracking]', e); }
+    };
+  </script>
+
+  <!-- ══════════════════════════════════════════════════════════
+       TEXTBOOK THUMBNAILS
+       thumbnail.json: thêm field "plan": "hsk12"|"hsk3"|"hsk4"
   ══════════════════════════════════════════════════════════ -->
   <script>
     const PER_PAGE_THUMB = 9;
-    let thumbData = [];
-    let thumbPage = 0;
+    let thumbData = [], thumbPage = 0;
 
     function renderOneThumb(item) {
-      const isPremiumLocked = item.premium && !window.__userIsPremium;
-
+      const requiredPlan    = item.plan || 'hsk12';
+      const isPremiumLocked = item.premium && !window.__userPlans[requiredPlan];
       const el = document.createElement('div');
       el.className = 'thumbnail' + (isPremiumLocked ? ' locked' : '');
 
       if (isPremiumLocked) {
         el.innerHTML = `
           <div class="thumb-img-wrap">
-            <img src="${item.thumbnail}" alt="${item.title}" loading="lazy"
-                 style="filter:blur(2px) brightness(0.65)">
+            <img src="${item.thumbnail}" alt="${item.title}" loading="lazy" style="filter:blur(2px) brightness(0.65)">
             <div class="thumb-lock-overlay">
               <span class="thumb-lock-icon">🔒</span>
-              <span class="thumb-lock-label">⭐ Premium</span>
+              <span class="thumb-lock-label">⭐ ${PLANS[requiredPlan]?.name || 'Premium'}</span>
             </div>
           </div>
           <div class="info">
             ${item.topic ? `<span class="thumb-topic-tag">${item.topic}</span>` : ''}
-            <span class="thumb-premium-tag">⭐ Lifetime</span>
-            <h4>${item.title}</h4>
-            <p>${item.description}</p>
+            <span class="thumb-premium-tag">⭐ ${requiredPlan.toUpperCase()}</span>
+            <h4>${item.title}</h4><p>${item.description}</p>
           </div>`;
-
         el.addEventListener('click', () => {
-          if (window.__currentUser) {
-            openUpgradeModal();
-          } else {
-            window.__afterLoginAction = openUpgradeModal;
-            openLoginModal();
-          }
+          if (window.__currentUser) openUpgradeModal(requiredPlan);
+          else { window.__afterLoginAction = () => openUpgradeModal(requiredPlan); openLoginModal(); }
         });
       } else {
         el.innerHTML = `
           <a href="${item.htmlLink}" data-track="lesson">
-            <div class="thumb-img-wrap">
-              <img src="${item.thumbnail}" alt="${item.title}" loading="lazy">
-            </div>
+            <div class="thumb-img-wrap"><img src="${item.thumbnail}" alt="${item.title}" loading="lazy"></div>
             <div class="info">
               ${item.topic   ? `<span class="thumb-topic-tag">${item.topic}</span>` : ''}
               ${item.premium ? `<span class="thumb-premium-tag">⭐ Unlocked</span>` : ''}
-              <h4>${item.title}</h4>
-              <p>${item.description}</p>
+              <h4>${item.title}</h4><p>${item.description}</p>
             </div>
           </a>`;
-
-        el.querySelector('a').addEventListener('click', () => {
-          window.trackLesson(item);
-        });
+        el.querySelector('a').addEventListener('click', () => window.trackLesson(item));
       }
-
       return el;
     }
 
     function renderThumbCards(start, count) {
-      const container = document.getElementById('thumbnails-container');
-      const slice     = thumbData.slice(start, start + count);
-      slice.forEach(item => container.appendChild(renderOneThumb(item)));
+      const c = document.getElementById('thumbnails-container');
+      thumbData.slice(start, start + count).forEach(item => c.appendChild(renderOneThumb(item)));
     }
-
-    window.rerenderThumbnails = function () {
-      const container = document.getElementById('thumbnails-container');
-      container.innerHTML = '';
-      thumbPage = 0;
-      loadThumbs();
+    window.rerenderThumbnails = () => {
+      document.getElementById('thumbnails-container').innerHTML = '';
+      thumbPage = 0; loadThumbs();
     };
-
     function loadThumbs() {
-      const btn   = document.getElementById('thumb-load-more-btn');
+      const btn = document.getElementById('thumb-load-more-btn');
       const start = thumbPage * PER_PAGE_THUMB;
       if (start >= thumbData.length) { btn.style.display = 'none'; return; }
-      renderThumbCards(start, PER_PAGE_THUMB);
-      thumbPage++;
+      renderThumbCards(start, PER_PAGE_THUMB); thumbPage++;
       btn.style.display = thumbPage * PER_PAGE_THUMB >= thumbData.length ? 'none' : 'inline-block';
     }
-
     document.addEventListener('DOMContentLoaded', async () => {
-      const btn     = document.getElementById('thumb-load-more-btn');
+      const btn = document.getElementById('thumb-load-more-btn');
       const viewAll = document.getElementById('thumb-view-all');
-
       try {
-        const response = await fetch('data/thumbnail.json');
-        thumbData = await response.json();
+        thumbData = await (await fetch('data/thumbnail.json')).json();
         if (thumbData.length > PER_PAGE_THUMB) {
-          viewAll.style.display = 'inline-flex';
-          btn.style.display     = 'inline-block';
+          viewAll.style.display = 'inline-flex'; btn.style.display = 'inline-block';
           btn.addEventListener('click', loadThumbs);
         }
-        const waitAndRender = () => {
-          if (window.__premiumLoaded || !thumbData.some(t => t.premium)) {
-            loadThumbs();
-          } else {
-            setTimeout(waitAndRender, 60);
-          }
-        };
-        waitAndRender();
-      } catch (error) {
-        console.error('Error loading thumbnails:', error);
-        document.getElementById('thumbnails-container').innerHTML =
-          '<p style="color:#999">Failed to load thumbnails.</p>';
+        const wait = () => (window.__premiumLoaded || !thumbData.some(t => t.premium)) ? loadThumbs() : setTimeout(wait, 60);
+        wait();
+      } catch(e) {
+        console.error(e);
+        document.getElementById('thumbnails-container').innerHTML = '<p style="color:#999">Failed to load thumbnails.</p>';
       }
     });
   </script>
 
-  <!-- Video slider -->
+  <!-- VIDEO SLIDER -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const slider  = document.querySelector('.video-slider');
-      const prevBtn = document.querySelector('.slider-btn.prev');
-      const nextBtn = document.querySelector('.slider-btn.next');
-      const items   = document.querySelectorAll('.video-item');
-      let currentIndex = 0;
-
-      function getVisible() {
-        if (window.innerWidth <= 480) return 1;
-        if (window.innerWidth <= 768) return 2;
-        return 3;
-      }
-      function updateSlider() {
-        slider.style.transform = `translateX(${-(currentIndex * (100 / getVisible()))}%)`;
-      }
-      nextBtn.addEventListener('click', () => {
-        const v = getVisible();
-        currentIndex = currentIndex < items.length - v ? currentIndex + 1 : 0;
-        updateSlider();
-      });
-      prevBtn.addEventListener('click', () => {
-        const v = getVisible();
-        currentIndex = currentIndex > 0 ? currentIndex - 1 : items.length - v;
-        updateSlider();
-      });
-      window.addEventListener('resize', updateSlider);
+      const slider = document.querySelector('.video-slider');
+      const items  = document.querySelectorAll('.video-item');
+      let idx = 0;
+      const getV = () => window.innerWidth <= 480 ? 1 : window.innerWidth <= 768 ? 2 : 3;
+      const upd  = () => slider.style.transform = `translateX(${-(idx * (100/getV()))}%)`;
+      document.querySelector('.slider-btn.next').onclick = () => { idx = idx < items.length-getV() ? idx+1 : 0; upd(); };
+      document.querySelector('.slider-btn.prev').onclick = () => { idx = idx > 0 ? idx-1 : items.length-getV(); upd(); };
+      window.addEventListener('resize', upd);
     });
   </script>
 
-  <!-- REAL-LIFE CHINESE Script cards -->
+  <!-- REAL-LIFE SCRIPTS -->
   <script>
     const PH_PALETTES = ['ph-teal','ph-coral','ph-amber','ph-violet','ph-rose','ph-lime','ph-sky2','ph-peach2','ph-mint','ph-grape'];
     const PER_PAGE_SCRIPTS = 8;
-    let SCRIPTS     = [];
-    let scriptsPage = 0;
-    const grid      = document.getElementById('scripts-grid');
-    const loadMoreBtn = document.getElementById('load-more-btn');
+    let SCRIPTS = [], scriptsPage = 0;
+    const grid = document.getElementById('scripts-grid');
+    const lmBtn = document.getElementById('load-more-btn');
 
     function renderScriptCards(start, count) {
-      const slice = SCRIPTS.slice(start, start + count);
-      slice.forEach((s, i) => {
-        const globalIdx = start + i;
-        const palette   = PH_PALETTES[globalIdx % PH_PALETTES.length];
-        const card      = document.createElement('a');
-        card.className  = 'script-card';
-        card.href       = s.url;
-        card.innerHTML  = `
+      SCRIPTS.slice(start, start+count).forEach((s, i) => {
+        const pal = PH_PALETTES[(start+i) % PH_PALETTES.length];
+        const card = document.createElement('a');
+        card.className = 'script-card'; card.href = s.url;
+        card.innerHTML = `
           <div class="script-card-thumb">
-            ${s.img
-              ? `<img src="${s.img}" alt="${s.title}">`
-              : `<div class="script-ph ${palette}">
-                   <span class="ph-emoji">${s.emoji}</span>
-                   <span class="ph-label">Douyin · 抖音</span>
-                 </div>`}
+            ${s.img ? `<img src="${s.img}" alt="${s.title}">` : `<div class="script-ph ${pal}"><span class="ph-emoji">${s.emoji}</span><span class="ph-label">Douyin · 抖音</span></div>`}
             <span class="play-badge">▶ Script</span>
           </div>
           <div class="script-card-body">
@@ -1081,138 +951,94 @@
             <h4>${s.title}<br><span style="font-weight:500;font-size:0.85em;color:#777">${s.subtitle}</span></h4>
             <span class="script-card-num">#${s.num}</span>
           </div>`;
-        card.addEventListener('click', () => {
-          window.trackLesson({ id: 'script-' + s.num, title: s.title, htmlLink: s.url });
-        });
+        card.addEventListener('click', () => window.trackLesson({id:'script-'+s.num, title:s.title, htmlLink:s.url}));
         grid.appendChild(card);
       });
     }
-
     function loadScripts() {
       const start = scriptsPage * PER_PAGE_SCRIPTS;
-      if (start >= SCRIPTS.length) { loadMoreBtn.disabled = true; return; }
-      renderScriptCards(start, PER_PAGE_SCRIPTS);
-      scriptsPage++;
-      if (scriptsPage * PER_PAGE_SCRIPTS >= SCRIPTS.length) {
-        loadMoreBtn.disabled    = true;
-        loadMoreBtn.textContent = 'All scripts loaded ✓';
-      }
+      if (start >= SCRIPTS.length) { lmBtn.disabled = true; return; }
+      renderScriptCards(start, PER_PAGE_SCRIPTS); scriptsPage++;
+      if (scriptsPage * PER_PAGE_SCRIPTS >= SCRIPTS.length) { lmBtn.disabled = true; lmBtn.textContent = 'All scripts loaded ✓'; }
     }
-
     document.addEventListener('DOMContentLoaded', async () => {
-      try {
-        const res = await fetch('data/scripts.json');
-        SCRIPTS   = await res.json();
-      } catch(e) {
-        console.error('Failed to load scripts.json:', e);
-      }
-      loadScripts();
-      loadMoreBtn.addEventListener('click', loadScripts);
+      try { SCRIPTS = await (await fetch('data/scripts.json')).json(); } catch(e) { console.error(e); }
+      loadScripts(); lmBtn.addEventListener('click', loadScripts);
     });
   </script>
 
   <!-- ══════════════════════════════════════════════════════════
-       FIREBASE AUTH + FIRESTORE PREMIUM CHECK
+       FIREBASE AUTH
   ══════════════════════════════════════════════════════════ -->
   <script type="module">
-    import { initializeApp }  from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
-    import {
-      getAuth,
-      GoogleAuthProvider,
-      signInWithPopup,
-      signOut as fbSignOut,
-      onAuthStateChanged
-    } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+    import { getAuth, GoogleAuthProvider, signInWithPopup, signOut as fbSignOut, onAuthStateChanged }
+      from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+    import { getFirestore, doc, setDoc, serverTimestamp }
+      from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
 
-    const firebaseConfig = {
-      apiKey:            'AIzaSyAm-qQrpXKNdqFLITRAGCug7rkskGzyAkg',
-      authDomain:        'chinese60s.firebaseapp.com',
-      projectId:         'chinese60s',
-      storageBucket:     'chinese60s.firebasestorage.app',
+    const app = initializeApp({
+      apiKey: 'AIzaSyAm-qQrpXKNdqFLITRAGCug7rkskGzyAkg',
+      authDomain: 'chinese60s.firebaseapp.com', projectId: 'chinese60s',
+      storageBucket: 'chinese60s.firebasestorage.app',
       messagingSenderId: '835657861121',
-      appId:             '1:835657861121:web:f31727eb7ea3b876a5d800',
-      measurementId:     'G-70NQ4PFTSN'
-    };
-
-    const app      = initializeApp(firebaseConfig);
-    const auth     = getAuth(app);
+      appId: '1:835657861121:web:f31727eb7ea3b876a5d800', measurementId: 'G-70NQ4PFTSN'
+    });
+    const auth = getAuth(app), db = getFirestore(app);
     const provider = new GoogleAuthProvider();
     provider.setCustomParameters({ prompt: 'select_account' });
 
-    function showModalError(msg) {
-      const el = document.getElementById('modal-error');
-      if (!el) return;
-      el.textContent   = msg;
-      el.style.display = 'block';
-      const btn = document.getElementById('google-signin-btn');
-      const txt = document.getElementById('signin-btn-text');
-      if (btn) btn.disabled = false;
-      if (txt) txt.textContent = 'Continue with Google';
-    }
-
-    function setSignInLoading(loading) {
-      const btn = document.getElementById('google-signin-btn');
-      const txt = document.getElementById('signin-btn-text');
-      if (!btn || !txt) return;
-      btn.disabled    = loading;
-      txt.textContent = loading ? 'Opening Google…' : 'Continue with Google';
-    }
-
-    window.doGoogleSignIn = async function () {
+    window.doGoogleSignIn = async () => {
       const errEl = document.getElementById('modal-error');
-      if (errEl) { errEl.style.display = 'none'; errEl.textContent = ''; }
-      setSignInLoading(true);
+      const btn   = document.getElementById('google-signin-btn');
+      const txt   = document.getElementById('signin-btn-text');
+      if (errEl) { errEl.style.display='none'; errEl.textContent=''; }
+      if (btn) btn.disabled = true;
+      if (txt) txt.textContent = 'Opening Google…';
       try {
         await signInWithPopup(auth, provider);
         closeLoginModal();
         if (typeof window.__afterLoginAction === 'function') {
-          window.__afterLoginAction();
-          window.__afterLoginAction = null;
+          window.__afterLoginAction(); window.__afterLoginAction = null;
         }
       } catch (err) {
-        setSignInLoading(false);
-        console.error('Sign-in error:', err.code, err.message);
+        if (btn) btn.disabled = false;
+        if (txt) txt.textContent = 'Continue with Google';
         const msgs = {
-          'auth/popup-blocked':           '🚫 Popup was blocked. Please allow popups for this site.',
-          'auth/popup-closed-by-user':    '❌ Sign-in window was closed. Please try again.',
-          'auth/cancelled-popup-request': '❌ Sign-in was cancelled. Please try again.',
-          'auth/network-request-failed':  '🌐 Network error. Check your connection.',
-          'auth/unauthorized-domain':     '⚙️ Domain not authorised. Contact admin.',
-          'auth/user-disabled':           '🚫 This account has been disabled.',
+          'auth/popup-blocked':'🚫 Popup blocked. Please allow popups.',
+          'auth/popup-closed-by-user':'❌ Sign-in window closed.',
+          'auth/cancelled-popup-request':'❌ Sign-in cancelled.',
+          'auth/network-request-failed':'🌐 Network error.',
+          'auth/unauthorized-domain':'⚙️ Domain not authorised.',
+          'auth/user-disabled':'🚫 This account has been disabled.',
         };
-        showModalError(msgs[err.code] || `Sign-in failed: ${err.message}`);
+        if (errEl) { errEl.textContent = msgs[err.code] || `Sign-in failed: ${err.message}`; errEl.style.display='block'; }
       }
     };
 
-    window.signOut = async function () {
-      try { await fbSignOut(auth); } catch(e) { console.error(e); }
-    };
+    window.signOut = async () => { try { await fbSignOut(auth); } catch(e) { console.error(e); } };
 
-    onAuthStateChanged(auth, async function (user) {
-      const signInBtn    = document.getElementById('sign-in-btn');
-      const userMenuWrap = document.getElementById('user-menu-wrap');
-      const navUsername  = document.getElementById('nav-username');
-      const navAvatar    = document.getElementById('nav-avatar');
+    onAuthStateChanged(auth, async (user) => {
+      const sib = document.getElementById('sign-in-btn');
+      const umw = document.getElementById('user-menu-wrap');
+      const un  = document.getElementById('nav-username');
+      const ua  = document.getElementById('nav-avatar');
 
       if (user) {
         window.__currentUser = user;
-        // Tự động tạo/update document trong Firestore khi user login
-        const { getFirestore, doc, setDoc, serverTimestamp } =
-          await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
-        const db = getFirestore();
+
+        // Auto-create/update user doc on login (merge keeps plans intact)
         await setDoc(doc(db, 'users', user.uid), {
-          email:       user.email,
-          displayName: user.displayName,
-          photoURL:    user.photoURL,
-          lastLogin:   serverTimestamp(),
+          email: user.email, displayName: user.displayName,
+          photoURL: user.photoURL, lastLogin: serverTimestamp()
         }, { merge: true });
 
-        if (signInBtn)    signInBtn.style.display    = 'none';
-        if (userMenuWrap) userMenuWrap.style.display = 'block';
-        if (navUsername)  navUsername.textContent    = user.displayName?.split(' ')[0] || 'User';
-        if (navAvatar)    navAvatar.innerHTML        = user.photoURL
+        if (sib) sib.style.display = 'none';
+        if (umw) umw.style.display = 'block';
+        if (un)  un.textContent    = user.displayName?.split(' ')[0] || 'User';
+        if (ua)  ua.innerHTML      = user.photoURL
           ? `<img src="${user.photoURL}" alt="avatar" referrerpolicy="no-referrer">`
-          : `<span>${(user.displayName?.[0] || '?').toUpperCase()}</span>`;
+          : `<span>${(user.displayName?.[0]||'?').toUpperCase()}</span>`;
 
         await window.refreshPremiumStatus();
 
@@ -1220,14 +1046,12 @@
           for (const cb of window.__onAuthReadyCbs) await cb();
           window.__onAuthReadyCbs = [];
         }
-
       } else {
-        window.__currentUser   = null;
-        window.__userIsPremium = false;
+        window.__currentUser = null;
+        window.__userPlans   = {};
         window.__premiumLoaded = true;
-
-        if (signInBtn)    signInBtn.style.display    = 'inline-flex';
-        if (userMenuWrap) userMenuWrap.style.display = 'none';
+        if (sib) sib.style.display = 'inline-flex';
+        if (umw) umw.style.display = 'none';
       }
     });
   </script>
