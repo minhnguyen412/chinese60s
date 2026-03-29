@@ -146,41 +146,41 @@
   {
     "id": "19",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672825/%E7%88%B8%E7%88%B8_kzlngz.png",
-    "character": "爸爸",
+    "character": "爸",
     "meaning": "Dad",
-    "pinyin": "bàba",
+    "pinyin": "bà",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673320/%E7%88%B8%E7%88%B8_ktwtw6.mp3"
   },
   {
     "id": "20",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672816/%E5%A6%88%E5%A6%88_ctbjof.png",
-    "character": "妈妈",
+    "character": "妈",
     "meaning": "Mom",
-    "pinyin": "māma",
+    "pinyin": "mā",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673268/%E5%A6%88%E5%A6%88_cyj7nk.mp3"
   },
   {
     "id": "21",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672814/%E5%93%A5%E5%93%A5_lbmhbo.png",
-    "character": "哥哥",
+    "character": "哥",
     "meaning": "Elder brother",
-    "pinyin": "gēge",
+    "pinyin": "gē",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673250/%E5%93%A5%E5%93%A5_t3w2af.mp3"
   },
   {
     "id": "22",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672819/%E5%BC%9F%E5%BC%9F_wsmthy.png",
-    "character": "弟弟",
+    "character": "弟",
     "meaning": "Younger brother",
-    "pinyin": "dìdi",
+    "pinyin": "dì",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673281/%E5%BC%9F%E5%BC%9F_taqkox.mp3"
   },
   {
     "id": "23",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672817/%E5%A6%B9%E5%A6%B9_whzdwy.png",
-    "character": "妹妹",
+    "character": "妹",
     "meaning": "Younger sister",
-    "pinyin": "mèimei",
+    "pinyin": "mèi",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673269/%E5%A6%B9%E5%A6%B9_fm9pax.mp3"
   },
   {
@@ -218,25 +218,25 @@
   {
     "id": "28",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672832/%E9%98%BF%E6%8B%89%E4%BC%AF%E8%AF%AD_rfhm36.png",
-    "character": "阿拉伯语",
+    "character": "阿拉伯",
     "meaning": "Arabic - language",
-    "pinyin": "Ālābóyǔ",
+    "pinyin": "Ālābó",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673363/%E9%98%BF%E6%8B%89%E4%BC%AF%E8%AF%AD_m5mnbo.mp3"
   },
   {
     "id": "29",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672819/%E5%BE%B7%E8%AF%AD_wjfnwu.png",
-    "character": "德语",
+    "character": "德",
     "meaning": "German - language",
-    "pinyin": "Déyǔ",
+    "pinyin": "Dé",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673286/%E5%BE%B7%E8%AF%AD_k7rg1o.mp3"
   },
   {
     "id": "30",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672811/%E4%BF%84%E8%AF%AD_l9fgbe.png",
-    "character": "俄语",
+    "character": "俄",
     "meaning": "Russian - language",
-    "pinyin": "Éyǔ",
+    "pinyin": "É",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673231/%E4%BF%84%E8%AF%AD_gc2zc6.mp3"
   },
   {
@@ -244,37 +244,37 @@
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672825/%E6%B3%95%E8%AF%AD_nnkmqp.png",
     "character": "法语",
     "meaning": "French - language",
-    "pinyin": "Fǎyǔ",
+    "pinyin": "Fǎ",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673319/%E6%B3%95%E8%AF%AD_zadz99.mp3"
   },
   {
     "id": "32",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672833/%E9%9F%A9%E5%9B%BD%E8%AF%AD_dytmnk.png",
-    "character": "韩国语",
+    "character": "韩国",
     "meaning": "Korean - language",
-    "pinyin": "Hánguóyǔ",
+    "pinyin": "Hánguó",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673368/%E9%9F%A9%E5%9B%BD%E8%AF%AD_x0qz9q.mp3"
   },
   {
     "id": "33",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672821/%E6%97%A5%E8%AF%AD_ant1jd.png",
-    "character": "日语",
+    "character": "日",
     "meaning": "Japanese - language",
-    "pinyin": "Rìyǔ",
+    "pinyin": "Rì",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673296/%E6%97%A5%E8%AF%AD_aawi5r.mp3"
   },
   {
     "id": "34",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672828/%E8%A5%BF%E7%8F%AD%E7%89%99%E8%AF%AD_ur3jxi.png",
-    "character": "西班牙语",
+    "character": "西班牙",
     "meaning": "Spanish - language",
-    "pinyin": "Xībānyáyǔ",
+    "pinyin": "Xībānyá",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673339/%E8%A5%BF%E7%8F%AD%E7%89%99%E8%AF%AD_kgtucf.mp3"
   },
   {
     "id": "35",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672818/%E5%AF%B9_kivn0g.png",
-    "character": "对¹",
+    "character": "对",
     "meaning": "Right; OK; Correct; True",
     "pinyin": "duì",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673277/%E5%AF%B9_mvladp.mp3"
@@ -378,9 +378,9 @@
   {
     "id": "48",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672810/%E4%BB%8A%E5%A4%A9_tknqeo.png",
-    "character": "今天",
+    "character": "今",
     "meaning": "Today",
-    "pinyin": "jīntiān",
+    "pinyin": "jīn",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673170/%E4%BB%8A%E5%A4%A9_zjnvdz.mp3"
   },
   {
@@ -394,9 +394,9 @@
   {
     "id": "50",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672823/%E6%98%A8%E5%A4%A9_btweuk.png",
-    "character": "昨天",
+    "character": "昨",
     "meaning": "Yesterday",
-    "pinyin": "zuótiān",
+    "pinyin": "zuó",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673308/%E6%98%A8%E5%A4%A9_r6p7h0.mp3"
   },
   {
