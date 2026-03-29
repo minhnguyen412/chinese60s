@@ -87,6 +87,7 @@
     }
     nav ul li a:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
 
+    /* ── AUTH PILL in nav ── */
     .auth-pill {
       display: flex; align-items: center; gap: 8px;
       background: var(--white); border: var(--border); border-radius: 50px;
@@ -108,6 +109,7 @@
     }
     .auth-pill .avatar img { width: 100%; height: 100%; object-fit: cover; }
 
+    /* sign-in pill (no avatar) */
     #sign-in-btn {
       background: var(--yellow); border: var(--border); border-radius: 50px;
       padding: 6px 18px; font-weight: 700; font-size: 0.9rem;
@@ -118,6 +120,7 @@
     }
     #sign-in-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
 
+    /* user dropdown */
     .user-menu-wrap { position: relative; }
     .user-dropdown {
       display: none;
@@ -193,76 +196,6 @@
     .google-btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); }
     .google-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
 
-    /* ══════════════════════════════
-       UPGRADE MODAL (PREMIUM)
-    ══════════════════════════════ */
-    #upgrade-modal .modal {
-      width: 420px;
-      max-width: 92vw;
-    }
-    .upgrade-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: var(--lavender); border: var(--border); border-radius: 50px;
-      padding: 4px 16px; font-size: 0.85rem; font-weight: 700;
-      box-shadow: var(--shadow-sm); margin-bottom: 14px;
-    }
-    .perks-list {
-      list-style: none;
-      text-align: left;
-      background: var(--yellow-pale);
-      border: var(--border); border-radius: 16px;
-      padding: 14px 18px; margin: 0 0 22px;
-      display: flex; flex-direction: column; gap: 8px;
-    }
-    .perks-list li {
-      font-size: 0.95rem; font-weight: 600;
-      display: flex; align-items: center; gap: 8px;
-    }
-    .perks-list li span.perk-icon { font-size: 1.1rem; flex-shrink: 0; }
-    .price-row {
-      display: flex; align-items: baseline; justify-content: center; gap: 6px;
-      margin-bottom: 20px;
-    }
-    .price-big {
-      font-size: 2.4rem; font-weight: 700; line-height: 1;
-    }
-    .price-period {
-      font-size: 0.9rem; color: #888; font-weight: 500;
-    }
-    .upgrade-btn {
-      display: inline-flex; align-items: center; gap: 8px; justify-content: center;
-      width: 100%; padding: 14px 20px;
-      background: var(--green); color: white;
-      border: var(--border-thick); border-radius: 50px;
-      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.1rem;
-      box-shadow: var(--shadow-md); cursor: pointer;
-      transition: transform 0.12s, box-shadow 0.12s;
-      text-decoration: none;
-    }
-    .upgrade-btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); background: var(--green-dark); }
-    .upgrade-btn:disabled { opacity: 0.5; cursor: default; transform: none; }
-    .upgrade-secure {
-      font-size: 0.78rem; color: #bbb; margin-top: 10px;
-      display: flex; align-items: center; justify-content: center; gap: 4px;
-    }
-
-    /* ══════════════════════════════
-       SUCCESS TOAST
-    ══════════════════════════════ */
-    #premium-toast {
-      position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(80px);
-      background: var(--green); color: white;
-      border: var(--border-thick); border-radius: 50px;
-      padding: 12px 28px; font-weight: 700; font-size: 1rem;
-      box-shadow: var(--shadow-md); z-index: 999;
-      transition: transform 0.35s cubic-bezier(.4,0,.2,1), opacity 0.35s;
-      opacity: 0; pointer-events: none;
-      display: flex; align-items: center; gap: 8px; white-space: nowrap;
-    }
-    #premium-toast.show {
-      transform: translateX(-50%) translateY(0);
-      opacity: 1;
-    }
 
     /* ── HERO BANNER ── */
     .hero-banner {
@@ -301,10 +234,23 @@
     }
 
     /* ── MAIN CONTENT ── */
-    main { flex: 1; padding: 0 0 80px; position: relative; z-index: 1; }
-    .content-section { padding: 40px 40px 0; max-width: 1240px; margin: 0 auto; }
+    main {
+      flex: 1;
+      padding: 0 0 80px;
+      position: relative; z-index: 1;
+    }
 
-    .section-header { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 24px; }
+    .content-section {
+      padding: 40px 40px 0;
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
     .section-badge {
       display: inline-flex; align-items: center; gap: 8px;
       background: var(--peach); border: var(--border-thick); border-radius: 50px;
@@ -313,19 +259,41 @@
     }
     .section-badge.teal   { background: #b2f0e8; }
     .section-badge.orange { background: #ffd6b0; }
-    .section-sub { font-size: 0.95rem; color: #888; font-weight: 500; }
+    .section-sub {
+      font-size: 0.95rem; color: #888; font-weight: 500;
+    }
 
-    .section-divider { border: none; border-top: var(--border-thick); margin: 48px 40px 0; max-width: 1160px; }
+    /* ── DIVIDER ── */
+    .section-divider {
+      border: none;
+      border-top: var(--border-thick);
+      margin: 48px 40px 0;
+      max-width: 1160px;
+    }
 
     /* ── VIDEO SLIDER ── */
-    .slider-wrap { position: relative; }
-    .video-slider-container {
-      position: relative; width: 100%; overflow: hidden;
-      border: var(--border-thick); border-radius: 20px; box-shadow: var(--shadow-lg);
+    .slider-wrap {
+      position: relative;
     }
-    .video-slider { display: flex; transition: transform 0.4s cubic-bezier(.4,0,.2,1); }
-    .video-item { min-width: 33.33%; padding: 12px; box-sizing: border-box; }
-    .video-item iframe { width: 100%; height: 210px; border-radius: 12px; border: var(--border); display: block; }
+    .video-slider-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border: var(--border-thick); border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+    }
+    .video-slider {
+      display: flex;
+      transition: transform 0.4s cubic-bezier(.4,0,.2,1);
+    }
+    .video-item {
+      min-width: 33.33%; padding: 12px; box-sizing: border-box;
+    }
+    .video-item iframe {
+      width: 100%; height: 210px;
+      border-radius: 12px; border: var(--border);
+      display: block;
+    }
     .slider-btn {
       position: absolute; top: 50%; transform: translateY(-50%);
       background: var(--yellow); color: var(--black);
@@ -357,16 +325,26 @@
       padding: 6px 18px; font-weight: 600; font-size: 0.95rem;
       box-shadow: var(--shadow-sm); margin-bottom: 16px;
     }
-    .amazon-images { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; }
+    .amazon-images {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+    }
     .amazon-images a {
-      border: var(--border); border-radius: 12px; overflow: hidden; display: block;
-      box-shadow: var(--shadow-sm); transition: transform 0.15s, box-shadow 0.15s;
+      border: var(--border); border-radius: 12px;
+      overflow: hidden; display: block;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.15s, box-shadow 0.15s;
     }
     .amazon-images a:hover { transform: translate(-2px,-3px); box-shadow: 5px 5px 0 var(--black); }
     .amazon-images img { width: 100%; height: auto; display: block; }
 
-    @media (max-width: 768px) { .amazon-images { grid-template-columns: repeat(4, 1fr); } }
-    @media (max-width: 480px) { .amazon-images { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 768px) {
+      .amazon-images { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .amazon-images { grid-template-columns: repeat(3, 1fr); }
+    }
 
     /* ── TEXTBOOK THUMBNAILS ── */
     .thumbnails-block { margin-top: 32px; }
@@ -380,65 +358,49 @@
       padding: 6px 18px; font-weight: 600; font-size: 0.95rem;
       box-shadow: var(--shadow-sm);
     }
-    .thumbnails { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
-
-    /* ── THUMBNAIL CARD (free) ── */
+    .thumbnails {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 18px;
+    }
     .thumbnail {
       border: var(--border-thick); border-radius: 18px;
-      overflow: hidden; box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
       background: var(--white);
       transition: transform 0.15s, box-shadow 0.15s;
     }
     .thumbnail:hover { transform: translate(-2px,-3px); box-shadow: 6px 6px 0 var(--black); }
     .thumbnail a { text-decoration: none; color: inherit; display: block; }
     .thumbnail img { width: 100%; height: auto; display: block; }
-    .thumbnail .info { padding: 12px 14px; background: var(--green-pale); border-top: var(--border); }
+    .thumbnail .info {
+      padding: 12px 14px;
+      background: var(--green-pale);
+      border-top: var(--border);
+    }
     .thumbnail .info h4 { margin-bottom: 4px; font-size: 1rem; font-weight: 700; }
     .thumbnail .info p { font-size: 0.875rem; color: #666; line-height: 1.5; }
     .thumb-topic-tag {
       display: inline-block;
       background: var(--yellow); border: 1.5px solid var(--black); border-radius: 50px;
       padding: 2px 12px; font-size: 0.75rem; font-weight: 700;
-      box-shadow: 2px 2px 0 var(--black); margin-bottom: 6px;
-    }
-
-    /* ── THUMBNAIL CARD (premium locked) ── */
-    .thumbnail.locked { cursor: pointer; }
-    .thumbnail.locked:hover { transform: translate(-2px,-3px); box-shadow: 6px 6px 0 var(--black); }
-
-    .thumb-img-wrap {
-      position: relative; overflow: hidden;
-    }
-    .thumb-img-wrap img { width: 100%; height: auto; display: block; }
-
-    .thumb-lock-overlay {
-      position: absolute; inset: 0;
-      background: rgba(30,20,60,0.55);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 8px;
-      backdrop-filter: blur(3px);
-    }
-    .thumb-lock-icon { font-size: 2.2rem; line-height: 1; }
-    .thumb-lock-label {
-      background: var(--lavender); border: 2px solid var(--black); border-radius: 50px;
-      padding: 4px 16px; font-size: 0.8rem; font-weight: 700;
-      box-shadow: 2px 2px 0 var(--black); color: var(--black);
-    }
-
-    .thumb-premium-tag {
-      display: inline-block;
-      background: var(--lavender); border: 1.5px solid var(--black); border-radius: 50px;
-      padding: 2px 12px; font-size: 0.75rem; font-weight: 700;
-      box-shadow: 2px 2px 0 var(--black); margin-bottom: 6px;
+      box-shadow: 2px 2px 0 var(--black);
+      margin-bottom: 6px;
     }
 
     /* ══════════════════════════════════════
        REAL-LIFE CHINESE SECTION
     ══════════════════════════════════════ */
-    .reallife-section { padding: 40px 40px 0; max-width: 1240px; margin: 0 auto; }
+    .reallife-section {
+      padding: 40px 40px 0;
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
     .reallife-header {
       display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 12px; margin-bottom: 28px;
+      flex-wrap: wrap; gap: 12px;
+      margin-bottom: 28px;
     }
     .reallife-header-left { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
 
@@ -452,25 +414,43 @@
     }
     .view-all-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); background: var(--green-dark); }
 
-    .scripts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; }
+    /* Script cards grid */
+    .scripts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 18px;
+    }
 
     .script-card {
-      background: var(--white); border: var(--border-thick); border-radius: 18px;
-      overflow: hidden; box-shadow: var(--shadow-sm);
+      background: var(--white);
+      border: var(--border-thick); border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
       text-decoration: none; color: var(--black);
       display: flex; flex-direction: column;
       transition: transform 0.15s, box-shadow 0.15s;
     }
     .script-card:hover { transform: translate(-2px,-3px); box-shadow: 6px 6px 0 var(--black); }
+
     .script-card-thumb {
-      width: 100%; aspect-ratio: 16/9; overflow: hidden;
+      width: 100%;
+      aspect-ratio: 16/9;
+      overflow: hidden;
       border-bottom: var(--border-thick);
-      display: flex; align-items: center; justify-content: center; position: relative;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
     }
-    .script-card-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+    .script-card-thumb img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.3s;
+    }
     .script-card:hover .script-card-thumb img { transform: scale(1.05); }
 
-    .script-ph { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
+    .script-ph {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 6px;
+    }
     .script-ph .ph-emoji { font-size: 2.6rem; }
     .script-ph .ph-label { font-size: 0.78rem; font-weight: 600; }
 
@@ -494,7 +474,10 @@
       backdrop-filter: blur(4px);
     }
 
-    .script-card-body { padding: 12px 14px 16px; display: flex; flex-direction: column; flex: 1; }
+    .script-card-body {
+      padding: 12px 14px 16px;
+      display: flex; flex-direction: column; flex: 1;
+    }
     .script-tag {
       display: inline-flex; align-items: center; gap: 4px;
       background: #ffd6b0; border: 1.5px solid var(--black); border-radius: 50px;
@@ -502,10 +485,18 @@
       box-shadow: 2px 2px 0 var(--black);
       align-self: flex-start; margin-bottom: 8px;
     }
-    .script-card-body h4 { font-weight: 700; font-size: 0.97rem; line-height: 1.4; flex: 1; }
-    .script-card-num { font-size: 0.78rem; color: #bbb; font-weight: 600; margin-top: 8px; }
+    .script-card-body h4 {
+      font-weight: 700; font-size: 0.97rem; line-height: 1.4;
+      flex: 1;
+    }
+    .script-card-num {
+      font-size: 0.78rem; color: #bbb; font-weight: 600; margin-top: 8px;
+    }
 
-    .scripts-load-row { display: flex; justify-content: center; margin-top: 28px; }
+    .scripts-load-row {
+      display: flex; justify-content: center;
+      margin-top: 28px;
+    }
     .load-more-btn {
       font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem;
       background: var(--yellow); color: var(--black);
@@ -516,6 +507,7 @@
     .load-more-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
     .load-more-btn:disabled { opacity: 0.4; cursor: default; transform: none; }
 
+    /* ── DONATE TAG ── */
     .new-words {
       position: fixed; top: 50%; right: 20px; transform: translateY(-50%);
       background: var(--yellow); border: var(--border-thick);
@@ -525,9 +517,11 @@
     .new-words a { text-decoration: none; color: var(--black); }
     .new-words a:hover { color: var(--green-dark); }
 
+    /* ── FOOTER ── */
     footer {
       background: #222; color: rgba(255,255,255,0.65);
-      padding: 28px 50px; text-align: center; position: relative; z-index: 1;
+      padding: 28px 50px; text-align: center;
+      position: relative; z-index: 1;
     }
     footer .brand { font-weight: 700; color: var(--green-light); font-size: 1.3rem; margin-bottom: 6px; }
     footer p { font-size: 0.95rem; font-weight: 500; margin-bottom: 3px; }
@@ -536,7 +530,8 @@
       text-decoration: none; color: var(--black);
       font-weight: 600; font-size: 0.9rem;
       background: var(--green-light); border: var(--border); border-radius: 50px;
-      padding: 5px 16px; box-shadow: var(--shadow-sm); transition: transform 0.12s;
+      padding: 5px 16px; box-shadow: var(--shadow-sm);
+      transition: transform 0.12s;
     }
     .social-icons a:hover { transform: translate(-1px,-2px); }
 
@@ -597,47 +592,13 @@
           <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
           <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
           <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
-          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84z" fill="#EA4335"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
         </svg>
         <span id="signin-btn-text">Continue with Google</span>
       </button>
-      <div class="modal-error" id="modal-error" style="display:none;color:#c0392b;font-size:0.9rem;margin-top:12px;"></div>
+      <div class="modal-error" id="modal-error"></div>
     </div>
   </div>
-
-  <!-- ══════════════════════════════
-       UPGRADE TO PREMIUM MODAL
-  ══════════════════════════════ -->
-  <div class="modal-overlay" id="upgrade-modal">
-    <div class="modal">
-      <button class="modal-close" onclick="closeUpgradeModal()">✕</button>
-      <div class="modal-icon">⭐</div>
-      <div class="upgrade-badge">✨ Premium Access</div>
-      <h2>Unlock All Lessons</h2>
-      <p>Get unlimited access to all Hanyu Jiaocheng lessons, exercises, and future content.</p>
-
-      <ul class="perks-list">
-        <li><span class="perk-icon">📚</span> All textbook lessons — forever</li>
-        <li><span class="perk-icon">🎧</span> Audio exercises &amp; pronunciation drills</li>
-        <li><span class="perk-icon">✏️</span> Writing practice sheets</li>
-        <li><span class="perk-icon">🔄</span> New lessons added every week</li>
-        <li><span class="perk-icon">💬</span> Priority support</li>
-      </ul>
-
-      <div class="price-row">
-        <span class="price-big">$9</span>
-        <span class="price-period">/ month</span>
-      </div>
-
-      <button class="upgrade-btn" id="upgrade-btn" onclick="startCheckout()">
-        ⚡ Upgrade Now
-      </button>
-      <p class="upgrade-secure">🔒 Secure payment via Stripe &nbsp;·&nbsp; Cancel anytime</p>
-    </div>
-  </div>
-
-  <!-- PREMIUM SUCCESS TOAST -->
-  <div id="premium-toast">🎉 Welcome to Premium! Enjoy all lessons.</div>
 
   <!-- Hero Banner -->
   <div class="hero-banner">
@@ -659,6 +620,8 @@
 
   <!-- Main Content -->
   <main>
+
+    <!-- HSK 1–2 SECTION -->
     <div class="content-section">
       <div class="section-header">
         <span class="section-badge">🎓 初级 · BEGINNER · HSK 1–2</span>
@@ -710,6 +673,7 @@
       </div>
     </div>
 
+    <!-- DIVIDER -->
     <hr class="section-divider" style="margin-top: 48px;">
 
     <!-- REAL-LIFE CHINESE -->
@@ -721,17 +685,22 @@
         </div>
         <a href="blog.html#scripts" class="view-all-btn">View All Scripts →</a>
       </div>
+
       <div class="scripts-grid" id="scripts-grid"></div>
+
       <div class="scripts-load-row">
         <button class="load-more-btn" id="load-more-btn">Load More ↓</button>
       </div>
     </div>
+
   </main>
 
+  <!-- Donate Tag -->
   <div class="new-words">
     <a href="https://buymeacoffee.com/chinese60s" target="_blank">☕ Donate</a>
   </div>
 
+  <!-- Footer -->
   <footer>
     <p class="brand">CHINESE 60s</p>
     <p>Learn Mandarin through images and videos</p>
@@ -743,9 +712,7 @@
     </div>
   </footer>
 
-  <!-- ══════════════════════════════════════════════════════════
-       HAMBURGER MENU
-  ══════════════════════════════════════════════════════════ -->
+  <!-- Hamburger menu -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const menuToggle = document.querySelector('.menu-toggle');
@@ -757,275 +724,69 @@
     });
   </script>
 
-  <!-- ══════════════════════════════════════════════════════════
-       GLOBAL STATE & MODAL HELPERS
-  ══════════════════════════════════════════════════════════ -->
-  <script>
-    window.__currentUser   = null;
-    window.__userIsPremium = false; // cached premium flag
-    window.__premiumLoaded = false; // has Firestore been checked yet
-
-    /* ── Login modal ── */
-    window.openLoginModal = function () {
-      document.getElementById('login-modal').classList.add('open');
-      const err = document.getElementById('modal-error');
-      const txt = document.getElementById('signin-btn-text');
-      if (err) { err.style.display = 'none'; err.textContent = ''; }
-      if (txt) txt.textContent = 'Continue with Google';
-      const btn = document.getElementById('google-signin-btn');
-      if (btn) btn.disabled = false;
-    };
-    window.closeLoginModal = function () {
-      document.getElementById('login-modal').classList.remove('open');
-    };
-
-    /* ── Upgrade modal ── */
-    window.openUpgradeModal = function () {
-      document.getElementById('upgrade-modal').classList.add('open');
-    };
-    window.closeUpgradeModal = function () {
-      document.getElementById('upgrade-modal').classList.remove('open');
-    };
-
-    /* ── Premium toast ── */
-    window.showPremiumToast = function () {
-      const t = document.getElementById('premium-toast');
-      t.classList.add('show');
-      setTimeout(() => t.classList.remove('show'), 4000);
-    };
-
-    /* ── User dropdown ── */
-    window.toggleUserMenu = function () {
-      document.getElementById('user-menu-wrap').classList.toggle('open');
-    };
-
-    /* Close modals / dropdown on outside click */
-    document.addEventListener('click', function (e) {
-      const loginModal   = document.getElementById('login-modal');
-      const upgradeModal = document.getElementById('upgrade-modal');
-      if (e.target === loginModal)   closeLoginModal();
-      if (e.target === upgradeModal) closeUpgradeModal();
-      const wrap = document.getElementById('user-menu-wrap');
-      if (wrap && !wrap.contains(e.target) && !e.target.closest('#auth-nav-item')) {
-        wrap.classList.remove('open');
-      }
-    });
-
-    window.doGoogleSignIn = function () { openLoginModal(); };
-    window.signOut        = function () {};
-  </script>
-
-  <!-- ══════════════════════════════════════════════════════════
+  <!-- ══════════════════════════════════════════
        LESSON TRACKING HELPER
-  ══════════════════════════════════════════════════════════ -->
+       Gọi trackLesson(item) sau khi user click vào thumbnail
+  ══════════════════════════════════════════ -->
   <script>
-    window.trackLesson = async function (item) {
+    /**
+     * trackLesson(item)
+     * item = object từ thumbnail.json, cần có: id, title, htmlLink
+     * Lưu vào Firestore collection 'lesson_views'
+     * Chỉ track nếu user đã login (window.__currentUser != null)
+     */
+    window.trackLesson = async function(item) {
       if (!window.__currentUser) return;
       try {
         const { getFirestore, collection, addDoc, serverTimestamp } =
-          await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
+          await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js");
         const db = getFirestore();
         await addDoc(collection(db, 'lesson_views'), {
-          uid:       window.__currentUser.uid,
-          postId:    String(item.id || item.htmlLink || ''),
-          postTitle: item.title  || '',
-          postLink:  item.htmlLink || '',
-          timestamp: serverTimestamp()
+          uid:        window.__currentUser.uid,
+          postId:     String(item.id || item.htmlLink || ''),
+          postTitle:  item.title  || '',
+          postLink:   item.htmlLink || '',
+          timestamp:  serverTimestamp()
         });
-      } catch (e) {
+      } catch(e) {
         console.warn('[tracking] lesson_views write failed:', e);
       }
     };
   </script>
 
-  <!-- ══════════════════════════════════════════════════════════
-       STRIPE CHECKOUT
-       👉 Thay YOUR_STRIPE_PRICE_ID bằng Price ID thật của mày
-          (vd: price_1Abc123...)
-       👉 Thay YOUR_STRIPE_PUBLISHABLE_KEY bằng pk_live_... hoặc pk_test_...
-  ══════════════════════════════════════════════════════════ -->
-  <script>
-    const STRIPE_PUBLISHABLE_KEY = 'YOUR_STRIPE_PUBLISHABLE_KEY'; // pk_live_... hoặc pk_test_...
-    const STRIPE_PRICE_ID        = 'YOUR_STRIPE_PRICE_ID';        // price_1Abc123...
-
-    /*
-     * startCheckout()
-     * Gọi Stripe Checkout session thông qua Cloud Function
-     * Cloud Function URL: https://REGION-PROJECT.cloudfunctions.net/createCheckoutSession
-     * (xem file stripe-webhook/index.js tao tạo kèm)
-     */
-    window.startCheckout = async function () {
-      if (!window.__currentUser) {
-        closeUpgradeModal();
-        openLoginModal();
-        return;
-      }
-
-      const btn = document.getElementById('upgrade-btn');
-      btn.disabled    = true;
-      btn.textContent = '⏳ Redirecting…';
-
-      try {
-        // Lấy Firebase ID token để xác thực phía Cloud Function
-        const idToken = await window.__currentUser.getIdToken();
-
-        const resp = await fetch('https://YOUR_REGION-YOUR_PROJECT.cloudfunctions.net/createCheckoutSession', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            idToken,
-            priceId:    STRIPE_PRICE_ID,
-            successUrl: window.location.origin + '/?payment=success',
-            cancelUrl:  window.location.origin + '/?payment=cancel',
-          })
-        });
-
-        if (!resp.ok) throw new Error('Server error: ' + resp.status);
-        const { url } = await resp.json();
-        window.location.href = url; // redirect sang trang Stripe
-      } catch (err) {
-        console.error('[stripe] checkout failed:', err);
-        btn.disabled    = false;
-        btn.textContent = '⚡ Upgrade Now';
-        alert('Something went wrong. Please try again.');
-      }
-    };
-
-    /* Sau khi Stripe redirect về ?payment=success → reload premium status */
-    document.addEventListener('DOMContentLoaded', () => {
-      const params = new URLSearchParams(window.location.search);
-      if (params.get('payment') === 'success') {
-        history.replaceState({}, '', window.location.pathname); // xóa query string
-        // Đợi Firebase auth sẵn rồi re-check premium
-        window.__onAuthReadyCbs = window.__onAuthReadyCbs || [];
-        window.__onAuthReadyCbs.push(async () => {
-          await refreshPremiumStatus();
-          if (window.__userIsPremium) {
-            showPremiumToast();
-            rerenderThumbnails(); // re-render cards để unlock
-          }
-        });
-      }
-    });
-  </script>
-
-  <!-- ══════════════════════════════════════════════════════════
-       PREMIUM CHECK (Firestore)
-  ══════════════════════════════════════════════════════════ -->
-  <script>
-    /**
-     * refreshPremiumStatus()
-     * Đọc Firestore document users/{uid}
-     * Set window.__userIsPremium = true/false
-     */
-    window.refreshPremiumStatus = async function () {
-      if (!window.__currentUser) { window.__userIsPremium = false; return; }
-      try {
-        const { getFirestore, doc, getDoc } =
-          await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
-        const db   = getFirestore();
-        const snap = await getDoc(doc(db, 'users', window.__currentUser.uid));
-        if (snap.exists()) {
-          const data = snap.data();
-          /*
-           * isPremium: true  → premium vĩnh viễn (one-time payment)
-           * premiumUntil: Timestamp → subscription, check hết hạn chưa
-           */
-          const forever = data.isPremium === true;
-          const hasUntil = data.premiumUntil && data.premiumUntil.toDate() > new Date();
-          window.__userIsPremium = forever || hasUntil;
-        } else {
-          window.__userIsPremium = false;
-        }
-      } catch (e) {
-        console.warn('[premium] Firestore check failed:', e);
-        window.__userIsPremium = false;
-      }
-      window.__premiumLoaded = true;
-    };
-  </script>
-
-  <!-- ══════════════════════════════════════════════════════════
-       TEXTBOOK THUMBNAILS — paywall-aware render
-  ══════════════════════════════════════════════════════════ -->
+  <!-- ══════════════════════════════════════════
+       TEXTBOOK THUMBNAILS — Load from JSON + tracking
+  ══════════════════════════════════════════ -->
   <script>
     const PER_PAGE_THUMB = 9;
     let thumbData = [];
     let thumbPage = 0;
 
-    /**
-     * Render một thumbnail card.
-     * item.premium = true → show lock nếu user chưa trả phí
-     */
-    function renderOneThumb(item) {
-      const isPremiumLocked = item.premium && !window.__userIsPremium;
-
-      const el = document.createElement('div');
-      el.className = 'thumbnail' + (isPremiumLocked ? ' locked' : '');
-
-      if (isPremiumLocked) {
-        // ── LOCKED CARD ──
-        el.innerHTML = `
-          <div class="thumb-img-wrap">
-            <img src="${item.thumbnail}" alt="${item.title}" loading="lazy"
-                 style="filter:blur(2px) brightness(0.65)">
-            <div class="thumb-lock-overlay">
-              <span class="thumb-lock-icon">🔒</span>
-              <span class="thumb-lock-label">⭐ Premium</span>
-            </div>
-          </div>
-          <div class="info">
-            ${item.topic ? `<span class="thumb-topic-tag">${item.topic}</span>` : ''}
-            <span class="thumb-premium-tag">⭐ Premium</span>
-            <h4>${item.title}</h4>
-            <p>${item.description}</p>
-          </div>`;
-
-        el.addEventListener('click', () => {
-          if (window.__currentUser) {
-            openUpgradeModal();
-          } else {
-            /* Chưa login: mở login modal trước, sau khi login xong sẽ mở upgrade */
-            window.__afterLoginAction = openUpgradeModal;
-            openLoginModal();
-          }
-        });
-      } else {
-        // ── FREE / UNLOCKED CARD ──
+    function renderThumbCards(start, count) {
+      const container = document.getElementById('thumbnails-container');
+      const slice     = thumbData.slice(start, start + count);
+      slice.forEach(item => {
+        const el = document.createElement('div');
+        el.className = 'thumbnail';
         el.innerHTML = `
           <a href="${item.htmlLink}" data-track="lesson">
-            <div class="thumb-img-wrap">
-              <img src="${item.thumbnail}" alt="${item.title}" loading="lazy">
-            </div>
+            <img src="${item.thumbnail}" alt="${item.title} Thumbnail">
             <div class="info">
-              ${item.topic   ? `<span class="thumb-topic-tag">${item.topic}</span>` : ''}
-              ${item.premium ? `<span class="thumb-premium-tag">⭐ Unlocked</span>` : ''}
+              ${item.topic ? `<span class="thumb-topic-tag">${item.topic}</span>` : ''}
               <h4>${item.title}</h4>
               <p>${item.description}</p>
             </div>
           </a>`;
 
-        el.querySelector('a').addEventListener('click', () => {
-          window.trackLesson(item);
+        // ── TRACKING: click vào link bài học ──
+        const link = el.querySelector('a');
+        link.addEventListener('click', () => {
+          window.trackLesson(item);   // fire-and-forget
         });
-      }
 
-      return el;
+        container.appendChild(el);
+      });
     }
-
-    function renderThumbCards(start, count) {
-      const container = document.getElementById('thumbnails-container');
-      const slice     = thumbData.slice(start, start + count);
-      slice.forEach(item => container.appendChild(renderOneThumb(item)));
-    }
-
-    /* Re-render toàn bộ cards (dùng sau khi user vừa upgrade) */
-    window.rerenderThumbnails = function () {
-      const container = document.getElementById('thumbnails-container');
-      container.innerHTML = '';
-      thumbPage = 0;
-      loadThumbs();
-    };
 
     function loadThumbs() {
       const btn   = document.getElementById('thumb-load-more-btn');
@@ -1033,13 +794,14 @@
       if (start >= thumbData.length) { btn.style.display = 'none'; return; }
       renderThumbCards(start, PER_PAGE_THUMB);
       thumbPage++;
-      btn.style.display = thumbPage * PER_PAGE_THUMB >= thumbData.length ? 'none' : 'inline-block';
+      if (thumbPage * PER_PAGE_THUMB >= thumbData.length) {
+        btn.style.display = 'none';
+      }
     }
 
     document.addEventListener('DOMContentLoaded', async () => {
       const btn     = document.getElementById('thumb-load-more-btn');
       const viewAll = document.getElementById('thumb-view-all');
-
       try {
         const response = await fetch('data/thumbnail.json');
         thumbData = await response.json();
@@ -1048,19 +810,7 @@
           btn.style.display     = 'inline-block';
           btn.addEventListener('click', loadThumbs);
         }
-        /*
-         * Đợi premium status load xong (Firebase auth + Firestore)
-         * trước khi render lần đầu.
-         * window.__premiumLoaded được set bởi refreshPremiumStatus()
-         */
-        const waitAndRender = () => {
-          if (window.__premiumLoaded || !thumbData.some(t => t.premium)) {
-            loadThumbs();
-          } else {
-            setTimeout(waitAndRender, 60);
-          }
-        };
-        waitAndRender();
+        loadThumbs();
       } catch (error) {
         console.error('Error loading thumbnails:', error);
         document.getElementById('thumbnails-container').innerHTML =
@@ -1103,10 +853,11 @@
   <!-- REAL-LIFE CHINESE Script cards -->
   <script>
     const PH_PALETTES = ['ph-teal','ph-coral','ph-amber','ph-violet','ph-rose','ph-lime','ph-sky2','ph-peach2','ph-mint','ph-grape'];
+
     const PER_PAGE_SCRIPTS = 8;
-    let SCRIPTS     = [];
-    let scriptsPage = 0;
-    const grid      = document.getElementById('scripts-grid');
+    let SCRIPTS      = [];
+    let scriptsPage  = 0;
+    const grid       = document.getElementById('scripts-grid');
     const loadMoreBtn = document.getElementById('load-more-btn');
 
     function renderScriptCards(start, count) {
@@ -1124,7 +875,8 @@
               : `<div class="script-ph ${palette}">
                    <span class="ph-emoji">${s.emoji}</span>
                    <span class="ph-label">Douyin · 抖音</span>
-                 </div>`}
+                 </div>`
+            }
             <span class="play-badge">▶ Script</span>
           </div>
           <div class="script-card-body">
@@ -1132,9 +884,11 @@
             <h4>${s.title}<br><span style="font-weight:500;font-size:0.85em;color:#777">${s.subtitle}</span></h4>
             <span class="script-card-num">#${s.num}</span>
           </div>`;
+
         card.addEventListener('click', () => {
           window.trackLesson({ id: 'script-' + s.num, title: s.title, htmlLink: s.url });
         });
+
         grid.appendChild(card);
       });
     }
@@ -1162,39 +916,66 @@
     });
   </script>
 
-  <!-- ══════════════════════════════════════════════════════════
-       FIREBASE AUTH + FIRESTORE PREMIUM CHECK
-  ══════════════════════════════════════════════════════════ -->
+  <!-- Auth stubs -->
+  <script>
+    window.__currentUser   = null;
+
+    window.openLoginModal  = function() {
+      const m = document.getElementById('login-modal');
+      m.classList.add('open');
+      const err = document.getElementById('modal-error');
+      const txt = document.getElementById('signin-btn-text');
+      if (err) { err.style.display = 'none'; err.textContent = ''; }
+      if (txt) txt.textContent = 'Continue with Google';
+      const btn = document.getElementById('google-signin-btn');
+      if (btn) btn.disabled = false;
+    };
+
+    window.closeLoginModal = function() {
+      document.getElementById('login-modal').classList.remove('open');
+    };
+
+    window.doGoogleSignIn  = function() { openLoginModal(); };
+    window.signOut         = function() {};
+    window.toggleUserMenu  = function() {
+      document.getElementById('user-menu-wrap').classList.toggle('open');
+    };
+
+    document.addEventListener('click', function(e) {
+      const modal = document.getElementById('login-modal');
+      if (e.target === modal) closeLoginModal();
+      const wrap = document.getElementById('user-menu-wrap');
+      if (wrap && !wrap.contains(e.target) && !e.target.closest('#auth-nav-item')) {
+        wrap.classList.remove('open');
+      }
+    });
+  </script>
+
+  <!-- Firebase Auth -->
   <script type="module">
-    import { initializeApp }  from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+    import { initializeApp }  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
     import {
       getAuth,
       GoogleAuthProvider,
       signInWithPopup,
       signOut as fbSignOut,
       onAuthStateChanged
-    } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+    } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
     const firebaseConfig = {
-      apiKey:            'AIzaSyAm-qQrpXKNdqFLITRAGCug7rkskGzyAkg',
-      authDomain:        'chinese60s.firebaseapp.com',
-      projectId:         'chinese60s',
-      storageBucket:     'chinese60s.firebasestorage.app',
-      messagingSenderId: '835657861121',
-      appId:             '1:835657861121:web:f31727eb7ea3b876a5d800',
-      measurementId:     'G-70NQ4PFTSN'
+      apiKey:            "AIzaSyAm-qQrpXKNdqFLITRAGCug7rkskGzyAkg",
+      authDomain:        "chinese60s.firebaseapp.com",
+      projectId:         "chinese60s",
+      storageBucket:     "chinese60s.firebasestorage.app",
+      messagingSenderId: "835657861121",
+      appId:             "1:835657861121:web:f31727eb7ea3b876a5d800",
+      measurementId:     "G-70NQ4PFTSN"
     };
 
     const app      = initializeApp(firebaseConfig);
     const auth     = getAuth(app);
     const provider = new GoogleAuthProvider();
     provider.setCustomParameters({ prompt: 'select_account' });
-
-    /* Expose getIdToken cho startCheckout() */
-    window.__getIdToken = async () => {
-      if (!auth.currentUser) return null;
-      return auth.currentUser.getIdToken();
-    };
 
     function showModalError(msg) {
       const el = document.getElementById('modal-error');
@@ -1215,18 +996,13 @@
       txt.textContent = loading ? 'Opening Google…' : 'Continue with Google';
     }
 
-    window.doGoogleSignIn = async function () {
+    window.doGoogleSignIn = async function() {
       const errEl = document.getElementById('modal-error');
       if (errEl) { errEl.style.display = 'none'; errEl.textContent = ''; }
       setSignInLoading(true);
       try {
         await signInWithPopup(auth, provider);
         closeLoginModal();
-        /* Nếu có action chờ sau login (vd: mở upgrade modal) */
-        if (typeof window.__afterLoginAction === 'function') {
-          window.__afterLoginAction();
-          window.__afterLoginAction = null;
-        }
       } catch (err) {
         setSignInLoading(false);
         console.error('Sign-in error:', err.code, err.message);
@@ -1242,43 +1018,28 @@
       }
     };
 
-    window.signOut = async function () {
+    window.signOut = async function() {
       try { await fbSignOut(auth); } catch(e) { console.error(e); }
     };
 
-    onAuthStateChanged(auth, async function (user) {
+    onAuthStateChanged(auth, function(user) {
       const signInBtn    = document.getElementById('sign-in-btn');
       const userMenuWrap = document.getElementById('user-menu-wrap');
       const navUsername  = document.getElementById('nav-username');
       const navAvatar    = document.getElementById('nav-avatar');
 
       if (user) {
-        window.__currentUser = user;
-
-        /* Update UI nav */
         if (signInBtn)    signInBtn.style.display    = 'none';
         if (userMenuWrap) userMenuWrap.style.display = 'block';
         if (navUsername)  navUsername.textContent    = user.displayName?.split(' ')[0] || 'User';
         if (navAvatar)    navAvatar.innerHTML        = user.photoURL
           ? `<img src="${user.photoURL}" alt="avatar" referrerpolicy="no-referrer">`
           : `<span>${(user.displayName?.[0] || '?').toUpperCase()}</span>`;
-
-        /* Check premium status in Firestore */
-        await window.refreshPremiumStatus();
-
-        /* Chạy các callback đăng ký sau khi auth sẵn (vd: ?payment=success) */
-        if (window.__onAuthReadyCbs) {
-          for (const cb of window.__onAuthReadyCbs) await cb();
-          window.__onAuthReadyCbs = [];
-        }
-
+        window.__currentUser = user;
       } else {
-        window.__currentUser   = null;
-        window.__userIsPremium = false;
-        window.__premiumLoaded = true; // không cần check, set luôn
-
         if (signInBtn)    signInBtn.style.display    = 'inline-flex';
         if (userMenuWrap) userMenuWrap.style.display = 'none';
+        window.__currentUser = null;
       }
     });
   </script>
