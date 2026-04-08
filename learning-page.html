@@ -197,9 +197,11 @@
        UPGRADE MODAL (PREMIUM) — compact
     ══════════════════════════════ */
     #upgrade-modal .modal {
-      width: 360px;
-      max-width: 92vw;
-      padding: 22px 24px 20px;
+      width: 340px;          /* nhỏ lại */
+      max-width: 90vw;       /* không vượt màn mobile */
+      max-height: 85vh;      /* không bị tràn dọc */
+      overflow-y: auto;      /* có scroll nếu dài */
+      padding: 18px 18px 16px;
     }
     #upgrade-modal .modal-close {
       top: 10px; right: 14px; font-size: 1.2rem;
@@ -275,12 +277,12 @@
     .upgrade-btn:disabled { opacity: 0.5; cursor: default; transform: none; }
 
     .upgrade-secure {
-      font-size: 0.72rem; color: #d32; margin-top: 8px;
+      font-size: 0.68rem; color: #d32; margin-top: 8px;
       display: flex; align-items: center; justify-content: center; gap: 4px;
       flex-wrap: wrap; text-align: center;
     }
     .upgrade-email-note {
-      font-size: 0.7rem; color: #bbb; margin-top: 4px; text-align: center;
+      font-size: 0.65rem; color: #bbb; margin-top: 4px; text-align: center;
     }
     .upgrade-email-note a { color: #aaa; }
 
