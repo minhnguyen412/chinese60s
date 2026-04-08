@@ -194,62 +194,125 @@
     .google-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
 
     /* ══════════════════════════════
-       UPGRADE MODAL (PREMIUM)
+       UPGRADE MODAL (PREMIUM) — compact
     ══════════════════════════════ */
     #upgrade-modal .modal {
-      width: 420px;
+      width: 360px;
       max-width: 92vw;
+      padding: 22px 24px 20px;
     }
+    #upgrade-modal .modal-close {
+      top: 10px; right: 14px; font-size: 1.2rem;
+    }
+    #upgrade-modal .modal-icon {
+      font-size: 2rem; margin-bottom: 4px;
+    }
+    #upgrade-modal h2 {
+      font-size: 1.25rem; margin-bottom: 3px;
+    }
+    #upgrade-modal > .modal > p {
+      font-size: 0.83rem; margin-bottom: 12px;
+    }
+
     .upgrade-badge {
       display: inline-flex; align-items: center; gap: 6px;
       background: var(--lavender); border: var(--border); border-radius: 50px;
-      padding: 4px 16px; font-size: 0.85rem; font-weight: 700;
-      box-shadow: var(--shadow-sm); margin-bottom: 14px;
+      padding: 3px 12px; font-size: 0.78rem; font-weight: 700;
+      box-shadow: 2px 2px 0 var(--black); margin-bottom: 8px;
     }
+
+    /* ── Tabs ── */
+    .upgrade-tabs {
+      display: flex; gap: 6px; margin-bottom: 14px;
+    }
+    .upgrade-tab {
+      flex: 1; padding: 7px 6px; border-radius: 50px;
+      border: 2px solid var(--black); font-size: 0.82rem; font-weight: 700;
+      cursor: pointer; font-family: 'Fredoka', sans-serif;
+      transition: background 0.15s, box-shadow 0.15s;
+      background: var(--yellow-pale); color: #888;
+    }
+    .upgrade-tab.active {
+      background: var(--yellow); color: var(--black);
+      box-shadow: 3px 3px 0 var(--black);
+    }
+
+    .upgrade-panel { display: none; }
+    .upgrade-panel.active { display: block; }
+
     .perks-list {
       list-style: none;
       text-align: left;
       background: var(--yellow-pale);
-      border: var(--border); border-radius: 16px;
-      padding: 14px 18px; margin: 0 0 22px;
-      display: flex; flex-direction: column; gap: 8px;
+      border: var(--border); border-radius: 14px;
+      padding: 10px 14px; margin: 0 0 10px;
+      display: flex; flex-direction: column; gap: 5px;
     }
     .perks-list li {
-      font-size: 0.95rem; font-weight: 600;
+      font-size: 0.83rem; font-weight: 600;
       display: flex; align-items: center; gap: 8px;
     }
-    .perks-list li span.perk-icon { font-size: 1.1rem; flex-shrink: 0; }
+    .perks-list li span.perk-icon { font-size: 0.95rem; flex-shrink: 0; }
+
     .price-row {
       display: flex; align-items: baseline; justify-content: center; gap: 6px;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
     }
-    .price-big {
-      font-size: 2.4rem; font-weight: 700; line-height: 1;
-    }
-    .price-period {
-      font-size: 0.9rem; color: #888; font-weight: 500;
-    }
+    .price-big { font-size: 2rem; font-weight: 700; line-height: 1; }
+    .price-period { font-size: 0.82rem; color: #888; font-weight: 500; }
+
     .upgrade-btn {
       display: inline-flex; align-items: center; gap: 8px; justify-content: center;
-      width: 100%; padding: 14px 20px;
+      width: 100%; padding: 11px 16px;
       background: var(--green); color: white;
       border: var(--border-thick); border-radius: 50px;
-      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.1rem;
-      box-shadow: var(--shadow-md); cursor: pointer;
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 0.95rem;
+      box-shadow: 3px 3px 0 var(--black); cursor: pointer;
       transition: transform 0.12s, box-shadow 0.12s;
       text-decoration: none;
     }
-    .upgrade-btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); background: var(--green-dark); }
+    .upgrade-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); background: var(--green-dark); }
     .upgrade-btn:disabled { opacity: 0.5; cursor: default; transform: none; }
+
     .upgrade-secure {
-      font-size: 0.78rem; color: #ff0000; margin-top: 10px;
+      font-size: 0.72rem; color: #d32; margin-top: 8px;
       display: flex; align-items: center; justify-content: center; gap: 4px;
-      flex-wrap: wrap;
+      flex-wrap: wrap; text-align: center;
     }
     .upgrade-email-note {
-      font-size: 0.78rem; color: #aaa; margin-top: 6px;
+      font-size: 0.7rem; color: #bbb; margin-top: 4px; text-align: center;
     }
-    .upgrade-email-note a { color: #888; }
+    .upgrade-email-note a { color: #aaa; }
+
+    /* ── Key panel ── */
+    .key-label { font-size: 0.82rem; font-weight: 600; color: #888; margin-bottom: 6px; text-align: left; }
+    .key-input {
+      width: 100%; padding: 10px 14px;
+      border: 2px solid var(--black); border-radius: 12px;
+      font-family: 'Fredoka', sans-serif; font-size: 0.88rem;
+      background: var(--bg); color: var(--black);
+      margin-bottom: 10px; box-sizing: border-box;
+    }
+    .key-input:focus { outline: none; border-color: var(--green); }
+    .key-unlock-btn {
+      width: 100%; padding: 11px;
+      background: var(--yellow); color: var(--black);
+      border: 2.5px solid var(--black); border-radius: 50px;
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 0.92rem;
+      box-shadow: 3px 3px 0 var(--black); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    .key-unlock-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+    .key-feedback {
+      font-size: 0.82rem; text-align: center; margin-top: 8px;
+      font-weight: 600; min-height: 20px;
+    }
+    .key-feedback.ok  { color: #3a6a00; }
+    .key-feedback.err { color: #c0392b; }
+    .key-note {
+      font-size: 0.75rem; color: #aaa; margin-top: 10px;
+      text-align: center; line-height: 1.5;
+    }
 
     /* ══════════════════════════════
        SUCCESS TOAST
@@ -387,7 +450,6 @@
     }
     .thumbnails { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
 
-    /* ── THUMBNAIL CARD (free) ── */
     .thumbnail {
       border: var(--border-thick); border-radius: 18px;
       overflow: hidden; box-shadow: var(--shadow-sm);
@@ -407,13 +469,10 @@
       box-shadow: 2px 2px 0 var(--black); margin-bottom: 6px;
     }
 
-    /* ── THUMBNAIL CARD (premium locked) ── */
     .thumbnail.locked { cursor: pointer; }
     .thumbnail.locked:hover { transform: translate(-2px,-3px); box-shadow: 6px 6px 0 var(--black); }
 
-    .thumb-img-wrap {
-      position: relative; overflow: hidden;
-    }
+    .thumb-img-wrap { position: relative; overflow: hidden; }
     .thumb-img-wrap img { width: 100%; height: auto; display: block; }
 
     .thumb-lock-overlay {
@@ -429,7 +488,6 @@
       padding: 4px 16px; font-size: 0.8rem; font-weight: 700;
       box-shadow: 2px 2px 0 var(--black); color: var(--black);
     }
-
     .thumb-premium-tag {
       display: inline-block;
       background: var(--lavender); border: 1.5px solid var(--black); border-radius: 50px;
@@ -611,40 +669,57 @@
   </div>
 
   <!-- ══════════════════════════════
-       UPGRADE TO PREMIUM MODAL — LIFETIME $9
+       UPGRADE TO PREMIUM MODAL — compact with tabs
   ══════════════════════════════ -->
   <div class="modal-overlay" id="upgrade-modal">
-    <div class="modal">
-      <button class="modal-close" onclick="closeUpgradeModal()">✕</button>
-      <div class="modal-icon">⭐</div>
-      <div class="upgrade-badge">✨ Lifetime Access — One-time</div>
-      <h2>HSK 1 + 2 Full Pack</h2>
-      <p>Pay once. Yours forever. No subscription, no renewals.</p>
+    <div class="modal" style="width:360px;max-width:92vw;padding:22px 24px 20px;">
+      <button class="modal-close" onclick="closeUpgradeModal()" style="top:10px;right:14px;font-size:1.2rem;">✕</button>
+      <div class="modal-icon" style="font-size:2rem;margin-bottom:4px;">⭐</div>
+      <div style="text-align:center"><span class="upgrade-badge">✨ Lifetime Access — One-time</span></div>
+      <h2 style="font-size:1.25rem;margin-bottom:3px;">HSK 1 + 2 Full Pack</h2>
+      <p style="font-size:0.83rem;margin-bottom:12px;">Pay once. Yours forever. No subscription, no renewals.</p>
 
-      <ul class="perks-list">
-        <li><span class="perk-icon">💬</span> Dialogue Lessons HSK 1 &amp; 2 </li>
-        <li><span class="perk-icon">📖</span> Grammar Explained Simply</li>
-        <li><span class="perk-icon">📚</span> Essential Vocabulary</li>
-        <li><span class="perk-icon">🎙️</span> Speaking Practice</li>
-        <li><span class="perk-icon">✏️</span> Writing Practice</li>
-        <li><span class="perk-icon">🧠</span> Interactive Quizzes</li>
-      </ul>
-
-      <div class="price-row">
-        <span class="price-big">$9</span>
-        <span class="price-period">one-time · lifetime</span>
+      <!-- TABS -->
+      <div class="upgrade-tabs">
+        <button class="upgrade-tab active" id="tab-buy-btn" onclick="switchUpgradeTab('buy')">☕ Buy Access</button>
+        <button class="upgrade-tab" id="tab-key-btn" onclick="switchUpgradeTab('key')">🔑 I have a key</button>
       </div>
 
-      <button class="upgrade-btn" id="upgrade-btn" onclick="goToBMAC()">
-        ☕ Buy on Buy Me a Coffee
-      </button>
-      <p class="upgrade-secure">⚠️ Use the SAME email as your login when paying
-(or your account won’t unlock)</p>
-    <p style="font-size:0.78rem;color:#bbb;margin-top:6px">
-      📩 <a href="https://instagram.com/chinese60s" target="_blank" style="color:#888">
-        Message us on Instagram (@chinese60s)
-      </a>
-    </p>
+      <!-- PANEL: BUY -->
+      <div class="upgrade-panel active" id="upgrade-panel-buy">
+        <ul class="perks-list">
+          <li><span class="perk-icon">💬</span> Dialogue Lessons HSK 1 &amp; 2</li>
+          <li><span class="perk-icon">📖</span> Grammar Explained Simply</li>
+          <li><span class="perk-icon">📚</span> Essential Vocabulary</li>
+          <li><span class="perk-icon">🎙️</span> Speaking Practice</li>
+          <li><span class="perk-icon">✏️</span> Writing Practice</li>
+          <li><span class="perk-icon">🧠</span> Interactive Quizzes</li>
+        </ul>
+        <div class="price-row">
+          <span class="price-big">$9</span>
+          <span class="price-period">one-time · lifetime</span>
+        </div>
+        <button class="upgrade-btn" id="upgrade-btn" onclick="goToBMAC()">
+          ☕ Buy on Buy Me a Coffee
+        </button>
+        <p class="upgrade-secure">⚠️ Use the SAME email as your login when paying</p>
+        <p class="upgrade-email-note">
+          📩 <a href="https://instagram.com/chinese60s" target="_blank">Message us on Instagram (@chinese60s)</a>
+        </p>
+      </div>
+
+      <!-- PANEL: KEY -->
+      <div class="upgrade-panel" id="upgrade-panel-key">
+        <p class="key-label">Paste your Gumroad license key below:</p>
+        <input class="key-input" id="gumroad-key-input" type="text"
+          placeholder="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX">
+        <button class="key-unlock-btn" onclick="redeemGumroadKey()">🔓 Unlock Now</button>
+        <div class="key-feedback" id="key-feedback"></div>
+        <p class="key-note">
+          After purchase on Gumroad, you'll receive a license key via email.<br>
+          Paste it here to unlock your account instantly.
+        </p>
+      </div>
     </div>
   </div>
 
@@ -828,6 +903,30 @@
   </script>
 
   <!-- ══════════════════════════════════════════════════════════
+       UPGRADE MODAL — TAB SWITCHING
+  ══════════════════════════════════════════════════════════ -->
+  <script>
+    window.switchUpgradeTab = function (tab) {
+      const isBuy = tab === 'buy';
+
+      document.getElementById('upgrade-panel-buy').classList.toggle('active', isBuy);
+      document.getElementById('upgrade-panel-key').classList.toggle('active', !isBuy);
+
+      const buyBtn = document.getElementById('tab-buy-btn');
+      const keyBtn = document.getElementById('tab-key-btn');
+
+      buyBtn.classList.toggle('active', isBuy);
+      keyBtn.classList.toggle('active', !isBuy);
+
+      /* reset key panel state when switching back */
+      if (isBuy) {
+        const fb = document.getElementById('key-feedback');
+        if (fb) { fb.textContent = ''; fb.className = 'key-feedback'; }
+      }
+    };
+  </script>
+
+  <!-- ══════════════════════════════════════════════════════════
        LESSON TRACKING HELPER
   ══════════════════════════════════════════════════════════ -->
   <script>
@@ -852,22 +951,17 @@
 
   <!-- ══════════════════════════════════════════════════════════
        BUY ME A COFFEE — LIFETIME $9
-       👉 Thay BMAC_LINK bằng link Extra thật của mày
-          Tạo Extra tại: buymeacoffee.com/dashboard → Extras → New
   ══════════════════════════════════════════════════════════ -->
   <script>
-    // 👇 Thay link này sau khi tạo Extra $9 trên BMAC
     const BMAC_LINK = 'https://buymeacoffee.com/chinese60s/e/524382';
 
     window.goToBMAC = function () {
       if (!window.__currentUser) {
-        // Chưa login → mở login modal trước, sau đó mở upgrade
         window.__afterLoginAction = openUpgradeModal;
         closeUpgradeModal();
         openLoginModal();
         return;
       }
-      // Gắn email vào ref để biết activate cho ai
       const email = encodeURIComponent(window.__currentUser.email || '');
       const sep   = BMAC_LINK.includes('?') ? '&' : '?';
       window.open(BMAC_LINK + sep + 'ref=' + email, '_blank');
@@ -875,15 +969,74 @@
   </script>
 
   <!-- ══════════════════════════════════════════════════════════
+       GUMROAD LICENSE KEY REDEMPTION
+       👉 Thay YOUR_GUMROAD_PRODUCT_PERMALINK bằng permalink thật
+          VD: 'hsk12pack' nếu link Gumroad là gumroad.com/l/hsk12pack
+  ══════════════════════════════════════════════════════════ -->
+  <script>
+    const GUMROAD_PERMALINK = 'YOUR_GUMROAD_PRODUCT_PERMALINK'; // 👈 đổi cái này
+
+    window.redeemGumroadKey = async function () {
+      const key = document.getElementById('gumroad-key-input').value.trim();
+      const fb  = document.getElementById('key-feedback');
+
+      if (!key) {
+        fb.className = 'key-feedback err';
+        fb.textContent = 'Please enter your license key.';
+        return;
+      }
+
+      if (!window.__currentUser) {
+        window.__afterLoginAction = openUpgradeModal;
+        closeUpgradeModal();
+        openLoginModal();
+        return;
+      }
+
+      fb.className = 'key-feedback';
+      fb.textContent = 'Checking key…';
+
+      try {
+        const res = await fetch('https://api.gumroad.com/v2/licenses/verify', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams({
+            product_permalink:   GUMROAD_PERMALINK,
+            license_key:         key,
+            increment_uses_count: 'false'
+          })
+        });
+        const data = await res.json();
+
+        if (data.success) {
+          /* Activate premium in Firestore */
+          const { getFirestore, doc, updateDoc } =
+            await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
+          await updateDoc(doc(getFirestore(), 'users', window.__currentUser.uid), {
+            isPremium:   true,
+            gumroadKey:  key,
+            activatedAt: new Date().toISOString()
+          });
+          window.__userIsPremium = true;
+          window.__premiumLoaded = true;
+          closeUpgradeModal();
+          showPremiumToast();
+          if (typeof window.rerenderThumbnails === 'function') window.rerenderThumbnails();
+        } else {
+          fb.className = 'key-feedback err';
+          fb.textContent = data.message || 'Invalid key. Please check and try again.';
+        }
+      } catch (e) {
+        fb.className = 'key-feedback err';
+        fb.textContent = 'Network error. Please try again.';
+      }
+    };
+  </script>
+
+  <!-- ══════════════════════════════════════════════════════════
        PREMIUM CHECK (Firestore)
   ══════════════════════════════════════════════════════════ -->
   <script>
-    /**
-     * refreshPremiumStatus()
-     * Đọc Firestore document users/{uid}
-     * isPremium: true  → lifetime (set thủ công sau khi user mua BMAC)
-     * premiumUntil: Timestamp → subscription (giữ lại để tương thích)
-     */
     window.refreshPremiumStatus = async function () {
       if (!window.__currentUser) { window.__userIsPremium = false; return; }
       try {
@@ -1196,7 +1349,6 @@
 
       if (user) {
         window.__currentUser = user;
-        // Tự động tạo/update document trong Firestore khi user login
         const { getFirestore, doc, setDoc, serverTimestamp } =
           await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
         const db = getFirestore();
