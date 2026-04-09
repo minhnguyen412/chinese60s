@@ -582,10 +582,14 @@
     .load-more-btn:disabled { opacity: 0.4; cursor: default; transform: none; }
 
     .new-words {
-      position: fixed; top: 50%; right: 20px; transform: translateY(-50%);
+      position: fixed; top: 50%; right: 0; 
+      transform: translateY(-50%);
       background: var(--yellow); border: var(--border-thick);
-      border-radius: 20px; padding: 10px 14px;
+      border-radius: 20px 0 0 20px; padding: 14px 10px;
       box-shadow: var(--shadow-md); font-weight: 700; font-size: 0.95rem; z-index: 50;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      letter-spacing: 0.05em;
     }
     .new-words a { text-decoration: none; color: var(--black); }
     .new-words a:hover { color: var(--green-dark); }
@@ -671,59 +675,58 @@
   </div>
 
   <!-- ══════════════════════════════
-       UPGRADE TO PREMIUM MODAL — compact with tabs
-  ══════════════════════════════ -->
-  <div class="modal-overlay" id="upgrade-modal">
-    <div class="modal" style="width:360px;max-width:92vw;padding:20px 20px 20px;">
-      <button class="modal-close" onclick="closeUpgradeModal()" style="top:10px;right:14px;font-size:1.2rem;">✕</button>
-      <div class="modal-icon" style="font-size:2rem;margin-bottom:4px;">⭐</div>
-      <div style="text-align:center"><span class="upgrade-badge">✨ Lifetime Access — One-time</span></div>
-      <h2 style="font-size:1.25rem;margin-bottom:3px;">HSK 1 + 2 Full Pack</h2>
-      <p style="font-size:0.83rem;margin-bottom:12px;">Pay once. Yours forever. No subscription, no renewals.</p>
+     UPGRADE TO PREMIUM MODAL
+══════════════════════════════ -->
+<div class="modal-overlay" id="upgrade-modal">
+  <div class="modal" style="width:320px;max-width:92vw;padding:18px 18px 16px;overflow:hidden;">
+    <button class="modal-close" onclick="closeUpgradeModal()" style="top:10px;right:14px;font-size:1.1rem;">✕</button>
+    <div class="modal-icon" style="font-size:1.8rem;margin-bottom:3px;">⭐</div>
+    <div style="text-align:center;margin-bottom:6px;"><span class="upgrade-badge">✨ Lifetime Access — One-time</span></div>
+    <h2 style="font-size:1.15rem;margin-bottom:2px;text-align:center;">HSK 1 + 2 Full Pack</h2>
+    <p style="font-size:0.78rem;color:#777;text-align:center;margin-bottom:10px;line-height:1.4;">Pay once. Yours forever.<br>No subscription, no renewals.</p>
 
-      <!-- TABS -->
-      <div class="upgrade-tabs">
-        <button class="upgrade-tab active" id="tab-buy-btn" onclick="switchUpgradeTab('buy')">☕ Buy Access</button>
-        <button class="upgrade-tab" id="tab-key-btn" onclick="switchUpgradeTab('key')">🔑 I have a key</button>
-      </div>
+    <!-- TABS -->
+    <div class="upgrade-tabs" style="gap:5px;margin-bottom:11px;">
+      <button class="upgrade-tab active" id="tab-buy-btn" onclick="switchUpgradeTab('buy')" style="font-size:0.78rem;padding:6px 4px;">☕ Buy Access</button>
+      <button class="upgrade-tab" id="tab-key-btn" onclick="switchUpgradeTab('key')" style="font-size:0.78rem;padding:6px 4px;">🔑 I have a key</button>
+    </div>
 
-      <!-- PANEL: BUY -->
-      <div class="upgrade-panel active" id="upgrade-panel-buy">
-        <ul class="perks-list">
-          <li><span class="perk-icon">💬</span> Dialogue Lessons HSK 1 &amp; 2</li>
-          <li><span class="perk-icon">📖</span> Grammar Explained Simply</li>
-          <li><span class="perk-icon">📚</span> Essential Vocabulary</li>
-          <li><span class="perk-icon">🎙️</span> Speaking Practice</li>
-          <li><span class="perk-icon">✏️</span> Writing Practice</li>
-          <li><span class="perk-icon">🧠</span> Interactive Quizzes</li>
-        </ul>
-        <div class="price-row">
-          <span class="price-big">$9</span>
-          <span class="price-period">one-time · lifetime</span>
-        </div>
-        <button class="upgrade-btn" id="upgrade-btn" onclick="goToBMAC()">
-          ☕ Buy on Buy Me a Coffee
-        </button>
-        <p class="upgrade-secure">⚠️ Use the SAME email as your login when paying</p>
-        <p class="upgrade-email-note">
-          📩 <a href="https://instagram.com/chinese60s" target="_blank">Message us on Instagram (@chinese60s)</a>
-        </p>
+    <!-- PANEL: BUY -->
+    <div class="upgrade-panel active" id="upgrade-panel-buy">
+      <ul class="perks-list" style="padding:8px 12px;gap:4px;margin-bottom:9px;">
+        <li style="font-size:0.78rem;"><span class="perk-icon">💬</span> Dialogue Lessons HSK 1 &amp; 2</li>
+        <li style="font-size:0.78rem;"><span class="perk-icon">📖</span> Grammar Explained Simply</li>
+        <li style="font-size:0.78rem;"><span class="perk-icon">📚</span> Essential Vocabulary</li>
+        <li style="font-size:0.78rem;"><span class="perk-icon">🎙️</span> Speaking Practice</li>
+        <li style="font-size:0.78rem;"><span class="perk-icon">✏️</span> Writing Practice</li>
+        <li style="font-size:0.78rem;"><span class="perk-icon">🧠</span> Interactive Quizzes</li>
+      </ul>
+      <div class="price-row" style="margin-bottom:10px;">
+        <span class="price-big" style="font-size:1.8rem;">$9</span>
+        <span class="price-period">one-time · lifetime</span>
       </div>
+      <button class="upgrade-btn" id="upgrade-btn" onclick="goToGumroad()" style="font-size:0.88rem;padding:10px 14px;">
+        🛍️ Buy on Gumroad
+      </button>
+      <p class="upgrade-email-note" style="font-size:0.62rem;margin-top:3px;">
+        📩 <a href="https://instagram.com/chinese60s" target="_blank">Message us on Instagram (@chinese60s)</a>
+      </p>
+    </div>
 
-      <!-- PANEL: KEY -->
-      <div class="upgrade-panel" id="upgrade-panel-key">
-        <p class="key-label">Paste your Gumroad license key below:</p>
-        <input class="key-input" id="gumroad-key-input" type="text"
-          placeholder="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX">
-        <button class="key-unlock-btn" onclick="redeemGumroadKey()">🔓 Unlock Now</button>
-        <div class="key-feedback" id="key-feedback"></div>
-        <p class="key-note">
-          After purchase on Gumroad, you'll receive a license key via email.<br>
-          Paste it here to unlock your account instantly.
-        </p>
-      </div>
+    <!-- PANEL: KEY -->
+    <div class="upgrade-panel" id="upgrade-panel-key">
+      <p class="key-label">Paste your Gumroad license key below:</p>
+      <input class="key-input" id="gumroad-key-input" type="text"
+        placeholder="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX">
+      <button class="key-unlock-btn" onclick="redeemGumroadKey()">🔓 Unlock Now</button>
+      <div class="key-feedback" id="key-feedback"></div>
+      <p class="key-note">
+        After purchase on Gumroad, you'll receive a license key via email.<br>
+        Paste it here to unlock your account instantly.
+      </p>
     </div>
   </div>
+</div>
 
   <!-- PREMIUM SUCCESS TOAST -->
   <div id="premium-toast">🎉 Welcome to Premium! Enjoy all lessons.</div>
@@ -818,7 +821,7 @@
   </main>
 
   <div class="new-words">
-    <a href="https://buymeacoffee.com/chinese60s" target="_blank">☕ UNLOCK!</a>
+    <a href="https://buymeacoffee.com/chinese60s" target="_blank">☕ Donate</a>
   </div>
 
   <footer>
@@ -955,19 +958,17 @@
        BUY ME A COFFEE — LIFETIME $9
   ══════════════════════════════════════════════════════════ -->
   <script>
-    const BMAC_LINK = 'https://buymeacoffee.com/chinese60s/e/524382';
+    const GUMROAD_LINK = 'https://gumroad.com/l/hsk1_2_pack'; // 👈 thay bằng link Gumroad thật
 
-    window.goToBMAC = function () {
-      if (!window.__currentUser) {
-        window.__afterLoginAction = openUpgradeModal;
-        closeUpgradeModal();
-        openLoginModal();
-        return;
-      }
-      const email = encodeURIComponent(window.__currentUser.email || '');
-      const sep   = BMAC_LINK.includes('?') ? '&' : '?';
-      window.open(BMAC_LINK + sep + 'ref=' + email, '_blank');
-    };
+window.goToGumroad = function () {
+  if (!window.__currentUser) {
+    window.__afterLoginAction = openUpgradeModal;
+    closeUpgradeModal();
+    openLoginModal();
+    return;
+  }
+  window.open(GUMROAD_LINK, '_blank');
+};
   </script>
 
   <!-- ══════════════════════════════════════════════════════════
