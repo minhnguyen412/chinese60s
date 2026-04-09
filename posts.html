@@ -213,6 +213,9 @@
       transition: transform 0.12s, box-shadow 0.12s; text-decoration: none;
     }
     .upgrade-btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); background: var(--green-dark); }
+    /* Compact upgrade modal perks */
+    #upgrade-modal .perks-list { gap: 4px; }
+    #upgrade-modal .perks-list li { font-size: 0.78rem; }
 
     /* BANNER */
     .logos-and-title {
@@ -667,33 +670,58 @@
 
   <!-- UPGRADE MODAL -->
   <div class="modal-overlay" id="upgrade-modal">
-    <div class="modal" style="width:420px;max-width:92vw;">
-      <button class="modal-close" onclick="closeUpgradeModal()">✕</button>
-      <div class="modal-icon">⭐</div>
-      <div class="upgrade-badge">✨ Lifetime Access — One-time</div>
-      <h2>HSK 1 + 2 Full Pack</h2>
-      <p>Pay once. Yours forever. No subscription, no renewals.</p>
-      <ul class="perks-list">
-        <li><span class="perk-icon">💬</span> Dialogue Lessons HSK 1 &amp; 2</li>
-        <li><span class="perk-icon">📖</span> Grammar Explained Simply</li>
-        <li><span class="perk-icon">📚</span> Essential Vocabulary</li>
-        <li><span class="perk-icon">🎙️</span> Speaking Practice</li>
-        <li><span class="perk-icon">✏️</span> Writing Practice</li>
-        <li><span class="perk-icon">🧠</span> Interactive Quizzes</li>
+  <div class="modal" style="width:320px;max-width:92vw;padding:18px 18px 16px;overflow:hidden;">
+    <button class="modal-close" onclick="closeUpgradeModal()" style="top:10px;right:14px;font-size:1.1rem;">✕</button>
+    <div class="modal-icon" style="font-size:1.8rem;margin-bottom:3px;">⭐</div>
+    <div style="text-align:center;margin-bottom:6px;"><span class="upgrade-badge">✨ Lifetime Access — One-time</span></div>
+    <h2 style="font-size:1.15rem;margin-bottom:2px;text-align:center;">HSK 1 + 2 Full Pack</h2>
+    <p style="font-size:0.78rem;color:#777;text-align:center;margin-bottom:10px;line-height:1.4;">Pay once. Yours forever.<br>No subscription, no renewals.</p>
+
+    <!-- TABS -->
+    <div class="upgrade-tabs" style="display:flex;gap:5px;margin-bottom:11px;">
+      <button class="upgrade-tab active" id="tab-buy-btn" onclick="switchUpgradeTab('buy')" style="flex:1;padding:6px 4px;border-radius:50px;border:2px solid #222;font-size:0.78rem;font-weight:700;cursor:pointer;font-family:'Fredoka',sans-serif;background:var(--yellow);color:#222;box-shadow:3px 3px 0 #222;">☕ Buy Access</button>
+      <button class="upgrade-tab" id="tab-key-btn" onclick="switchUpgradeTab('key')" style="flex:1;padding:6px 4px;border-radius:50px;border:2px solid #222;font-size:0.78rem;font-weight:700;cursor:pointer;font-family:'Fredoka',sans-serif;background:var(--yellow-pale);color:#999;">🔑 I have a key</button>
+    </div>
+
+    <!-- PANEL: BUY -->
+    <div id="upgrade-panel-buy">
+      <ul class="perks-list" style="padding:8px 12px;margin-bottom:9px;">
+        <li style="font-size:0.78rem;gap:7px;"><span class="perk-icon">💬</span> Dialogue Lessons HSK 1 &amp; 2</li>
+        <li style="font-size:0.78rem;gap:7px;"><span class="perk-icon">📖</span> Grammar Explained Simply</li>
+        <li style="font-size:0.78rem;gap:7px;"><span class="perk-icon">📚</span> Essential Vocabulary</li>
+        <li style="font-size:0.78rem;gap:7px;"><span class="perk-icon">🎙️</span> Speaking Practice</li>
+        <li style="font-size:0.78rem;gap:7px;"><span class="perk-icon">✏️</span> Writing Practice</li>
+        <li style="font-size:0.78rem;gap:7px;"><span class="perk-icon">🧠</span> Interactive Quizzes</li>
       </ul>
-      <div class="price-row">
-        <span class="price-big">$9</span>
+      <div class="price-row" style="margin-bottom:10px;">
+        <span class="price-big" style="font-size:1.8rem;">$9</span>
         <span class="price-period">one-time · lifetime</span>
       </div>
-      <button class="upgrade-btn" onclick="goToBMAC()">☕ Buy on Buy Me a Coffee</button>
-      <p style="font-size:0.78rem;color:#bbb;margin-top:10px">
-        ⚠️ Use the SAME email as your login when paying<br>(or your account won't unlock)
+      <button class="upgrade-btn" onclick="goToGumroad()" style="font-size:0.88rem;padding:10px 14px;">
+        🛍️ Buy on Gumroad
+      </button>
+      <p style="font-size:0.62rem;color:#bbb;margin-top:3px;text-align:center;">
+        📩 <a href="https://instagram.com/chinese60s" target="_blank" style="color:#aaa;">Message us on Instagram (@chinese60s)</a>
       </p>
-      <p style="font-size:0.78rem;color:#bbb;margin-top:6px">
-        📩 <a href="https://instagram.com/chinese60s" target="_blank" style="color:#888">Message us on Instagram (@chinese60s)</a>
+    </div>
+
+    <!-- PANEL: KEY -->
+    <div id="upgrade-panel-key" style="display:none;">
+      <p style="font-size:0.78rem;font-weight:600;color:#777;margin-bottom:5px;text-align:left;">Paste your Gumroad license key below:</p>
+      <input id="gumroad-key-input" type="text" placeholder="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+        style="width:100%;padding:9px 12px;border:2px solid #222;border-radius:10px;font-family:'Fredoka',sans-serif;font-size:0.82rem;background:var(--bg);color:#222;margin-bottom:9px;box-sizing:border-box;">
+      <button onclick="redeemGumroadKey()"
+        style="width:100%;padding:10px;background:var(--yellow);color:#222;border:2.5px solid #222;border-radius:50px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:0.86rem;box-shadow:3px 3px 0 #222;cursor:pointer;">
+        🔓 Unlock Now
+      </button>
+      <div id="key-feedback" style="font-size:0.82rem;text-align:center;margin-top:8px;font-weight:600;min-height:20px;"></div>
+      <p style="font-size:0.68rem;color:#bbb;margin-top:8px;text-align:center;line-height:1.45;">
+        After purchase on Gumroad, you'll receive a license key via email.<br>
+        Paste it here to unlock your account instantly.
       </p>
     </div>
   </div>
+</div>
 
   <!-- BANNER -->
   <div class="logos-and-title">
@@ -830,18 +858,72 @@
     };
 
     /* BMAC link */
-    const BMAC_LINK = 'https://buymeacoffee.com/chinese60s/e/524382';
-    window.goToBMAC = function () {
-      if (!window.__currentUser) {
-        window.__afterLoginAction = openUpgradeModal;
-        closeUpgradeModal();
-        openLoginModal();
-        return;
-      }
-      const email = encodeURIComponent(window.__currentUser.email || '');
-      const sep   = BMAC_LINK.includes('?') ? '&' : '?';
-      window.open(BMAC_LINK + sep + 'ref=' + email, '_blank');
-    };
+    /* Gumroad link */
+const GUMROAD_LINK = 'https://gumroad.com/l/hsk1_2_pack'; // 👈 đổi thành link thật
+
+window.goToGumroad = function () {
+  if (!window.__currentUser) {
+    window.__afterLoginAction = openUpgradeModal;
+    closeUpgradeModal();
+    openLoginModal();
+    return;
+  }
+  window.open(GUMROAD_LINK, '_blank');
+};
+
+/* Tab switching */
+window.switchUpgradeTab = function (tab) {
+  const isBuy = tab === 'buy';
+  document.getElementById('upgrade-panel-buy').style.display = isBuy ? 'block' : 'none';
+  document.getElementById('upgrade-panel-key').style.display = isBuy ? 'none' : 'block';
+  const buyBtn = document.getElementById('tab-buy-btn');
+  const keyBtn = document.getElementById('tab-key-btn');
+  buyBtn.style.background  = isBuy ? 'var(--yellow)' : 'var(--yellow-pale)';
+  buyBtn.style.color       = isBuy ? '#222' : '#999';
+  buyBtn.style.boxShadow   = isBuy ? '3px 3px 0 #222' : 'none';
+  keyBtn.style.background  = isBuy ? 'var(--yellow-pale)' : 'var(--yellow)';
+  keyBtn.style.color       = isBuy ? '#999' : '#222';
+  keyBtn.style.boxShadow   = isBuy ? 'none' : '3px 3px 0 #222';
+};
+
+/* Gumroad key redemption */
+const GUMROAD_PERMALINK = 'hsk1_2_pack';
+window.redeemGumroadKey = async function () {
+  const key = document.getElementById('gumroad-key-input').value.trim();
+  const fb  = document.getElementById('key-feedback');
+  if (!key) { fb.style.color = '#c0392b'; fb.textContent = 'Please enter your license key.'; return; }
+  if (!window.__currentUser) {
+    window.__afterLoginAction = openUpgradeModal;
+    closeUpgradeModal(); openLoginModal(); return;
+  }
+  fb.style.color = '#888'; fb.textContent = 'Checking key…';
+  try {
+    const res = await fetch('https://api.gumroad.com/v2/licenses/verify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({ product_id: 'k_9oIubGaXw_MMRKVwQ9lA==', license_key: key, increment_uses_count: 'false' })
+    });
+    const data = await res.json();
+    if (data.success) {
+      const { getFirestore, doc, updateDoc } =
+        await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
+      await updateDoc(doc(getFirestore(), 'users', window.__currentUser.uid), {
+        isPremium: true, gumroadKey: key, activatedAt: new Date().toISOString()
+      });
+      window.__userIsPremium = true;
+      window.__premiumLoaded = true;
+      closeUpgradeModal();
+      // Show toast nếu có
+      const t = document.getElementById('premium-toast');
+      if (t) { t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 4000); }
+      renderSidebarThumbnails();
+    } else {
+      fb.style.color = '#c0392b'; fb.textContent = data.message || 'Invalid key. Please check and try again.';
+    }
+  } catch (e) {
+    fb.style.color = '#c0392b'; fb.textContent = 'Network error. Please try again.';
+  }
+};
 
     /* User dropdown */
     window.toggleUserMenu = function () {
