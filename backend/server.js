@@ -13,7 +13,7 @@ require('dotenv').config();
 const app = express();
 
 // ─────────────────────────────────────────
-// CORS CONFIG - FIX CORS ISSUES
+// CORS CONFIG - FIXED
 // ─────────────────────────────────────────
 
 const allowedOrigins = [
@@ -21,8 +21,10 @@ const allowedOrigins = [
   'http://localhost:3000',
   'https://chinese60s.com',
   'https://www.chinese60s.com',
-  process.env.CLIENT_URL,
-].filter(Boolean);
+  ...(process.env.CLIENT_URL ? [process.env.CLIENT_URL] : []), // ✅ Properly spread
+];
+
+console.log('✅ Allowed origins:', allowedOrigins);
 
 // Main CORS middleware
 app.use(cors({
@@ -42,13 +44,13 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
 }));
 
-// Preflight OPTIONS handler
+// ✅ FIXED: Preflight OPTIONS handler - properly reject instead of allow all
 app.options('*', cors({
   origin: function(origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      callback(null, true); // Allow all in preflight for debugging
+      callback(new Error('Not allowed by CORS: ' + origin));
     }
   },
   credentials: true,
