@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Profile — Chinese60s</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
+  <style>
+    :root {
+      --black: #222;
+      --green: #7cb83e;
+      --green-dark: #5a8f27;
+      --green-light: #d8f0a0;
+      --green-pale: #f2fde0;
+      --yellow: #ffd84d;
+      --yellow-pale: #fffbe6;
+      --peach: #ffb89a;
+      --peach-pale: #fff3ee;
+      --sky: #72c8f0;
+      --sky-pale: #eaf8ff;
+      --lavender: #c5b0f8;
+      --lavender-pale: #f3f0ff;
+      --pink: #ffadc5;
+      --pink-pale: #fff2f6;
+      --white: #fff;
+      --bg: #fffef5;
+      --shadow-sm: 3px 3px 0 var(--black);
+      --shadow-md: 4px 4px 0 var(--black);
+      --shadow-lg: 6px 6px 0 var(--black);
+      --border: 2.5px solid var(--black);
+      --border-thick: 3px solid var(--black);
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      font-family:'Fredoka',sans-serif; font-weight:500;
+      background:var(--bg); color:var(--black);
+      min-height:100vh; display:flex; flex-direction:column; overflow-x:hidden;
+    }
+    body::before {
+      content:''; position:fixed; inset:0;
+      background-image:radial-gradient(circle,rgba(0,0,0,.045) 1px,transparent 1px);
+      background-size:22px 22px; pointer-events:none; z-index:0;
+    }
+
+    header {
+      background:var(--green); border-bottom:var(--border-thick);
+      padding:0 50px; height:66px;
+      display:flex; justify-content:space-between; align-items:center;
+      position:sticky; top:0; z-index:100;
+    }
+    header h1 { font-weight:700; font-size:1.7rem; color:#fff; letter-spacing:.04em; text-shadow:2px 2px 0 rgba(0,0,0,.25); }
+    .homepage-link { text-decoration:none; color:inherit; }
+    .user-info{background:var(--yellow);border:var(--border);border-radius:50px;padding:6px 16px;font-size:.85rem;font-weight:700;box-shadow:var(--shadow-sm);}
+    nav ul { list-style:none; display:flex; gap:8px; align-items:center; }
+    nav ul li a {
+      text-decoration:none; color:var(--black); font-weight:600; font-size:.95rem;
+      background:var(--white); border:var(--border); border-radius:50px;
+      padding:6px 16px; display:inline-block;
+      box-shadow:var(--shadow-sm); transition:transform .12s,box-shadow .12s;
+    }
+    nav ul li a:hover { transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--black); }
+    @media(max-width:768px){ header{padding:0 16px;} }
+
+    .container {
+      max-width:1000px; margin:0 auto; width:100%;
+      padding:36px 24px 40px; position:relative; z-index:1;
+      display:flex; flex-direction:column; gap:20px;
+    }
+
+    .loading-screen { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; padding:80px 0; }
+    .loading-dots { display:flex; gap:8px; }
+    .loading-dots span { width:12px; height:12px; border-radius:50%; background:var(--green); animation:bounce .8s ease-in-out infinite; }
+    .loading-dots span:nth-child(2){ animation-delay:.15s; background:var(--yellow); }
+    .loading-dots span:nth-child(3){ animation-delay:.3s; background:var(--pink); }
+    @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    .loading-screen p { font-size:1rem; color:#888; font-weight:600; }
+
+    @keyframes slideUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+
+    .profile-hero {
+      background:var(--white); border:var(--border-thick); border-radius:24px;
+      box-shadow:var(--shadow-md); padding:24px 28px;
+      display:flex; align-items:center; gap:20px; flex-wrap:wrap;
+      animation:slideUp .3s ease both;
+    }
+    .profile-avatar { width:72px; height:72px; border-radius:50%; border:var(--border-thick); object-fit:cover; display:block; }
+    .profile-avatar-fallback { width:72px; height:72px; border-radius:50%; border:var(--border-thick); background:var(--green-light); display:flex; align-items:center; justify-content:center; font-size:1.8rem; font-weight:700; }
+    .profile-info { flex:1; min-width:0; }
+    .profile-info h2 { font-size:1.6rem; font-weight:700; }
+    .profile-info p { font-size:.9rem; color:#666; margin-top:3px; }
+    .badges { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+    .badge { display:inline-flex; align-items:center; gap:5px; border:var(--border); border-radius:50px; padding:3px 12px; font-size:.82rem; font-weight:700; box-shadow:var(--shadow-sm); }
+    .badge.learner { background:var(--green-pale); }
+    .signout-btn { background:var(--pink-pale); border:var(--border); border-radius:50px; padding:8px 20px; font-family:'Fredoka',sans-serif; font-weight:700; font-size:.9rem; cursor:pointer; box-shadow:var(--shadow-sm); color:#c0392b; transition:transform .12s,box-shadow .12s; flex-shrink:0; }
+    .signout-btn:hover { transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--black); }
+
+    /* ═══ TOOL SECTION HEADER ═══ */
+    .tool-header {
+      text-align:center; margin-bottom:28px; animation:slideUp .3s .1s ease both;
+    }
+    .tool-header h2 {
+      font-size:2rem; font-weight:700; margin-bottom:6px;
+      background:linear-gradient(135deg, var(--green), var(--yellow));
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+      background-clip:text;
+    }
+    .tool-header p {
+      font-size:.95rem; color:#888; font-weight:500;
+    }
+
+    /* ═══ TAB PILLS (3 MODERN PILLS) ═══ */
+    .tool-nav-pills {
+      display:flex; gap:12px; justify-content:center; margin-bottom:32px;
+      flex-wrap:wrap; animation:slideUp .3s .15s ease both;
+    }
+    .pill-btn {
+      padding:12px 28px; border:var(--border-thick); border-radius:50px;
+      font-family:'Fredoka',sans-serif; font-weight:700; font-size:1rem;
+      background:var(--white); color:var(--black);
+      cursor:pointer; box-shadow:var(--shadow-md);
+      transition:all .15s ease;
+      display:flex; align-items:center; gap:8px;
+    }
+    .pill-btn:hover:not(.active) {
+      transform:translate(-2px,-2px);
+      box-shadow:5px 5px 0 var(--black);
+      background:var(--yellow-pale);
+    }
+    .pill-btn.active {
+      background:var(--green);
+      color:var(--white);
+      box-shadow:var(--shadow-lg);
+      transform:scale(1.05);
+    }
+
+    /* ═══ TOOL PANELS ═══ */
+    .tool-panel {
+      display:none; animation:slideUp .3s ease both;
+    }
+    .tool-panel.active {
+      display:block;
+    }
+
+    /* ═══ CREATOR CARD ═══ */
+    .creator-card {
+      background:var(--white); border:var(--border-thick); border-radius:24px;
+      box-shadow:var(--shadow-md); padding:28px; margin-bottom:20px;
+    }
+    .card-title {
+      display:inline-block; background:var(--yellow);
+      border:var(--border); border-radius:50px;
+      padding:6px 18px; font-weight:700; font-size:.95rem;
+      box-shadow:var(--shadow-sm); margin-bottom:20px;
+    }
+    .form-group {
+      margin-bottom:16px; display:flex; flex-direction:column; gap:6px;
+    }
+    label {
+      font-weight:700; font-size:.88rem; color:#666; text-transform:uppercase; letter-spacing:.05em;
+    }
+    input[type=text], input[type=file], textarea, select {
+      background:var(--bg); border:var(--border); border-radius:12px;
+      color:var(--black); font-family:'Fredoka',sans-serif; font-size:.95rem;
+      font-weight:500; padding:10px 14px;
+      outline:none; box-shadow:var(--shadow-sm);
+      transition:box-shadow .12s, transform .12s;
+    }
+    input:focus, textarea:focus, select:focus {
+      box-shadow:5px 5px 0 var(--black); transform:translate(-1px,-1px);
+    }
+    textarea { resize:vertical; min-height:70px; }
+
+    .btn {
+      border:var(--border-thick); border-radius:50px; cursor:pointer;
+      font-family:'Fredoka',sans-serif; font-weight:700; font-size:.92rem;
+      padding:10px 24px; display:inline-flex; align-items:center; gap:6px;
+      box-shadow:var(--shadow-sm); transition:all .12s;
+      background:var(--white); color:var(--black);
+    }
+    .btn:hover:not(:disabled) { transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--black); }
+    .btn-green { background:var(--green); color:#fff; }
+    .btn-yellow { background:var(--yellow); }
+
+    .upload-zone {
+      border:2px dashed var(--black); border-radius:12px; padding:20px;
+      background:var(--white); text-align:center; cursor:pointer;
+      transition:all .2s;
+    }
+    .upload-zone:hover { background:var(--green-pale); border-color:var(--green); }
+    .upload-zone.dragover { background:var(--yellow-pale); border-color:var(--yellow); }
+    .file-input { display:none; }
+    .upload-label { display:flex; flex-direction:column; align-items:center; gap:8px; cursor:pointer; }
+    .upload-icon { font-size:2rem; }
+    .file-preview {
+      margin-top:10px; padding:8px 12px;
+      background:var(--green-pale); border:var(--border); border-radius:8px;
+      font-size:.85rem; display:flex; align-items:center; gap:8px; justify-content:space-between;
+    }
+    .clear-file { background:none; border:none; color:#c0392b; font-size:1.2rem; cursor:pointer; font-weight:700; }
+
+    /* ═══ PREVIEW SECTION ═══ */
+    .preview-section {
+      background:linear-gradient(135deg, var(--sky-pale) 0%, var(--lavender-pale) 100%);
+      border:var(--border-thick); border-radius:24px;
+      padding:28px; animation:slideUp .3s .2s ease both;
+    }
+    .preview-title {
+      font-weight:700; font-size:1.3rem; margin-bottom:20px;
+      display:inline-block; background:var(--sky);
+      border:var(--border); border-radius:50px;
+      padding:6px 18px; box-shadow:var(--shadow-sm);
+    }
+
+    /* Posts preview */
+    .posts-preview { display:flex; flex-direction:column; gap:16px; }
+    .post-card {
+      background:var(--white); border:var(--border-thick); border-radius:18px;
+      padding:16px; box-shadow:var(--shadow-sm);
+      display:flex; gap:14px; align-items:flex-start;
+    }
+    .post-avatar { width:48px; height:48px; border-radius:50%; border:var(--border); object-fit:cover; flex-shrink:0; }
+    .post-content { flex:1; }
+    .post-title { font-weight:700; font-size:1.1rem; margin-bottom:4px; cursor:pointer; }
+    .post-title:hover span { background:var(--green-pale); border-radius:4px; padding:2px 4px; }
+    .post-pinyin { font-size:.85rem; color:#666; margin-bottom:4px; }
+    .post-audio { font-size:1.2rem; cursor:pointer; }
+
+    /* Character card modal */
+    .char-modal {
+      display:none; position:fixed; inset:0;
+      background:rgba(0,0,0,.5); z-index:999;
+      align-items:center; justify-content:center;
+    }
+    .char-modal.show { display:flex; }
+    .char-card {
+      background:var(--white); border:var(--border-thick); border-radius:20px;
+      padding:32px; max-width:400px; width:90vw;
+      box-shadow:var(--shadow-lg); text-align:center;
+      position:relative;
+    }
+    .char-card-close {
+      position:absolute; top:12px; right:16px;
+      font-size:1.5rem; cursor:pointer; color:#aaa; line-height:1;
+      background:none; border:none;
+    }
+    .char-card-close:hover { color:var(--black); }
+    .char-display {
+      font-size:4rem; font-weight:700; margin:16px 0;
+      display:flex; justify-content:center; align-items:center;
+      height:120px;
+    }
+    #hanzi-writer { max-width:100%; }
+    .char-pinyin { font-size:1.2rem; color:var(--green-dark); font-weight:700; margin:12px 0; }
+    .char-meaning { font-size:1rem; color:#666; margin-bottom:16px; }
+    .char-audio { font-size:1.2rem; cursor:pointer; }
+
+    /* Quiz preview */
+    .quiz-preview { display:flex; flex-direction:column; gap:12px; }
+    .quiz-item {
+      background:var(--white); border:var(--border);
+      border-radius:14px; padding:14px;
+      font-size:.9rem;
+    }
+    .quiz-type { display:inline-block; background:var(--lavender); padding:2px 10px; border-radius:50px; font-weight:700; font-size:.75rem; }
+
+    /* Images preview */
+    .images-preview { display:grid; grid-template-columns:repeat(auto-fill, minmax(140px, 1fr)); gap:14px; }
+    .image-item {
+      background:var(--white); border:var(--border-thick); border-radius:14px;
+      padding:12px; cursor:pointer; transition:all .15s;
+      text-align:center;
+    }
+    .image-item:hover { transform:translate(-2px,-2px); box-shadow:var(--shadow-md); }
+    .image-thumb { width:100%; height:100px; object-fit:cover; border-radius:10px; border:var(--border); margin-bottom:8px; }
+    .image-char { font-size:1.8rem; font-weight:700; }
+    .image-pinyin { font-size:.75rem; color:#888; }
+
+    .empty-state {
+      text-align:center; padding:28px;
+      color:#bbb; font-weight:700; font-size:.95rem;
+    }
+    .empty-state span { font-size:2rem; display:block; margin-bottom:8px; }
+
+    footer {
+      background:#222; color:rgba(255,255,255,.65);
+      padding:28px 50px; text-align:center;
+      position:relative; z-index:1; margin-top:auto;
+    }
+    footer .brand {
+      font-weight:700; color:var(--green-light); font-size:1.3rem; margin-bottom:6px;
+    }
+
+    .status {
+      padding:12px 16px; border-radius:14px;
+      font-size:.88rem; font-weight:700;
+      margin-top:16px; display:none; border:var(--border);
+    }
+    .status.ok { background:var(--green-pale); color:var(--green-dark); display:block; }
+    .status.err { background:var(--pink-pale); color:#c0392b; display:block; }
+    .status.success { background:var(--green-pale); color:var(--green-dark); display:block; }
+
+    @media(max-width:600px) {
+      .tool-nav-pills { gap:8px; }
+      .pill-btn { padding:10px 20px; font-size:.9rem; }
+      .creator-card { padding:16px; }
+      .images-preview { grid-template-columns:repeat(auto-fill, minmax(120px, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1><a href="index.html" class="homepage-link">CHINESE 60s</a></h1>
+  <div class="user-info" id="userDisplay">👤 Loading...</div>
+</header>
+
+<div id="profile-section">
+  <div class="container" id="app">
+    <div class="loading-screen" id="loading">
+      <div class="loading-dots"><span></span><span></span><span></span></div>
+      <p>Loading your profile...</p>
+    </div>
+  </div>
+</div>
+
+<!-- TOOL CREATION SECTION -->
+<div id="tool-section" style="display:none;">
+  <div class="container">
+
+    <!-- HEADER -->
+    <div class="tool-header">
+      <h2>Personal Lesson Creator</h2>
+      <p>Build interactive lessons with dialogues, quizzes, and character cards</p>
+    </div>
+
+    <!-- 3 PILL TABS -->
+    <div class="tool-nav-pills">
+      <button class="pill-btn active" data-panel="posts" onclick="switchToolPanel('posts')">
+        💬 Dialogues
+      </button>
+      <button class="pill-btn" data-panel="quiz" onclick="switchToolPanel('quiz')">
+        📝 Quizzes
+      </button>
+      <button class="pill-btn" data-panel="images" onclick="switchToolPanel('images')">
+        🖼️ Characters
+      </button>
+    </div>
+
+    <!-- POSTS CREATOR PANEL -->
+    <div class="tool-panel active" id="panel-posts">
+      <div class="creator-card">
+        <div class="card-title">💬 Create Dialogue</div>
+        
+        <div class="form-group">
+          <label>Character Name</label>
+          <input type="text" id="postUser" placeholder="e.g., Teacher Wang, Student A">
+        </div>
+
+        <div class="form-group">
+          <label>Chinese Sentence</label>
+          <input type="text" id="postTitle" placeholder="这是王老师，这是我爸爸。">
+        </div>
+
+        <div class="form-group">
+          <label>Description (Pinyin & English)</label>
+          <textarea id="postDesc" placeholder="zhè shì wáng lǎoshī…&#10;This is teacher Wang…"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Avatar Image</label>
+          <div class="upload-zone" onclick="document.getElementById('postAvatar').click()">
+            <input type="file" id="postAvatar" class="file-input" accept="image/*">
+            <label class="upload-label">
+              <span class="upload-icon">📷</span>
+              <span>Click or drag avatar image</span>
+            </label>
+          </div>
+          <div id="postAvatarPreview" class="file-preview" style="display:none">
+            <span id="postAvatarName"></span>
+            <button class="clear-file" onclick="clearFile('postAvatar')">×</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Audio File</label>
+          <div class="upload-zone" onclick="document.getElementById('postAudio').click()">
+            <input type="file" id="postAudio" class="file-input" accept="audio/*">
+            <label class="upload-label">
+              <span class="upload-icon">🎵</span>
+              <span>Click or drag audio file</span>
+            </label>
+          </div>
+          <div id="postAudioPreview" class="file-preview" style="display:none">
+            <span id="postAudioName"></span>
+            <button class="clear-file" onclick="clearFile('postAudio')">×</button>
+          </div>
+        </div>
+
+        <button class="btn btn-green" onclick="submitPost()">+ Add Dialogue</button>
+        <div id="postStatus" class="status"></div>
+      </div>
+    </div>
+
+    <!-- QUIZ CREATOR PANEL -->
+    <div class="tool-panel" id="panel-quiz">
+      <div class="creator-card">
+        <div class="card-title">📝 Create Quiz</div>
+        
+        <div class="form-group">
+          <label>Quiz Type</label>
+          <select id="quizType">
+            <option value="fill">Fill Blanks (Audio + Sentence)</option>
+            <option value="choice">Multiple Choice (Character + Images)</option>
+            <option value="write">Writing Practice (Character + Strokes)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Audio File</label>
+          <div class="upload-zone" onclick="document.getElementById('quizAudio').click()">
+            <input type="file" id="quizAudio" class="file-input" accept="audio/*">
+            <label class="upload-label">
+              <span class="upload-icon">🎵</span>
+              <span>Click or drag audio file</span>
+            </label>
+          </div>
+          <div id="quizAudioPreview" class="file-preview" style="display:none">
+            <span id="quizAudioName"></span>
+            <button class="clear-file" onclick="clearFile('quizAudio')">×</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Quiz Sentence / Question</label>
+          <input type="text" id="quizSentence" placeholder="你___哪国人？">
+        </div>
+
+        <div class="form-group">
+          <label>Correct Answers (comma separated)</label>
+          <input type="text" id="quizAnswers" placeholder="是, 从, 哪里">
+        </div>
+
+        <button class="btn btn-green" onclick="submitQuiz()">+ Add Quiz</button>
+        <div id="quizStatus" class="status"></div>
+      </div>
+    </div>
+
+    <!-- IMAGES CREATOR PANEL -->
+    <div class="tool-panel" id="panel-images">
+      <div class="creator-card">
+        <div class="card-title">🖼️ Create Character Card</div>
+        
+        <div class="form-group">
+          <label>Character (汉字)</label>
+          <input type="text" id="imgChar" placeholder="你" maxlength="1">
+        </div>
+
+        <div class="form-group">
+          <label>Pinyin</label>
+          <input type="text" id="imgPinyin" placeholder="nǐ">
+        </div>
+
+        <div class="form-group">
+          <label>English Meaning</label>
+          <input type="text" id="imgMeaning" placeholder="You">
+        </div>
+
+        <div class="form-group">
+          <label>Character Image</label>
+          <div class="upload-zone" onclick="document.getElementById('imgImage').click()">
+            <input type="file" id="imgImage" class="file-input" accept="image/*">
+            <label class="upload-label">
+              <span class="upload-icon">📷</span>
+              <span>Click or drag character image</span>
+            </label>
+          </div>
+          <div id="imgImagePreview" class="file-preview" style="display:none">
+            <span id="imgImageName"></span>
+            <button class="clear-file" onclick="clearFile('imgImage')">×</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Audio File</label>
+          <div class="upload-zone" onclick="document.getElementById('imgAudio').click()">
+            <input type="file" id="imgAudio" class="file-input" accept="audio/*">
+            <label class="upload-label">
+              <span class="upload-icon">🎵</span>
+              <span>Click or drag audio file</span>
+            </label>
+          </div>
+          <div id="imgAudioPreview" class="file-preview" style="display:none">
+            <span id="imgAudioName"></span>
+            <button class="clear-file" onclick="clearFile('imgAudio')">×</button>
+          </div>
+        </div>
+
+        <button class="btn btn-green" onclick="submitImage()">+ Add Character</button>
+        <div id="imgStatus" class="status"></div>
+      </div>
+    </div>
+
+    <!-- PREVIEW SECTION -->
+    <div class="preview-section">
+      <div class="preview-title">📚 Your Content Preview</div>
+
+      <!-- Posts Preview -->
+      <div style="margin-top:20px;">
+        <h3 style="font-weight:700; font-size:1.1rem; margin-bottom:12px;">💬 Dialogues</h3>
+        <div id="postsPreview" class="posts-preview">
+          <div class="empty-state"><span>💭</span>No dialogues yet</div>
+        </div>
+      </div>
+
+      <!-- Quiz Preview -->
+      <div style="margin-top:20px;">
+        <h3 style="font-weight:700; font-size:1.1rem; margin-bottom:12px;">📝 Quizzes</h3>
+        <div id="quizPreview" class="quiz-preview">
+          <div class="empty-state"><span>📋</span>No quizzes yet</div>
+        </div>
+      </div>
+
+      <!-- Images Preview -->
+      <div style="margin-top:20px;">
+        <h3 style="font-weight:700; font-size:1.1rem; margin-bottom:12px;">🖼️ Characters</h3>
+        <div id="imagesPreview" class="images-preview">
+          <div class="empty-state" style="grid-column:1/-1;"><span>🔤</span>No characters yet</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUBMIT ALL BUTTON -->
+    <div style="text-align:center; margin-top:32px;">
+      <button class="btn btn-green" style="padding:14px 40px; font-size:1.1rem;" onclick="submitAll()">
+        ✅ Save All to Database
+      </button>
+      <div id="submitStatus" class="status"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CHARACTER MODAL -->
+<div class="char-modal" id="charModal">
+  <div class="char-card">
+    <button class="char-card-close" onclick="closeCharModal()">✕</button>
+    <div class="char-display" id="charDisplay">你</div>
+    <div id="hanzi-writer-container"></div>
+    <div class="char-pinyin" id="charPinyin">nǐ</div>
+    <div class="char-meaning" id="charMeaning">You</div>
+    <div style="display:flex; gap:8px; justify-content:center;">
+      <button style="font-size:1.3rem; cursor:pointer; background:none; border:none;">
+        🎵
+      </button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p class="brand">CHINESE 60s</p>
+  <p>Learn Mandarin through personal lessons</p>
+</footer>
+
+<script type="module">
+import { initializeApp }    from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAuth, onAuthStateChanged, signOut }
+                             from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { getFirestore, collection, getDocs, query, where }
+                             from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey:            "AIzaSyAm-qQrpXKNdqFLITRAGCug7rkskGzyAkg",
+  authDomain:        "chinese60s.firebaseapp.com",
+  projectId:         "chinese60s",
+  storageBucket:     "chinese60s.firebasestorage.app",
+  messagingSenderId: "835657861121",
+  appId:             "1:835657861121:web:f31727eb7ea3b876a5d800",
+};
+
+const app  = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db   = getFirestore(app);
+
+let currentUser = null;
+let userContent = { posts: [], quiz: [], images: [] };
+
+// Helper functions
+function showStatus(id, type, msg) {
+  const el = document.getElementById(id);
+  if(!el) return;
+  el.className = 'status ' + type;
+  el.textContent = msg;
+}
+
+function clearFile(inputId) {
+  document.getElementById(inputId).value = '';
+  const previewId = inputId + 'Preview';
+  const preview = document.getElementById(previewId);
+  if(preview) preview.style.display = 'none';
+}
+
+window.clearFile = clearFile;
+
+// Panel switching
+window.switchToolPanel = function(panel) {
+  document.querySelectorAll('.tool-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('panel-' + panel)?.classList.add('active');
+  document.querySelector(`[data-panel="${panel}"]`)?.classList.add('active');
+};
+
+// Fetch user content from Supabase-like backend
+async function loadUserContent() {
+  if(!currentUser) return;
+  try {
+    // Fetch from your Supabase REST API
+    const headers = { 'Authorization': `Bearer ${await currentUser.getIdToken()}` };
+    
+    // This is a placeholder - replace with your actual API endpoints
+    // const postsRes = await fetch('/.../posts?uid=' + currentUser.uid, { headers });
+    // const quizRes = await fetch('/.../quiz?uid=' + currentUser.uid, { headers });
+    // const imagesRes = await fetch('/.../images?uid=' + currentUser.uid, { headers });
+    
+    renderPreviews();
+  } catch(e) {
+    console.warn('Failed to load content:', e);
+  }
+}
+
+// Submit functions
+window.submitPost = async function() {
+  const user = document.getElementById('postUser').value.trim();
+  const title = document.getElementById('postTitle').value.trim();
+  if(!user || !title) { showStatus('postStatus', 'err', '⚠️ Enter character name and sentence'); return; }
+  
+  // TODO: Upload files and save to Supabase
+  showStatus('postStatus', 'ok', '✅ Dialogue added!');
+  
+  userContent.posts.push({ user, title });
+  renderPreviews();
+  document.getElementById('postUser').value = '';
+  document.getElementById('postTitle').value = '';
+};
+
+window.submitQuiz = async function() {
+  const sentence = document.getElementById('quizSentence').value.trim();
+  const answers = document.getElementById('quizAnswers').value.trim();
+  if(!sentence || !answers) { showStatus('quizStatus', 'err', '⚠️ Enter sentence and answers'); return; }
+  
+  showStatus('quizStatus', 'ok', '✅ Quiz added!');
+  userContent.quiz.push({ sentence, answers });
+  renderPreviews();
+  document.getElementById('quizSentence').value = '';
+  document.getElementById('quizAnswers').value = '';
+};
+
+window.submitImage = async function() {
+  const char = document.getElementById('imgChar').value.trim();
+  const pinyin = document.getElementById('imgPinyin').value.trim();
+  const meaning = document.getElementById('imgMeaning').value.trim();
+  if(!char || !pinyin || !meaning) { showStatus('imgStatus', 'err', '⚠️ Enter character, pinyin, and meaning'); return; }
+  
+  showStatus('imgStatus', 'ok', '✅ Character added!');
+  userContent.images.push({ character: char, pinyin, meaning });
+  renderPreviews();
+  document.getElementById('imgChar').value = '';
+  document.getElementById('imgPinyin').value = '';
+  document.getElementById('imgMeaning').value = '';
+};
+
+window.submitAll = async function() {
+  console.log('Submitting all content...', userContent);
+  showStatus('submitStatus', 'ok', '✅ Content saved successfully!');
+  // TODO: Upload all to Supabase
+};
+
+// Render previews
+function renderPreviews() {
+  // Posts
+  const postsEl = document.getElementById('postsPreview');
+  if(userContent.posts.length === 0) {
+    postsEl.innerHTML = '<div class="empty-state"><span>💭</span>No dialogues yet</div>';
+  } else {
+    postsEl.innerHTML = userContent.posts.map(p => `
+      <div class="post-card">
+        <div class="post-avatar" style="background:var(--yellow);">👤</div>
+        <div class="post-content">
+          <div class="post-title"><span onclick="openCharModal('${p.user}')">${p.title}</span></div>
+          <div class="post-pinyin">${p.user}</div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // Quiz
+  const quizEl = document.getElementById('quizPreview');
+  if(userContent.quiz.length === 0) {
+    quizEl.innerHTML = '<div class="empty-state"><span>📋</span>No quizzes yet</div>';
+  } else {
+    quizEl.innerHTML = userContent.quiz.map(q => `
+      <div class="quiz-item">
+        <span class="quiz-type">Fill Blanks</span>
+        <div style="margin-top:8px;">${q.sentence}</div>
+      </div>
+    `).join('');
+  }
+
+  // Images
+  const imgsEl = document.getElementById('imagesPreview');
+  if(userContent.images.length === 0) {
+    imgsEl.innerHTML = '<div class="empty-state" style="grid-column:1/-1;"><span>🔤</span>No characters yet</div>';
+  } else {
+    imgsEl.innerHTML = userContent.images.map(img => `
+      <div class="image-item" onclick="openCharModal('${img.character}')">
+        <div class="image-char">${img.character}</div>
+        <div class="image-pinyin">${img.pinyin}</div>
+      </div>
+    `).join('');
+  }
+}
+
+window.openCharModal = function(char) {
+  const modal = document.getElementById('charModal');
+  document.getElementById('charDisplay').textContent = char;
+  document.getElementById('charPinyin').textContent = 'nǐ'; // Get from data
+  document.getElementById('charMeaning').textContent = 'You'; // Get from data
+  modal.classList.add('show');
+};
+
+window.closeCharModal = function() {
+  document.getElementById('charModal').classList.remove('show');
+};
+
+// File upload handlers
+['postAvatar', 'postAudio', 'quizAudio', 'imgImage', 'imgAudio'].forEach(id => {
+  const el = document.getElementById(id);
+  if(el) {
+    el.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if(file) {
+        const previewEl = document.getElementById(id + 'Preview');
+        const nameEl = document.getElementById(id + 'Name');
+        nameEl.textContent = file.name;
+        previewEl.style.display = 'flex';
+      }
+    });
+  }
+});
+
+// Auth
+onAuthStateChanged(auth, async (user) => {
+  if(!user) {
+    window.location.href = 'index.html';
+    return;
+  }
+
+  currentUser = user;
+  document.getElementById('userDisplay').textContent = `👤 ${user.displayName || 'User'}`;
+  document.getElementById('tool-section').style.display = 'block';
+  document.getElementById('loading').style.display = 'none';
+
+  await loadUserContent();
+  renderPreviews();
+});
+</script>
+
+</body>
+</html>
