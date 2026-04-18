@@ -13,13 +13,52 @@ require('dotenv').config();
 const app = express();
 
 // ─────────────────────────────────────────
-// MIDDLEWARE
+// CORS CONFIG - FIX CORS ISSUES
 // ─────────────────────────────────────────
 
+const allowedOrigins = [
+  'http://localhost:8080',
+  'http://localhost:3000',
+  'https://chinese60s.com',
+  'https://www.chinese60s.com',
+  process.env.CLIENT_URL,
+].filter(Boolean);
+
+// Main CORS middleware
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:8080',
+  origin: function(origin, callback) {
+    // Allow requests with no origin (Postman, curl, etc.)
+    if (!origin) {
+      return callback(null, true);
+    }
+    // Check if origin is allowed
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+    callback(new Error('Not allowed by CORS: ' + origin));
+  },
   credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
 }));
+
+// Preflight OPTIONS handler
+app.options('*', cors({
+  origin: function(origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(null, true); // Allow all in preflight for debugging
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+}));
+
+// ─────────────────────────────────────────
+// MIDDLEWARE
+// ─────────────────────────────────────────
 
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
