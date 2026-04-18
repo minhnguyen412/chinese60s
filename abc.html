@@ -69,16 +69,24 @@
     nav ul li a:hover { transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--black); }
     @media(max-width:768px){ header{padding:0 16px;} }
 
-    /* NAV TABS FOR TOOL */
-    .nav-tabs{display:flex;gap:0;border-bottom:var(--border-thick);background:var(--white);position:sticky;top:66px;z-index:150;}
-    .nav-tab{flex:1;padding:14px 10px;border:none;background:none;font-family:'Fredoka',sans-serif;font-weight:700;font-size:.95rem;cursor:pointer;border-right:var(--border);color:#888;transition:background .15s,color .15s;}
-    .nav-tab:last-child{border-right:none;}
-    .nav-tab:hover{background:var(--bg);}
-    .nav-tab.active{color:var(--black);font-weight:700;}
-    .nav-tab.active.posts{background:var(--green-pale);color:var(--green-dark);border-bottom:4px solid var(--green);}
-    .nav-tab.active.quiz{background:var(--yellow-pale);color:#a07000;border-bottom:4px solid var(--yellow);}
-    .nav-tab.active.images{background:var(--sky-pale);color:#005a8a;border-bottom:4px solid var(--sky);}
-    @media(max-width:600px){.nav-tab{font-size:.78rem;padding:10px 6px;}}
+    /* NAV TABS FOR TOOL - SIMPLIFIED */
+    .nav-tabs {
+      display:flex; gap:0; border-bottom:var(--border-thick);
+      background:var(--white); position:sticky; top:66px; z-index:150;
+    }
+    .nav-tab {
+      flex:1; padding:14px 10px; border:none; background:none;
+      font-family:'Fredoka',sans-serif; font-weight:700; font-size:.95rem;
+      cursor:pointer; border-right:var(--border); color:#888;
+      transition:background .15s, color .15s;
+    }
+    .nav-tab:last-child { border-right:none; }
+    .nav-tab:hover { background:var(--bg); }
+    .nav-tab.active {
+      color:var(--black); font-weight:700;
+      background:var(--green-pale); border-bottom:3px solid var(--green);
+    }
+    @media(max-width:600px) { .nav-tab { font-size:.78rem; padding:10px 6px; } }
 
     .container {
       max-width:1000px; margin:0 auto; width:100%;
@@ -465,10 +473,11 @@
 
 <!-- TOOL SECTION (only visible when logged in) -->
 <div id="tool-section" style="display:none;">
+  <!-- SIMPLIFIED TAB SWITCH -->
   <div class="nav-tabs">
-    <button class="nav-tab posts active" onclick="switchPanel('posts')">💬 Posts</button>
-    <button class="nav-tab quiz" onclick="switchPanel('quiz')">📝 Quiz</button>
-    <button class="nav-tab images" onclick="switchPanel('images')">🖼️ Images</button>
+    <button class="nav-tab active" data-panel="posts">💬 Posts</button>
+    <button class="nav-tab" data-panel="quiz">📝 Quiz</button>
+    <button class="nav-tab" data-panel="images">🖼️ Images</button>
   </div>
 
   <div class="tool-container">
@@ -573,11 +582,11 @@ const app  = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db   = getFirestore(app);
 
-// API config for tool submission
-const API_BASE = 'http://localhost:3000/api';
-const API_TOKEN = localStorage.getItem('auth_token') || '';
+// ═══ API CONFIG ═══
+const API_BASE = 'http://localhost:3000';
+let API_TOKEN = '';
 
-/* ═══ HELPERS ═══ */
+// ═══ HELPERS ═══
 function tsToDate(ts) {
   if (!ts) return null;
   if (ts.toDate)  return ts.toDate();
@@ -935,10 +944,12 @@ function render(user, quizzes, recs, writes) {
   /* Collapsible all-time */
   const toggle = document.getElementById('alltime-toggle');
   const body   = document.getElementById('alltime-body');
-  toggle.addEventListener('click', () => {
-    const open = body.classList.toggle('open');
-    toggle.classList.toggle('open', open);
-  });
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      const open = body.classList.toggle('open');
+      toggle.classList.toggle('open', open);
+    });
+  }
 }
 
 /* ═══ MAIN - AUTH CHECK ═══ */
@@ -951,6 +962,14 @@ onAuthStateChanged(auth, async user => {
   }
 
   currentUser = user;
+
+  // 🔑 GET FIREBASE TOKEN HERE
+  try {
+    API_TOKEN = await user.getIdToken();
+    console.log('✅ Firebase token obtained');
+  } catch (err) {
+    console.error('Failed to get token:', err);
+  }
 
   // Update user display in header
   document.getElementById('userDisplay').textContent = `👤 ${user.displayName || 'User'}`;
@@ -971,26 +990,32 @@ onAuthStateChanged(auth, async user => {
   // Initialize tool state
   loadState();
 });
+
+// Setup tab click handlers - SIMPLIFIED
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.nav-tab').forEach(tab => {
+    tab.addEventListener('click', () => switchPanel(tab.dataset.panel));
+  });
+});
+
+// Simplified switchPanel function
+function switchPanel(name) {
+  // Update tabs
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.querySelector(`[data-panel="${name}"]`).classList.add('active');
+
+  // Update panels
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.getElementById(`panel-${name}`)?.classList.add('active');
+
+  saveState();
+}
 </script>
 
 <script>
 // ════════════════════════════════════════════════════════
 // TOOL FUNCTIONS
 // ════════════════════════════════════════════════════════
-
-// TAB SWITCHING FOR TOOL
-function switchPanel(name) {
-  document.querySelectorAll('#tool-section .panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-
-  const activePanel = document.getElementById('panel-' + name);
-  if (activePanel) {
-    activePanel.classList.add('active');
-  }
-
-  document.querySelector('.nav-tab.' + name).classList.add('active');
-  saveState();
-}
 
 // STATE PERSISTENCE
 function saveState() {
@@ -1640,24 +1665,22 @@ function tokenize(text) {
   return toks;
 }
 
-// SUBMIT ALL DATA
+// SUBMIT ALL DATA - WITH FIREBASE TOKEN
 async function submitAll() {
   const btn = document.getElementById('submitBtn');
   btn.disabled = true;
   showStatus('submitStatus', 'info', '<span class="spinner"></span> Submitting your content...');
 
   try {
-    // Check if user is logged in
-    if (!window.currentUser) {
+    if (!currentUser) {
       throw new Error('Please log in to submit content');
     }
 
-    // Prepare FormData with files
-    const formData = new FormData();
+    if (!API_TOKEN) {
+      throw new Error('Authentication token missing. Please refresh the page.');
+    }
 
-    // User info
-    formData.append('userId', currentUser.uid);
-    formData.append('userName', currentUser.displayName || 'User');
+    const formData = new FormData();
 
     // Posts
     formData.append('posts', JSON.stringify(pRows.map(r => ({
@@ -1674,7 +1697,7 @@ async function submitAll() {
       }
     });
 
-    // Posts avatar files (from pUsers)
+    // Posts avatar files
     pUsers.forEach((u, i) => {
       if (u.avatarFile) {
         formData.append(`avatar_${i}`, u.avatarFile);
@@ -1692,7 +1715,7 @@ async function submitAll() {
       t3correct: r.t3correct
     }))));
 
-    // Quiz audio & images
+    // Quiz files
     qRows.forEach((r, i) => {
       if (r.audioFile) formData.append(`quiz_audio_${i}`, r.audioFile);
       r.imgFiles.forEach((f, j) => {
@@ -1714,8 +1737,8 @@ async function submitAll() {
       if (r.audioFile) formData.append(`img_audio_${i}`, r.audioFile);
     });
 
-    // Send to backend
-    const response = await fetch(`${API_BASE}/submit`, {
+    // 🔑 SEND WITH TOKEN
+    const response = await fetch(`${API_BASE}/api/submit`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${API_TOKEN}`
@@ -1724,21 +1747,20 @@ async function submitAll() {
     });
 
     if (!response.ok) {
-      throw new Error(`Server error: ${response.statusText}`);
+      const error = await response.json();
+      throw new Error(error.error || `Server error: ${response.statusText}`);
     }
 
     const result = await response.json();
 
-    // Success!
     showStatus('submitStatus', 'success', '✅ Content submitted successfully!');
     showSuccessModal('All your content has been saved!');
 
-    // Clear data
     clearAll();
 
   } catch (e) {
     showStatus('submitStatus', 'err', '❌ ' + e.message);
-    console.error(e);
+    console.error('Submit error:', e);
   } finally {
     btn.disabled = false;
   }
@@ -1771,3 +1793,4 @@ function closeSuccessModal() {
 window.addEventListener('beforeunload', saveState);
 </script>
 </body>
+</html>
