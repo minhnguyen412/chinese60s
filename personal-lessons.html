@@ -1229,13 +1229,15 @@
       const toggleButton = document.createElement('button');
       toggleButton.className = 'toggle-description';
       toggleButton.textContent = '⬇️';
-      const micBtn = document.createElement('span');
-      micBtn.className = 'audio';
-      micBtn.textContent = '🎙️';
-      micBtn.style.cursor = 'pointer';
-      micBtn.addEventListener('click', () => {
-        showRecordingPopup(item.title || '', '', item.id || index);
-      });
+      // ✅ ĐỔI SPAN -> BUTTON
+const micBtn = document.createElement('button');
+micBtn.className = 'toggle-description';  // ← dùng class này
+micBtn.textContent = '🎙️';
+micBtn.style.right = '100px';  // ← đặt position khác
+micBtn.style.cursor = 'pointer';
+micBtn.addEventListener('click', () => {
+  showRecordingPopup(item.title || '', '', item.id || index);
+});
       // ✅ THÊM NÚT DELETE
 const deleteBtn = document.createElement('button');
 deleteBtn.className = 'toggle-description';
