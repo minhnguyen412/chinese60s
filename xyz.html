@@ -1435,6 +1435,20 @@ onAuthStateChanged(auth, async user => {
   } catch (err) {
     console.error('Failed to get token:', err);
   }
+  // ✅ Load từ DATABASE (không phải localStorage)
+  try {
+    const subRes = await fetch(`${window.API_BASE}/api/user-subscription`, {
+      headers: { 'Authorization': `Bearer ${window.API_TOKEN}` }
+    });
+    const subData = await subRes.json();
+    window.userSubscription = subData.data.plan || 'free';
+    
+    // Cũng lưu vào localStorage để offline access
+    localStorage.setItem(`subscription_${user.uid}`, window.userSubscription);
+  } catch (err) {
+    // Fallback to localStorage
+    window.userSubscription = localStorage.getItem(`subscription_${user.uid}`) || 'free';
+  }
 
   // Update UI
   const subBadge = window.userSubscription !== 'free' ? ' ⭐ ' + window.userSubscription.replace('plan_', '').toUpperCase() : '';
@@ -1650,31 +1664,24 @@ function switchSubTab(tabName) {
 async function validateGumroadKey() {
   const keyInput = document.getElementById('licenseKeyInput');
   const key = keyInput.value.trim().toUpperCase();
-  const statusEl = document.getElementById('keyStatus');
 
   if (!key) {
     showKeyStatus('err', '❌ Please enter a license key');
     return;
   }
 
-  // Validate format: STARTER-xxx, PRO-xxx, or MASTER-xxx
   if (!key.match(/^(STARTER|PRO|MASTER)-[A-Z0-9]{20,}$/i)) {
-    showKeyStatus('err', '❌ Invalid key format. Should be like STARTER-abc123...');
+    showKeyStatus('err', '❌ Invalid key format.');
     return;
   }
 
   showKeyStatus('info', '<span class="spinner"></span> Validating key...');
 
   try {
-    if (!window.currentUser) {
-      throw new Error('Please log in first');
-    }
+    if (!window.currentUser) throw new Error('Please log in first');
+    if (!window.API_TOKEN) throw new Error('Authentication error.');
 
-    if (!window.API_TOKEN) {
-      throw new Error('Authentication error. Please refresh the page.');
-    }
-
-    // Call backend to validate key
+    // Validate key
     const response = await fetch(`${window.API_BASE}/api/validate-subscription-key`, {
       method: 'POST',
       headers: {
@@ -1689,23 +1696,38 @@ async function validateGumroadKey() {
     });
 
     const data = await response.json();
+    if (!response.ok) throw new Error(data.error || 'Invalid or already used key');
 
-    if (!response.ok) {
-      throw new Error(data.error || 'Invalid or already used key');
-    }
-
-    // Success!
     showKeyStatus('success', '✅ ' + data.message);
     
-    setTimeout(() => {
-      const planType = data.plan; // 'plan_a', 'plan_b', or 'plan_c'
+    setTimeout(async () => {
+      const planType = data.plan;
+      const expireDate = new Date();
+      expireDate.setDate(expireDate.getDate() + 40); // 40 ngày từ giờ
+      
+      // ✅ UPDATE DATABASE
+      const updateRes = await fetch(`${window.API_BASE}/api/update-subscription`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${window.API_TOKEN}`
+        },
+        body: JSON.stringify({
+          plan: planType,
+          expireDate: expireDate.toISOString()
+        })
+      });
+
+      if (!updateRes.ok) throw new Error('Failed to update subscription');
+
+      // ✅ CẬP NHẬT localStorage
       window.userSubscription = planType;
       localStorage.setItem(`subscription_${window.currentUser.uid}`, planType);
       localStorage.setItem(`subscription_key_${window.currentUser.uid}`, key);
       localStorage.setItem(`subscription_date_${window.currentUser.uid}`, new Date().toISOString());
       
       closeSubscriptionModal();
-      showSuccessModal(`🎉 Subscription activated!\nPlan: ${planType.toUpperCase()}\nLimit: ${PLAN_LIMITS[planType]} items`);
+      showSuccessModal(`🎉 Subscription activated!\nPlan: ${planType.toUpperCase()}`);
       location.reload();
     }, 1500);
 
