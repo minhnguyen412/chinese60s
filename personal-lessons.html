@@ -1282,6 +1282,15 @@
   function renderPersonalQuiz(quizData, imagesData) {
   const quizList = document.getElementById('quiz-items-list');
   if (!quizList) return;
+    // ✅ Ensure proper structure
+      const transformedQuiz = (quizData || []).map(q => ({
+        sentence: (q.sentence || '').trim(),
+        blanks: q.blanks || [],
+        words: q.words || []
+      }));
+      
+      console.log('[renderPersonalQuiz] Transformed:', transformedQuiz);
+
   
   // ✅ SET quiz data cho quiz.js logic
   window.setQuizData(quizData);
@@ -1319,45 +1328,7 @@
   });
 }
 
-  function renderQuizT1(container, quiz, imagesData) {
-    const div = document.createElement('div');
-    div.style.cssText = 'padding:12px 0;border-top:var(--border);margin-top:12px;';
-    
-    const label = document.createElement('p');
-    label.textContent = 'Sentence:';
-    label.style.cssText = 'font-size:0.85rem;font-weight:700;color:#888;text-transform:uppercase;margin-bottom:8px;';
-    div.appendChild(label);
-
-    const sentenceDiv = document.createElement('div');
-    sentenceDiv.style.cssText = 'font-size:1.3rem;font-weight:700;line-height:2;padding:12px;background:var(--white);border:var(--border);border-radius:12px;';
-    
-    (quiz.segments || []).forEach((seg, i) => {
-      const segSpan = document.createElement('span');
-      segSpan.textContent = seg;
-      segSpan.style.cursor = 'pointer';
-      segSpan.style.cssText += 'padding:2px 4px;border-radius:4px;transition:background 0.15s;';
-      
-      const hasImage = imagesData.find(img => img.character === seg);
-      if (hasImage) {
-        segSpan.style.background = 'var(--sky-pale)';
-        segSpan.style.borderBottom = '2px solid var(--sky)';
-        segSpan.addEventListener('click', () => showImageCard(hasImage));
-        segSpan.title = 'Click to see meaning';
-      }
-      
-      segSpan.addEventListener('mouseover', () => {
-        if (hasImage) segSpan.style.background = 'var(--sky)';
-      });
-      segSpan.addEventListener('mouseout', () => {
-        if (hasImage) segSpan.style.background = 'var(--sky-pale)';
-      });
-      
-      sentenceDiv.appendChild(segSpan);
-    });
-    
-    div.appendChild(sentenceDiv);
-    container.appendChild(div);
-  }
+  
 
 
   // ✅ loadPersonalLessons - FIX: Lấy tất cả bài từ tất cả lessons, sắp xếp mới nhất trước
