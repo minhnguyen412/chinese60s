@@ -277,7 +277,59 @@ app.delete('/api/lessons/:id', verifyFirebaseToken, async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+// Update user subscription
+app.post('/api/update-subscription', verifyFirebaseToken, async (req, res) => {
+  try {
+    const uid = req.user.uid;
+    const { plan, expireDate } = req.body;
 
+    // Tạo hoặc update record trong Supabase
+    const { data, error } = await supabase
+      .from('user_subscriptions')
+      .upsert([
+        {
+          user_id: uid,
+          plan: plan,
+          activated_at: new Date().toISOString(),
+          expires_at: expireDate,
+          updated_at: new Date().toISOString()
+        }
+      ], { onConflict: 'user_id' })
+      .select();
+
+    if (error) throw error;
+
+    res.json({ 
+      success: true, 
+      message: 'Subscription updated',
+      data: data[0]
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Get user subscription
+app.get('/api/user-subscription', verifyFirebaseToken, async (req, res) => {
+  try {
+    const uid = req.user.uid;
+    
+    const { data, error } = await supabase
+      .from('user_subscriptions')
+      .select('*')
+      .eq('user_id', uid)
+      .single();
+
+    if (error && error.code !== 'PGRST116') throw error;
+
+    res.json({ 
+      success: true, 
+      data: data || { plan: 'free' }
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 // ─────────────────────────────────────────
 // ERROR HANDLING
 // ─────────────────────────────────────────
