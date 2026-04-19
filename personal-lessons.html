@@ -650,14 +650,14 @@
   <div class="container" style="max-width:900px;">
     <div class="video-section" style="flex:1;">
 
-      
+
 
       <!-- Post Content -->
 <div class="pcontainer">
   <h2 id="section-title" style="margin-bottom:20px;font-size:1.5rem;font-weight:700;">📚 My Lessons</h2>
   <ul class="content-list" id="itemList"></ul>
 </div>
-      
+
 
       <!-- QUIZ SECTION -->
       <div class="qcontainer" id="quiz-container" data-start-id="24" data-end-id="38">
@@ -1198,41 +1198,41 @@
   <script>
   const SUPABASE_URL = 'https://dpnxyrkwjdtlunepeewz.supabase.co';
   const SUPABASE_KEY = 'sb_publishable_qZUI2tkjitvyZHDZnIRkpQ_yynAjgTA';
- 
-  // ✅ FIX 1: Định nghĩa renderPersonalPosts TRƯỚC loadPersonalLessons
+
+  // ✅ Định nghĩa renderPersonalPosts TRƯỚC loadPersonalLessons
   function renderPersonalPosts(posts, imagesData) {
     const itemList = document.getElementById('itemList');
     itemList.innerHTML = '';
- 
+
     posts.forEach((item, index) => {
       const li = document.createElement('li');
       li.className = 'content-list li';
- 
+
       // Row
       const row = document.createElement('div');
       row.className = 'row';
- 
+
       const avatar = document.createElement('span');
       avatar.className = 'avatar-1';
       avatar.style.backgroundImage = item.avatar ? `url(${item.avatar})` : '';
       avatar.style.background = !item.avatar ? 'var(--yellow)' : '';
- 
+
       const user = document.createElement('span');
       user.className = 'user';
       user.textContent = item.user || 'Unknown';
- 
+
       const toggleButton = document.createElement('button');
       toggleButton.className = 'toggle-description';
       toggleButton.textContent = '⬇️';
- 
+
       row.appendChild(avatar);
       row.appendChild(user);
       row.appendChild(toggleButton);
- 
+
       // H2 - segments
       const h2 = document.createElement('h2');
       h2.itemProp = 'name';
- 
+
       (item.segments || []).forEach(segment => {
         const span = document.createElement('span');
         span.textContent = segment;
@@ -1243,40 +1243,40 @@
         });
         h2.appendChild(span);
       });
- 
+
       // Description
       const p = document.createElement('p');
       p.className = 'description';
       p.innerHTML = item.description || '';
       p.style.display = 'none';
- 
+
       toggleButton.addEventListener('click', () => {
         const open = p.style.display === 'block';
         p.style.display = open ? 'none' : 'block';
         toggleButton.textContent = open ? '⬇️' : '⬅️';
       });
- 
+
       li.appendChild(row);
       li.appendChild(h2);
       li.appendChild(p);
       itemList.appendChild(li);
- 
+
       setTimeout(() => li.classList.add('visible'), 100 * index);
     });
   }
- 
-  // ✅ FIX 2: Định nghĩa renderPersonalQuiz TRƯỚC loadPersonalLessons
+
+  // ✅ Định nghĩa renderPersonalQuiz TRƯỚC loadPersonalLessons
   function renderPersonalQuiz(quizData, imagesData) {
     const quizList = document.getElementById('quiz-items-list');
     if (!quizList) return;
     
     quizList.innerHTML = '';
- 
+
     quizData.forEach((quiz, idx) => {
       const div = document.createElement('div');
       div.className = 'quiz-row';
       div.style.cssText = 'background:var(--bg);border:var(--border-thick);border-radius:18px;padding:16px;margin-bottom:16px;';
- 
+
       // Header
       const header = document.createElement('div');
       header.style.cssText = 'display:flex;align-items:center;gap:8px;margin-bottom:12px;';
@@ -1295,7 +1295,7 @@
       header.appendChild(badge);
       header.appendChild(typePill);
       div.appendChild(header);
- 
+
       // Content theo type
       if (quiz.type === 't1') {
         renderQuizT1(div, quiz, imagesData);
@@ -1303,7 +1303,7 @@
       quizList.appendChild(div);
     });
   }
- 
+
   function renderQuizT1(container, quiz, imagesData) {
     const div = document.createElement('div');
     div.style.cssText = 'padding:12px 0;border-top:var(--border);margin-top:12px;';
@@ -1312,7 +1312,7 @@
     label.textContent = 'Sentence:';
     label.style.cssText = 'font-size:0.85rem;font-weight:700;color:#888;text-transform:uppercase;margin-bottom:8px;';
     div.appendChild(label);
- 
+
     const sentenceDiv = document.createElement('div');
     sentenceDiv.style.cssText = 'font-size:1.3rem;font-weight:700;line-height:2;padding:12px;background:var(--white);border:var(--border);border-radius:12px;';
     
@@ -1343,16 +1343,17 @@
     div.appendChild(sentenceDiv);
     container.appendChild(div);
   }
- 
- 
-  // ✅ FIX 3: loadPersonalLessons - THÊM CATCH block
+
+
+  // ✅ loadPersonalLessons - FIX: Lấy tất cả bài từ tất cả lessons, sắp xếp mới nhất trước
   async function loadPersonalLessons(userId) {
     try {
       console.log('[loadPersonalLessons] Starting with userId:', userId);
-      
-      const url = `${SUPABASE_URL}/rest/v1/lessons?user_id=eq.${userId}&select=posts,quiz,images&limit=1`;
+
+      // ✅ FIX: Lấy tất cả lessons, sắp xếp theo created_at.desc (mới nhất trước)
+      const url = `${SUPABASE_URL}/rest/v1/lessons?user_id=eq.${userId}&select=*,posts,quiz,images&order=created_at.desc`;
       console.log('[loadPersonalLessons] Fetching from:', url);
-      
+
       const response = await fetch(url, {
         headers: {
           'apikey': SUPABASE_KEY,
@@ -1360,9 +1361,9 @@
           'Content-Type': 'application/json'
         }
       });
- 
+
       console.log('[loadPersonalLessons] Response status:', response.status, response.statusText);
- 
+
       if (!response.ok) {
         const errText = await response.text();
         console.error('❌ Supabase error:', response.status, response.statusText, errText);
@@ -1373,37 +1374,53 @@
           </div>`;
         return;
       }
- 
+
       const data = await response.json();
       console.log('[loadPersonalLessons] Data received:', data);
-      
+
       if (!data || data.length === 0) {
         document.getElementById('itemList').innerHTML = 
           '<div style="text-align:center;padding:40px;color:#bbb;">No lessons created yet. Go to <a href="profile.html">profile</a> to create one.</div>';
         return;
       }
- 
-      const lesson = data[0];
-      
-      // Render posts
-      if (lesson.posts && lesson.posts.length > 0) {
-        renderPersonalPosts(lesson.posts, lesson.images || []);
+
+      // ✅ FIX: Collect ALL posts, quiz, and images từ tất cả lessons
+      const allPosts = [];
+      const allQuiz = [];
+      const allImages = [];
+
+      data.forEach(lesson => {
+        if (lesson.posts && Array.isArray(lesson.posts)) {
+          allPosts.push(...lesson.posts);
+        }
+        if (lesson.quiz && Array.isArray(lesson.quiz)) {
+          allQuiz.push(...lesson.quiz);
+        }
+        if (lesson.images && Array.isArray(lesson.images)) {
+          allImages.push(...lesson.images);
+        }
+      });
+
+      console.log('[loadPersonalLessons] Total posts:', allPosts.length, 'Total quiz:', allQuiz.length);
+
+      // Render posts (tất cả posts từ tất cả lessons, mới nhất trước)
+      if (allPosts.length > 0) {
+        renderPersonalPosts(allPosts, allImages);
       } else {
         document.getElementById('itemList').innerHTML = 
           '<div style="text-align:center;padding:40px;color:#bbb;">No posts in this lesson</div>';
       }
- 
-      // Render quiz
-      if (lesson.quiz && lesson.quiz.length > 0) {
+
+      // Render quiz (tất cả quiz từ tất cả lessons)
+      if (allQuiz.length > 0) {
         const quizContainer = document.getElementById('quiz-container');
         quizContainer.style.display = 'block';
-        renderPersonalQuiz(lesson.quiz, lesson.images || []);
- 
+        renderPersonalQuiz(allQuiz, allImages);
+
         // SET quiz data cho quiz logic
-        window.setQuizData(lesson.quiz);
+        window.setQuizData(allQuiz);
       }
     }
-    // ✅ FIX 4: THÊM CATCH block
     catch (error) {
       console.error('[loadPersonalLessons] Error:', error);
       const itemList = document.getElementById('itemList');
@@ -1435,15 +1452,10 @@ function showImageCard(imageData) {
     const card = document.createElement('div');
     card.className = 'image-card';
     card.innerHTML = `
-        <img src="${imageData.imageSrc}" alt="${imageData.character}">
+        <div id="writer-container" style="display: flex; gap: 10px;"></div>
         <h3>${imageData.character}</h3>
         <p>Meaning: ${imageData.meaning}</p>
         <p>Pinyin: ${imageData.pinyin}</p>
-        <audio controls>
-            <source src="${imageData.audioSrc}" type="audio/mpeg">
-            Your browser does not support the audio tag.
-        </audio>
-        <div id="writer-container" style="display: flex; gap: 10px;"></div>
     `;
     document.body.appendChild(card);
     activeImageCard = card;
