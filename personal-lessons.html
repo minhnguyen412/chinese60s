@@ -1244,17 +1244,37 @@ deleteBtn.style.right = '52px';
 deleteBtn.addEventListener('click', async () => {
   if (!confirm('Delete this post?')) return;
   try {
-    const delUrl = `${SUPABASE_URL}/rest/v1/posts?id=eq.${posts.id}`;
-    const delRes = await fetch(delUrl, {
-      method: 'DELETE',
+    // ✅ Tìm lesson chứa post này
+    const lessonId = item.lessonId; // ← cần lưu lessonId khi render
+    
+    const updateUrl = `${SUPABASE_URL}/rest/v1/lessons?id=eq.${lessonId}`;
+    const getRes = await fetch(updateUrl, {
       headers: {
         'apikey': SUPABASE_KEY,
-        'Authorization': `Bearer ${SUPABASE_KEY}`
+        'Authorization': `Bearer ${SUPABASE_KEY}`,
+        'Content-Type': 'application/json'
       }
     });
-    if (delRes.ok) {
+    
+    const lessons = await getRes.json();
+    if (!lessons[0]) return alert('Lesson not found');
+    
+    // ✅ Xóa post khỏi array
+    const updatedPosts = lessons[0].posts.filter(p => p.id !== item.id);
+    
+    const updateRes = await fetch(updateUrl, {
+      method: 'PATCH',
+      headers: {
+        'apikey': SUPABASE_KEY,
+        'Authorization': `Bearer ${SUPABASE_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ posts: updatedPosts })
+    });
+    
+    if (updateRes.ok) {
       li.remove();
-      console.log('[delete] Post deleted:', posts.id);
+      console.log('[delete] Post deleted:', item.id);
     }
   } catch(e) {
     console.error('[delete] Error:', e);
@@ -1346,25 +1366,43 @@ function renderPersonalQuiz(quizData, imagesData) {
   deleteQuizBtn.textContent = '🗑️';
   deleteQuizBtn.style.cssText = 'background:transparent;border:none;cursor:pointer;font-size:1.1rem;';
   deleteQuizBtn.addEventListener('click', async () => {
-    if (!confirm('Delete this quiz?')) return;
-    try {
-      const delUrl = `${SUPABASE_URL}/rest/v1/quiz?id=eq.${quiz.id}`;
-      const delRes = await fetch(delUrl, {
-        method: 'DELETE',
-        headers: {
-          'apikey': SUPABASE_KEY,
-          'Authorization': `Bearer ${SUPABASE_KEY}`
-        }
-      });
-      if (delRes.ok) {
-        div.remove();
-        console.log('[delete] Quiz deleted:', quiz.id);
+  if (!confirm('Delete this quiz?')) return;
+  try {
+    const lessonId = quiz.lessonId; // ← cần lưu lessonId
+    
+    const updateUrl = `${SUPABASE_URL}/rest/v1/lessons?id=eq.${lessonId}`;
+    const getRes = await fetch(updateUrl, {
+      headers: {
+        'apikey': SUPABASE_KEY,
+        'Authorization': `Bearer ${SUPABASE_KEY}`
       }
-    } catch(e) {
-      console.error('[delete] Error:', e);
-      alert('Delete failed');
+    });
+    
+    const lessons = await getRes.json();
+    if (!lessons[0]) return alert('Lesson not found');
+    
+    // ✅ Xóa quiz khỏi array
+    const updatedQuiz = lessons[0].quiz.filter(q => q.id !== quiz.id);
+    
+    const updateRes = await fetch(updateUrl, {
+      method: 'PATCH',
+      headers: {
+        'apikey': SUPABASE_KEY,
+        'Authorization': `Bearer ${SUPABASE_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ quiz: updatedQuiz })
+    });
+    
+    if (updateRes.ok) {
+      div.remove();
+      console.log('[delete] Quiz deleted:', quiz.id);
     }
-  });
+  } catch(e) {
+    console.error('[delete] Error:', e);
+    alert('Delete failed');
+  }
+});
   header.appendChild(deleteQuizBtn);
   
   div.appendChild(header);
@@ -1428,9 +1466,11 @@ function renderPersonalQuiz(quizData, imagesData) {
 
       data.forEach(lesson => {
         if (lesson.posts && Array.isArray(lesson.posts)) {
+          lesson.posts.forEach(p => p.lessonId = lesson.id);
           allPosts.push(...lesson.posts);
         }
         if (lesson.quiz && Array.isArray(lesson.quiz)) {
+          lesson.quiz.forEach(q => q.lessonId = lesson.id);
           allQuiz.push(...lesson.quiz);
         }
         if (lesson.images && Array.isArray(lesson.images)) {
