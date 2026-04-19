@@ -1,0 +1,1696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Lessons — Chinese60s</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3235921032748480" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --black: #222;
+      --green: #7cb83e;
+      --green-dark: #5a8f27;
+      --green-light: #d8f0a0;
+      --green-pale: #f2fde0;
+      --yellow: #ffd84d;
+      --yellow-pale: #fffbe6;
+      --peach: #ffb89a;
+      --peach-pale: #fff3ee;
+      --sky: #72c8f0;
+      --sky-pale: #eaf8ff;
+      --lavender: #c5b0f8;
+      --lavender-pale: #f3f0ff;
+      --pink: #ffadc5;
+      --pink-pale: #fff2f6;
+      --white: #fff;
+      --bg: #fffef5;
+      --shadow-sm: 3px 3px 0 var(--black);
+      --shadow-md: 4px 4px 0 var(--black);
+      --shadow-lg: 6px 6px 0 var(--black);
+      --border: 2.5px solid var(--black);
+      --border-thick: 3px solid var(--black);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 500;
+      background: var(--bg);
+      color: var(--black);
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+    }
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: radial-gradient(circle, rgba(0,0,0,0.045) 1px, transparent 1px);
+      background-size: 22px 22px;
+      pointer-events: none; z-index: 0;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--green);
+      border-bottom: var(--border-thick);
+      padding: 0 50px; height: 66px;
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 100;
+    }
+    header h1 {
+      font-weight: 700; font-size: 1.7rem; color: white;
+      letter-spacing: 0.04em; text-shadow: 2px 2px 0 rgba(0,0,0,0.25);
+    }
+    .homepage-link { text-decoration: none; color: inherit; }
+    .menu-toggle { display: none; font-size: 24px; background: none; border: none; color: white; cursor: pointer; }
+
+    nav { display: flex; align-items: center; }
+    nav ul { list-style: none; display: flex; gap: 8px; align-items: center; }
+    nav ul li a {
+      text-decoration: none; color: var(--black);
+      font-weight: 600; font-size: 0.95rem;
+      background: var(--white); border: var(--border); border-radius: 50px;
+      padding: 6px 16px; display: inline-block;
+      box-shadow: var(--shadow-sm); transition: transform 0.12s, box-shadow 0.12s;
+    }
+    nav ul li a:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+
+    .auth-pill {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--white); border: var(--border); border-radius: 50px;
+      padding: 5px 14px 5px 6px;
+      box-shadow: var(--shadow-sm); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s;
+      font-weight: 600; font-size: 0.9rem; color: var(--black);
+      text-decoration: none; white-space: nowrap;
+    }
+    .auth-pill:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+    .auth-pill .avatar {
+      width: 28px; height: 28px; border-radius: 50%;
+      border: 2px solid var(--black); object-fit: cover;
+      background: var(--green-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 700; overflow: hidden;
+      flex-shrink: 0;
+    }
+    .auth-pill .avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+    #sign-in-btn {
+      background: var(--yellow); border: var(--border); border-radius: 50px;
+      padding: 6px 18px; font-weight: 700; font-size: 0.9rem;
+      box-shadow: var(--shadow-sm); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s;
+      display: flex; align-items: center; gap: 6px;
+      font-family: 'Fredoka', sans-serif;
+    }
+    #sign-in-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+
+    .user-menu-wrap { position: relative; }
+    .user-dropdown {
+      display: none;
+      position: absolute; top: calc(100% + 10px); right: 0;
+      background: var(--white); border: var(--border-thick); border-radius: 18px;
+      box-shadow: var(--shadow-lg); padding: 8px;
+      min-width: 180px; z-index: 200;
+    }
+    .user-menu-wrap:hover .user-dropdown,
+    .user-menu-wrap.open .user-dropdown { display: flex; flex-direction: column; gap: 4px; }
+    .user-dropdown a, .user-dropdown button {
+      display: block; width: 100%;
+      padding: 9px 14px; border-radius: 12px;
+      font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 0.92rem;
+      text-decoration: none; color: var(--black); text-align: left;
+      background: none; border: none; cursor: pointer;
+      transition: background 0.1s;
+    }
+    .user-dropdown a:hover, .user-dropdown button:hover { background: var(--yellow-pale); }
+    .user-dropdown .sign-out { color: #c0392b; }
+    .user-dropdown .sep { border: none; border-top: var(--border); margin: 4px 0; }
+
+    @media (max-width: 768px) {
+      header { padding: 0 16px; position: relative; height: auto; min-height: 66px; flex-wrap: wrap; gap: 8px; padding: 8px 16px; }
+      .menu-toggle { display: block; }
+      nav {
+        display: none; position: absolute; top: 66px; left: 0; right: 0;
+        background: var(--green); border-bottom: var(--border);
+        padding: 12px 0; flex-direction: column;
+      }
+      nav.show { display: flex; }
+      nav ul { flex-direction: column; align-items: center; gap: 8px; padding: 6px 0; }
+      .user-dropdown { right: auto; left: 0; }
+    }
+
+    /* LOGIN MODAL */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 500; display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+    .modal {
+      background: var(--white);
+      border: var(--border-thick); border-radius: 24px;
+      box-shadow: var(--shadow-lg);
+      padding: 36px 32px; width: 360px; max-width: 90vw;
+      text-align: center; position: relative;
+    }
+    .modal-close {
+      position: absolute; top: 14px; right: 18px;
+      font-size: 1.5rem; cursor: pointer; color: #aaa; line-height: 1;
+      background: none; border: none; font-family: inherit;
+    }
+    .modal-close:hover { color: var(--black); }
+    .modal .modal-icon { font-size: 3rem; margin-bottom: 10px; }
+    .modal h2 { font-weight: 700; font-size: 1.5rem; margin-bottom: 8px; }
+    .modal p  { font-size: 0.97rem; color: #666; margin-bottom: 24px; line-height: 1.6; }
+
+    .google-btn {
+      display: inline-flex; align-items: center; gap: 10px; justify-content: center;
+      width: 100%; padding: 13px 20px;
+      background: var(--white); border: var(--border-thick); border-radius: 50px;
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem;
+      box-shadow: var(--shadow-md); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    .google-btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); }
+    .google-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+    /* UPGRADE MODAL */
+    #upgrade-modal .modal { width: 420px; max-width: 92vw; }
+    .upgrade-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--lavender); border: var(--border); border-radius: 50px;
+      padding: 4px 16px; font-size: 0.85rem; font-weight: 700;
+      box-shadow: var(--shadow-sm); margin-bottom: 14px;
+    }
+    .perks-list {
+      list-style: none; text-align: left;
+      background: var(--yellow-pale); border: var(--border); border-radius: 16px;
+      padding: 14px 18px; margin: 0 0 22px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .perks-list li { font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+    .perks-list li span.perk-icon { font-size: 1.1rem; flex-shrink: 0; }
+    .price-row { display: flex; align-items: baseline; justify-content: center; gap: 6px; margin-bottom: 20px; }
+    .price-big { font-size: 2.4rem; font-weight: 700; line-height: 1; }
+    .price-period { font-size: 0.9rem; color: #888; font-weight: 500; }
+    .upgrade-btn {
+      display: inline-flex; align-items: center; gap: 8px; justify-content: center;
+      width: 100%; padding: 14px 20px;
+      background: var(--green); color: white;
+      border: var(--border-thick); border-radius: 50px;
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.1rem;
+      box-shadow: var(--shadow-md); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s; text-decoration: none;
+    }
+    .upgrade-btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); background: var(--green-dark); }
+    /* Compact upgrade modal perks */
+    #upgrade-modal .perks-list { gap: 4px; }
+    #upgrade-modal .perks-list li { font-size: 0.78rem; }
+
+    /* BANNER */
+    .logos-and-title {
+      display: flex; justify-content: center; align-items: flex-end;
+      background: var(--green-pale); border-bottom: var(--border-thick);
+      position: relative; z-index: 1;
+    }
+    .logos-and-title .logo {
+      width: 100%; height: auto; max-height: 160px; object-fit: contain; display: block;
+    }
+
+    /* MAIN LAYOUT */
+    .container {
+      display: flex; gap: 24px;
+      padding: 32px 60px 80px;
+      max-width: 1400px; margin: 0 auto; width: 100%;
+      position: relative; z-index: 1; flex: 1;
+    }
+
+    .video-section { flex: 2; display: flex; flex-direction: column; gap: 20px; }
+
+    .video-card {
+      background: var(--white); border: var(--border-thick); border-radius: 22px;
+      box-shadow: var(--shadow-md); padding: 22px; overflow: hidden;
+    }
+    #video-title { font-weight: 700; font-size: 1.6rem; line-height: 1.3; margin-bottom: 6px; }
+    #video-description { font-size: 1rem; color: #666; font-weight: 500; margin-bottom: 16px; }
+    .video-card iframe {
+      width: 100%; height: 500px;
+      border: var(--border); border-radius: 14px; display: block;
+    }
+
+    /* POST CONTENT */
+    .pcontainer {
+      background: var(--white); border: var(--border-thick);
+      border-radius: 22px; box-shadow: var(--shadow-md); padding: 24px;
+    }
+    .content-list {
+      list-style: none; display: flex; flex-direction: column; gap: 16px;
+    }
+    .content-list li {
+      display: flex; flex-direction: column;
+      background: var(--bg); border: var(--border); border-radius: 18px;
+      padding: 16px 20px; position: relative;
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.15s;
+    }
+    .content-list li.visible { opacity: 1; transform: translateY(0); }
+    .content-list li:hover { box-shadow: var(--shadow-md); }
+    .content-list li:nth-child(odd)  { background: var(--yellow-pale); }
+    .content-list li:nth-child(even) { background: var(--green-pale); }
+
+    .row { display: flex; align-items: center; gap: 14px; width: 100%; }
+    .avatar-1 { width: 44px; height: 44px; border-radius: 50%; border: var(--border); background-size: cover; flex-shrink: 0; background-color: var(--yellow); }
+    .user { font-size: 1rem; font-weight: 700; }
+
+    .audio {
+      position: absolute; top: 14px; right: 52px;
+      font-size: 20px; cursor: pointer; transition: transform 0.15s;
+    }
+    .audio:hover { transform: scale(1.25); }
+
+    .toggle-description {
+      position: absolute; top: 10px; right: 14px;
+      background: var(--green-pale); border: var(--border); border-radius: 50%;
+      width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+      font-size: 13px; cursor: pointer; box-shadow: var(--shadow-sm);
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    .toggle-description:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 var(--black); }
+
+    .content-list h2 { font-size: 1.35rem; font-weight: 700; line-height: 1.7; margin: 4px 0 0; cursor: default; }
+    .content-list h2 span {
+      cursor: pointer; display: inline;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+      border-radius: 4px; padding: 1px 2px;
+    }
+    .content-list h2 span:hover { color: var(--green-dark); border-color: var(--green); background: var(--green-pale); }
+
+    .description {
+      font-family: 'Quicksand', sans-serif;
+      display: none; color: #555; font-size: 1rem; line-height: 1.65;
+      margin-top: 10px; padding: 12px 14px;
+      background: var(--white); border: var(--border); border-radius: 12px;
+    }
+    .content-image {
+      max-width: 150px; height: auto; display: block;
+      border: var(--border); border-radius: 10px;
+    }
+    .image-wrapper { display: inline-flex; align-items: center; justify-content: center; }
+
+    /* QUIZ SECTION */
+    .qcontainer {
+      background: var(--white); border: var(--border-thick);
+      border-radius: 22px; box-shadow: var(--shadow-md); padding: 28px 32px;
+    }
+    .quiz-top {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    }
+    .quiz-top h1 {
+      font-weight: 700; font-size: 1.8rem; margin-bottom: 20px;
+      display: inline-block; background: var(--yellow);
+      border: var(--border); border-radius: 50px;
+      padding: 8px 26px; box-shadow: var(--shadow-sm);
+    }
+    #start-container { margin-bottom: 12px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    #start-button {
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.3rem;
+      background: var(--green); color: white;
+      padding: 12px 36px; border: var(--border-thick); border-radius: 50px;
+      box-shadow: var(--shadow-md); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    #start-button:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); }
+
+    #write-button {
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.1rem;
+      background: var(--lavender); color: var(--black);
+      padding: 12px 28px; border: var(--border-thick); border-radius: 50px;
+      box-shadow: var(--shadow-md); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s;
+      display: flex; align-items: center; gap: 8px;
+    }
+    #write-button:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); background: #b89cf5; }
+
+    .quiz-progress-wrap {
+      background: #eee; border: var(--border); border-radius: 50px;
+      height: 10px; margin: 0 0 20px; overflow: hidden; display: none;
+    }
+    .quiz-progress-fill {
+      height: 100%; background: var(--green); border-radius: 50px; transition: width 0.3s ease;
+    }
+    .quiz-counter { font-size: 0.88rem; font-weight: 700; color: #888; margin-bottom: 10px; display: none; }
+
+    .sentence {
+      margin: 20px 0 10px; font-size: 1.7rem; font-weight: 700;
+      line-height: 2.6; display: none; flex-wrap: wrap; align-items: center; gap: 6px;
+    }
+    .sentence img {
+      display: inline-block; vertical-align: middle;
+      max-width: 200px; max-height: 200px; height: auto; width: auto;
+      border: var(--border); border-radius: 14px; box-shadow: var(--shadow-sm);
+    }
+
+    .blank {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-width: 80px; min-height: 46px;
+      border: 2.5px dashed #aaa; border-radius: 14px;
+      margin: 0 4px; padding: 4px 14px;
+      background: transparent; color: #aaa;
+      font-family: 'Quicksand', sans-serif; font-weight: 800; font-size: 1.2rem;
+      cursor: pointer; vertical-align: middle;
+      transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+      user-select: none; position: relative;
+    }
+    .blank:not(.filled):not(.reveal-correct):not(.reveal-wrong)::after {
+      content: '　'; color: transparent; pointer-events: none;
+    }
+    .blank.filled {
+      background: var(--sky); border: var(--border-thick); border-style: solid; border-radius: 14px;
+      color: var(--black); box-shadow: var(--shadow-sm); cursor: pointer;
+      padding: 4px 10px; min-height: 46px; height: auto;
+    }
+    .blank.filled:hover  { background: #a8dfff; box-shadow: var(--shadow-md); transform: translate(-1px,-2px); }
+    .blank.filled img { display: block; width: 70px; height: 70px; object-fit: cover; border-radius: 8px; border: none; pointer-events: none; }
+    .blank.reveal-correct { background: var(--green-light); border-color: var(--green-dark) !important; color: var(--green-dark); border-style: solid; cursor: default; }
+    .blank.reveal-wrong   { background: var(--pink-pale);   border-color: #e53935 !important;       color: #c0392b;           border-style: solid; cursor: default; }
+    .blank.reveal-correct img, .blank.reveal-wrong img { width: 70px; height: 70px; object-fit: cover; border-radius: 8px; }
+
+    .options {
+      margin: 16px 0 8px; display: none;
+      grid-template-columns: repeat(9, 1fr); gap: 10px;
+    }
+    .options.options-img { grid-template-columns: repeat(4, 1fr); }
+
+    .word-cell { position: relative; display: flex; min-height: 50px; }
+    .word-ghost { position: absolute; inset: 0; visibility: hidden; pointer-events: none; }
+
+    .word {
+      font-family: 'Quicksand', sans-serif; font-weight: 800; font-size: 1.1rem;
+      padding: 8px 8px; width: 100%;
+      background: var(--pink); color: var(--black);
+      border: var(--border-thick); border-radius: 40px;
+      box-shadow: var(--shadow-sm); cursor: pointer;
+      transition: transform 0.14s ease, box-shadow 0.14s ease, background 0.12s;
+      user-select: none;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; line-height: 1.2; position: relative;
+    }
+    .word:hover:not(.used):not(.disabled) { transform: translate(-2px,-3px); box-shadow: 5px 5px 0 var(--black); background: var(--peach); }
+    .word:active:not(.used):not(.disabled) { transform: translate(0,0); box-shadow: var(--shadow-sm); }
+    .word.has-image { border-radius: 16px; padding: 6px; background: var(--white); aspect-ratio: 1; }
+    .word.has-image img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 10px; pointer-events: none; }
+    .word.used { visibility: hidden; pointer-events: none; }
+    .word.disabled { opacity: 0.4; pointer-events: none; }
+    .word.correct-reveal   { background: var(--green-light); border-color: var(--green-dark); }
+    .word.incorrect-reveal { background: var(--pink-pale);   border-color: #e53935; }
+
+    @media (max-width: 600px) {
+      .options, .options.options-img { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .result { margin-top: 14px; font-size: 1.05rem; font-weight: 700; display: none; }
+    .correct   { color: var(--green-dark); }
+    .incorrect { color: #e53935; }
+
+    #buttons { display: none; margin-top: 10px; }
+    #buttons button {
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem;
+      padding: 10px 22px; border: var(--border-thick); border-radius: 50px;
+      box-shadow: var(--shadow-sm); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s; margin: 5px;
+    }
+    #buttons button:hover:not(:disabled) { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+    #buttons button.next   { background: var(--green); color: white; }
+    #buttons button.finish { background: var(--yellow); color: var(--black); }
+    #buttons button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    .score-summary { display: none; text-align: center; padding: 24px 0 8px; }
+    .score-circle {
+      width: 120px; height: 120px; border-radius: 50%;
+      border: var(--border-thick); margin: 0 auto 16px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      box-shadow: var(--shadow-lg); font-weight: 700;
+    }
+    .score-circle .score-num   { font-size: 2.2rem; line-height: 1; }
+    .score-circle .score-label { font-size: 0.85rem; color: #666; }
+    .score-summary h2 { font-size: 1.4rem; margin-bottom: 8px; }
+    .score-summary p  { color: #666; font-size: 0.97rem; margin-bottom: 18px; }
+
+    .restart-btn {
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem;
+      background: var(--green); color: white;
+      padding: 10px 28px; border: var(--border-thick); border-radius: 50px;
+      box-shadow: var(--shadow-md); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    .restart-btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); }
+
+    .hint-text { font-size: 0.9rem; color: #888; margin-top: 12px; border-top: var(--border); padding-top: 10px; }
+
+    .replay-btn {
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 0.95rem;
+      background: var(--sky-pale); border: var(--border); border-radius: 50px;
+      padding: 8px 18px; box-shadow: var(--shadow-sm); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s; margin: 5px;
+    }
+    .replay-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+
+    .modal-error {
+      background: var(--pink-pale); border: 2px solid #e53935; border-radius: 12px;
+      padding: 10px 14px; font-size: 0.9rem; color: #c0392b;
+      margin-top: 14px; display: none; text-align: left;
+    }
+
+    /* WORD POPUP OVERLAY */
+    .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 999; }
+    .image-card {
+      position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      background: var(--white); border: var(--border-thick); border-radius: 22px;
+      padding: 24px; box-shadow: var(--shadow-lg); z-index: 1000;
+      width: 320px; text-align: center;
+    }
+    .image-card img { max-width: 100%; height: auto; border-radius: 10px; border: var(--border); }
+    .image-card h3 { margin: 12px 0 6px; font-size: 1.2rem; }
+    .image-card p  { font-size: 0.95rem; color: #666; }
+    .image-card .close {
+      position: absolute; top: 12px; right: 16px;
+      cursor: pointer; font-size: 1.6rem; color: #aaa; line-height: 1;
+      background: none; border: none; font-family: inherit;
+    }
+    .image-card .close:hover { color: var(--black); }
+    #writer-container { display: flex; gap: 12px; justify-content: center; align-items: center; flex-wrap: wrap; }
+    .image-card audio { width: 100%; margin-top: 10px; }
+
+    /* SIDEBAR */
+    .thumbnails-section {
+      flex: 1; min-width: 260px; max-width: 320px;
+      position: sticky; top: 86px; align-self: flex-start;
+    }
+    .sidebar-card {
+      background: var(--white); border: var(--border-thick); border-radius: 22px;
+      box-shadow: var(--shadow-md); padding: 18px;
+      max-height: calc(100vh - 120px); overflow-y: auto;
+    }
+    .sidebar-card h3 {
+      font-weight: 700; font-size: 1.15rem; margin-bottom: 16px;
+      display: inline-block; background: var(--sky); border: var(--border); border-radius: 50px;
+      padding: 5px 18px; box-shadow: var(--shadow-sm);
+    }
+
+    /* THUMBNAIL (base) */
+    .thumbnail {
+      display: flex; gap: 10px; margin-bottom: 14px; align-items: center;
+      border: var(--border); border-radius: 14px;
+      overflow: hidden; background: var(--bg);
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    .thumbnail:hover { transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--black); }
+
+    /* Free thumbnail — clickable link */
+    .thumbnail.free a {
+      text-decoration: none; color: inherit; display: flex;
+      gap: 10px; align-items: center; width: 100%; padding: 8px;
+    }
+    .thumbnail.free a img { width: 90px; height: 56px; border-radius: 8px; border: var(--border); object-fit: cover; flex-shrink: 0; }
+    .thumbnail.free a h4 { font-size: 0.9rem; font-weight: 600; color: var(--black); margin: 0 0 3px; }
+    .thumbnail.free a p  { font-size: 0.78rem; color: #777; margin: 0; }
+
+    /* Locked thumbnail */
+    .thumbnail.locked { cursor: pointer; }
+    .thumb-inner { display: flex; gap: 10px; align-items: center; width: 100%; padding: 8px; }
+
+    .thumb-img-wrap { position: relative; flex-shrink: 0; }
+    .thumb-img-wrap img { width: 90px; height: 56px; border-radius: 8px; border: var(--border); object-fit: cover; display: block; }
+
+    .thumb-lock-overlay {
+      position: absolute; inset: 0;
+      background: rgba(30,20,60,0.58);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 3px;
+      backdrop-filter: blur(3px); border-radius: 8px;
+    }
+    .thumb-lock-icon  { font-size: 1.1rem; line-height: 1; }
+    .thumb-lock-label {
+      background: var(--lavender); border: 1.5px solid var(--black); border-radius: 50px;
+      padding: 1px 7px; font-size: 0.6rem; font-weight: 700;
+      box-shadow: 1px 1px 0 var(--black); color: var(--black); white-space: nowrap;
+    }
+
+    .thumb-info { flex: 1; min-width: 0; }
+    .thumb-premium-tag {
+      display: inline-block;
+      background: var(--lavender); border: 1.5px solid var(--black); border-radius: 50px;
+      padding: 1px 8px; font-size: 0.68rem; font-weight: 700;
+      box-shadow: 1px 1px 0 var(--black); margin-bottom: 3px;
+    }
+    .thumb-info h4 { font-size: 0.9rem; font-weight: 600; color: var(--black); margin: 0 0 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .thumb-info p  { font-size: 0.78rem; color: #777; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    /* FIXED TAGS */
+    .buy-coffee, .new-words {
+      position: fixed; right: 20px;
+      background: var(--yellow); border: var(--border-thick);
+      border-radius: 20px; padding: 10px 14px;
+      box-shadow: var(--shadow-md); font-weight: 700; font-size: 0.9rem;
+      z-index: 50; transition: transform 0.12s;
+    }
+    .buy-coffee { top: calc(50% - 70px); }
+    .new-words  { top: 50%; transform: translateY(-50%); }
+    .buy-coffee a, .new-words a { text-decoration: none; color: var(--black); }
+    .buy-coffee:hover { transform: translate(-2px,-2px); }
+    .new-words:hover  { transform: translateY(-50%) translate(-2px,-2px); }
+
+    /* FOOTER */
+    footer {
+      background: #222; color: rgba(255,255,255,0.65);
+      padding: 28px 50px; text-align: center; position: relative; z-index: 1;
+    }
+    footer .brand { font-weight: 700; color: var(--green-light); font-size: 1.3rem; margin-bottom: 6px; }
+    footer p { font-size: 0.95rem; font-weight: 500; margin-bottom: 3px; }
+    .social-icons { margin-top: 14px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .social-icons a {
+      text-decoration: none; color: var(--black); font-weight: 600; font-size: 0.9rem;
+      background: var(--green-light); border: var(--border); border-radius: 50px;
+      padding: 5px 16px; box-shadow: var(--shadow-sm); transition: transform 0.12s;
+    }
+    .social-icons a:hover { transform: translate(-1px,-2px); }
+
+    a { color: var(--green-dark); text-decoration: none; }
+    a:hover { color: #e53935; }
+
+    @media (max-width: 1024px) {
+      .container { flex-direction: column; padding: 20px 20px 80px; }
+      .thumbnails-section { max-width: 100%; width: 100%; position: static; }
+      .sidebar-card { max-height: 400px; }
+      .video-card iframe { height: 400px; }
+    }
+    @media (max-width: 768px) {
+      .container { padding: 16px 16px 80px; }
+      .video-card iframe { height: 280px; }
+      .buy-coffee, .new-words { right: 10px; padding: 8px 10px; font-size: 0.8rem; }
+      .buy-coffee { top: calc(50% - 55px); }
+      footer { padding: 28px 20px; }
+      .sentence { font-size: 1.3rem; }
+      .word { font-size: 1.1rem; }
+      .content-image { max-width: 80px; }
+      .quiz-top h1 { font-size: 1.1rem; }
+    }
+    @media (max-width: 480px) {
+      header h1 { font-size: 1.3rem; }
+      .sentence { font-size: 1.1rem; }
+      .word { font-size: 1rem; padding: 8px 14px; }
+      .qcontainer { padding: 18px 16px; }
+      .content-image { max-width: 65px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1><a href="index.html" class="homepage-link">CHINESE 60s</a></h1>
+    <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <nav>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="https://www.amazon.com/shop/studiorum60s" target="_blank">Amazon</a></li>
+        <li id="auth-nav-item">
+          <button id="sign-in-btn" onclick="openLoginModal()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" fill="#333"/></svg>
+            Sign In
+          </button>
+          <div class="user-menu-wrap" id="user-menu-wrap" style="display:none;">
+            <div class="auth-pill" id="user-pill" onclick="toggleUserMenu()">
+              <div class="avatar" id="nav-avatar">👤</div>
+              <span id="nav-username">User</span>
+            </div>
+            <div class="user-dropdown" id="user-dropdown">
+              <a href="profile.html">👤 My Profile</a>
+              <hr class="sep">
+              <button class="sign-out" onclick="signOut()">🚪 Sign Out</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- LOGIN MODAL -->
+  <div class="modal-overlay" id="login-modal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeLoginModal()">✕</button>
+      <div class="modal-icon">🔐</div>
+      <h2>Sign in to continue</h2>
+      <p>Sign in with your Google account to access the practice quiz and track your progress.</p>
+      <button class="google-btn" id="google-signin-btn" onclick="doGoogleSignIn()">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84z" fill="#EA4335"/>
+        </svg>
+        <span id="signin-btn-text">Continue with Google</span>
+      </button>
+      <div class="modal-error" id="modal-error"></div>
+    </div>
+  </div>
+
+  <!-- UPGRADE MODAL -->
+  <div class="modal-overlay" id="upgrade-modal">
+  <div class="modal" style="width:320px;max-width:92vw;padding:18px 18px 16px;overflow:hidden;">
+    <button class="modal-close" onclick="closeUpgradeModal()" style="top:10px;right:14px;font-size:1.1rem;">✕</button>
+    <div class="modal-icon" style="font-size:1.8rem;margin-bottom:3px;">⭐</div>
+    <div style="text-align:center;margin-bottom:6px;"><span class="upgrade-badge">✨ Lifetime Access — One-time</span></div>
+    <h2 style="font-size:1.15rem;margin-bottom:2px;text-align:center;">HSK 1 + 2 Full Pack</h2>
+    <p style="font-size:0.78rem;color:#777;text-align:center;margin-bottom:10px;line-height:1.4;">Pay once. Yours forever.<br>No subscription, no renewals.</p>
+
+    <!-- TABS -->
+    <div class="upgrade-tabs" style="display:flex;gap:5px;margin-bottom:11px;">
+      <button class="upgrade-tab active" id="tab-buy-btn" onclick="switchUpgradeTab('buy')" style="flex:1;padding:6px 4px;border-radius:50px;border:2px solid #222;font-size:0.78rem;font-weight:700;cursor:pointer;font-family:'Fredoka',sans-serif;background:var(--yellow);color:#222;box-shadow:3px 3px 0 #222;">☕ Buy Access</button>
+      <button class="upgrade-tab" id="tab-key-btn" onclick="switchUpgradeTab('key')" style="flex:1;padding:6px 4px;border-radius:50px;border:2px solid #222;font-size:0.78rem;font-weight:700;cursor:pointer;font-family:'Fredoka',sans-serif;background:var(--yellow-pale);color:#999;">🔑 I have a key</button>
+    </div>
+
+    <!-- PANEL: BUY -->
+    <div id="upgrade-panel-buy">
+      <ul class="perks-list" style="padding:8px 12px;margin-bottom:9px;">
+        <li style="font-size:0.78rem;gap:7px;"><span class="perk-icon">💬</span> Dialogue Lessons HSK 1 &amp; 2</li>
+        <li style="font-size:0.78rem;gap:7px;"><span class="perk-icon">📖</span> Grammar Explained Simply</li>
+        <li style="font-size:0.78rem;gap:7px;"><span class="perk-icon">📚</span> Essential Vocabulary</li>
+        <li style="font-size:0.78rem;gap:7px;"><span class="perk-icon">🎙️</span> Speaking Practice</li>
+        <li style="font-size:0.78rem;gap:7px;"><span class="perk-icon">✏️</span> Writing Practice</li>
+        <li style="font-size:0.78rem;gap:7px;"><span class="perk-icon">🧠</span> Interactive Quizzes</li>
+      </ul>
+      <div class="price-row" style="margin-bottom:10px;">
+        <span class="price-big" style="font-size:1.8rem;">$9</span>
+        <span class="price-period">one-time · lifetime</span>
+      </div>
+      <button class="upgrade-btn" onclick="goToGumroad()" style="font-size:0.88rem;padding:10px 14px;">
+        🛍️ Buy on Gumroad
+      </button>
+      <p style="font-size:0.62rem;color:#bbb;margin-top:3px;text-align:center;">
+        📩 <a href="https://instagram.com/chinese60s" target="_blank" style="color:#aaa;">Message us on Instagram (@chinese60s)</a>
+      </p>
+    </div>
+
+    <!-- PANEL: KEY -->
+    <div id="upgrade-panel-key" style="display:none;">
+      <p style="font-size:0.78rem;font-weight:600;color:#777;margin-bottom:5px;text-align:left;">Paste your Gumroad license key below:</p>
+      <input id="gumroad-key-input" type="text" placeholder="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+        style="width:100%;padding:9px 12px;border:2px solid #222;border-radius:10px;font-family:'Fredoka',sans-serif;font-size:0.82rem;background:var(--bg);color:#222;margin-bottom:9px;box-sizing:border-box;">
+      <button onclick="redeemGumroadKey()"
+        style="width:100%;padding:10px;background:var(--yellow);color:#222;border:2.5px solid #222;border-radius:50px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:0.86rem;box-shadow:3px 3px 0 #222;cursor:pointer;">
+        🔓 Unlock Now
+      </button>
+      <div id="key-feedback" style="font-size:0.82rem;text-align:center;margin-top:8px;font-weight:600;min-height:20px;"></div>
+      <p style="font-size:0.68rem;color:#bbb;margin-top:8px;text-align:center;line-height:1.45;">
+        After purchase on Gumroad, you'll receive a license key via email.<br>
+        Paste it here to unlock your account instantly.
+      </p>
+    </div>
+  </div>
+</div>
+
+  <!-- BANNER -->
+  <div class="logos-and-title">
+    <img src="assets/banner.png" alt="Chinese 60s" class="logo">
+  </div>
+
+  <!-- MAIN LAYOUT -->
+  <div class="container" style="max-width:900px;">
+    <div class="video-section" style="flex:1;">
+
+      
+
+      <!-- Post Content -->
+<div class="pcontainer">
+  <h2 id="section-title" style="margin-bottom:20px;font-size:1.5rem;font-weight:700;">📚 My Lessons</h2>
+  <ul class="content-list" id="itemList"></ul>
+</div>
+      
+
+      <!-- QUIZ SECTION -->
+      <div class="qcontainer" id="quiz-container" data-start-id="24" data-end-id="38">
+        <div class="quiz-top">
+          <h1>Let's Practice! 🎯</h1>
+        </div>
+
+        <div id="quiz-unlocked">
+          <div id="start-container">
+            <button id="start-button">▶ Start Quiz</button>
+          </div>
+
+          <div class="quiz-counter" id="quiz-counter"></div>
+          <div class="quiz-progress-wrap" id="quiz-progress-wrap">
+            <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+          </div>
+
+          <div class="sentence" id="sentence"></div>
+          <div class="options" id="options"></div>
+          <div class="result" id="result"></div>
+          <div id="buttons"></div>
+
+          <div class="score-summary" id="score-summary">
+            <div class="score-circle" id="score-circle">
+              <span class="score-num" id="score-num">0/0</span>
+              <span class="score-label">correct</span>
+            </div>
+            <h2 id="score-title">Quiz Complete!</h2>
+            <p id="score-msg"></p>
+            <button class="restart-btn" id="restart-btn">▶ Try Again</button>
+          </div>
+        </div>
+      </div>
+
+      <p class="hint-text">💡 Click on each Chinese character to see its meaning and pronunciation</p>
+    </div>
+
+    
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p class="brand">CHINESE 60s</p>
+    <p>Learn Mandarin through images and videos</p>
+    <div class="social-icons">
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+      <a href="#">TikTok</a>
+      <a href="#">Instagram</a>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       HAMBURGER
+  ═══════════════════════════════════════════════════════════ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('nav');
+      menuToggle.addEventListener('click', function () {
+        nav.classList.toggle('show');
+        menuToggle.innerHTML = nav.classList.contains('show') ? '&#10005;' : '&#9776;';
+      });
+    });
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       GLOBAL STATE & MODAL HELPERS
+  ═══════════════════════════════════════════════════════════ -->
+  <script>
+    window.__currentUser   = null;
+    window.__userIsPremium = false;
+    window.__premiumLoaded = false;
+
+    /* Login modal */
+    window.openLoginModal = function () {
+      const m = document.getElementById('login-modal');
+      m.classList.add('open');
+      const err = document.getElementById('modal-error');
+      const txt = document.getElementById('signin-btn-text');
+      if (err) { err.style.display = 'none'; err.textContent = ''; }
+      if (txt) txt.textContent = 'Continue with Google';
+      const btn = document.getElementById('google-signin-btn');
+      if (btn) btn.disabled = false;
+    };
+    window.closeLoginModal = function () {
+      document.getElementById('login-modal').classList.remove('open');
+    };
+
+    /* Upgrade modal */
+    window.openUpgradeModal = function () {
+      document.getElementById('upgrade-modal').classList.add('open');
+    };
+    window.closeUpgradeModal = function () {
+      document.getElementById('upgrade-modal').classList.remove('open');
+    };
+
+    /* BMAC link */
+    /* Gumroad link */
+const GUMROAD_LINK = 'https://gumroad.com/l/hsk1_2_pack'; // 👈 đổi thành link thật
+
+window.goToGumroad = function () {
+  if (!window.__currentUser) {
+    window.__afterLoginAction = openUpgradeModal;
+    closeUpgradeModal();
+    openLoginModal();
+    return;
+  }
+  window.open(GUMROAD_LINK, '_blank');
+};
+
+/* Tab switching */
+window.switchUpgradeTab = function (tab) {
+  const isBuy = tab === 'buy';
+  document.getElementById('upgrade-panel-buy').style.display = isBuy ? 'block' : 'none';
+  document.getElementById('upgrade-panel-key').style.display = isBuy ? 'none' : 'block';
+  const buyBtn = document.getElementById('tab-buy-btn');
+  const keyBtn = document.getElementById('tab-key-btn');
+  buyBtn.style.background  = isBuy ? 'var(--yellow)' : 'var(--yellow-pale)';
+  buyBtn.style.color       = isBuy ? '#222' : '#999';
+  buyBtn.style.boxShadow   = isBuy ? '3px 3px 0 #222' : 'none';
+  keyBtn.style.background  = isBuy ? 'var(--yellow-pale)' : 'var(--yellow)';
+  keyBtn.style.color       = isBuy ? '#999' : '#222';
+  keyBtn.style.boxShadow   = isBuy ? 'none' : '3px 3px 0 #222';
+};
+
+/* Gumroad key redemption */
+const GUMROAD_PERMALINK = 'hsk1_2_pack';
+window.redeemGumroadKey = async function () {
+  const key = document.getElementById('gumroad-key-input').value.trim();
+  const fb  = document.getElementById('key-feedback');
+  if (!key) { fb.style.color = '#c0392b'; fb.textContent = 'Please enter your license key.'; return; }
+  if (!window.__currentUser) {
+    window.__afterLoginAction = openUpgradeModal;
+    closeUpgradeModal(); openLoginModal(); return;
+  }
+  fb.style.color = '#888'; fb.textContent = 'Checking key…';
+  try {
+    const res = await fetch('https://api.gumroad.com/v2/licenses/verify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({ product_id: 'k_9oIubGaXw_MMRKVwQ9lA==', license_key: key, increment_uses_count: 'false' })
+    });
+    const data = await res.json();
+    if (data.success) {
+      const { getFirestore, doc, updateDoc } =
+        await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
+      await updateDoc(doc(getFirestore(), 'users', window.__currentUser.uid), {
+        isPremium: true, gumroadKey: key, activatedAt: new Date().toISOString()
+      });
+      window.__userIsPremium = true;
+      window.__premiumLoaded = true;
+      closeUpgradeModal();
+      // Show toast nếu có
+      const t = document.getElementById('premium-toast');
+      if (t) { t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 4000); }
+      renderSidebarThumbnails();
+    } else {
+      fb.style.color = '#c0392b'; fb.textContent = data.message || 'Invalid key. Please check and try again.';
+    }
+  } catch (e) {
+    fb.style.color = '#c0392b'; fb.textContent = 'Network error. Please try again.';
+  }
+};
+
+    /* User dropdown */
+    window.toggleUserMenu = function () {
+      document.getElementById('user-menu-wrap').classList.toggle('open');
+    };
+
+    /* Close on outside click */
+    document.addEventListener('click', function (e) {
+      const loginModal   = document.getElementById('login-modal');
+      const upgradeModal = document.getElementById('upgrade-modal');
+      if (e.target === loginModal)   closeLoginModal();
+      if (e.target === upgradeModal) closeUpgradeModal();
+      const wrap = document.getElementById('user-menu-wrap');
+      if (wrap && !wrap.contains(e.target) && !e.target.closest('#auth-nav-item')) {
+        wrap.classList.remove('open');
+      }
+    });
+
+    window.doGoogleSignIn = function () { openLoginModal(); };
+    window.signOut        = function () {};
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       PREMIUM CHECK
+  ═══════════════════════════════════════════════════════════ -->
+  <script>
+    window.refreshPremiumStatus = async function () {
+      if (!window.__currentUser) {
+        window.__userIsPremium = false;
+        window.__premiumLoaded = true;
+        renderSidebarThumbnails();
+        return;
+      }
+      try {
+        const { getFirestore, doc, getDoc } =
+          await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
+        const db   = getFirestore();
+        const snap = await getDoc(doc(db, 'users', window.__currentUser.uid));
+        if (snap.exists()) {
+          const data     = snap.data();
+          const forever  = data.isPremium === true;
+          const hasUntil = data.premiumUntil && data.premiumUntil.toDate() > new Date();
+          window.__userIsPremium = forever || hasUntil;
+        } else {
+          window.__userIsPremium = false;
+        }
+      } catch (e) {
+        console.warn('[premium] Firestore check failed:', e);
+        window.__userIsPremium = false;
+      }
+      window.__premiumLoaded = true;
+      renderSidebarThumbnails();
+    };
+  </script>
+
+  
+  <!-- ═══════════════════════════════════════════════════════════
+       TRACKING HELPERS
+  ═══════════════════════════════════════════════════════════ -->
+  <script>
+    window.saveQuizAttempt = async function (postId, score, totalQ, wrongList) {
+      if (!window.__currentUser) return;
+      try {
+        const { getFirestore, collection, addDoc, doc, setDoc, serverTimestamp, increment } =
+          await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
+        const db  = getFirestore();
+        const uid = window.__currentUser.uid;
+        await addDoc(collection(db, 'quiz_attempts'), {
+          uid, postId: String(postId), score, totalQuestions: totalQ,
+          wrongAnswers: wrongList || [], startTime: serverTimestamp()
+        });
+        await setDoc(doc(db, 'users', uid), {
+          totalScore: increment(score), totalQuizzes: increment(1)
+        }, { merge: true });
+        console.log('[tracking] quiz_attempt saved ✓', { postId, score, totalQ });
+      } catch(e) {
+        console.warn('[tracking] saveQuizAttempt failed:', e);
+      }
+    };
+
+    window.saveRecording = async function (postId, transcript, correctSentence) {
+      if (!window.__currentUser) return;
+      try {
+        const { getFirestore, collection, addDoc, serverTimestamp } =
+          await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
+        const db = getFirestore();
+        await addDoc(collection(db, 'recordings'), {
+          uid: window.__currentUser.uid, postId: String(postId),
+          transcript: transcript || '', correctSentence: correctSentence || '',
+          timestamp: serverTimestamp()
+        });
+        console.log('[tracking] recording saved ✓', { postId, transcript });
+      } catch(e) {
+        console.warn('[tracking] saveRecording failed:', e);
+      }
+    };
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       QUIZ LOGIC
+  ═══════════════════════════════════════════════════════════ -->
+  <script>
+  (function () {
+
+    function isImg(s) { return /\.(jpe?g|png|gif|bmp|webp|svg)$/i.test(String(s || '')); }
+    function wordHTML(w) {
+      if (isImg(w)) return `<img src="${w}" alt="">`;
+      return String(w);
+    }
+
+    let questions    = [];
+    let curIdx       = 0;
+    let scoreCorrect = 0;
+    let revealed     = false;
+    let slots        = [];
+    let wrongAnswerLog = [];
+
+    const clickAudio     = new Audio('assets/click.mp3');
+    const correctAudio   = new Audio('assets/correct.mp3');
+    const incorrectAudio = new Audio('assets/incorrect.mp3');
+    const victoryAudio   = new Audio('assets/victory.mp3');
+    let   qAudio         = null;
+
+    const startCont    = document.getElementById('start-container');
+    const startBtn     = document.getElementById('start-button');
+    const sentenceEl   = document.getElementById('sentence');
+    const optionsEl    = document.getElementById('options');
+    const resultEl     = document.getElementById('result');
+    const buttonsEl    = document.getElementById('buttons');
+    const progWrap     = document.getElementById('quiz-progress-wrap');
+    const progFill     = document.getElementById('quiz-progress-fill');
+    const counterEl    = document.getElementById('quiz-counter');
+    const summaryEl    = document.getElementById('score-summary');
+    const scoreNumEl   = document.getElementById('score-num');
+    const scoreTitleEl = document.getElementById('score-title');
+    const scoreMsgEl   = document.getElementById('score-msg');
+    const scoreCircle  = document.getElementById('score-circle');
+    const restartBtn   = document.getElementById('restart-btn');
+
+    async function loadQ(startId, endId) {
+      try {
+        const r    = await fetch('data/quiz.json');
+        const json = await r.json();
+        const raw  = Array.isArray(json) ? json : (json.questions || []);
+        return raw.filter(q => q.id >= startId && q.id <= endId);
+      } catch(e) {
+        console.warn('quiz.json failed, using demo:', e);
+        return [
+          { id:1, sentence:'我___苹果。', blanks:[{answer:'喜欢'}], words:['喜欢','不是','很好','去'] },
+          { id:2, sentence:'他___老师。', blanks:[{answer:'是'}],   words:['是','有','在','很'] },
+          { id:3, sentence:'我们___一起___学习。', blanks:[{answer:'可以'},{answer:'好好'}], words:['可以','不好','好好','很大'] }
+        ];
+      }
+    }
+
+    startBtn.addEventListener('click', async () => {
+      if (!window.__currentUser) { openLoginModal(); return; }
+
+      const qc   = document.getElementById('quiz-container');
+      const p    = new URLSearchParams(window.location.search);
+      const sId  = parseInt(p.get('quizStartId')) || parseInt(qc.dataset.startId) || 1;
+      const eId  = parseInt(p.get('quizEndId'))   || parseInt(qc.dataset.endId)   || 10;
+
+      questions      = await loadQ(sId, eId);
+      curIdx         = 0;
+      scoreCorrect   = 0;
+      wrongAnswerLog = [];
+
+      startCont.style.display  = 'none';
+      progWrap.style.display   = 'block';
+      counterEl.style.display  = 'block';
+      summaryEl.style.display  = 'none';
+      showQ();
+    });
+
+    function showQ() {
+      if (curIdx >= questions.length) { showSummary(); return; }
+
+      const q      = questions[curIdx];
+      const blanks = q.blanks || [];
+      revealed     = false;
+      slots        = blanks.map(() => null);
+
+      progFill.style.width  = (curIdx / questions.length * 100) + '%';
+      counterEl.textContent = `Question ${curIdx + 1} of ${questions.length}`;
+
+      let sentRaw = q.sentence || '';
+      if (Array.isArray(sentRaw)) {
+        sentRaw = sentRaw.map(tok => isImg(tok) ? `<img src="${tok}" alt="">` : String(tok)).join('');
+      } else {
+        sentRaw = String(sentRaw).replace(/([\S]+\.(?:jpe?g|png|gif|bmp|webp|svg))/gi,
+          '<img src="$1" alt="">');
+      }
+
+      let bi = 0;
+      const sentHTML = sentRaw.replace(/___/g, () => {
+        const idx = bi++;
+        return `<span class="blank" data-bi="${idx}"></span>`;
+      });
+      sentenceEl.innerHTML = sentHTML;
+      sentenceEl.style.display = 'flex';
+
+      sentenceEl.querySelectorAll('.blank').forEach(blankEl => {
+        blankEl.addEventListener('click', () => handleBlankClick(blankEl));
+      });
+
+      const words  = [...(q.words || [])].sort(() => Math.random() - 0.5);
+      optionsEl.innerHTML = '';
+      const imgCount = words.filter(w => isImg(w)).length;
+      const isImgQ   = imgCount > words.length / 2;
+      optionsEl.style.display = 'grid';
+      optionsEl.classList.toggle('options-img', isImgQ);
+
+      words.forEach(word => {
+        const hasImg = isImg(word);
+        const cell   = document.createElement('div');
+        cell.className = 'word-cell';
+        const ghost = document.createElement('span');
+        ghost.className = 'word-ghost';
+        const btn = document.createElement('button');
+        btn.className    = 'word';
+        btn.dataset.word = String(word);
+        btn.innerHTML    = wordHTML(word);
+        if (hasImg) btn.classList.add('has-image');
+        btn.addEventListener('click', () => handleWordClick(btn, ghost));
+        cell.appendChild(ghost);
+        cell.appendChild(btn);
+        optionsEl.appendChild(cell);
+        requestAnimationFrame(() => {
+          ghost.style.width  = btn.offsetWidth  + 'px';
+          ghost.style.height = btn.offsetHeight + 'px';
+        });
+      });
+
+      resultEl.style.display  = 'none';
+      resultEl.textContent    = '';
+      resultEl.className      = 'result';
+      buttonsEl.innerHTML     = '';
+      buttonsEl.style.display = 'block';
+
+      if (q.audio) {
+        if (qAudio) { qAudio.pause(); }
+        qAudio = new Audio(q.audio);
+        qAudio.play().catch(() => {});
+        const rb = document.createElement('button');
+        rb.className   = 'replay-btn';
+        rb.textContent = '🔊 Replay';
+        rb.addEventListener('click', () => { qAudio.currentTime = 0; qAudio.play().catch(() => {}); });
+        buttonsEl.appendChild(rb);
+      }
+
+      const isLast    = curIdx === questions.length - 1;
+      const actionBtn = document.createElement('button');
+      actionBtn.id          = 'action-btn';
+      actionBtn.textContent = isLast ? 'Finish ✓' : 'Next →';
+      actionBtn.className   = isLast ? 'finish' : 'next';
+      actionBtn.disabled    = true;
+      actionBtn.addEventListener('click', () => reveal(q));
+      buttonsEl.appendChild(actionBtn);
+    }
+
+    function handleWordClick(btn, ghost) {
+      if (revealed || btn.classList.contains('used')) return;
+      const emptyBi = slots.findIndex(s => s === null);
+      if (emptyBi === -1) return;
+      play(clickAudio);
+      btn.classList.add('used');
+      const blankEl = sentenceEl.querySelector(`[data-bi="${emptyBi}"]`);
+      if (!blankEl) return;
+      blankEl.innerHTML = wordHTML(btn.dataset.word);
+      blankEl.classList.add('filled');
+      slots[emptyBi] = { optBtn: btn, ghostEl: ghost, word: btn.dataset.word };
+      checkAllFilled();
+    }
+
+    function handleBlankClick(blankEl) {
+      if (revealed) return;
+      const bi   = parseInt(blankEl.dataset.bi);
+      const slot = slots[bi];
+      if (!slot) return;
+      play(clickAudio);
+      slot.optBtn.classList.remove('used');
+      blankEl.innerHTML = '';
+      blankEl.className = 'blank';
+      blankEl.setAttribute('data-bi', String(bi));
+      slots[bi] = null;
+      checkAllFilled();
+      blankEl.addEventListener('click', () => handleBlankClick(blankEl));
+    }
+
+    function checkAllFilled() {
+      const btn = document.getElementById('action-btn');
+      if (btn) btn.disabled = slots.some(s => s === null);
+    }
+
+    function reveal(q) {
+      if (revealed || slots.some(s => s === null)) return;
+      revealed = true;
+
+      const blanks = q.blanks || [];
+      let allOk = true;
+
+      blanks.forEach((b, i) => {
+        const given = slots[i]?.word;
+        const ok    = String(given) === String(b.answer);
+        if (!ok) {
+          allOk = false;
+          wrongAnswerLog.push({
+            question: String(q.sentence || ''),
+            given:    String(given || '(empty)'),
+            answer:   String(b.answer)
+          });
+        }
+      });
+
+      if (allOk) scoreCorrect++;
+
+      blanks.forEach((b, i) => {
+        const blankEl = sentenceEl.querySelector(`[data-bi="${i}"]`);
+        if (!blankEl) return;
+        const ok = slots[i] && String(slots[i].word) === String(b.answer);
+        blankEl.classList.add(ok ? 'reveal-correct' : 'reveal-wrong');
+        blankEl.style.cursor = 'default';
+        if (!ok && !isImg(b.answer)) {
+          const hint = document.createElement('small');
+          hint.textContent = ` (${b.answer})`;
+          hint.style.cssText = 'font-size:0.65em;opacity:0.75;margin-left:4px;';
+          blankEl.appendChild(hint);
+        }
+      });
+
+      optionsEl.querySelectorAll('.word').forEach(btn => {
+        btn.disabled = true;
+        btn.style.cursor = 'default';
+        const isCorrect = blanks.some(b => String(b.answer) === btn.dataset.word);
+        const wasUsed   = slots.some(s => s && s.optBtn === btn);
+        if (wasUsed && isCorrect)  btn.classList.add('correct-reveal');
+        if (wasUsed && !isCorrect) btn.classList.add('incorrect-reveal');
+        if (!wasUsed && isCorrect) btn.classList.add('correct-reveal');
+      });
+
+      if (allOk) {
+        play(correctAudio);
+        resultEl.textContent = '✅ Correct!';
+        resultEl.className   = 'result correct';
+      } else {
+        play(incorrectAudio);
+        resultEl.textContent = `❌ Answer: ${blanks.map(b => b.answer).join(' / ')}`;
+        resultEl.className   = 'result incorrect';
+      }
+      resultEl.style.display = 'block';
+
+      const actionBtn = document.getElementById('action-btn');
+      if (actionBtn) {
+        const isLast = curIdx === questions.length - 1;
+        const fresh  = actionBtn.cloneNode(false);
+        fresh.textContent = isLast ? 'See Results 🏆' : 'Continue →';
+        fresh.className   = isLast ? 'finish' : 'next';
+        fresh.disabled    = false;
+        fresh.addEventListener('click', () => { curIdx++; showQ(); });
+        actionBtn.replaceWith(fresh);
+      }
+    }
+
+    function showSummary() {
+      sentenceEl.style.display  = 'none';
+      optionsEl.style.display   = 'none';
+      resultEl.style.display    = 'none';
+      buttonsEl.style.display   = 'none';
+      progWrap.style.display    = 'none';
+      counterEl.style.display   = 'none';
+      play(victoryAudio);
+
+      const total = questions.length;
+      const pct   = total ? Math.round(scoreCorrect / total * 100) : 0;
+      progFill.style.width   = '100%';
+      scoreNumEl.textContent = `${scoreCorrect}/${total}`;
+
+      if (pct >= 80) {
+        scoreCircle.style.background  = 'var(--green-pale)';
+        scoreCircle.style.borderColor = 'var(--green)';
+        scoreTitleEl.textContent = '🎉 Excellent!';
+        scoreMsgEl.textContent   = `You got ${scoreCorrect}/${total} correct (${pct}%). Outstanding!`;
+      } else if (pct >= 50) {
+        scoreCircle.style.background  = 'var(--yellow-pale)';
+        scoreCircle.style.borderColor = 'var(--yellow)';
+        scoreTitleEl.textContent = '👍 Good effort!';
+        scoreMsgEl.textContent   = `You got ${scoreCorrect}/${total} correct (${pct}%). Keep it up!`;
+      } else {
+        scoreCircle.style.background  = 'var(--pink-pale)';
+        scoreCircle.style.borderColor = 'var(--pink)';
+        scoreTitleEl.textContent = '💪 Keep going!';
+        scoreMsgEl.textContent   = `You got ${scoreCorrect}/${total} correct (${pct}%). Try again!`;
+      }
+      summaryEl.style.display = 'block';
+
+      const p      = new URLSearchParams(window.location.search);
+      const postId = p.get('id') || 'unknown';
+      window.saveQuizAttempt(postId, scoreCorrect, total, wrongAnswerLog);
+    }
+
+    restartBtn.addEventListener('click', () => {
+      summaryEl.style.display  = 'none';
+      startCont.style.display  = 'block';
+      progWrap.style.display   = 'none';
+      counterEl.style.display  = 'none';
+      progFill.style.width     = '0%';
+      sentenceEl.style.display = 'none';
+      optionsEl.style.display  = 'none';
+      buttonsEl.style.display  = 'none';
+      resultEl.style.display   = 'none';
+    });
+
+    function play(audio) {
+      try { audio.currentTime = 0; audio.play().catch(() => {}); } catch(e) {}
+    }
+
+  })();
+  </script>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SPEECH RECOGNITION
+  ═══════════════════════════════════════════════════════════ -->
+  <script>
+    window.initSpeechRecognition = function (correctSentence, micBtn) {
+      if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+        console.warn('Speech Recognition not supported');
+        return;
+      }
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      const recognition = new SpeechRecognition();
+      recognition.lang            = 'zh-CN';
+      recognition.interimResults  = false;
+      recognition.maxAlternatives = 1;
+
+      micBtn.addEventListener('click', () => {
+        recognition.start();
+        micBtn.textContent = '🔴';
+      });
+      recognition.onresult = function (event) {
+        const transcript = event.results[0][0].transcript;
+        micBtn.textContent = '🎤';
+        console.log('STT result:', transcript);
+        const p      = new URLSearchParams(window.location.search);
+        const postId = p.get('id') || 'unknown';
+        window.saveRecording(postId, transcript, correctSentence);
+      };
+      recognition.onerror = function () { micBtn.textContent = '🎤'; };
+      recognition.onend   = function () { micBtn.textContent = '🎤'; };
+    };
+  </script>
+
+  
+
+  <!-- ═══════════════════════════════════════════════════════════
+       FIREBASE AUTH
+  ═══════════════════════════════════════════════════════════ -->
+  <script type="module">
+    import { initializeApp }  from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+    import {
+      getAuth,
+      GoogleAuthProvider,
+      signInWithPopup,
+      signOut as fbSignOut,
+      onAuthStateChanged
+    } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+
+    const firebaseConfig = {
+      apiKey:            'AIzaSyAm-qQrpXKNdqFLITRAGCug7rkskGzyAkg',
+      authDomain:        'chinese60s.firebaseapp.com',
+      projectId:         'chinese60s',
+      storageBucket:     'chinese60s.firebasestorage.app',
+      messagingSenderId: '835657861121',
+      appId:             '1:835657861121:web:f31727eb7ea3b876a5d800',
+      measurementId:     'G-70NQ4PFTSN'
+    };
+
+    const app      = initializeApp(firebaseConfig);
+    const auth     = getAuth(app);
+    const provider = new GoogleAuthProvider();
+    provider.setCustomParameters({ prompt: 'select_account' });
+
+    function showModalError(msg) {
+      const el = document.getElementById('modal-error');
+      if (!el) return;
+      el.textContent   = msg;
+      el.style.display = 'block';
+      const btn = document.getElementById('google-signin-btn');
+      const txt = document.getElementById('signin-btn-text');
+      if (btn) btn.disabled = false;
+      if (txt) txt.textContent = 'Continue with Google';
+    }
+
+    function setSignInLoading(loading) {
+      const btn = document.getElementById('google-signin-btn');
+      const txt = document.getElementById('signin-btn-text');
+      if (!btn || !txt) return;
+      btn.disabled    = loading;
+      txt.textContent = loading ? 'Opening Google…' : 'Continue with Google';
+    }
+
+    window.doGoogleSignIn = async function () {
+      const errEl = document.getElementById('modal-error');
+      if (errEl) { errEl.style.display = 'none'; errEl.textContent = ''; }
+      setSignInLoading(true);
+      try {
+        await signInWithPopup(auth, provider);
+        closeLoginModal();
+        if (typeof window.__afterLoginAction === 'function') {
+          window.__afterLoginAction();
+          window.__afterLoginAction = null;
+        }
+      } catch (err) {
+        setSignInLoading(false);
+        console.error('Sign-in error:', err.code, err.message);
+        const msgs = {
+          'auth/popup-blocked':           '🚫 Popup was blocked. Please allow popups for this site.',
+          'auth/popup-closed-by-user':    '❌ Sign-in window was closed. Please try again.',
+          'auth/cancelled-popup-request': '❌ Sign-in was cancelled. Please try again.',
+          'auth/network-request-failed':  '🌐 Network error. Check your connection.',
+          'auth/unauthorized-domain':     '⚙️ Domain not authorised. Contact admin.',
+          'auth/user-disabled':           '🚫 This account has been disabled.',
+        };
+        showModalError(msgs[err.code] || `Sign-in failed: ${err.message}`);
+      }
+    };
+
+    window.signOut = async function () {
+      try { await fbSignOut(auth); } catch(e) { console.error(e); }
+    };
+
+    onAuthStateChanged(auth, async function (user) {
+      const signInBtn    = document.getElementById('sign-in-btn');
+      const userMenuWrap = document.getElementById('user-menu-wrap');
+      const navUsername  = document.getElementById('nav-username');
+      const navAvatar    = document.getElementById('nav-avatar');
+
+      if (user) {
+        window.__currentUser = user;
+
+        if (signInBtn)    signInBtn.style.display    = 'none';
+        if (userMenuWrap) userMenuWrap.style.display = 'block';
+        if (navUsername)  navUsername.textContent    = user.displayName?.split(' ')[0] || 'User';
+        if (navAvatar)    navAvatar.innerHTML        = user.photoURL
+          ? `<img src="${user.photoURL}" alt="avatar" referrerpolicy="no-referrer">`
+          : `<span>${(user.displayName?.[0] || '?').toUpperCase()}</span>`;
+
+        // ── Kiểm tra premium & re-render sidebar ──
+        await window.refreshPremiumStatus();
+        // Load personal lessons
+        wait loadPersonalLessons(user.uid);
+
+      } else {
+        window.__currentUser   = null;
+        window.__userIsPremium = false;
+        window.__premiumLoaded = true;
+
+        if (signInBtn)    signInBtn.style.display    = 'inline-flex';
+        if (userMenuWrap) userMenuWrap.style.display = 'none';
+
+        // Re-render sidebar về trạng thái free / locked
+        renderSidebarThumbnails();
+      }
+    });
+    // ═══ SUPABASE CONFIG ═══
+const SUPABASE_URL = 'https://dpnxyrkwjdtlunepeewz.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_qZUI2tkjitvyZHDZnIRkpQ_yynAjgTA';
+
+async function loadPersonalLessons(userId) {
+  try {
+    const response = await fetch(
+      `${SUPABASE_URL}/rest/v1/lessons?user_id=eq.${userId}`,
+      {
+        headers: {
+          'apikey': SUPABASE_KEY,
+          'Authorization': `Bearer ${SUPABASE_KEY}`,
+          'Content-Type': 'application/json'
+        }
+      }
+    );
+    
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+    
+    const data = await response.json();
+    if (!data || data.length === 0) {
+      document.getElementById('itemList').innerHTML = 
+        '<li style="text-align:center;padding:40px;color:#bbb;font-weight:600;">No lessons created yet. Go to <a href="profile.html">My Profile</a> to create one!</li>';
+      document.getElementById('quiz-container').style.display = 'none';
+      return;
+    }
+    
+    const lesson = data[0]; // Lấy lesson mới nhất
+    
+    // Render posts
+    if (lesson.posts && lesson.posts.length > 0) {
+      renderPersonalPosts(lesson.posts, lesson.images || []);
+    } else {
+      document.getElementById('itemList').innerHTML = 
+        '<li style="text-align:center;padding:40px;color:#bbb;">No posts in this lesson</li>';
+    }
+    
+    // Render quiz nếu có
+    if (lesson.quiz && lesson.quiz.length > 0) {
+      renderPersonalQuiz(lesson.quiz);
+    } else {
+      document.getElementById('quiz-container').style.display = 'none';
+    }
+    
+  } catch (error) {
+    console.error('Load lessons error:', error);
+    document.getElementById('itemList').innerHTML = 
+      '<li style="color:#c0392b;padding:20px;text-align:center;font-weight:600;">❌ Error loading lessons</li>';
+  }
+}
+
+function renderPersonalPosts(posts, imagesData) {
+  const itemList = document.getElementById('itemList');
+  itemList.innerHTML = '';
+  
+  posts.forEach((item, index) => {
+    const li = document.createElement('li');
+    li.style.cssText = 'opacity:0;transform:translateY(20px);transition:opacity 0.4s,transform 0.4s;';
+    
+    // Row
+    const row = document.createElement('div');
+    row.className = 'row';
+    
+    const avatar = document.createElement('span');
+    avatar.className = 'avatar-1';
+    avatar.style.background = 'var(--yellow)';
+    if (item.avatar) {
+      avatar.style.backgroundImage = `url(${item.avatar})`;
+      avatar.style.backgroundSize = 'cover';
+    }
+    
+    const user = document.createElement('span');
+    user.className = 'user';
+    user.textContent = item.user || 'Unknown';
+    
+    const toggleButton = document.createElement('button');
+    toggleButton.className = 'toggle-description';
+    toggleButton.textContent = '⬇️';
+    toggleButton.style.cssText = 'position:absolute;top:10px;right:14px;';
+    
+    row.appendChild(avatar);
+    row.appendChild(user);
+    row.appendChild(toggleButton);
+    
+    // H2 - segments
+    const h2 = document.createElement('h2');
+    (item.segments || []).forEach(segment => {
+      const span = document.createElement('span');
+      span.textContent = segment;
+      span.style.cursor = 'pointer';
+      span.style.borderBottom = '2px solid transparent';
+      span.style.transition = 'all 0.15s';
+      span.addEventListener('mouseenter', () => {
+        span.style.color = 'var(--green-dark)';
+        span.style.borderColor = 'var(--green)';
+        span.style.background = 'var(--green-pale)';
+      });
+      span.addEventListener('mouseleave', () => {
+        span.style.color = 'inherit';
+        span.style.borderColor = 'transparent';
+        span.style.background = 'none';
+      });
+      span.addEventListener('click', () => {
+        const img = imagesData.find(d => d.character === segment);
+        if (img) showImageCard(img);
+      });
+      h2.appendChild(span);
+    });
+    
+    // Description
+    const p = document.createElement('p');
+    p.className = 'description';
+    p.innerHTML = item.description || '';
+    p.style.display = 'none';
+    
+    toggleButton.addEventListener('click', () => {
+      const open = p.style.display === 'block';
+      p.style.display = open ? 'none' : 'block';
+      toggleButton.textContent = open ? '⬇️' : '⬅️';
+    });
+    
+    li.appendChild(row);
+    li.appendChild(h2);
+    li.appendChild(p);
+    itemList.appendChild(li);
+    
+    // Animation
+    setTimeout(() => {
+      li.style.opacity = '1';
+      li.style.transform = 'translateY(0)';
+    }, 50 + 100 * index);
+  });
+}
+
+function renderPersonalQuiz(quizData) {
+  const qContainer = document.getElementById('quiz-container');
+  if (!qContainer) return;
+  
+  qContainer.style.display = 'block';
+  
+  const quizSection = qContainer.querySelector('#quiz-unlocked');
+  const quizTitle = qContainer.querySelector('h1');
+  
+  if (quizTitle) quizTitle.textContent = '📝 Quiz Items';
+  
+  // Ẩn start button
+  const startContainer = document.getElementById('start-container');
+  if (startContainer) startContainer.style.display = 'none';
+  
+  // Ẩn progress & buttons
+  document.getElementById('quiz-progress-wrap').style.display = 'none';
+  document.getElementById('quiz-counter').style.display = 'none';
+  
+  // Hiển thị quiz items
+  const quizItems = document.createElement('div');
+  quizItems.style.cssText = 'display:flex;flex-direction:column;gap:14px;margin:20px 0;';
+  
+  quizData.forEach((q, idx) => {
+    const div = document.createElement('div');
+    div.style.cssText = `
+      border:var(--border);
+      border-radius:14px;
+      padding:16px;
+      background:var(--bg);
+      transition:box-shadow 0.15s;
+    `;
+    
+    let content = `<strong style="color:var(--black);font-size:1.1rem;">#${idx + 1} Type ${q.type?.toUpperCase() || 'Unknown'}</strong><br>`;
+    
+    if (q.type === 't1') {
+      content += `<div style="margin-top:8px;"><strong>📝 Sentence:</strong> ${q.fullSentence || 'No sentence'}</div>`;
+      content += `<div style="margin-top:4px;color:#666;font-size:0.9rem;"><strong>Segments:</strong> ${(q.segments || []).map(s => `<span style="background:var(--yellow-pale);padding:2px 6px;border-radius:4px;margin-right:4px;">${s}</span>`).join('')}</div>`;
+    } else if (q.type === 't2') {
+      content += `<div style="margin-top:8px;"><strong>🀄 Character:</strong> ${q.character}</div>`;
+      content += `<div style="margin-top:4px;color:#666;"><strong>Correct image:</strong> Option ${q.t2correct || '—'}</div>`;
+    } else if (q.type === 't3') {
+      content += `<div style="margin-top:8px;"><strong>🖼️ Correct answer:</strong> ${q.t3correct || '—'}</div>`;
+      content += `<div style="margin-top:4px;color:#666;font-size:0.9rem;"><strong>Options:</strong> ${q.words.filter(Boolean).map(w => `<span style="background:var(--pink-pale);padding:2px 6px;border-radius:4px;margin-right:4px;">${w}</span>`).join('')}</div>`;
+    }
+    
+    div.innerHTML = content;
+    div.addEventListener('mouseenter', () => {
+      div.style.boxShadow = 'var(--shadow-md)';
+    });
+    div.addEventListener('mouseleave', () => {
+      div.style.boxShadow = 'none';
+    });
+    
+    quizItems.appendChild(div);
+  });
+  
+  // Insert vào quiz-container
+  quizSection.insertBefore(quizItems, document.getElementById('buttons'));
+}
+
+// Import showImageCard từ posts-loader.js
+function showImageCard(imageData) {
+  // Copy từ posts-loader.js - phần showImageCard function
+  const card = document.createElement('div');
+  card.className = 'image-card';
+  card.innerHTML = `
+    <button class="modal-close" onclick="this.parentElement.remove()" style="top:12px;right:16px;font-size:1.5rem;background:none;border:none;cursor:pointer;color:#aaa;">✕</button>
+    <img src="${imageData.imageSrc || ''}" alt="${imageData.character}" style="max-width:100%;height:auto;border-radius:10px;border:var(--border);">
+    <h3 style="margin:12px 0 6px;font-size:1.2rem;">${imageData.character || ''}</h3>
+    <p style="font-size:0.95rem;color:#666;margin:0;">Meaning: ${imageData.meaning || ''}</p>
+    <p style="font-size:0.95rem;color:#666;margin:6px 0 0;">Pinyin: ${imageData.pinyin || ''}</p>
+    ${imageData.audioSrc ? `<audio controls style="width:100%;margin-top:10px;"><source src="${imageData.audioSrc}" type="audio/mpeg"></audio>` : ''}
+  `;
+  
+  const overlay = document.createElement('div');
+  overlay.className = 'overlay';
+  overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:999;display:flex;align-items:center;justify-content:center;';
+  overlay.appendChild(card);
+  document.body.appendChild(overlay);
+  
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) overlay.remove();
+  });
+}
+  </script>
+<script src="js/posts-loader.js"></script>
+</body>
+</html>
