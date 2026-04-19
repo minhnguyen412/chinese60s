@@ -1201,7 +1201,9 @@
 
   async function loadPersonalLessons(userId) {
   try {
-    const url = `${SUPABASE_URL}/rest/v1/lessons?user_id=eq.${userId}&select=posts,quiz,images`;
+    console.log('[loadPersonalLessons] Starting with userId:', userId);
+    const url = `${SUPABASE_URL}/rest/v1/lessons?user_id=eq.${userId}&select=posts,quiz,images&limit=1`;
+    console.log('[loadPersonalLessons] Fetching URL:', url);
     const response = await fetch(url, {
       headers: {
         'apikey': SUPABASE_KEY,
@@ -1211,13 +1213,18 @@
     });
 
     if (!response.ok) {
-      console.error('Supabase error:', response.statusText);
+      const errText = await response.text();
+      console.error('❌ Supabase error:', response.status, response.statusText, errText);
       document.getElementById('itemList').innerHTML = 
-        '<div style="text-align:center;padding:40px;color:#bbb;">Failed to load lessons</div>';
+        `<div style="text-align:center;padding:40px;color:#e53935;">
+          <strong>Error:</strong> ${response.status} ${response.statusText}
+          <br><small>${errText}</small>
+        </div>`;
       return;
     }
 
     const data = await response.json();
+    console.log('[loadPersonalLessons] Data received:', data);
     if (!data || data.length === 0) {
       document.getElementById('itemList').innerHTML = 
         '<div style="text-align:center;padding:40px;color:#bbb;">No lessons created yet. Go to <a href="profile.html">profile</a> to create one.</div>';
