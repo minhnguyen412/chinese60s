@@ -1633,7 +1633,7 @@ async function submitAll() {
     formData.append('quiz', JSON.stringify(qRows.map((r, idx) => {
   const nonPunctSegs = r.segments.filter(s => !isPunct(s));
   const sentenceParts = r.segments.map(s => isPunct(s) ? s : '___');
-  const sentence = sentenceParts.join(' ').replace(/ ([，。！？、；：,.!?;:])/g, '$1');
+  const sentence = sentenceParts.join(' ');
   
   return {
     id: idx + 1,
