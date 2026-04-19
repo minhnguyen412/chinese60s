@@ -1308,7 +1308,7 @@
 
       setTimeout(() => li.classList.add('visible'), 100 * index);
     });
-  }
+  
     function renderPersonalQuiz(quizData, imagesData) {
   const quizList = document.getElementById('quiz-items-list');
   if (!quizList) return; // Nếu chưa có element
@@ -1938,7 +1938,7 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
 // MAIN: loadPosts
 // ============================================================
 function loadPosts(postsData, imagesData) {
-    const itemList = document.getElementById(itemList);
+    const itemList = document.getElementById('itemList');
     if (!itemList) return;
 
     itemList.innerHTML = '';
