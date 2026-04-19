@@ -283,3 +283,74 @@ app.listen(PORT, () => {
   console.log(`   Firebase Auth: ${admin.app().name}`);
   console.log(`   Supabase: ${process.env.SUPABASE_URL}`);
 });
+// Store used keys in Firestore
+app.post('/api/validate-subscription-key', authenticateToken, async (req, res) => {
+  try {
+    const { license_key, user_id, email } = req.body;
+
+    if (!license_key || !user_id || !email) {
+      return res.status(400).json({ error: 'Missing required fields' });
+    }
+
+    // Validate key format
+    const match = license_key.match(/^(STARTER|PRO|MASTER)-([A-Z0-9]{20,})$/i);
+    if (!match) {
+      return res.status(400).json({ error: 'Invalid key format' });
+    }
+
+    const planType = match[1].toLowerCase();
+    const planMap = {
+      starter: 'plan_a',
+      pro: 'plan_b',
+      master: 'plan_c'
+    };
+
+    const planId = planMap[planType];
+
+    // Check if key already used
+    const keyDoc = await admin.firestore().collection('subscription_keys').doc(license_key).get();
+    if (keyDoc.exists) {
+      return res.status(401).json({ error: 'This key has already been used' });
+    }
+
+    // Mark key as used
+    await admin.firestore().collection('subscription_keys').doc(license_key).set({
+      used_by: user_id,
+      email: email,
+      plan: planId,
+      used_at: new Date(),
+      expires_at: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000) // 30 days
+    });
+
+    // Update user
+    await admin.firestore().collection('users').doc(user_id).update({
+      subscription: planId,
+      subscription_key: license_key,
+      subscription_date: new Date(),
+      subscription_expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)
+    });
+
+    res.json({
+      success: true,
+      plan: planId,
+      message: `Subscription activated for 30 days!`
+    });
+
+  } catch (error) {
+    console.error('Validation error:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+function authenticateToken(req, res, next) {
+  const token = req.headers['authorization']?.split(' ')[1];
+  if (!token) return res.status(401).json({ error: 'No token' });
+
+  admin.auth().verifyIdToken(token).then(decoded => {
+    req.user = decoded;
+    next();
+  }).catch(err => {
+    console.error('Token error:', err);
+    res.status(401).json({ error: 'Invalid token' });
+  });
+}
