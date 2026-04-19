@@ -1278,16 +1278,14 @@
     });
   }
 
-  // ✅ Định nghĩa renderPersonalQuiz TRƯỚC loadPersonalLessons
-    window.setQuizData(allQuiz);
-
-// THEN render
-if (allQuiz.length > 0) {
+  if (allQuiz.length > 0) {
   const quizContainer = document.getElementById('quiz-container');
   quizContainer.style.display = 'block';
+  window.setQuizData(allQuiz);  // ← ĐẶT ĐÂY
   renderPersonalQuiz(allQuiz, allImages);
 }
-  function renderPersonalQuiz(quizData, imagesData) {
+
+function renderPersonalQuiz(quizData, imagesData) {
   const quizList = document.getElementById('quiz-items-list');
   if (!quizList) return;
     // ✅ Ensure proper structure
@@ -1298,10 +1296,6 @@ if (allQuiz.length > 0) {
       }));
       
       console.log('[renderPersonalQuiz] Transformed:', transformedQuiz);
-
-  
-  // ✅ SET quiz data cho quiz.js logic
-  window.setQuizData(allQuiz);
   
   quizList.innerHTML = '';
  
