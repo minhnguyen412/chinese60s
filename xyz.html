@@ -2135,16 +2135,16 @@ async function submitAll() {
   btn.disabled = true;
   
   // ✅ Check limit TRƯỚC khi submit
-  const currentCount = await getTotalItemCount();
-  const limit = getUserLimit();
-  
-  if (currentCount >= limit) {
-    showStatus('submitStatus', 'err', 
-      `❌ Limit reached! You have ${currentCount}/${limit} lessons. Upgrade to create more.`);
-    showSubscriptionModal();
-    btn.disabled = false;
-    return;
-  }
+  const lessonCount = await getTotalItemCount();
+const limit = getUserLimit();
+
+if (lessonCount >= limit) {
+  showStatus('submitStatus', 'err', 
+    `❌ Lesson limit reached! You have ${lessonCount}/${limit} lessons. Upgrade to create more.`);
+  showSubscriptionModal();
+  btn.disabled = false;
+  return;
+}
 
   showStatus('submitStatus', 'info', 
     '<span class="spinner"></span> Submitting your content...');
