@@ -1093,6 +1093,9 @@ function switchPanel(name) {
 </script>
 
 <script>
+  const MAX_POSTS = 5;
+const MAX_QUIZ = 5;
+const MAX_IMAGES = 5;
 // ════════════════════════════════════════════════════════
 // TOOL FUNCTIONS
 // ════════════════════════════════════════════════════════
@@ -1186,6 +1189,9 @@ function renderUsers() {
 
 function addPostRow() {
   if (!pUsers.length) return alert('Add at least one user first.');
+  if (pRows.length >= MAX_POSTS) {
+    return alert(`❌ You can only create up to ${MAX_POSTS} Posts.\nCurrent: ${pRows.length}/${MAX_POSTS}`);
+  }
   pRows.push({id:Date.now(),user:pUsers[0].name,title:'',description:'',audioFile:null,segments:[],composing:false});
   renderPostRows();
   saveState();
@@ -1305,6 +1311,9 @@ function newQRow() {
 }
  
 function addQuizRow() {
+  if (qRows.length >= MAX_QUIZ) {
+    return alert(`❌ You can only create up to ${MAX_QUIZ} Quizes.\nCurrent: ${qRows.length}/${MAX_QUIZ}`);
+  }
   const r = newQRow();
   qRows.push(r);
   renderQuizAll();
@@ -1468,6 +1477,9 @@ function applyTone(text,cursorPos,vowel,tone){
 }
 
 function addImgRow(){
+  if (imgRows.length >= MAX_IMAGES) {
+    return alert(`❌ You can only create up to ${MAX_IMAGES} words.\nCurrent: ${imgRows.length}/${MAX_IMAGES}`);
+  }
   const id=Date.now();
   imgRows.push({id,imageFile:null,character:'',pinyin:'',meaning:'',audioFile:null});
   renderImgRows();
