@@ -1360,40 +1360,7 @@ function qRowHTML(row, idx) {
   </div>`;
 }
  
-function isPunct(s) {
-  return /^[，。！？、；：,.!?;:\s]+$/.test(s);
-}
- 
-function esc(s) {
-  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-}
- 
-function tokenize(str) {
-  if (!str) return [];
-  const tokens = [];
-  let current = '';
-  for (let char of str) {
-    if (/[\s，。！？、；：,.!?;:]/.test(char)) {
-      if (current) tokens.push(current);
-      if (!/\s/.test(char)) tokens.push(char);
-      current = '';
-    } else {
-      current += char;
-    }
-  }
-  if (current) tokens.push(current);
-  return tokens;
-}
- 
-function shuffle(arr) {
-  const copy = [...arr];
-  for (let i = copy.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [copy[i], copy[j]] = [copy[j], copy[i]];
-  }
-  return copy;
-}
- 
+
 function qT1SegHTML(row) {
   if (!row.segments.length) return '';
   const nonP = row.segments.filter(s => !isPunct(s));
