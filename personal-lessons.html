@@ -828,307 +828,347 @@
     <script>
 (function () {
  
-  let questions = [];
-  let curIdx = 0;
-  let score = 0;
-  let revealed = false;
-  let currentAnswers = []; // [word1, word2, ...]
+    let questions    = [];
+    let curIdx       = 0;
+    let scoreCorrect = 0;
+    let revealed     = false;
+    let currentAnswers = [];
+    let wrongAnswerLog = [];
  
-  const clickAudio = new Audio('assets/click.mp3');
-  const correctAudio = new Audio('assets/correct.mp3');
-  const incorrectAudio = new Audio('assets/incorrect.mp3');
-  const victoryAudio = new Audio('assets/victory.mp3');
+    const clickAudio     = new Audio('assets/click.mp3');
+    const correctAudio   = new Audio('assets/correct.mp3');
+    const incorrectAudio = new Audio('assets/incorrect.mp3');
+    const victoryAudio   = new Audio('assets/victory.mp3');
  
-  const startBtn = document.getElementById('start-button');
-  const startCont = document.getElementById('start-container');
-  const sentenceEl = document.getElementById('sentence');
-  const optionsEl = document.getElementById('options');
-  const resultEl = document.getElementById('result');
-  const buttonsEl = document.getElementById('buttons');
-  const progWrap = document.getElementById('quiz-progress-wrap');
-  const progFill = document.getElementById('quiz-progress-fill');
-  const counterEl = document.getElementById('quiz-counter');
-  const summaryEl = document.getElementById('score-summary');
-  const scoreNumEl = document.getElementById('score-num');
-  const scoreTitleEl = document.getElementById('score-title');
-  const scoreMsgEl = document.getElementById('score-msg');
-  const scoreCircle = document.getElementById('score-circle');
-  const restartBtn = document.getElementById('restart-btn');
+    const startCont    = document.getElementById('start-container');
+    const startBtn     = document.getElementById('start-button');
+    const sentenceEl   = document.getElementById('sentence');
+    const optionsEl    = document.getElementById('options');
+    const resultEl     = document.getElementById('result');
+    const buttonsEl    = document.getElementById('buttons');
+    const progWrap     = document.getElementById('quiz-progress-wrap');
+    const progFill     = document.getElementById('quiz-progress-fill');
+    const counterEl    = document.getElementById('quiz-counter');
+    const summaryEl    = document.getElementById('score-summary');
+    const scoreNumEl   = document.getElementById('score-num');
+    const scoreTitleEl = document.getElementById('score-title');
+    const scoreMsgEl   = document.getElementById('score-msg');
+    const scoreCircle  = document.getElementById('score-circle');
+    const restartBtn   = document.getElementById('restart-btn');
  
-  // ✅ SET quiz data từ Supabase
-  window.setQuizData = function(data) {
-    questions = data || [];
-    console.log('[Quiz] Loaded:', questions.length, 'questions');
-  };
+    const SUPABASE_URL = 'https://dpnxyrkwjdtlunepeewz.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_qZUI2tkjitvyZHDZnIRkpQ_yynAjgTA';
  
-  startBtn.addEventListener('click', () => {
-    if (!questions.length) {
-      alert('No quiz data');
-      return;
+    // ✅ Load quiz từ Supabase
+    async function loadQuizFromSupabase(userId) {
+      try {
+        const url = `${SUPABASE_URL}/rest/v1/lessons?user_id=eq.${userId}&select=quiz`;
+        const response = await fetch(url, {
+          headers: {
+            'apikey': SUPABASE_KEY,
+            'Authorization': `Bearer ${SUPABASE_KEY}`,
+            'Content-Type': 'application/json'
+          }
+        });
+ 
+        if (!response.ok) {
+          console.error('[quiz] Supabase error:', response.status);
+          return [];
+        }
+ 
+        const data = await response.json();
+        const allQuiz = [];
+ 
+        data.forEach(lesson => {
+          if (lesson.quiz && Array.isArray(lesson.quiz)) {
+            allQuiz.push(...lesson.quiz);
+          }
+        });
+ 
+        console.log('[quiz] Loaded from Supabase:', allQuiz.length, 'questions');
+        return allQuiz;
+      } catch (err) {
+        console.error('[quiz] Load failed:', err);
+        return [];
+      }
     }
  
-    curIdx = 0;
-    score = 0;
+    startBtn.addEventListener('click', async () => {
+      if (!window.__currentUser) { 
+        alert('Please sign in first');
+        return;
+      }
  
-    startCont.style.display = 'none';
-    progWrap.style.display = 'block';
-    counterEl.style.display = 'block';
-    summaryEl.style.display = 'none';
+      // Load from Supabase
+      questions      = await loadQuizFromSupabase(window.__currentUser.uid);
+      
+      if (!questions.length) {
+        alert('No quiz available');
+        return;
+      }
  
-    showQuestion();
-  });
+      curIdx         = 0;
+      scoreCorrect   = 0;
+      wrongAnswerLog = [];
  
-  function showQuestion() {
-    if (curIdx >= questions.length) {
-      showSummary();
-      return;
-    }
- 
-    const q = questions[curIdx];
-    revealed = false;
-    currentAnswers = Array(q.blanks.length).fill(null);
- 
-    // Progress
-    progFill.style.width = (curIdx / questions.length * 100) + '%';
-    counterEl.textContent = `Question ${curIdx + 1} of ${questions.length}`;
- 
-    // ===== SENTENCE (hiển thị 1 dòng với blanks) =====
-    let sentenceHTML = q.sentence || '';
-    let blankIdx = 0;
- 
-    sentenceHTML = sentenceHTML.replace(/___/g, () => {
-      const idx = blankIdx++;
-      return `<span class="blank" data-bi="${idx}"></span>`;
+      startCont.style.display  = 'none';
+      progWrap.style.display   = 'block';
+      counterEl.style.display  = 'block';
+      summaryEl.style.display  = 'none';
+      showQ();
     });
  
-    sentenceEl.innerHTML = sentenceHTML;
-    sentenceEl.style.display = 'flex';
+    function showQ() {
+      if (curIdx >= questions.length) { showSummary(); return; }
  
-    // Click blank để xóa
-    sentenceEl.querySelectorAll('.blank').forEach(el => {
-      el.addEventListener('click', (e) => {
-        e.stopPropagation();
+      const q = questions[curIdx];
+      const blanks = q.blanks || [];
+      revealed = false;
+      currentAnswers = Array(blanks.length).fill(null);
+ 
+      progFill.style.width  = (curIdx / questions.length * 100) + '%';
+      counterEl.textContent = `Question ${curIdx + 1} of ${questions.length}`;
+ 
+      // ✅ FIX: Split by space, handle ___
+      let sentenceHTML = q.sentence || '';
+      let blankIdx = 0;
+ 
+      sentenceHTML = sentenceHTML.split(' ').map(token => {
+        if (token === '___') {
+          const idx = blankIdx++;
+          return `<span class="blank" data-bi="${idx}"></span>`;
+        }
+        return token;
+      }).join(' ');
+ 
+      sentenceEl.innerHTML = sentenceHTML;
+      sentenceEl.style.display = 'flex';
+ 
+      // Click blank to clear
+      sentenceEl.querySelectorAll('.blank').forEach(el => {
+        el.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (!revealed) {
+            const bi = parseInt(el.dataset.bi);
+            if (currentAnswers[bi] !== null) {
+              currentAnswers[bi] = null;
+              updateUI();
+            }
+          }
+        });
+      });
+ 
+      // ✅ Render word pills
+      optionsEl.innerHTML = '';
+      optionsEl.style.display = 'grid';
+ 
+      (q.words || []).forEach((word) => {
+        const btn = document.createElement('button');
+        btn.className = 'word';
+        btn.textContent = word;
+        btn.dataset.word = word;
+ 
+        btn.addEventListener('click', () => {
+          if (revealed) return;
+ 
+          const emptyBi = currentAnswers.findIndex(a => a === null);
+          if (emptyBi === -1) return;
+ 
+          play(clickAudio);
+ 
+          currentAnswers[emptyBi] = word;
+          updateUI();
+ 
+          if (currentAnswers.every(a => a !== null)) {
+            checkAnswer(q);
+          }
+        });
+ 
+        optionsEl.appendChild(btn);
+      });
+ 
+      // ✅ Buttons
+      resultEl.textContent = '';
+      resultEl.style.display = 'none';
+      buttonsEl.innerHTML = '';
+      buttonsEl.style.display = 'block';
+ 
+      const isLast = curIdx === questions.length - 1;
+      const actionBtn = document.createElement('button');
+      actionBtn.id = 'action-btn';
+      actionBtn.textContent = isLast ? 'Finish ✓' : 'Next →';
+      actionBtn.className = isLast ? 'finish' : 'next';
+      actionBtn.disabled = true;
+ 
+      actionBtn.addEventListener('click', () => {
         if (!revealed) {
-          const bi = parseInt(el.dataset.bi);
-          if (currentAnswers[bi] !== null) {
-            currentAnswers[bi] = null;
-            updateUI();
+          checkAnswer(q);
+        } else {
+          curIdx++;
+          showQ();
+        }
+      });
+ 
+      buttonsEl.appendChild(actionBtn);
+      updateUI();
+    }
+ 
+    function updateUI() {
+      // Update blanks
+      sentenceEl.querySelectorAll('.blank').forEach(el => {
+        const bi = parseInt(el.dataset.bi);
+        const answer = currentAnswers[bi];
+ 
+        if (answer) {
+          el.textContent = answer;
+          el.classList.add('filled');
+          el.style.cursor = revealed ? 'default' : 'pointer';
+        } else {
+          el.textContent = '';
+          el.classList.remove('filled');
+          el.style.cursor = 'pointer';
+        }
+      });
+ 
+      // Update word buttons
+      optionsEl.querySelectorAll('.word').forEach(btn => {
+        const word = btn.dataset.word;
+        const isUsed = currentAnswers.includes(word);
+        btn.disabled = isUsed || revealed;
+      });
+ 
+      // Enable action button when all blanks filled
+      const actionBtn = document.getElementById('action-btn');
+      if (actionBtn) {
+        actionBtn.disabled = currentAnswers.some(a => a === null);
+      }
+    }
+ 
+    function checkAnswer(q) {
+      if (revealed) return;
+ 
+      const blanks = q.blanks || [];
+      let allCorrect = true;
+ 
+      blanks.forEach((b, i) => {
+        const given = currentAnswers[i];
+        const correct = given === b.answer;
+ 
+        if (!correct) {
+          allCorrect = false;
+          wrongAnswerLog.push({
+            question: q.sentence,
+            given: given || '(empty)',
+            answer: b.answer
+          });
+        }
+ 
+        // Highlight blank
+        const blankEl = sentenceEl.querySelector(`[data-bi="${i}"]`);
+        if (blankEl) {
+          blankEl.classList.add(correct ? 'reveal-correct' : 'reveal-wrong');
+          blankEl.style.cursor = 'default';
+          
+          if (!correct) {
+            blankEl.textContent = given || '—';
+            const hint = document.createElement('small');
+            hint.textContent = ` (${b.answer})`;
+            hint.style.cssText = 'opacity:0.7;font-size:0.8em;margin-left:2px;';
+            blankEl.appendChild(hint);
           }
         }
       });
-    });
  
-    // ===== WORDS (hiển thị pills dưới dạng grid) =====
-    optionsEl.innerHTML = '';
-    optionsEl.style.display = 'grid';
+      // Highlight word buttons
+      optionsEl.querySelectorAll('.word').forEach(btn => {
+        const word = btn.dataset.word;
+        const isCorrect = blanks.some(b => b.answer === word);
+        const wasUsed = currentAnswers.includes(word);
  
-    (q.words || []).forEach((word, wordIdx) => {
-      const btn = document.createElement('button');
-      btn.className = 'word';
-      btn.textContent = word;
-      btn.dataset.word = word;
- 
-      btn.addEventListener('click', () => {
-        if (revealed) return;
- 
-        // Tìm blank trống đầu tiên
-        const emptyBi = currentAnswers.findIndex(a => a === null);
-        if (emptyBi === -1) return;
- 
-        play(clickAudio);
- 
-        // Fill blank
-        currentAnswers[emptyBi] = word;
-        updateUI();
- 
-        // Check xong hết blanks chưa
-        if (currentAnswers.every(a => a !== null)) {
-          checkAnswer();
+        if (wasUsed && isCorrect) {
+          btn.classList.add('correct-reveal');
+        } else if (wasUsed && !isCorrect) {
+          btn.classList.add('incorrect-reveal');
+        } else if (isCorrect) {
+          btn.classList.add('correct-reveal');
         }
       });
  
-      optionsEl.appendChild(btn);
-    });
+      revealed = true;
  
-    // ===== RESULT & BUTTONS =====
-    resultEl.textContent = '';
-    resultEl.style.display = 'none';
-    buttonsEl.innerHTML = '';
-    buttonsEl.style.display = 'block';
- 
-    // Nút xem đáp án / tiếp tục
-    const actionBtn = document.createElement('button');
-    actionBtn.id = 'action-btn';
-    actionBtn.textContent = curIdx === questions.length - 1 ? 'Finish ✓' : 'Next →';
-    actionBtn.className = 'next';
- 
-    actionBtn.addEventListener('click', () => {
-      if (!revealed) {
-        checkAnswer();
+      if (allCorrect) {
+        play(correctAudio);
+        resultEl.textContent = '✅ Correct!';
+        resultEl.className = 'result correct';
+        scoreCorrect++;
       } else {
-        curIdx++;
-        showQuestion();
+        play(incorrectAudio);
+        const answers = blanks.map(b => b.answer).join(' / ');
+        resultEl.textContent = `❌ Answer: ${answers}`;
+        resultEl.className = 'result incorrect';
       }
-    });
+      resultEl.style.display = 'block';
  
-    buttonsEl.appendChild(actionBtn);
+      const actionBtn = document.getElementById('action-btn');
+      if (actionBtn) {
+        const isLast = curIdx === questions.length - 1;
+        actionBtn.textContent = isLast ? 'See Results 🏆' : 'Continue →';
+        actionBtn.disabled = false;
+      }
  
-    updateUI();
-  }
+      updateUI();
+    }
  
-  function updateUI() {
-    const q = questions[curIdx];
+    function showSummary() {
+      sentenceEl.style.display  = 'none';
+      optionsEl.style.display   = 'none';
+      resultEl.style.display    = 'none';
+      buttonsEl.style.display   = 'none';
+      progWrap.style.display    = 'none';
+      counterEl.style.display   = 'none';
+      play(victoryAudio);
  
-    // Update blanks
-    sentenceEl.querySelectorAll('.blank').forEach(el => {
-      const bi = parseInt(el.dataset.bi);
-      const answer = currentAnswers[bi];
+      const total = questions.length;
+      const pct   = total ? Math.round(scoreCorrect / total * 100) : 0;
+      progFill.style.width   = '100%';
+      scoreNumEl.textContent = `${scoreCorrect}/${total}`;
  
-      if (answer) {
-        el.textContent = answer;
-        el.classList.add('filled');
-        el.style.cursor = revealed ? 'default' : 'pointer';
+      if (pct >= 80) {
+        scoreCircle.style.background  = 'var(--green-pale)';
+        scoreCircle.style.borderColor = 'var(--green)';
+        scoreTitleEl.textContent = '🎉 Excellent!';
+        scoreMsgEl.textContent   = `${scoreCorrect}/${total} correct (${pct}%). Outstanding!`;
+      } else if (pct >= 50) {
+        scoreCircle.style.background  = 'var(--yellow-pale)';
+        scoreCircle.style.borderColor = 'var(--yellow)';
+        scoreTitleEl.textContent = '👍 Good effort!';
+        scoreMsgEl.textContent   = `${scoreCorrect}/${total} correct (${pct}%). Keep it up!`;
       } else {
-        el.textContent = '';
-        el.classList.remove('filled');
-        el.style.cursor = 'pointer';
+        scoreCircle.style.background  = 'var(--pink-pale)';
+        scoreCircle.style.borderColor = 'var(--pink)';
+        scoreTitleEl.textContent = '💪 Keep going!';
+        scoreMsgEl.textContent   = `${scoreCorrect}/${total} correct (${pct}%). Try again!`;
       }
-    });
- 
-    // Disable/enable word buttons based on used
-    optionsEl.querySelectorAll('.word').forEach(btn => {
-      const word = btn.dataset.word;
-      const isUsed = currentAnswers.includes(word);
-      btn.disabled = isUsed || revealed;
-      btn.style.opacity = (isUsed || revealed) ? '0.5' : '1';
-    });
-  }
- 
-  function checkAnswer() {
-    if (revealed) return;
- 
-    const q = questions[curIdx];
-    const blanks = q.blanks || [];
- 
-    let allCorrect = true;
- 
-    blanks.forEach((b, i) => {
-      const given = currentAnswers[i];
-      const correct = given === b.answer;
- 
-      if (!correct) allCorrect = false;
- 
-      // Highlight blank
-      const blankEl = sentenceEl.querySelector(`[data-bi="${i}"]`);
-      if (blankEl) {
-        blankEl.classList.add(correct ? 'reveal-correct' : 'reveal-wrong');
-        if (!correct) {
-          blankEl.textContent = given || '—';
-          const hint = document.createElement('small');
-          hint.textContent = ` (${b.answer})`;
-          hint.style.cssText = 'opacity:0.7;font-size:0.8em;margin-left:4px;';
-          blankEl.appendChild(hint);
-        }
-      }
-    });
- 
-    // Highlight word buttons
-    optionsEl.querySelectorAll('.word').forEach(btn => {
-      const word = btn.dataset.word;
-      const isCorrect = blanks.some(b => b.answer === word);
-      const wasUsed = currentAnswers.includes(word);
- 
-      if (wasUsed && isCorrect) {
-        btn.classList.add('correct-reveal');
-      } else if (wasUsed && !isCorrect) {
-        btn.classList.add('incorrect-reveal');
-      } else if (isCorrect) {
-        btn.classList.add('correct-reveal');
-      }
-    });
- 
-    // Result
-    revealed = true;
- 
-    if (allCorrect) {
-      play(correctAudio);
-      resultEl.textContent = '✅ Correct!';
-      resultEl.className = 'result correct';
-      score++;
-    } else {
-      play(incorrectAudio);
-      const answers = blanks.map(b => b.answer).join(' / ');
-      resultEl.textContent = `❌ Answer: ${answers}`;
-      resultEl.className = 'result incorrect';
-    }
-    resultEl.style.display = 'block';
- 
-    // Update button
-    const actionBtn = document.getElementById('action-btn');
-    if (actionBtn) {
-      const isLast = curIdx === questions.length - 1;
-      actionBtn.textContent = isLast ? 'See Results 🏆' : 'Continue →';
-      actionBtn.disabled = false;
+      summaryEl.style.display = 'block';
     }
  
-    updateUI();
-  }
+    restartBtn.addEventListener('click', () => {
+      summaryEl.style.display  = 'none';
+      startCont.style.display  = 'block';
+      progWrap.style.display   = 'none';
+      counterEl.style.display  = 'none';
+      progFill.style.width     = '0%';
+      sentenceEl.style.display = 'none';
+      optionsEl.style.display  = 'none';
+      buttonsEl.style.display  = 'none';
+      resultEl.style.display   = 'none';
+    });
  
-  function showSummary() {
-    sentenceEl.style.display = 'none';
-    optionsEl.style.display = 'none';
-    resultEl.style.display = 'none';
-    buttonsEl.style.display = 'none';
-    progWrap.style.display = 'none';
-    counterEl.style.display = 'none';
- 
-    play(victoryAudio);
- 
-    const total = questions.length;
-    const pct = Math.round(score / total * 100);
- 
-    scoreNumEl.textContent = `${score}/${total}`;
- 
-    if (pct >= 80) {
-      scoreCircle.style.background = 'var(--green-pale)';
-      scoreCircle.style.borderColor = 'var(--green)';
-      scoreTitleEl.textContent = '🎉 Excellent!';
-      scoreMsgEl.textContent = `${score}/${total} correct (${pct}%)`;
-    } else if (pct >= 50) {
-      scoreCircle.style.background = 'var(--yellow-pale)';
-      scoreCircle.style.borderColor = 'var(--yellow)';
-      scoreTitleEl.textContent = '👍 Good!';
-      scoreMsgEl.textContent = `${score}/${total} correct (${pct}%)`;
-    } else {
-      scoreCircle.style.background = 'var(--pink-pale)';
-      scoreCircle.style.borderColor = 'var(--pink)';
-      scoreTitleEl.textContent = '💪 Keep trying!';
-      scoreMsgEl.textContent = `${score}/${total} correct (${pct}%)`;
+    function play(audio) {
+      try { audio.currentTime = 0; audio.play().catch(() => {}); } catch(e) {}
     }
  
-    summaryEl.style.display = 'block';
-  }
- 
-  restartBtn.addEventListener('click', () => {
-    summaryEl.style.display = 'none';
-    startCont.style.display = 'block';
-    progWrap.style.display = 'none';
-    counterEl.style.display = 'none';
-    progFill.style.width = '0%';
-    sentenceEl.style.display = 'none';
-    optionsEl.style.display = 'none';
-    buttonsEl.style.display = 'none';
-    resultEl.style.display = 'none';
-  });
- 
-  function play(audio) {
-    try {
-      audio.currentTime = 0;
-      audio.play().catch(() => {});
-    } catch (e) {}
-  }
- 
-})();
+  })();
   </script>
   <!-- ═══════════════════════════════════════════════════════════
        SPEECH RECOGNITION
