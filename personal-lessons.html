@@ -829,130 +829,166 @@
 let quizData = [];
 let currentQuestionIndex = 0;
 let score = 0;
-
+ 
+// Khởi tạo từ Supabase data (thay vì load file)
 window.setQuizData = function(data) {
   quizData = data || [];
+  console.log('[Quiz] Data loaded:', quizData.length, 'questions');
 };
-
+ 
 document.getElementById('start-button').addEventListener('click', () => {
   if (!quizData.length) {
-    alert('No quiz data');
+    alert('No quiz data available');
     return;
   }
-
+ 
   score = 0;
   currentQuestionIndex = 0;
-
+ 
   document.getElementById('start-container').style.display = 'none';
   document.getElementById('sentence').style.display = 'block';
   document.getElementById('options').style.display = 'block';
   document.getElementById('buttons').style.display = 'block';
   document.querySelector('.result').style.display = 'block';
-
+ 
   displayQuestion();
 });
-
+ 
+const clickAudio = new Audio('../assets/click.mp3');
+const correctAudio = new Audio('../assets/correct.mp3');
+const incorrectAudio = new Audio('../assets/incorrect.mp3');
+const completionAudio = new Audio('../assets/victory.mp3');
+ 
 function displayQuestion() {
   const q = quizData[currentQuestionIndex];
-
   const sentenceDiv = document.getElementById('sentence');
   const optionsDiv = document.getElementById('options');
-  const resultDiv = document.querySelector('.result');
-  const buttonsDiv = document.getElementById('buttons');
-
+ 
   let sentenceHTML = q.sentence;
-
+ 
+  // Replace ___ với blank spans
   q.blanks.forEach(() => {
     sentenceHTML = sentenceHTML.replace('___', `<span class="blank"></span>`);
   });
-
+ 
   sentenceDiv.innerHTML = sentenceHTML;
-
+ 
   optionsDiv.innerHTML = '';
   q.words.forEach(word => {
     const btn = document.createElement('button');
     btn.className = 'word';
     btn.textContent = word;
-
-    btn.addEventListener('click', () => handleWordClick(btn));
-
+    btn.addEventListener('click', () => handleWordClick(btn, q));
     optionsDiv.appendChild(btn);
   });
-
-  resultDiv.textContent = '';
-  resultDiv.className = 'result';
-  buttonsDiv.innerHTML = '';
+ 
+  document.querySelector('.result').textContent = '';
+  document.querySelector('.result').className = 'result';
+  document.getElementById('buttons').innerHTML = '';
 }
-
-function handleWordClick(btn) {
+ 
+function handleWordClick(btn, question) {
+  clickAudio.play();
+ 
   const blanks = document.querySelectorAll('.blank');
   const emptyIdx = Array.from(blanks).findIndex(b => b.textContent === '');
-
+ 
   if (emptyIdx === -1) return;
-
+ 
   const blank = blanks[emptyIdx];
   blank.textContent = btn.textContent;
   blank.dataset.value = btn.textContent;
+  blank.classList.add('filled');
+ 
   btn.disabled = true;
-
+ 
   blank.addEventListener('click', () => {
     btn.disabled = false;
     blank.textContent = '';
     blank.dataset.value = '';
   }, { once: true });
-
+ 
   if (Array.from(blanks).every(b => b.textContent !== '')) {
-    checkAnswer();
+    checkAnswer(question);
   }
 }
-
-function checkAnswer() {
+ 
+function checkAnswer(question) {
   const blanks = document.querySelectorAll('.blank');
-  const q = quizData[currentQuestionIndex];
-
+  const resultDiv = document.querySelector('.result');
+  const buttonsDiv = document.getElementById('buttons');
+ 
   let correct = true;
-
   blanks.forEach((b, i) => {
-    if (b.dataset.value !== q.blanks[i].answer) {
+    if (b.dataset.value !== question.blanks[i].answer) {
       correct = false;
     }
   });
-
-  const resultDiv = document.querySelector('.result');
-  const buttonsDiv = document.getElementById('buttons');
-
+ 
   if (correct) {
-    resultDiv.textContent = 'Correct!';
+    resultDiv.textContent = 'Correct! Great job!';
     resultDiv.classList.add('correct');
+    correctAudio.play();
     score++;
   } else {
-    resultDiv.textContent = 'Incorrect';
+    resultDiv.textContent = 'Incorrect.';
     resultDiv.classList.add('incorrect');
+    incorrectAudio.play();
   }
-
+ 
+  showNextButton();
+}
+ 
+function showNextButton() {
+  const buttonsDiv = document.getElementById('buttons');
   const nextBtn = document.createElement('button');
   nextBtn.textContent = 'Next';
-
+  nextBtn.className = 'next';
+ 
   nextBtn.addEventListener('click', () => {
     currentQuestionIndex++;
     if (currentQuestionIndex < quizData.length) {
       displayQuestion();
     } else {
-      showFinal();
+      showFinalResult();
     }
   });
-
+ 
   buttonsDiv.innerHTML = '';
   buttonsDiv.appendChild(nextBtn);
 }
-
-function showFinal() {
+ 
+function showFinalResult() {
   document.getElementById('sentence').style.display = 'none';
   document.getElementById('options').style.display = 'none';
   document.getElementById('buttons').style.display = 'none';
-
+ 
   const resultDiv = document.querySelector('.result');
-  resultDiv.textContent = `Score: ${score}/${quizData.length}`;
+  resultDiv.textContent = `You completed the quiz! Score: ${score} / ${quizData.length}`;
+  resultDiv.classList.add('correct');
+  completionAudio.play();
+ 
+  showReplayButton();
+}
+ 
+function showReplayButton() {
+  const buttonsDiv = document.getElementById('buttons');
+  const replayBtn = document.createElement('button');
+  replayBtn.textContent = 'Replay';
+  replayBtn.className = 'replay';
+ 
+  replayBtn.addEventListener('click', () => {
+    score = 0;
+    currentQuestionIndex = 0;
+    document.getElementById('start-container').style.display = 'block';
+    document.getElementById('sentence').style.display = 'none';
+    document.getElementById('options').style.display = 'none';
+    document.getElementById('buttons').style.display = 'none';
+    document.querySelector('.result').style.display = 'none';
+  });
+ 
+  buttonsDiv.innerHTML = '';
+  buttonsDiv.appendChild(replayBtn);
 }
 </script>
   <!-- ═══════════════════════════════════════════════════════════
@@ -1056,6 +1092,14 @@ function showFinal() {
       const toggleButton = document.createElement('button');
       toggleButton.className = 'toggle-description';
       toggleButton.textContent = '⬇️';
+      const micBtn = document.createElement('span');
+      micBtn.className = 'audio';
+      micBtn.textContent = '🎙️';
+      micBtn.style.cursor = 'pointer';
+      micBtn.addEventListener('click', () => {
+        showRecordingPopup(item.title || '', '', item.id || index);
+      });
+      row.appendChild(micBtn);
 
       row.appendChild(avatar);
       row.appendChild(user);
@@ -1532,16 +1576,7 @@ function normalize(str) {
 // ============================================================
 // SAVE RECORDING — dùng window.saveRecording từ post.html
 // ============================================================
-function saveRecordingToFirestore({ transcript, correctSentence, postId }) {
-    // window.saveRecording được định nghĩa trong post.html
-    // có sẵn Firebase import và __currentUser check bên trong
-    if (typeof window.saveRecording === 'function') {
-        window.saveRecording(String(postId), transcript, correctSentence);
-        console.log('[posts-loader] saveRecording called:', { postId, transcript });
-    } else {
-        console.warn('[posts-loader] window.saveRecording chưa được định nghĩa trong post.html');
-    }
-}
+
 
 // ============================================================
 // RECORDING POPUP
