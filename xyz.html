@@ -1402,54 +1402,29 @@ onAuthStateChanged(auth, async user => {
   window.currentUser = user;
 
   // ✅ Load subscription status
-  window.userSubscription = localStorage.getItem(`subscription_${user.uid}`) || 'free';
-  const subKey = localStorage.getItem(`subscription_key_${user.uid}`);
-  
-  console.log('Subscription:', window.userSubscription);
-
-  // Optional: Check if subscription expired (30 days)
-  const subDate = localStorage.getItem(`subscription_date_${user.uid}`);
-  if (subDate && window.userSubscription !== 'free') {
-    const subTime = new Date(subDate).getTime();
-    const now = new Date().getTime();
-    const fortyDays = 40 * 24 * 60 * 60 * 1000;
-    const renewDeadline = 25 * 24 * 60 * 60 * 1000;
-    
-    // Downgrade sau 40 ngày
-    if (now - subTime > fortyDays) {
-      console.warn('⏰ Subscription expired. Downgrading to free...');
-      window.userSubscription = 'free';
-      localStorage.removeItem(`subscription_${user.uid}`);
-      localStorage.removeItem(`subscription_key_${user.uid}`);
-      localStorage.removeItem(`subscription_date_${user.uid}`);
-    }
-    // Cảnh báo sau 25 ngày
-    else if (now - subTime > renewDeadline) {
-      const daysLeft = Math.ceil((fortyDays - (now - subTime)) / (24 * 60 * 60 * 1000));
-      showRenewWarning(daysLeft);
-    }
-  }
-
-  try {
-    window.API_TOKEN = await user.getIdToken();
-  } catch (err) {
-    console.error('Failed to get token:', err);
-  }
-  // ✅ Load từ DATABASE (không phải localStorage)
   try {
     const subRes = await fetch(`${window.API_BASE}/api/user-subscription`, {
       headers: { 'Authorization': `Bearer ${window.API_TOKEN}` }
     });
     const subData = await subRes.json();
     window.userSubscription = subData.data.plan || 'free';
-    
-    // Cũng lưu vào localStorage để offline access
     localStorage.setItem(`subscription_${user.uid}`, window.userSubscription);
+    
+    // ✅ CHECK SUBSCRIPTION STATUS
+    checkSubscriptionStatus(subData.data, fortyDays = 40, renewDeadline = 25);
   } catch (err) {
-    // Fallback to localStorage
     window.userSubscription = localStorage.getItem(`subscription_${user.uid}`) || 'free';
   }
 
+  // ✅ CHECK LẠI MỖI 5 PHÚT
+  setInterval(() => {
+    fetch(`${window.API_BASE}/api/user-subscription`, {
+      headers: { 'Authorization': `Bearer ${window.API_TOKEN}` }
+    })
+    .then(res => res.json())
+    .then(subData => checkSubscriptionStatus(subData.data, 40, 25))
+    .catch(err => console.error('Subscription check failed:', err));
+  }, 5 * 60 * 1000); // 5 minutes
   // Update UI
   const subBadge = window.userSubscription !== 'free' ? ' ⭐ ' + window.userSubscription.replace('plan_', '').toUpperCase() : '';
   document.getElementById('userDisplay').textContent = `👤 ${user.displayName || 'User'}${subBadge}`;
@@ -1495,8 +1470,33 @@ function switchPanel(name) {
 // TOOL FUNCTIONS
 // ════════════════════════════════════════════════════════
 // ✅ THÊM HÀM NÀY
+function checkSubscriptionStatus(subData, fortyDays, renewDeadline) {
+  if (!subData || subData.plan === 'free') return;
+
+  const expireTime = new Date(subData.expires_at).getTime();
+  const now = new Date().getTime();
+  const diff = expireTime - now;
+  const daysLeft = Math.ceil(diff / (24 * 60 * 60 * 1000));
+
+  // ✅ Downgrade nếu hết hạn
+  if (daysLeft <= 0) {
+    window.userSubscription = 'free';
+    localStorage.setItem(`subscription_${window.currentUser.uid}`, 'free');
+    location.reload();
+  }
+  // ✅ Show warning nếu sắp hết
+  else if (daysLeft <= renewDeadline) {
+    showRenewWarning(daysLeft);
+  }
+}
+
 function showRenewWarning(daysLeft) {
+  // Xóa banner cũ nếu có
+  const oldBanner = document.getElementById('renew-warning-banner');
+  if (oldBanner) oldBanner.remove();
+
   const banner = document.createElement('div');
+  banner.id = 'renew-warning-banner';
   banner.style.cssText = `
     position: fixed;
     top: 66px;
@@ -1511,7 +1511,7 @@ function showRenewWarning(daysLeft) {
     color: #856404;
     z-index: 99;
   `;
-  banner.innerHTML = `⏰ Your subscription expires in ${daysLeft} days. <a href="#" onclick="showSubscriptionModal(); return false;" style="color: #c0392b; text-decoration: underline;">Renew now</a>`;
+  banner.innerHTML = `⏰ Your subscription expires in ${daysLeft} day${daysLeft !== 1 ? 's' : ''}. <a href="#" onclick="showSubscriptionModal(); return false;" style="color: #c0392b; text-decoration: underline;">Renew now</a>`;
   document.body.insertBefore(banner, document.body.firstChild);
 }
 // STATE PERSISTENCE
