@@ -1099,7 +1099,10 @@
       window.setQuizData(transformedQuiz);
       
       quizList.innerHTML = '';
-      
+      transformedQuiz.forEach((quiz, idx) => { const div = document.createElement('div'); 
+      div.className = 'quiz-row';
+      div.style.cssText = 'background:var(--bg);border:var(--border-thick);border-radius:18px;padding:16px;margin-bottom:16px;';
+      quizList.appendChild(div); }); }
       
     function renderPersonalPosts(posts, imagesData) {
       const itemList = document.getElementById('itemList');
