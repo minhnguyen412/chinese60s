@@ -1351,7 +1351,7 @@
       console.log('[loadPersonalLessons] Starting with userId:', userId);
 
       // ✅ FIX: Lấy tất cả lessons, sắp xếp theo created_at.desc (mới nhất trước)
-      const url = `${SUPABASE_URL}/rest/v1/lessons?user_id=eq.${userId}&select=*,posts,quiz,images&order=created_at.desc`;
+      const url = `${SUPABASE_URL}/rest/v1/lessons?user_id=eq.${userId}&select=*,posts,quiz,images&order=submitted_at.desc`;
       console.log('[loadPersonalLessons] Fetching from:', url);
 
       const response = await fetch(url, {
