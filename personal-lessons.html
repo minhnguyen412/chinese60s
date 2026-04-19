@@ -1236,14 +1236,14 @@
 
     // ✅ Render quiz — THÊM ĐOẠN NÀY
     if (lesson.quiz && lesson.quiz.length > 0) {
-  const quizContainer = document.getElementById('quiz-container');
-  quizContainer.style.display = 'block';
-  renderPersonalQuiz(lesson.quiz, lesson.images || []);
-  
-  // ✅ SET quiz data cho quiz logic
-  window.setQuizData(lesson.quiz);
-}
-}
+      const quizContainer = document.getElementById('quiz-container');
+      quizContainer.style.display = 'block';
+      renderPersonalQuiz(lesson.quiz, lesson.images || []);
+
+      // ✅ SET quiz data cho quiz logic
+      window.setQuizData(lesson.quiz);
+    }
+  }
 
   function renderPersonalPosts(posts, imagesData) {
     const itemList = document.getElementById('itemList');
@@ -1308,7 +1308,7 @@
 
       setTimeout(() => li.classList.add('visible'), 100 * index);
     });
-  
+  }
     function renderPersonalQuiz(quizData, imagesData) {
   const quizList = document.getElementById('quiz-items-list');
   if (!quizList) return; // Nếu chưa có element
