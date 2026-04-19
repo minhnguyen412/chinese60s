@@ -1099,6 +1099,10 @@ function switchPanel(name) {
 
 // STATE PERSISTENCE
 function saveState() {
+  if (!qRows) qRows = [];
+  if (!pRows) pRows = [];
+  if (!pUsers) pUsers = [];
+  if (!imgRows) imgRows = [];
   const state = {
     pUsers,
     pRows: pRows.map(r => ({...r, audioFile: null})),
@@ -1347,13 +1351,9 @@ function qRerenderRow(id) {
 }
  
 function qRowHTML(row, idx) {
-  const tc = row.type ? ' ' + row.type : '';
   return `<div class="quiz-row" id="qrow-${row.id}">
     <div class="q-row-header">
       <span class="row-num-badge">#${idx + 1}</span>
-      <div class="type-pills">
-        <button class="type-pill${row.type === 't1' ? ' active-t1' : ''}" onclick="qSetType(${row.id},'t1')">📋 Type 1</button>
-      </div>
       <button class="q-row-delete" onclick="removeQRow(${row.id})">✕</button>
     </div>
     <div>${qFormT1(row)}</div>
