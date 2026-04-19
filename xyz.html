@@ -1387,16 +1387,7 @@ function qT1SegHTML(row) {
 
 function qFormT1(row) {
   return `<div class="row-inner">
-    <div class="field">
-      <label>🎵 Audio File</label>
-      <div class="upload-zone" onclick="document.getElementById('qaudio-${row.id}').click()">
-        <input type="file" id="qaudio-${row.id}" class="file-input" accept="audio/*" onchange="handleQuizAudio(${row.id}, event)">
-        <label class="upload-label">
-          <span class="upload-icon">🎵</span>
-          <span class="upload-text">${row.audioFile ? row.audioFile.name : 'Click or drag audio'}</span>
-        </label>
-      </div>
-    </div>
+    
     <div class="field"><label>📝 Full sentence</label>
       <input type="text" placeholder="你是哪国人？" value="${esc(row.fullSentence)}"
         oninput="qT1Input(${row.id},this.value)"
