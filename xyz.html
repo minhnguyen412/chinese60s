@@ -1663,15 +1663,18 @@ async function submitAll() {
     });
 
     // Quiz
-    formData.append('quiz', JSON.stringify(qRows.map(r => ({
-      type: r.type,
-      fullSentence: r.fullSentence,
-      segments: r.segments,
-      character: r.character,
-      t2correct: r.t2correct,
-      words: r.words,
-      t3correct: r.t3correct
-    }))));
+    formData.append('quiz', JSON.stringify(qRows.map((r, idx) => {
+  const nonPunctSegs = r.segments.filter(s => !isPunct(s));
+  const sentenceParts = r.segments.map(s => isPunct(s) ? s : '___');
+  const sentence = sentenceParts.join(' ').replace(/ ([，。！？、；：,.!?;:])/g, '$1');
+  
+  return {
+    id: idx + 1,
+    sentence: sentence,
+    blanks: nonPunctSegs.map(s => ({ answer: s })),
+    words: shuffle(nonPunctSegs)
+  };
+})));
 
     // Quiz files
     qRows.forEach((r, i) => {
