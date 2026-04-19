@@ -894,11 +894,8 @@
 <!-- TOOL SECTION (only visible when logged in) -->
 <div id="tool-section" style="display:none;">
   <div class="tool-section-header">
-  <h2>✏️ Create Personal Lesson</h2>
-  <div id="limitDisplay" style="font-size: 0.9rem; color: #666; margin-top: 8px;">
-    Loading your limits...
+    <h2>✏️ Create Personal Lesson</h2>
   </div>
-</div>
   <!-- SIMPLIFIED TAB SWITCH -->
   <div class="container">
     <div class="quick-links">
@@ -2100,58 +2097,73 @@ function tokenize(text) {
 async function submitAll() {
   const btn = document.getElementById('submitBtn');
   btn.disabled = true;
-  showStatus('submitStatus', 'info', '<span class="spinner"></span> Checking your limits...');
+  showStatus('submitStatus', 'info', '<span class="spinner"></span> Submitting your content...');
 
   try {
-    if (!currentUser || !API_TOKEN) {
+    if (!currentUser) {
       throw new Error('Please log in to submit content');
     }
 
-    // ✅ STEP 1: Fetch current limits
-    const limitsResponse = await fetch(`${window.API_BASE}/api/user-limits`, {
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${API_TOKEN}`
+    if (!API_TOKEN) {
+      throw new Error('Authentication token missing. Please refresh the page.');
+    }
+
+    const formData = new FormData();
+
+    // Posts
+    formData.append('posts', JSON.stringify(pRows.map(r => ({
+      user: r.user,
+      title: r.title,
+      segments: r.segments,
+      description: r.description.replace(/\n/g, '<br>')
+    }))));
+
+    // Posts audio files
+    pRows.forEach((r, i) => {
+      if (r.audioFile) {
+        formData.append(`post_audio_${i}`, r.audioFile);
       }
     });
 
-    if (!limitsResponse.ok) {
-      throw new Error('Could not fetch subscription limits');
-    }
+    // Posts avatar files
+    pUsers.forEach((u, i) => {
+      if (u.avatarFile) {
+        formData.append(`avatar_${i}`, u.avatarFile);
+      }
+    });
 
-    const limitsData = await limitsResponse.json();
-    console.log('📊 User Limits:', limitsData);
+    // Quiz
+    formData.append('quiz', JSON.stringify(qRows.map((r, idx) => {
+  const nonPunctSegs = r.segments.filter(s => !isPunct(s));
+  const sentenceParts = r.segments.map(s => isPunct(s) ? s : '___');
+  const sentence = sentenceParts.join(' ');
+  
+  return {
+    id: idx + 1,
+    fullSentence: r.fullSentence,
+    sentence: sentence,
+    blanks: nonPunctSegs.map(s => ({ answer: s })),
+    words: shuffle(nonPunctSegs)
+  };
+})));
 
-    const { limits, usage } = limitsData;
-    const questionCount = qRows.length;
+    // Quiz files
+    
+    // Images
+    formData.append('images', JSON.stringify(imgRows.map(r => ({
+      character: r.character,
+      pinyin: r.pinyin,
+      meaning: r.meaning
+    }))));
 
-    // ✅ STEP 2: Check if lesson count exceeded
-    if (usage.lessons_available <= 0) {
-      showStatus('submitStatus', 'err', 
-        `❌ You've created ${usage.lessons_created}/${limits.max_lessons} lessons. Upgrade to create more!`);
-      showSubscriptionModal();
-      btn.disabled = false;
-      return;
-    }
+    // Image files
+    imgRows.forEach((r, i) => {
+      if (r.imageFile) formData.append(`img_image_${i}`, r.imageFile);
+      if (r.audioFile) formData.append(`img_audio_${i}`, r.audioFile);
+    });
 
-    // ✅ STEP 3: Check if question count exceeded
-    if (questionCount > limits.max_questions_per_lesson) {
-      showStatus('submitStatus', 'err',
-        `❌ This lesson has ${questionCount} questions, but your plan allows max ${limits.max_questions_per_lesson}. Delete some questions or upgrade.`);
-      btn.disabled = false;
-      return;
-    }
-
-    // ✅ STEP 4: Proceed with submission
-    const formData = new FormData();
-    formData.append('title', 'My Lesson ' + new Date().toLocaleDateString());
-    formData.append('posts', JSON.stringify(pRows));
-    formData.append('quiz', JSON.stringify(qRows));
-    formData.append('images', JSON.stringify(imgRows));
-
-    // ... (add file handling code here)
-
-    const response = await fetch(`${window.API_BASE}/api/submit-lesson`, {
+    // 🔑 SEND WITH TOKEN
+    const response = await fetch(`${window.API_BASE}/api/submit`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${API_TOKEN}`
@@ -2161,46 +2173,24 @@ async function submitAll() {
 
     if (!response.ok) {
       const error = await response.json();
-      throw new Error(error.error || 'Submission failed');
+      throw new Error(error.error || `Server error: ${response.statusText}`);
     }
 
     const result = await response.json();
-    showStatus('submitStatus', 'success',
-      `✅ Lesson saved! (${result.lessons_used}/${limits.max_lessons})`);
-    showSuccessModal('Your lesson has been created!');
+
+    showStatus('submitStatus', 'success', '✅ Content submitted successfully!');
+    showSuccessModal('All your content has been saved!');
+
     clearAll();
 
   } catch (e) {
     showStatus('submitStatus', 'err', '❌ ' + e.message);
+    console.error('Submit error:', e);
   } finally {
     btn.disabled = false;
   }
 }
-/ Add to profile loading
-async function updateLimitDisplay() {
-  try {
-    const response = await fetch(`${window.API_BASE}/api/user-limits`, {
-      headers: { 'Authorization': `Bearer ${API_TOKEN}` }
-    });
-    const data = await response.json();
-    
-    const limitEl = document.getElementById('limitDisplay');
-    if (limitEl) {
-      limitEl.innerHTML = `
-        📚 ${data.usage.lessons_created}/${data.limits.max_lessons} lessons
-        | 📝 ${data.limits.max_questions_per_lesson} questions/lesson
-      `;
-    }
-  } catch (e) {
-    console.error('Could not fetch limits:', e);
-  }
-}
 
-// Call on page load
-onAuthStateChanged(auth, async user => {
-  // ... existing code ...
-  await updateLimitDisplay();
-});
 function clearAll() {
   if (!confirm('Clear all content and start over?')) return;
   pUsers = [];
