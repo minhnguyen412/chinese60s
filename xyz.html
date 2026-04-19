@@ -1401,7 +1401,14 @@ onAuthStateChanged(auth, async user => {
 
   window.currentUser = user;
 
-  // ✅ Load subscription status
+  // ✅ FIX: Thêm await và move lên trước
+  try {
+    window.API_TOKEN = await user.getIdToken();
+  } catch (err) {
+    console.error('Failed to get token:', err);
+  }
+
+  // ✅ Load từ DATABASE (AFTER getting token)
   try {
     const subRes = await fetch(`${window.API_BASE}/api/user-subscription`, {
       headers: { 'Authorization': `Bearer ${window.API_TOKEN}` }
@@ -1411,20 +1418,23 @@ onAuthStateChanged(auth, async user => {
     localStorage.setItem(`subscription_${user.uid}`, window.userSubscription);
     
     // ✅ CHECK SUBSCRIPTION STATUS
-    checkSubscriptionStatus(subData.data, fortyDays = 40, renewDeadline = 25);
+    checkSubscriptionStatus(subData.data, 40, 25);
   } catch (err) {
     window.userSubscription = localStorage.getItem(`subscription_${user.uid}`) || 'free';
   }
-
+  
   // ✅ CHECK LẠI MỖI 5 PHÚT
-  setInterval(() => {
-    fetch(`${window.API_BASE}/api/user-subscription`, {
+  setInterval(async () => {
+  try {
+    const subRes = await fetch(`${window.API_BASE}/api/user-subscription`, {
       headers: { 'Authorization': `Bearer ${window.API_TOKEN}` }
-    })
-    .then(res => res.json())
-    .then(subData => checkSubscriptionStatus(subData.data, 40, 25))
-    .catch(err => console.error('Subscription check failed:', err));
-  }, 5 * 60 * 1000); // 5 minutes
+    });
+    const subData = await subRes.json();
+    checkSubscriptionStatus(subData.data, 40, 25);
+  } catch (err) {
+    console.error('Subscription check failed:', err);
+  }
+}, 5 * 60 * 1000);
   // Update UI
   const subBadge = window.userSubscription !== 'free' ? ' ⭐ ' + window.userSubscription.replace('plan_', '').toUpperCase() : '';
   document.getElementById('userDisplay').textContent = `👤 ${user.displayName || 'User'}${subBadge}`;
@@ -1475,8 +1485,8 @@ function checkSubscriptionStatus(subData, fortyDays, renewDeadline) {
 
   const expireTime = new Date(subData.expires_at).getTime();
   const now = new Date().getTime();
-  const diff = expireTime - now;
-  const daysLeft = Math.ceil(diff / (24 * 60 * 60 * 1000));
+  const diffMs = expireTime - now;
+  const daysLeft = Math.ceil(diffMs / (24 * 60 * 60 * 1000));
 
   // ✅ Downgrade nếu hết hạn
   if (daysLeft <= 0) {
