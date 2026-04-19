@@ -1282,14 +1282,17 @@
 function renderPersonalQuiz(quizData, imagesData) {
   const quizList = document.getElementById('quiz-items-list');
   if (!quizList) return;
-    // ✅ Ensure proper structure
-      const transformedQuiz = (quizData || []).map(q => ({
-        sentence: (q.sentence || '').trim(),
-        blanks: q.blanks || [],
-        words: q.words || []
-      }));
-      
-      console.log('[renderPersonalQuiz] Transformed:', transformedQuiz);
+  
+  const transformedQuiz = (quizData || []).map(q => ({
+    sentence: (q.sentence || '').trim(),
+    blanks: q.blanks || [],
+    words: q.words || []
+  }));
+  
+  console.log('[renderPersonalQuiz] Transformed:', transformedQuiz);
+  
+  // ✅ SET quiz data cho quiz logic
+  window.setQuizData(transformedQuiz);
   
   quizList.innerHTML = '';
  
