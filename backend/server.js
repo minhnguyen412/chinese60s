@@ -129,7 +129,26 @@ async function verifyFirebaseToken(req, res, next) {
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date() });
 });
+// ✅ Thêm route này VÀO ĐÂY (trước submit)
+app.get('/api/lesson-count', verifyFirebaseToken, async (req, res) => {
+  try {
+    const uid = req.user.uid;
+    
+    const { count, error } = await supabase
+      .from('lessons')
+      .select('*', { count: 'exact', head: true })
+      .eq('user_id', uid);
 
+    if (error) throw error;
+
+    res.json({ 
+      success: true, 
+      count: count || 0 
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 // Submit lesson content
 app.post('/api/submit', verifyFirebaseToken, upload.any(), async (req, res) => {
   try {
@@ -282,24 +301,4 @@ app.listen(PORT, () => {
   console.log(`✅ Server running on http://localhost:${PORT}`);
   console.log(`   Firebase Auth: ${admin.app().name}`);
   console.log(`   Supabase: ${process.env.SUPABASE_URL}`);
-});
-// Fetch user's total lesson count (by subscription plan)
-app.get('/api/lesson-count', verifyFirebaseToken, async (req, res) => {
-  try {
-    const uid = req.user.uid;
-    
-    const { count, error } = await supabase
-      .from('lessons')
-      .select('*', { count: 'exact', head: true })
-      .eq('user_id', uid);
-
-    if (error) throw error;
-
-    res.json({ 
-      success: true, 
-      count: count || 0 
-    });
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
 });
