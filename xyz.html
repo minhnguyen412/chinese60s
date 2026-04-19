@@ -1486,7 +1486,7 @@ async function handleImgUpload(id, event) {
 
 function renderImgRows(){
   const el=document.getElementById('imageRows');
-  if(!imgRows.length){el.innerHTML='<div class="empty-hint"><span class="icon">🖼️</span>Click "Add Image" to start adding entries</div>';return;}
+  if(!imgRows.length){el.innerHTML='<div class="empty-hint"><span class="icon">🉐</span>Click "Add New Word" to start adding entries</div>';return;}
   el.innerHTML=imgRows.map((row,idx)=>`
     <div class="img-row" id="imgrow-${row.id}">
       <span class="row-num" style="background:var(--sky)">Entry ${idx+1}</span>
