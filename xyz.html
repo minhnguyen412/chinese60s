@@ -571,7 +571,7 @@
   <div class="nav-tabs">
     <button class="nav-tab active" data-panel="posts">💬 Posts</button>
     <button class="nav-tab" data-panel="quiz">📝 Quiz</button>
-    <button class="nav-tab" data-panel="images">🖼️ Images</button>
+    <button class="nav-tab" data-panel="images">🖼️ Vocabulary</button>
   </div>
 
   <div class="tool-container">
@@ -605,9 +605,9 @@
     <!-- PANEL: IMAGES -->
     <div class="panel" id="panel-images">
       <div class="card">
-        <div class="section-label">🖼️ Image Entries</div>
-        <div id="imageRows"><div class="empty-hint"><span class="icon">🖼️</span>Click "Add Image" to start adding entries</div></div>
-        <button class="btn btn-yellow" onclick="addImgRow()">+ Add Image</button>
+        <div class="section-label">🖼️ Vocabulary</div>
+        <div id="imageRows"><div class="empty-hint"><span class="icon">🖼️</span>Click "Add New Word" to start adding entries</div></div>
+        <button class="btn btn-yellow" onclick="addImgRow()">+ Add New Word</button>
       </div>
     </div>
 
@@ -1492,20 +1492,7 @@ function renderImgRows(){
       <span class="row-num" style="background:var(--sky)">Entry ${idx+1}</span>
       <button class="row-delete-btn" onclick="removeImgRow(${row.id})" title="Remove">✕</button>
       <div class="row-body">
-        <div class="img-preview-wrap" id="imgprev-${row.id}">
-          ${row.imageFile ? '📷' : '🖼️'}
-        </div>
         <div class="row-fields">
-          <div class="field">
-            <label>🖼️ Image File</label>
-            <div class="upload-zone" onclick="document.getElementById('imgfile-${row.id}').click()">
-              <input type="file" id="imgfile-${row.id}" class="file-input" accept="image/*" onchange="handleImgUpload(${row.id}, event)">
-              <label class="upload-label">
-                <span class="upload-icon">📷</span>
-                <span class="upload-text">${row.imageFile ? row.imageFile.name : 'Click or drag image'}</span>
-              </label>
-            </div>
-          </div>
           <div class="fields-grid">
             <div class="field">
               <label>🀄 Character</label>
