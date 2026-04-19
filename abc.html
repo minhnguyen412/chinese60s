@@ -71,22 +71,48 @@
 
     /* NAV TABS FOR TOOL - SIMPLIFIED */
     .nav-tabs {
-      display:flex; gap:0; border-bottom:var(--border-thick);
-      background:var(--white); position:sticky; top:66px; z-index:150;
-    }
+  display: flex;
+  gap: 12px;
+  border-bottom: none;
+  background: transparent;
+  position: sticky;
+  top: 66px;
+  z-index: 150;
+  padding: 16px 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
     .nav-tab {
-      flex:1; padding:14px 10px; border:none; background:none;
-      font-family:'Fredoka',sans-serif; font-weight:700; font-size:.95rem;
-      cursor:pointer; border-right:var(--border); color:#888;
-      transition:background .15s, color .15s;
-    }
-    .nav-tab:last-child { border-right:none; }
-    .nav-tab:hover { background:var(--bg); }
-    .nav-tab.active {
-      color:var(--black); font-weight:700;
-      background:var(--green-pale); border-bottom:3px solid var(--green);
-    }
-    @media(max-width:600px) { .nav-tab { font-size:.78rem; padding:10px 6px; } }
+  flex: 0 0 auto;
+  padding: 8px 16px;
+  border: var(--border);
+  border-radius: 50px;
+  background: var(--white);
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  font-size: .88rem;
+  cursor: pointer;
+  color: #888;
+  transition: background .15s, color .15s, transform .12s, box-shadow .12s;
+  box-shadow: var(--shadow-sm);
+}
+.nav-tab:last-child { border-right: var(--border); }
+.nav-tab:hover {
+  background: var(--bg);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--black);
+}
+.nav-tab.active {
+  color: #fff;
+  font-weight: 700;
+  background: var(--green);
+  border-bottom: var(--border);
+}
+@media(max-width:600px) {
+  .nav-tabs { gap: 8px; padding: 12px 16px; }
+  .nav-tab { padding: 6px 12px; font-size: .8rem; }
+}
 
     .container {
       max-width:1000px; margin:0 auto; width:100%;
@@ -284,6 +310,57 @@
     .empty-state span { font-size:1.6rem; display:block; margin-bottom:5px; }
 
     /* TOOL SECTION */
+    .tool-section-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-top: 20px;
+}
+.tool-section-header h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--black);
+}
+.quick-links {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.quick-link-box {
+  flex: 1;
+  min-width: 200px;
+  max-width: 280px;
+  background: var(--white);
+  border: var(--border-thick);
+  border-radius: 16px;
+  padding: 16px 20px;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  transition: transform .12s, box-shadow .12s;
+  text-decoration: none;
+  color: var(--black);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.quick-link-box:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--black);
+}
+.quick-link-icon {
+  font-size: 2rem;
+}
+.quick-link-title {
+  font-weight: 700;
+  font-size: .95rem;
+}
+.quick-link-desc {
+  font-size: .8rem;
+  color: #888;
+  font-weight: 600;
+}
     .tool-section {
       margin-top:40px;
       padding-top:40px;
@@ -473,7 +550,24 @@
 
 <!-- TOOL SECTION (only visible when logged in) -->
 <div id="tool-section" style="display:none;">
+  <div class="tool-section-header">
+    <h2>✏️ Create Personal Lesson</h2>
+  </div>
   <!-- SIMPLIFIED TAB SWITCH -->
+  <div class="container">
+    <div class="quick-links">
+      <a href="personal-lessons.html" class="quick-link-box">
+        <div class="quick-link-icon">📚</div>
+        <div class="quick-link-title">Personal Lessons</div>
+        <div class="quick-link-desc">View your custom lessons</div>
+      </a>
+      <a href="personal-vocabulary.html" class="quick-link-box">
+        <div class="quick-link-icon">📝</div>
+        <div class="quick-link-title">Personal Vocabulary</div>
+        <div class="quick-link-desc">Review your vocabulary list</div>
+      </a>
+    </div>
+  </div>
   <div class="nav-tabs">
     <button class="nav-tab active" data-panel="posts">💬 Posts</button>
     <button class="nav-tab" data-panel="quiz">📝 Quiz</button>
