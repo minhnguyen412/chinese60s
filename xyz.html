@@ -1833,18 +1833,16 @@ function newQRow() {
 }
  
 async function addQuizRow() {
-  const totalItems = getTotalItemCount();
+  const currentCount = await getTotalItemCount();  // ✅ await + assign
   const limit = getUserLimit();
   
-  // ✅ If user has hit their limit at DATABASE level
   if (currentCount >= limit) {
     showSubscriptionModal();
     return;
   }
 
-  // ✅ But ALSO check if they're close to submitting a lot of items
   const totalInDraft = pRows.length + qRows.length + imgRows.length;
-  if (totalInDraft >= 50) { // arbitrary draft limit
+  if (totalInDraft >= 50) {
     showStatus('submitStatus', 'err', 
       '⚠️ Too many items in draft. Submit before adding more.');
     return;
@@ -2012,18 +2010,16 @@ function applyTone(text,cursorPos,vowel,tone){
 }
 
 async function addImgRow(){
-  const totalItems = getTotalItemCount();
+  const currentCount = await getTotalItemCount();  // ✅ await + assign
   const limit = getUserLimit();
   
-  // ✅ If user has hit their limit at DATABASE level
   if (currentCount >= limit) {
     showSubscriptionModal();
     return;
   }
 
-  // ✅ But ALSO check if they're close to submitting a lot of items
   const totalInDraft = pRows.length + qRows.length + imgRows.length;
-  if (totalInDraft >= 50) { // arbitrary draft limit
+  if (totalInDraft >= 50) {
     showStatus('submitStatus', 'err', 
       '⚠️ Too many items in draft. Submit before adding more.');
     return;
