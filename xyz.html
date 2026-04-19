@@ -1242,13 +1242,19 @@ function render(user, quizzes, recs, writes) {
     </div>
 
     <!-- DETAIL TABS -->
-    <div class="section-card">
-      <div class="section-title">📋 Activity Details</div>
-      <div class="tabs">
-        <button class="tab-btn active" data-tab="quiz">📝 Quiz (${quizzes.length})</button>
-        <button class="tab-btn"        data-tab="speak">🎙 Speak (${allSpeakScore})</button>
-        <button class="tab-btn"        data-tab="write">✏️ Write (${writes.length})</button>
-      </div>
+<div class="section-card">
+  <div class="alltime-toggle" id="activity-toggle">
+    <h3 style="font-size:1rem;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.07em;display:flex;align-items:center;gap:8px;">
+      📋 Activity Details
+      <span class="chevron">▼</span>
+    </h3>
+  </div>
+  <div class="alltime-body" id="activity-body">
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="quiz">📝 Quiz (${quizzes.length})</button>
+      <button class="tab-btn"        data-tab="speak">🎙 Speak (${allSpeakScore})</button>
+      <button class="tab-btn"        data-tab="write">✏️ Write (${writes.length})</button>
+    </div>
 
       <!-- QUIZ TAB -->
       <div class="tab-panel active" id="tab-quiz">
@@ -1371,6 +1377,16 @@ function render(user, quizzes, recs, writes) {
     toggle.addEventListener('click', () => {
       const open = body.classList.toggle('open');
       toggle.classList.toggle('open', open);
+    });
+  }
+  // ✅ THÊM ĐÂY
+  /* Collapsible activity details */
+  const activityToggle = document.getElementById('activity-toggle');
+  const activityBody   = document.getElementById('activity-body');
+  if (activityToggle) {
+    activityToggle.addEventListener('click', () => {
+      const open = activityBody.classList.toggle('open');
+      activityToggle.classList.toggle('open', open);
     });
   }
 }
