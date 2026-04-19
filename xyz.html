@@ -888,6 +888,86 @@
   </div>
 </div>
 
+<!-- TOOL SECTION (only visible when logged in) -->
+<div id="tool-section" style="display:none;">
+  <div class="tool-section-header">
+    <h2>✏️ Create Personal Lesson</h2>
+  </div>
+  <!-- SIMPLIFIED TAB SWITCH -->
+  <div class="container">
+    <div class="quick-links">
+      <a href="personal-lessons.html" class="quick-link-box">
+        <div class="quick-link-icon">📚</div>
+        <div class="quick-link-title">Personal Lessons</div>
+        <div class="quick-link-desc">View your custom lessons</div>
+      </a>
+      <a href="personal-vocabulary.html" class="quick-link-box">
+        <div class="quick-link-icon">📝</div>
+        <div class="quick-link-title">Personal Vocabulary</div>
+        <div class="quick-link-desc">Review your vocabulary list</div>
+      </a>
+    </div>
+  </div>
+  
+  <div class="nav-tabs">
+    <button class="nav-tab active" data-panel="posts">💬 Posts</button>
+    <button class="nav-tab" data-panel="quiz">📝 Quiz</button>
+    <button class="nav-tab" data-panel="images">🖼️ Vocabulary</button>
+  </div>
+
+
+  <div class="tool-container">
+
+    <!-- PANEL: POSTS -->
+    <div class="panel active" id="panel-posts">
+      <div class="card">
+        <div class="section-label">👤 Characters</div>
+        <div class="field-row" style="align-items:flex-end">
+          <div class="field"><label>Name</label><input type="text" id="newUserName" placeholder="A, Teacher Wang…"></div>
+          <button class="btn btn-sm btn-green" onclick="addUser()" style="margin-bottom:2px">+ Add</button>
+        </div>
+        <div class="user-chips" id="userList"><div style="padding:8px;color:#bbb;font-size:.85rem;font-weight:600">No users yet</div></div>
+      </div>
+      <div class="card">
+        <div class="section-label">💬 Dialogue Lines</div>
+        <div id="dialogueRows"><div class="empty-hint"><span class="icon">💬</span>Add users first, then click Add Line</div></div>
+        <button class="btn btn-yellow" onclick="addPostRow()">+ Add Line</button>
+      </div>
+    </div>
+
+    <!-- PANEL: QUIZ -->
+    <div class="panel" id="panel-quiz">
+      <div class="card">
+        <div class="section-label">📝 Quiz Items</div>
+        <div id="quizRows"><div class="empty-hint"><span class="icon">📝</span>Click Add Quiz</div></div>
+        <button class="btn btn-yellow" onclick="addQuizRow()">+ Add Quiz</button>
+      </div>
+    </div>
+
+    <!-- PANEL: IMAGES -->
+    <div class="panel" id="panel-images">
+      <div class="card">
+        <div class="section-label">🖼️ Vocabulary</div>
+        <div id="imageRows"><div class="empty-hint"><span class="icon">🖼️</span>Click "Add New Word" to start adding entries</div></div>
+        <button class="btn btn-yellow" onclick="addImgRow()">+ Add New Word</button>
+      </div>
+    </div>
+
+    <!-- GLOBAL SUBMIT BUTTON -->
+    <div class="card" style="background:linear-gradient(135deg,var(--green-pale) 0%,var(--yellow-pale) 100%);margin-top:20px;">
+      <div class="actions-row" style="justify-content:center;gap:20px;">
+        <button class="btn btn-green" onclick="submitAll()" id="submitBtn" style="padding:12px 32px;font-size:1rem;">
+          ✅ Submit All
+        </button>
+        <button class="btn btn-yellow" onclick="clearAll()" style="padding:12px 32px;font-size:1rem;">
+          🔄 Clear & Start Over
+        </button>
+      </div>
+      <div id="submitStatus" class="status"></div>
+    </div>
+
+  </div>
+</div>
 
 <footer>
   <p class="brand">CHINESE 60s</p>
@@ -1120,86 +1200,7 @@ function render(user, quizzes, recs, writes) {
           → <strong style="color:#e53935">−${penalty} pts</strong> deducted from your all-time score
         </div>` : ''}
     </div>
-<!-- TOOL SECTION (only visible when logged in) -->
-<div id="tool-section" style="display:none;">
-  <div class="tool-section-header">
-    <h2>✏️ Create Personal Lesson</h2>
-  </div>
-  <!-- SIMPLIFIED TAB SWITCH -->
-  <div class="container">
-    <div class="quick-links">
-      <a href="personal-lessons.html" class="quick-link-box">
-        <div class="quick-link-icon">📚</div>
-        <div class="quick-link-title">Personal Lessons</div>
-        <div class="quick-link-desc">View your custom lessons</div>
-      </a>
-      <a href="personal-vocabulary.html" class="quick-link-box">
-        <div class="quick-link-icon">📝</div>
-        <div class="quick-link-title">Personal Vocabulary</div>
-        <div class="quick-link-desc">Review your vocabulary list</div>
-      </a>
-    </div>
-  </div>
-  
-  <div class="nav-tabs">
-    <button class="nav-tab active" data-panel="posts">💬 Posts</button>
-    <button class="nav-tab" data-panel="quiz">📝 Quiz</button>
-    <button class="nav-tab" data-panel="images">🖼️ Vocabulary</button>
-  </div>
 
-
-  <div class="tool-container">
-
-    <!-- PANEL: POSTS -->
-    <div class="panel active" id="panel-posts">
-      <div class="card">
-        <div class="section-label">👤 Characters</div>
-        <div class="field-row" style="align-items:flex-end">
-          <div class="field"><label>Name</label><input type="text" id="newUserName" placeholder="A, Teacher Wang…"></div>
-          <button class="btn btn-sm btn-green" onclick="addUser()" style="margin-bottom:2px">+ Add</button>
-        </div>
-        <div class="user-chips" id="userList"><div style="padding:8px;color:#bbb;font-size:.85rem;font-weight:600">No users yet</div></div>
-      </div>
-      <div class="card">
-        <div class="section-label">💬 Dialogue Lines</div>
-        <div id="dialogueRows"><div class="empty-hint"><span class="icon">💬</span>Add users first, then click Add Line</div></div>
-        <button class="btn btn-yellow" onclick="addPostRow()">+ Add Line</button>
-      </div>
-    </div>
-
-    <!-- PANEL: QUIZ -->
-    <div class="panel" id="panel-quiz">
-      <div class="card">
-        <div class="section-label">📝 Quiz Items</div>
-        <div id="quizRows"><div class="empty-hint"><span class="icon">📝</span>Click Add Quiz</div></div>
-        <button class="btn btn-yellow" onclick="addQuizRow()">+ Add Quiz</button>
-      </div>
-    </div>
-
-    <!-- PANEL: IMAGES -->
-    <div class="panel" id="panel-images">
-      <div class="card">
-        <div class="section-label">🖼️ Vocabulary</div>
-        <div id="imageRows"><div class="empty-hint"><span class="icon">🖼️</span>Click "Add New Word" to start adding entries</div></div>
-        <button class="btn btn-yellow" onclick="addImgRow()">+ Add New Word</button>
-      </div>
-    </div>
-
-    <!-- GLOBAL SUBMIT BUTTON -->
-    <div class="card" style="background:linear-gradient(135deg,var(--green-pale) 0%,var(--yellow-pale) 100%);margin-top:20px;">
-      <div class="actions-row" style="justify-content:center;gap:20px;">
-        <button class="btn btn-green" onclick="submitAll()" id="submitBtn" style="padding:12px 32px;font-size:1rem;">
-          ✅ Submit All
-        </button>
-        <button class="btn btn-yellow" onclick="clearAll()" style="padding:12px 32px;font-size:1rem;">
-          🔄 Clear & Start Over
-        </button>
-      </div>
-      <div id="submitStatus" class="status"></div>
-    </div>
-
-  </div>
-</div>
     <!-- ALL-TIME — COMPACT COLLAPSIBLE -->
     <div class="alltime-card">
       <div class="alltime-toggle" id="alltime-toggle">
