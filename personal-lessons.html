@@ -828,302 +828,304 @@
     <script>
 (function () {
  
-  function isImg(s) { return /\.(jpe?g|png|gif|bmp|webp|svg)$/i.test(String(s || '')); }
-  function wordHTML(w) {
-    if (isImg(w)) return `<img src="${w}" alt="">`;
-    return String(w);
-  }
+  let questions = [];
+  let curIdx = 0;
+  let score = 0;
+  let revealed = false;
+  let currentAnswers = []; // [word1, word2, ...]
  
-  let questions    = [];
-  let curIdx       = 0;
-  let scoreCorrect = 0;
-  let revealed     = false;
-  let slots        = [];
-  let wrongAnswerLog = [];
- 
-  const clickAudio     = new Audio('assets/click.mp3');
-  const correctAudio   = new Audio('assets/correct.mp3');
+  const clickAudio = new Audio('assets/click.mp3');
+  const correctAudio = new Audio('assets/correct.mp3');
   const incorrectAudio = new Audio('assets/incorrect.mp3');
-  const victoryAudio   = new Audio('assets/victory.mp3');
-  let   qAudio         = null;
+  const victoryAudio = new Audio('assets/victory.mp3');
  
-  const startCont    = document.getElementById('start-container');
-  const startBtn     = document.getElementById('start-button');
-  const sentenceEl   = document.getElementById('sentence');
-  const optionsEl    = document.getElementById('options');
-  const resultEl     = document.getElementById('result');
-  const buttonsEl    = document.getElementById('buttons');
-  const progWrap     = document.getElementById('quiz-progress-wrap');
-  const progFill     = document.getElementById('quiz-progress-fill');
-  const counterEl    = document.getElementById('quiz-counter');
-  const summaryEl    = document.getElementById('score-summary');
-  const scoreNumEl   = document.getElementById('score-num');
+  const startBtn = document.getElementById('start-button');
+  const startCont = document.getElementById('start-container');
+  const sentenceEl = document.getElementById('sentence');
+  const optionsEl = document.getElementById('options');
+  const resultEl = document.getElementById('result');
+  const buttonsEl = document.getElementById('buttons');
+  const progWrap = document.getElementById('quiz-progress-wrap');
+  const progFill = document.getElementById('quiz-progress-fill');
+  const counterEl = document.getElementById('quiz-counter');
+  const summaryEl = document.getElementById('score-summary');
+  const scoreNumEl = document.getElementById('score-num');
   const scoreTitleEl = document.getElementById('score-title');
-  const scoreMsgEl   = document.getElementById('score-msg');
-  const scoreCircle  = document.getElementById('score-circle');
-  const restartBtn   = document.getElementById('restart-btn');
+  const scoreMsgEl = document.getElementById('score-msg');
+  const scoreCircle = document.getElementById('score-circle');
+  const restartBtn = document.getElementById('restart-btn');
  
-  // ✅ SET quiz data từ Supabase (gọi từ loadPersonalLessons)
+  // ✅ SET quiz data từ Supabase
   window.setQuizData = function(data) {
     questions = data || [];
-    console.log('[Quiz] Data loaded:', questions.length, 'questions');
+    console.log('[Quiz] Loaded:', questions.length, 'questions');
   };
  
-  startBtn.addEventListener('click', async () => {
+  startBtn.addEventListener('click', () => {
     if (!questions.length) {
-      alert('No quiz data available');
+      alert('No quiz data');
       return;
     }
  
-    curIdx         = 0;
-    scoreCorrect   = 0;
-    wrongAnswerLog = [];
+    curIdx = 0;
+    score = 0;
  
-    startCont.style.display  = 'none';
-    progWrap.style.display   = 'block';
-    counterEl.style.display  = 'block';
-    summaryEl.style.display  = 'none';
-    showQ();
+    startCont.style.display = 'none';
+    progWrap.style.display = 'block';
+    counterEl.style.display = 'block';
+    summaryEl.style.display = 'none';
+ 
+    showQuestion();
   });
  
-  function showQ() {
-    if (curIdx >= questions.length) { showSummary(); return; }
- 
-    const q      = questions[curIdx];
-    const blanks = q.blanks || [];
-    revealed     = false;
-    slots        = blanks.map(() => null);
- 
-    progFill.style.width  = (curIdx / questions.length * 100) + '%';
-    counterEl.textContent = `Question ${curIdx + 1} of ${questions.length}`;
- 
-    // ✅ Render sentence từ q.sentence (đã có ___ sẵn)
-    let sentRaw = q.sentence || '';
-    if (Array.isArray(sentRaw)) {
-      sentRaw = sentRaw.map(tok => isImg(tok) ? `<img src="${tok}" alt="">` : String(tok)).join('');
-    } else {
-      sentRaw = String(sentRaw).replace(/([\S]+\.(?:jpe?g|png|gif|bmp|webp|svg))/gi,
-        '<img src="$1" alt="">');
+  function showQuestion() {
+    if (curIdx >= questions.length) {
+      showSummary();
+      return;
     }
  
-    let bi = 0;
-    const sentHTML = sentRaw.replace(/___/g, () => {
-      const idx = bi++;
+    const q = questions[curIdx];
+    revealed = false;
+    currentAnswers = Array(q.blanks.length).fill(null);
+ 
+    // Progress
+    progFill.style.width = (curIdx / questions.length * 100) + '%';
+    counterEl.textContent = `Question ${curIdx + 1} of ${questions.length}`;
+ 
+    // ===== SENTENCE (hiển thị 1 dòng với blanks) =====
+    let sentenceHTML = q.sentence || '';
+    let blankIdx = 0;
+ 
+    sentenceHTML = sentenceHTML.replace(/___/g, () => {
+      const idx = blankIdx++;
       return `<span class="blank" data-bi="${idx}"></span>`;
     });
-    sentenceEl.innerHTML = sentHTML;
+ 
+    sentenceEl.innerHTML = sentenceHTML;
     sentenceEl.style.display = 'flex';
  
-    sentenceEl.querySelectorAll('.blank').forEach(blankEl => {
-      blankEl.addEventListener('click', () => handleBlankClick(blankEl));
-    });
- 
-    // ✅ Render words từ q.words (xáo trộn sẵn)
-    const words  = q.words || [];
-    optionsEl.innerHTML = '';
-    const imgCount = words.filter(w => isImg(w)).length;
-    const isImgQ   = imgCount > words.length / 2;
-    optionsEl.style.display = 'grid';
-    optionsEl.classList.toggle('options-img', isImgQ);
- 
-    words.forEach(word => {
-      const hasImg = isImg(word);
-      const cell   = document.createElement('div');
-      cell.className = 'word-cell';
-      const ghost = document.createElement('span');
-      ghost.className = 'word-ghost';
-      const btn = document.createElement('button');
-      btn.className    = 'word';
-      btn.dataset.word = String(word);
-      btn.innerHTML    = wordHTML(word);
-      if (hasImg) btn.classList.add('has-image');
-      btn.addEventListener('click', () => handleWordClick(btn, ghost));
-      cell.appendChild(ghost);
-      cell.appendChild(btn);
-      optionsEl.appendChild(cell);
-      requestAnimationFrame(() => {
-        ghost.style.width  = btn.offsetWidth  + 'px';
-        ghost.style.height = btn.offsetHeight + 'px';
+    // Click blank để xóa
+    sentenceEl.querySelectorAll('.blank').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (!revealed) {
+          const bi = parseInt(el.dataset.bi);
+          if (currentAnswers[bi] !== null) {
+            currentAnswers[bi] = null;
+            updateUI();
+          }
+        }
       });
     });
  
-    resultEl.style.display  = 'none';
-    resultEl.textContent    = '';
-    resultEl.className      = 'result';
-    buttonsEl.innerHTML     = '';
+    // ===== WORDS (hiển thị pills dưới dạng grid) =====
+    optionsEl.innerHTML = '';
+    optionsEl.style.display = 'grid';
+ 
+    (q.words || []).forEach((word, wordIdx) => {
+      const btn = document.createElement('button');
+      btn.className = 'word';
+      btn.textContent = word;
+      btn.dataset.word = word;
+ 
+      btn.addEventListener('click', () => {
+        if (revealed) return;
+ 
+        // Tìm blank trống đầu tiên
+        const emptyBi = currentAnswers.findIndex(a => a === null);
+        if (emptyBi === -1) return;
+ 
+        play(clickAudio);
+ 
+        // Fill blank
+        currentAnswers[emptyBi] = word;
+        updateUI();
+ 
+        // Check xong hết blanks chưa
+        if (currentAnswers.every(a => a !== null)) {
+          checkAnswer();
+        }
+      });
+ 
+      optionsEl.appendChild(btn);
+    });
+ 
+    // ===== RESULT & BUTTONS =====
+    resultEl.textContent = '';
+    resultEl.style.display = 'none';
+    buttonsEl.innerHTML = '';
     buttonsEl.style.display = 'block';
  
-    if (q.audio) {
-      if (qAudio) { qAudio.pause(); }
-      qAudio = new Audio(q.audio);
-      qAudio.play().catch(() => {});
-      const rb = document.createElement('button');
-      rb.className   = 'replay-btn';
-      rb.textContent = '🔊 Replay';
-      rb.addEventListener('click', () => { qAudio.currentTime = 0; qAudio.play().catch(() => {}); });
-      buttonsEl.appendChild(rb);
-    }
- 
-    const isLast    = curIdx === questions.length - 1;
+    // Nút xem đáp án / tiếp tục
     const actionBtn = document.createElement('button');
-    actionBtn.id          = 'action-btn';
-    actionBtn.textContent = isLast ? 'Finish ✓' : 'Next →';
-    actionBtn.className   = isLast ? 'finish' : 'next';
-    actionBtn.disabled    = true;
-    actionBtn.addEventListener('click', () => reveal(q));
+    actionBtn.id = 'action-btn';
+    actionBtn.textContent = curIdx === questions.length - 1 ? 'Finish ✓' : 'Next →';
+    actionBtn.className = 'next';
+ 
+    actionBtn.addEventListener('click', () => {
+      if (!revealed) {
+        checkAnswer();
+      } else {
+        curIdx++;
+        showQuestion();
+      }
+    });
+ 
     buttonsEl.appendChild(actionBtn);
+ 
+    updateUI();
   }
  
-  function handleWordClick(btn, ghost) {
-    if (revealed || btn.classList.contains('used')) return;
-    const emptyBi = slots.findIndex(s => s === null);
-    if (emptyBi === -1) return;
-    play(clickAudio);
-    btn.classList.add('used');
-    const blankEl = sentenceEl.querySelector(`[data-bi="${emptyBi}"]`);
-    if (!blankEl) return;
-    blankEl.innerHTML = wordHTML(btn.dataset.word);
-    blankEl.classList.add('filled');
-    slots[emptyBi] = { optBtn: btn, ghostEl: ghost, word: btn.dataset.word };
-    checkAllFilled();
+  function updateUI() {
+    const q = questions[curIdx];
+ 
+    // Update blanks
+    sentenceEl.querySelectorAll('.blank').forEach(el => {
+      const bi = parseInt(el.dataset.bi);
+      const answer = currentAnswers[bi];
+ 
+      if (answer) {
+        el.textContent = answer;
+        el.classList.add('filled');
+        el.style.cursor = revealed ? 'default' : 'pointer';
+      } else {
+        el.textContent = '';
+        el.classList.remove('filled');
+        el.style.cursor = 'pointer';
+      }
+    });
+ 
+    // Disable/enable word buttons based on used
+    optionsEl.querySelectorAll('.word').forEach(btn => {
+      const word = btn.dataset.word;
+      const isUsed = currentAnswers.includes(word);
+      btn.disabled = isUsed || revealed;
+      btn.style.opacity = (isUsed || revealed) ? '0.5' : '1';
+    });
   }
  
-  function handleBlankClick(blankEl) {
+  function checkAnswer() {
     if (revealed) return;
-    const bi   = parseInt(blankEl.dataset.bi);
-    const slot = slots[bi];
-    if (!slot) return;
-    play(clickAudio);
-    slot.optBtn.classList.remove('used');
-    blankEl.innerHTML = '';
-    blankEl.className = 'blank';
-    blankEl.setAttribute('data-bi', String(bi));
-    slots[bi] = null;
-    checkAllFilled();
-    blankEl.addEventListener('click', () => handleBlankClick(blankEl));
-  }
  
-  function checkAllFilled() {
-    const btn = document.getElementById('action-btn');
-    if (btn) btn.disabled = slots.some(s => s === null);
-  }
+    const q = questions[curIdx];
+    const blanks = q.blanks || [];
  
-  function reveal(q) {
-    if (revealed || slots.some(s => s === null)) return;
+    let allCorrect = true;
+ 
+    blanks.forEach((b, i) => {
+      const given = currentAnswers[i];
+      const correct = given === b.answer;
+ 
+      if (!correct) allCorrect = false;
+ 
+      // Highlight blank
+      const blankEl = sentenceEl.querySelector(`[data-bi="${i}"]`);
+      if (blankEl) {
+        blankEl.classList.add(correct ? 'reveal-correct' : 'reveal-wrong');
+        if (!correct) {
+          blankEl.textContent = given || '—';
+          const hint = document.createElement('small');
+          hint.textContent = ` (${b.answer})`;
+          hint.style.cssText = 'opacity:0.7;font-size:0.8em;margin-left:4px;';
+          blankEl.appendChild(hint);
+        }
+      }
+    });
+ 
+    // Highlight word buttons
+    optionsEl.querySelectorAll('.word').forEach(btn => {
+      const word = btn.dataset.word;
+      const isCorrect = blanks.some(b => b.answer === word);
+      const wasUsed = currentAnswers.includes(word);
+ 
+      if (wasUsed && isCorrect) {
+        btn.classList.add('correct-reveal');
+      } else if (wasUsed && !isCorrect) {
+        btn.classList.add('incorrect-reveal');
+      } else if (isCorrect) {
+        btn.classList.add('correct-reveal');
+      }
+    });
+ 
+    // Result
     revealed = true;
  
-    const blanks = q.blanks || [];
-    let allOk = true;
- 
-    blanks.forEach((b, i) => {
-      const given = slots[i]?.word;
-      const ok    = String(given) === String(b.answer);
-      if (!ok) {
-        allOk = false;
-        wrongAnswerLog.push({
-          question: String(q.sentence || ''),
-          given:    String(given || '(empty)'),
-          answer:   String(b.answer)
-        });
-      }
-    });
- 
-    if (allOk) scoreCorrect++;
- 
-    blanks.forEach((b, i) => {
-      const blankEl = sentenceEl.querySelector(`[data-bi="${i}"]`);
-      if (!blankEl) return;
-      const ok = slots[i] && String(slots[i].word) === String(b.answer);
-      blankEl.classList.add(ok ? 'reveal-correct' : 'reveal-wrong');
-      blankEl.style.cursor = 'default';
-      if (!ok && !isImg(b.answer)) {
-        const hint = document.createElement('small');
-        hint.textContent = ` (${b.answer})`;
-        hint.style.cssText = 'font-size:0.65em;opacity:0.75;margin-left:4px;';
-        blankEl.appendChild(hint);
-      }
-    });
- 
-    optionsEl.querySelectorAll('.word').forEach(btn => {
-      btn.disabled = true;
-      btn.style.cursor = 'default';
-      const isCorrect = blanks.some(b => String(b.answer) === btn.dataset.word);
-      const wasUsed   = slots.some(s => s && s.optBtn === btn);
-      if (wasUsed && isCorrect)  btn.classList.add('correct-reveal');
-      if (wasUsed && !isCorrect) btn.classList.add('incorrect-reveal');
-      if (!wasUsed && isCorrect) btn.classList.add('correct-reveal');
-    });
- 
-    if (allOk) {
+    if (allCorrect) {
       play(correctAudio);
       resultEl.textContent = '✅ Correct!';
-      resultEl.className   = 'result correct';
+      resultEl.className = 'result correct';
+      score++;
     } else {
       play(incorrectAudio);
-      resultEl.textContent = `❌ Answer: ${blanks.map(b => b.answer).join(' / ')}`;
-      resultEl.className   = 'result incorrect';
+      const answers = blanks.map(b => b.answer).join(' / ');
+      resultEl.textContent = `❌ Answer: ${answers}`;
+      resultEl.className = 'result incorrect';
     }
     resultEl.style.display = 'block';
  
+    // Update button
     const actionBtn = document.getElementById('action-btn');
     if (actionBtn) {
       const isLast = curIdx === questions.length - 1;
-      const fresh  = actionBtn.cloneNode(false);
-      fresh.textContent = isLast ? 'See Results 🏆' : 'Continue →';
-      fresh.className   = isLast ? 'finish' : 'next';
-      fresh.disabled    = false;
-      fresh.addEventListener('click', () => { curIdx++; showQ(); });
-      actionBtn.replaceWith(fresh);
+      actionBtn.textContent = isLast ? 'See Results 🏆' : 'Continue →';
+      actionBtn.disabled = false;
     }
+ 
+    updateUI();
   }
  
   function showSummary() {
-    sentenceEl.style.display  = 'none';
-    optionsEl.style.display   = 'none';
-    resultEl.style.display    = 'none';
-    buttonsEl.style.display   = 'none';
-    progWrap.style.display    = 'none';
-    counterEl.style.display   = 'none';
+    sentenceEl.style.display = 'none';
+    optionsEl.style.display = 'none';
+    resultEl.style.display = 'none';
+    buttonsEl.style.display = 'none';
+    progWrap.style.display = 'none';
+    counterEl.style.display = 'none';
+ 
     play(victoryAudio);
  
     const total = questions.length;
-    const pct   = total ? Math.round(scoreCorrect / total * 100) : 0;
-    progFill.style.width   = '100%';
-    scoreNumEl.textContent = `${scoreCorrect}/${total}`;
+    const pct = Math.round(score / total * 100);
+ 
+    scoreNumEl.textContent = `${score}/${total}`;
  
     if (pct >= 80) {
-      scoreCircle.style.background  = 'var(--green-pale)';
+      scoreCircle.style.background = 'var(--green-pale)';
       scoreCircle.style.borderColor = 'var(--green)';
       scoreTitleEl.textContent = '🎉 Excellent!';
-      scoreMsgEl.textContent   = `You got ${scoreCorrect}/${total} correct (${pct}%). Outstanding!`;
+      scoreMsgEl.textContent = `${score}/${total} correct (${pct}%)`;
     } else if (pct >= 50) {
-      scoreCircle.style.background  = 'var(--yellow-pale)';
+      scoreCircle.style.background = 'var(--yellow-pale)';
       scoreCircle.style.borderColor = 'var(--yellow)';
-      scoreTitleEl.textContent = '👍 Good effort!';
-      scoreMsgEl.textContent   = `You got ${scoreCorrect}/${total} correct (${pct}%). Keep it up!`;
+      scoreTitleEl.textContent = '👍 Good!';
+      scoreMsgEl.textContent = `${score}/${total} correct (${pct}%)`;
     } else {
-      scoreCircle.style.background  = 'var(--pink-pale)';
+      scoreCircle.style.background = 'var(--pink-pale)';
       scoreCircle.style.borderColor = 'var(--pink)';
-      scoreTitleEl.textContent = '💪 Keep going!';
-      scoreMsgEl.textContent   = `You got ${scoreCorrect}/${total} correct (${pct}%). Try again!`;
+      scoreTitleEl.textContent = '💪 Keep trying!';
+      scoreMsgEl.textContent = `${score}/${total} correct (${pct}%)`;
     }
+ 
     summaryEl.style.display = 'block';
   }
  
   restartBtn.addEventListener('click', () => {
-    summaryEl.style.display  = 'none';
-    startCont.style.display  = 'block';
-    progWrap.style.display   = 'none';
-    counterEl.style.display  = 'none';
-    progFill.style.width     = '0%';
+    summaryEl.style.display = 'none';
+    startCont.style.display = 'block';
+    progWrap.style.display = 'none';
+    counterEl.style.display = 'none';
+    progFill.style.width = '0%';
     sentenceEl.style.display = 'none';
-    optionsEl.style.display  = 'none';
-    buttonsEl.style.display  = 'none';
-    resultEl.style.display   = 'none';
+    optionsEl.style.display = 'none';
+    buttonsEl.style.display = 'none';
+    resultEl.style.display = 'none';
   });
  
   function play(audio) {
-    try { audio.currentTime = 0; audio.play().catch(() => {}); } catch(e) {}
+    try {
+      audio.currentTime = 0;
+      audio.play().catch(() => {});
+    } catch (e) {}
   }
  
 })();
