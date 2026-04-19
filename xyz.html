@@ -71,48 +71,48 @@
 
     /* NAV TABS FOR TOOL - SIMPLIFIED */
     .nav-tabs {
-      display: flex;
-      gap: 12px;
-      border-bottom: none;
-      background: transparent;
-      position: sticky;
-      top: 66px;
-      z-index: 150;
-      padding: 16px 24px;
-      max-width: 1000px;
-      margin: 0 auto;
-      width: 100%;
-    }
+  display: flex;
+  gap: 12px;
+  border-bottom: none;
+  background: transparent;
+  position: sticky;
+  top: 66px;
+  z-index: 150;
+  padding: 16px 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
     .nav-tab {
-      flex: 0 0 auto;
-      padding: 8px 16px;
-      border: var(--border);
-      border-radius: 50px;
-      background: var(--white);
-      font-family: 'Fredoka', sans-serif;
-      font-weight: 700;
-      font-size: .88rem;
-      cursor: pointer;
-      color: #888;
-      transition: background .15s, color .15s, transform .12s, box-shadow .12s;
-      box-shadow: var(--shadow-sm);
-    }
-    .nav-tab:last-child { border-right: var(--border); }
-    .nav-tab:hover {
-      background: var(--bg);
-      transform: translate(-1px, -1px);
-      box-shadow: 3px 3px 0 var(--black);
-    }
-    .nav-tab.active {
-      color: #fff;
-      font-weight: 700;
-      background: var(--green);
-      border-bottom: var(--border);
-    }
-    @media(max-width:600px) {
-      .nav-tabs { gap: 8px; padding: 12px 16px; }
-      .nav-tab { padding: 6px 12px; font-size: .8rem; }
-    }
+  flex: 0 0 auto;
+  padding: 8px 16px;
+  border: var(--border);
+  border-radius: 50px;
+  background: var(--white);
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  font-size: .88rem;
+  cursor: pointer;
+  color: #888;
+  transition: background .15s, color .15s, transform .12s, box-shadow .12s;
+  box-shadow: var(--shadow-sm);
+}
+.nav-tab:last-child { border-right: var(--border); }
+.nav-tab:hover {
+  background: var(--bg);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--black);
+}
+.nav-tab.active {
+  color: #fff;
+  font-weight: 700;
+  background: var(--green);
+  border-bottom: var(--border);
+}
+@media(max-width:600px) {
+  .nav-tabs { gap: 8px; padding: 12px 16px; }
+  .nav-tab { padding: 6px 12px; font-size: .8rem; }
+}
 
     .container {
       max-width:1000px; margin:0 auto; width:100%;
@@ -311,56 +311,56 @@
 
     /* TOOL SECTION */
     .tool-section-header {
-      text-align: center;
-      margin-bottom: 24px;
-      padding-top: 20px;
-    }
-    .tool-section-header h2 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: var(--black);
-    }
-    .quick-links {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      margin-bottom: 24px;
-      flex-wrap: wrap;
-    }
-    .quick-link-box {
-      flex: 1;
-      min-width: 200px;
-      max-width: 280px;
-      background: var(--white);
-      border: var(--border-thick);
-      border-radius: 16px;
-      padding: 16px 20px;
-      text-align: center;
-      box-shadow: var(--shadow-md);
-      transition: transform .12s, box-shadow .12s;
-      text-decoration: none;
-      color: var(--black);
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .quick-link-box:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 5px 5px 0 var(--black);
-    }
-    .quick-link-icon {
-      font-size: 2rem;
-    }
-    .quick-link-title {
-      font-weight: 700;
-      font-size: .95rem;
-    }
-    .quick-link-desc {
-      font-size: .8rem;
-      color: #888;
-      font-weight: 600;
-    }
+  text-align: center;
+  margin-bottom: 24px;
+  padding-top: 20px;
+}
+.tool-section-header h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--black);
+}
+.quick-links {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.quick-link-box {
+  flex: 1;
+  min-width: 200px;
+  max-width: 280px;
+  background: var(--white);
+  border: var(--border-thick);
+  border-radius: 16px;
+  padding: 16px 20px;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  transition: transform .12s, box-shadow .12s;
+  text-decoration: none;
+  color: var(--black);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.quick-link-box:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--black);
+}
+.quick-link-icon {
+  font-size: 2rem;
+}
+.quick-link-title {
+  font-weight: 700;
+  font-size: .95rem;
+}
+.quick-link-desc {
+  font-size: .8rem;
+  color: #888;
+  font-weight: 600;
+}
     .tool-section {
       margin-top:40px;
       padding-top:40px;
@@ -446,12 +446,23 @@
     .seg-hint{font-size:.72rem;color:#aaa;font-weight:600;margin-top:4px;}
     .seg-preview{margin-top:5px;font-size:.75rem;color:#666;font-weight:600;background:var(--white);border:var(--border);border-radius:8px;padding:5px 10px;}
 
-    .quiz-row{border:var(--border-thick);border-radius:18px;padding:16px;margin-bottom:16px;position:relative;box-shadow:var(--shadow-sm);transition:background .2s,box-shadow .15s;overflow:visible;background:var(--t1-pale);}
+    .quiz-row{border:var(--border-thick);border-radius:18px;padding:16px;margin-bottom:16px;position:relative;box-shadow:var(--shadow-sm);transition:background .2s,box-shadow .15s;overflow:visible;background:var(--bg);}
     .quiz-row:hover{box-shadow:var(--shadow-md);}
+    .quiz-row.t1{background:var(--t1-pale);}
+    .quiz-row.t2{background:var(--t2-pale);}
+    .quiz-row.t3{background:var(--t3-pale);}
     .q-row-header{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:14px;padding-bottom:12px;border-bottom:2px dashed rgba(0,0,0,.1);}
     .row-num-badge{background:var(--white);border:var(--border);border-radius:50px;padding:3px 12px;font-size:.75rem;font-weight:700;box-shadow:var(--shadow-sm);flex-shrink:0;}
+    .type-pills{display:flex;gap:6px;flex-wrap:wrap;}
+    .type-pill{border:var(--border);border-radius:50px;cursor:pointer;font-family:'Fredoka',sans-serif;font-weight:700;font-size:.8rem;padding:5px 14px;background:var(--white);box-shadow:2px 2px 0 var(--black);transition:transform .1s,box-shadow .1s;white-space:nowrap;}
+    .type-pill:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 var(--black);}
+    .type-pill.active-t1{background:var(--t1);}
+    .type-pill.active-t2{background:var(--t2);}
+    .type-pill.active-t3{background:var(--t3);}
     .q-row-delete{background:none;border:none;cursor:pointer;font-size:1.1rem;color:#ccc;transition:color .15s;margin-left:auto;padding:2px 4px;}
     .q-row-delete:hover{color:#c0392b;}
+    .pick-hint{text-align:center;padding:20px;color:#bbb;font-size:.9rem;font-weight:700;}
+    .pick-hint span{font-size:1.5rem;display:block;margin-bottom:4px;}
     .row-inner{display:flex;flex-direction:column;gap:10px;}
     .seg-area{display:flex;flex-wrap:wrap;gap:6px;padding:10px;background:rgba(255,255,255,.7);border:var(--border);border-radius:12px;min-height:46px;}
     .seg-tok{display:flex;align-items:stretch;background:var(--white);border:2px solid var(--black);border-radius:9px;overflow:hidden;box-shadow:2px 2px 0 var(--black);}
@@ -463,6 +474,13 @@
     .sub-label{font-size:.78rem;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.06em;}
     .preview-box{font-size:.85rem;color:#666;font-weight:600;background:var(--white);border:var(--border);border-radius:10px;padding:8px 12px;line-height:1.8;}
     .blank-pill{display:inline-block;background:var(--yellow);border:1.5px solid var(--black);border-radius:4px;padding:0 5px;font-size:.8rem;font-weight:700;margin:0 1px;}
+    .correct-badge{display:inline-flex;align-items:center;gap:4px;background:var(--green-pale);border:1.5px solid var(--green);border-radius:50px;padding:2px 10px;font-size:.75rem;font-weight:700;color:var(--green-dark);}
+    .img-thumb{width:68px;height:68px;border:var(--border-thick);border-radius:10px;background:var(--white);display:flex;align-items:center;justify-content:center;font-size:1.3rem;overflow:hidden;box-shadow:var(--shadow-sm);flex-shrink:0;}
+    .img-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+    .opt-row{display:flex;align-items:center;gap:8px;margin-top:7px;}
+    .opt-row input[type=url],.opt-row input[type=text]{flex:1;}
+    .radio-lbl{display:flex;align-items:center;gap:5px;cursor:pointer;font-size:.82rem;font-weight:700;color:#aaa;white-space:nowrap;flex-shrink:0;}
+    .radio-lbl.correct{color:var(--green-dark);}
 
     .img-row{background:var(--bg);border:var(--border-thick);border-radius:18px;padding:16px;margin-bottom:12px;position:relative;box-shadow:var(--shadow-sm);transition:box-shadow .15s;overflow:visible;}
     .img-row:hover{box-shadow:var(--shadow-md);}
@@ -474,6 +492,18 @@
     .fields-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
     @media(max-width:700px){.fields-grid{grid-template-columns:1fr 1fr;}}
     @media(max-width:450px){.fields-grid{grid-template-columns:1fr;}}
+    .pinyin-wrap{position:relative;z-index:10;}
+    .pinyin-input{background:var(--lavender-pale)!important;border-color:var(--lavender)!important;font-size:1rem!important;letter-spacing:.03em;}
+    .pinyin-input:focus{border-color:#6366f1!important;box-shadow:5px 5px 0 #6366f1!important;}
+    .tone-picker{display:none;position:absolute;bottom:calc(100% + 6px);left:0;z-index:9999;background:var(--white);border:var(--border-thick);border-radius:16px;box-shadow:var(--shadow-lg);padding:10px;flex-direction:column;gap:6px;min-width:280px;}
+    .tone-picker.open{display:flex;}
+    .tone-picker-title{font-size:.72rem;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;}
+    .tone-row{display:flex;gap:5px;flex-wrap:wrap;}
+    .tone-btn{background:var(--lavender-pale);border:2px solid var(--black);border-radius:8px;cursor:pointer;font-family:'Fredoka',sans-serif;font-weight:700;font-size:1rem;padding:5px 10px;box-shadow:2px 2px 0 var(--black);transition:transform .1s,box-shadow .1s;min-width:38px;text-align:center;}
+    .tone-btn:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 var(--black);background:var(--lavender);}
+    .tone-helper-btn{display:inline-flex;align-items:center;gap:4px;font-size:.72rem;font-weight:700;color:#6366f1;cursor:pointer;background:none;border:none;font-family:'Fredoka',sans-serif;padding:2px 0;margin-top:2px;}
+    .tone-helper-btn:hover{text-decoration:underline;}
+    .url-field{grid-column:1/-1;}
 
     .actions-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:20px;}
     .empty-hint{text-align:center;padding:28px;color:#bbb;font-weight:700;font-size:.92rem;}
@@ -540,7 +570,7 @@
   </div>
   <div class="nav-tabs">
     <button class="nav-tab active" data-panel="posts">💬 Posts</button>
-    <button class="nav-tab" data-panel="quiz">📝 Quiz (Type 1 Only)</button>
+    <button class="nav-tab" data-panel="quiz">📝 Quiz</button>
     <button class="nav-tab" data-panel="images">🖼️ Images</button>
   </div>
 
@@ -566,8 +596,8 @@
     <!-- PANEL: QUIZ -->
     <div class="panel" id="panel-quiz">
       <div class="card">
-        <div class="section-label">📝 Quiz Type 1</div>
-        <div id="quizRows"><div class="empty-hint"><span class="icon">📝</span>Click Add Quiz to add fill-in-the-blank questions</div></div>
+        <div class="section-label">📝 Quiz Items</div>
+        <div id="quizRows"><div class="empty-hint"><span class="icon">📝</span>Click Add Quiz — pick a type for each</div></div>
         <button class="btn btn-yellow" onclick="addQuizRow()">+ Add Quiz</button>
       </div>
     </div>
@@ -1071,9 +1101,9 @@ function switchPanel(name) {
 function saveState() {
   const state = {
     pUsers,
-    pRows: pRows.map(r => ({...r})),
-    qRows: qRows.map(r => ({...r})),
-    imgRows: imgRows.map(r => ({...r}))
+    pRows: pRows.map(r => ({...r, audioFile: null})),
+    qRows: qRows.map(r => ({...r, audioFile: null, imgFiles: [null,null,null]})),
+    imgRows: imgRows.map(r => ({...r, imageFile: null, audioFile: null}))
   };
   localStorage.setItem('chinese60s_draft', JSON.stringify(state));
 }
@@ -1112,17 +1142,21 @@ function shuffle(arr) {
 const PUNCT_RE = /^[，。！？、；：""''（）《》【】「」『』…—·～,.!?;:'"()\[\]{}<>\s]+$/;
 const isPunct = s => PUNCT_RE.test(s);
 
-// POSTS (Simplified - no audio)
+// POSTS
 let pUsers = [];
 let pRows  = [];
+let currentAvatarFile = null;
+
+
 
 async function addUser() {
   const name = document.getElementById('newUserName').value.trim();
   if (!name) return alert('Enter a name.');
   if (pUsers.find(u=>u.name===name)) return alert('Already exists.');
 
-  pUsers.push({name});
+  pUsers.push({name, avatarFile: currentAvatarFile});
   document.getElementById('newUserName').value='';
+  clearAvatar();
   renderUsers();
   renderPostRows();
   saveState();
@@ -1149,7 +1183,7 @@ function renderUsers() {
 
 function addPostRow() {
   if (!pUsers.length) return alert('Add at least one user first.');
-  pRows.push({id:Date.now(),user:pUsers[0].name,title:'',description:'',segments:[]});
+  pRows.push({id:Date.now(),user:pUsers[0].name,title:'',description:'',audioFile:null,segments:[],composing:false});
   renderPostRows();
   saveState();
 }
@@ -1167,6 +1201,7 @@ function updatePostRow(id,field,value) {
     saveState();
   }
 }
+
 
 const pComposing = new Set();
 function pTitleInput(id,value) {
@@ -1235,13 +1270,13 @@ function renderPostRows() {
           </select>
         </div>
         <div class="row-fields-col">
-          <div class="field"><label>Chinese Sentence</label>
+          <div class="field"><label>Chinese Title</label>
             <input type="text" placeholder="这是王老师…" value="${esc(row.title)}"
               oninput="pTitleInput(${row.id},this.value)"
               oncompositionstart="pTitleCompStart(${row.id})"
               oncompositionend="pTitleCompEnd(${row.id},this.value)">
           </div>
-          <div class="field"><label>Translation <span style="color:#bbb;font-weight:500">(pinyin &amp; English)</span></label>
+          <div class="field"><label>Description <span style="color:#bbb;font-weight:500">(pinyin&lt;br&gt;English)</span></label>
             <textarea placeholder="wáng lǎoshī…&#10;Teacher Wang…" oninput="updatePostRow(${row.id},'description',this.value)">${esc(row.description)}</textarea>
           </div>
         </div>
@@ -1251,11 +1286,14 @@ function renderPostRows() {
   }).join('');
 }
 
-// QUIZ (Type 1 only - Fill-in-the-blank)
+// QUIZ
 let qRows = [];
 
 function newQRow() {
-  return {id:Date.now()+Math.random(), fullSentence:'', segments:[], composing:false, audioFile:null};
+  return {id:Date.now()+Math.random(),type:null,audioFile:null,
+    fullSentence:'',segments:[],composing:false,
+    character:'',imgFiles:[null,null,null],t2correct:'',
+    imageFile:null,words:['','',''],t3correct:''};
 }
 
 function addQuizRow() {
@@ -1277,9 +1315,29 @@ async function handleQuizAudio(id, event) {
   qRerenderRow(id);
 }
 
+async function handleT2Image(id, idx, event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const r = qRows.find(r=>r.id===id);
+  if (!r) return;
+  r.imgFiles[idx] = file;
+  saveState();
+  qRerenderRow(id);
+}
+
+async function handleT3Image(id, event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const r = qRows.find(r=>r.id===id);
+  if (!r) return;
+  r.imageFile = file;
+  saveState();
+  qRerenderRow(id);
+}
+
 function renderQuizAll() {
   const el=document.getElementById('quizRows');
-  if(!qRows.length){el.innerHTML='<div class="empty-hint"><span class="icon">📝</span>Click Add Quiz to add fill-in-the-blank questions</div>';return;}
+  if(!qRows.length){el.innerHTML='<div class="empty-hint"><span class="icon">📝</span>Click Add Quiz — pick a type for each</div>';return;}
   el.innerHTML=qRows.map((r,i)=>qRowHTML(r,i)).join('');
 }
 
@@ -1292,32 +1350,20 @@ function qRerenderRow(id) {
 }
 
 function qRowHTML(row,idx) {
+  const tc=row.type?' '+row.type:'';
   return `<div class="quiz-row" id="qrow-${row.id}">
     <div class="q-row-header">
-      <span class="row-num-badge">#${idx+1} Type 1</span>
+      <span class="row-num-badge">#${idx+1}</span>
+      <div class="type-pills">
+        <button class="type-pill${row.type==='t1'?' active-t1':''}" onclick="qSetType(${row.id},'t1')">📋 Type 1</button>
+      </div>
       <button class="q-row-delete" onclick="removeQRow(${row.id})">✕</button>
     </div>
-    <div class="row-inner">
-      <div class="field">
-        <label>🎵 Audio File</label>
-        <div class="upload-zone" onclick="document.getElementById('qaudio-${row.id}').click()">
-          <input type="file" id="qaudio-${row.id}" class="file-input" accept="audio/*" onchange="handleQuizAudio(${row.id}, event)">
-          <label class="upload-label">
-            <span class="upload-icon">🎵</span>
-            <span class="upload-text">${row.audioFile ? row.audioFile.name : 'Click or drag audio'}</span>
-          </label>
-        </div>
-      </div>
-      <div class="field"><label>📝 Full sentence</label>
-        <input type="text" placeholder="你是哪国人？" value="${esc(row.fullSentence)}"
-          oninput="qT1Input(${row.id},this.value)"
-          oncompositionstart="qSet(${row.id},'composing',true)"
-          oncompositionend="qT1CompEnd(${row.id},this.value)">
-      </div>
-      <div id="qt1seg-${row.id}">${qT1SegHTML(row)}</div>
-    </div>
+    <div>${qFormT1(row)}</div>
   </div>`;
 }
+
+
 
 function qT1SegHTML(row) {
   if(!row.segments.length) return '';
@@ -1337,6 +1383,28 @@ function qT1SegHTML(row) {
   <div class="preview-box">
     <div><strong>sentence:</strong> ${row.segments.map(s=>isPunct(s)?`<span style="color:#888">${esc(s)}</span>`:`<span class="blank-pill">___</span>`).join(' ')}</div>
     <div style="margin-top:3px"><strong>words:</strong> ${shuffle(nonP).map(s=>`<span class="blank-pill">${esc(s)}</span>`).join(' ')}</div>
+  </div>`;
+}
+
+function qFormT1(row) {
+  return `<div class="row-inner">
+    <div class="field">
+      <label>🎵 Audio File</label>
+      <div class="upload-zone" onclick="document.getElementById('qaudio-${row.id}').click()">
+        <input type="file" id="qaudio-${row.id}" class="file-input" accept="audio/*" onchange="handleQuizAudio(${row.id}, event)">
+        <label class="upload-label">
+          <span class="upload-icon">🎵</span>
+          <span class="upload-text">${row.audioFile ? row.audioFile.name : 'Click or drag audio'}</span>
+        </label>
+      </div>
+    </div>
+    <div class="field"><label>📝 Full sentence</label>
+      <input type="text" placeholder="你是哪国人？" value="${esc(row.fullSentence)}"
+        oninput="qT1Input(${row.id},this.value)"
+        oncompositionstart="qSet(${row.id},'composing',true)"
+        oncompositionend="qT1CompEnd(${row.id},this.value)">
+    </div>
+    <div id="qt1seg-${row.id}">${qT1SegHTML(row)}</div>
   </div>`;
 }
 
@@ -1370,14 +1438,37 @@ function qT1Merge(id,idx) {
   saveState();
 }
 
+
 function qSet(id,field,value){const r=qRows.find(r=>r.id===id);if(r)r[field]=value;}
 
-// IMAGES (With Supabase URL support)
+function buildSentenceStr(segs){return segs.map(s=>isPunct(s)?s:'___').join(' ').replace(/ ([，。！？、；：,.!?])/g,'$1');}
+
+// IMAGES
 let imgRows = [];
+let activeTonePicker = null;
+
+const TONES = {
+  a:['ā','á','ǎ','à','a'],e:['ē','é','ě','è','e'],
+  i:['ī','í','ǐ','ì','i'],o:['ō','ó','ǒ','ò','o'],
+  u:['ū','ú','ǔ','ù','u'],ü:['ǖ','ǘ','ǚ','ǜ','ü'],
+};
+const TONED_MAP = {};
+Object.entries(TONES).forEach(([base,arr])=>arr.forEach((ch,i)=>{if(i<4)TONED_MAP[ch]={base,tone:i+1};}));
+
+function applyTone(text,cursorPos,vowel,tone){
+  const before=text.slice(0,cursorPos),after=text.slice(cursorPos);
+  let idx=-1;
+  for(let i=before.length-1;i>=0;i--){
+    const ch=before[i].toLowerCase();
+    if(ch===vowel||(TONED_MAP[before[i]]&&TONED_MAP[before[i]].base===vowel)){idx=i;break;}
+  }
+  const newBefore=idx>=0?before.slice(0,idx)+TONES[vowel][tone-1]+before.slice(idx+1):before+TONES[vowel][tone-1];
+  return{text:newBefore+after,cursor:newBefore.length};
+}
 
 function addImgRow(){
   const id=Date.now();
-  imgRows.push({id, imageFile:null, character:'', pinyin:'', meaning:'', imageUrl:''});
+  imgRows.push({id,imageFile:null,character:'',pinyin:'',meaning:'',audioFile:null});
   renderImgRows();
   saveState();
   setTimeout(()=>{const el=document.getElementById('imgrow-'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'center'});},50);
@@ -1401,6 +1492,7 @@ async function handleImgUpload(id, event) {
   saveState();
   renderImgRows();
 }
+
 
 function renderImgRows(){
   const el=document.getElementById('imageRows');
@@ -1431,23 +1523,72 @@ function renderImgRows(){
             </div>
             <div class="field">
               <label>🔤 Pinyin</label>
-              <input type="text" placeholder="nǐ hǎo" value="${esc(row.pinyin)}" oninput="updateImgRow(${row.id},'pinyin',this.value)">
+              <div class="pinyin-wrap" id="ipinyin-wrap-${row.id}">
+                <input type="text" class="pinyin-input" id="ipinyin-${row.id}" placeholder="nǐ hǎo" value="${esc(row.pinyin)}"
+                  oninput="updateImgRow(${row.id},'pinyin',this.value)" autocomplete="off" autocorrect="off" spellcheck="false">
+                <button class="tone-helper-btn" onclick="toggleImgTonePicker(${row.id})">🎵 tone marks</button>
+                <div class="tone-picker" id="itone-picker-${row.id}">
+                  <div class="tone-picker-title">Click to insert · or type vowel + 1–4</div>
+                  ${['a','e','i','o','u','ü'].map(v=>`
+                    <div class="tone-row">${[1,2,3,4,5].map(t=>`<button class="tone-btn" onclick="insertImgTone(${row.id},'${v}',${t})">${TONES[v][t-1]}</button>`).join('')}
+                    <span style="padding:5px 6px;font-size:.78rem;color:#aaa;align-self:center">${v}</span></div>
+                  `).join('')}
+                </div>
+              </div>
             </div>
             <div class="field">
               <label>💬 Meaning</label>
               <input type="text" placeholder="Hello" value="${esc(row.meaning)}" oninput="updateImgRow(${row.id},'meaning',this.value)">
             </div>
           </div>
-          <div class="field" style="margin-top:8px;">
-            <label>🔗 Image URL (from Supabase)</label>
-            <input type="url" placeholder="https://..." value="${esc(row.imageUrl)}" oninput="updateImgRow(${row.id},'imageUrl',this.value)">
-            <div style="font-size:.75rem;color:#aaa;margin-top:4px">📌 After uploading image file, paste the Supabase URL here</div>
-          </div>
         </div>
       </div>
     </div>
   `).join('');
 }
+
+function toggleImgTonePicker(rowId){
+  const picker=document.getElementById('itone-picker-'+rowId);
+  const isOpen=picker.classList.contains('open');
+  document.querySelectorAll('.tone-picker.open').forEach(p=>p.classList.remove('open'));
+  if(!isOpen){picker.classList.add('open');activeTonePicker=rowId;}else{activeTonePicker=null;}
+}
+
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.pinyin-wrap')){
+    document.querySelectorAll('.tone-picker.open').forEach(p=>p.classList.remove('open'));
+    activeTonePicker=null;
+  }
+});
+
+function insertImgTone(rowId,vowel,tone){
+  const input=document.getElementById('ipinyin-'+rowId);if(!input)return;
+  const cursor=input.selectionStart??input.value.length;
+  const{text,cursor:newCursor}=applyTone(input.value,cursor,vowel,tone);
+  input.value=text;input.setSelectionRange(newCursor,newCursor);input.focus();
+  updateImgRow(rowId,'pinyin',text);
+}
+
+document.addEventListener('keydown',e=>{
+  if(!['1','2','3','4','5'].includes(e.key))return;
+  const focused=document.activeElement;
+  if(!focused||!focused.classList.contains('pinyin-input'))return;
+  const rowId=parseInt(focused.id.replace('ipinyin-',''));
+  const cursor=focused.selectionStart;
+  const before=focused.value.slice(0,cursor);
+  const vowelOrder=['ü','a','o','e','i','u'];
+  let found=null;
+  for(let i=before.length-1;i>=0;i--){
+    const ch=before[i].toLowerCase();
+    if(TONED_MAP[before[i]]){found={vowel:TONED_MAP[before[i]].base,idx:i};break;}
+    if(vowelOrder.includes(ch)){found={vowel:ch,idx:i};break;}
+  }
+  if(!found)return;e.preventDefault();
+  const tone=parseInt(e.key);
+  const{text,cursor:newCursor}=applyTone(focused.value,cursor,found.vowel,tone);
+  focused.value=text;focused.setSelectionRange(newCursor,newCursor);
+  updateImgRow(rowId,'pinyin',text);
+});
 
 // TOKENIZER
 function tokenize(text) {
@@ -1478,7 +1619,7 @@ async function submitAll() {
 
     const formData = new FormData();
 
-    // Posts (without audio files now)
+    // Posts
     formData.append('posts', JSON.stringify(pRows.map(r => ({
       user: r.user,
       title: r.title,
@@ -1486,24 +1627,52 @@ async function submitAll() {
       description: r.description.replace(/\n/g, '<br>')
     }))));
 
-    // Quiz (Type 1 only)
-    formData.append('quiz', JSON.stringify(qRows.map(r => ({
-      fullSentence: r.fullSentence,
-      segments: r.segments
-    }))));
-
-    // Quiz audio files
-    qRows.forEach((r, i) => {
-      if (r.audioFile) formData.append(`quiz_audio_${i}`, r.audioFile);
+    // Posts audio files
+    pRows.forEach((r, i) => {
+      if (r.audioFile) {
+        formData.append(`post_audio_${i}`, r.audioFile);
+      }
     });
 
-    // Images (with Supabase URLs)
+    // Posts avatar files
+    pUsers.forEach((u, i) => {
+      if (u.avatarFile) {
+        formData.append(`avatar_${i}`, u.avatarFile);
+      }
+    });
+
+    // Quiz
+    formData.append('quiz', JSON.stringify(qRows.map(r => ({
+      type: r.type,
+      fullSentence: r.fullSentence,
+      segments: r.segments,
+      character: r.character,
+      t2correct: r.t2correct,
+      words: r.words,
+      t3correct: r.t3correct
+    }))));
+
+    // Quiz files
+    qRows.forEach((r, i) => {
+      if (r.audioFile) formData.append(`quiz_audio_${i}`, r.audioFile);
+      r.imgFiles.forEach((f, j) => {
+        if (f) formData.append(`quiz_img_${i}_${j}`, f);
+      });
+      if (r.imageFile) formData.append(`quiz_image_${i}`, r.imageFile);
+    });
+
+    // Images
     formData.append('images', JSON.stringify(imgRows.map(r => ({
       character: r.character,
       pinyin: r.pinyin,
-      meaning: r.meaning,
-      imageUrl: r.imageUrl
+      meaning: r.meaning
     }))));
+
+    // Image files
+    imgRows.forEach((r, i) => {
+      if (r.imageFile) formData.append(`img_image_${i}`, r.imageFile);
+      if (r.audioFile) formData.append(`img_audio_${i}`, r.audioFile);
+    });
 
     // 🔑 SEND WITH TOKEN
     const response = await fetch(`${window.API_BASE}/api/submit`, {
@@ -1540,6 +1709,7 @@ function clearAll() {
   pRows = [];
   qRows = [];
   imgRows = [];
+  currentAvatarFile = null;
   renderPostRows();
   renderQuizAll();
   renderImgRows();
