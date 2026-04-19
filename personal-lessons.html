@@ -1320,7 +1320,7 @@ function renderPersonalQuiz(quizData, imagesData) {
     // Sentence preview
     const prevDiv = document.createElement('div');
     prevDiv.style.cssText = 'padding:12px;background:var(--white);border:var(--border);border-radius:12px;font-size:1.1rem;font-weight:700;line-height:1.8;';
-    prevDiv.innerHTML = (quiz.sentence || '').replace(/___/g, '<span style="color:#aaa;text-decoration:underline;">___</span>');
+    prevDiv.innerHTML = quiz.fullSentence || '';
     
     div.appendChild(prevDiv);
     quizList.appendChild(div);
