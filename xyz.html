@@ -1412,15 +1412,21 @@ onAuthStateChanged(auth, async user => {
   if (subDate && window.userSubscription !== 'free') {
     const subTime = new Date(subDate).getTime();
     const now = new Date().getTime();
-    const thirtyDays = 30 * 24 * 60 * 60 * 1000;
+    const fortyDays = 40 * 24 * 60 * 60 * 1000;
+    const renewDeadline = 25 * 24 * 60 * 60 * 1000;
     
-    if (now - subTime > thirtyDays) {
-      // Show warning
-      console.warn('⏰ Subscription expired. Time to renew!');
-      // Don't auto-expire - let user renew at their own pace
-      // Or uncomment to auto-expire:
-      // window.userSubscription = 'free';
-      // localStorage.removeItem(`subscription_${user.uid}`);
+    // Downgrade sau 40 ngày
+    if (now - subTime > fortyDays) {
+      console.warn('⏰ Subscription expired. Downgrading to free...');
+      window.userSubscription = 'free';
+      localStorage.removeItem(`subscription_${user.uid}`);
+      localStorage.removeItem(`subscription_key_${user.uid}`);
+      localStorage.removeItem(`subscription_date_${user.uid}`);
+    }
+    // Cảnh báo sau 25 ngày
+    else if (now - subTime > renewDeadline) {
+      const daysLeft = Math.ceil((fortyDays - (now - subTime)) / (24 * 60 * 60 * 1000));
+      showRenewWarning(daysLeft);
     }
   }
 
@@ -1474,7 +1480,26 @@ function switchPanel(name) {
 // ════════════════════════════════════════════════════════
 // TOOL FUNCTIONS
 // ════════════════════════════════════════════════════════
-
+// ✅ THÊM HÀM NÀY
+function showRenewWarning(daysLeft) {
+  const banner = document.createElement('div');
+  banner.style.cssText = `
+    position: fixed;
+    top: 66px;
+    left: 0;
+    right: 0;
+    background: #fff3cd;
+    border-bottom: 2px solid #ffc107;
+    padding: 12px 24px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #856404;
+    z-index: 99;
+  `;
+  banner.innerHTML = `⏰ Your subscription expires in ${daysLeft} days. <a href="#" onclick="showSubscriptionModal(); return false;" style="color: #c0392b; text-decoration: underline;">Renew now</a>`;
+  document.body.insertBefore(banner, document.body.firstChild);
+}
 // STATE PERSISTENCE
 function saveState() {
   if (!qRows) qRows = [];
