@@ -530,6 +530,349 @@
     .success-icon{font-size:3rem;margin-bottom:16px;}
     .success-title{font-size:1.5rem;font-weight:700;margin-bottom:12px;color:var(--green-dark);}
     .success-msg{color:#666;margin-bottom:24px;font-weight:600;}
+    /* SUBSCRIPTION MODAL */
+.subscription-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.subscription-modal.show {
+  display: flex;
+}
+.sub-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+.sub-content {
+  position: relative;
+  background: var(--white);
+  border: var(--border-thick);
+  border-radius: 28px;
+  box-shadow: var(--shadow-lg);
+  max-width: 900px;
+  width: 100%;
+  padding: 40px 32px;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: slideUp 0.3s ease;
+}
+.sub-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #ccc;
+  transition: color 0.15s;
+}
+.sub-close:hover {
+  color: #c0392b;
+}
+
+/* TABS */
+.sub-tab {
+  display: none;
+}
+.sub-tab.active {
+  display: block;
+  animation: fadeIn 0.2s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* HEADER */
+.sub-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.sub-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 16px;
+}
+.sub-header h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--black);
+}
+.sub-header p {
+  color: #888;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* PLANS GRID */
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.plan-card {
+  border: var(--border-thick);
+  border-radius: 20px;
+  padding: 24px;
+  position: relative;
+  background: var(--white);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.plan-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--black);
+}
+
+.plan-card.plan-free {
+  background: var(--bg);
+  opacity: 0.7;
+}
+.plan-card.plan-a {
+  background: linear-gradient(135deg, #fff8f0 0%, #f0f8ff 100%);
+  border-color: var(--orange);
+}
+.plan-card.plan-b {
+  background: linear-gradient(135deg, #f0fff8 0%, #fffef0 100%);
+  border: 3px solid var(--green);
+  transform: scale(1.05);
+}
+.plan-card.plan-b:hover {
+  transform: scale(1.05) translate(-2px, -2px);
+}
+.plan-card.plan-c {
+  background: linear-gradient(135deg, #fff5f7 0%, #f5f0ff 100%);
+  border-color: var(--pink);
+}
+
+.plan-badge {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--black);
+  border: var(--border);
+  border-radius: 50px;
+  padding: 3px 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow-sm);
+}
+.plan-badge-a {
+  background: var(--orange-pale);
+  color: #e67e22;
+}
+.plan-badge-b {
+  background: var(--green-pale);
+  color: var(--green-dark);
+}
+.plan-badge-c {
+  background: var(--pink-pale);
+  color: #c0392b;
+}
+
+.plan-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+.plan-price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--green-dark);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.plan-period {
+  font-size: 0.8rem;
+  color: #888;
+  font-weight: 600;
+}
+.plan-limit {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 600;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 2px dashed #ddd;
+}
+.plan-features {
+  list-style: none;
+  margin-bottom: 16px;
+}
+.plan-features li {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.plan-features li:before {
+  content: '✓ ';
+  color: var(--green-dark);
+  font-weight: 700;
+  margin-right: 4px;
+}
+
+.btn-plan-current {
+  background: var(--bg) !important;
+  color: #999 !important;
+  cursor: not-allowed !important;
+  opacity: 0.6 !important;
+  width: 100% !important;
+  margin-bottom: 8px !important;
+}
+
+.btn-plan-upgrade {
+  background: var(--green) !important;
+  color: white !important;
+  width: 100% !important;
+  padding: 10px 16px !important;
+  font-size: 0.95rem !important;
+  border: var(--border-thick) !important;
+  border-radius: 50px !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  display: block !important;
+  text-align: center !important;
+  margin-bottom: 8px !important;
+}
+.btn-plan-upgrade:hover {
+  transform: translate(-2px, -2px) !important;
+  box-shadow: 4px 4px 0 var(--black) !important;
+}
+
+.btn-plan-activate {
+  background: var(--white) !important;
+  color: var(--black) !important;
+  border: var(--border-thick) !important;
+  width: 100% !important;
+  padding: 8px 16px !important;
+  font-size: 0.85rem !important;
+  border-radius: 50px !important;
+  cursor: pointer !important;
+}
+.btn-plan-activate:hover {
+  box-shadow: 3px 3px 0 var(--black) !important;
+}
+
+.plans-info {
+  text-align: center;
+  padding: 16px;
+  background: var(--bg);
+  border: var(--border);
+  border-radius: 12px;
+  font-size: 0.85rem;
+  color: #888;
+  font-weight: 600;
+}
+
+/* KEY INPUT */
+.key-input-group {
+  margin-bottom: 24px;
+  background: var(--bg);
+  border: var(--border);
+  border-radius: 16px;
+  padding: 20px;
+}
+.key-input-group label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+.license-key-input {
+  width: 100%;
+  padding: 12px 16px !important;
+  border: var(--border-thick) !important;
+  border-radius: 14px !important;
+  font-size: 0.95rem !important;
+  font-family: 'Courier New', monospace !important;
+  letter-spacing: 0.05em;
+  background: var(--white) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+.license-key-input:focus {
+  box-shadow: 5px 5px 0 var(--black) !important;
+  transform: translate(-1px, -1px) !important;
+}
+.key-hint {
+  font-size: 0.8rem;
+  color: #999;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+/* BUTTONS */
+.sub-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.btn-sub-primary {
+  background: var(--green) !important;
+  color: white !important;
+  padding: 12px 24px !important;
+  font-size: 1rem !important;
+  border: var(--border-thick) !important;
+  border-radius: 50px !important;
+  cursor: pointer !important;
+  font-weight: 700 !important;
+  box-shadow: var(--shadow-md) !important;
+}
+.btn-sub-primary:hover:not(:disabled) {
+  transform: translate(-2px, -2px) !important;
+  box-shadow: 5px 5px 0 var(--black) !important;
+}
+.btn-sub-primary:disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+}
+
+.btn-sub-secondary {
+  background: var(--white) !important;
+  color: var(--black) !important;
+  padding: 12px 24px !important;
+  font-size: 1rem !important;
+  border: var(--border-thick) !important;
+  border-radius: 50px !important;
+  cursor: pointer !important;
+  font-weight: 700 !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+.btn-sub-secondary:hover {
+  transform: translate(-1px, -1px) !important;
+  box-shadow: 3px 3px 0 var(--black) !important;
+}
+
+@media (max-width: 600px) {
+  .sub-content {
+    padding: 24px 16px;
+  }
+  .plans-grid {
+    grid-template-columns: 1fr;
+  }
+  .plan-card.plan-b {
+    transform: scale(1);
+  }
+  .plan-card.plan-b:hover {
+    transform: scale(1) translate(-2px, -2px);
+  }
+  .sub-header h2 {
+    font-size: 1.3rem;
+  }
+}
   </style>
 </head>
 <body>
@@ -1043,31 +1386,50 @@ onAuthStateChanged(auth, async user => {
 
   window.currentUser = user;
 
-  // 🔑 GET FIREBASE TOKEN HERE
+  // ✅ Load subscription status
+  window.userSubscription = localStorage.getItem(`subscription_${user.uid}`) || 'free';
+  const subKey = localStorage.getItem(`subscription_key_${user.uid}`);
+  
+  console.log('Subscription:', window.userSubscription);
+
+  // Optional: Check if subscription expired (30 days)
+  const subDate = localStorage.getItem(`subscription_date_${user.uid}`);
+  if (subDate && window.userSubscription !== 'free') {
+    const subTime = new Date(subDate).getTime();
+    const now = new Date().getTime();
+    const thirtyDays = 30 * 24 * 60 * 60 * 1000;
+    
+    if (now - subTime > thirtyDays) {
+      // Show warning
+      console.warn('⏰ Subscription expired. Time to renew!');
+      // Don't auto-expire - let user renew at their own pace
+      // Or uncomment to auto-expire:
+      // window.userSubscription = 'free';
+      // localStorage.removeItem(`subscription_${user.uid}`);
+    }
+  }
+
   try {
     window.API_TOKEN = await user.getIdToken();
-    console.log('✅ Firebase token obtained');
   } catch (err) {
     console.error('Failed to get token:', err);
   }
 
-  // Update user display in header
-  document.getElementById('userDisplay').textContent = `👤 ${user.displayName || 'User'}`;
+  // Update UI
+  const subBadge = window.userSubscription !== 'free' ? ' ⭐ ' + window.userSubscription.replace('plan_', '').toUpperCase() : '';
+  document.getElementById('userDisplay').textContent = `👤 ${user.displayName || 'User'}${subBadge}`;
 
-  // Show tool section
   document.getElementById('tool-section').style.display = 'block';
 
   // Load profile data
   const [quizzes, recs, writes] = await Promise.all([
-    fetchCol('quiz_attempts',   user.uid, 'startTime'),
-    fetchCol('recordings',      user.uid, 'timestamp'),
-    fetchCol('writing_attempts',user.uid, 'timestamp'),
+    fetchCol('quiz_attempts', user.uid, 'startTime'),
+    fetchCol('recordings', user.uid, 'timestamp'),
+    fetchCol('writing_attempts', user.uid, 'timestamp'),
   ]);
 
   document.getElementById('loading').style.display = 'none';
   render(user, quizzes, recs, writes);
-
-  // Initialize tool state
   loadState();
 });
 
@@ -1093,9 +1455,7 @@ function switchPanel(name) {
 </script>
 
 <script>
-  const MAX_POSTS = 5;
-const MAX_QUIZ = 5;
-const MAX_IMAGES = 5;
+
 // ════════════════════════════════════════════════════════
 // TOOL FUNCTIONS
 // ════════════════════════════════════════════════════════
@@ -1186,12 +1546,136 @@ function renderUsers() {
       <button class="chip-remove" onclick="removeUser('${esc(u.name)}')">×</button>
     </div>`).join('');
 }
+// ═══ SUBSCRIPTION FUNCTIONS ═══
+
+const PLAN_LIMITS = {
+  free: 5,
+  plan_a: 50,
+  plan_b: 100,
+  plan_c: 150
+};
+
+function getTotalItemCount() {
+  return pRows.length + qRows.length + imgRows.length;
+}
+
+function getUserLimit() {
+  const sub = window.userSubscription || 'free';
+  return PLAN_LIMITS[sub] || PLAN_LIMITS.free;
+}
+
+function showSubscriptionModal() {
+  document.getElementById('subscriptionModal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSubscriptionModal() {
+  document.getElementById('subscriptionModal').classList.remove('show');
+  document.body.style.overflow = 'auto';
+}
+
+function switchSubTab(tabName) {
+  document.querySelectorAll('.sub-tab').forEach(tab => tab.classList.remove('active'));
+  document.getElementById('sub-tab-' + tabName).classList.add('active');
+  document.getElementById('keyStatus').className = 'status';
+  document.getElementById('keyStatus').innerHTML = '';
+  
+  if (tabName === 'activate') {
+    setTimeout(() => {
+      document.getElementById('licenseKeyInput').focus();
+    }, 100);
+  }
+}
+
+async function validateGumroadKey() {
+  const keyInput = document.getElementById('licenseKeyInput');
+  const key = keyInput.value.trim().toUpperCase();
+  const statusEl = document.getElementById('keyStatus');
+
+  if (!key) {
+    showKeyStatus('err', '❌ Please enter a license key');
+    return;
+  }
+
+  // Validate format: STARTER-xxx, PRO-xxx, or MASTER-xxx
+  if (!key.match(/^(STARTER|PRO|MASTER)-[A-Z0-9]{20,}$/i)) {
+    showKeyStatus('err', '❌ Invalid key format. Should be like STARTER-abc123...');
+    return;
+  }
+
+  showKeyStatus('info', '<span class="spinner"></span> Validating key...');
+
+  try {
+    if (!window.currentUser) {
+      throw new Error('Please log in first');
+    }
+
+    if (!window.API_TOKEN) {
+      throw new Error('Authentication error. Please refresh the page.');
+    }
+
+    // Call backend to validate key
+    const response = await fetch(`${window.API_BASE}/api/validate-subscription-key`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${window.API_TOKEN}`
+      },
+      body: JSON.stringify({
+        license_key: key,
+        user_id: window.currentUser.uid,
+        email: window.currentUser.email
+      })
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || 'Invalid or already used key');
+    }
+
+    // Success!
+    showKeyStatus('success', '✅ ' + data.message);
+    
+    setTimeout(() => {
+      const planType = data.plan; // 'plan_a', 'plan_b', or 'plan_c'
+      window.userSubscription = planType;
+      localStorage.setItem(`subscription_${window.currentUser.uid}`, planType);
+      localStorage.setItem(`subscription_key_${window.currentUser.uid}`, key);
+      localStorage.setItem(`subscription_date_${window.currentUser.uid}`, new Date().toISOString());
+      
+      closeSubscriptionModal();
+      showSuccessModal(`🎉 Subscription activated!\nPlan: ${planType.toUpperCase()}\nLimit: ${PLAN_LIMITS[planType]} items`);
+      location.reload();
+    }, 1500);
+
+  } catch (e) {
+    showKeyStatus('err', '❌ ' + e.message);
+  }
+}
+
+function showKeyStatus(type, html) {
+  const el = document.getElementById('keyStatus');
+  el.className = 'status ' + type;
+  el.innerHTML = html;
+}
+
+// Close modal on Escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeSubscriptionModal();
+});
 
 function addPostRow() {
   if (!pUsers.length) return alert('Add at least one user first.');
-  if (pRows.length >= MAX_POSTS) {
-    return alert(`❌ You can only create up to ${MAX_POSTS} Posts.\nCurrent: ${pRows.length}/${MAX_POSTS}`);
+  
+  const totalItems = getTotalItemCount();
+  const limit = getUserLimit();
+  
+  if (totalItems >= limit) {
+    showSubscriptionModal();
+    return;
   }
+  
   pRows.push({id:Date.now(),user:pUsers[0].name,title:'',description:'',audioFile:null,segments:[],composing:false});
   renderPostRows();
   saveState();
@@ -1311,14 +1795,18 @@ function newQRow() {
 }
  
 function addQuizRow() {
-  if (qRows.length >= MAX_QUIZ) {
-    return alert(`❌ You can only create up to ${MAX_QUIZ} Quizes.\nCurrent: ${qRows.length}/${MAX_QUIZ}`);
+  const totalItems = getTotalItemCount();
+  const limit = getUserLimit();
+  
+  if (totalItems >= limit) {
+    showSubscriptionModal();
+    return;
   }
+  
   const r = newQRow();
   qRows.push(r);
   renderQuizAll();
   saveState();
-  setTimeout(() => document.getElementById('qrow-' + r.id)?.scrollIntoView({behavior: 'smooth', block: 'center'}), 50);
 }
  
 function removeQRow(id) {
@@ -1477,16 +1965,19 @@ function applyTone(text,cursorPos,vowel,tone){
 }
 
 function addImgRow(){
-  if (imgRows.length >= MAX_IMAGES) {
-    return alert(`❌ You can only create up to ${MAX_IMAGES} words.\nCurrent: ${imgRows.length}/${MAX_IMAGES}`);
+  const totalItems = getTotalItemCount();
+  const limit = getUserLimit();
+  
+  if (totalItems >= limit) {
+    showSubscriptionModal();
+    return;
   }
-  const id=Date.now();
+  
+  const id = Date.now();
   imgRows.push({id,imageFile:null,character:'',pinyin:'',meaning:'',audioFile:null});
   renderImgRows();
   saveState();
-  setTimeout(()=>{const el=document.getElementById('imgrow-'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'center'});},50);
 }
-
 function removeImgRow(id){imgRows=imgRows.filter(r=>r.id!==id);renderImgRows();saveState();}
 
 function updateImgRow(id,field,value){
@@ -1726,5 +2217,130 @@ function closeSuccessModal() {
 // Save state before unload
 window.addEventListener('beforeunload', saveState);
 </script>
+<!-- SUBSCRIPTION MODAL -->
+<div class="subscription-modal" id="subscriptionModal">
+  <div class="sub-overlay" onclick="closeSubscriptionModal()"></div>
+  <div class="sub-content">
+    <button class="sub-close" onclick="closeSubscriptionModal()">✕</button>
+    
+    <!-- TAB 1: PLANS -->
+    <div class="sub-tab active" id="sub-tab-plans">
+      <div class="sub-header">
+        <div class="sub-icon">📦</div>
+        <h2>Choose Your Plan</h2>
+        <p>Upgrade to create unlimited content</p>
+      </div>
+
+      <div class="plans-grid">
+        <!-- FREE PLAN -->
+        <div class="plan-card plan-free">
+          <div class="plan-badge">Current Plan</div>
+          <div class="plan-name">Free</div>
+          <div class="plan-price">$0<span class="plan-period">/month</span></div>
+          <div class="plan-limit">5 items total</div>
+          <ul class="plan-features">
+            <li>5 posts</li>
+            <li>5 quiz</li>
+            <li>5 vocabulary</li>
+          </ul>
+          <button class="btn btn-plan-current" disabled>Current Plan</button>
+        </div>
+
+        <!-- PLAN A -->
+        <div class="plan-card plan-a">
+          <div class="plan-badge plan-badge-a">Popular</div>
+          <div class="plan-name">Starter</div>
+          <div class="plan-price">$4.99<span class="plan-period">/month</span></div>
+          <div class="plan-limit">50 items total</div>
+          <ul class="plan-features">
+            <li>50 content items</li>
+            <li>Auto-renew monthly</li>
+            <li>Instant activation</li>
+          </ul>
+          <a href="https://gumroad.com/YOUR_GUMROAD_ID/p/chinese60s-starter" target="_blank" class="btn btn-plan-upgrade">
+            🛒 Buy on Gumroad
+          </a>
+          <button class="btn btn-plan-activate" onclick="switchSubTab('activate')">
+            Have a key?
+          </button>
+        </div>
+
+        <!-- PLAN B -->
+        <div class="plan-card plan-b">
+          <div class="plan-badge plan-badge-b">Best Value</div>
+          <div class="plan-name">Pro</div>
+          <div class="plan-price">$7.99<span class="plan-period">/month</span></div>
+          <div class="plan-limit">100 items total</div>
+          <ul class="plan-features">
+            <li>100 content items</li>
+            <li>Auto-renew monthly</li>
+            <li>Instant activation</li>
+          </ul>
+          <a href="https://gumroad.com/YOUR_GUMROAD_ID/p/chinese60s-pro" target="_blank" class="btn btn-plan-upgrade">
+            🛒 Buy on Gumroad
+          </a>
+          <button class="btn btn-plan-activate" onclick="switchSubTab('activate')">
+            Have a key?
+          </button>
+        </div>
+
+        <!-- PLAN C -->
+        <div class="plan-card plan-c">
+          <div class="plan-badge plan-badge-c">Ultimate</div>
+          <div class="plan-name">Master</div>
+          <div class="plan-price">$11.99<span class="plan-period">/month</span></div>
+          <div class="plan-limit">150 items total</div>
+          <ul class="plan-features">
+            <li>150 content items</li>
+            <li>Auto-renew monthly</li>
+            <li>Instant activation</li>
+          </ul>
+          <a href="https://gumroad.com/YOUR_GUMROAD_ID/p/chinese60s-master" target="_blank" class="btn btn-plan-upgrade">
+            🛒 Buy on Gumroad
+          </a>
+          <button class="btn btn-plan-activate" onclick="switchSubTab('activate')">
+            Have a key?
+          </button>
+        </div>
+      </div>
+
+      <div class="plans-info">
+        <p>🔐 Secure & No credit card stored • Charged by Gumroad • Cancel anytime</p>
+      </div>
+    </div>
+
+    <!-- TAB 2: ACTIVATE KEY -->
+    <div class="sub-tab" id="sub-tab-activate">
+      <div class="sub-header">
+        <div class="sub-icon">🔑</div>
+        <h2>Activate Subscription</h2>
+        <p>Enter your license key received from Gumroad</p>
+      </div>
+
+      <div class="key-input-group">
+        <label>License Key</label>
+        <input 
+          type="text" 
+          id="licenseKeyInput" 
+          placeholder="e.g., STARTER-abc123def456..." 
+          class="license-key-input"
+        >
+        <div class="key-hint">📧 Check your email after purchase on Gumroad</div>
+      </div>
+
+      <div class="sub-buttons">
+        <button class="btn btn-sub-primary" onclick="validateGumroadKey()">
+          ✅ Activate Now
+        </button>
+        <button class="btn btn-sub-secondary" onclick="switchSubTab('plans')">
+          Back to Plans
+        </button>
+      </div>
+
+      <div id="keyStatus" class="status"></div>
+    </div>
+
+  </div>
+</div>
 </body>
 </html>
