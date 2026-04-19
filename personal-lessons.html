@@ -876,6 +876,7 @@
       btn.className = 'word';
       btn.textContent = word;
       btn.dataset.word = word;
+      btn.dataset.id = wordIdx;
  
       btn.addEventListener('click', () => {
         if (revealed) return;
@@ -885,7 +886,10 @@
  
         play(clickAudio);
  
-        currentAnswers[emptyBi] = word;
+        currentAnswers[emptyBi] = {
+          word: word,
+          id: btn.dataset.id
+        };
         updateUI();
  
         if (currentAnswers.every(a => a !== null)) {
@@ -929,7 +933,7 @@
       const answer = currentAnswers[bi];
  
       if (answer) {
-        el.textContent = answer;
+        el.textContent = answer.word;
         el.classList.add('filled');
         el.style.cursor = revealed ? 'default' : 'pointer';
       } else {
@@ -940,8 +944,7 @@
     });
  
     optionsEl.querySelectorAll('.word').forEach(btn => {
-      const word = btn.dataset.word;
-      const isUsed = currentAnswers.includes(word);
+      const isUsed = currentAnswers.some(a => a && a.id === btn.dataset.id);
       btn.disabled = isUsed || revealed;
       btn.style.opacity = (isUsed || revealed) ? '0.5' : '1';
     });
@@ -957,7 +960,7 @@
  
     // ===== FIX #4: Handle multiple blanks =====
     blanks.forEach((b, i) => {
-      const given = currentAnswers[i];
+      const given = currentAnswers[i]?.word;
       const correct = given === b.answer;
  
       if (!correct) allCorrect = false;
