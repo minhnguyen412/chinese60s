@@ -826,303 +826,135 @@
        QUIZ LOGIC
   ═══════════════════════════════════════════════════════════ -->
   <script>
-(function () {
-  let quizData = [];
-  let currentQuestionIndex = 0;
-  let scoreCorrect = 0;
-  let revealed = false;
-  let slots = [];
-  let wrongAnswerLog = [];
+let quizData = [];
+let currentQuestionIndex = 0;
+let score = 0;
 
-  const clickAudio = new Audio('assets/click.mp3');
-  const correctAudio = new Audio('assets/correct.mp3');
-  const incorrectAudio = new Audio('assets/incorrect.mp3');
-  const victoryAudio = new Audio('assets/victory.mp3');
-  let qAudio = null;
+window.setQuizData = function(data) {
+  quizData = data || [];
+};
 
-  const startCont = document.getElementById('start-container');
-  const startBtn = document.getElementById('start-button');
-  const sentenceEl = document.getElementById('sentence');
-  const optionsEl = document.getElementById('options');
-  const resultEl = document.getElementById('result');
-  const buttonsEl = document.getElementById('buttons');
-  const progWrap = document.getElementById('quiz-progress-wrap');
-  const progFill = document.getElementById('quiz-progress-fill');
-  const counterEl = document.getElementById('quiz-counter');
-  const summaryEl = document.getElementById('score-summary');
-  const scoreNumEl = document.getElementById('score-num');
-  const scoreTitleEl = document.getElementById('score-title');
-  const scoreMsgEl = document.getElementById('score-msg');
-  const scoreCircle = document.getElementById('score-circle');
-  const restartBtn = document.getElementById('restart-btn');
-
-  function isImg(s) { return /\.(jpe?g|png|gif|bmp|webp|svg)$/i.test(String(s || '')); }
-  
-  function wordHTML(w) {
-    if (isImg(w)) return `<img src="${w}" alt="">`;
-    return String(w);
+document.getElementById('start-button').addEventListener('click', () => {
+  if (!quizData.length) {
+    alert('No quiz data');
+    return;
   }
 
-  // ✅ Set quiz data từ global (được set từ loadPersonalLessons)
-  window.setQuizData = function(data) {
-    quizData = data || [];
-  };
+  score = 0;
+  currentQuestionIndex = 0;
 
-  startBtn.addEventListener('click', async () => {
-    if (!quizData || quizData.length === 0) {
-      alert('No quiz data available');
-      return;
-    }
+  document.getElementById('start-container').style.display = 'none';
+  document.getElementById('sentence').style.display = 'block';
+  document.getElementById('options').style.display = 'block';
+  document.getElementById('buttons').style.display = 'block';
+  document.querySelector('.result').style.display = 'block';
 
-    currentQuestionIndex = 0;
-    scoreCorrect = 0;
-    wrongAnswerLog = [];
+  displayQuestion();
+});
 
-    startCont.style.display = 'none';
-    progWrap.style.display = 'block';
-    counterEl.style.display = 'block';
-    summaryEl.style.display = 'none';
-    showQ();
+function displayQuestion() {
+  const q = quizData[currentQuestionIndex];
+
+  const sentenceDiv = document.getElementById('sentence');
+  const optionsDiv = document.getElementById('options');
+  const resultDiv = document.querySelector('.result');
+  const buttonsDiv = document.getElementById('buttons');
+
+  let sentenceHTML = q.sentence;
+
+  q.blanks.forEach(() => {
+    sentenceHTML = sentenceHTML.replace('___', `<span class="blank"></span>`);
   });
 
-  function showQ() {
-    if (currentQuestionIndex >= quizData.length) { showSummary(); return; }
+  sentenceDiv.innerHTML = sentenceHTML;
 
-    const q = quizData[currentQuestionIndex];
-    const blanks = q.blanks || [];
-    revealed = false;
-    slots = blanks.map(() => null);
+  optionsDiv.innerHTML = '';
+  q.words.forEach(word => {
+    const btn = document.createElement('button');
+    btn.className = 'word';
+    btn.textContent = word;
 
-    progFill.style.width = (currentQuestionIndex / quizData.length * 100) + '%';
-    counterEl.textContent = `Question ${currentQuestionIndex + 1} of ${quizData.length}`;
+    btn.addEventListener('click', () => handleWordClick(btn));
 
-    let sentRaw = q.fullSentence || q.sentence || '';
-    if (Array.isArray(sentRaw)) {
-      sentRaw = sentRaw.map(tok => isImg(tok) ? `<img src="${tok}" alt="">` : String(tok)).join('');
-    }
-
-    let bi = 0;
-    const sentHTML = sentRaw.replace(/___/g, () => {
-      const idx = bi++;
-      return `<span class="blank" data-bi="${idx}"></span>`;
-    });
-    sentenceEl.innerHTML = sentHTML;
-    sentenceEl.style.display = 'flex';
-
-    sentenceEl.querySelectorAll('.blank').forEach(blankEl => {
-      blankEl.addEventListener('click', () => handleBlankClick(blankEl));
-    });
-
-    const words = [...(q.words || [])].sort(() => Math.random() - 0.5);
-    optionsEl.innerHTML = '';
-    const imgCount = words.filter(w => isImg(w)).length;
-    const isImgQ = imgCount > words.length / 2;
-    optionsEl.style.display = 'grid';
-    optionsEl.classList.toggle('options-img', isImgQ);
-
-    words.forEach(word => {
-      const hasImg = isImg(word);
-      const cell = document.createElement('div');
-      cell.className = 'word-cell';
-      const ghost = document.createElement('span');
-      ghost.className = 'word-ghost';
-      const btn = document.createElement('button');
-      btn.className = 'word';
-      btn.dataset.word = String(word);
-      btn.innerHTML = wordHTML(word);
-      if (hasImg) btn.classList.add('has-image');
-      btn.addEventListener('click', () => handleWordClick(btn, ghost));
-      cell.appendChild(ghost);
-      cell.appendChild(btn);
-      optionsEl.appendChild(cell);
-      requestAnimationFrame(() => {
-        ghost.style.width = btn.offsetWidth + 'px';
-        ghost.style.height = btn.offsetHeight + 'px';
-      });
-    });
-
-    resultEl.style.display = 'none';
-    resultEl.textContent = '';
-    resultEl.className = 'result';
-    buttonsEl.innerHTML = '';
-    buttonsEl.style.display = 'block';
-
-    if (q.audio) {
-      if (qAudio) { qAudio.pause(); }
-      qAudio = new Audio(q.audio);
-      qAudio.play().catch(() => {});
-      const rb = document.createElement('button');
-      rb.className = 'replay-btn';
-      rb.textContent = '🔊 Replay';
-      rb.addEventListener('click', () => { qAudio.currentTime = 0; qAudio.play().catch(() => {}); });
-      buttonsEl.appendChild(rb);
-    }
-
-    const isLast = currentQuestionIndex === quizData.length - 1;
-    const actionBtn = document.createElement('button');
-    actionBtn.id = 'action-btn';
-    actionBtn.textContent = isLast ? 'Finish ✓' : 'Next →';
-    actionBtn.className = isLast ? 'finish' : 'next';
-    actionBtn.disabled = true;
-    actionBtn.addEventListener('click', () => reveal(q));
-    buttonsEl.appendChild(actionBtn);
-  }
-
-  function handleWordClick(btn, ghost) {
-    if (revealed || btn.classList.contains('used')) return;
-    const emptyBi = slots.findIndex(s => s === null);
-    if (emptyBi === -1) return;
-    play(clickAudio);
-    btn.classList.add('used');
-    const blankEl = sentenceEl.querySelector(`[data-bi="${emptyBi}"]`);
-    if (!blankEl) return;
-    blankEl.innerHTML = wordHTML(btn.dataset.word);
-    blankEl.classList.add('filled');
-    slots[emptyBi] = { optBtn: btn, ghostEl: ghost, word: btn.dataset.word };
-    checkAllFilled();
-  }
-
-  function handleBlankClick(blankEl) {
-    if (revealed) return;
-    const bi = parseInt(blankEl.dataset.bi);
-    const slot = slots[bi];
-    if (!slot) return;
-    play(clickAudio);
-    slot.optBtn.classList.remove('used');
-    blankEl.innerHTML = '';
-    blankEl.className = 'blank';
-    blankEl.setAttribute('data-bi', String(bi));
-    slots[bi] = null;
-    checkAllFilled();
-    blankEl.addEventListener('click', () => handleBlankClick(blankEl));
-  }
-
-  function checkAllFilled() {
-    const btn = document.getElementById('action-btn');
-    if (btn) btn.disabled = slots.some(s => s === null);
-  }
-
-  function reveal(q) {
-    if (revealed || slots.some(s => s === null)) return;
-    revealed = true;
-
-    const blanks = q.blanks || [];
-    let allOk = true;
-
-    blanks.forEach((b, i) => {
-      const given = slots[i]?.word;
-      const ok = String(given) === String(b.answer);
-      if (!ok) {
-        allOk = false;
-        wrongAnswerLog.push({
-          question: String(q.fullSentence || q.sentence || ''),
-          given: String(given || '(empty)'),
-          answer: String(b.answer)
-        });
-      }
-    });
-
-    if (allOk) scoreCorrect++;
-
-    blanks.forEach((b, i) => {
-      const blankEl = sentenceEl.querySelector(`[data-bi="${i}"]`);
-      if (!blankEl) return;
-      const ok = slots[i] && String(slots[i].word) === String(b.answer);
-      blankEl.classList.add(ok ? 'reveal-correct' : 'reveal-wrong');
-      blankEl.style.cursor = 'default';
-      if (!ok && !isImg(b.answer)) {
-        const hint = document.createElement('small');
-        hint.textContent = ` (${b.answer})`;
-        hint.style.cssText = 'font-size:0.65em;opacity:0.75;margin-left:4px;';
-        blankEl.appendChild(hint);
-      }
-    });
-
-    optionsEl.querySelectorAll('.word').forEach(btn => {
-      btn.disabled = true;
-      btn.style.cursor = 'default';
-      const isCorrect = blanks.some(b => String(b.answer) === btn.dataset.word);
-      const wasUsed = slots.some(s => s && s.optBtn === btn);
-      if (wasUsed && isCorrect) btn.classList.add('correct-reveal');
-      if (wasUsed && !isCorrect) btn.classList.add('incorrect-reveal');
-      if (!wasUsed && isCorrect) btn.classList.add('correct-reveal');
-    });
-
-    if (allOk) {
-      play(correctAudio);
-      resultEl.textContent = '✅ Correct!';
-      resultEl.className = 'result correct';
-    } else {
-      play(incorrectAudio);
-      resultEl.textContent = `❌ Answer: ${blanks.map(b => b.answer).join(' / ')}`;
-      resultEl.className = 'result incorrect';
-    }
-    resultEl.style.display = 'block';
-
-    const actionBtn = document.getElementById('action-btn');
-    if (actionBtn) {
-      const isLast = currentQuestionIndex === quizData.length - 1;
-      const fresh = actionBtn.cloneNode(false);
-      fresh.textContent = isLast ? 'See Results 🏆' : 'Continue →';
-      fresh.className = isLast ? 'finish' : 'next';
-      fresh.disabled = false;
-      fresh.addEventListener('click', () => { currentQuestionIndex++; showQ(); });
-      actionBtn.replaceWith(fresh);
-    }
-  }
-
-  function showSummary() {
-    sentenceEl.style.display = 'none';
-    optionsEl.style.display = 'none';
-    resultEl.style.display = 'none';
-    buttonsEl.style.display = 'none';
-    progWrap.style.display = 'none';
-    counterEl.style.display = 'none';
-    play(victoryAudio);
-
-    const total = quizData.length;
-    const pct = total ? Math.round(scoreCorrect / total * 100) : 0;
-    progFill.style.width = '100%';
-    scoreNumEl.textContent = `${scoreCorrect}/${total}`;
-
-    if (pct >= 80) {
-      scoreCircle.style.background = 'var(--green-pale)';
-      scoreCircle.style.borderColor = 'var(--green)';
-      scoreTitleEl.textContent = '🎉 Excellent!';
-      scoreMsgEl.textContent = `You got ${scoreCorrect}/${total} correct (${pct}%). Outstanding!`;
-    } else if (pct >= 50) {
-      scoreCircle.style.background = 'var(--yellow-pale)';
-      scoreCircle.style.borderColor = 'var(--yellow)';
-      scoreTitleEl.textContent = '👍 Good effort!';
-      scoreMsgEl.textContent = `You got ${scoreCorrect}/${total} correct (${pct}%). Keep it up!`;
-    } else {
-      scoreCircle.style.background = 'var(--pink-pale)';
-      scoreCircle.style.borderColor = 'var(--pink)';
-      scoreTitleEl.textContent = '💪 Keep going!';
-      scoreMsgEl.textContent = `You got ${scoreCorrect}/${total} correct (${pct}%). Try again!`;
-    }
-    summaryEl.style.display = 'block';
-  }
-
-  restartBtn.addEventListener('click', () => {
-    summaryEl.style.display = 'none';
-    startCont.style.display = 'block';
-    progWrap.style.display = 'none';
-    counterEl.style.display = 'none';
-    progFill.style.width = '0%';
-    sentenceEl.style.display = 'none';
-    optionsEl.style.display = 'none';
-    buttonsEl.style.display = 'none';
-    resultEl.style.display = 'none';
+    optionsDiv.appendChild(btn);
   });
 
-  function play(audio) {
-    try { audio.currentTime = 0; audio.play().catch(() => {}); } catch(e) {}
+  resultDiv.textContent = '';
+  resultDiv.className = 'result';
+  buttonsDiv.innerHTML = '';
+}
+
+function handleWordClick(btn) {
+  const blanks = document.querySelectorAll('.blank');
+  const emptyIdx = Array.from(blanks).findIndex(b => b.textContent === '');
+
+  if (emptyIdx === -1) return;
+
+  const blank = blanks[emptyIdx];
+  blank.textContent = btn.textContent;
+  blank.dataset.value = btn.textContent;
+  btn.disabled = true;
+
+  blank.addEventListener('click', () => {
+    btn.disabled = false;
+    blank.textContent = '';
+    blank.dataset.value = '';
+  }, { once: true });
+
+  if (Array.from(blanks).every(b => b.textContent !== '')) {
+    checkAnswer();
+  }
+}
+
+function checkAnswer() {
+  const blanks = document.querySelectorAll('.blank');
+  const q = quizData[currentQuestionIndex];
+
+  let correct = true;
+
+  blanks.forEach((b, i) => {
+    if (b.dataset.value !== q.blanks[i].answer) {
+      correct = false;
+    }
+  });
+
+  const resultDiv = document.querySelector('.result');
+  const buttonsDiv = document.getElementById('buttons');
+
+  if (correct) {
+    resultDiv.textContent = 'Correct!';
+    resultDiv.classList.add('correct');
+    score++;
+  } else {
+    resultDiv.textContent = 'Incorrect';
+    resultDiv.classList.add('incorrect');
   }
 
-})();
+  const nextBtn = document.createElement('button');
+  nextBtn.textContent = 'Next';
+
+  nextBtn.addEventListener('click', () => {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < quizData.length) {
+      displayQuestion();
+    } else {
+      showFinal();
+    }
+  });
+
+  buttonsDiv.innerHTML = '';
+  buttonsDiv.appendChild(nextBtn);
+}
+
+function showFinal() {
+  document.getElementById('sentence').style.display = 'none';
+  document.getElementById('options').style.display = 'none';
+  document.getElementById('buttons').style.display = 'none';
+
+  const resultDiv = document.querySelector('.result');
+  resultDiv.textContent = `Score: ${score}/${quizData.length}`;
+}
 </script>
-
   <!-- ═══════════════════════════════════════════════════════════
        SPEECH RECOGNITION
   ═══════════════════════════════════════════════════════════ -->
