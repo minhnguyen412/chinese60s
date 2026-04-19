@@ -1100,35 +1100,7 @@
       
       quizList.innerHTML = '';
       
-      transformedQuiz.forEach((quiz, idx) => {
-        const div = document.createElement('div');
-        div.className = 'quiz-row';
-        div.style.cssText = 'background:var(--bg);border:var(--border-thick);border-radius:18px;padding:16px;margin-bottom:16px;';
-        
-        const header = document.createElement('div');
-        header.style.cssText = 'display:flex;align-items:center;gap:8px;margin-bottom:12px;';
-        
-        const badge = document.createElement('span');
-        badge.textContent = `#${idx + 1}`;
-        badge.style.cssText = 'background:var(--white);border:var(--border);border-radius:50px;padding:3px 12px;font-size:0.75rem;font-weight:700;box-shadow:var(--shadow-sm);';
-        
-        const typePill = document.createElement('span');
-        typePill.textContent = '📋 Fill Blanks';
-        typePill.style.cssText = 'background:var(--yellow-pale);border:var(--border);border-radius:50px;padding:4px 14px;font-size:0.82rem;font-weight:700;box-shadow:var(--shadow-sm);';
-        
-        header.appendChild(badge);
-        header.appendChild(typePill);
-        div.appendChild(header);
-        
-        const prevDiv = document.createElement('div');
-        prevDiv.style.cssText = 'padding:12px;background:var(--white);border:var(--border);border-radius:12px;font-size:1.1rem;font-weight:700;line-height:1.8;';
-        prevDiv.innerHTML = (quiz.sentence || '').replace(/___/g, '<span style="color:#aaa;text-decoration:underline;">___</span>');
-        
-        div.appendChild(prevDiv);
-        quizList.appendChild(div);
-      });
-    }
-
+      
     function renderPersonalPosts(posts, imagesData) {
       const itemList = document.getElementById('itemList');
       itemList.innerHTML = '';
