@@ -1685,23 +1685,17 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeSubscriptionModal();
 });
 
-async function addPostRow() {
+function addPostRow() {
   if (!pUsers.length) return alert('Add at least one user first.');
   
-  const currentCount = await getTotalItemCount();
   const limit = getUserLimit();
+  const totalInDraft = pRows.length + qRows.length + imgRows.length;  // ← Count items ở draft
   
-  // ✅ If user has hit their limit at DATABASE level
-  if (currentCount >= limit) {
-    showSubscriptionModal();
-    return;
-  }
-
-  // ✅ But ALSO check if they're close to submitting a lot of items
-  const totalInDraft = pRows.length + qRows.length + imgRows.length;
-  if (totalInDraft >= 50) { // arbitrary draft limit
+  // ✅ Giới hạn DRAFT items
+  if (totalInDraft >= limit) {
     showStatus('submitStatus', 'err', 
-      '⚠️ Too many items in draft. Submit before adding more.');
+      `⚠️ Limit reached! You have ${totalInDraft}/${limit} items in draft. Submit before adding more.`);
+    showSubscriptionModal();
     return;
   }
   
@@ -1832,19 +1826,14 @@ function newQRow() {
   };
 }
  
-async function addQuizRow() {
-  const currentCount = await getTotalItemCount();  // ✅ await + assign
+function addQuizRow() {
   const limit = getUserLimit();
-  
-  if (currentCount >= limit) {
-    showSubscriptionModal();
-    return;
-  }
-
   const totalInDraft = pRows.length + qRows.length + imgRows.length;
-  if (totalInDraft >= 50) {
+  
+  if (totalInDraft >= limit) {
     showStatus('submitStatus', 'err', 
-      '⚠️ Too many items in draft. Submit before adding more.');
+      `⚠️ Limit reached! You have ${totalInDraft}/${limit} items. Submit before adding more.`);
+    showSubscriptionModal();
     return;
   }
   
@@ -2009,19 +1998,14 @@ function applyTone(text,cursorPos,vowel,tone){
   return{text:newBefore+after,cursor:newBefore.length};
 }
 
-async function addImgRow(){
-  const currentCount = await getTotalItemCount();  // ✅ await + assign
+async function addImgRow() {
   const limit = getUserLimit();
-  
-  if (currentCount >= limit) {
-    showSubscriptionModal();
-    return;
-  }
-
   const totalInDraft = pRows.length + qRows.length + imgRows.length;
-  if (totalInDraft >= 50) {
+  
+  if (totalInDraft >= limit) {
     showStatus('submitStatus', 'err', 
-      '⚠️ Too many items in draft. Submit before adding more.');
+      `⚠️ Limit reached! You have ${totalInDraft}/${limit} items. Submit before adding more.`);
+    showSubscriptionModal();
     return;
   }
   
