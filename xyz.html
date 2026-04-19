@@ -1287,107 +1287,136 @@ function renderPostRows() {
 
 // QUIZ
 let qRows = [];
-
+ 
 function newQRow() {
-  return {id:Date.now()+Math.random(),type:'t1',audioFile:null,
-    fullSentence:'',segments:[],composing:false,
-    character:'',imgFiles:[null,null,null],t2correct:'',
-    imageFile:null,words:['','',''],t3correct:''};
+  return {
+    id: Date.now() + Math.random(),
+    type: 't1',
+    fullSentence: '',
+    segments: [],
+    composing: false,
+    words: ['', '', ''],
+    t1correct: []
+  };
 }
-
+ 
 function addQuizRow() {
-  const r=newQRow(); qRows.push(r);
+  const r = newQRow();
+  qRows.push(r);
   renderQuizAll();
   saveState();
-  setTimeout(()=>document.getElementById('qrow-'+r.id)?.scrollIntoView({behavior:'smooth',block:'center'}),50);
+  setTimeout(() => document.getElementById('qrow-' + r.id)?.scrollIntoView({behavior: 'smooth', block: 'center'}), 50);
 }
-
-function removeQRow(id) { qRows=qRows.filter(r=>r.id!==id); renderQuizAll(); saveState(); }
-
+ 
+function removeQRow(id) {
+  qRows = qRows.filter(r => r.id !== id);
+  renderQuizAll();
+  saveState();
+}
+ 
 async function handleQuizAudio(id, event) {
   const file = event.target.files[0];
   if (!file) return;
-  const r = qRows.find(r=>r.id===id);
+  const r = qRows.find(r => r.id === id);
   if (!r) return;
   r.audioFile = file;
   saveState();
   qRerenderRow(id);
 }
-
-async function handleT2Image(id, idx, event) {
-  const file = event.target.files[0];
-  if (!file) return;
-  const r = qRows.find(r=>r.id===id);
-  if (!r) return;
-  r.imgFiles[idx] = file;
-  saveState();
-  qRerenderRow(id);
-}
-
-async function handleT3Image(id, event) {
-  const file = event.target.files[0];
-  if (!file) return;
-  const r = qRows.find(r=>r.id===id);
-  if (!r) return;
-  r.imageFile = file;
-  saveState();
-  qRerenderRow(id);
-}
-
+ 
 function renderQuizAll() {
-  const el=document.getElementById('quizRows');
-  if(!qRows.length){el.innerHTML='<div class="empty-hint"><span class="icon">📝</span>Click Add Quiz — pick a type for each</div>';return;}
-  el.innerHTML=qRows.map((r,i)=>qRowHTML(r,i)).join('');
+  const el = document.getElementById('quizRows');
+  if (!qRows.length) {
+    el.innerHTML = '<div class="empty-hint"><span class="icon">📝</span>Click Add Quiz — pick a type for each</div>';
+    return;
+  }
+  el.innerHTML = qRows.map((r, i) => qRowHTML(r, i)).join('');
 }
-
+ 
 function qRerenderRow(id) {
-  const idx=qRows.findIndex(r=>r.id===id); if(idx<0) return;
-  const el=document.getElementById('qrow-'+id); if(!el){renderQuizAll();return;}
-  const tmp=document.createElement('div');
-  tmp.innerHTML=qRowHTML(qRows[idx],idx);
+  const idx = qRows.findIndex(r => r.id === id);
+  if (idx < 0) return;
+  const el = document.getElementById('qrow-' + id);
+  if (!el) {
+    renderQuizAll();
+    return;
+  }
+  const tmp = document.createElement('div');
+  tmp.innerHTML = qRowHTML(qRows[idx], idx);
   el.replaceWith(tmp.firstElementChild);
 }
-
-function qRowHTML(row,idx) {
-  const tc=row.type?' '+row.type:'';
+ 
+function qRowHTML(row, idx) {
+  const tc = row.type ? ' ' + row.type : '';
   return `<div class="quiz-row" id="qrow-${row.id}">
     <div class="q-row-header">
-      <span class="row-num-badge">#${idx+1}</span>
+      <span class="row-num-badge">#${idx + 1}</span>
       <div class="type-pills">
-        <button class="type-pill${row.type==='t1'?' active-t1':''}" onclick="qSetType(${row.id},'t1')">📋 Type 1</button>
+        <button class="type-pill${row.type === 't1' ? ' active-t1' : ''}" onclick="qSetType(${row.id},'t1')">📋 Type 1</button>
       </div>
       <button class="q-row-delete" onclick="removeQRow(${row.id})">✕</button>
     </div>
     <div>${qFormT1(row)}</div>
   </div>`;
 }
-
-
-
+ 
+function isPunct(s) {
+  return /^[，。！？、；：,.!?;:\s]+$/.test(s);
+}
+ 
+function esc(s) {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+ 
+function tokenize(str) {
+  if (!str) return [];
+  const tokens = [];
+  let current = '';
+  for (let char of str) {
+    if (/[\s，。！？、；：,.!?;:]/.test(char)) {
+      if (current) tokens.push(current);
+      if (!/\s/.test(char)) tokens.push(char);
+      current = '';
+    } else {
+      current += char;
+    }
+  }
+  if (current) tokens.push(current);
+  return tokens;
+}
+ 
+function shuffle(arr) {
+  const copy = [...arr];
+  for (let i = copy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+ 
 function qT1SegHTML(row) {
-  if(!row.segments.length) return '';
-  const nonP=row.segments.filter(s=>!isPunct(s));
+  if (!row.segments.length) return '';
+  const nonP = row.segments.filter(s => !isPunct(s));
   return `<div>
     <div class="sub-label" style="margin-bottom:6px">✂️ Segments</div>
     <div class="seg-area">
-      ${row.segments.map((s,i)=>`
-        <div class="seg-tok${isPunct(s)?' punct':''}">
+      ${row.segments.map((s, i) => `
+        <div class="seg-tok${isPunct(s) ? ' punct' : ''}">
           <span class="seg-text">${esc(s)}</span>
-          ${s.length>1&&!isPunct(s)?`<button class="seg-split-btn-q" onclick="qT1Split(${row.id},${i})">✂</button>`:''}
-          ${i>0?`<button class="seg-merge-btn-q" onclick="qT1Merge(${row.id},${i})">←</button>`:''}
+          ${s.length > 1 && !isPunct(s) ? `<button class="seg-split-btn-q" onclick="qT1Split(${row.id},${i})">✂</button>` : ''}
+          ${i > 0 ? `<button class="seg-merge-btn-q" onclick="qT1Merge(${row.id},${i})">←</button>` : ''}
         </div>`).join('')}
     </div>
     <div style="font-size:.72rem;color:#aaa;font-weight:600;margin-top:3px">✂ split first char · ← merge</div>
   </div>
   <div class="preview-box">
-    <div><strong>sentence:</strong> ${row.segments.map(s=>isPunct(s)?`<span style="color:#888">${esc(s)}</span>`:`<span class="blank-pill">___</span>`).join(' ')}</div>
-    <div style="margin-top:3px"><strong>words:</strong> ${shuffle(nonP).map(s=>`<span class="blank-pill">${esc(s)}</span>`).join(' ')}</div>
+    <div><strong>sentence:</strong> ${row.segments.map(s => isPunct(s) ? `<span style="color:#888">${esc(s)}</span>` : `<span class="blank-pill">___</span>`).join(' ')}</div>
+    <div style="margin-top:3px"><strong>words:</strong> ${shuffle(nonP).map(s => `<span class="blank-pill">${esc(s)}</span>`).join(' ')}</div>
   </div>`;
 }
-
+ 
 function qFormT1(row) {
   return `<div class="row-inner">
-    
     <div class="field"><label>📝 Full sentence</label>
       <input type="text" placeholder="你是哪国人？" value="${esc(row.fullSentence)}"
         oninput="qT1Input(${row.id},this.value)"
@@ -1397,41 +1426,56 @@ function qFormT1(row) {
     <div id="qt1seg-${row.id}">${qT1SegHTML(row)}</div>
   </div>`;
 }
-
+ 
 function qT1UpdateSegs(id) {
-  const r=qRows.find(r=>r.id===id); if(!r) return;
-  const el=document.getElementById('qt1seg-'+id); if(el) el.innerHTML=qT1SegHTML(r);
+  const r = qRows.find(r => r.id === id);
+  if (!r) return;
+  const el = document.getElementById('qt1seg-' + id);
+  if (el) el.innerHTML = qT1SegHTML(r);
 }
-
-function qT1Input(id,value) {
-  const r=qRows.find(r=>r.id===id); if(!r) return;
-  r.fullSentence=value;
-  if(!r.composing){r.segments=tokenize(value);qT1UpdateSegs(id);}
+ 
+function qT1Input(id, value) {
+  const r = qRows.find(r => r.id === id);
+  if (!r) return;
+  r.fullSentence = value;
+  if (!r.composing) {
+    r.segments = tokenize(value);
+    qT1UpdateSegs(id);
+  }
 }
-
-function qT1CompEnd(id,value) {
-  const r=qRows.find(r=>r.id===id); if(!r) return;
-  r.composing=false; r.fullSentence=value; r.segments=tokenize(value); qT1UpdateSegs(id);
+ 
+function qT1CompEnd(id, value) {
+  const r = qRows.find(r => r.id === id);
+  if (!r) return;
+  r.composing = false;
+  r.fullSentence = value;
+  r.segments = tokenize(value);
+  qT1UpdateSegs(id);
   saveState();
 }
-
-function qT1Split(id,idx) {
-  const r=qRows.find(r=>r.id===id); if(!r) return;
-  const tok=r.segments[idx]; if(tok.length<2) return;
-  r.segments.splice(idx,1,tok[0],tok.slice(1)); qT1UpdateSegs(id);
+ 
+function qT1Split(id, idx) {
+  const r = qRows.find(r => r.id === id);
+  if (!r) return;
+  const tok = r.segments[idx];
+  if (tok.length < 2) return;
+  r.segments.splice(idx, 1, tok[0], tok.slice(1));
+  qT1UpdateSegs(id);
   saveState();
 }
-
-function qT1Merge(id,idx) {
-  const r=qRows.find(r=>r.id===id); if(!r||idx===0) return;
-  r.segments.splice(idx-1,2,r.segments[idx-1]+r.segments[idx]); qT1UpdateSegs(id);
+ 
+function qT1Merge(id, idx) {
+  const r = qRows.find(r => r.id === id);
+  if (!r || idx === 0) return;
+  r.segments.splice(idx - 1, 2, r.segments[idx - 1] + r.segments[idx]);
+  qT1UpdateSegs(id);
   saveState();
 }
-
-
-function qSet(id,field,value){const r=qRows.find(r=>r.id===id);if(r)r[field]=value;}
-
-function buildSentenceStr(segs){return segs.map(s=>isPunct(s)?s:'___').join(' ').replace(/ ([，。！？、；：,.!?])/g,'$1');}
+ 
+function qSet(id, field, value) {
+  const r = qRows.find(r => r.id === id);
+  if (r) r[field] = value;
+}
 
 // IMAGES
 let imgRows = [];
