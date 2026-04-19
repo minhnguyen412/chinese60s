@@ -1154,9 +1154,8 @@ async function addUser() {
   if (!name) return alert('Enter a name.');
   if (pUsers.find(u=>u.name===name)) return alert('Already exists.');
 
-  pUsers.push({name, avatarFile: currentAvatarFile});
+  pUsers.push({name});
   document.getElementById('newUserName').value='';
-  clearAvatar();
   renderUsers();
   renderPostRows();
   saveState();
