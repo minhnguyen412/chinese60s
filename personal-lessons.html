@@ -1196,95 +1196,43 @@
   });
 </script>
   <script>
-  const SUPABASE_URL = 'https://dpnxyrkwjdtlunepeewz.supabase.co'; // 👈 Thay URL
-  const SUPABASE_KEY = 'sb_publishable_qZUI2tkjitvyZHDZnIRkpQ_yynAjgTA'; // 👈 Thay key
-
-  async function loadPersonalLessons(userId) {
-  try {
-    console.log('[loadPersonalLessons] Starting with userId:', userId);
-    const url = `${SUPABASE_URL}/rest/v1/lessons?user_id=eq.${userId}&select=posts,quiz,images&limit=1`;
-    console.log('[loadPersonalLessons] Fetching URL:', url);
-    const response = await fetch(url, {
-      headers: {
-        'apikey': SUPABASE_KEY,
-        'Authorization': `Bearer ${SUPABASE_KEY}`,
-        'Content-Type': 'application/json'
-      }
-    });
-
-    if (!response.ok) {
-      const errText = await response.text();
-      console.error('❌ Supabase error:', response.status, response.statusText, errText);
-      document.getElementById('itemList').innerHTML = 
-        `<div style="text-align:center;padding:40px;color:#e53935;">
-          <strong>Error:</strong> ${response.status} ${response.statusText}
-          <br><small>${errText}</small>
-        </div>`;
-      return;
-    }
-
-    const data = await response.json();
-    console.log('[loadPersonalLessons] Data received:', data);
-    if (!data || data.length === 0) {
-      document.getElementById('itemList').innerHTML = 
-        '<div style="text-align:center;padding:40px;color:#bbb;">No lessons created yet. Go to <a href="profile.html">profile</a> to create one.</div>';
-      return;
-    }
-
-    const lesson = data[0];
-    
-    // Render posts
-    if (lesson.posts && lesson.posts.length > 0) {
-      renderPersonalPosts(lesson.posts, lesson.images || []);
-    } else {
-      document.getElementById('itemList').innerHTML = 
-        '<div style="text-align:center;padding:40px;color:#bbb;">No posts in this lesson</div>';
-    }
-
-    // ✅ Render quiz — THÊM ĐOẠN NÀY
-    if (lesson.quiz && lesson.quiz.length > 0) {
-      const quizContainer = document.getElementById('quiz-container');
-      quizContainer.style.display = 'block';
-      renderPersonalQuiz(lesson.quiz, lesson.images || []);
-
-      // ✅ SET quiz data cho quiz logic
-      window.setQuizData(lesson.quiz);
-    }
-  }
-
+  const SUPABASE_URL = 'https://dpnxyrkwjdtlunepeewz.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_qZUI2tkjitvyZHDZnIRkpQ_yynAjgTA';
+ 
+  // ✅ FIX 1: Định nghĩa renderPersonalPosts TRƯỚC loadPersonalLessons
   function renderPersonalPosts(posts, imagesData) {
     const itemList = document.getElementById('itemList');
     itemList.innerHTML = '';
-
+ 
     posts.forEach((item, index) => {
       const li = document.createElement('li');
       li.className = 'content-list li';
-
+ 
       // Row
       const row = document.createElement('div');
       row.className = 'row';
-
+ 
       const avatar = document.createElement('span');
       avatar.className = 'avatar-1';
       avatar.style.backgroundImage = item.avatar ? `url(${item.avatar})` : '';
       avatar.style.background = !item.avatar ? 'var(--yellow)' : '';
-
+ 
       const user = document.createElement('span');
       user.className = 'user';
       user.textContent = item.user || 'Unknown';
-
+ 
       const toggleButton = document.createElement('button');
       toggleButton.className = 'toggle-description';
       toggleButton.textContent = '⬇️';
-
+ 
       row.appendChild(avatar);
       row.appendChild(user);
       row.appendChild(toggleButton);
-
+ 
       // H2 - segments
       const h2 = document.createElement('h2');
       h2.itemProp = 'name';
-
+ 
       (item.segments || []).forEach(segment => {
         const span = document.createElement('span');
         span.textContent = segment;
@@ -1295,179 +1243,180 @@
         });
         h2.appendChild(span);
       });
-
+ 
       // Description
       const p = document.createElement('p');
       p.className = 'description';
       p.innerHTML = item.description || '';
       p.style.display = 'none';
-
+ 
       toggleButton.addEventListener('click', () => {
         const open = p.style.display === 'block';
         p.style.display = open ? 'none' : 'block';
         toggleButton.textContent = open ? '⬇️' : '⬅️';
       });
-
+ 
       li.appendChild(row);
       li.appendChild(h2);
       li.appendChild(p);
       itemList.appendChild(li);
-
+ 
       setTimeout(() => li.classList.add('visible'), 100 * index);
     });
   }
-    function renderPersonalQuiz(quizData, imagesData) {
-  const quizList = document.getElementById('quiz-items-list');
-  if (!quizList) return; // Nếu chưa có element
-  
-  quizList.innerHTML = '';
-
-  quizData.forEach((quiz, idx) => {
-    const div = document.createElement('div');
-    div.className = 'quiz-row';
-    div.style.cssText = 'background:var(--bg);border:var(--border-thick);border-radius:18px;padding:16px;margin-bottom:16px;';
-
-    // Header
-    const header = document.createElement('div');
-    header.style.cssText = 'display:flex;align-items:center;gap:8px;margin-bottom:12px;';
+ 
+  // ✅ FIX 2: Định nghĩa renderPersonalQuiz TRƯỚC loadPersonalLessons
+  function renderPersonalQuiz(quizData, imagesData) {
+    const quizList = document.getElementById('quiz-items-list');
+    if (!quizList) return;
     
-    const badge = document.createElement('span');
-    badge.textContent = `#${idx + 1}`;
-    badge.style.cssText = 'background:var(--white);border:var(--border);border-radius:50px;padding:3px 12px;font-size:0.75rem;font-weight:700;box-shadow:var(--shadow-sm);';
-    
-    const typePill = document.createElement('span');
-    const typeLabel = quiz.type === 't1' ? '📋 Type 1 (Fill blanks)' 
-                    : quiz.type === 't2' ? '🖼️ Type 2 (Choose image)' 
-                    : '🔤 Type 3 (Choose word)';
-    typePill.textContent = typeLabel;
-    typePill.style.cssText = 'background:var(--yellow-pale);border:var(--border);border-radius:50px;padding:4px 14px;font-size:0.82rem;font-weight:700;box-shadow:var(--shadow-sm);';
-    
-    header.appendChild(badge);
-    header.appendChild(typePill);
-    div.appendChild(header);
-
-    // Content theo type
-    if (quiz.type === 't1') {
-      renderQuizT1(div, quiz, imagesData);
-    } else if (quiz.type === 't2') {
-      renderQuizT2(div, quiz, imagesData);
-    } else if (quiz.type === 't3') {
-      renderQuizT3(div, quiz, imagesData);
-    }
-
-    quizList.appendChild(div);
-  });
-}
-
-function renderQuizT1(container, quiz, imagesData) {
-  // Type 1: Full sentence with blanks
-  const div = document.createElement('div');
-  div.style.cssText = 'padding:12px 0;border-top:var(--border);margin-top:12px;';
-  
-  const label = document.createElement('p');
-  label.textContent = 'Sentence:';
-  label.style.cssText = 'font-size:0.85rem;font-weight:700;color:#888;text-transform:uppercase;margin-bottom:8px;';
-  div.appendChild(label);
-
-  const sentenceDiv = document.createElement('div');
-  sentenceDiv.style.cssText = 'font-size:1.3rem;font-weight:700;line-height:2;padding:12px;background:var(--white);border:var(--border);border-radius:12px;';
-  
-  (quiz.segments || []).forEach((seg, i) => {
-    const segSpan = document.createElement('span');
-    segSpan.textContent = seg;
-    segSpan.style.cursor = 'pointer';
-    segSpan.style.cssText += 'padding:2px 4px;border-radius:4px;transition:background 0.15s;';
-    
-    // Highlight nếu có trong images
-    const hasImage = imagesData.find(img => img.character === seg);
-    if (hasImage) {
-      segSpan.style.background = 'var(--sky-pale)';
-      segSpan.style.borderBottom = '2px solid var(--sky)';
-      segSpan.addEventListener('click', () => showImageCard(hasImage));
-      segSpan.title = 'Click to see meaning';
-    }
-    
-    segSpan.addEventListener('mouseover', () => {
-      if (hasImage) segSpan.style.background = 'var(--sky)';
+    quizList.innerHTML = '';
+ 
+    quizData.forEach((quiz, idx) => {
+      const div = document.createElement('div');
+      div.className = 'quiz-row';
+      div.style.cssText = 'background:var(--bg);border:var(--border-thick);border-radius:18px;padding:16px;margin-bottom:16px;';
+ 
+      // Header
+      const header = document.createElement('div');
+      header.style.cssText = 'display:flex;align-items:center;gap:8px;margin-bottom:12px;';
+      
+      const badge = document.createElement('span');
+      badge.textContent = `#${idx + 1}`;
+      badge.style.cssText = 'background:var(--white);border:var(--border);border-radius:50px;padding:3px 12px;font-size:0.75rem;font-weight:700;box-shadow:var(--shadow-sm);';
+      
+      const typePill = document.createElement('span');
+      const typeLabel = quiz.type === 't1' ? '📋 Type 1 (Fill blanks)' 
+                        : quiz.type === 't2' ? '🖼️ Type 2 (Choose image)' 
+                        : '🔤 Type 3 (Choose word)';
+      typePill.textContent = typeLabel;
+      typePill.style.cssText = 'background:var(--yellow-pale);border:var(--border);border-radius:50px;padding:4px 14px;font-size:0.82rem;font-weight:700;box-shadow:var(--shadow-sm);';
+      
+      header.appendChild(badge);
+      header.appendChild(typePill);
+      div.appendChild(header);
+ 
+      // Content theo type
+      if (quiz.type === 't1') {
+        renderQuizT1(div, quiz, imagesData);
+      } 
+      quizList.appendChild(div);
     });
-    segSpan.addEventListener('mouseout', () => {
-      if (hasImage) segSpan.style.background = 'var(--sky-pale)';
-    });
-    
-    sentenceDiv.appendChild(segSpan);
-  });
-  
-  div.appendChild(sentenceDiv);
-  container.appendChild(div);
-}
-
-function renderQuizT2(container, quiz, imagesData) {
-  // Type 2: Character + 3 images
-  const div = document.createElement('div');
-  div.style.cssText = 'padding:12px 0;border-top:var(--border);margin-top:12px;';
-  
-  const charDiv = document.createElement('div');
-  charDiv.style.cssText = 'margin-bottom:12px;';
-  
-  const charLabel = document.createElement('p');
-  charLabel.textContent = 'Character:';
-  charLabel.style.cssText = 'font-size:0.75rem;font-weight:700;color:#888;text-transform:uppercase;margin-bottom:4px;';
-  charDiv.appendChild(charLabel);
-  
-  const charText = document.createElement('span');
-  charText.textContent = quiz.character || '—';
-  charText.style.cssText = 'font-size:2rem;font-weight:700;';
-  charDiv.appendChild(charText);
-  
-  div.appendChild(charDiv);
-
-  if (quiz.t2correct !== '') {
-    const hint = document.createElement('p');
-    hint.style.cssText = 'font-size:0.82rem;color:#888;background:var(--yellow-pale);border:var(--border);border-radius:8px;padding:8px;margin-top:8px;';
-    hint.innerHTML = `✅ Correct answer: <strong>Image ${parseInt(quiz.t2correct) + 1}</strong>`;
-    div.appendChild(hint);
   }
-
-  container.appendChild(div);
-}
-
-function renderQuizT3(container, quiz, imagesData) {
-  // Type 3: Image + 3 words
-  const div = document.createElement('div');
-  div.style.cssText = 'padding:12px 0;border-top:var(--border);margin-top:12px;';
-  
-  const label = document.createElement('p');
-  label.textContent = 'Words:';
-  label.style.cssText = 'font-size:0.75rem;font-weight:700;color:#888;text-transform:uppercase;margin-bottom:6px;';
-  div.appendChild(label);
-
-  const wordsList = document.createElement('div');
-  wordsList.style.cssText = 'display:flex;flex-direction:column;gap:6px;';
-  
-  (quiz.words || []).forEach((word, i) => {
-    if (word) {
-      const wordSpan = document.createElement('span');
-      const isCorrect = word === quiz.t3correct;
-      wordSpan.textContent = word;
-      wordSpan.style.cssText = `
-        padding:8px 12px;
-        background:${isCorrect ? 'var(--green-pale)' : 'var(--bg)'};
-        border:var(--border);
-        border-radius:8px;
-        font-weight:700;
-        ${isCorrect ? 'border-color:var(--green);' : ''}
-      `;
-      if (isCorrect) {
-        wordSpan.textContent += ' ✅';
+ 
+  function renderQuizT1(container, quiz, imagesData) {
+    const div = document.createElement('div');
+    div.style.cssText = 'padding:12px 0;border-top:var(--border);margin-top:12px;';
+    
+    const label = document.createElement('p');
+    label.textContent = 'Sentence:';
+    label.style.cssText = 'font-size:0.85rem;font-weight:700;color:#888;text-transform:uppercase;margin-bottom:8px;';
+    div.appendChild(label);
+ 
+    const sentenceDiv = document.createElement('div');
+    sentenceDiv.style.cssText = 'font-size:1.3rem;font-weight:700;line-height:2;padding:12px;background:var(--white);border:var(--border);border-radius:12px;';
+    
+    (quiz.segments || []).forEach((seg, i) => {
+      const segSpan = document.createElement('span');
+      segSpan.textContent = seg;
+      segSpan.style.cursor = 'pointer';
+      segSpan.style.cssText += 'padding:2px 4px;border-radius:4px;transition:background 0.15s;';
+      
+      const hasImage = imagesData.find(img => img.character === seg);
+      if (hasImage) {
+        segSpan.style.background = 'var(--sky-pale)';
+        segSpan.style.borderBottom = '2px solid var(--sky)';
+        segSpan.addEventListener('click', () => showImageCard(hasImage));
+        segSpan.title = 'Click to see meaning';
       }
-      wordsList.appendChild(wordSpan);
+      
+      segSpan.addEventListener('mouseover', () => {
+        if (hasImage) segSpan.style.background = 'var(--sky)';
+      });
+      segSpan.addEventListener('mouseout', () => {
+        if (hasImage) segSpan.style.background = 'var(--sky-pale)';
+      });
+      
+      sentenceDiv.appendChild(segSpan);
+    });
+    
+    div.appendChild(sentenceDiv);
+    container.appendChild(div);
+  }
+ 
+ 
+  // ✅ FIX 3: loadPersonalLessons - THÊM CATCH block
+  async function loadPersonalLessons(userId) {
+    try {
+      console.log('[loadPersonalLessons] Starting with userId:', userId);
+      
+      const url = `${SUPABASE_URL}/rest/v1/lessons?user_id=eq.${userId}&select=posts,quiz,images&limit=1`;
+      console.log('[loadPersonalLessons] Fetching from:', url);
+      
+      const response = await fetch(url, {
+        headers: {
+          'apikey': SUPABASE_KEY,
+          'Authorization': `Bearer ${SUPABASE_KEY}`,
+          'Content-Type': 'application/json'
+        }
+      });
+ 
+      console.log('[loadPersonalLessons] Response status:', response.status, response.statusText);
+ 
+      if (!response.ok) {
+        const errText = await response.text();
+        console.error('❌ Supabase error:', response.status, response.statusText, errText);
+        document.getElementById('itemList').innerHTML = 
+          `<div style="text-align:center;padding:40px;color:#e53935;">
+            <strong>Error ${response.status}:</strong> ${response.statusText}
+            <br><small>${errText}</small>
+          </div>`;
+        return;
+      }
+ 
+      const data = await response.json();
+      console.log('[loadPersonalLessons] Data received:', data);
+      
+      if (!data || data.length === 0) {
+        document.getElementById('itemList').innerHTML = 
+          '<div style="text-align:center;padding:40px;color:#bbb;">No lessons created yet. Go to <a href="profile.html">profile</a> to create one.</div>';
+        return;
+      }
+ 
+      const lesson = data[0];
+      
+      // Render posts
+      if (lesson.posts && lesson.posts.length > 0) {
+        renderPersonalPosts(lesson.posts, lesson.images || []);
+      } else {
+        document.getElementById('itemList').innerHTML = 
+          '<div style="text-align:center;padding:40px;color:#bbb;">No posts in this lesson</div>';
+      }
+ 
+      // Render quiz
+      if (lesson.quiz && lesson.quiz.length > 0) {
+        const quizContainer = document.getElementById('quiz-container');
+        quizContainer.style.display = 'block';
+        renderPersonalQuiz(lesson.quiz, lesson.images || []);
+ 
+        // SET quiz data cho quiz logic
+        window.setQuizData(lesson.quiz);
+      }
     }
-  });
-
-  div.appendChild(wordsList);
-  container.appendChild(div);
-}
-</script>
+    // ✅ FIX 4: THÊM CATCH block
+    catch (error) {
+      console.error('[loadPersonalLessons] Error:', error);
+      const itemList = document.getElementById('itemList');
+      if (itemList) {
+        itemList.innerHTML = 
+          `<div style="text-align:center;padding:40px;color:#e53935;">
+            <strong>Error:</strong> ${error.message || 'Unknown error occurred'}
+            <br><small>Check browser console (F12) for details</small>
+          </div>`;
+      }
+    }
+  }
+  </script>
 <script>// Hàm kiểm tra phần tử có nằm trong viewport không
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
