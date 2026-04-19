@@ -1637,6 +1637,7 @@ async function submitAll() {
   
   return {
     id: idx + 1,
+    fullSentence: r.fullSentence,
     sentence: sentence,
     blanks: nonPunctSegs.map(s => ({ answer: s })),
     words: shuffle(nonPunctSegs)
