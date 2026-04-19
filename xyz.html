@@ -74,10 +74,7 @@
   display: flex;
   gap: 12px;
   border-bottom: none;
-  background: transparent;
-  position: sticky;
-  top: 66px;
-  z-index: 150;
+  background: transparent;  /* ✅ Transparent vì wrapper có background */
   padding: 16px 24px;
   max-width: 1000px;
   margin: 0 auto;
@@ -911,11 +908,15 @@
       </a>
     </div>
   </div>
+  <!-- ✅ Wrapper dính điểm này -->
+<div style="position: sticky; top: 66px; z-index: 150; background: var(--bg);">
   <div class="nav-tabs">
     <button class="nav-tab active" data-panel="posts">💬 Posts</button>
     <button class="nav-tab" data-panel="quiz">📝 Quiz</button>
     <button class="nav-tab" data-panel="images">🖼️ Vocabulary</button>
   </div>
+</div>
+
 
   <div class="tool-container">
 
