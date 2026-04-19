@@ -1549,20 +1549,40 @@ function renderUsers() {
 // ═══ SUBSCRIPTION FUNCTIONS ═══
 
 const PLAN_LIMITS = {
-  free: 5,
-  plan_a: 50,
-  plan_b: 100,
-  plan_c: 150
+  free: 5,     // 5 lesson rows, mỗi row có max 5 items/posts/quiz/images
+  plan_a: 10,  // 10 lesson rows, max 10 items mỗi
+  plan_b: 20,  // 20 lesson rows, max 20 items mỗi
+  plan_c: 50   // 50 lesson rows, max 50 items mỗi
 };
-
-function getTotalItemCount() {
-  return pRows.length + qRows.length + imgRows.length;
-}
 
 function getUserLimit() {
   const sub = window.userSubscription || 'free';
   return PLAN_LIMITS[sub] || PLAN_LIMITS.free;
 }
+
+async function getTotalItemCount() {
+  if (!window.currentUser) return 0;
+  
+  try {
+    const response = await fetch(
+      `${window.API_BASE}/api/lesson-count`,
+      {
+        headers: {
+          'Authorization': `Bearer ${window.API_TOKEN}`
+        }
+      }
+    );
+    
+    if (!response.ok) return 0;
+    const { count } = await response.json();
+    return count;
+  } catch(e) {
+    console.error('Failed to get count:', e);
+    return 0;
+  }
+}
+
+
 
 function showSubscriptionModal() {
   document.getElementById('subscriptionModal').classList.add('show');
@@ -1665,18 +1685,36 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeSubscriptionModal();
 });
 
-function addPostRow() {
+async function addPostRow() {
   if (!pUsers.length) return alert('Add at least one user first.');
   
-  const totalItems = getTotalItemCount();
+  const currentCount = await getTotalItemCount();
   const limit = getUserLimit();
   
-  if (totalItems >= limit) {
+  // ✅ If user has hit their limit at DATABASE level
+  if (currentCount >= limit) {
     showSubscriptionModal();
     return;
   }
+
+  // ✅ But ALSO check if they're close to submitting a lot of items
+  const totalInDraft = pRows.length + qRows.length + imgRows.length;
+  if (totalInDraft >= 50) { // arbitrary draft limit
+    showStatus('submitStatus', 'err', 
+      '⚠️ Too many items in draft. Submit before adding more.');
+    return;
+  }
   
-  pRows.push({id:Date.now(),user:pUsers[0].name,title:'',description:'',audioFile:null,segments:[],composing:false});
+  pRows.push({
+    id: Date.now(),
+    user: pUsers[0].name,
+    title: '',
+    description: '',
+    audioFile: null,
+    segments: [],
+    composing: false
+  });
+  
   renderPostRows();
   saveState();
 }
@@ -1794,12 +1832,21 @@ function newQRow() {
   };
 }
  
-function addQuizRow() {
+async function addQuizRow() {
   const totalItems = getTotalItemCount();
   const limit = getUserLimit();
   
-  if (totalItems >= limit) {
+  // ✅ If user has hit their limit at DATABASE level
+  if (currentCount >= limit) {
     showSubscriptionModal();
+    return;
+  }
+
+  // ✅ But ALSO check if they're close to submitting a lot of items
+  const totalInDraft = pRows.length + qRows.length + imgRows.length;
+  if (totalInDraft >= 50) { // arbitrary draft limit
+    showStatus('submitStatus', 'err', 
+      '⚠️ Too many items in draft. Submit before adding more.');
     return;
   }
   
@@ -1964,12 +2011,21 @@ function applyTone(text,cursorPos,vowel,tone){
   return{text:newBefore+after,cursor:newBefore.length};
 }
 
-function addImgRow(){
+async function addImgRow(){
   const totalItems = getTotalItemCount();
   const limit = getUserLimit();
   
-  if (totalItems >= limit) {
+  // ✅ If user has hit their limit at DATABASE level
+  if (currentCount >= limit) {
     showSubscriptionModal();
+    return;
+  }
+
+  // ✅ But ALSO check if they're close to submitting a lot of items
+  const totalInDraft = pRows.length + qRows.length + imgRows.length;
+  if (totalInDraft >= 50) { // arbitrary draft limit
+    showStatus('submitStatus', 'err', 
+      '⚠️ Too many items in draft. Submit before adding more.');
     return;
   }
   
@@ -2097,7 +2153,21 @@ function tokenize(text) {
 async function submitAll() {
   const btn = document.getElementById('submitBtn');
   btn.disabled = true;
-  showStatus('submitStatus', 'info', '<span class="spinner"></span> Submitting your content...');
+  
+  // ✅ Check limit TRƯỚC khi submit
+  const currentCount = await getTotalItemCount();
+  const limit = getUserLimit();
+  
+  if (currentCount >= limit) {
+    showStatus('submitStatus', 'err', 
+      `❌ Limit reached! You have ${currentCount}/${limit} lessons. Upgrade to create more.`);
+    showSubscriptionModal();
+    btn.disabled = false;
+    return;
+  }
+
+  showStatus('submitStatus', 'info', 
+    '<span class="spinner"></span> Submitting your content...');
 
   try {
     if (!currentUser) {
@@ -2110,7 +2180,7 @@ async function submitAll() {
 
     const formData = new FormData();
 
-    // Posts
+    // ✅ Each submission = 1 lesson row
     formData.append('posts', JSON.stringify(pRows.map(r => ({
       user: r.user,
       title: r.title,
@@ -2118,56 +2188,37 @@ async function submitAll() {
       description: r.description.replace(/\n/g, '<br>')
     }))));
 
-    // Posts audio files
-    pRows.forEach((r, i) => {
-      if (r.audioFile) {
-        formData.append(`post_audio_${i}`, r.audioFile);
-      }
-    });
-
-    // Posts avatar files
-    pUsers.forEach((u, i) => {
-      if (u.avatarFile) {
-        formData.append(`avatar_${i}`, u.avatarFile);
-      }
-    });
-
-    // Quiz
     formData.append('quiz', JSON.stringify(qRows.map((r, idx) => {
-  const nonPunctSegs = r.segments.filter(s => !isPunct(s));
-  const sentenceParts = r.segments.map(s => isPunct(s) ? s : '___');
-  const sentence = sentenceParts.join(' ');
-  
-  return {
-    id: idx + 1,
-    fullSentence: r.fullSentence,
-    sentence: sentence,
-    blanks: nonPunctSegs.map(s => ({ answer: s })),
-    words: shuffle(nonPunctSegs)
-  };
-})));
+      const nonPunctSegs = r.segments.filter(s => !isPunct(s));
+      const sentenceParts = r.segments.map(s => isPunct(s) ? s : '___');
+      
+      return {
+        id: idx + 1,
+        fullSentence: r.fullSentence,
+        sentence: sentenceParts.join(' '),
+        blanks: nonPunctSegs.map(s => ({ answer: s })),
+        words: shuffle(nonPunctSegs)
+      };
+    })));
 
-    // Quiz files
-    
-    // Images
     formData.append('images', JSON.stringify(imgRows.map(r => ({
       character: r.character,
       pinyin: r.pinyin,
       meaning: r.meaning
     }))));
 
-    // Image files
+    // Attach files...
+    pRows.forEach((r, i) => {
+      if (r.audioFile) formData.append(`post_audio_${i}`, r.audioFile);
+    });
     imgRows.forEach((r, i) => {
       if (r.imageFile) formData.append(`img_image_${i}`, r.imageFile);
       if (r.audioFile) formData.append(`img_audio_${i}`, r.audioFile);
     });
 
-    // 🔑 SEND WITH TOKEN
     const response = await fetch(`${window.API_BASE}/api/submit`, {
       method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${API_TOKEN}`
-      },
+      headers: { 'Authorization': `Bearer ${API_TOKEN}` },
       body: formData
     });
 
@@ -2176,11 +2227,8 @@ async function submitAll() {
       throw new Error(error.error || `Server error: ${response.statusText}`);
     }
 
-    const result = await response.json();
-
     showStatus('submitStatus', 'success', '✅ Content submitted successfully!');
     showSuccessModal('All your content has been saved!');
-
     clearAll();
 
   } catch (e) {
