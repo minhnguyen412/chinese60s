@@ -1689,12 +1689,11 @@ function addPostRow() {
   if (!pUsers.length) return alert('Add at least one user first.');
   
   const limit = getUserLimit();
-  const totalInDraft = pRows.length + qRows.length + imgRows.length;  // ← Count items ở draft
   
-  // ✅ Giới hạn DRAFT items
-  if (totalInDraft >= limit) {
+  // ✅ Check RIÊNG posts
+  if (pRows.length >= limit) {
     showStatus('submitStatus', 'err', 
-      `⚠️ Limit reached! You have ${totalInDraft}/${limit} items in draft. Submit before adding more.`);
+      `⚠️ Posts limit reached! You have ${pRows.length}/${limit} posts. Submit before adding more.`);
     showSubscriptionModal();
     return;
   }
@@ -1828,11 +1827,11 @@ function newQRow() {
  
 function addQuizRow() {
   const limit = getUserLimit();
-  const totalInDraft = pRows.length + qRows.length + imgRows.length;
   
-  if (totalInDraft >= limit) {
+  // ✅ Check RIÊNG quiz
+  if (qRows.length >= limit) {
     showStatus('submitStatus', 'err', 
-      `⚠️ Limit reached! You have ${totalInDraft}/${limit} items. Submit before adding more.`);
+      `⚠️ Quiz limit reached! You have ${qRows.length}/${limit} quizzes. Submit before adding more.`);
     showSubscriptionModal();
     return;
   }
@@ -2000,11 +1999,11 @@ function applyTone(text,cursorPos,vowel,tone){
 
 async function addImgRow() {
   const limit = getUserLimit();
-  const totalInDraft = pRows.length + qRows.length + imgRows.length;
   
-  if (totalInDraft >= limit) {
+  // ✅ Check RIÊNG images
+  if (imgRows.length >= limit) {
     showStatus('submitStatus', 'err', 
-      `⚠️ Limit reached! You have ${totalInDraft}/${limit} items. Submit before adding more.`);
+      `⚠️ Vocabulary limit reached! You have ${imgRows.length}/${limit} words. Submit before adding more.`);
     showSubscriptionModal();
     return;
   }
