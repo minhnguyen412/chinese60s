@@ -283,3 +283,23 @@ app.listen(PORT, () => {
   console.log(`   Firebase Auth: ${admin.app().name}`);
   console.log(`   Supabase: ${process.env.SUPABASE_URL}`);
 });
+// Fetch user's total lesson count (by subscription plan)
+app.get('/api/lesson-count', verifyFirebaseToken, async (req, res) => {
+  try {
+    const uid = req.user.uid;
+    
+    const { count, error } = await supabase
+      .from('lessons')
+      .select('*', { count: 'exact', head: true })
+      .eq('user_id', uid);
+
+    if (error) throw error;
+
+    res.json({ 
+      success: true, 
+      count: count || 0 
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
