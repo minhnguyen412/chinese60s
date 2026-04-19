@@ -1644,14 +1644,7 @@ async function submitAll() {
 })));
 
     // Quiz files
-    qRows.forEach((r, i) => {
-      if (r.audioFile) formData.append(`quiz_audio_${i}`, r.audioFile);
-      r.imgFiles.forEach((f, j) => {
-        if (f) formData.append(`quiz_img_${i}_${j}`, f);
-      });
-      if (r.imageFile) formData.append(`quiz_image_${i}`, r.imageFile);
-    });
-
+    
     // Images
     formData.append('images', JSON.stringify(imgRows.map(r => ({
       character: r.character,
