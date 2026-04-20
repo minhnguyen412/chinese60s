@@ -334,38 +334,41 @@ app.get('/api/user-subscription', verifyFirebaseToken, async (req, res) => {
 app.post('/api/delete-word', verifyFirebaseToken, async (req, res) => {
   try {
     const uid = req.user.uid;
-    const { character } = req.body; // "吗"
+    const { character } = req.body;
 
+    // ✅ Xóa filter submitted_at
     const { data: lessons, error: fetchErr } = await supabase
       .from('lessons')
       .select('id, images')
       .eq('user_id', uid)
-      .order('submitted_at', { ascending: false })
-      .limit(1);
+      .order('submitted_at', { ascending: false });
+      // .limit(1); ← Bỏ limit để lấy tất cả
 
     if (fetchErr || !lessons || lessons.length === 0) {
       return res.status(404).json({ error: 'No lesson found' });
     }
 
-    const lesson = lessons[0];
-    
-    // ✅ FIX: Filter để xóa ITEM có character="吗"
-    const updatedImages = lesson.images.filter(item => item.character !== character);
+    // ✅ Tìm lesson chứa character cần xóa
+    let targetLesson = null;
+    for (let lesson of lessons) {
+      if (lesson.images.some(img => img.character === character)) {
+        targetLesson = lesson;
+        break;
+      }
+    }
 
-    console.log('[delete-word] Deleted character:', character);
-    console.log('[delete-word] Before:', lesson.images.length);
-    console.log('[delete-word] After:', updatedImages.length);
+    if (!targetLesson) {
+      return res.status(404).json({ error: 'Word not found' });
+    }
 
-    // ✅ FIX: Cập nhật array images (không xóa lesson)
+    const updatedImages = targetLesson.images.filter(item => item.character !== character);
+
     const { error: updateErr } = await supabase
       .from('lessons')
       .update({ images: updatedImages })
-      .eq('id', lesson.id);
+      .eq('id', targetLesson.id);
 
-    if (updateErr) {
-      console.error('[delete-word] Update error:', updateErr);
-      throw updateErr;
-    }
+    if (updateErr) throw updateErr;
 
     res.json({ success: true, message: 'Word deleted' });
   } catch (error) {
