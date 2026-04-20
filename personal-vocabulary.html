@@ -557,17 +557,11 @@
 
   <script>
     // Supabase config
-    let supabase;
-    if (window.supabaseClient) {
-      supabase = window.supabaseClient;
-    } else if (window.supabase) {
-      supabase = window.supabase;
-    }
+    const supabase = window.supabaseClient || window.supabase;
 
     if (!supabase) {
       console.error('Supabase client not found');
     }
-
     let data = [];
     const CARDS_PER_PAGE = 10;
     let currentPage = 1;
