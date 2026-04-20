@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>漢字 Worksheet Builder — Chinese60s</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&family=Noto+Serif+SC:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:#1a1a1a; --red:#ea3324; --red-pale:#fff5f5; --red-light:#ffd5d5;
+  --cream:#fffef5; --white:#ffffff; --yellow:#ffd84d; --yellow-pale:#fffbe6;
+  --sky:#72c8f0; --sky-pale:#eaf8ff; --green:#4caf50; --green-dark:#2e7d32;
+  --muted:#888;
+  --border:2.5px solid var(--black); --border-thick:3px solid var(--black);
+  --shadow-sm:3px 3px 0 var(--black); --shadow-md:4px 4px 0 var(--black); --shadow-lg:6px 6px 0 var(--black);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Fredoka',sans-serif;font-weight:500;background:var(--cream);color:var(--black);min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle,rgba(0,0,0,.04) 1px,transparent 1px);background-size:22px 22px;pointer-events:none;z-index:0;}
+header{background:var(--red);border-bottom:var(--border-thick);padding:0 32px;height:62px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;}
+header h1{font-weight:700;font-size:1.55rem;color:white;letter-spacing:.05em;text-shadow:2px 2px 0 rgba(0,0,0,.25);}
+.header-tag{background:var(--white);border:var(--border);border-radius:50px;padding:5px 18px;font-weight:700;font-size:.82rem;box-shadow:var(--shadow-sm);}
+.app{display:flex;height:calc(100vh - 62px);position:relative;z-index:1;}
+.sidebar{width:310px;min-width:260px;flex-shrink:0;background:var(--white);border-right:var(--border-thick);display:flex;flex-direction:column;overflow:hidden;}
+.sb-section{padding:13px 16px;border-bottom:var(--border);}
+.sb-section h3{font-family:'Quicksand',sans-serif;font-weight:700;font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:9px;}
+textarea#json-input{width:100%;height:116px;font-family:'Quicksand',sans-serif;font-size:.76rem;background:var(--cream);color:var(--black);border:var(--border);border-radius:10px;padding:9px 11px;resize:vertical;line-height:1.6;outline:none;}
+textarea#json-input:focus{box-shadow:var(--shadow-sm);}
+.btn{font-family:'Fredoka',sans-serif;font-weight:700;font-size:.9rem;border:var(--border-thick);border-radius:50px;box-shadow:var(--shadow-sm);cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:7px 16px;transition:transform .12s,box-shadow .12s;white-space:nowrap;}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:var(--shadow-md);}
+.btn:active{transform:translate(1px,1px);box-shadow:none;}
+.btn:disabled{opacity:.4;pointer-events:none;}
+.btn-red{background:var(--red);color:white;}
+.btn-yellow{background:var(--yellow);color:var(--black);}
+.btn-sky{background:var(--sky-pale);color:var(--black);}
+.btn-full{width:100%;justify-content:center;border-radius:12px;margin-top:7px;}
+.btn-sm{font-size:.78rem;padding:5px 13px;box-shadow:2px 2px 0 var(--black);}
+.btn-sm:hover{box-shadow:var(--shadow-sm);}
+.setting-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;}
+.setting-row label{font-family:'Quicksand',sans-serif;font-weight:700;font-size:.72rem;color:var(--muted);}
+.setting-row input[type=number],.setting-row select{font-family:'Quicksand',sans-serif;font-weight:700;font-size:.78rem;background:var(--cream);color:var(--black);border:var(--border);border-radius:8px;padding:4px 9px;width:82px;text-align:center;outline:none;}
+.setting-row input[type=number]:focus,.setting-row select:focus{box-shadow:var(--shadow-sm);}
+input#set-title{font-family:'Quicksand',sans-serif;font-weight:700;font-size:.8rem;width:100%;border:var(--border);border-radius:8px;padding:6px 11px;background:var(--cream);outline:none;}
+input#set-title:focus{box-shadow:var(--shadow-sm);}
+.sb-label{font-family:'Quicksand',sans-serif;font-weight:700;font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;}
+.char-list{flex:1;overflow-y:auto;padding:9px;}
+.char-item{display:flex;align-items:center;gap:9px;padding:8px 11px;border:var(--border);border-radius:12px;background:var(--cream);margin-bottom:6px;transition:transform .1s,box-shadow .1s;}
+.char-item:hover{transform:translate(-1px,-1px);box-shadow:var(--shadow-sm);}
+.char-meta{flex:1;}
+.char-pinyin{font-size:.78rem;color:var(--red);font-weight:700;font-family:'Quicksand',sans-serif;}
+.char-meaning{font-size:.68rem;color:var(--muted);font-family:'Quicksand',sans-serif;font-weight:600;}
+.status-dot{width:8px;height:8px;border-radius:50%;background:#ddd;border:1.5px solid #bbb;flex-shrink:0;}
+.status-dot.ok{background:var(--green);border-color:var(--green-dark);}
+.status-dot.err{background:var(--red);border-color:var(--red);}
+.char-pills{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;}
+.char-pill{font-family:'Noto Serif SC',serif;font-size:.95rem;border:1.5px solid #e0e0e0;border-radius:8px;background:#fff;padding:2px 7px;cursor:pointer;transition:all .12s;line-height:1.4;}
+.char-pill:hover{border-color:#aaa;background:#f5f5f5;}
+.char-pill.hidden{opacity:.4;background:#f5f5f5;text-decoration:line-through;color:#bbb;}
+.char-delete{width:22px;height:22px;border-radius:6px;flex-shrink:0;border:1.5px solid #e0e0e0;background:#fff;color:#bbb;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .12s;line-height:1;font-family:'Fredoka',sans-serif;}
+.char-delete:hover{background:var(--red);border-color:var(--red);color:#fff;transform:scale(1.12);}
+.error-msg{font-family:'Quicksand',sans-serif;font-weight:700;font-size:.76rem;color:var(--red);background:var(--red-pale);border:var(--border);border-radius:10px;padding:7px 11px;margin-top:7px;}
+.loading-msg{font-family:'Quicksand',sans-serif;font-weight:700;font-size:.82rem;color:var(--muted);padding:48px;text-align:center;}
+.spinner{display:inline-block;width:14px;height:14px;border:2.5px solid #ddd;border-top-color:var(--red);border-radius:50%;animation:spin .6s linear infinite;vertical-align:middle;margin-right:6px;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.main{flex:1;overflow-y:auto;display:flex;flex-direction:column;}
+.main-toolbar{background:var(--white);border-bottom:var(--border);padding:9px 18px;display:flex;align-items:center;gap:10px;flex-shrink:0;position:sticky;top:0;z-index:50;}
+.main-toolbar span{font-family:'Quicksand',sans-serif;font-weight:700;font-size:.78rem;color:var(--muted);flex:1;}
+#worksheet-wrap{padding:20px;flex:1;}
+.empty-state{text-align:center;padding:80px 20px;color:var(--muted);}
+.empty-state .icon{font-size:3.5rem;display:block;margin-bottom:12px;opacity:.3;}
+.empty-state p{font-family:'Quicksand',sans-serif;font-weight:700;font-size:.86rem;}
+.ws-scaler{transform-origin:top left;}
+
+/* ── WORKSHEET ── */
+.ws-page{width:794px;background:#fff;padding:20px 22px 14px;box-shadow:0 4px 28px rgba(0,0,0,.09);border-radius:6px;font-family:'Fredoka',sans-serif;}
+.ws-page-header{display:flex;align-items:center;margin-bottom:10px;height:44px;border:1.5px solid #e4e4e4;border-radius:10px;border-left:5px solid var(--red);background:#fff;padding:0 14px;}
+.ws-page-title{flex:1;}
+.ws-page-title h2{font-family:'Quicksand',sans-serif;font-weight:700;font-size:.96rem;color:#1a1a1a;letter-spacing:.03em;}
+.ws-page-title p{font-family:'Quicksand',sans-serif;font-size:0.78rem;font-weight:600;color:#bbb;margin-top:1px;}
+.ws-page-badge{font-family:'Quicksand',sans-serif;font-weight:700;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--red);padding:4px 10px;border:1.5px solid var(--red);border-radius:50px;}
+.ws-row-block{display:flex;border:1.5px solid #e4e4e4;border-radius:12px;overflow:hidden;margin-bottom:7px;background:#fff;break-inside:avoid;page-break-inside:avoid;}
+.ws-row-img{width:180px;flex-shrink:0;background:#f7f7f7;border-right:1.5px solid #ececec;display:flex;align-items:center;justify-content:center;padding:10px 8px;position:relative;}
+.ws-row-img::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);}
+.ws-row-img-empty{width:180px;flex-shrink:0;background:#f7f7f7;border-right:1.5px solid #ececec;display:flex;align-items:center;justify-content:center;position:relative;}
+.ws-vocab-img{width:160px;height:160px;object-fit:contain;border:1px solid #e4e4e4;border-radius:10px;background:white;padding:6px;display:block;}
+.ws-vocab-img-placeholder{width:160px;height:160px;display:flex;align-items:center;justify-content:center;border:1.5px dashed #ddd;border-radius:10px;color:#ddd;font-size:2.5rem;}
+.ws-row-block-cont{border-top-color:#efefef;}
+.ws-row-block-cont .ws-row-img-empty{background:#fafafa;}
+.ws-row-right{flex:1;display:flex;flex-direction:column;min-width:0;}
+.ws-vocab-header{display:flex;align-items:center;gap:12px;padding:0 16px;background:#fafafa;border-bottom:1.5px solid #ececec;flex-shrink:0;height:56px;position:relative;}
+.ws-vocab-header::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red);}
+.ws-hdr-hanzi{font-family:'Noto Serif SC',serif;font-size:1.6rem;line-height:1;color:#1a1a1a;letter-spacing:.04em;flex-shrink:0;}
+.ws-hdr-pinyin{font-family:'Quicksand',sans-serif;font-weight:700;font-size:.95rem;color:var(--red);flex-shrink:0;}
+.ws-hdr-meaning{font-family:'Quicksand',sans-serif;font-weight:600;font-size:.95rem;color:#888;flex:1;}
+.ws-hdr-badge{font-family:'Quicksand',sans-serif;font-weight:700;font-size:.52rem;color:#999;letter-spacing:.06em;border:1px solid #ddd;border-radius:50px;padding:1px 8px;flex-shrink:0;}
+.ws-vocab-cont{display:flex;align-items:center;gap:6px;padding:0 14px;background:#fafafa;border-bottom:1.5px solid #ececec;flex-shrink:0;height:22px;}
+.ws-cont-hanzi{font-family:'Noto Serif SC',serif;font-size:.82rem;color:#bbb;flex-shrink:0;}
+.ws-cont-label{font-family:'Quicksand',sans-serif;font-weight:600;font-size:.52rem;color:#ccc;letter-spacing:.06em;}
+.ws-char-body{display:flex;border-bottom:1px solid #f0f0f0;flex-shrink:0;align-items:stretch;}
+.ws-big-char-label{width:100px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6px 4px;gap:3px;border-right:1.5px solid #efefef;background:#fefefe;}
+.ws-big-hanzi{font-family:'Noto Serif SC',serif;font-size:3.6rem;line-height:1;color:#1a1a1a;letter-spacing:.02em;}
+.ws-big-pinyin{font-family:'Quicksand',sans-serif;font-weight:700;font-size:.72rem;color:var(--red);text-align:center;line-height:1.3;}
+.ws-strokes-panel{flex:1;display:flex;align-items:center;min-width:0;background:#fdfaf4;padding:6px 8px;gap:4px;}
+.ws-strokes-label{font-family:'Quicksand',sans-serif;font-size:.44rem;font-weight:700;color:#ccc;text-transform:uppercase;letter-spacing:.08em;writing-mode:vertical-rl;transform:rotate(180deg);flex-shrink:0;}
+.ws-strokes-wrap{display:flex;gap:3px;flex-wrap:nowrap;align-items:center;}
+.ws-stroke-step{display:flex;flex-direction:column;align-items:center;gap:1px;flex-shrink:0;}
+.ws-stroke-num{font-family:'Quicksand',sans-serif;font-size:.44rem;font-weight:700;color:#ccc;}
+.ws-no-data{font-family:'Quicksand',sans-serif;font-size:.58rem;color:#ccc;padding:4px;}
+
+/* Practice row */
+.ws-practice-row{display:flex;align-items:center;padding:6px 10px;border-bottom:1px solid #f0f0f0;background:#fff;flex-shrink:0;}
+.ws-practice-label{font-family:'Quicksand',sans-serif;font-size:.44rem;font-weight:700;color:#ccc;text-transform:uppercase;letter-spacing:.07em;writing-mode:vertical-rl;transform:rotate(180deg);flex-shrink:0;width:14px;min-width:14px;}
+.ws-cells-wrap{display:flex;gap:3px;flex-wrap:nowrap;align-items:center;justify-content:center;flex:1;}
+
+.ws-cell{width:58px;height:58px;flex-shrink:0;border:1px solid #d4d4d4;border-radius:5px;position:relative;overflow:hidden;background:white;}
+.ws-cell::before{content:'';position:absolute;width:100%;height:1px;top:50%;background:#eaeaea;}
+.ws-cell::after{content:'';position:absolute;width:1px;height:100%;left:50%;background:#eaeaea;}
+.ws-cell-d{position:absolute;inset:0;pointer-events:none;}
+.ws-cell-d::before,.ws-cell-d::after{content:'';position:absolute;background:#f0f0f0;width:141%;height:1px;top:50%;left:-20%;}
+.ws-cell-d::before{transform:rotate(45deg);}
+.ws-cell-d::after{transform:rotate(-45deg);}
+.ws-cell.faint svg{opacity:.28;}
+.ws-cell svg{position:absolute;top:0;left:0;width:100%;height:100%;}
+
+/* Notes box — read-only, loaded from JSON */
+.ws-notes-box{padding:7px 14px;display:flex;align-items:flex-start;gap:8px;background:#fffdf7;border-top:1px solid #f0f0f0;}
+.ws-notes-label{font-family:'Quicksand',sans-serif;font-size:.44rem;font-weight:700;color:#ddd;text-transform:uppercase;letter-spacing:.08em;writing-mode:vertical-rl;transform:rotate(180deg);flex-shrink:0;margin-top:2px;}
+.ws-notes-text{flex:1;font-family:'Quicksand',sans-serif;font-size:.72rem;font-weight:600;color:#555;line-height:1.6;word-break:break-word;padding:2px 0;}
+
+.ws-page-footer{text-align:right;font-family:'Quicksand',sans-serif;font-size:.5rem;color:#ddd;margin-top:5px;padding-top:3px;border-top:1px solid #f4f4f4;}
+
+@media print {
+  @page{size:A4 portrait;margin:10mm 8mm 6mm 14mm;}
+  html,body{height:auto!important;overflow:visible!important;background:white!important;font-size:100%!important;}
+  body::before{display:none!important;}
+  header,.sidebar,.main-toolbar{display:none!important;}
+  .app{display:block!important;height:auto!important;}
+  .main{display:block!important;overflow:visible!important;padding:0!important;}
+  #worksheet-wrap{padding:0!important;}
+  .ws-scaler{transform:none!important;width:100%!important;height:auto!important;margin:0!important;display:block!important;}
+  .ws-page{width:100%!important;padding:0!important;margin:0!important;box-shadow:none!important;border-radius:0!important;background:white!important;}
+  .ws-page-header{margin-bottom:6px!important;}
+  .ws-row-block{break-inside:avoid;page-break-inside:avoid;margin-bottom:5px!important;}
+  .ws-row-img,.ws-row-img-empty{width:180px!important;}
+  .ws-vocab-img{width:160px!important;height:160px!important;}
+  .ws-vocab-img-placeholder{width:160px!important;height:160px!important;}
+  .ws-page-footer{display:none!important;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🀄 漢字 Worksheet Builder</h1>
+  <div style="display:flex; gap:12px; align-items:center;">
+    <span id="print-count-badge" style="background:var(--yellow); border:var(--border); border-radius:50px; padding:6px 14px; font-weight:700; font-size:.82rem; box-shadow:var(--shadow-sm);">
+      🖨 Prints: <span id="print-count">0</span>/10
+    </span>
+    <button class="header-tag" id="upgrade-btn" style="display:none; cursor:pointer; background:var(--red); color:white; border:var(--border); border-radius:50px; padding:6px 14px; font-weight:700; font-size:.82rem; box-shadow:var(--shadow-sm); border:none;"
+      onclick="showSubscriptionModal()">
+      ⭐ Upgrade
+    </button>
+    <span class="header-tag" id="user-badge">👤 Guest</span>
+  </div>
+</header>
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="sb-section">
+      <h3>Add Character</h3>
+<div style="display:flex; flex-direction:column; gap:8px;">
+  <input type="text" id="inp-character" placeholder="Character" maxlength="10">
+  <input type="text" id="inp-pinyin" placeholder="Pinyin (e.g., nǐ hǎo)">
+  <input type="text" id="inp-meaning" placeholder="Meaning (English)">
+  <input type="text" id="inp-topic" placeholder="Topic (optional)">
+  <textarea id="inp-notes" placeholder="Notes (optional)" style="height:50px; font-family:'Quicksand',sans-serif; font-size:.76rem; resize:vertical;"></textarea>
+  <div style="display:flex; gap:6px;">
+  <input type="text" id="inp-image" placeholder="Image URL (optional)" style="flex:1;">
+  <button class="btn btn-sky" style="padding:7px 12px;" onclick="openMediaPicker()">🖼 Media</button>
+</div>
+  <button class="btn btn-red btn-full" onclick="addCharacter()">➕ Add to List</button>
+</div>
+<div id="json-error" style="display:none" class="error-msg"></div>
+    </div>
+    <div class="sb-section">
+      <h3>Worksheet Settings</h3>
+      <div class="setting-row"><label>Stroke steps / row</label>
+        <select id="set-steps">
+          <option value="all">All</option>
+          <option value="10" selected>10 steps</option>
+          <option value="8">8 steps</option>
+          <option value="5">5 steps</option>
+        </select>
+      </div>
+      <div class="setting-row"><label>Practice cells</label>
+        <input type="number" id="set-cells" value="7" min="3" max="12">
+      </div>
+      <div class="setting-row"><label>Faint guide cells</label>
+        <input type="number" id="set-faint" value="2" min="0" max="6">
+      </div>
+      <div class="setting-row"><label>Stroke SVG size</label>
+        <input type="number" id="set-stroke-size" value="38" min="24" max="52">
+      </div>
+      <div class="sb-label" style="margin-top:4px;">Page title</div>
+      <input id="set-title" value="HSK1 VOCABULARY - LESSON 1">
+      <button class="btn btn-yellow btn-full" onclick="renderAll()">⚙️ Update Settings</button>
+    </div>
+    <div class="sb-section" style="padding-bottom:7px;">
+      <h3>Characters &nbsp;<span id="char-count" style="color:var(--red);font-weight:700;">0</span></h3>
+    </div>
+    <div class="char-list" id="char-list">
+      <div class="empty-state"><span class="icon">汉</span><p>Paste JSON above then click Load</p></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="main-toolbar">
+      <span>A4 PREVIEW</span>
+      <button class="btn btn-sky btn-sm" onclick="renderAll()">↺ Re-render</button>
+      <button class="btn btn-yellow btn-sm" onclick="if(recordPrint()) window.print(); else event.preventDefault();">
+  🖨 Print / PDF
+</button>
+    </div>
+    <div id="worksheet-wrap">
+      <div class="ws-scaler" id="ws-scaler">
+        <div id="worksheet-container">
+          <div class="empty-state"><span class="icon">📄</span><p>Worksheet will appear here after loading characters</p></div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script type="module">
+  // ═══ 1. FIREBASE INIT ═══
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAm-qQrpXKNdqFLITRAGCug7rkskGzyAkg",
+    authDomain: "chinese60s.firebaseapp.com",
+    projectId: "chinese60s",
+    storageBucket: "chinese60s.firebasestorage.app",
+    messagingSenderId: "835657861121",
+    appId: "1:835657861121:web:f31727eb7ea3b876a5d800",
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  // ═══ 2. GLOBAL STATE ═══
+  window.API_BASE = 'https://chinese60s-production.up.railway.app';
+  window.API_TOKEN = '';
+  window.currentUser = null;
+  window.userSubscription = 'free';
+  window.printCount = 0;
+  window.maxPrints = 10;
+
+  // ═══ 3. AUTH LOGIC ═══
+  onAuthStateChanged(auth, async user => {
+  if (!user) {
+    window.currentUser = null;
+    document.getElementById('user-badge').textContent = '👤 Guest';
+    updatePrintCountDisplay();
+    return;
+  }
+
+  window.currentUser = user;
+  
+  try {
+    window.API_TOKEN = await user.getIdToken();
+    
+    // Fetch print count
+    const countRes = await fetch(`${window.API_BASE}/api/worksheet-print-count`, {
+      headers: { 'Authorization': `Bearer ${window.API_TOKEN}` }
+    });
+    const countData = await countRes.json();
+
+    window.userSubscription = countData.plan;
+    window.printCount = countData.printCount;
+    window.maxPrints = countData.maxPrints;
+
+    // Check expiration
+    if (countData.expired) {
+      showStatus('submitStatus', 'err',
+        '⏰ Subscription expired. Downgraded to Free.');
+    }
+
+  } catch (err) {
+    console.error('Failed to fetch print count:', err);
+    window.userSubscription = 'free';
+    window.maxPrints = 10;
+    window.printCount = 0;
+  }
+
+  const subBadge = window.userSubscription !== 'free' ? ' ⭐ Pro' : '';
+  document.getElementById('user-badge').textContent = `👤 ${user.displayName || 'User'}${subBadge}`;
+  updatePrintCountDisplay();
+});
+
+  // ═══ 4. PRINT FUNCTIONS ═══
+  window.updatePrintCountDisplay = function() {
+    const countEl = document.getElementById('print-count');
+    const badge = document.getElementById('print-count-badge');
+    const upgradeBtn = document.getElementById('upgrade-btn');
+    
+    if (countEl) countEl.textContent = window.printCount;
+    
+    if (window.userSubscription === 'free') {
+      if (window.printCount >= 10) {
+        badge.style.background = 'var(--red)';
+        badge.style.color = 'white';
+        if (upgradeBtn) upgradeBtn.style.display = 'inline-block';
+      } else if (window.printCount >= 8) {
+        badge.style.background = 'var(--pink)';
+        if (upgradeBtn) upgradeBtn.style.display = 'none';
+      } else {
+        badge.style.background = 'var(--yellow)';
+        if (upgradeBtn) upgradeBtn.style.display = 'none';
+      }
+    } else {
+      badge.style.background = 'var(--green-pale)';
+      if (upgradeBtn) upgradeBtn.style.display = 'none';
+    }
+  };
+
+  async function recordPrint() {
+  if (!window.currentUser) {
+    alert('Please log in to print worksheets.');
+    return false;
+  }
+
+  try {
+    const res = await fetch(`${window.API_BASE}/api/worksheet-print-count`, {
+      headers: { 'Authorization': `Bearer ${window.API_TOKEN}` }
+    });
+    const countData = await res.json();
+
+    // Auto-downgrade warning
+    if (countData.expired) {
+      showStatus('submitStatus', 'err', 
+        '⏰ Subscription expired. Downgraded to Free. ' +
+        '<button onclick="showSubscriptionModal()" style="color:#c0392b;text-decoration:underline;background:none;border:none;cursor:pointer;">Renew</button>');
+      window.userSubscription = 'free';
+      window.maxPrints = 10;
+      window.printCount = countData.printCount;
+      updatePrintCountDisplay();
+      return false;
+    }
+
+    // Check limit
+    if (countData.printCount >= countData.maxPrints) {
+      showStatus('submitStatus', 'err',
+        `❌ Print limit reached! (${countData.printCount}/${countData.maxPrints}). ` +
+        '<button onclick="showSubscriptionModal()" style="color:#c0392b;text-decoration:underline;background:none;border:none;cursor:pointer;">Upgrade</button>');
+      return false;
+    }
+
+    // Record print
+    const recordRes = await fetch(`${window.API_BASE}/api/worksheet-record-print`, {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${window.API_TOKEN}` }
+    });
+
+    if (!recordRes.ok) {
+      const err = await recordRes.json();
+      if (err.plan === 'free') {
+        // Limit reached
+        showStatus('submitStatus', 'err',
+          `❌ Print limit reached! (${err.printCount}/${err.maxPrints}). ` +
+          '<button onclick="showSubscriptionModal()" style="color:#c0392b;text-decoration:underline;background:none;border:none;cursor:pointer;">Upgrade</button>');
+      }
+      return false;
+    }
+
+    // Success - update UI
+    window.printCount++;
+    window.userSubscription = countData.plan;
+    window.maxPrints = countData.maxPrints;
+    updatePrintCountDisplay();
+
+    return true;
+
+  } catch (error) {
+    console.error('Print record error:', error);
+    alert('Error recording print. Please try again.');
+    return false;
+  }
+}
+
+// Update print count display
+function updatePrintCountDisplay() {
+  const countEl = document.getElementById('print-count');
+  const badge = document.getElementById('print-count-badge');
+  const upgradeBtn = document.getElementById('upgrade-btn');
+  
+  if (countEl) countEl.textContent = window.printCount;
+  if (badge) badge.innerHTML = `🖨 Prints: <span id="print-count">${window.printCount}</span>/${window.maxPrints}`;
+  
+  if (window.userSubscription === 'free') {
+    if (window.printCount >= 10) {
+      badge.style.background = 'var(--red)';
+      badge.style.color = 'white';
+      if (upgradeBtn) upgradeBtn.style.display = 'inline-block';
+    } else if (window.printCount >= 8) {
+      badge.style.background = 'var(--pink)';
+      if (upgradeBtn) upgradeBtn.style.display = 'none';
+    } else {
+      badge.style.background = 'var(--yellow)';
+      if (upgradeBtn) upgradeBtn.style.display = 'none';
+    }
+  } else {
+    badge.style.background = 'var(--green-pale)';
+    if (upgradeBtn) upgradeBtn.style.display = 'none';
+  }
+}
+
+  // ═══ 5. SUBSCRIPTION MODAL FUNCTIONS ═══
+  window.showSubscriptionModal = function() {
+    document.getElementById('subscriptionModal').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.closeWSSubscriptionModal = function() {
+    document.getElementById('subscriptionModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+  };
+
+  window.validateWSKey = async function() {
+    const key = document.getElementById('wsKeyInput').value.trim().toUpperCase();
+    const statusEl = document.getElementById('wsKeyStatus');
+    
+    if (!key) {
+      statusEl.style.background = 'var(--red-pale)';
+      statusEl.style.color = 'var(--red)';
+      statusEl.textContent = '❌ Enter a key';
+      statusEl.style.display = 'block';
+      return;
+    }
+
+    statusEl.innerHTML = '<span class="spinner"></span> Validating...';
+    statusEl.style.display = 'block';
+
+    try {
+      if (!window.currentUser) throw new Error('Please log in first');
+      if (!window.API_TOKEN) throw new Error('Auth token missing');
+
+      const response = await fetch(`${window.API_BASE}/api/validate-worksheet-key`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${window.API_TOKEN}`
+        },
+        body: JSON.stringify({ license_key: key })
+      });
+
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || 'Invalid key');
+
+      statusEl.style.background = 'var(--green-pale)';
+      statusEl.style.color = 'var(--green-dark)';
+      statusEl.textContent = '✅ ' + data.message;
+      statusEl.style.display = 'block';
+
+      setTimeout(() => {
+        window.userSubscription = 'plan_pro';
+        window.maxPrints = 999;
+        document.getElementById('wsKeyInput').value = '';
+        window.closeWSSubscriptionModal();
+        window.updatePrintCountDisplay();
+        location.reload();
+      }, 1500);
+
+    } catch (e) {
+      statusEl.style.background = 'var(--red-pale)';
+      statusEl.style.color = 'var(--red)';
+      statusEl.textContent = '❌ ' + e.message;
+      statusEl.style.display = 'block';
+    }
+  };
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') window.closeWSSubscriptionModal();
+  });
+
+  document.getElementById('subscriptionModal').addEventListener('click', (e) => {
+    if (e.target.id === 'subscriptionModal') window.closeWSSubscriptionModal();
+  });
+
+</script>
+<!-- ═══ WORKSHEET LOGIC (riêng) ═══ -->
+<script>
+let characters  = [];
+let strokeCache = {};
+let isRendering = false; // FIX: Prevent race conditions
+
+async function fetchCharData(ch) {
+  if (strokeCache[ch]) return strokeCache[ch];
+  const r = await fetch(`https://cdn.jsdelivr.net/npm/hanzi-writer-data@latest/${encodeURIComponent(ch)}.json`);
+  if (!r.ok) throw new Error(`No data: ${ch}`);
+  const d = await r.json();
+  strokeCache[ch] = d;
+  return d;
+}
+
+function buildStrokeSVG(sd, upTo, size, highlightLast=true) {
+  if (!sd) return `<svg width="${size}" height="${size}"><rect width="${size}" height="${size}" fill="transparent"/></svg>`;
+  const n = Math.min(upTo, (sd.strokes||[]).length);
+  const s = size / 1024;
+  let paths = '';
+  for (let i = 0; i < n; i++) {
+    const last = (i===n-1) && highlightLast;
+    const fill = last ? '#d94f3a' : (i < n-2 ? '#aaa' : '#777');
+    paths += `<path d="${sd.strokes[i]}" fill="${fill}"/>`;
+  }
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
+    <rect width="${size}" height="${size}" fill="transparent"/>
+    <line x1="${size/2}" y1="0" x2="${size/2}" y2="${size}" stroke="#ddd" stroke-width=".8"/>
+    <line x1="0" y1="${size/2}" x2="${size}" y2="${size/2}" stroke="#ddd" stroke-width=".8"/>
+    <g transform="scale(${s},${-s}) translate(0,-900)">${paths}</g>
+  </svg>`;
+}
+
+function buildFullSVG(sd, size) {
+  if (!sd) return `<svg width="${size}" height="${size}"></svg>`;
+  return buildStrokeSVG(sd, (sd.strokes||[]).length, size, false);
+}
+
+function getStepIndices(total, max) {
+  if (!total) return [];
+  if (max === 'all') return Array.from({length:total},(_,i)=>i+1);
+  const m = parseInt(max);
+  if (total <= m) return Array.from({length:total},(_,i)=>i+1);
+  return Array.from({length:m},(_,s)=>Math.round((s+1)*total/m));
+}
+
+function escapeHTML(str) {
+  return String(str||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function renderNotes(str) {
+  return escapeHTML(str)
+    .replace(/\\n/g, '<br>')
+    .replace(/&lt;br\s*\/?&gt;/gi, '<br>');
+}
+
+let hiddenRows = new Set();
+
+// ============================================
+// FIX: Sử dụng event delegation thay vì attach nhiều listeners
+// ============================================
+function renderCharList() {
+  const list = document.getElementById('char-list');
+  list.innerHTML = '';
+
+  if (characters.length === 0) {
+    list.innerHTML = '<div class="empty-state"><span class="icon">汉</span><p>Paste JSON above then click Load</p></div>';
+    return;
+  }
+
+  characters.forEach((c, ei) => {
+    const raw  = [...c.character];
+    const uniq = raw.filter((ch, idx) => raw.indexOf(ch) === idx);
+    const div = document.createElement('div');
+    div.className = 'char-item';
+    div.id = `ci-${ei}`;
+    div.dataset.index = ei; // FIX: Lưu index vào data attribute
+
+    const pillsHTML = uniq.map((ch, ci) => {
+      const key = `${ei}_${ci}`;
+      const hidden = hiddenRows.has(key);
+      return `<span class="char-pill${hidden?' hidden':''}" data-key="${key}" title="${hidden?'Show':'Hide'}">${ch}</span>`;
+    }).join('');
+
+    div.innerHTML = `
+      <div class="char-meta" style="flex:1;min-width:0;">
+        <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+          <span style="font-family:'Noto Serif SC',serif;font-size:1.1rem;color:#1a1a1a;">${c.character}</span>
+          <span class="char-pinyin">${c.pinyin||''}</span>
+        </div>
+        <div class="char-meaning">${c.meaning||''}</div>
+        ${c.notes ? `<div style="font-family:'Quicksand',sans-serif;font-size:.64rem;color:#b8860b;margin-top:3px;font-weight:600;">📝 ${c.notes}</div>` : ''}
+        <div class="char-pills">${pillsHTML}</div>
+      </div>
+      <div class="status-dot" id="sd-${ei}"></div>
+      <button class="char-delete" title="Delete" data-delete="${ei}">✕</button>`;
+
+    list.appendChild(div);
+  });
+
+  // FIX: Event delegation - attach listener vào parent thay vì từng button
+  list.onclick = function(e) {
+    // Handle delete button click
+    const deleteBtn = e.target.closest('.char-delete');
+    if (deleteBtn) {
+      const ei = parseInt(deleteBtn.dataset.delete);
+      deleteCharacter(ei);
+      return;
+    }
+
+    // Handle pill click (show/hide)
+    const pill = e.target.closest('.char-pill');
+    if (pill) {
+      const key = pill.dataset.key;
+      if (hiddenRows.has(key)) hiddenRows.delete(key); else hiddenRows.add(key);
+      renderCharList();
+      if (characters.length) renderAll();
+    }
+  };
+}
+
+// FIX: Tách deleteCharacter thành function riêng
+function deleteCharacter(ei) {
+  // Remove from hiddenRows
+  [...hiddenRows].forEach(k => { if (k.startsWith(`${ei}_`)) hiddenRows.delete(k); });
+  // Remove from array
+  characters.splice(ei, 1);
+  // Update count
+  document.getElementById('char-count').textContent = characters.length;
+  // Re-render
+  renderCharList();
+  if (characters.length) {
+    renderAll();
+  } else {
+    document.getElementById('worksheet-container').innerHTML = `
+      <div class="empty-state"><span class="icon">📄</span><p>Worksheet will appear here after loading characters</p></div>`;
+  }
+}
+
+async function fetchAllAndRender() {
+  if (isRendering) return; // FIX: Prevent concurrent renders
+  isRendering = true;
+
+  document.getElementById('worksheet-container').innerHTML=`<div class="loading-msg"><span class="spinner"></span>Loading stroke data…</div>`;
+
+  const allChars = new Set();
+  characters.forEach(c=>[...c.character].forEach(ch=>allChars.add(ch)));
+
+  await Promise.allSettled([...allChars].map(ch=>fetchCharData(ch).catch(()=>{})));
+
+  // Update status dots
+  characters.forEach((c,i)=>{
+    const d=document.getElementById(`sd-${i}`);
+    if(d) d.className='status-dot '+([...c.character].some(ch=>strokeCache[ch])?'ok':'err');
+  });
+
+  renderAll();
+  isRendering = false;
+}
+
+function renderAll() {
+  if (!characters.length) return;
+
+  const title = document.getElementById('set-title').value || 'Chinese Writing Practice';
+  const cells = parseInt(document.getElementById('set-cells').value) || 7;
+  const faint = parseInt(document.getElementById('set-faint').value) || 2;
+  const sz    = parseInt(document.getElementById('set-stroke-size').value) || 38;
+  const mode  = document.getElementById('set-steps').value;
+
+  const rows = [];
+  characters.forEach((c, ei) => {
+    const raw  = [...c.character];
+    const uniq = raw.filter((ch, i) => raw.indexOf(ch) === i);
+    const syl  = (c.pinyin||'').trim().split(/\s+/);
+    const allHidden = uniq.every((_, ci) => hiddenRows.has(`${ei}_${ci}`));
+    let firstVisible = true;
+    uniq.forEach((ch, ci) => {
+      rows.push({
+        c, ch,
+        pinyin: syl[raw.indexOf(ch)] || '',
+        isFirst: firstVisible,
+        isFirstChar: ci === 0,
+        hidden: hiddenRows.has(`${ei}_${ci}`),
+        allHidden,
+        showNotes: firstVisible && !!(c.notes && c.notes.trim())
+      });
+      if (!hiddenRows.has(`${ei}_${ci}`)) firstVisible = false;
+    });
+  });
+
+  let blocksHTML = '';
+
+  rows.forEach(({ c, ch, pinyin, isFirst, isFirstChar, hidden, allHidden, showNotes }) => {
+    if (hidden && !(isFirstChar && allHidden)) return;
+
+    const sd  = strokeCache[ch];
+    const tot = sd ? (sd.strokes||[]).length : 0;
+    const allIdx = getStepIndices(tot, mode);
+
+    const showFullHeader = isFirst || (isFirstChar && allHidden);
+
+    const headerHTML = showFullHeader ? `
+      <div class="ws-vocab-header">
+        <span class="ws-hdr-hanzi">${c.character}</span>
+        <span class="ws-hdr-pinyin">${c.pinyin||''}</span>
+        <span class="ws-hdr-meaning">${c.meaning||''}</span>
+        ${c.topic?`<span class="ws-hdr-badge">${c.topic}</span>`:''}
+      </div>` : `
+      <div class="ws-vocab-cont">
+        <span class="ws-cont-hanzi">${c.character}</span>
+        <span class="ws-cont-label">cont.</span>
+      </div>`;
+
+    let imgColHTML;
+    if (showFullHeader && c.imageSrc) {
+      imgColHTML = `<div class="ws-row-img"><img class="ws-vocab-img" src="${c.imageSrc}" alt="${c.meaning||''}" loading="lazy" onerror="this.style.display='none'"></div>`;
+    } else if (showFullHeader) {
+      imgColHTML = `<div class="ws-row-img"><div class="ws-vocab-img-placeholder">🖼</div></div>`;
+    } else {
+      imgColHTML = `<div class="ws-row-img-empty"></div>`;
+    }
+
+    let cellsHTMLPlain = '';
+    for (let i = 0; i < cells; i++) {
+      cellsHTMLPlain += `<div class="ws-cell"><div class="ws-cell-d"></div></div>`;
+    }
+
+    if (hidden && isFirstChar && allHidden) {
+      blocksHTML += `
+        <div class="ws-row-block">
+          ${imgColHTML}
+          <div class="ws-row-right">
+            ${headerHTML}
+            <div class="ws-practice-row">
+              <span class="ws-practice-label">Practice</span>
+              <div class="ws-cells-wrap">${cellsHTMLPlain}</div>
+            </div>
+            <div class="ws-practice-row">
+              <span class="ws-practice-label"></span>
+              <div class="ws-cells-wrap">${cellsHTMLPlain}</div>
+            </div>
+          </div>
+        </div>`;
+      return;
+    }
+
+    let cellsHTML = '';
+    for (let i = 0; i < cells; i++) {
+      const f = i < faint && sd;
+      cellsHTML += `<div class="ws-cell${f?' faint':''}"><div class="ws-cell-d"></div>${f?buildFullSVG(sd,58):''}</div>`;
+    }
+
+    const strokeSteps = sd && allIdx.length
+      ? allIdx.map(n=>`<div class="ws-stroke-step"><span class="ws-stroke-num">${n}</span>${buildStrokeSVG(sd,n,sz)}</div>`).join('')
+      : `<span class="ws-no-data">No stroke data</span>`;
+
+    const notesBoxHTML = showNotes ? `
+      <div class="ws-notes-box">
+        <span class="ws-notes-label">Notes</span>
+        <div class="ws-notes-text">${renderNotes(c.notes)}</div>
+      </div>` : '';
+
+    blocksHTML += `
+      <div class="ws-row-block${isFirst?'':' ws-row-block-cont'}">
+        ${imgColHTML}
+        <div class="ws-row-right">
+          ${headerHTML}
+          <div class="ws-char-body">
+            <div class="ws-big-char-label">
+              <div class="ws-big-hanzi">${ch}</div>
+              <div class="ws-big-pinyin">${pinyin}</div>
+            </div>
+            <div class="ws-strokes-panel">
+              <span class="ws-strokes-label">Strokes</span>
+              <div class="ws-strokes-wrap">${strokeSteps}</div>
+            </div>
+          </div>
+          <div class="ws-practice-row">
+            <span class="ws-practice-label">Practice</span>
+            <div class="ws-cells-wrap">${cellsHTML}</div>
+          </div>
+          <div class="ws-practice-row">
+            <span class="ws-practice-label"></span>
+            <div class="ws-cells-wrap">${cellsHTMLPlain}</div>
+          </div>
+          ${notesBoxHTML}
+        </div>
+      </div>`;
+  });
+
+  document.getElementById('worksheet-container').innerHTML = `
+    <div class="ws-page">
+      <div class="ws-page-header">
+        <div class="ws-page-title">
+          <h2>${title}</h2>
+          <p>Visit chinese60s.com for more interactive lessons</p>
+        </div>
+        <div class="ws-page-badge">WRITING<br>PRACTICE</div>
+      </div>
+      ${blocksHTML}
+      <div class="ws-page-footer">Chinese60s · chinese60s.com</div>
+    </div>`;
+
+  applyScale();
+}
+
+function applyScale() {
+  const wrap  = document.getElementById('worksheet-wrap');
+  const sc    = document.getElementById('ws-scaler');
+  const avail = wrap.clientWidth - 40;
+  const scale = Math.min(1, avail / 794);
+  sc.style.transform = `scale(${scale})`;
+  sc.style.width     = '794px';
+  const inner = document.getElementById('worksheet-container');
+  const innerH = inner ? inner.offsetHeight : 1123;
+  sc.style.height = (innerH * scale + 20) + 'px';
+  sc.style.display = 'block';
+}
+
+window.addEventListener('resize', ()=>{ if(characters.length) applyScale(); });
+
+// ============================================
+// FIX: Sửa addCharacter - KHÔNG gọi renderCharList 2 lần
+// ============================================
+function addCharacter() {
+  const character = document.getElementById('inp-character').value.trim();
+  const pinyin = document.getElementById('inp-pinyin').value.trim();
+  const meaning = document.getElementById('inp-meaning').value.trim();
+  const topic = document.getElementById('inp-topic').value.trim();
+  const notes = document.getElementById('inp-notes').value.trim();
+  const imageSrc = document.getElementById('inp-image').value.trim();
+  const err = document.getElementById('json-error');
+
+  err.style.display = 'none';
+
+  if (!character) {
+    err.textContent = 'Character is required';
+    err.style.display = 'block';
+    return;
+  }
+  if (!pinyin) {
+    err.textContent = 'Pinyin is required';
+    err.style.display = 'block';
+    return;
+  }
+
+  // Add to characters array
+  characters.push({
+    character,
+    pinyin,
+    meaning: meaning || '(no meaning)',
+    topic: topic || '',
+    notes: notes || '',
+    imageSrc: imageSrc || ''
+  });
+
+  // Clear inputs
+  document.getElementById('inp-character').value = '';
+  document.getElementById('inp-pinyin').value = '';
+  document.getElementById('inp-meaning').value = '';
+  document.getElementById('inp-topic').value = '';
+  document.getElementById('inp-notes').value = '';
+  document.getElementById('inp-image').value = '';
+
+  // Update count & render list ONCE
+  document.getElementById('char-count').textContent = characters.length;
+  renderCharList();
+
+  // Fetch stroke data and render worksheet
+  // NOTE: fetchAllAndRender calls renderAll() but NOT renderCharList()
+  // This prevents the race condition
+  fetchAllAndRender();
+}
+</script>
+
+<!-- Media Picker Modal -->
+<div id="mediaModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:200; overflow:auto;">
+  <div style="background:var(--white); margin:20px auto; max-width:900px; border-radius:12px; border:var(--border-thick); box-shadow:var(--shadow-lg);">
+    <div style="padding:16px; border-bottom:var(--border); display:flex; justify-content:space-between; align-items:center;">
+      <h3 style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:1.1rem;">Select Image</h3>
+      <button onclick="closeMediaPicker()" style="background:none; border:none; font-size:1.5rem; cursor:pointer; color:var(--muted);">✕</button>
+    </div>
+    <div style="padding:16px;">
+      <div style="display:flex; gap:8px; margin-bottom:16px;">
+        <input type="text" id="mediaSearch" placeholder="Search character or meaning…"
+          style="flex:1; padding:9px 12px; border:var(--border); border-radius:8px; font-family:'Fredoka',sans-serif; font-size:0.9rem;">
+        <button onclick="searchMedia()" class="btn btn-red btn-sm">🔍 Search</button>
+      </div>
+      <div id="mediaGrid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; max-height:500px; overflow-y:auto;">
+        <div style="grid-column:1/-1; text-align:center; color:var(--muted); padding:40px;">Loading images...</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+let mediaData = [];
+
+function loadMediaData() {
+  fetch('https://raw.githubusercontent.com/minhnguyen412/chinese60s/refs/heads/main/data/imagesData.json')
+    .then(res => res.json())
+    .then(data => {
+      mediaData = data;
+      renderMediaGrid(mediaData);
+    })
+    .catch(err => {
+      console.error('Error loading media:', err);
+      document.getElementById('mediaGrid').innerHTML = '<div style="grid-column:1/-1; color:var(--muted); text-align:center; padding:20px;">Failed to load images</div>';
+    });
+}
+
+function openMediaPicker() {
+  document.getElementById('mediaModal').style.display = 'block';
+  if (mediaData.length === 0) {
+    loadMediaData();
+  }
+}
+
+function closeMediaPicker() {
+  document.getElementById('mediaModal').style.display = 'none';
+}
+
+function renderMediaGrid(images) {
+  const grid = document.getElementById('mediaGrid');
+
+  if (images.length === 0) {
+    grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; color:var(--muted); padding:20px;">No images found</div>';
+    return;
+  }
+
+  grid.innerHTML = images.map(item => `
+    <div style="border:var(--border); border-radius:8px; overflow:hidden; cursor:pointer; transition:transform 0.12s, box-shadow 0.12s;"
+      onmouseover="this.style.boxShadow='var(--shadow-md)'; this.style.transform='translate(-2px,-2px)';"
+      onmouseout="this.style.boxShadow='none'; this.style.transform='none';">
+      <img src="${item.imageSrc}" alt="${item.character}" style="width:100%; height:160px; object-fit:cover; display:block;">
+      <div style="padding:8px; text-align:center;">
+        <div style="font-weight:700; font-size:0.95rem; margin-bottom:2px;">${item.character}</div>
+        <div style="font-size:0.75rem; color:var(--muted); margin-bottom:6px;">${item.meaning}</div>
+        <button class="btn btn-sky btn-sm"
+          onclick="selectImage('${item.imageSrc.replace(/'/g, "\\'")}'); event.stopPropagation();">
+          ✓ Copy Link
+        </button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function selectImage(imageSrc) {
+  document.getElementById('inp-image').value = imageSrc;
+  closeMediaPicker();
+}
+
+function searchMedia() {
+  const query = document.getElementById('mediaSearch').value.trim().toLowerCase();
+
+  if (!query) {
+    renderMediaGrid(mediaData);
+    return;
+  }
+
+  const results = mediaData.filter(item =>
+    item.character.includes(query) ||
+    item.meaning.toLowerCase().includes(query) ||
+    item.pinyin.toLowerCase().includes(query)
+  );
+
+  renderMediaGrid(results);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const mediaSearch = document.getElementById('mediaSearch');
+  if (mediaSearch) {
+    mediaSearch.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') searchMedia();
+    });
+  }
+});
+
+document.addEventListener('click', function(e) {
+  const modal = document.getElementById('mediaModal');
+  if (e.target === modal) {
+    closeMediaPicker();
+  }
+});
+function showSubscriptionModal() {
+  document.getElementById('subscriptionModal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeWSSubscriptionModal() {
+  document.getElementById('subscriptionModal').style.display = 'none';
+  document.body.style.overflow = 'auto';
+}
+
+async function validateWSKey() {
+  const key = document.getElementById('wsKeyInput').value.trim().toUpperCase();
+  const statusEl = document.getElementById('wsKeyStatus');
+  
+  if (!key) {
+    statusEl.className = 'status err';
+    statusEl.textContent = '❌ Enter a key';
+    statusEl.style.display = 'block';
+    return;
+  }
+
+  if (!key.match(/^(STARTER|PRO|MASTER)-[A-Z0-9]{20,}$/i)) {
+    statusEl.className = 'status err';
+    statusEl.textContent = '❌ Invalid key format. Should be: STARTER-xxxxx...';
+    statusEl.style.display = 'block';
+    return;
+  }
+
+  statusEl.innerHTML = '<span class="spinner"></span> Validating...';
+  statusEl.style.display = 'block';
+
+  try {
+    if (!window.currentUser) throw new Error('Please log in first');
+    if (!window.API_TOKEN) throw new Error('Auth token missing');
+
+    const response = await fetch(`${window.API_BASE}/api/validate-worksheet-key`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${window.API_TOKEN}`
+      },
+      body: JSON.stringify({
+        license_key: key
+      })
+    });
+
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error || 'Invalid key');
+
+    statusEl.className = 'status success';
+    statusEl.textContent = '✅ ' + data.message;
+    statusEl.style.display = 'block';
+
+    setTimeout(() => {
+      window.userSubscription = 'plan_pro';
+      window.maxPrints = 999;
+      document.getElementById('wsKeyInput').value = '';
+      closeWSSubscriptionModal();
+      updatePrintCountDisplay();
+      location.reload(); // Reload to sync
+    }, 1500);
+
+  } catch (e) {
+    statusEl.className = 'status err';
+    statusEl.textContent = '❌ ' + e.message;
+    statusEl.style.display = 'block';
+  }
+}
+// Close modal on Escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeWSSubscriptionModal();
+});
+
+// Close on overlay click
+document.getElementById('subscriptionModal').addEventListener('click', (e) => {
+  if (e.target.id === 'subscriptionModal') closeWSSubscriptionModal();
+});
+</script>
+  <div id="subscriptionModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:10000; align-items:center; justify-content:center;">
+  <div style="background:white; border:3px solid #222; border-radius:24px; padding:40px; max-width:500px; box-shadow:6px 6px 0 #222; animation:slideUp .3s ease;">
+    <h2 style="font-size:1.6rem; font-weight:700; margin-bottom:16px;">⭐ Upgrade to Pro</h2>
+    <p style="color:#666; margin-bottom:24px;">Get unlimited prints + more features</p>
+    
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:24px;">
+      <div style="border:3px solid #ddd; border-radius:14px; padding:16px; text-align:center;">
+        <div style="font-weight:700; font-size:.95rem; margin-bottom:4px;">Free</div>
+        <div style="color:#666; font-size:.85rem; margin-bottom:12px;">10 prints/month</div>
+        <button style="opacity:.5; cursor:not-allowed; padding:8px 16px; border:3px solid #ddd; border-radius:50px; background:#f5f5f5;" disabled>Current</button>
+      </div>
+      
+      <div style="border:3px solid #7cb83e; border-radius:14px; padding:16px; text-align:center; background:#f2fde0;">
+        <div style="font-weight:700; font-size:.95rem; color:#2e7d32; margin-bottom:4px;">Pro</div>
+        <div style="color:#2e7d32; font-size:.85rem; margin-bottom:12px; font-weight:700;">Unlimited prints</div>
+        <a href="https://gumroad.com/YOUR_GUMROAD_ID/p/chinese60s-pro" target="_blank" style="display:inline-block; padding:8px 16px; border:3px solid #222; border-radius:50px; background:#7cb83e; color:white; text-decoration:none; font-weight:700; cursor:pointer;">Buy on Gumroad</a>
+      </div>
+    </div>
+
+    <div style="margin-bottom:24px; padding:16px; background:#fffbe6; border:2px solid #ffd84d; border-radius:12px;">
+      <div style="font-weight:700; font-size:.9rem; margin-bottom:8px;">Have a license key?</div>
+      <input type="text" id="wsKeyInput" placeholder="STARTER-abc123..." style="width:100%; padding:8px 12px; border:2px solid #ddd; border-radius:8px; font-family:monospace; margin-bottom:8px;">
+      <button onclick="validateWSKey()" style="width:100%; padding:8px 12px; border:3px solid #222; border-radius:50px; background:#72c8f0; font-weight:700; cursor:pointer;">✅ Activate</button>
+    </div>
+
+    <div id="wsKeyStatus" style="display:none; padding:12px; border-radius:8px; margin-bottom:16px; font-weight:700;"></div>
+
+    <button onclick="document.getElementById('subscriptionModal').style.display='none'" style="width:100%; padding:12px; border:3px solid #222; border-radius:50px; background:white; font-weight:700; cursor:pointer;">Close</button>
+  </div>
+</div>
+</body>
+</html>
