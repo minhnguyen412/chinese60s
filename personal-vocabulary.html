@@ -724,7 +724,6 @@ const data = allImages.reverse(); // hoặc .sort() nếu có timestamp
         }, 0);
 
         // Col 2: Info
-        // Col 2: Info
 const infoCol = document.createElement('div');
 infoCol.classList.add('card-info-col');
 
@@ -732,10 +731,10 @@ const pinyinEl = document.createElement('p');
 pinyinEl.classList.add('card-pinyin');
 pinyinEl.textContent = item.pinyin;
 
-const charEl = document.createElement('div'); // ✅ Thay p -> div
+const charEl = document.createElement('div');
 charEl.classList.add('card-character');
 
-// ✅ Click từng chữ riêng
+// ✅ Click từng chữ → animate trong Col 1
 const characters = item.character.split('');
 characters.forEach((char, charIdx) => {
   const span = document.createElement('span');
@@ -744,44 +743,28 @@ characters.forEach((char, charIdx) => {
   span.style.margin = '0 2px';
   
   span.addEventListener('click', () => {
-    // ✅ Tạo HanziWriter mới cho chữ này
-    const writerContainer = document.createElement('div');
-    writerContainer.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:20px;border:3px solid #222;border-radius:16px;z-index:9999;width:200px;height:200px;';
+    // ✅ Clear Col 1 rồi render Hanzi Writer mới
+    const hanziContainer = hanziCol.querySelector('.hanzi-writer-container');
+    hanziContainer.innerHTML = '';
     
-    const closeBtn = document.createElement('button');
-    closeBtn.textContent = '×';
-    closeBtn.style.cssText = 'position:absolute;top:10px;right:10px;background:none;border:none;font-size:24px;cursor:pointer;';
-    closeBtn.addEventListener('click', () => {
-      document.body.removeChild(writerContainer);
-      document.body.removeChild(overlay);
-    });
-    
-    const overlay = document.createElement('div');
-    overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:9998;';
-    overlay.addEventListener('click', () => {
-      document.body.removeChild(writerContainer);
-      document.body.removeChild(overlay);
-    });
-    
-    writerContainer.appendChild(closeBtn);
-    
-    const writerId = `hanzi-popup-${Date.now()}`;
+    const writerId = `hanzi-click-${Date.now()}-${charIdx}`;
     const writerDiv = document.createElement('div');
     writerDiv.id = writerId;
-    writerDiv.style.cssText = 'width:100%;height:100%;';
-    writerContainer.appendChild(writerDiv);
-    
-    document.body.appendChild(overlay);
-    document.body.appendChild(writerContainer);
+    writerDiv.style.cssText = 'width:100%;height:100%;display:flex;align-items:center;justify-content:center;';
+    hanziContainer.appendChild(writerDiv);
     
     // ✅ Animate chữ được click
     setTimeout(() => {
-      HanziWriter.create(writerId, char, {
-        width: 180,
-        height: 180,
-        padding: 5,
-        showOutline: true,
-      }).animateCharacter();
+      try {
+        HanziWriter.create(writerId, char, {
+          width: 150,
+          height: 150,
+          padding: 4,
+          showOutline: true,
+        }).animateCharacter();
+      } catch(e) {
+        console.error('HanziWriter error:', e);
+      }
     }, 0);
   });
   
