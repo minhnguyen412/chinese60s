@@ -376,6 +376,212 @@ app.post('/api/delete-word', verifyFirebaseToken, async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+// ═══ WORKSHEET PRINT TRACKING ═══
+
+// Get print count for current month
+app.get('/api/worksheet-print-count', verifyFirebaseToken, async (req, res) => {
+  try {
+    const uid = req.user.uid;
+    
+    // Get subscription info
+    const { data: subData } = await supabase
+      .from('user_subscriptions')
+      .select('plan, expires_at')
+      .eq('user_id', uid)
+      .single();
+
+    const plan = subData?.plan || 'free';
+    const expiresAt = subData?.expires_at;
+
+    // Check if expired
+    if (plan !== 'free' && expiresAt) {
+      const now = new Date();
+      const expireDate = new Date(expiresAt);
+      
+      if (now > expireDate) {
+        // Auto downgrade
+        await supabase
+          .from('user_subscriptions')
+          .update({ plan: 'free' })
+          .eq('user_id', uid);
+        
+        return res.json({
+          success: true,
+          plan: 'free',
+          printCount: 0,
+          maxPrints: 10,
+          expired: true,
+          message: 'Subscription expired - downgraded to Free'
+        });
+      }
+    }
+
+    // Count prints in this month (for free users)
+    const now = new Date();
+    const monthStart = new Date(now.getFullYear(), now.getMonth(), 1).toISOString();
+
+    const { count, error } = await supabase
+      .from('worksheet_prints')
+      .select('*', { count: 'exact', head: true })
+      .eq('user_id', uid)
+      .gte('printed_at', monthStart);
+
+    if (error && error.code !== 'PGRST116') throw error;
+
+    const printCount = count || 0;
+    const maxPrints = plan === 'free' ? 10 : 999;
+
+    res.json({
+      success: true,
+      plan,
+      printCount,
+      maxPrints,
+      expiresAt: expiresAt || null,
+      expired: false
+    });
+
+  } catch (error) {
+    console.error('[worksheet-print-count] Error:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Record a print action
+app.post('/api/worksheet-record-print', verifyFirebaseToken, async (req, res) => {
+  try {
+    const uid = req.user.uid;
+
+    // Get subscription & print count
+    const { data: subData } = await supabase
+      .from('user_subscriptions')
+      .select('plan, expires_at')
+      .eq('user_id', uid)
+      .single();
+
+    const plan = subData?.plan || 'free';
+
+    // Check expiration
+    if (plan !== 'free' && subData?.expires_at) {
+      const now = new Date();
+      const expireDate = new Date(subData.expires_at);
+      
+      if (now > expireDate) {
+        // Auto downgrade
+        await supabase
+          .from('user_subscriptions')
+          .update({ plan: 'free' })
+          .eq('user_id', uid);
+        
+        return res.status(403).json({
+          error: 'Subscription expired',
+          plan: 'free',
+          maxPrints: 10
+        });
+      }
+    }
+
+    // Check limit (free users only)
+    if (plan === 'free') {
+      const now = new Date();
+      const monthStart = new Date(now.getFullYear(), now.getMonth(), 1).toISOString();
+
+      const { count, error: countErr } = await supabase
+        .from('worksheet_prints')
+        .select('*', { count: 'exact', head: true })
+        .eq('user_id', uid)
+        .gte('printed_at', monthStart);
+
+      if (countErr && countErr.code !== 'PGRST116') throw countErr;
+
+      if ((count || 0) >= 10) {
+        return res.status(403).json({
+          error: 'Print limit reached',
+          plan: 'free',
+          printCount: count,
+          maxPrints: 10
+        });
+      }
+    }
+
+    // Record print
+    const { data, error } = await supabase
+      .from('worksheet_prints')
+      .insert([
+        {
+          user_id: uid,
+          printed_at: new Date().toISOString()
+        }
+      ])
+      .select();
+
+    if (error) throw error;
+
+    res.json({
+      success: true,
+      message: 'Print recorded',
+      data: data[0]
+    });
+
+  } catch (error) {
+    console.error('[worksheet-record-print] Error:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Validate Gumroad key cho worksheet
+app.post('/api/validate-worksheet-key', verifyFirebaseToken, async (req, res) => {
+  try {
+    const uid = req.user.uid;
+    const { license_key } = req.body;
+
+    if (!license_key) {
+      return res.status(400).json({ error: 'Missing license key' });
+    }
+
+    // ✅ INTEGRATION POINT: Call Gumroad API để verify
+    // Hoặc kiểm tra trong database có key này hay không
+    
+    // Option 1: Simple check (key pattern)
+    if (!license_key.match(/^(STARTER|PRO|MASTER)-[A-Z0-9]{20,}$/i)) {
+      return res.status(400).json({ error: 'Invalid key format' });
+    }
+
+    // Option 2: Call Gumroad API (nếu cần verify thật)
+    // const gumroadRes = await fetch('https://api.gumroad.com/v2/licenses/verify', {...})
+
+    // For now, assume valid key → activate Pro plan
+    const expiresAt = new Date();
+    expiresAt.setDate(expiresAt.getDate() + 40); // 40 days
+
+    const { data, error } = await supabase
+      .from('user_subscriptions')
+      .upsert([
+        {
+          user_id: uid,
+          plan: 'plan_pro', // For worksheet, just call it "pro"
+          activated_at: new Date().toISOString(),
+          expires_at: expiresAt.toISOString(),
+          license_key: license_key,
+          updated_at: new Date().toISOString()
+        }
+      ], { onConflict: 'user_id' })
+      .select();
+
+    if (error) throw error;
+
+    res.json({
+      success: true,
+      plan: 'plan_pro',
+      message: 'Worksheet Pro activated for 40 days',
+      expiresAt: expiresAt.toISOString(),
+      data: data[0]
+    });
+
+  } catch (error) {
+    console.error('[validate-worksheet-key] Error:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
 // ─────────────────────────────────────────
 // ERROR HANDLING
 // ─────────────────────────────────────────
