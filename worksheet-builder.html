@@ -316,14 +316,14 @@ input#set-title:focus{box-shadow:var(--shadow-sm);}
         if (upgradeBtn) upgradeBtn.style.display = 'inline-block';
       } else if (window.printCount >= 8) {
         badge.style.background = 'var(--pink)';
-        if (upgradeBtn) upgradeBtn.style.display = 'none';
+        if (upgradeBtn) upgradeBtn.style.display = 'inline-block';
       } else {
         badge.style.background = 'var(--yellow)';
-        if (upgradeBtn) upgradeBtn.style.display = 'none';
+        if (upgradeBtn) upgradeBtn.style.display = 'inline-block';
       }
     } else {
       badge.style.background = 'var(--green-pale)';
-      if (upgradeBtn) upgradeBtn.style.display = 'none';
+      if (upgradeBtn) upgradeBtn.style.display = 'inline-block';
     }
   };
 
@@ -407,14 +407,14 @@ function updatePrintCountDisplay() {
       if (upgradeBtn) upgradeBtn.style.display = 'inline-block';
     } else if (window.printCount >= 8) {
       badge.style.background = 'var(--pink)';
-      if (upgradeBtn) upgradeBtn.style.display = 'none';
+      if (upgradeBtn) upgradeBtn.style.display = 'inline-block';
     } else {
       badge.style.background = 'var(--yellow)';
-      if (upgradeBtn) upgradeBtn.style.display = 'none';
+      if (upgradeBtn) upgradeBtn.style.display = 'inline-block';
     }
   } else {
     badge.style.background = 'var(--green-pale)';
-    if (upgradeBtn) upgradeBtn.style.display = 'none';
+    if (upgradeBtn) upgradeBtn.style.display = 'inline-block';
   }
 }
 
