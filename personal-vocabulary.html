@@ -549,8 +549,11 @@
 
   <script>
     // Supabase config
-    const SUPABASE_URL = 'https://dpnxyrkwjdtlunepeewz.supabase.co';
-    const SUPABASE_KEY = 'sb_publishable_qZUI2tkjitvyZHDZnIRkpQ_yynAjgTA';
+    const supabase = window.supabase || (() => {
+  const SUPABASE_URL = 'https://dpnxyrkwjdtlunepeewz.supabase.co';
+  const SUPABASE_KEY = 'sb_publishable_qZUI2tkjitvyZHDZnIRkpQ_yynAjgTA';
+  return window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+})();
     const { createClient } = window.supabase;
     const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
@@ -583,6 +586,7 @@
         const { data: lessons, error } = await supabase
           .from('lessons')
           .select('images')
+          .eq('user_id', user.id)
           .single();
 
         if (error) {
