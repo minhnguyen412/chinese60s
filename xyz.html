@@ -1400,15 +1400,14 @@ onAuthStateChanged(auth, async user => {
   }
 
   window.currentUser = user;
+  hasShownExpiredWarning = false; // ✅ Reset flag
 
-  // ✅ FIX: Thêm await và move lên trước
   try {
     window.API_TOKEN = await user.getIdToken();
   } catch (err) {
     console.error('Failed to get token:', err);
   }
 
-  // ✅ Load từ DATABASE (AFTER getting token)
   try {
     const subRes = await fetch(`${window.API_BASE}/api/user-subscription`, {
       headers: { 'Authorization': `Bearer ${window.API_TOKEN}` }
@@ -1417,31 +1416,29 @@ onAuthStateChanged(auth, async user => {
     window.userSubscription = subData.data.plan || 'free';
     localStorage.setItem(`subscription_${user.uid}`, window.userSubscription);
     
-    // ✅ CHECK SUBSCRIPTION STATUS
     checkSubscriptionStatus(subData.data, 40, 25);
   } catch (err) {
     window.userSubscription = localStorage.getItem(`subscription_${user.uid}`) || 'free';
   }
   
-  // ✅ CHECK LẠI MỖI 5 PHÚT
+  // ✅ Kiểm tra mỗi 5 phút mà không reload
   setInterval(async () => {
-  try {
-    const subRes = await fetch(`${window.API_BASE}/api/user-subscription`, {
-      headers: { 'Authorization': `Bearer ${window.API_TOKEN}` }
-    });
-    const subData = await subRes.json();
-    checkSubscriptionStatus(subData.data, 40, 25);
-  } catch (err) {
-    console.error('Subscription check failed:', err);
-  }
-}, 5 * 60 * 1000);
-  // Update UI
+    try {
+      const subRes = await fetch(`${window.API_BASE}/api/user-subscription`, {
+        headers: { 'Authorization': `Bearer ${window.API_TOKEN}` }
+      });
+      const subData = await subRes.json();
+      checkSubscriptionStatus(subData.data, 40, 25);
+    } catch (err) {
+      console.error('Subscription check failed:', err);
+    }
+  }, 5 * 60 * 1000);
+
   const subBadge = window.userSubscription !== 'free' ? ' ⭐ ' + window.userSubscription.replace('plan_', '').toUpperCase() : '';
   document.getElementById('userDisplay').textContent = `👤 ${user.displayName || 'User'}${subBadge}`;
 
   document.getElementById('tool-section').style.display = 'block';
 
-  // Load profile data
   const [quizzes, recs, writes] = await Promise.all([
     fetchCol('quiz_attempts', user.uid, 'startTime'),
     fetchCol('recordings', user.uid, 'timestamp'),
@@ -1480,6 +1477,8 @@ function switchPanel(name) {
 // TOOL FUNCTIONS
 // ════════════════════════════════════════════════════════
 // ✅ THÊM HÀM NÀY
+let hasShownExpiredWarning = false; // ✅ Flag để tránh lặp
+
 function checkSubscriptionStatus(subData, fortyDays, renewDeadline) {
   if (!subData || subData.plan === 'free') return;
 
@@ -1488,13 +1487,18 @@ function checkSubscriptionStatus(subData, fortyDays, renewDeadline) {
   const diffMs = expireTime - now;
   const daysLeft = Math.ceil(diffMs / (24 * 60 * 60 * 1000));
 
-  // ✅ Downgrade nếu hết hạn
   if (daysLeft <= 0) {
-    window.userSubscription = 'free';
-    localStorage.setItem(`subscription_${window.currentUser.uid}`, 'free');
-    location.reload();
+    // ✅ Chỉ downgrade 1 lần
+    if (!hasShownExpiredWarning) {
+      window.userSubscription = 'free';
+      localStorage.setItem(`subscription_${window.currentUser.uid}`, 'free');
+      updateSubscriptionUI();
+      hasShownExpiredWarning = true;
+      
+      showStatus('submitStatus', 'err', 
+        '⏰ Subscription expired. Downgraded to Free. <button onclick="showSubscriptionModal()" style="color:#c0392b;text-decoration:underline;background:none;border:none;cursor:pointer">Renew now</button>');
+    }
   }
-  // ✅ Show warning nếu sắp hết
   else if (daysLeft <= renewDeadline) {
     showRenewWarning(daysLeft);
   }
