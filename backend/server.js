@@ -350,9 +350,7 @@ app.post('/api/delete-word', verifyFirebaseToken, async (req, res) => {
     const lesson = lessons[0];
     
     // ✅ Xóa item có character CHỨA ký tự được gửi lên
-    const updatedImages = lesson.images.filter(item => 
-      !item.character.includes(character) // ✅ Thay !== thành !includes
-    );
+    const updatedImages = lesson.images.filter(item => item.character !== character);
 
     console.log('[delete-word] Deleted character:', character);
     console.log('[delete-word] Before:', lesson.images.length);
