@@ -557,18 +557,16 @@
 
   <script>
     // Supabase config
-    const SUPABASE_URL = 'https://dpnxyrkwjdtlunepeewz.supabase.co';
-    const SUPABASE_KEY = 'sb_publishable_qZUI2tkjitvyZHDZnIRkpQ_yynAjgTA';
     let supabase;
-if (window.supabaseClient) {
-  supabase = window.supabaseClient;
-} else {
-  supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-}
+    if (window.supabaseClient) {
+      supabase = window.supabaseClient;
+    } else if (window.supabase) {
+      supabase = window.supabase;
+    }
 
-if (!supabase) {
-  console.error('Supabase client not found');
-}
+    if (!supabase) {
+      console.error('Supabase client not found');
+    }
 
     let data = [];
     const CARDS_PER_PAGE = 10;
