@@ -897,31 +897,42 @@ infoCol.appendChild(meaningEl);
 
     // ✅ XÓA WORD GỌI BACKEND
     async function deleteWordFromSupabase(character, firebaseUser, token) {
-      if (!confirm(`Delete "${character}"?`)) return;
+  if (!confirm(`Delete "${character}"?`)) return;
 
-      try {
-        const response = await fetch(`${BACKEND_URL}/api/delete-word`, {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ character })
-        });
+  try {
+    console.log('[Frontend] Deleting character:', character);
+    console.log('[Frontend] Token:', token ? 'OK' : 'MISSING');
+    console.log('[Frontend] Backend URL:', BACKEND_URL);
 
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const response = await fetch(`${BACKEND_URL}/api/delete-word`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ character })
+    });
 
-        const result = await response.json();
-        
-        // Refresh data
-        data = data.filter(item => item.character !== character);
-        setDataset(currentDataset.filter(item => item.character !== character));
+    console.log('[Frontend] Response status:', response.status);
+    console.log('[Frontend] Response:', response);
 
-      } catch (err) {
-        console.error('[Delete] Error:', err);
-        alert('Error deleting word');
-      }
+    if (!response.ok) {
+      const error = await response.text();
+      console.error('[Frontend] Error response:', error);
+      throw new Error(`HTTP ${response.status}: ${error}`);
     }
+
+    const result = await response.json();
+    console.log('[Frontend] Delete success:', result);
+    
+    // Refresh data
+    location.reload();
+
+  } catch (err) {
+    console.error('[Frontend Delete] Error:', err);
+    alert('Error: ' + err.message);
+  }
+}
 
     function drawGuideLines(ctx, size) {
       ctx.strokeStyle = '#e0e0e0';
