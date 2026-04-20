@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Word Canvas — Chinese60s</title>
+  <title>My vocabulary — Chinese60s</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
@@ -480,6 +480,14 @@
       .card-info-col { border-right: none; border-bottom: var(--border); }
       .card-practice-col canvas { width: 160px !important; height: 160px !important; }
     }
+    .practice-btn.delete-btn {
+  color: #e53935;
+  border-color: #e53935;
+}
+
+.practice-btn.delete-btn:hover { 
+  background: #ffeaea; 
+}
   </style>
 </head>
 <body>
@@ -505,7 +513,7 @@
   <!-- Page Hero -->
   <div class="page-hero">
     <span class="tag">📚 Vocabulary</span>
-    <h2>Word Canvas</h2>
+    <h2>My words</h2>
   </div>
 
   <!-- Controls Bar -->
@@ -549,13 +557,9 @@
 
   <script>
     // Supabase config
-    const supabase = window.supabase || (() => {
-  const SUPABASE_URL = 'https://dpnxyrkwjdtlunepeewz.supabase.co';
-  const SUPABASE_KEY = 'sb_publishable_qZUI2tkjitvyZHDZnIRkpQ_yynAjgTA';
-  return window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-})();
-    const { createClient } = window.supabase;
-    const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+    const SUPABASE_URL = 'https://dpnxyrkwjdtlunepeewz.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_qZUI2tkjitvyZHDZnIRkpQ_yynAjgTA';
+    
 
     let data = [];
     const CARDS_PER_PAGE = 10;
@@ -575,14 +579,12 @@
       imageGrid.innerHTML = '<div class="loading">Loading your words...</div>';
 
       try {
-        // Get current user
         const { data: { user } } = await supabase.auth.getUser();
         if (!user) {
           imageGrid.innerHTML = '<div class="loading">Please log in first</div>';
           return;
         }
 
-        // Fetch lessons by user_id
         const { data: lessons, error } = await supabase
           .from('lessons')
           .select('images')
@@ -602,7 +604,6 @@
           return;
         }
 
-        // Setup UI
         setupControls();
         setDataset(data.slice().reverse());
 
@@ -668,6 +669,7 @@
       images.forEach((item, idx) => {
         const card = document.createElement('div');
         card.classList.add('card');
+        card.setAttribute('data-character', item.character); // Lưu character để delete
 
         // Col 1: Hanzi Writer
         const hanziCol = document.createElement('div');
@@ -678,7 +680,6 @@
         writerDiv.classList.add('hanzi-writer-container');
         hanziCol.appendChild(writerDiv);
 
-        // Initialize HanziWriter
         setTimeout(() => {
           HanziWriter.create(writerId, item.character, {
             width: 150,
@@ -804,7 +805,17 @@
           drawGuideLines(ctx, canvasSize);
         });
 
+        // ✅ NÚT XÓA CARD
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = '❌ Delete';
+        deleteBtn.classList.add('practice-btn', 'delete-btn');
+        deleteBtn.addEventListener('click', async (e) => {
+          e.stopPropagation();
+          await deleteWordFromSupabase(item.character);
+        });
+
         controls.appendChild(clearBtn);
+        controls.appendChild(deleteBtn);
         practiceCol.appendChild(canvas);
         practiceCol.appendChild(controls);
 
@@ -814,6 +825,50 @@
         card.appendChild(practiceCol);
         imageGrid.appendChild(card);
       });
+    }
+
+    // ✅ HÀM XÓA TỪ SUPABASE
+    async function deleteWordFromSupabase(character) {
+      if (!confirm(`Delete "${character}"?`)) return;
+
+      try {
+        const { data: { user } } = await supabase.auth.getUser();
+        if (!user) return;
+
+        // Lấy dữ liệu hiện tại
+        const { data: lessons, error: fetchError } = await supabase
+          .from('lessons')
+          .select('images')
+          .eq('user_id', user.id)
+          .single();
+
+        if (fetchError) {
+          alert('Error loading data');
+          return;
+        }
+
+        // Lọc ra từ cần xóa
+        const updatedImages = lessons.images.filter(item => item.character !== character);
+
+        // Update Supabase
+        const { error: updateError } = await supabase
+          .from('lessons')
+          .update({ images: updatedImages })
+          .eq('user_id', user.id);
+
+        if (updateError) {
+          alert('Error deleting word');
+          return;
+        }
+
+        // Cập nhật data local và re-render
+        data = updatedImages;
+        setDataset(currentDataset.filter(item => item.character !== character));
+
+      } catch (err) {
+        console.error('Delete error:', err);
+        alert('Error deleting word');
+      }
     }
 
     function drawGuideLines(ctx, size) {
