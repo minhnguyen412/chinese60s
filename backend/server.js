@@ -330,6 +330,35 @@ app.get('/api/user-subscription', verifyFirebaseToken, async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+app.post('/api/delete-word', verifyFirebaseToken, async (req, res) => {
+  try {
+    const uid = req.user.uid;
+    const { character } = req.body;
+
+    const { data: lessons, error: fetchErr } = await supabase
+      .from('lessons')
+      .select('images')
+      .eq('user_id', uid)
+      .single();
+
+    if (fetchErr || !lessons) {
+      return res.status(404).json({ error: 'Lesson not found' });
+    }
+
+    const updatedImages = lessons.images.filter(item => item.character !== character);
+
+    const { error: updateErr } = await supabase
+      .from('lessons')
+      .update({ images: updatedImages })
+      .eq('user_id', uid);
+
+    if (updateErr) throw updateErr;
+
+    res.json({ success: true, message: 'Word deleted' });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 // ─────────────────────────────────────────
 // ERROR HANDLING
 // ─────────────────────────────────────────
