@@ -334,9 +334,8 @@ app.get('/api/user-subscription', verifyFirebaseToken, async (req, res) => {
 app.post('/api/delete-word', verifyFirebaseToken, async (req, res) => {
   try {
     const uid = req.user.uid;
-    const { character } = req.body;
+    const { character } = req.body; // ✅ character này là "你好吗" (dãy)
 
-    // Lấy lesson hiện tại
     const { data: lessons, error: fetchErr } = await supabase
       .from('lessons')
       .select('id, images')
@@ -350,16 +349,24 @@ app.post('/api/delete-word', verifyFirebaseToken, async (req, res) => {
 
     const lesson = lessons[0];
     
-    // Xóa word khỏi images array
-    const updatedImages = lesson.images.filter(item => item.character !== character);
+    // ✅ Xóa item có character CHỨA ký tự được gửi lên
+    const updatedImages = lesson.images.filter(item => 
+      !item.character.includes(character) // ✅ Thay !== thành !includes
+    );
 
-    // Update Supabase
+    console.log('[delete-word] Deleted character:', character);
+    console.log('[delete-word] Before:', lesson.images.length);
+    console.log('[delete-word] After:', updatedImages.length);
+
     const { error: updateErr } = await supabase
       .from('lessons')
       .update({ images: updatedImages })
       .eq('id', lesson.id);
 
-    if (updateErr) throw updateErr;
+    if (updateErr) {
+      console.error('[delete-word] Update error:', updateErr);
+      throw updateErr;
+    }
 
     res.json({ success: true, message: 'Word deleted' });
   } catch (error) {
