@@ -334,7 +334,7 @@ app.get('/api/user-subscription', verifyFirebaseToken, async (req, res) => {
 app.post('/api/delete-word', verifyFirebaseToken, async (req, res) => {
   try {
     const uid = req.user.uid;
-    const { character } = req.body; // ✅ character này là "你好吗" (dãy)
+    const { character } = req.body; // "吗"
 
     const { data: lessons, error: fetchErr } = await supabase
       .from('lessons')
@@ -349,13 +349,14 @@ app.post('/api/delete-word', verifyFirebaseToken, async (req, res) => {
 
     const lesson = lessons[0];
     
-    // ✅ Xóa item có character CHỨA ký tự được gửi lên
+    // ✅ FIX: Filter để xóa ITEM có character="吗"
     const updatedImages = lesson.images.filter(item => item.character !== character);
 
     console.log('[delete-word] Deleted character:', character);
     console.log('[delete-word] Before:', lesson.images.length);
     console.log('[delete-word] After:', updatedImages.length);
 
+    // ✅ FIX: Cập nhật array images (không xóa lesson)
     const { error: updateErr } = await supabase
       .from('lessons')
       .update({ images: updatedImages })
