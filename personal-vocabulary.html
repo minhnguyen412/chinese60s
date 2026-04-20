@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Canvas — Chinese60s</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    :root {
+      --black: #222;
+      --green: #7cb83e;
+      --green-dark: #5a8f27;
+      --green-light: #d8f0a0;
+      --green-pale: #f2fde0;
+      --yellow: #ffd84d;
+      --yellow-pale: #fffbe6;
+      --white: #fff;
+      --bg: #fffef5;
+      --shadow-sm: 3px 3px 0 var(--black);
+      --shadow-md: 4px 4px 0 var(--black);
+      --border: 2.5px solid var(--black);
+      --border-thick: 3px solid var(--black);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Fredoka', sans-serif;
+      background: var(--bg);
+      color: var(--black);
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: radial-gradient(circle, rgba(0,0,0,0.045) 1px, transparent 1px);
+      background-size: 22px 22px;
+      pointer-events: none; z-index: 0;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--green);
+      border-bottom: var(--border-thick);
+      padding: 0 50px;
+      height: 66px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 1.7rem;
+      color: white;
+      letter-spacing: 0.04em;
+      text-shadow: 2px 2px 0 rgba(0,0,0,0.25);
+    }
+
+    .homepage-link { text-decoration: none; color: inherit; }
+
+    .menu-toggle { display: none; font-size: 24px; background: none; border: none; color: white; cursor: pointer; }
+
+    nav ul { list-style: none; display: flex; gap: 8px; }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--black);
+      font-weight: 600;
+      font-size: 1rem;
+      background: var(--white);
+      border: var(--border);
+      border-radius: 50px;
+      padding: 6px 18px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+
+    nav ul li a:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+
+    /* BANNER */
+    .logos-and-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--green-pale);
+      border-bottom: var(--border-thick);
+      padding: 12px 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .logos-and-title .logo {
+      width: 100%;
+      height: auto;
+      max-height: 180px;
+      object-fit: contain;
+    }
+
+    /* PAGE HERO */
+    .page-hero {
+      background: var(--yellow-pale);
+      border-bottom: var(--border-thick);
+      padding: 36px 24px 28px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '🀄';
+      position: absolute;
+      font-size: 130px;
+      opacity: 0.1;
+      top: -10px;
+      right: 40px;
+      pointer-events: none;
+    }
+
+    .page-hero .tag {
+      display: inline-block;
+      background: var(--green);
+      color: white;
+      border: var(--border);
+      border-radius: 50px;
+      padding: 6px 18px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 14px;
+    }
+
+    .page-hero h2 {
+      font-weight: 700;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    /* CONTROLS BAR */
+    .controls-bar {
+      background: var(--white);
+      border-bottom: var(--border-thick);
+      padding: 18px 24px;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .search-container {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    #searchInput {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 500;
+      font-size: 1rem;
+      padding: 9px 18px;
+      border: var(--border);
+      border-radius: 50px;
+      background: var(--bg);
+      outline: none;
+      box-shadow: var(--shadow-sm);
+      width: 240px;
+    }
+
+    #searchInput:focus { box-shadow: 4px 4px 0 var(--black); }
+
+    .filter-controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    #countInput {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 500;
+      font-size: 1rem;
+      padding: 9px 14px;
+      border: var(--border);
+      border-radius: 50px;
+      background: var(--bg);
+      outline: none;
+      box-shadow: var(--shadow-sm);
+      width: 110px;
+    }
+
+    #sortSelect {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 9px 16px;
+      border: var(--border);
+      border-radius: 50px;
+      background: var(--white);
+      outline: none;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+    }
+
+    .btn-green {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      background: var(--green);
+      color: white;
+      padding: 9px 24px;
+      border: var(--border-thick);
+      border-radius: 50px;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-green:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+
+    /* GRID */
+    .grid-section {
+      flex: 1;
+      padding: 32px 24px 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .grid-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .card {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0;
+      background: var(--white);
+      border: var(--border-thick);
+      border-radius: 18px;
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+      min-height: 180px;
+      max-width: 860px;
+      margin: 0 auto;
+      width: 100%;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .card:hover { transform: translate(-2px,-3px); box-shadow: 7px 7px 0 var(--black); }
+
+    /* Col 1: Hanzi Writer */
+    .card-hanzi-col {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--green-pale);
+      border-right: var(--border);
+      min-height: 180px;
+      padding: 10px;
+    }
+
+    .hanzi-writer-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Col 2: Info */
+    .card-info-col {
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+      border-right: var(--border);
+    }
+
+    .card-pinyin {
+      color: #888;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+    }
+
+    .card-character {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--black);
+    }
+
+    .card-meaning {
+      color: #555;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      word-wrap: break-word;
+    }
+
+    /* Col 3: Practice canvas */
+    .card-practice-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      background: var(--yellow-pale);
+      gap: 8px;
+    }
+
+    .card-practice-col canvas {
+      border: var(--border);
+      border-radius: 10px;
+      background: var(--white);
+      cursor: crosshair;
+      touch-action: none;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .practice-controls {
+      display: flex;
+      gap: 6px;
+    }
+
+    .practice-btn {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 600;
+      font-size: 12px;
+      padding: 4px 12px;
+      border: var(--border);
+      border-radius: 50px;
+      cursor: pointer;
+      background: var(--white);
+      transition: transform 0.1s;
+    }
+
+    .practice-btn:hover { transform: translate(-1px,-1px); }
+
+    .practice-btn.clear-btn {
+      color: #e53935;
+      border-color: #e53935;
+    }
+
+    .practice-btn.clear-btn:hover { background: #ffeaea; }
+
+    /* PAGINATION */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      padding: 20px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .pagination button {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 7px 14px;
+      border: var(--border);
+      border-radius: 50px;
+      background: var(--white);
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.12s, box-shadow 0.12s;
+      min-width: 40px;
+    }
+
+    .pagination button:hover:not(:disabled) {
+      transform: translate(-2px,-2px);
+      box-shadow: 5px 5px 0 var(--black);
+    }
+
+    .pagination button.active {
+      background: var(--green);
+      color: white;
+      border-color: var(--green-dark);
+    }
+
+    .pagination button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    .pagination-dots { padding: 0 4px; color: #aaa; font-size: 16px; }
+
+    /* LOADING */
+    .loading {
+      text-align: center;
+      padding: 40px;
+      font-size: 1.1rem;
+      color: #888;
+    }
+
+    /* DONATE TAG */
+    .donate-tag {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      background: var(--yellow);
+      border: var(--border-thick);
+      border-radius: 20px;
+      padding: 10px 14px;
+      box-shadow: var(--shadow-md);
+      font-weight: 700;
+      font-size: 0.95rem;
+      z-index: 50;
+    }
+
+    .donate-tag a { text-decoration: none; color: var(--black); }
+
+    /* FOOTER */
+    footer {
+      background: #222;
+      color: rgba(255,255,255,0.65);
+      padding: 28px 50px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    footer .brand { font-weight: 700; color: var(--green-light); font-size: 1.3rem; margin-bottom: 6px; }
+    footer p { font-size: 0.95rem; font-weight: 500; margin-bottom: 3px; }
+
+    .social-icons { margin-top: 14px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+    .social-icons a {
+      text-decoration: none;
+      color: var(--black);
+      font-weight: 600;
+      font-size: 0.9rem;
+      background: var(--green-light);
+      border: var(--border);
+      border-radius: 50px;
+      padding: 5px 16px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.12s;
+    }
+
+    .social-icons a:hover { transform: translate(-1px,-2px); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      header { padding: 0 20px; }
+      .menu-toggle { display: block; }
+      nav { display: none; position: absolute; top: 66px; left: 0; right: 0; background: var(--green); border-bottom: var(--border); padding: 12px 0; }
+      nav.show { display: flex; flex-direction: column; align-items: center; }
+      nav ul { flex-direction: column; align-items: center; gap: 8px; padding: 6px 0; }
+
+      #searchInput { width: 180px; }
+      .grid-section { padding: 24px 16px 80px; }
+      footer { padding: 28px 20px; }
+
+      .card { grid-template-columns: 1fr; }
+      .card-hanzi-col { border-right: none; border-bottom: var(--border); }
+      .card-info-col { border-right: none; border-bottom: var(--border); }
+      .card-practice-col canvas { width: 160px !important; height: 160px !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1><a href="index.html" class="homepage-link">CHINESE 60s</a></h1>
+    <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <nav>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="https://www.amazon.com/shop/studiorum60s" target="_blank">Shop</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Banner -->
+  <div class="logos-and-title">
+    <img src="assets/banner.png" alt="Chinese 60s" class="logo">
+  </div>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <span class="tag">📚 Vocabulary</span>
+    <h2>Word Canvas</h2>
+  </div>
+
+  <!-- Controls Bar -->
+  <div class="controls-bar">
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search character or meaning…">
+      <button class="btn-green" id="searchButton">🔍 Search</button>
+    </div>
+    <div class="filter-controls">
+      <input type="number" id="countInput" placeholder="Count" min="1" value="100">
+      <select id="sortSelect">
+        <option value="oldest">Oldest</option>
+        <option value="newest" selected>Newest</option>
+        <option value="shuffle">Shuffle</option>
+      </select>
+      <button class="btn-green" id="okButton">OK</button>
+    </div>
+  </div>
+
+  <!-- Grid -->
+  <div class="grid-section">
+    <div class="grid-container" id="imageGrid"></div>
+  </div>
+
+  <!-- Donate Tag -->
+  <div class="donate-tag">
+    <a href="https://buymeacoffee.com/chinese60s" target="_blank">☕ Donate</a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p class="brand">CHINESE 60s</p>
+    <p>Learn Mandarin through images and videos</p>
+    <div class="social-icons">
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+      <a href="#">TikTok</a>
+      <a href="#">Instagram</a>
+    </div>
+  </footer>
+
+  <script>
+    // Supabase config
+    const SUPABASE_URL = 'https://dpnxyrkwjdtlunepeewz.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_qZUI2tkjitvyZHDZnIRkpQ_yynAjgTA';
+    const { createClient } = window.supabase;
+    const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    let data = [];
+    const CARDS_PER_PAGE = 10;
+    let currentPage = 1;
+    let currentDataset = [];
+
+    // Menu toggle
+    document.querySelector('.menu-toggle').addEventListener('click', function () {
+      const nav = document.querySelector('nav');
+      nav.classList.toggle('show');
+      this.innerHTML = nav.classList.contains('show') ? '&#10005;' : '&#9776;';
+    });
+
+    // Initialize
+    async function init() {
+      const imageGrid = document.getElementById('imageGrid');
+      imageGrid.innerHTML = '<div class="loading">Loading your words...</div>';
+
+      try {
+        // Get current user
+        const { data: { user } } = await supabase.auth.getUser();
+        if (!user) {
+          imageGrid.innerHTML = '<div class="loading">Please log in first</div>';
+          return;
+        }
+
+        // Fetch lessons by user_id
+        const { data: lessons, error } = await supabase
+          .from('lessons')
+          .select('images')
+          .single();
+
+        if (error) {
+          console.error('Error fetching data:', error);
+          imageGrid.innerHTML = '<div class="loading">Error loading data</div>';
+          return;
+        }
+
+        data = lessons?.images || [];
+        
+        if (data.length === 0) {
+          imageGrid.innerHTML = '<div class="loading">No words yet. Add some to get started!</div>';
+          return;
+        }
+
+        // Setup UI
+        setupControls();
+        setDataset(data.slice().reverse());
+
+      } catch (err) {
+        console.error('Init error:', err);
+        imageGrid.innerHTML = '<div class="loading">Error loading data</div>';
+      }
+    }
+
+    function setupControls() {
+      const countInput = document.getElementById('countInput');
+      const sortSelect = document.getElementById('sortSelect');
+      const okButton = document.getElementById('okButton');
+      const searchInput = document.getElementById('searchInput');
+      const searchButton = document.getElementById('searchButton');
+
+      okButton.addEventListener('click', () => {
+        const count = parseInt(countInput.value) || data.length;
+        let sortedData;
+        switch (sortSelect.value) {
+          case 'newest':
+            sortedData = data.slice().reverse();
+            break;
+          case 'oldest':
+            sortedData = data.slice();
+            break;
+          case 'shuffle':
+            sortedData = data.slice().sort(() => Math.random() - 0.5);
+            break;
+          default:
+            sortedData = data;
+        }
+        setDataset(sortedData.slice(0, count));
+      });
+
+      searchButton.addEventListener('click', () => {
+        const val = searchInput.value.trim().toLowerCase();
+        if (val) {
+          const matched = data.filter(item =>
+            item.character.toLowerCase().includes(val) ||
+            item.meaning.toLowerCase().includes(val) ||
+            item.pinyin.toLowerCase().includes(val)
+          );
+          setDataset(matched);
+        } else {
+          setDataset(data.slice().reverse());
+        }
+      });
+
+      searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') searchButton.click();
+      });
+
+      countInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') okButton.click();
+      });
+    }
+
+    function renderImages(images) {
+      const imageGrid = document.getElementById('imageGrid');
+      imageGrid.innerHTML = '';
+
+      images.forEach((item, idx) => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+
+        // Col 1: Hanzi Writer
+        const hanziCol = document.createElement('div');
+        hanziCol.classList.add('card-hanzi-col');
+        const writerId = `hanzi-${Date.now()}-${idx}`;
+        const writerDiv = document.createElement('div');
+        writerDiv.id = writerId;
+        writerDiv.classList.add('hanzi-writer-container');
+        hanziCol.appendChild(writerDiv);
+
+        // Initialize HanziWriter
+        setTimeout(() => {
+          HanziWriter.create(writerId, item.character, {
+            width: 150,
+            height: 150,
+            padding: 4,
+            showOutline: true,
+          });
+        }, 0);
+
+        // Col 2: Info
+        const infoCol = document.createElement('div');
+        infoCol.classList.add('card-info-col');
+
+        const pinyinEl = document.createElement('p');
+        pinyinEl.classList.add('card-pinyin');
+        pinyinEl.textContent = item.pinyin;
+
+        const charEl = document.createElement('p');
+        charEl.classList.add('card-character');
+        charEl.textContent = item.character;
+
+        const meaningEl = document.createElement('p');
+        meaningEl.classList.add('card-meaning');
+        meaningEl.textContent = item.meaning;
+
+        infoCol.appendChild(pinyinEl);
+        infoCol.appendChild(charEl);
+        infoCol.appendChild(meaningEl);
+
+        // Col 3: Practice canvas
+        const practiceCol = document.createElement('div');
+        practiceCol.classList.add('card-practice-col');
+
+        const canvasSize = 180;
+        const canvas = document.createElement('canvas');
+        canvas.width = canvasSize;
+        canvas.height = canvasSize;
+        canvas.style.width = canvasSize + 'px';
+        canvas.style.height = canvasSize + 'px';
+
+        const ctx = canvas.getContext('2d');
+        drawGuideLines(ctx, canvasSize);
+
+        let drawing = false;
+        let lastX = 0, lastY = 0;
+
+        function getPos(e) {
+          const rect = canvas.getBoundingClientRect();
+          const scaleX = canvas.width / rect.width;
+          const scaleY = canvas.height / rect.height;
+          if (e.touches) {
+            return {
+              x: (e.touches[0].clientX - rect.left) * scaleX,
+              y: (e.touches[0].clientY - rect.top) * scaleY
+            };
+          }
+          return {
+            x: (e.clientX - rect.left) * scaleX,
+            y: (e.clientY - rect.top) * scaleY
+          };
+        }
+
+        canvas.addEventListener('mousedown', (e) => {
+          drawing = true;
+          const pos = getPos(e);
+          lastX = pos.x;
+          lastY = pos.y;
+        });
+
+        canvas.addEventListener('mousemove', (e) => {
+          if (!drawing) return;
+          const pos = getPos(e);
+          ctx.beginPath();
+          ctx.strokeStyle = '#222';
+          ctx.lineWidth = 3;
+          ctx.lineCap = 'round';
+          ctx.lineJoin = 'round';
+          ctx.moveTo(lastX, lastY);
+          ctx.lineTo(pos.x, pos.y);
+          ctx.stroke();
+          lastX = pos.x;
+          lastY = pos.y;
+        });
+
+        canvas.addEventListener('mouseup', () => { drawing = false; });
+        canvas.addEventListener('mouseleave', () => { drawing = false; });
+
+        canvas.addEventListener('touchstart', (e) => {
+          e.preventDefault();
+          drawing = true;
+          const pos = getPos(e);
+          lastX = pos.x;
+          lastY = pos.y;
+        }, { passive: false });
+
+        canvas.addEventListener('touchmove', (e) => {
+          e.preventDefault();
+          if (!drawing) return;
+          const pos = getPos(e);
+          ctx.beginPath();
+          ctx.strokeStyle = '#222';
+          ctx.lineWidth = 3;
+          ctx.lineCap = 'round';
+          ctx.lineJoin = 'round';
+          ctx.moveTo(lastX, lastY);
+          ctx.lineTo(pos.x, pos.y);
+          ctx.stroke();
+          lastX = pos.x;
+          lastY = pos.y;
+        }, { passive: false });
+
+        canvas.addEventListener('touchend', () => { drawing = false; });
+
+        const controls = document.createElement('div');
+        controls.classList.add('practice-controls');
+
+        const clearBtn = document.createElement('button');
+        clearBtn.textContent = '🗑 Clear';
+        clearBtn.classList.add('practice-btn', 'clear-btn');
+        clearBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          drawGuideLines(ctx, canvasSize);
+        });
+
+        controls.appendChild(clearBtn);
+        practiceCol.appendChild(canvas);
+        practiceCol.appendChild(controls);
+
+        // Assemble
+        card.appendChild(hanziCol);
+        card.appendChild(infoCol);
+        card.appendChild(practiceCol);
+        imageGrid.appendChild(card);
+      });
+    }
+
+    function drawGuideLines(ctx, size) {
+      ctx.strokeStyle = '#e0e0e0';
+      ctx.lineWidth = 1;
+      ctx.setLineDash([4, 4]);
+      ctx.beginPath();
+      ctx.moveTo(0, size / 2);
+      ctx.lineTo(size, size / 2);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(size / 2, 0);
+      ctx.lineTo(size / 2, size);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(size, size);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(size, 0);
+      ctx.lineTo(0, size);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.strokeStyle = '#ccc';
+      ctx.lineWidth = 1;
+      ctx.strokeRect(0, 0, size, size);
+    }
+
+    function renderPage(page) {
+      currentPage = page;
+      const start = (page - 1) * CARDS_PER_PAGE;
+      const end = start + CARDS_PER_PAGE;
+      renderImages(currentDataset.slice(start, end));
+      renderPagination();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderPagination() {
+      const existing = document.getElementById('pagination');
+      if (existing) existing.remove();
+
+      const imageGrid = document.getElementById('imageGrid');
+      const totalPages = Math.ceil(currentDataset.length / CARDS_PER_PAGE);
+      if (totalPages <= 1) return;
+
+      const nav = document.createElement('div');
+      nav.id = 'pagination';
+      nav.classList.add('pagination');
+
+      const prevBtn = document.createElement('button');
+      prevBtn.textContent = '← Previous';
+      prevBtn.disabled = currentPage === 1;
+      prevBtn.addEventListener('click', () => renderPage(currentPage - 1));
+      nav.appendChild(prevBtn);
+
+      for (let i = 1; i <= totalPages; i++) {
+        if (i === 1 || i === totalPages || (i >= currentPage - 2 && i <= currentPage + 2)) {
+          const btn = document.createElement('button');
+          btn.textContent = i;
+          btn.classList.toggle('active', i === currentPage);
+          btn.addEventListener('click', () => renderPage(i));
+          nav.appendChild(btn);
+        } else if (i === currentPage - 3 || i === currentPage + 3) {
+          const dots = document.createElement('span');
+          dots.textContent = '…';
+          dots.classList.add('pagination-dots');
+          nav.appendChild(dots);
+        }
+      }
+
+      const nextBtn = document.createElement('button');
+      nextBtn.textContent = 'Next →';
+      nextBtn.disabled = currentPage === totalPages;
+      nextBtn.addEventListener('click', () => renderPage(currentPage + 1));
+      nav.appendChild(nextBtn);
+
+      imageGrid.insertAdjacentElement('afterend', nav);
+    }
+
+    function setDataset(newData) {
+      currentDataset = newData;
+      renderPage(1);
+    }
+
+    // Start
+    init();
+  </script>
+</body>
+</html>
