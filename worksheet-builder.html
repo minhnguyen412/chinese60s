@@ -218,7 +218,7 @@ input#set-title:focus{box-shadow:var(--shadow-sm);}
     <div class="main-toolbar">
       <span>A4 PREVIEW</span>
       <button class="btn btn-sky btn-sm" onclick="renderAll()">↺ Re-render</button>
-      <button class="btn btn-yellow btn-sm" onclick="if(recordPrint()) window.print(); else event.preventDefault();">
+      <button class="btn btn-yellow btn-sm" onclick="if(window.recordPrint()) window.print(); else event.preventDefault();">
   🖨 Print / PDF
 </button>
     </div>
@@ -327,7 +327,7 @@ input#set-title:focus{box-shadow:var(--shadow-sm);}
     }
   };
 
-  async function recordPrint() {
+  window.recordPrint = async function() {
   if (!window.currentUser) {
     alert('Please log in to print worksheets.');
     return false;
@@ -389,7 +389,7 @@ input#set-title:focus{box-shadow:var(--shadow-sm);}
     alert('Error recording print. Please try again.');
     return false;
   }
-}
+};
 
 // Update print count display
 function updatePrintCountDisplay() {
@@ -983,74 +983,6 @@ function closeWSSubscriptionModal() {
   document.getElementById('subscriptionModal').style.display = 'none';
   document.body.style.overflow = 'auto';
 }
-
-async function validateWSKey() {
-  const key = document.getElementById('wsKeyInput').value.trim().toUpperCase();
-  const statusEl = document.getElementById('wsKeyStatus');
-  
-  if (!key) {
-    statusEl.className = 'status err';
-    statusEl.textContent = '❌ Enter a key';
-    statusEl.style.display = 'block';
-    return;
-  }
-
-  if (!key.match(/^(STARTER|PRO|MASTER)-[A-Z0-9]{20,}$/i)) {
-    statusEl.className = 'status err';
-    statusEl.textContent = '❌ Invalid key format. Should be: STARTER-xxxxx...';
-    statusEl.style.display = 'block';
-    return;
-  }
-
-  statusEl.innerHTML = '<span class="spinner"></span> Validating...';
-  statusEl.style.display = 'block';
-
-  try {
-    if (!window.currentUser) throw new Error('Please log in first');
-    if (!window.API_TOKEN) throw new Error('Auth token missing');
-
-    const response = await fetch(`${window.API_BASE}/api/validate-worksheet-key`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${window.API_TOKEN}`
-      },
-      body: JSON.stringify({
-        license_key: key
-      })
-    });
-
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.error || 'Invalid key');
-
-    statusEl.className = 'status success';
-    statusEl.textContent = '✅ ' + data.message;
-    statusEl.style.display = 'block';
-
-    setTimeout(() => {
-      window.userSubscription = 'plan_pro';
-      window.maxPrints = 999;
-      document.getElementById('wsKeyInput').value = '';
-      closeWSSubscriptionModal();
-      updatePrintCountDisplay();
-      location.reload(); // Reload to sync
-    }, 1500);
-
-  } catch (e) {
-    statusEl.className = 'status err';
-    statusEl.textContent = '❌ ' + e.message;
-    statusEl.style.display = 'block';
-  }
-}
-// Close modal on Escape
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeWSSubscriptionModal();
-});
-
-// Close on overlay click
-document.getElementById('subscriptionModal').addEventListener('click', (e) => {
-  if (e.target.id === 'subscriptionModal') closeWSSubscriptionModal();
-});
 </script>
   <div id="subscriptionModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:10000; align-items:center; justify-content:center;">
   <div style="background:white; border:3px solid #222; border-radius:24px; padding:40px; max-width:500px; box-shadow:6px 6px 0 #222; animation:slideUp .3s ease;">
@@ -1074,7 +1006,7 @@ document.getElementById('subscriptionModal').addEventListener('click', (e) => {
     <div style="margin-bottom:24px; padding:16px; background:#fffbe6; border:2px solid #ffd84d; border-radius:12px;">
       <div style="font-weight:700; font-size:.9rem; margin-bottom:8px;">Have a license key?</div>
       <input type="text" id="wsKeyInput" placeholder="STARTER-abc123..." style="width:100%; padding:8px 12px; border:2px solid #ddd; border-radius:8px; font-family:monospace; margin-bottom:8px;">
-      <button onclick="validateWSKey()" style="width:100%; padding:8px 12px; border:3px solid #222; border-radius:50px; background:#72c8f0; font-weight:700; cursor:pointer;">✅ Activate</button>
+      <button onclick="window.validateWSKey()" style="width:100%; padding:8px 12px; border:3px solid #222; border-radius:50px; background:#72c8f0; font-weight:700; cursor:pointer;">✅ Activate</button>
     </div>
 
     <div id="wsKeyStatus" style="display:none; padding:12px; border-radius:8px; margin-bottom:16px; font-weight:700;"></div>
