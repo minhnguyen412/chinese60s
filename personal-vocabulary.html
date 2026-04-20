@@ -555,64 +555,86 @@
     </div>
   </footer>
 
-  <script>
-    // Supabase config
-    var supabase = window.supabaseClient || window.supabase;
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+  import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
 
-  if (!supabase) {
-    console.error('Supabase client not found');
-  }
-    let data = [];
-    const CARDS_PER_PAGE = 10;
-    let currentPage = 1;
-    let currentDataset = [];
+  const firebaseConfig = {
+    apiKey: 'AIzaSyAm-qQrpXKNdqFLITRAGCug7rkskGzyAkg',
+    authDomain: 'chinese60s.firebaseapp.com',
+    projectId: 'chinese60s',
+    storageBucket: 'chinese60s.firebasestorage.app',
+    messagingSenderId: '835657861121',
+    appId: '1:835657861121:web:f31727eb7ea3b876a5d800',
+  };
 
-    // Menu toggle
-    document.querySelector('.menu-toggle').addEventListener('click', function () {
-      const nav = document.querySelector('nav');
-      nav.classList.toggle('show');
-      this.innerHTML = nav.classList.contains('show') ? '&#10005;' : '&#9776;';
-    });
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
 
-    // Initialize
-    async function init() {
-      const imageGrid = document.getElementById('imageGrid');
-      imageGrid.innerHTML = '<div class="loading">Loading your words...</div>';
+  const BACKEND_URL = 'https://chinese60s-production.up.railway.app'; // ✅ Thay URL backend thực tế của bạn
 
-      try {
-        const { data: { user } } = await supabase.auth.getUser();
-        if (!user) {
-          imageGrid.innerHTML = '<div class="loading">Please log in first</div>';
-          return;
-        }
-
-        const { data: lessons, error } = await supabase
-          .from('lessons')
-          .select('images')
-          .eq('user_id', user.id)
-          .single();
-
-        if (error) {
-          console.error('Error fetching data:', error);
-          imageGrid.innerHTML = '<div class="loading">Error loading data</div>';
-          return;
-        }
-
-        data = lessons?.images || [];
-        
-        if (data.length === 0) {
-          imageGrid.innerHTML = '<div class="loading">No words yet. Add some to get started!</div>';
-          return;
-        }
-
-        setupControls();
-        setDataset(data.slice().reverse());
-
-      } catch (err) {
-        console.error('Init error:', err);
-        imageGrid.innerHTML = '<div class="loading">Error loading data</div>';
-      }
+  onAuthStateChanged(auth, async (firebaseUser) => {
+    const imageGrid = document.getElementById('imageGrid');
+    
+    if (!firebaseUser) {
+      imageGrid.innerHTML = '<div class="loading">Please log in first</div>';
+      return;
     }
+
+    try {
+      const token = await firebaseUser.getIdToken();
+      const response = await fetch(`${BACKEND_URL}/api/lessons`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+
+      const result = await response.json();
+      const data = result.data[0]?.images || [];
+
+      if (!data || data.length === 0) {
+        imageGrid.innerHTML = '<div class="loading">No words yet. Add some to get started!</div>';
+        return;
+      }
+
+      initVocabulary(data, firebaseUser, token);
+
+    } catch (error) {
+      console.error('[Init] Error:', error);
+      imageGrid.innerHTML = `<div class="loading" style="color:#e53935;">Error: ${error.message}</div>`;
+    }
+  });
+
+  function initVocabulary(data, firebaseUser, token) {
+    const imageGrid = document.getElementById('imageGrid');
+    imageGrid.innerHTML = '';
+
+    let currentDataset = data.slice().reverse();
+    let currentPage = 1;
+    const CARDS_PER_PAGE = 10;
+
+    function setDataset(newData) {
+      currentDataset = newData;
+      renderPage(1);
+    }
+
+    function renderPage(page) {
+      currentPage = page;
+      const start = (page - 1) * CARDS_PER_PAGE;
+      const end = start + CARDS_PER_PAGE;
+      renderImages(currentDataset.slice(start, end));
+      renderPagination();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    setupControls();
+    setDataset(data.slice().reverse());
 
     function setupControls() {
       const countInput = document.getElementById('countInput');
@@ -670,7 +692,7 @@
       images.forEach((item, idx) => {
         const card = document.createElement('div');
         card.classList.add('card');
-        card.setAttribute('data-character', item.character); // Lưu character để delete
+        card.setAttribute('data-character', item.character);
 
         // Col 1: Hanzi Writer
         const hanziCol = document.createElement('div');
@@ -806,13 +828,12 @@
           drawGuideLines(ctx, canvasSize);
         });
 
-        // ✅ NÚT XÓA CARD
         const deleteBtn = document.createElement('button');
         deleteBtn.textContent = '❌ Delete';
         deleteBtn.classList.add('practice-btn', 'delete-btn');
         deleteBtn.addEventListener('click', async (e) => {
           e.stopPropagation();
-          await deleteWordFromSupabase(item.character);
+          await deleteWordFromSupabase(item.character, firebaseUser, token);
         });
 
         controls.appendChild(clearBtn);
@@ -820,7 +841,6 @@
         practiceCol.appendChild(canvas);
         practiceCol.appendChild(controls);
 
-        // Assemble
         card.appendChild(hanziCol);
         card.appendChild(infoCol);
         card.appendChild(practiceCol);
@@ -828,46 +848,30 @@
       });
     }
 
-    // ✅ HÀM XÓA TỪ SUPABASE
-    async function deleteWordFromSupabase(character) {
+    // ✅ XÓA WORD GỌI BACKEND
+    async function deleteWordFromSupabase(character, firebaseUser, token) {
       if (!confirm(`Delete "${character}"?`)) return;
 
       try {
-        const { data: { user } } = await supabase.auth.getUser();
-        if (!user) return;
+        const response = await fetch(`${BACKEND_URL}/api/delete-word`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ character })
+        });
 
-        // Lấy dữ liệu hiện tại
-        const { data: lessons, error: fetchError } = await supabase
-          .from('lessons')
-          .select('images')
-          .eq('user_id', user.id)
-          .single();
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
-        if (fetchError) {
-          alert('Error loading data');
-          return;
-        }
-
-        // Lọc ra từ cần xóa
-        const updatedImages = lessons.images.filter(item => item.character !== character);
-
-        // Update Supabase
-        const { error: updateError } = await supabase
-          .from('lessons')
-          .update({ images: updatedImages })
-          .eq('user_id', user.id);
-
-        if (updateError) {
-          alert('Error deleting word');
-          return;
-        }
-
-        // Cập nhật data local và re-render
-        data = updatedImages;
+        const result = await response.json();
+        
+        // Refresh data
+        data = data.filter(item => item.character !== character);
         setDataset(currentDataset.filter(item => item.character !== character));
 
       } catch (err) {
-        console.error('Delete error:', err);
+        console.error('[Delete] Error:', err);
         alert('Error deleting word');
       }
     }
@@ -948,14 +952,7 @@
 
       imageGrid.insertAdjacentElement('afterend', nav);
     }
-
-    function setDataset(newData) {
-      currentDataset = newData;
-      renderPage(1);
-    }
-
-    // Start
-    init();
-  </script>
+  }
+</script>
 </body>
 </html>
