@@ -334,12 +334,7 @@ app.get('/api/user-subscription', verifyFirebaseToken, async (req, res) => {
 app.post('/api/delete-word', verifyFirebaseToken, async (req, res) => {
   try {
     const uid = req.user.uid;
-    const { character } = req.body;
-
-    console.log('=== DELETE WORD DEBUG ===');
-    console.log('UID:', uid);
-    console.log('Character received:', character);
-    console.log('Character bytes:', Buffer.from(character).toString('hex'));
+    const { character } = req.body; // ✅ character này là "你好吗" (dãy)
 
     const { data: lessons, error: fetchErr } = await supabase
       .from('lessons')
@@ -348,43 +343,32 @@ app.post('/api/delete-word', verifyFirebaseToken, async (req, res) => {
       .order('submitted_at', { ascending: false })
       .limit(1);
 
-    if (fetchErr) {
-      console.error('Fetch error:', fetchErr);
-      return res.status(404).json({ error: 'Lesson not found' });
-    }
-
-    if (!lessons || lessons.length === 0) {
-      console.error('No lessons found');
+    if (fetchErr || !lessons || lessons.length === 0) {
       return res.status(404).json({ error: 'No lesson found' });
     }
 
     const lesson = lessons[0];
-    console.log('Current images:', JSON.stringify(lesson.images, null, 2));
+    
+    // ✅ Xóa item có character CHỨA ký tự được gửi lên
+    const updatedImages = lesson.images.filter(item => 
+      !item.character.includes(character) // ✅ Thay !== thành !includes
+    );
 
-    // Filter
-    const updatedImages = lesson.images.filter(item => {
-      const match = item.character === character;
-      console.log(`Comparing "${item.character}" (${Buffer.from(item.character).toString('hex')}) with "${character}" (${Buffer.from(character).toString('hex')}) = ${match}`);
-      return !match; // ✅ Giữ những cái KHÔNG match
-    });
+    console.log('[delete-word] Deleted character:', character);
+    console.log('[delete-word] Before:', lesson.images.length);
+    console.log('[delete-word] After:', updatedImages.length);
 
-    console.log('Updated images:', JSON.stringify(updatedImages, null, 2));
-    console.log('Deleted count:', lesson.images.length - updatedImages.length);
-
-    // Update
     const { error: updateErr } = await supabase
       .from('lessons')
       .update({ images: updatedImages })
       .eq('id', lesson.id);
 
     if (updateErr) {
-      console.error('Update error:', updateErr);
+      console.error('[delete-word] Update error:', updateErr);
       throw updateErr;
     }
 
-    console.log('✅ Successfully deleted');
     res.json({ success: true, message: 'Word deleted' });
-
   } catch (error) {
     console.error('[delete-word] Error:', error);
     res.status(500).json({ error: error.message });
