@@ -330,32 +330,40 @@ app.get('/api/user-subscription', verifyFirebaseToken, async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+// Delete a word from images
 app.post('/api/delete-word', verifyFirebaseToken, async (req, res) => {
   try {
     const uid = req.user.uid;
     const { character } = req.body;
 
+    // Lấy lesson hiện tại
     const { data: lessons, error: fetchErr } = await supabase
       .from('lessons')
-      .select('images')
+      .select('id, images')
       .eq('user_id', uid)
-      .single();
+      .order('submitted_at', { ascending: false })
+      .limit(1);
 
-    if (fetchErr || !lessons) {
-      return res.status(404).json({ error: 'Lesson not found' });
+    if (fetchErr || !lessons || lessons.length === 0) {
+      return res.status(404).json({ error: 'No lesson found' });
     }
 
-    const updatedImages = lessons.images.filter(item => item.character !== character);
+    const lesson = lessons[0];
+    
+    // Xóa word khỏi images array
+    const updatedImages = lesson.images.filter(item => item.character !== character);
 
+    // Update Supabase
     const { error: updateErr } = await supabase
       .from('lessons')
       .update({ images: updatedImages })
-      .eq('user_id', uid);
+      .eq('id', lesson.id);
 
     if (updateErr) throw updateErr;
 
     res.json({ success: true, message: 'Word deleted' });
   } catch (error) {
+    console.error('[delete-word] Error:', error);
     res.status(500).json({ error: error.message });
   }
 });
