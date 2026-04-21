@@ -1707,13 +1707,14 @@ function updateSubscriptionUI() {
   }
 }
 function showSubscriptionModal() {
-  // ✅ Ẩn tất cả "Current Plan" badges
-  document.querySelectorAll('.plan-badge:contains("Current Plan")').forEach(badge => {
+  const currentPlan = window.userSubscription || 'free';
+  
+  // ✅ Ẩn tất cả badges
+  document.querySelectorAll('.plan-badge').forEach(badge => {
     badge.style.display = 'none';
   });
   
-  // ✅ Hiện "Current Plan" badge cho plan hiện tại
-  const currentPlan = window.userSubscription || 'free';
+  // ✅ Hiện đúng badge của plan hiện tại
   const planBadgeMap = {
     'free': '.plan-free .plan-badge',
     'plan_a': '.plan-a .plan-badge',
@@ -1724,12 +1725,9 @@ function showSubscriptionModal() {
   const badgeSelector = planBadgeMap[currentPlan];
   if (badgeSelector) {
     const badge = document.querySelector(badgeSelector);
-    if (badge && badge.textContent.includes('Current')) {
-      badge.style.display = 'inline-block';
-    }
+    if (badge) badge.style.display = 'inline-block';
   }
   
-  // ✅ Update buttons
   updateSubscriptionUI();
   switchSubTab('plans');
   
