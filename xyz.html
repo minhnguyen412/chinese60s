@@ -1664,54 +1664,42 @@ async function getTotalItemCount() {
 
 function updateSubscriptionUI() {
   const currentPlan = window.userSubscription || 'free';
+  console.log('Updating UI with plan:', currentPlan);
   
-  // ✅ Debug
-  console.log('Current subscription:', currentPlan);
-  
-  // Update header badge
-  const subBadge = currentPlan !== 'free' ? ' ⭐ ' + currentPlan.replace('plan_', '').toUpperCase() : '';
-  if (window.currentUser) {
-    document.getElementById('userDisplay').textContent = `👤 ${window.currentUser.displayName || 'User'}${subBadge}`;
-  }
-  
-  // ✅ FIX: Reset tất cả buttons
-  document.querySelectorAll('.btn-plan-current, .btn-plan-upgrade, .btn-plan-activate').forEach(btn => {
+  // ✅ Force ẩn tất cả buttons
+  document.querySelectorAll('[class*="btn-plan"]').forEach(btn => {
     btn.style.display = 'none';
   });
   
-  // ✅ Hiện upgrade/activate buttons ở tất cả plan
-  document.querySelectorAll('.plan-card:not(.plan-free) .btn-plan-upgrade').forEach(btn => {
-    btn.style.display = 'inline-flex';
-  });
-  document.querySelectorAll('.plan-card:not(.plan-free) .btn-plan-activate').forEach(btn => {
+  // ✅ Hiện lại upgrade/activate buttons
+  document.querySelectorAll('.plan-card .btn-plan-upgrade, .plan-card .btn-plan-activate').forEach(btn => {
     btn.style.display = 'inline-flex';
   });
   
-  // ✅ Map plan to card index
-  const planMap = {
-    'free': 0,
-    'plan_a': 1,
-    'plan_b': 2,
-    'plan_c': 3
+  // ✅ Tìm plan card theo class
+  const planClassMap = {
+    'free': '.plan-free',
+    'plan_a': '.plan-a',
+    'plan_b': '.plan-b',
+    'plan_c': '.plan-c'
   };
   
-  const cardIndex = planMap[currentPlan] ?? 0;
-  const cards = document.querySelectorAll('.plan-card');
-  
-  console.log('Card index:', cardIndex, 'Total cards:', cards.length);
-  
-  if (cards[cardIndex]) {
-    // ✅ Ẩn nút upgrade/activate của current plan
-    const upgradeBtn = cards[cardIndex].querySelector('.btn-plan-upgrade');
-    const activateBtn = cards[cardIndex].querySelector('.btn-plan-activate');
-    if (upgradeBtn) upgradeBtn.style.display = 'none';
-    if (activateBtn) activateBtn.style.display = 'none';
-    
-    // ✅ Hiện current plan button
-    const currentBtn = cards[cardIndex].querySelector('.btn-plan-current');
-    if (currentBtn) {
-      currentBtn.style.display = 'inline-flex';
-      console.log('Showing current plan button');
+  const planClass = planClassMap[currentPlan];
+  if (planClass) {
+    const currentCard = document.querySelector(planClass);
+    if (currentCard) {
+      // Ẩn upgrade/activate
+      const upgradeBtn = currentCard.querySelector('.btn-plan-upgrade');
+      const activateBtn = currentCard.querySelector('.btn-plan-activate');
+      if (upgradeBtn) upgradeBtn.style.display = 'none';
+      if (activateBtn) activateBtn.style.display = 'none';
+      
+      // Hiện current plan button
+      const currentBtn = currentCard.querySelector('.btn-plan-current');
+      if (currentBtn) {
+        currentBtn.style.display = 'inline-flex';
+        console.log('✅ Updated current plan button for', currentPlan);
+      }
     }
   }
 }
