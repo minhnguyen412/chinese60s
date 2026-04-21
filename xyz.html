@@ -876,7 +876,10 @@
 
 <header>
   <h1><a href="index.html" class="homepage-link">CHINESE 60s</a></h1>
-  <div class="user-info" id="userDisplay">👤 Loading...</div>
+  <div style="display:flex; gap:12px; align-items:center;">
+    <div class="user-info" id="userDisplay">👤 Loading...</div>
+    <button class="btn btn-yellow btn-sm" id="upgradeBtn" onclick="showSubscriptionModal()" style="display:none;">⭐ Upgrade</button>
+  </div>
 </header>
 
 <div id="profile-section">
@@ -1436,6 +1439,8 @@ onAuthStateChanged(auth, async user => {
 
   const subBadge = window.userSubscription !== 'free' ? ' ⭐ ' + window.userSubscription.replace('plan_', '').toUpperCase() : '';
   document.getElementById('userDisplay').textContent = `👤 ${user.displayName || 'User'}${subBadge}`;
+  const upgradeBtn = document.getElementById('upgradeBtn');
+  upgradeBtn.style.display = 'inline-flex';
 
   document.getElementById('tool-section').style.display = 'block';
 
