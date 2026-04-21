@@ -1789,28 +1789,32 @@ function switchSubTab(tabName) {
 
 // ✅ SET PLAN PREFIX khi click "Have a key?"
 function switchSubTabWithPlan(tabName, planName) {
-  // ✅ Map plan to prefix
   const prefixMap = {
     'plan_a': 'STARTER-',
     'plan_b': 'PRO-',
     'plan_c': 'MASTER-',
   };
   
-  const prefix = prefixMap[planName] || 'KEY-';
+  // ✅ THÊM: Map plan to Gumroad Product ID
+  const productIdMap = {
+    'plan_a': 'your-gumroad-product-id-a',  // Thay bằng ID thật
+    'plan_b': 'your-gumroad-product-id-b',
+    'plan_c': 'your-gumroad-product-id-c',
+  };
   
-  // ✅ Set prefix display
+  const prefix = prefixMap[planName] || 'KEY-';
+  const productId = productIdMap[planName]; // ✅ LẤY PRODUCT ID
+  
   document.getElementById('keyPrefix').textContent = prefix;
   document.getElementById('licenseKeyInput').dataset.plan = planName;
+  document.getElementById('licenseKeyInput').dataset.productId = productId; // ✅ LƯU VÀO DATA ATTRIBUTE
   
-  // ✅ Reset input & status
   document.getElementById('licenseKeyInput').value = '';
   document.getElementById('keyStatus').className = 'status';
   document.getElementById('keyStatus').innerHTML = '';
   
-  // ✅ Switch tab
   switchSubTab(tabName);
   
-  // ✅ Focus input
   setTimeout(() => {
     document.getElementById('licenseKeyInput').focus();
   }, 100);
@@ -1819,42 +1823,27 @@ function switchSubTabWithPlan(tabName, planName) {
 // ═══ Main validation function ═══
 async function validateGumroadKey() {
   const keyInput = document.getElementById('licenseKeyInput');
-  const prefixElement = document.getElementById('keyPrefix');
   const gumroadKey = keyInput.value.trim().toUpperCase();
- 
-  // ✅ Validate input
+  
   if (!gumroadKey) {
     showKeyStatus('err', '❌ Please enter a license key');
     return;
   }
- 
-  // ✅ Get prefix (e.g., "STARTER-")
-  const prefix = prefixElement.textContent.trim();
-  const fullKey = prefix + gumroadKey;
- 
-  // ✅ Map prefix to expected plan
-  const prefixToPlanMap = {
-    'STARTER-': 'plan_a',
-    'PRO-': 'plan_b',
-    'MASTER-': 'plan_c'
-  };
   
-  const expectedPlan = prefixToPlanMap[prefix];
- 
-  if (!expectedPlan) {
-    showKeyStatus('err', '❌ Invalid prefix selected');
+  // ✅ LẤY PRODUCT ID TỪ DATA ATTRIBUTE
+  const productId = keyInput.dataset.productId;
+  if (!productId) {
+    showKeyStatus('err', '❌ Product ID not set');
     return;
   }
- 
-  // ✅ Show loading
+  
   showKeyStatus('info', '<span class="spinner"></span> Validating key...');
- 
+  
   try {
-    // ✅ Check auth
     if (!window.currentUser) throw new Error('Please log in first');
     if (!window.API_TOKEN) throw new Error('Authentication error');
- 
-    // ✅ Send to backend with expected_plan
+    
+    // ✅ THÊM product_id vào request body
     const response = await fetch(`${window.API_BASE}/api/validate-subscription-key`, {
       method: 'POST',
       headers: {
@@ -1862,48 +1851,33 @@ async function validateGumroadKey() {
         'Authorization': `Bearer ${window.API_TOKEN}`
       },
       body: JSON.stringify({
-        license_key: fullKey,
+        license_key: gumroadKey,
         user_id: window.currentUser.uid,
         email: window.currentUser.email,
-        expected_plan: expectedPlan  // ✅ IMPORTANT: Send expected plan
+        product_id: productId  // ✅ GỬI PRODUCT ID
       })
     });
- 
+
     const data = await response.json();
     
-    // ✅ Handle error response
     if (!response.ok) {
       throw new Error(data.error || 'Invalid or already used key');
     }
- 
-    // ✅ Success - show success message
+
     showKeyStatus('success', '✅ ' + data.message);
     
-    // ✅ Update after short delay
     setTimeout(async () => {
-      const planType = data.plan;
-      
-      // ✅ Update global subscription state
-      window.userSubscription = planType;
+      window.userSubscription = data.plan;
       updateSubscriptionUI();
-      
-      // ✅ Save to localStorage
-      localStorage.setItem(`subscription_${window.currentUser.uid}`, planType);
-      localStorage.setItem(`subscription_key_${window.currentUser.uid}`, fullKey);
-      localStorage.setItem(`subscription_date_${window.currentUser.uid}`, new Date().toISOString());
-      
-      // ✅ Close modal and show success
+      localStorage.setItem(`subscription_${window.currentUser.uid}`, data.plan);
       closeSubscriptionModal();
-      const planDisplay = planType.replace('plan_', '').toUpperCase();
-      showSuccessModal(`🎉 ${planDisplay} Plan Activated!\n✅ Valid for 40 days`);
+      showSuccessModal(`🎉 ${data.plan.replace('plan_', '').toUpperCase()} Plan Activated!\n✅ Valid for 40 days`);
       
-      // ✅ Reload page after delay
       setTimeout(() => {
         location.reload();
       }, 2000);
- 
     }, 1500);
- 
+    
   } catch (e) {
     showKeyStatus('err', '❌ ' + e.message);
     console.error('Validation error:', e);
