@@ -1810,9 +1810,15 @@ async function validateGumroadKey() {
     showKeyStatus('err', '❌ Please enter a license key');
     return;
   }
+  // ✅ FIX: Map prefix → plan name đúng
+const prefixToPlanMap = {
+  'STARTER-': 'plan_a',
+  'PRO-': 'plan_b',
+  'MASTER-': 'plan_c'
+};
 
   // ✅ Extract plan từ prefix
-  const planFromPrefix = prefix.replace('-', '').toLowerCase();
+  const expectedPlan = prefixToPlanMap[prefix];  // ← Ánh xạ trực tiếp
   const fullKey = prefix + gumroadKey;
 
   showKeyStatus('info', '<span class="spinner"></span> Validating key...');
@@ -1831,7 +1837,7 @@ async function validateGumroadKey() {
         license_key: fullKey,
         user_id: window.currentUser.uid,
         email: window.currentUser.email,
-        expected_plan: `plan_${planFromPrefix}`  // ✅ THÊM ĐÂY
+        expected_plan: expectedPlan  // ✅ THÊM ĐÂY
       })
     });
 
