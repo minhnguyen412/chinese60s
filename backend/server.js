@@ -610,7 +610,7 @@ app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res)
     // ✅ THÊM VALIDATION NÀY - Check plan khớp
     if (expected_plan && plan !== expected_plan) {
       return res.status(400).json({ 
-        error: `This key is for ${plan.replace('plan_', '').toUpperCase()} plan, not ${expected_plan.replace('plan_', '').toUpperCase()}` 
+        error: `This key is not for ${expected_plan.replace('plan_', '').toUpperCase()} plan` 
       });
     }
     
