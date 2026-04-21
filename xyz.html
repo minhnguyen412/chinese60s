@@ -1700,7 +1700,8 @@ function updateSubscriptionUI() {
 }
 
 function showSubscriptionModal() {
-  updateSubscriptionUI(); // ✅ Cập nhật UI trước khi hiển thị
+  updateSubscriptionUI();  // ✅ THÊM DÒA NÀY
+  switchSubTab('plans');   // ✅ RESET VỀ TAB PLANS
   document.getElementById('subscriptionModal').classList.add('show');
   document.body.style.overflow = 'hidden';
 }
@@ -2497,11 +2498,15 @@ window.addEventListener('beforeunload', saveState);
   </div>
   <!-- ✅ THÊM DÒNG NÀY -->
     <div id="keyStatus" class="status"></div>
-    
-    <button class="btn btn-primary btn-full" onclick="validateGumroadKey()" style="margin-top:16px;">
-      Activate Key
-    </button>
-
+      
+      <div class="sub-buttons">
+        <button class="btn btn-sub-primary" onclick="validateGumroadKey()">
+          ✅ Activate Key
+        </button>
+        <button class="btn btn-sub-secondary" onclick="switchSubTab('plans')">
+          ← Back to Plans
+        </button>
+      </div>
   </div>
 </div>
 </body>
