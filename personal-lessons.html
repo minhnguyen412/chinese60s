@@ -1837,19 +1837,30 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
     let recognition = null;
     let finalTranscript = '';
 
-    playBtn.addEventListener('click', () => {
-        if (recordedAudio && !recordedAudio.paused) {
+    playBtn.addEventListener('click', async () => {
+    if (!recordedAudio) return;
+    
+    try {
+        if (!recordedAudio.paused) {
             recordedAudio.pause();
             recordedAudio.currentTime = 0;
             playBtn.classList.remove('playing');
             return;
         }
-        if (recordedAudio) {
-            recordedAudio.currentTime = 0;
-            recordedAudio.play();
-            playBtn.classList.add('playing');
-        }
-    });
+        
+        recordedAudio.currentTime = 0;
+        await recordedAudio.play().catch(e => {
+            console.error('Play failed:', e);
+            status.textContent = 'Playback failed: ' + e.message;
+            status.className = 'rec-status error';
+        });
+        playBtn.classList.add('playing');
+    } catch (err) {
+        console.error('Audio error:', err);
+        status.textContent = 'Audio error: ' + err.message;
+        status.className = 'rec-status error';
+    }
+});
 
     downloadBtn.addEventListener('click', () => {
         if (!recordingBlob) return;
