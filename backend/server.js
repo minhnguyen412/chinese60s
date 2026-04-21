@@ -543,7 +543,7 @@ app.post('/api/validate-worksheet-key', verifyFirebaseToken, async (req, res) =>
     // Hoặc kiểm tra trong database có key này hay không
     
     // Option 1: Simple check (key pattern)
-    if (!license_key.match(/^(STARTER|PRO|MASTER)-[A-Z0-9]{20,}$/i)) {
+    if (!license_key || license_key.trim().length < 5) {
       return res.status(400).json({ error: 'Invalid key format' });
     }
 
