@@ -1662,7 +1662,45 @@ async function getTotalItemCount() {
 
 
 
+function updateSubscriptionUI() {
+  const currentPlan = window.userSubscription || 'free';
+  
+  // Update header badge
+  const subBadge = currentPlan !== 'free' ? ' ⭐ ' + currentPlan.replace('plan_', '').toUpperCase() : '';
+  if (window.currentUser) {
+    document.getElementById('userDisplay').textContent = `👤 ${window.currentUser.displayName || 'User'}${subBadge}`;
+  }
+  
+  // Hide all current plan buttons first
+  document.querySelectorAll('.btn-plan-current').forEach(btn => {
+    btn.style.display = 'none';
+  });
+  document.querySelectorAll('.btn-plan-upgrade, .btn-plan-activate').forEach(btn => {
+    btn.style.display = 'inline-flex';
+  });
+  
+  // Show current plan button only for current plan
+  const planMap = {
+    'free': 0,      // plan-free
+    'plan_a': 1,    // plan-a
+    'plan_b': 2,    // plan-b
+    'plan_c': 3     // plan-c
+  };
+  
+  const cardIndex = planMap[currentPlan] ?? 0;
+  const cards = document.querySelectorAll('.plan-card');
+  
+  if (cards[cardIndex]) {
+    const currentBtn = cards[cardIndex].querySelector('.btn-plan-current');
+    const otherBtns = cards[cardIndex].querySelectorAll('.btn-plan-upgrade, .btn-plan-activate');
+    
+    if (currentBtn) currentBtn.style.display = 'inline-flex';
+    otherBtns.forEach(btn => btn.style.display = 'none');
+  }
+}
+
 function showSubscriptionModal() {
+  updateSubscriptionUI(); // ✅ Cập nhật UI trước khi hiển thị
   document.getElementById('subscriptionModal').classList.add('show');
   document.body.style.overflow = 'hidden';
 }
@@ -1757,6 +1795,7 @@ async function validateGumroadKey() {
       if (!updateRes.ok) throw new Error('Failed to update subscription');
 
       window.userSubscription = planType;
+      updateSubscriptionUI(); // ✅ Cập nhật UI ngay
       localStorage.setItem(`subscription_${window.currentUser.uid}`, planType);
       localStorage.setItem(`subscription_key_${window.currentUser.uid}`, fullKey);  // ✅ Lưu key + prefix
       localStorage.setItem(`subscription_date_${window.currentUser.uid}`, new Date().toISOString());
