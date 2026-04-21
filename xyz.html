@@ -1665,37 +1665,54 @@ async function getTotalItemCount() {
 function updateSubscriptionUI() {
   const currentPlan = window.userSubscription || 'free';
   
+  // ✅ Debug
+  console.log('Current subscription:', currentPlan);
+  
   // Update header badge
   const subBadge = currentPlan !== 'free' ? ' ⭐ ' + currentPlan.replace('plan_', '').toUpperCase() : '';
   if (window.currentUser) {
     document.getElementById('userDisplay').textContent = `👤 ${window.currentUser.displayName || 'User'}${subBadge}`;
   }
   
-  // Hide all current plan buttons first
-  document.querySelectorAll('.btn-plan-current').forEach(btn => {
+  // ✅ FIX: Reset tất cả buttons
+  document.querySelectorAll('.btn-plan-current, .btn-plan-upgrade, .btn-plan-activate').forEach(btn => {
     btn.style.display = 'none';
   });
-  document.querySelectorAll('.btn-plan-upgrade, .btn-plan-activate').forEach(btn => {
+  
+  // ✅ Hiện upgrade/activate buttons ở tất cả plan
+  document.querySelectorAll('.plan-card:not(.plan-free) .btn-plan-upgrade').forEach(btn => {
+    btn.style.display = 'inline-flex';
+  });
+  document.querySelectorAll('.plan-card:not(.plan-free) .btn-plan-activate').forEach(btn => {
     btn.style.display = 'inline-flex';
   });
   
-  // Show current plan button only for current plan
+  // ✅ Map plan to card index
   const planMap = {
-    'free': 0,      // plan-free
-    'plan_a': 1,    // plan-a
-    'plan_b': 2,    // plan-b
-    'plan_c': 3     // plan-c
+    'free': 0,
+    'plan_a': 1,
+    'plan_b': 2,
+    'plan_c': 3
   };
   
   const cardIndex = planMap[currentPlan] ?? 0;
   const cards = document.querySelectorAll('.plan-card');
   
+  console.log('Card index:', cardIndex, 'Total cards:', cards.length);
+  
   if (cards[cardIndex]) {
-    const currentBtn = cards[cardIndex].querySelector('.btn-plan-current');
-    const otherBtns = cards[cardIndex].querySelectorAll('.btn-plan-upgrade, .btn-plan-activate');
+    // ✅ Ẩn nút upgrade/activate của current plan
+    const upgradeBtn = cards[cardIndex].querySelector('.btn-plan-upgrade');
+    const activateBtn = cards[cardIndex].querySelector('.btn-plan-activate');
+    if (upgradeBtn) upgradeBtn.style.display = 'none';
+    if (activateBtn) activateBtn.style.display = 'none';
     
-    if (currentBtn) currentBtn.style.display = 'inline-flex';
-    otherBtns.forEach(btn => btn.style.display = 'none');
+    // ✅ Hiện current plan button
+    const currentBtn = cards[cardIndex].querySelector('.btn-plan-current');
+    if (currentBtn) {
+      currentBtn.style.display = 'inline-flex';
+      console.log('Showing current plan button');
+    }
   }
 }
 
