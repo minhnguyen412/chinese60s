@@ -1788,10 +1788,37 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
     const overlay = document.createElement('div');
     overlay.className = 'rec-overlay';
     overlay.id = 'rec-overlay';
-    overlay.innerHTML = `...`; // keep as is
+    
+    // ✅ FULL HTML (không phải placeholder)
+    overlay.innerHTML = `
+        <div class="rec-popup" id="rec-popup">
+            <p class="rec-title">Pronunciation Practice</p>
+
+            <div class="rec-audio-wrap" id="rec-playback-wrap" style="display:none;">
+                <button class="rec-play-btn" id="rec-play-btn" title="Listen to your recording">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </button>
+                <span class="rec-audio-label">Your Recording</span>
+                <button class="rec-btn" id="rec-download-btn" style="flex:0;padding:6px 12px;font-size:12px;">⬇ Download</button>
+            </div>
+
+            <div class="rec-wave idle" id="rec-wave">
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <p class="rec-status" id="rec-status">Press 🎙 to start recording</p>
+
+            <div class="rec-result" id="rec-result"></div>
+
+            <div class="rec-actions">
+                <button class="rec-btn start" id="rec-btn-start">🎙 Record</button>
+                <button class="rec-btn stop"  id="rec-btn-stop">⏹ Stop</button>
+                <button class="rec-btn cls"   id="rec-btn-close">✕ Close</button>
+            </div>
+        </div>
+    `;
     document.body.appendChild(overlay);
 
-    // ✅ MOVE ALL VARIABLES TO OUTER SCOPE (không nằm trong startRec)
+    // ✅ NOW query selectors sẽ find được elements
     const wave      = overlay.querySelector('#rec-wave');
     const status    = overlay.querySelector('#rec-status');
     const resultBox = overlay.querySelector('#rec-result');
@@ -1805,7 +1832,6 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
     const playbackWrap = overlay.querySelector('#rec-playback-wrap');
     const downloadBtn = overlay.querySelector('#rec-download-btn');
 
-    // ✅ IMPORTANT: Declare mediaRecorder and recognition here
     let mediaRecorder = null;
     let recordingChunks = [];
     let recognition = null;
