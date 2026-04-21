@@ -1811,8 +1811,14 @@ async function validateGumroadKey() {
     return;
   }
 
-  // ✅ Extract plan từ prefix
-  const planFromPrefix = prefix.replace('-', '').toLowerCase();
+  // ✅ FIX: Map prefix → plan name
+  const prefixToPlanMap = {
+    'STARTER-': { plan: 'plan_a', name: 'STARTER' },
+    'PRO-': { plan: 'plan_b', name: 'PRO' },
+    'MASTER-': { plan: 'plan_c', name: 'MASTER' }
+  };
+  
+  const planInfo = prefixToPlanMap[prefix];
   const fullKey = prefix + gumroadKey;
 
   showKeyStatus('info', '<span class="spinner"></span> Validating key...');
@@ -1831,17 +1837,23 @@ async function validateGumroadKey() {
         license_key: fullKey,
         user_id: window.currentUser.uid,
         email: window.currentUser.email,
-        expected_plan: `plan_${planFromPrefix}`  // ✅ THÊM ĐÂY
+        expected_plan: planInfo.plan
       })
     });
 
     const data = await response.json();
     if (!response.ok) throw new Error(data.error || 'Invalid or already used key');
 
-    // ✅ THÊM VALIDATION NÀY - Check plan khớp
-if (data.plan !== `plan_${planFromPrefix}`) {
-  throw new Error(`❌ This key is not valid for the ${planFromPrefix.toUpperCase()} plan. Please use the correct key for this plan.`);
-}
+    // ✅ FIX: Compare đúng cách
+    if (data.plan !== planInfo.plan) {
+      const actualPlanMap = {
+        'plan_a': 'STARTER',
+        'plan_b': 'PRO',
+        'plan_c': 'MASTER'
+      };
+      const actualName = actualPlanMap[data.plan] || data.plan;
+      throw new Error(`❌ This key is for the ${actualName} plan, not ${planInfo.name}. Please enter the correct license key.`);
+    }
 
     showKeyStatus('success', '✅ ' + data.message);
     
@@ -1871,7 +1883,7 @@ if (data.plan !== `plan_${planFromPrefix}`) {
       localStorage.setItem(`subscription_date_${window.currentUser.uid}`, new Date().toISOString());
       
       closeSubscriptionModal();
-      showSuccessModal(`🎉 Subscription activated!\nPlan: ${planType.toUpperCase()}`);
+      showSuccessModal(`🎉 Subscription activated!\nPlan: ${planInfo.name}`);
       location.reload();
     }, 1500);
 
