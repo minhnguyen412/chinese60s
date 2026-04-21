@@ -871,12 +871,6 @@
   }
 }
 
-.plan-badge.current {
-  display: inline-block; /* Chỉ hiện badge có class .current */
-}
-.plan-free .plan-badge {
-  display: inline-block; /* Badge của free plan luôn hiện */
-}
   </style>
 </head>
 <body>
@@ -1713,14 +1707,13 @@ function updateSubscriptionUI() {
   }
 }
 function showSubscriptionModal() {
-  const currentPlan = window.userSubscription || 'free';
-  
-  // ✅ Xóa class .current từ tất cả badges
-  document.querySelectorAll('.plan-badge.current').forEach(badge => {
-    badge.classList.remove('current');
+  // ✅ Ẩn tất cả "Current Plan" badges
+  document.querySelectorAll('.plan-badge:contains("Current Plan")').forEach(badge => {
+    badge.style.display = 'none';
   });
   
-  // ✅ Thêm class .current vào badge của plan hiện tại
+  // ✅ Hiện "Current Plan" badge cho plan hiện tại
+  const currentPlan = window.userSubscription || 'free';
   const planBadgeMap = {
     'free': '.plan-free .plan-badge',
     'plan_a': '.plan-a .plan-badge',
@@ -1729,21 +1722,20 @@ function showSubscriptionModal() {
   };
   
   const badgeSelector = planBadgeMap[currentPlan];
-  const badge = document.querySelector(badgeSelector);
-  if (badge) {
-    badge.classList.add('current');
-    if (currentPlan !== 'free') {
-      badge.textContent = 'Current Plan';
+  if (badgeSelector) {
+    const badge = document.querySelector(badgeSelector);
+    if (badge && badge.textContent.includes('Current')) {
+      badge.style.display = 'inline-block';
     }
   }
   
+  // ✅ Update buttons
   updateSubscriptionUI();
   switchSubTab('plans');
   
   document.getElementById('subscriptionModal').classList.add('show');
   document.body.style.overflow = 'hidden';
 }
-
 function closeSubscriptionModal() {
   document.getElementById('subscriptionModal').classList.remove('show');
   document.body.style.overflow = 'auto';
