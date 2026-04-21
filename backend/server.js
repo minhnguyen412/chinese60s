@@ -598,11 +598,11 @@ app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res)
     // ✅ Extract plan từ key prefix
     let plan = 'free';
     if (trimmedKey.startsWith('STARTER-')) {
-      plan = 'plan_a';
+      plan = 'plan_starter';
     } else if (trimmedKey.startsWith('PRO-')) {
-      plan = 'plan_b';
+      plan = 'plan_pro';
     } else if (trimmedKey.startsWith('MASTER-')) {
-      plan = 'plan_c';
+      plan = 'plan_master';
     } else {
       return res.status(400).json({ error: 'Invalid key format. Must start with STARTER-, PRO-, or MASTER-' });
     }
