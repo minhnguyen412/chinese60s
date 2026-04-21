@@ -609,7 +609,7 @@ app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res)
 
     // Activate subscription
     const expiresAt = new Date();
-    expiresAt.setDate(expiresAt.getDate() + 40); // 40 days
+    expiresAt.setDate(expiresAt.getDate() + 40);
 
     const { data, error } = await supabase
       .from('user_subscriptions')
@@ -617,7 +617,7 @@ app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res)
         {
           user_id: uid,
           plan: plan,
-          license_key: trimmedKey,  // ✅ Lưu key
+          license_key: trimmedKey,  // ✅ Lưu key + prefix
           activated_at: new Date().toISOString(),
           expires_at: expiresAt.toISOString(),
           updated_at: new Date().toISOString()
