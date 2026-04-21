@@ -1805,7 +1805,7 @@ async function validateGumroadKey() {
 
     // ✅ THÊM VALIDATION NÀY - Check plan khớp
     if (data.plan !== `plan_${planFromPrefix}`) {
-      throw new Error(`❌ This key is for ${data.plan.toUpperCase()} plan, not ${planFromPrefix.toUpperCase()}`);
+      throw new Error(`❌ This key is not for ${planFromPrefix.toUpperCase()} plan`);
     }
 
     showKeyStatus('success', '✅ ' + data.message);
