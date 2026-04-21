@@ -604,9 +604,9 @@ app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res)
     
     // Map product_id → plan
     const productToPlanMap = {
-      'lesson_builder_tool_starter': 'plan_a',
-      'lesson_builder_tool_pro': 'plan_b',
-      'lesson_builder_tool_master': 'plan_c',
+      '_DYSbAhcnplnuvbITAaS4w==': 'plan_a',
+      'uDJUEtaZDQO6RMx2NKnUHQ==': 'plan_b',
+      '37sC-ZSp7TXkVHJGkOdJgg==': 'plan_c',
     };
     
     const plan = productToPlanMap[product_id];
