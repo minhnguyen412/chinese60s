@@ -401,7 +401,7 @@ app.get('/api/worksheet-print-count', verifyFirebaseToken, async (req, res) => {
       if (now > expireDate) {
         // Auto downgrade
         await supabase
-          .from('user_subscriptions')
+          .from('worksheet_subscriptions')
           .update({ plan: 'free' })
           .eq('user_id', uid);
         
@@ -580,6 +580,62 @@ app.post('/api/validate-worksheet-key', verifyFirebaseToken, async (req, res) =>
 
   } catch (error) {
     console.error('[validate-worksheet-key] Error:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+// Validate Gumroad key cho Personal Lessons
+app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res) => {
+  try {
+    const uid = req.user.uid;
+    const { license_key } = req.body;
+
+    if (!license_key) {
+      return res.status(400).json({ error: 'Missing license key' });
+    }
+
+    // ✅ Accept any key ≥ 5 characters
+    if (license_key.trim().length < 5) {
+      return res.status(400).json({ error: 'Invalid key format' });
+    }
+
+    // Determine plan based on key prefix
+    let plan = 'plan_a'; // default Starter
+    if (license_key.includes('PRO') || license_key.includes('pro')) {
+      plan = 'plan_b';
+    } else if (license_key.includes('MASTER') || license_key.includes('master')) {
+      plan = 'plan_c';
+    }
+
+    // Activate subscription
+    const expiresAt = new Date();
+    expiresAt.setDate(expiresAt.getDate() + 40); // 40 days
+
+    const { data, error } = await supabase
+      .from('user_subscriptions')
+      .upsert([
+        {
+          user_id: uid,
+          plan: plan,
+          activated_at: new Date().toISOString(),
+          expires_at: expiresAt.toISOString(),
+          license_key: license_key.trim(),
+          updated_at: new Date().toISOString()
+        }
+      ], { onConflict: 'user_id' })
+      .select();
+
+    if (error) throw error;
+
+    res.json({
+      success: true,
+      plan: plan,
+      message: `Subscription activated for 40 days (${plan.replace('plan_', '').toUpperCase()})`,
+      expiresAt: expiresAt.toISOString(),
+      data: data[0]
+    });
+
+  } catch (error) {
+    console.error('[validate-subscription-key] Error:', error);
     res.status(500).json({ error: error.message });
   }
 });
