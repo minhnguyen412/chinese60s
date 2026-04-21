@@ -1664,19 +1664,24 @@ async function getTotalItemCount() {
 
 function updateSubscriptionUI() {
   const currentPlan = window.userSubscription || 'free';
-  console.log('Updating UI with plan:', currentPlan);
   
-  // ✅ Force ẩn tất cả buttons
-  document.querySelectorAll('[class*="btn-plan"]').forEach(btn => {
+  // Update header
+  const subBadge = currentPlan !== 'free' ? ' ⭐ ' + currentPlan.replace('plan_', '').toUpperCase() : '';
+  if (window.currentUser) {
+    document.getElementById('userDisplay').textContent = `👤 ${window.currentUser.displayName || 'User'}${subBadge}`;
+  }
+  
+  // ✅ Ẩn tất cả current plan buttons
+  document.querySelectorAll('.btn-plan-current').forEach(btn => {
     btn.style.display = 'none';
   });
   
   // ✅ Hiện lại upgrade/activate buttons
-  document.querySelectorAll('.plan-card .btn-plan-upgrade, .plan-card .btn-plan-activate').forEach(btn => {
+  document.querySelectorAll('.btn-plan-upgrade, .btn-plan-activate').forEach(btn => {
     btn.style.display = 'inline-flex';
   });
   
-  // ✅ Tìm plan card theo class
+  // ✅ Tìm card theo class
   const planClassMap = {
     'free': '.plan-free',
     'plan_a': '.plan-a',
@@ -1688,7 +1693,7 @@ function updateSubscriptionUI() {
   if (planClass) {
     const currentCard = document.querySelector(planClass);
     if (currentCard) {
-      // Ẩn upgrade/activate
+      // Ẩn upgrade/activate buttons
       const upgradeBtn = currentCard.querySelector('.btn-plan-upgrade');
       const activateBtn = currentCard.querySelector('.btn-plan-activate');
       if (upgradeBtn) upgradeBtn.style.display = 'none';
@@ -1696,17 +1701,38 @@ function updateSubscriptionUI() {
       
       // Hiện current plan button
       const currentBtn = currentCard.querySelector('.btn-plan-current');
-      if (currentBtn) {
-        currentBtn.style.display = 'inline-flex';
-        console.log('✅ Updated current plan button for', currentPlan);
-      }
+      if (currentBtn) currentBtn.style.display = 'inline-flex';
     }
   }
 }
-
 function showSubscriptionModal() {
-  updateSubscriptionUI();  // ✅ THÊM DÒA NÀY
-  switchSubTab('plans');   // ✅ RESET VỀ TAB PLANS
+  // ✅ Reset tất cả badges trước
+  document.querySelectorAll('.plan-badge').forEach(badge => {
+    badge.textContent = '';
+    badge.style.opacity = '0.5';
+  });
+  
+  // ✅ Set đúng badge cho plan hiện tại
+  const currentPlan = window.userSubscription || 'free';
+  const planBadgeMap = {
+    'free': '.plan-free .plan-badge',
+    'plan_a': '.plan-a .plan-badge',
+    'plan_b': '.plan-b .plan-badge',
+    'plan_c': '.plan-c .plan-badge'
+  };
+  
+  const badgeSelector = planBadgeMap[currentPlan];
+  if (badgeSelector) {
+    const badge = document.querySelector(badgeSelector);
+    if (badge) {
+      badge.textContent = 'Current Plan';
+      badge.style.opacity = '1';
+    }
+  }
+  
+  // ✅ Update buttons
+  updateSubscriptionUI();
+  
   document.getElementById('subscriptionModal').classList.add('show');
   document.body.style.overflow = 'hidden';
 }
