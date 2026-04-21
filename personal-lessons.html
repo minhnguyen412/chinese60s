@@ -1788,34 +1788,10 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
     const overlay = document.createElement('div');
     overlay.className = 'rec-overlay';
     overlay.id = 'rec-overlay';
-    overlay.innerHTML = `
-        <div class="rec-popup" id="rec-popup">
-            <p class="rec-title">Pronunciation Practice</p>
-
-            <div class="rec-audio-wrap" id="rec-playback-wrap" style="display:none;">
-    <button class="rec-play-btn" id="rec-play-btn" title="Listen to your recording">
-        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-    </button>
-    <span class="rec-audio-label">Your Recording</span>
-    <button class="rec-btn" id="rec-download-btn" style="flex:0;padding:6px 12px;font-size:12px;">⬇ Download</button>
-</div>
-
-            <div class="rec-wave idle" id="rec-wave">
-                <span></span><span></span><span></span><span></span><span></span>
-            </div>
-            <p class="rec-status" id="rec-status">Press 🎙 to start recording</p>
-
-            <div class="rec-result" id="rec-result"></div>
-
-            <div class="rec-actions">
-                <button class="rec-btn start" id="rec-btn-start">🎙 Record</button>
-                <button class="rec-btn stop"  id="rec-btn-stop">⏹ Stop</button>
-                <button class="rec-btn cls"   id="rec-btn-close">✕ Close</button>
-            </div>
-        </div>
-    `;
+    overlay.innerHTML = `...`; // keep as is
     document.body.appendChild(overlay);
 
+    // ✅ MOVE ALL VARIABLES TO OUTER SCOPE (không nằm trong startRec)
     const wave      = overlay.querySelector('#rec-wave');
     const status    = overlay.querySelector('#rec-status');
     const resultBox = overlay.querySelector('#rec-result');
@@ -1824,38 +1800,40 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
     const btnClose  = overlay.querySelector('#rec-btn-close');
     const playBtn   = overlay.querySelector('#rec-play-btn');
 
-    // --- Audio playback (recording) ---
-let recordedAudio = null;
-let recordingBlob = null;
-const playbackWrap = overlay.querySelector('#rec-playback-wrap');
-const downloadBtn = overlay.querySelector('#rec-download-btn');
+    let recordedAudio = null;
+    let recordingBlob = null;
+    const playbackWrap = overlay.querySelector('#rec-playback-wrap');
+    const downloadBtn = overlay.querySelector('#rec-download-btn');
 
-playBtn.addEventListener('click', () => {
-    if (recordedAudio && !recordedAudio.paused) {
-        recordedAudio.pause();
-        recordedAudio.currentTime = 0;
-        playBtn.classList.remove('playing');
-        return;
-    }
-    if (recordedAudio) {
-        recordedAudio.currentTime = 0;
-        recordedAudio.play();
-        playBtn.classList.add('playing');
-    }
-});
-
-downloadBtn.addEventListener('click', () => {
-    if (!recordingBlob) return;
-    const url = URL.createObjectURL(recordingBlob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `recording-${Date.now()}.wav`;
-    a.click();
-    URL.revokeObjectURL(url);
-});
-
-    // --- Recording logic ---
+    // ✅ IMPORTANT: Declare mediaRecorder and recognition here
+    let mediaRecorder = null;
+    let recordingChunks = [];
     let recognition = null;
+    let finalTranscript = '';
+
+    playBtn.addEventListener('click', () => {
+        if (recordedAudio && !recordedAudio.paused) {
+            recordedAudio.pause();
+            recordedAudio.currentTime = 0;
+            playBtn.classList.remove('playing');
+            return;
+        }
+        if (recordedAudio) {
+            recordedAudio.currentTime = 0;
+            recordedAudio.play();
+            playBtn.classList.add('playing');
+        }
+    });
+
+    downloadBtn.addEventListener('click', () => {
+        if (!recordingBlob) return;
+        const url = URL.createObjectURL(recordingBlob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `recording-${Date.now()}.wav`;
+        a.click();
+        URL.revokeObjectURL(url);
+    });
 
     function setListening(on) {
         wave.classList.toggle('idle', !on);
@@ -1875,7 +1853,6 @@ downloadBtn.addEventListener('click', () => {
 
     function showResult(transcript) {
         const said = transcript.trim() || '<em style="opacity:.4">— nothing detected —</em>';
-
         resultBox.className     = 'rec-result neutral';
         resultBox.style.display = 'flex';
         resultBox.innerHTML = `
@@ -1888,120 +1865,110 @@ downloadBtn.addEventListener('click', () => {
                 <span class="rec-result-text rec-original-text">${correctSentence}</span>
             </div>
         `;
-
         status.textContent = '✅ Done! Try again or close.';
         status.className   = 'rec-status done';
     }
 
     function startRec() {
-    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-    if (!SR) {
-        status.textContent = 'Your browser does not support speech recognition.';
-        status.className   = 'rec-status error';
-        return;
-    }
+        const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (!SR) {
+            status.textContent = 'Your browser does not support speech recognition.';
+            status.className   = 'rec-status error';
+            return;
+        }
 
-    if (recognition) {
-        try { recognition.abort(); } catch(e) {}
-        recognition = null;
-    }
+        if (recognition) {
+            try { recognition.abort(); } catch(e) {}
+            recognition = null;
+        }
 
-    // ✅ SETUP MEDIA RECORDING FIRST (trước khi start)
-    let mediaRecorder = null;
-    let recordingChunks = [];
+        recordingChunks = [];
+        finalTranscript = '';
 
-    navigator.mediaDevices.getUserMedia({ audio: true })
-        .then(stream => {
-            mediaRecorder = new MediaRecorder(stream);
-            recordingChunks = [];
+        navigator.mediaDevices.getUserMedia({ audio: true })
+            .then(stream => {
+                mediaRecorder = new MediaRecorder(stream);
 
-            mediaRecorder.ondataavailable = (e) => {
-                recordingChunks.push(e.data);
-            };
-
-            mediaRecorder.onstop = () => {
-                recordingBlob = new Blob(recordingChunks, { type: 'audio/wav' });
-                const url = URL.createObjectURL(recordingBlob);
-                recordedAudio = new Audio(url);
-                recordedAudio.onended = () => playBtn.classList.remove('playing');
-                playbackWrap.style.display = 'flex';
-            };
-
-            // ✅ START MEDIA RECORDING
-            mediaRecorder.start();
-
-            // ✅ SETUP SPEECH RECOGNITION (sau khi media recording đã start)
-            recognition = new SR();
-            recognition.lang            = 'zh-CN';
-            recognition.interimResults  = true;
-            recognition.maxAlternatives = 1;
-            recognition.continuous      = true;
-
-            resultBox.style.display = 'none';
-            let finalTranscript = '';
-
-            recognition.onresult = (e) => {
-                finalTranscript = '';
-                for (let i = 0; i < e.results.length; i++) {
-                    if (e.results[i].isFinal) {
-                        finalTranscript += e.results[i][0].transcript;
-                    }
-                }
-                const interim = Array.from(e.results)
-                    .filter(r => !r.isFinal)
-                    .map(r => r[0].transcript).join('');
-                status.textContent = (finalTranscript + (interim ? ' ' + interim : '')) || '🔴 Listening...';
-                status.className   = 'rec-status listening';
-            };
-
-            recognition.onerror = (e) => {
-                if (e.error === 'aborted') return;
-                setListening(false);
-                const msgs = {
-                    'not-allowed'         : 'Microphone permission denied.',
-                    'no-speech'           : 'No speech detected. Try again.',
-                    'network'             : 'Network error. Try again.',
-                    'service-not-allowed' : 'Speech service not allowed.',
+                mediaRecorder.ondataavailable = (e) => {
+                    recordingChunks.push(e.data);
                 };
-                status.textContent = msgs[e.error] || `Error: ${e.error}`;
-                status.className   = 'rec-status error';
-            };
 
-            recognition.onend = () => {
-                setListening(false);
-                if (finalTranscript.trim()) {
-                    showResult(finalTranscript.trim());
-                    saveRecordingToFirestore({
-                        transcript:      finalTranscript.trim(),
-                        correctSentence: correctSentence,
-                        postId:          postId,
-                    });
-                } else if (!status.className.includes('error')) {
-                    status.textContent = 'No speech detected. Try again.';
+                mediaRecorder.onstop = () => {
+                    recordingBlob = new Blob(recordingChunks, { type: 'audio/wav' });
+                    const url = URL.createObjectURL(recordingBlob);
+                    recordedAudio = new Audio(url);
+                    recordedAudio.onended = () => playBtn.classList.remove('playing');
+                    playbackWrap.style.display = 'flex';
+                };
+
+                mediaRecorder.start();
+
+                recognition = new SR();
+                recognition.lang            = 'zh-CN';
+                recognition.interimResults  = true;
+                recognition.maxAlternatives = 1;
+                recognition.continuous      = true;
+
+                resultBox.style.display = 'none';
+
+                recognition.onresult = (e) => {
+                    finalTranscript = '';
+                    for (let i = 0; i < e.results.length; i++) {
+                        if (e.results[i].isFinal) {
+                            finalTranscript += e.results[i][0].transcript;
+                        }
+                    }
+                    const interim = Array.from(e.results)
+                        .filter(r => !r.isFinal)
+                        .map(r => r[0].transcript).join('');
+                    status.textContent = (finalTranscript + (interim ? ' ' + interim : '')) || '🔴 Listening...';
+                    status.className   = 'rec-status listening';
+                };
+
+                recognition.onerror = (e) => {
+                    if (e.error === 'aborted') return;
+                    setListening(false);
+                    const msgs = {
+                        'not-allowed'         : 'Microphone permission denied.',
+                        'no-speech'           : 'No speech detected. Try again.',
+                        'network'             : 'Network error. Try again.',
+                        'service-not-allowed' : 'Speech service not allowed.',
+                    };
+                    status.textContent = msgs[e.error] || `Error: ${e.error}`;
                     status.className   = 'rec-status error';
-                }
-            };
+                };
 
-            // ✅ START SPEECH RECOGNITION
-            recognition.start();
-            setListening(true);
-        })
-        .catch(err => {
-            status.textContent = 'Microphone access denied: ' + err.message;
-            status.className = 'rec-status error';
-        });
-}
+                recognition.onend = () => {
+                    setListening(false);
+                    if (finalTranscript.trim()) {
+                        showResult(finalTranscript.trim());
+                        window.saveRecording(postId, finalTranscript.trim(), correctSentence);
+                    } else if (!status.className.includes('error')) {
+                        status.textContent = 'No speech detected. Try again.';
+                        status.className   = 'rec-status error';
+                    }
+                };
+
+                recognition.start();
+                setListening(true);
+            })
+            .catch(err => {
+                status.textContent = 'Microphone access denied: ' + err.message;
+                status.className = 'rec-status error';
+            });
+    }
 
     function stopRec() {
-    if (recognition) { try { recognition.stop(); } catch (e) {} }
-    if (mediaRecorder && mediaRecorder.state !== 'inactive') {
-        mediaRecorder.stop();
+        if (recognition) { 
+            try { recognition.stop(); } catch (e) {} 
+        }
+        if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+            mediaRecorder.stop();
+        }
     }
-}
 
     function closePopup() {
         stopRec();
-        if (sampleAudio) { sampleAudio.pause(); sampleAudio = null; }
         overlay.remove();
     }
 
@@ -2010,7 +1977,6 @@ downloadBtn.addEventListener('click', () => {
     btnClose.addEventListener('click', closePopup);
     overlay.addEventListener('click', (e) => { if (e.target === overlay) closePopup(); });
 }
-
 // ============================================================
 // MAIN: loadPosts
 // ============================================================
