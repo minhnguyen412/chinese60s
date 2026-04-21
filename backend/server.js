@@ -587,65 +587,64 @@ app.post('/api/validate-worksheet-key', verifyFirebaseToken, async (req, res) =>
 app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res) => {
   try {
     const uid = req.user.uid;
-    const { license_key, product_id } = req.body;  // ✅ LẤY product_id
+    const { license_key, product_id } = req.body;
     
     if (!license_key) {
       return res.status(400).json({ error: 'Missing license key' });
     }
     
-    // ✅ THÊM: Xác nhận product_id không null
     if (!product_id) {
       return res.status(400).json({ error: 'Product ID missing' });
     }
     
-    const trimmedKey = license_key.trim().toUpperCase();
-    
-    // ═══ STEP 1: Extract plan từ key prefix ═══
-    let extractedPlan = null;
-    
-    if (trimmedKey.startsWith('STARTER-')) {
-      extractedPlan = 'plan_a';
-    } else if (trimmedKey.startsWith('PRO-')) {
-      extractedPlan = 'plan_b';
-    } else if (trimmedKey.startsWith('MASTER-')) {
-      extractedPlan = 'plan_c';
-    } else {
-      return res.status(400).json({ 
-        error: 'Invalid key format. Must start with STARTER-, PRO-, or MASTER-' 
-      });
-    }
-    
-    // ═══ STEP 2: Xác nhận Product ID khớp với Plan ═══
-    const planToProductMap = {
-      'plan_a': 'lesson_builder_tool_starter',  // Thay bằng ID thật
-      'plan_b': 'lesson_builder_tool_pro',
-      'plan_c': 'lesson_builder_tool_master',
+    // ═══ STEP 1: Map product_id → plan ═══
+    const productToPlanMap = {
+      'lesson_builder_tool_starter': 'plan_a',
+      'lesson_builder_tool_pro': 'plan_b',
+      'lesson_builder_tool_master': 'plan_c',
     };
     
-    const expectedProductId = planToProductMap[extractedPlan];
+    const plan = productToPlanMap[product_id];
     
-    // ✅ KIỂM TRA: Product ID có khớp không
-    if (product_id !== expectedProductId) {
-      return res.status(400).json({
-        error: `❌ This key doesn't match the selected plan. Please use the correct key or select the right plan.`,
-        receivedProductId: product_id,
-        expectedProductId: expectedProductId
+    if (!plan) {
+      return res.status(400).json({ 
+        error: 'Invalid product ID' 
       });
     }
     
-    // ═══ STEP 3: Verify với Gumroad API ═══
-    // ✅ CÓ THỂ THÊM: Gọi Gumroad API với product_id + license_key
-    // const gumroadRes = await fetch('https://api.gumroad.com/v2/licenses/verify', {
-    //   method: 'POST',
-    //   headers: { 'Authorization': `Bearer ${process.env.GUMROAD_TOKEN}` },
-    //   body: JSON.stringify({ product_id, license_key: trimmedKey })
-    // });
-    // const gumroadData = await gumroadRes.json();
-    // if (!gumroadData.success) {
-    //   return res.status(400).json({ error: 'Invalid key on Gumroad' });
-    // }
+    // ═══ STEP 2: (OPTIONAL) Verify với Gumroad API ═══
+    // Gọi Gumroad API để check:
+    // - License key này có hợp lệ không?
+    // - Có thuộc product này không?
+    // - Đã được dùng chưa?
     
-    // ═══ STEP 4: Activate subscription ═══
+    try {
+      const gumroadRes = await fetch('https://api.gumroad.com/v2/licenses/verify', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${process.env.GUMROAD_TOKEN}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          product_id: product_id,
+          license_key: license_key
+        })
+      });
+      
+      const gumroadData = await gumroadRes.json();
+      
+      if (!gumroadData.success) {
+        return res.status(400).json({ 
+          error: '❌ Invalid license key or already used' 
+        });
+      }
+    } catch (gumroadErr) {
+      console.warn('Gumroad API verification failed (optional):', gumroadErr.message);
+      // Nếu Gumroad API down, có thể tiếp tục hoặc từ chối
+      // Tạm thời cho phép tiếp tục
+    }
+    
+    // ═══ STEP 3: Activate subscription ═══
     const expiresAt = new Date();
     expiresAt.setDate(expiresAt.getDate() + 40);
     
@@ -654,9 +653,9 @@ app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res)
       .upsert([
         {
           user_id: uid,
-          plan: extractedPlan,
-          product_id: product_id,  // ✅ LƯU PRODUCT ID
-          license_key: trimmedKey,
+          plan: plan,  // ✅ LẤY TỪEVOLUTION PRODUCT_ID
+          product_id: product_id,
+          license_key: license_key,
           activated_at: new Date().toISOString(),
           expires_at: expiresAt.toISOString(),
           updated_at: new Date().toISOString()
@@ -666,12 +665,12 @@ app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res)
     
     if (error) throw error;
     
-    const planDisplayName = extractedPlan.replace('plan_', '').toUpperCase();
+    const planDisplayName = plan.replace('plan_', '').toUpperCase();
     
     res.json({
       success: true,
-      plan: extractedPlan,
-      product_id: product_id,  // ✅ TRẢ LẠI PRODUCT ID
+      plan: plan,
+      product_id: product_id,
       message: `✅ ${planDisplayName} subscription activated for 40 days`,
       expiresAt: expiresAt.toISOString(),
       data: data[0]
