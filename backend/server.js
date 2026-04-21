@@ -593,17 +593,18 @@ app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res)
       return res.status(400).json({ error: 'Missing license key' });
     }
 
-    // ✅ Accept any key ≥ 5 characters
-    if (license_key.trim().length < 5) {
-      return res.status(400).json({ error: 'Invalid key format' });
-    }
+    const trimmedKey = license_key.trim().toUpperCase();
 
-    // Determine plan based on key prefix
-    let plan = 'plan_a'; // default Starter
-    if (license_key.includes('PRO') || license_key.includes('pro')) {
+    // ✅ Extract plan từ key prefix
+    let plan = 'free';
+    if (trimmedKey.startsWith('STARTER-')) {
+      plan = 'plan_a';
+    } else if (trimmedKey.startsWith('PRO-')) {
       plan = 'plan_b';
-    } else if (license_key.includes('MASTER') || license_key.includes('master')) {
+    } else if (trimmedKey.startsWith('MASTER-')) {
       plan = 'plan_c';
+    } else {
+      return res.status(400).json({ error: 'Invalid key format. Must start with STARTER-, PRO-, or MASTER-' });
     }
 
     // Activate subscription
@@ -616,9 +617,9 @@ app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res)
         {
           user_id: uid,
           plan: plan,
+          license_key: trimmedKey,  // ✅ Lưu key
           activated_at: new Date().toISOString(),
           expires_at: expiresAt.toISOString(),
-          license_key: license_key.trim(),
           updated_at: new Date().toISOString()
         }
       ], { onConflict: 'user_id' })
