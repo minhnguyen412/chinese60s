@@ -589,18 +589,11 @@ app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res)
     const uid = req.user.uid;
     const { license_key, product_id } = req.body;
     
-    console.log('🔍 [validate-subscription-key] Received:');
-    console.log('   license_key:', license_key);
-    console.log('   product_id:', product_id);
-    console.log('   uid:', uid);
-    
-    if (!license_key) {
-      return res.status(400).json({ error: 'Missing license key' });
+    if (!license_key || !product_id) {
+      return res.status(400).json({ error: 'Missing required fields' });
     }
     
-    if (!product_id) {
-      return res.status(400).json({ error: 'Product ID missing' });
-    }
+    console.log('🔍 [validate-subscription-key]', { uid, license_key, product_id });
     
     // Map product_id → plan
     const productToPlanMap = {
@@ -611,17 +604,42 @@ app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res)
     
     const plan = productToPlanMap[product_id];
     
-    console.log('📊 Plan mapped:', plan);
-    
     if (!plan) {
-      console.error('❌ Product ID not found in map:', product_id);
-      return res.status(400).json({ 
-        error: 'Invalid product ID: ' + product_id 
+      return res.status(400).json({ error: 'Invalid product ID' });
+    }
+    
+    // ═══ STEP 1: CHECK XEM KEY ĐÃ ĐƯỢC DÙNG TRƯỚC ĐÓ KHÔNG ═══
+    const { data: existingKey } = await supabase
+      .from('license_key_tracking')
+      .select('*')
+      .eq('license_key', license_key)
+      .eq('product_id', product_id)
+      .maybeSingle();
+    
+    if (existingKey) {
+      // Key đã được dùng trước đó
+      console.log('⚠️ Key already used:', {
+        used_by: existingKey.user_id,
+        activated_at: existingKey.activated_at,
+        expires_at: existingKey.expires_at
+      });
+      
+      const expiresDate = new Date(existingKey.expires_at);
+      const now = new Date();
+      
+      // ❌ REJECT - Dù hết hạn hay còn hạn cũng không cho dùng lại
+      return res.status(400).json({
+        error: '❌ This license key has already been used. Please purchase a new key.',
+        details: {
+          message: 'Each license key can only be used once. If your subscription has expired, please purchase a new key from Gumroad.',
+          previousActivation: existingKey.activated_at,
+          previousExpiration: existingKey.expires_at
+        }
       });
     }
     
-    // ✅ VERIFY VỚI GUMROAD API
-    console.log('🔐 Verifying with Gumroad API...');
+    // ═══ STEP 2: VERIFY KEY LẦN ĐẦU TIÊN VỚI GUMROAD ═══
+    console.log('🔐 Verifying new key with Gumroad API...');
     
     try {
       const gumroadRes = await fetch('https://api.gumroad.com/v2/licenses/verify', {
@@ -638,52 +656,57 @@ app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res)
       
       const gumroadData = await gumroadRes.json();
       
-      console.log('📡 Gumroad Response Status:', gumroadRes.status);
-      console.log('📡 Gumroad Response Data:', JSON.stringify(gumroadData, null, 2));
-      
-      if (!gumroadRes.ok) {
-        console.error('❌ Gumroad API Error:');
-        console.error('   Status:', gumroadRes.status);
-        console.error('   Message:', gumroadData.message || gumroadData.error);
-        
-        // Gumroad trả chi tiết lỗi
-        const errorMsg = gumroadData.message || gumroadData.error || 'Invalid key';
-        return res.status(400).json({ 
-          error: '❌ ' + errorMsg,
-          gumroadError: true
-        });
-      }
+      console.log('📡 Gumroad Response:', {
+        status: gumroadRes.status,
+        success: gumroadData.success
+      });
       
       if (!gumroadData.success) {
-        console.error('❌ Key verification failed (success=false)');
-        return res.status(400).json({ 
-          error: '❌ Invalid or already used key',
-          gumroadError: true
+        console.error('❌ Gumroad validation failed:', gumroadData.message);
+        return res.status(400).json({
+          error: '❌ ' + (gumroadData.message || 'Invalid license key')
         });
       }
       
-      console.log('✅ Gumroad verification passed');
+      console.log('✅ Gumroad validation passed');
       
     } catch (gumroadErr) {
-      console.error('❌ Gumroad API Request Failed:');
-      console.error('   Error:', gumroadErr.message);
-      console.error('   Stack:', gumroadErr.stack);
-      
-      // Nếu Gumroad API fail (network issue, etc)
-      return res.status(500).json({ 
-        error: 'Failed to verify with Gumroad. Please try again later.',
-        gumroadError: true,
-        details: gumroadErr.message
-      });
+      console.warn('⚠️ Gumroad API error:', gumroadErr.message);
+      // Nếu Gumroad API down, có thể tiếp tục hoặc reject
+      // Hiện tại: cho qua
     }
     
-    // ✅ ACTIVATE SUBSCRIPTION
-    console.log('💾 Activating subscription...');
-    
+    // ═══ STEP 3: ACTIVATE SUBSCRIPTION ═══
     const expiresAt = new Date();
     expiresAt.setDate(expiresAt.getDate() + 40);
     
-    const { data, error } = await supabase
+    console.log('💾 Activating subscription...');
+    
+    // INSERT vào license_key_tracking (tracking usage)
+    const { data: trackingData, error: trackingError } = await supabase
+      .from('license_key_tracking')
+      .insert([
+        {
+          product_id: product_id,
+          license_key: license_key,
+          user_id: uid,
+          plan: plan,
+          activated_at: new Date().toISOString(),
+          expires_at: expiresAt.toISOString()
+        }
+      ])
+      .select();
+    
+    if (trackingError) {
+      // Nếu insert tracking fail → reject
+      console.error('❌ Failed to track license key:', trackingError);
+      return res.status(400).json({
+        error: '❌ Failed to activate license. Please try again.'
+      });
+    }
+    
+    // UPSERT vào user_subscriptions (current subscription)
+    const { data: subData, error: subError } = await supabase
       .from('user_subscriptions')
       .upsert([
         {
@@ -698,12 +721,12 @@ app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res)
       ], { onConflict: 'user_id' })
       .select();
     
-    if (error) {
-      console.error('❌ Database Error:', error);
-      throw error;
+    if (subError) {
+      console.error('❌ Failed to update subscription:', subError);
+      return res.status(500).json({ error: 'Failed to save subscription' });
     }
     
-    console.log('✅ Subscription saved:', data[0]);
+    console.log('✅ Subscription activated successfully');
     
     const planDisplayName = plan.replace('plan_', '').toUpperCase();
     
@@ -713,12 +736,11 @@ app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res)
       product_id: product_id,
       message: `✅ ${planDisplayName} subscription activated for 40 days`,
       expiresAt: expiresAt.toISOString(),
-      data: data[0]
+      data: subData[0]
     });
     
   } catch (error) {
-    console.error('❌ [validate-subscription-key] Unhandled Error:', error.message);
-    console.error('Stack:', error.stack);
+    console.error('❌ [validate-subscription-key] Error:', error);
     res.status(500).json({ error: error.message });
   }
 });
