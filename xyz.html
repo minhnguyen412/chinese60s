@@ -633,6 +633,41 @@
 .plan-card.plan-free {
   background: var(--bg);
   opacity: 0.7;
+  grid-column: 1 / -1;
+  max-width: 300px;
+  margin: 0 auto 20px;
+}
+/* Paid plans - 3 columns */
+@media (min-width: 1024px) {
+  .plans-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .plan-card.plan-free {
+    grid-column: 1 / -1;
+    max-width: 300px;
+    margin: 0 auto 20px;
+  }
+}
+
+/* Tablet: 2 columns - Free nằm cùng hàng */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .plans-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .plan-card.plan-free {
+    grid-column: auto;  /* ✅ Không full width */
+    max-width: unset;
+    margin: 0;
+  }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 767px) {
+  .plans-grid {
+    grid-template-columns: 1fr;
+  }
 }
 .plan-card.plan-a {
   background: linear-gradient(135deg, #fff8f0 0%, #f0f8ff 100%);
@@ -1804,9 +1839,9 @@ async function validateGumroadKey() {
     if (!response.ok) throw new Error(data.error || 'Invalid or already used key');
 
     // ✅ THÊM VALIDATION NÀY - Check plan khớp
-    if (data.plan !== `plan_${planFromPrefix}`) {
-      throw new Error(`❌ This key is not for ${planFromPrefix.toUpperCase()} plan`);
-    }
+if (data.plan !== `plan_${planFromPrefix}`) {
+  throw new Error(`❌ This key is not valid for the ${planFromPrefix.toUpperCase()} plan. Please use the correct key for this plan.`);
+}
 
     showKeyStatus('success', '✅ ' + data.message);
     
