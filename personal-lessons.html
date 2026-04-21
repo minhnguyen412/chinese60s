@@ -1856,7 +1856,7 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
         const url = URL.createObjectURL(recordingBlob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = `recording-${Date.now()}.wav`;
+        a.download = `recording-${Date.now()}.webm`;
         a.click();
         URL.revokeObjectURL(url);
     });
@@ -1920,9 +1920,11 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
                 };
 
                 mediaRecorder.onstop = () => {
-                    recordingBlob = new Blob(recordingChunks, { type: 'audio/wav' });
+                    recordingBlob = new Blob(recordingChunks, { type: 'audio/webm' });
                     const url = URL.createObjectURL(recordingBlob);
                     recordedAudio = new Audio(url);
+                    recordedAudio.crossOrigin = 'anonymous';
+                    recordedAudio.preload = 'auto';
                     recordedAudio.onended = () => playBtn.classList.remove('playing');
                     playbackWrap.style.display = 'flex';
                 };
