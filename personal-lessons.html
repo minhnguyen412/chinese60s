@@ -1923,22 +1923,31 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
         finalTranscript = '';
 
         navigator.mediaDevices.getUserMedia({ audio: true })
-            .then(stream => {
-                mediaRecorder = new MediaRecorder(stream);
+    .then(stream => {
+        // ✅ FIX: Dùng mimeType support trên iOS
+        const mimeType = MediaRecorder.isTypeSupported('audio/mp4')
+            ? 'audio/mp4'
+            : MediaRecorder.isTypeSupported('audio/webm')
+            ? 'audio/webm'
+            : 'audio/wav';
+        
+        mediaRecorder = new MediaRecorder(stream, { mimeType });
+        recordingChunks = [];
 
-                mediaRecorder.ondataavailable = (e) => {
-                    recordingChunks.push(e.data);
-                };
+        mediaRecorder.ondataavailable = (e) => {
+            recordingChunks.push(e.data);
+        };
 
-                mediaRecorder.onstop = () => {
-                    recordingBlob = new Blob(recordingChunks, { type: 'audio/webm' });
-                    const url = URL.createObjectURL(recordingBlob);
-                    recordedAudio = new Audio(url);
-                    recordedAudio.crossOrigin = 'anonymous';
-                    recordedAudio.preload = 'auto';
-                    recordedAudio.onended = () => playBtn.classList.remove('playing');
-                    playbackWrap.style.display = 'flex';
-                };
+        mediaRecorder.onstop = () => {
+            recordingBlob = new Blob(recordingChunks, { type: mimeType });
+            const url = URL.createObjectURL(recordingBlob);
+            recordedAudio = new Audio(url);
+            recordedAudio.crossOrigin = 'anonymous';
+            recordedAudio.preload = 'auto';
+            recordedAudio.onended = () => playBtn.classList.remove('playing');
+            playbackWrap.style.display = 'flex';
+        };
+
 
                 mediaRecorder.start();
 
