@@ -6,7 +6,6 @@
   <title>My Profile — Chinese60s</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --black: #222;
@@ -17,13 +16,15 @@
       --yellow: #ffd84d;
       --yellow-pale: #fffbe6;
       --peach: #ffb89a;
-      --peach-pale: #fff3ee;
+      --peach-pale: #fff3ee;f
       --sky: #72c8f0;
       --sky-pale: #eaf8ff;
       --lavender: #c5b0f8;
       --lavender-pale: #f3f0ff;
       --pink: #ffadc5;
       --pink-pale: #fff2f6;
+      --orange: #ffb347;
+      --orange-pale: #fff4e0;
       --white: #fff;
       --bg: #fffef5;
       --shadow-sm: 3px 3px 0 var(--black);
@@ -31,6 +32,9 @@
       --shadow-lg: 6px 6px 0 var(--black);
       --border: 2.5px solid var(--black);
       --border-thick: 3px solid var(--black);
+      --t1:#ffd84d; --t1-pale:#fffbe6;
+      --t2:#72c8f0; --t2-pale:#eaf8ff;
+      --t3:#c5b0f8; --t3-pale:#f3f0ff;
     }
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior:smooth; }
@@ -54,6 +58,7 @@
     }
     header h1 { font-weight:700; font-size:1.7rem; color:#fff; letter-spacing:.04em; text-shadow:2px 2px 0 rgba(0,0,0,.25); }
     .homepage-link { text-decoration:none; color:inherit; }
+    .user-info{background:var(--yellow);border:var(--border);border-radius:50px;padding:6px 16px;font-size:.85rem;font-weight:700;box-shadow:var(--shadow-sm);}
     nav ul { list-style:none; display:flex; gap:8px; align-items:center; }
     nav ul li a {
       text-decoration:none; color:var(--black); font-weight:600; font-size:.95rem;
@@ -64,9 +69,51 @@
     nav ul li a:hover { transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--black); }
     @media(max-width:768px){ header{padding:0 16px;} }
 
+    /* NAV TABS FOR TOOL - SIMPLIFIED */
+    .nav-tabs {
+  display: flex;
+  gap: 12px;
+  border-bottom: none;
+  background: transparent;  /* ✅ Transparent vì wrapper có background */
+  padding: 16px 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+    .nav-tab {
+  flex: 0 0 auto;
+  padding: 8px 16px;
+  border: var(--border);
+  border-radius: 50px;
+  background: var(--white);
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  font-size: .88rem;
+  cursor: pointer;
+  color: #888;
+  transition: background .15s, color .15s, transform .12s, box-shadow .12s;
+  box-shadow: var(--shadow-sm);
+}
+.nav-tab:last-child { border-right: var(--border); }
+.nav-tab:hover {
+  background: var(--bg);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--black);
+}
+.nav-tab.active {
+  color: #fff;
+  font-weight: 700;
+  background: var(--green);
+  border-bottom: var(--border);
+}
+@media(max-width:600px) {
+  .nav-tabs { gap: 8px; padding: 12px 16px; }
+  .nav-tab { padding: 6px 12px; font-size: .8rem; }
+}
+
     .container {
       max-width:1000px; margin:0 auto; width:100%;
-      padding:36px 24px 80px; position:relative; z-index:1;
+      padding:36px 24px 40px; position:relative; z-index:1;
       display:flex; flex-direction:column; gap:20px;
     }
 
@@ -81,6 +128,7 @@
 
     /* ANIMATIONS */
     @keyframes slideUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes spin{to{transform:rotate(360deg)}}
 
     /* PROFILE HERO */
     .profile-hero {
@@ -101,9 +149,7 @@
     .signout-btn { background:var(--pink-pale); border:var(--border); border-radius:50px; padding:8px 20px; font-family:'Fredoka',sans-serif; font-weight:700; font-size:.9rem; cursor:pointer; box-shadow:var(--shadow-sm); color:#c0392b; transition:transform .12s,box-shadow .12s; flex-shrink:0; }
     .signout-btn:hover { transform:translate(-2px,-2px); box-shadow:5px 5px 0 var(--black); }
 
-    /* ═══════════════════════════════════
-       TODAY SCORE — BIG CARD ON TOP
-    ═══════════════════════════════════ */
+    /* TODAY SCORE */
     .today-score-card {
       background:var(--white); border:var(--border-thick); border-radius:24px;
       box-shadow:var(--shadow-lg); padding:28px 32px;
@@ -141,7 +187,6 @@
       font-size:1rem; color:#888; font-weight:600; margin-top:4px;
     }
 
-    /* Penalty notice */
     .penalty-notice {
       display:inline-flex; align-items:center; gap:6px;
       background:var(--pink-pale); border:2px solid #e53935;
@@ -150,7 +195,6 @@
       margin-bottom:16px;
     }
 
-    /* Today breakdown row */
     .today-breakdown {
       display:grid; grid-template-columns:repeat(3,1fr); gap:12px;
     }
@@ -165,7 +209,6 @@
     .today-block .tb-lbl  { font-size:.78rem; font-weight:700; color:#666; text-transform:uppercase; letter-spacing:.05em; margin-top:4px; }
     .today-block .tb-sub  { font-size:.72rem; color:#aaa; margin-top:2px; }
 
-    /* Missed day warning */
     .missed-warning {
       margin-top:16px; padding:12px 16px;
       background:rgba(255,255,255,.8); border:var(--border); border-radius:14px;
@@ -173,9 +216,7 @@
     }
     .missed-warning strong { color:#e53935; }
 
-    /* ═══════════════════════════════════
-       ALL-TIME — COMPACT CARD BELOW
-    ═══════════════════════════════════ */
+    /* ALL-TIME */
     .alltime-card {
       background:var(--white); border:var(--border-thick); border-radius:20px;
       box-shadow:var(--shadow-sm); padding:18px 22px;
@@ -233,7 +274,7 @@
     .tab-panel { display:none; }
     .tab-panel.active { display:block; }
 
-    /* QUIZ */
+    /* QUIZ in profile */
     .attempt-block { background:var(--bg); border:var(--border); border-radius:14px; padding:14px 16px; margin-bottom:10px; }
     .attempt-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; flex-wrap:wrap; gap:6px; }
     .meta { font-size:.8rem; color:#888; }
@@ -265,22 +306,710 @@
     .empty-state { text-align:center; padding:22px 0; color:#bbb; font-size:.92rem; font-weight:600; }
     .empty-state span { font-size:1.6rem; display:block; margin-bottom:5px; }
 
+    /* TOOL SECTION */
+    .tool-section-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-top: 20px;
+}
+.tool-section-header h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--black);
+}
+.quick-links {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.quick-link-box {
+  flex: 1;
+  min-width: 200px;
+  max-width: 280px;
+  background: var(--white);
+  border: var(--border-thick);
+  border-radius: 16px;
+  padding: 16px 20px;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  transition: transform .12s, box-shadow .12s;
+  text-decoration: none;
+  color: var(--black);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.quick-link-box:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--black);
+}
+.quick-link-icon {
+  font-size: 2rem;
+}
+.quick-link-title {
+  font-weight: 700;
+  font-size: .95rem;
+}
+.quick-link-desc {
+  font-size: .8rem;
+  color: #888;
+  font-weight: 600;
+}
+    .tool-section {
+      margin-top:40px;
+      padding-top:40px;
+      border-top:4px dashed var(--yellow);
+    }
+    .tool-header {
+      text-align:center;
+      margin-bottom:24px;
+    }
+    .tool-header h2 {
+      font-size:1.8rem;
+      font-weight:700;
+      margin-bottom:8px;
+    }
+    .tool-header p {
+      color:#888;
+      font-size:.95rem;
+    }
+
+    /* Tool container */
+    .tool-container{max-width:980px;margin:0 auto;width:100%;padding:32px 24px 80px;position:relative;z-index:1;display:flex;flex-direction:column;gap:20px;}
+
+    .panel{display:none !important;}
+    .panel.active{display:flex !important;flex-direction:column;gap:20px;}
+
+    /* Tool card styles */
+    .card{background:var(--white);border:var(--border-thick);border-radius:24px;box-shadow:var(--shadow-md);padding:24px 28px;animation:slideUp .3s ease both;}
+    .section-label{display:inline-block;font-weight:700;font-size:1rem;background:var(--yellow);border:var(--border);border-radius:50px;padding:5px 18px;box-shadow:var(--shadow-sm);margin-bottom:18px;}
+
+    .field-row{display:flex;gap:10px;flex-wrap:wrap;}
+    .field{display:flex;flex-direction:column;gap:5px;flex:1;min-width:150px;}
+    label{font-size:.82rem;font-weight:600;color:#666;}
+    input[type=text],input[type=password],input[type=url],input[type=number],textarea,select,input[type=file]{
+      background:var(--bg);border:var(--border);border-radius:12px;color:var(--black);
+      font-family:'Fredoka',sans-serif;font-size:.95rem;font-weight:500;
+      padding:9px 14px;outline:none;width:100%;
+      box-shadow:var(--shadow-sm);transition:box-shadow .12s,transform .12s;
+    }
+    input:focus,textarea:focus,select:focus{box-shadow:5px 5px 0 var(--black);transform:translate(-1px,-1px);}
+    textarea{resize:vertical;min-height:60px;}
+
+    .btn{border:var(--border);border-radius:50px;cursor:pointer;font-family:'Fredoka',sans-serif;font-weight:700;font-size:.92rem;padding:8px 22px;display:inline-flex;align-items:center;gap:6px;box-shadow:var(--shadow-sm);transition:transform .12s,box-shadow .12s;background:var(--white);color:var(--black);}
+    .btn:hover:not(:disabled){transform:translate(-2px,-2px);box-shadow:5px 5px 0 var(--black);}
+    .btn:active:not(:disabled){transform:translate(1px,1px);box-shadow:1px 1px 0 var(--black);}
+    .btn:disabled{opacity:.5;pointer-events:none;}
+    .btn-green{background:var(--green);color:#fff;}
+    .btn-yellow{background:var(--yellow);}
+    .btn-sky{background:var(--sky-pale);}
+    .btn-sm{padding:5px 14px;font-size:.82rem;}
+
+    .status{padding:10px 16px;border-radius:14px;font-size:.88rem;font-weight:700;margin-top:12px;display:none;border:var(--border);}
+    .status.ok{background:var(--green-pale);color:var(--green-dark);display:block;}
+    .status.err{background:var(--pink-pale);color:#c0392b;display:block;}
+    .status.info{background:var(--sky-pale);color:#0077aa;display:block;}
+    .status.success{background:var(--green-pale);color:var(--green-dark);display:block;font-size:1rem;}
+    .spinner{display:inline-block;width:14px;height:14px;border:2.5px solid rgba(0,0,0,.2);border-top-color:var(--black);border-radius:50%;animation:spin .6s linear infinite;}
+
+    .user-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+    .user-chip{display:flex;align-items:center;gap:8px;background:var(--white);border:var(--border);border-radius:50px;padding:5px 12px 5px 6px;box-shadow:var(--shadow-sm);}
+    .user-chip img{width:28px;height:28px;border-radius:50%;border:2px solid var(--black);object-fit:cover;}
+    .user-chip-letter{width:28px;height:28px;border-radius:50%;border:2px solid var(--black);background:var(--yellow);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.9rem;}
+    .user-chip span{font-weight:700;font-size:.88rem;}
+    .chip-remove{background:none;border:none;cursor:pointer;color:#c0392b;font-size:1.1rem;line-height:1;font-weight:700;}
+
+    .dialogue-row{background:var(--bg);border:var(--border-thick);border-radius:18px;padding:16px;margin-bottom:12px;position:relative;box-shadow:var(--shadow-sm);overflow:visible;}
+    .dialogue-row:hover{box-shadow:var(--shadow-md);}
+    .row-num{position:absolute;top:-14px;left:16px;background:var(--yellow);border:var(--border);border-radius:50px;padding:1px 12px;font-size:.75rem;font-weight:700;box-shadow:var(--shadow-sm);}
+    .row-delete-btn{position:absolute;top:10px;right:12px;background:none;border:none;cursor:pointer;font-size:1.1rem;color:#ccc;transition:color .15s;}
+    .row-delete-btn:hover{color:#c0392b;}
+    .row-top{display:flex;gap:12px;align-items:flex-start;margin-top:6px;}
+    .row-user-col{min-width:120px;display:flex;flex-direction:column;gap:5px;align-items:center;}
+    .row-avatar{width:52px;height:52px;border-radius:50%;border:var(--border-thick);object-fit:cover;background:var(--green-light);display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:700;}
+    .row-fields-col{flex:1;display:flex;flex-direction:column;gap:8px;}
+
+    .seg-section{margin-top:10px;padding-top:10px;border-top:2px dashed #ddd;}
+    .seg-tokens{display:flex;flex-wrap:wrap;gap:6px;background:var(--white);border:var(--border);border-radius:12px;padding:10px;min-height:44px;}
+    .seg-token{display:flex;align-items:stretch;background:var(--green-pale);border:2px solid var(--black);border-radius:9px;overflow:hidden;box-shadow:2px 2px 0 var(--black);}
+    .seg-token.punct{background:var(--lavender-pale);}
+    .seg-text{padding:5px 9px;font-size:1rem;font-weight:700;}
+    .seg-btn{background:none;border:none;border-left:2px solid var(--black);cursor:pointer;padding:5px 7px;font-size:.75rem;font-weight:700;}
+    .seg-split-btn:hover{background:var(--pink);}
+    .seg-merge-btn:hover{background:var(--peach);}
+    .seg-hint{font-size:.72rem;color:#aaa;font-weight:600;margin-top:4px;}
+    .seg-preview{margin-top:5px;font-size:.75rem;color:#666;font-weight:600;background:var(--white);border:var(--border);border-radius:8px;padding:5px 10px;}
+
+    .quiz-row{border:var(--border-thick);border-radius:18px;padding:16px;margin-bottom:16px;position:relative;box-shadow:var(--shadow-sm);transition:background .2s,box-shadow .15s;overflow:visible;background:var(--bg);}
+    .quiz-row:hover{box-shadow:var(--shadow-md);}
+    .quiz-row.t1{background:var(--t1-pale);}
+    .quiz-row.t2{background:var(--t2-pale);}
+    .quiz-row.t3{background:var(--t3-pale);}
+    .q-row-header{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:14px;padding-bottom:12px;border-bottom:2px dashed rgba(0,0,0,.1);}
+    .row-num-badge{background:var(--white);border:var(--border);border-radius:50px;padding:3px 12px;font-size:.75rem;font-weight:700;box-shadow:var(--shadow-sm);flex-shrink:0;}
+    .type-pills{display:flex;gap:6px;flex-wrap:wrap;}
+    .type-pill{border:var(--border);border-radius:50px;cursor:pointer;font-family:'Fredoka',sans-serif;font-weight:700;font-size:.8rem;padding:5px 14px;background:var(--white);box-shadow:2px 2px 0 var(--black);transition:transform .1s,box-shadow .1s;white-space:nowrap;}
+    .type-pill:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 var(--black);}
+    .type-pill.active-t1{background:var(--t1);}
+    .type-pill.active-t2{background:var(--t2);}
+    .type-pill.active-t3{background:var(--t3);}
+    .q-row-delete{background:none;border:none;cursor:pointer;font-size:1.1rem;color:#ccc;transition:color .15s;margin-left:auto;padding:2px 4px;}
+    .q-row-delete:hover{color:#c0392b;}
+    .pick-hint{text-align:center;padding:20px;color:#bbb;font-size:.9rem;font-weight:700;}
+    .pick-hint span{font-size:1.5rem;display:block;margin-bottom:4px;}
+    .row-inner{display:flex;flex-direction:column;gap:10px;}
+    .seg-area{display:flex;flex-wrap:wrap;gap:6px;padding:10px;background:rgba(255,255,255,.7);border:var(--border);border-radius:12px;min-height:46px;}
+    .seg-tok{display:flex;align-items:stretch;background:var(--white);border:2px solid var(--black);border-radius:9px;overflow:hidden;box-shadow:2px 2px 0 var(--black);}
+    .seg-tok.punct{background:var(--lavender-pale);}
+    .seg-split-btn-q{background:none;border:none;border-left:2px solid var(--black);cursor:pointer;padding:5px 7px;font-size:.75rem;color:#c0392b;font-weight:700;}
+    .seg-split-btn-q:hover{background:var(--pink);}
+    .seg-merge-btn-q{background:none;border:none;border-left:2px solid var(--black);cursor:pointer;padding:5px 7px;font-size:.75rem;color:#888;}
+    .seg-merge-btn-q:hover{background:var(--peach);}
+    .sub-label{font-size:.78rem;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.06em;}
+    .preview-box{font-size:.85rem;color:#666;font-weight:600;background:var(--white);border:var(--border);border-radius:10px;padding:8px 12px;line-height:1.8;}
+    .blank-pill{display:inline-block;background:var(--yellow);border:1.5px solid var(--black);border-radius:4px;padding:0 5px;font-size:.8rem;font-weight:700;margin:0 1px;}
+    .correct-badge{display:inline-flex;align-items:center;gap:4px;background:var(--green-pale);border:1.5px solid var(--green);border-radius:50px;padding:2px 10px;font-size:.75rem;font-weight:700;color:var(--green-dark);}
+    .img-thumb{width:68px;height:68px;border:var(--border-thick);border-radius:10px;background:var(--white);display:flex;align-items:center;justify-content:center;font-size:1.3rem;overflow:hidden;box-shadow:var(--shadow-sm);flex-shrink:0;}
+    .img-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+    .opt-row{display:flex;align-items:center;gap:8px;margin-top:7px;}
+    .opt-row input[type=url],.opt-row input[type=text]{flex:1;}
+    .radio-lbl{display:flex;align-items:center;gap:5px;cursor:pointer;font-size:.82rem;font-weight:700;color:#aaa;white-space:nowrap;flex-shrink:0;}
+    .radio-lbl.correct{color:var(--green-dark);}
+
+    .img-row{background:var(--bg);border:var(--border-thick);border-radius:18px;padding:16px;margin-bottom:12px;position:relative;box-shadow:var(--shadow-sm);transition:box-shadow .15s;overflow:visible;}
+    .img-row:hover{box-shadow:var(--shadow-md);}
+    .row-body{display:grid;grid-template-columns:100px 1fr;gap:14px;margin-top:8px;align-items:start;}
+    @media(max-width:600px){.row-body{grid-template-columns:1fr;}}
+    .img-preview-wrap{width:100px;height:100px;border:var(--border-thick);border-radius:14px;background:var(--white);overflow:hidden;box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:center;font-size:2rem;color:#ddd;flex-shrink:0;transition:box-shadow .15s;}
+    .img-preview-wrap img{width:100%;height:100%;object-fit:cover;display:block;}
+    .row-fields{display:flex;flex-direction:column;gap:8px;}
+    .fields-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
+    @media(max-width:700px){.fields-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:450px){.fields-grid{grid-template-columns:1fr;}}
+    .pinyin-wrap{position:relative;z-index:10;}
+    .pinyin-input{background:var(--lavender-pale)!important;border-color:var(--lavender)!important;font-size:1rem!important;letter-spacing:.03em;}
+    .pinyin-input:focus{border-color:#6366f1!important;box-shadow:5px 5px 0 #6366f1!important;}
+    .tone-picker{display:none;position:absolute;bottom:calc(100% + 6px);left:0;z-index:9999;background:var(--white);border:var(--border-thick);border-radius:16px;box-shadow:var(--shadow-lg);padding:10px;flex-direction:column;gap:6px;min-width:280px;}
+    .tone-picker.open{display:flex;}
+    .tone-picker-title{font-size:.72rem;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px;}
+    .tone-row{display:flex;gap:5px;flex-wrap:wrap;}
+    .tone-btn{background:var(--lavender-pale);border:2px solid var(--black);border-radius:8px;cursor:pointer;font-family:'Fredoka',sans-serif;font-weight:700;font-size:1rem;padding:5px 10px;box-shadow:2px 2px 0 var(--black);transition:transform .1s,box-shadow .1s;min-width:38px;text-align:center;}
+    .tone-btn:hover{transform:translate(-1px,-1px);box-shadow:3px 3px 0 var(--black);background:var(--lavender);}
+    .tone-helper-btn{display:inline-flex;align-items:center;gap:4px;font-size:.72rem;font-weight:700;color:#6366f1;cursor:pointer;background:none;border:none;font-family:'Fredoka',sans-serif;padding:2px 0;margin-top:2px;}
+    .tone-helper-btn:hover{text-decoration:underline;}
+    .url-field{grid-column:1/-1;}
+
+    .actions-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:20px;}
+    .empty-hint{text-align:center;padding:28px;color:#bbb;font-weight:700;font-size:.92rem;}
+    .empty-hint .icon{font-size:2rem;display:block;margin-bottom:6px;animation:bounce 1.2s ease-in-out infinite;}
+
+    .upload-zone{border:2px dashed var(--black);border-radius:12px;padding:16px;background:var(--white);text-align:center;cursor:pointer;transition:background .2s;}
+    .upload-zone:hover{background:var(--green-pale);}
+    .upload-zone.dragover{background:var(--yellow-pale);border-color:var(--yellow);}
+    .file-input{display:none;}
+    .upload-label{display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;}
+    .upload-icon{font-size:2rem;}
+    .upload-text{font-weight:600;font-size:.9rem;}
+    .file-preview{margin-top:10px;padding:8px 12px;background:var(--green-pale);border:var(--border);border-radius:8px;font-size:.85rem;display:flex;align-items:center;gap:8px;justify-content:space-between;}
+    .clear-file{background:none;border:none;color:#c0392b;font-size:1.2rem;cursor:pointer;font-weight:700;}
+
     /* FOOTER */
     footer { background:#222; color:rgba(255,255,255,.65); padding:28px 50px; text-align:center; position:relative; z-index:1; margin-top:auto; }
     footer .brand { font-weight:700; color:var(--green-light); font-size:1.3rem; margin-bottom:6px; }
+
+    /* SUCCESS MODAL */
+    .success-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:9999;align-items:center;justify-content:center;}
+    .success-modal.show{display:flex;}
+    .success-content{background:var(--white);border:var(--border-thick);border-radius:24px;padding:40px;text-align:center;max-width:400px;box-shadow:var(--shadow-lg);animation:slideUp .3s ease;}
+    .success-icon{font-size:3rem;margin-bottom:16px;}
+    .success-title{font-size:1.5rem;font-weight:700;margin-bottom:12px;color:var(--green-dark);}
+    .success-msg{color:#666;margin-bottom:24px;font-weight:600;}
+    /* SUBSCRIPTION MODAL */
+.subscription-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.subscription-modal.show {
+  display: flex;
+}
+.sub-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+.sub-content {
+  position: relative;
+  background: var(--white);
+  border: var(--border-thick);
+  border-radius: 28px;
+  box-shadow: var(--shadow-lg);
+  max-width: 900px;
+  width: 100%;
+  padding: 40px 32px;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: slideUp 0.3s ease;
+}
+.sub-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #ccc;
+  transition: color 0.15s;
+}
+.sub-close:hover {
+  color: #c0392b;
+}
+
+/* TABS */
+.sub-tab {
+  display: none;
+}
+.sub-tab.active {
+  display: block;
+  animation: fadeIn 0.2s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* HEADER */
+.sub-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.sub-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 16px;
+}
+.sub-header h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--black);
+}
+.sub-header p {
+  color: #888;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* PLANS GRID */
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.plan-card {
+  border: var(--border-thick);
+  border-radius: 20px;
+  padding: 24px;
+  position: relative;
+  background: var(--white);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.plan-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--black);
+}
+
+.plan-card.plan-free {
+  background: var(--bg);
+  opacity: 0.7;
+  grid-column: 1 / -1;
+  max-width: 300px;
+  margin: 0 auto 20px;
+}
+/* Paid plans - 3 columns */
+@media (min-width: 1024px) {
+  .plans-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .plan-card.plan-free {
+    grid-column: 1 / -1;
+    max-width: 300px;
+    margin: 0 auto 20px;
+  }
+}
+
+/* Tablet: 2 columns - Free nằm cùng hàng */
+@media (max-width: 1023px) and (min-width: 768px) {
+  .plans-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .plan-card.plan-free {
+    grid-column: auto;  /* ✅ Không full width */
+    max-width: unset;
+    margin: 0;
+  }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 767px) {
+  .plans-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.plan-card.plan-a {
+  background: linear-gradient(135deg, #fff8f0 0%, #f0f8ff 100%);
+  border-color: var(--orange);
+}
+.plan-card.plan-b {
+  background: linear-gradient(135deg, #f0fff8 0%, #fffef0 100%);
+  border: 3px solid var(--green);
+  transform: scale(1.05);
+}
+.plan-card.plan-b:hover {
+  transform: scale(1.05) translate(-2px, -2px);
+}
+.plan-card.plan-c {
+  background: linear-gradient(135deg, #fff5f7 0%, #f5f0ff 100%);
+  border-color: var(--pink);
+}
+
+.plan-badge {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--black);
+  border: var(--border);
+  border-radius: 50px;
+  padding: 3px 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow-sm);
+}
+.plan-badge-a {
+  background: var(--orange-pale);
+  color: #e67e22;
+}
+.plan-badge-b {
+  background: var(--green-pale);
+  color: var(--green-dark);
+}
+.plan-badge-c {
+  background: var(--pink-pale);
+  color: #c0392b;
+}
+
+.plan-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+.plan-price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--green-dark);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.plan-period {
+  font-size: 0.8rem;
+  color: #888;
+  font-weight: 600;
+}
+.plan-limit {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 600;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 2px dashed #ddd;
+}
+.plan-features {
+  list-style: none;
+  margin-bottom: 16px;
+}
+.plan-features li {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.plan-features li:before {
+  content: '✓ ';
+  color: var(--green-dark);
+  font-weight: 700;
+  margin-right: 4px;
+}
+
+.btn-plan-current {
+  background: var(--bg) !important;
+  color: #999 !important;
+  cursor: not-allowed !important;
+  opacity: 0.6 !important;
+  width: 100% !important;
+  margin-bottom: 8px !important;
+}
+
+.btn-plan-upgrade {
+  background: var(--green) !important;
+  color: white !important;
+  width: 100% !important;
+  padding: 10px 16px !important;
+  font-size: 0.95rem !important;
+  border: var(--border-thick) !important;
+  border-radius: 50px !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  display: block !important;
+  text-align: center !important;
+  margin-bottom: 8px !important;
+}
+.btn-plan-upgrade:hover {
+  transform: translate(-2px, -2px) !important;
+  box-shadow: 4px 4px 0 var(--black) !important;
+}
+
+.btn-plan-activate {
+  background: var(--white) !important;
+  color: var(--black) !important;
+  border: var(--border-thick) !important;
+  width: 100% !important;
+  padding: 8px 16px !important;
+  font-size: 0.85rem !important;
+  border-radius: 50px !important;
+  cursor: pointer !important;
+}
+.btn-plan-activate:hover {
+  box-shadow: 3px 3px 0 var(--black) !important;
+}
+
+.plans-info {
+  text-align: center;
+  padding: 16px;
+  background: var(--bg);
+  border: var(--border);
+  border-radius: 12px;
+  font-size: 0.85rem;
+  color: #888;
+  font-weight: 600;
+}
+
+/* KEY INPUT */
+.key-input-group {
+  margin-bottom: 24px;
+  background: var(--bg);
+  border: var(--border);
+  border-radius: 16px;
+  padding: 20px;
+}
+.key-input-group label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+.license-key-input {
+  width: 100%;
+  padding: 12px 16px !important;
+  border: var(--border-thick) !important;
+  border-radius: 14px !important;
+  font-size: 0.95rem !important;
+  font-family: 'Courier New', monospace !important;
+  letter-spacing: 0.05em;
+  background: var(--white) !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+.license-key-input:focus {
+  box-shadow: 5px 5px 0 var(--black) !important;
+  transform: translate(-1px, -1px) !important;
+}
+.key-hint {
+  font-size: 0.8rem;
+  color: #999;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+/* BUTTONS */
+.sub-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.btn-sub-primary {
+  background: var(--green) !important;
+  color: white !important;
+  padding: 12px 24px !important;
+  font-size: 1rem !important;
+  border: var(--border-thick) !important;
+  border-radius: 50px !important;
+  cursor: pointer !important;
+  font-weight: 700 !important;
+  box-shadow: var(--shadow-md) !important;
+}
+.btn-sub-primary:hover:not(:disabled) {
+  transform: translate(-2px, -2px) !important;
+  box-shadow: 5px 5px 0 var(--black) !important;
+}
+.btn-sub-primary:disabled {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+}
+
+.btn-sub-secondary {
+  background: var(--white) !important;
+  color: var(--black) !important;
+  padding: 12px 24px !important;
+  font-size: 1rem !important;
+  border: var(--border-thick) !important;
+  border-radius: 50px !important;
+  cursor: pointer !important;
+  font-weight: 700 !important;
+  box-shadow: var(--shadow-sm) !important;
+}
+.btn-sub-secondary:hover {
+  transform: translate(-1px, -1px) !important;
+  box-shadow: 3px 3px 0 var(--black) !important;
+}
+
+@media (max-width: 600px) {
+  .sub-content {
+    padding: 24px 16px;
+  }
+  .plans-grid {
+    grid-template-columns: 1fr;
+  }
+  .plan-card.plan-b {
+    transform: scale(1);
+  }
+  .plan-card.plan-b:hover {
+    transform: scale(1) translate(-2px, -2px);
+  }
+  .sub-header h2 {
+    font-size: 1.3rem;
+  }
+}
+
   </style>
 </head>
 <body>
 
 <header>
   <h1><a href="index.html" class="homepage-link">CHINESE 60s</a></h1>
-  <nav><ul><li><a href="index.html">← Back</a></li></ul></nav>
+  <div style="display:flex; gap:12px; align-items:center;">
+    <div class="user-info" id="userDisplay">👤 Loading...</div>
+    <button class="btn btn-yellow btn-sm" id="upgradeBtn" onclick="showSubscriptionModal()" style="display:none;">⭐ Upgrade</button>
+  </div>
 </header>
 
-<div class="container" id="app">
-  <div class="loading-screen" id="loading">
-    <div class="loading-dots"><span></span><span></span><span></span></div>
-    <p>Loading your profile...</p>
+<div id="profile-section">
+  <div class="container" id="app">
+    <div class="loading-screen" id="loading">
+      <div class="loading-dots"><span></span><span></span><span></span></div>
+      <p>Loading your profile...</p>
+    </div>
+  </div>
+</div>
+
+<!-- TOOL SECTION (only visible when logged in) -->
+<div id="tool-section" style="display:none;">
+  <div class="tool-section-header">
+    <h2>✏️ Create Personal Lesson</h2>
+  </div>
+  <!-- SIMPLIFIED TAB SWITCH -->
+  <div class="container">
+    <div class="quick-links">
+      <a href="personal-lessons.html" class="quick-link-box">
+        <div class="quick-link-icon">📚</div>
+        <div class="quick-link-title">Personal Lessons</div>
+        <div class="quick-link-desc">View your custom lessons</div>
+      </a>
+      <a href="personal-vocabulary.html" class="quick-link-box">
+        <div class="quick-link-icon">📝</div>
+        <div class="quick-link-title">Personal Vocabulary</div>
+        <div class="quick-link-desc">Review your vocabulary list</div>
+      </a>
+      <a href="worksheet-builder.html" class="quick-link-box">
+        <div class="quick-link-icon">㊗️</div>
+        <div class="quick-link-title">Hanzi Worksheet Builder</div>
+        <div class="quick-link-desc">Build your personal writing sheets</div>
+      </a>
+    </div>
+  </div>
+  
+  <div class="nav-tabs">
+    <button class="nav-tab active" data-panel="posts">💬 Posts</button>
+    <button class="nav-tab" data-panel="quiz">📝 Quiz</button>
+    <button class="nav-tab" data-panel="images">🖼️ Vocabulary</button>
+  </div>
+
+
+  <div class="tool-container">
+
+    <!-- PANEL: POSTS -->
+    <div class="panel active" id="panel-posts">
+      <div class="card">
+        <div class="section-label">👤 Characters</div>
+        <div class="field-row" style="align-items:flex-end">
+          <div class="field"><label>Name</label><input type="text" id="newUserName" placeholder="A, Teacher Wang…"></div>
+          <button class="btn btn-sm btn-green" onclick="addUser()" style="margin-bottom:2px">+ Add</button>
+        </div>
+        <div class="user-chips" id="userList"><div style="padding:8px;color:#bbb;font-size:.85rem;font-weight:600">No users yet</div></div>
+      </div>
+      <div class="card">
+        <div class="section-label">💬 Dialogue Lines</div>
+        <div id="dialogueRows"><div class="empty-hint"><span class="icon">💬</span>Add users first, then click Add Line</div></div>
+        <button class="btn btn-yellow" onclick="addPostRow()">+ Add Line</button>
+      </div>
+    </div>
+
+    <!-- PANEL: QUIZ -->
+    <div class="panel" id="panel-quiz">
+      <div class="card">
+        <div class="section-label">📝 Quiz Items</div>
+        <div id="quizRows"><div class="empty-hint"><span class="icon">📝</span>Click Add Quiz</div></div>
+        <button class="btn btn-yellow" onclick="addQuizRow()">+ Add Quiz</button>
+      </div>
+    </div>
+
+    <!-- PANEL: IMAGES -->
+    <div class="panel" id="panel-images">
+      <div class="card">
+        <div class="section-label">🖼️ Vocabulary</div>
+        <div id="imageRows"><div class="empty-hint"><span class="icon">🖼️</span>Click "Add New Word" to start adding entries</div></div>
+        <button class="btn btn-yellow" onclick="addImgRow()">+ Add New Word</button>
+      </div>
+    </div>
+
+    <!-- GLOBAL SUBMIT BUTTON -->
+    <div class="card" style="background:linear-gradient(135deg,var(--green-pale) 0%,var(--yellow-pale) 100%);margin-top:20px;">
+      <div class="actions-row" style="justify-content:center;gap:20px;">
+        <button class="btn btn-green" onclick="submitAll()" id="submitBtn" style="padding:12px 32px;font-size:1rem;">
+          ✅ Submit All
+        </button>
+        <button class="btn btn-yellow" onclick="clearAll()" style="padding:12px 32px;font-size:1rem;">
+          🔄 Clear & Start Over
+        </button>
+      </div>
+      <div id="submitStatus" class="status"></div>
+    </div>
+
   </div>
 </div>
 
@@ -288,6 +1017,16 @@
   <p class="brand">CHINESE 60s</p>
   <p>Learn Mandarin through images and videos</p>
 </footer>
+
+<!-- SUCCESS MODAL -->
+<div class="success-modal" id="successModal">
+  <div class="success-content">
+    <div class="success-icon">🎉</div>
+    <div class="success-title">Perfect!</div>
+    <div class="success-msg" id="successMsg">Your content has been submitted successfully.</div>
+    <button class="btn btn-green" onclick="closeSuccessModal()">Continue</button>
+  </div>
+</div>
 
 <script type="module">
 import { initializeApp }    from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
@@ -309,7 +1048,11 @@ const app  = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db   = getFirestore(app);
 
-/* ═══ HELPERS ═══ */
+// ═══ API CONFIG ═══
+window.API_BASE = 'https://chinese60s-production.up.railway.app';
+window.API_TOKEN = '';
+
+// ═══ HELPERS ═══
 function tsToDate(ts) {
   if (!ts) return null;
   if (ts.toDate)  return ts.toDate();
@@ -334,12 +1077,8 @@ function scoreBadge(s, t) {
   return p >= 0.8 ? 'good' : p >= 0.5 ? 'ok' : 'low';
 }
 
-/* ═══ PENALTY CALC ═══
-   Đếm số ngày KHÔNG có hoạt động, tính từ ngày đầu tiên có activity đến hôm nay
-   Mỗi ngày nghỉ: -2 điểm
-*/
+/* ═══ PENALTY CALC ═══ */
 function calcPenalty(quizzes, recs, writes) {
-  // Tập hợp tất cả ngày có hoạt động
   const activeDays = new Set();
   quizzes.forEach(a => { const s = toDateStr(a.startTime); if (s) activeDays.add(s); });
   recs.forEach(r    => { const s = toDateStr(r.timestamp);  if (s) activeDays.add(s); });
@@ -347,12 +1086,10 @@ function calcPenalty(quizzes, recs, writes) {
 
   if (!activeDays.size) return { penalty: 0, missedDays: 0 };
 
-  // Ngày đầu tiên có activity
   const sorted = [...activeDays].sort();
   const firstDay = new Date(sorted[0]);
   const today    = new Date(todayStr());
 
-  // Đếm từng ngày từ firstDay → today (không tính today nếu chưa có activity hôm nay)
   let missedDays = 0;
   const cur = new Date(firstDay);
   while (cur < today) {
@@ -391,7 +1128,6 @@ async function fetchCol(col, uid, tsField) {
     ));
     return snap.docs.map(d => ({ id: d.id, ...d.data() }));
   } catch(e) {
-    // Fallback: no orderBy (no index needed)
     try {
       const snap = await getDocs(query(collection(db, col), where('uid', '==', uid)));
       const docs = snap.docs.map(d => ({ id: d.id, ...d.data() }));
@@ -407,9 +1143,8 @@ async function fetchCol(col, uid, tsField) {
   }
 }
 
-/* ═══ RENDER ═══ */
+/* ═══ RENDER PROFILE ═══ */
 function render(user, quizzes, recs, writes) {
-
   const today = todayStr();
 
   /* ── TODAY DATA ── */
@@ -422,7 +1157,6 @@ function render(user, quizzes, recs, writes) {
   const todayWriteScore = Math.round(todayWrites.reduce((s,a) => s + (Number(a.score)||0), 0) * 10) / 10;
   const todayRaw        = todayQuizScore + todaySpeakScore + todayWriteScore;
 
-  // Hôm nay có activity không?
   const activeToday = todayQuizzes.length > 0 || todayRecs.length > 0 || todayWrites.length > 0;
 
   /* ── ALL-TIME ── */
@@ -434,9 +1168,6 @@ function render(user, quizzes, recs, writes) {
   /* ── PENALTY ── */
   const { penalty, missedDays } = calcPenalty(quizzes, recs, writes);
   const allTotal = Math.round((allRaw - penalty) * 10) / 10;
-
-  /* ── TODAY TOTAL (không trừ penalty — penalty tính trên tổng) ── */
-  // Nếu hôm nay KHÔNG học: hiện cảnh báo sẽ bị trừ 2đ vào ngày mai
   const todayDisplay = Math.round(todayRaw * 10) / 10;
 
   const streak = calcStreak(quizzes, recs, writes);
@@ -450,7 +1181,6 @@ function render(user, quizzes, recs, writes) {
   );
 
   const todayLabel = new Date().toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric', year:'numeric' });
-
   const scoreClass = todayDisplay > 0 ? 'positive' : todayDisplay < 0 ? 'negative' : 'zero';
 
   document.getElementById('app').innerHTML = `
@@ -555,13 +1285,19 @@ function render(user, quizzes, recs, writes) {
     </div>
 
     <!-- DETAIL TABS -->
-    <div class="section-card">
-      <div class="section-title">📋 Activity Details</div>
-      <div class="tabs">
-        <button class="tab-btn active" data-tab="quiz">📝 Quiz (${quizzes.length})</button>
-        <button class="tab-btn"        data-tab="speak">🎙 Speak (${allSpeakScore})</button>
-        <button class="tab-btn"        data-tab="write">✏️ Write (${writes.length})</button>
-      </div>
+<div class="section-card">
+  <div class="alltime-toggle" id="activity-toggle">
+    <h3 style="font-size:1rem;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.07em;display:flex;align-items:center;gap:8px;">
+      📋 Activity Details
+      <span class="chevron">▼</span>
+    </h3>
+  </div>
+  <div class="alltime-body" id="activity-body">
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="quiz">📝 Quiz (${quizzes.length})</button>
+      <button class="tab-btn"        data-tab="speak">🎙 Speak (${allSpeakScore})</button>
+      <button class="tab-btn"        data-tab="write">✏️ Write (${writes.length})</button>
+    </div>
 
       <!-- QUIZ TAB -->
       <div class="tab-panel active" id="tab-quiz">
@@ -680,25 +1416,1249 @@ function render(user, quizzes, recs, writes) {
   /* Collapsible all-time */
   const toggle = document.getElementById('alltime-toggle');
   const body   = document.getElementById('alltime-body');
-  toggle.addEventListener('click', () => {
-    const open = body.classList.toggle('open');
-    toggle.classList.toggle('open', open);
-  });
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      const open = body.classList.toggle('open');
+      toggle.classList.toggle('open', open);
+    });
+  }
+  // ✅ THÊM ĐÂY
+  /* Collapsible activity details */
+  const activityToggle = document.getElementById('activity-toggle');
+  const activityBody   = document.getElementById('activity-body');
+  if (activityToggle) {
+    activityToggle.addEventListener('click', () => {
+      const open = activityBody.classList.toggle('open');
+      activityToggle.classList.toggle('open', open);
+    });
+  }
 }
 
-/* ═══ MAIN ═══ */
+/* ═══ MAIN - AUTH CHECK ═══ */
+window.currentUser = null;
+
 onAuthStateChanged(auth, async user => {
-  if (!user) { window.location.href = 'index.html'; return; }
+  if (!user) {
+    window.location.href = 'index.html';
+    return;
+  }
+
+  window.currentUser = user;
+  hasShownExpiredWarning = false; // ✅ Reset flag
+
+  try {
+    window.API_TOKEN = await user.getIdToken();
+  } catch (err) {
+    console.error('Failed to get token:', err);
+  }
+
+  try {
+    const subRes = await fetch(`${window.API_BASE}/api/user-subscription`, {
+      headers: { 'Authorization': `Bearer ${window.API_TOKEN}` }
+    });
+    const subData = await subRes.json();
+    window.userSubscription = subData.data.plan || 'free';
+    localStorage.setItem(`subscription_${user.uid}`, window.userSubscription);
+    
+    checkSubscriptionStatus(subData.data, 40, 25);
+  } catch (err) {
+    window.userSubscription = localStorage.getItem(`subscription_${user.uid}`) || 'free';
+  }
+  
+  // ✅ Kiểm tra mỗi 5 phút mà không reload
+  setInterval(async () => {
+    try {
+      const subRes = await fetch(`${window.API_BASE}/api/user-subscription`, {
+        headers: { 'Authorization': `Bearer ${window.API_TOKEN}` }
+      });
+      const subData = await subRes.json();
+      checkSubscriptionStatus(subData.data, 40, 25);
+    } catch (err) {
+      console.error('Subscription check failed:', err);
+    }
+  }, 5 * 60 * 1000);
+
+  const subBadge = window.userSubscription !== 'free' ? ' ⭐ ' + window.userSubscription.replace('plan_', '').toUpperCase() : '';
+  document.getElementById('userDisplay').textContent = `👤 ${user.displayName || 'User'}${subBadge}`;
+  const upgradeBtn = document.getElementById('upgradeBtn');
+  upgradeBtn.style.display = 'inline-flex';
+
+  document.getElementById('tool-section').style.display = 'block';
 
   const [quizzes, recs, writes] = await Promise.all([
-    fetchCol('quiz_attempts',   user.uid, 'startTime'),
-    fetchCol('recordings',      user.uid, 'timestamp'),
-    fetchCol('writing_attempts',user.uid, 'timestamp'),
+    fetchCol('quiz_attempts', user.uid, 'startTime'),
+    fetchCol('recordings', user.uid, 'timestamp'),
+    fetchCol('writing_attempts', user.uid, 'timestamp'),
   ]);
 
   document.getElementById('loading').style.display = 'none';
   render(user, quizzes, recs, writes);
+  loadState();
 });
+
+// Setup tab click handlers - SIMPLIFIED
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.nav-tab').forEach(tab => {
+    tab.addEventListener('click', () => switchPanel(tab.dataset.panel));
+  });
+});
+
+// Simplified switchPanel function
+function switchPanel(name) {
+  // Update tabs
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.querySelector(`[data-panel="${name}"]`).classList.add('active');
+
+  // Update panels
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.getElementById(`panel-${name}`)?.classList.add('active');
+
+  saveState();
+}
 </script>
+
+<script>
+
+// ════════════════════════════════════════════════════════
+// TOOL FUNCTIONS
+// ════════════════════════════════════════════════════════
+// ✅ THÊM HÀM NÀY
+let hasShownExpiredWarning = false; // ✅ Flag để tránh lặp
+
+function checkSubscriptionStatus(subData, fortyDays, renewDeadline) {
+  if (!subData || subData.plan === 'free') return;
+
+  const expireTime = new Date(subData.expires_at).getTime();
+  const now = new Date().getTime();
+  const diffMs = expireTime - now;
+  const daysLeft = Math.ceil(diffMs / (24 * 60 * 60 * 1000));
+
+  if (daysLeft <= 0) {
+    // ✅ Chỉ downgrade 1 lần
+    if (!hasShownExpiredWarning) {
+      window.userSubscription = 'free';
+      localStorage.setItem(`subscription_${window.currentUser.uid}`, 'free');
+      updateSubscriptionUI();
+      hasShownExpiredWarning = true;
+      
+      showStatus('submitStatus', 'err', 
+        '⏰ Subscription expired. Downgraded to Free. <button onclick="showSubscriptionModal()" style="color:#c0392b;text-decoration:underline;background:none;border:none;cursor:pointer">Renew now</button>');
+    }
+  }
+  else if (daysLeft <= renewDeadline) {
+    showRenewWarning(daysLeft);
+  }
+}
+
+function showRenewWarning(daysLeft) {
+  // Xóa banner cũ nếu có
+  const oldBanner = document.getElementById('renew-warning-banner');
+  if (oldBanner) oldBanner.remove();
+
+  const banner = document.createElement('div');
+  banner.id = 'renew-warning-banner';
+  banner.style.cssText = `
+    position: fixed;
+    top: 66px;
+    left: 0;
+    right: 0;
+    background: #fff3cd;
+    border-bottom: 2px solid #ffc107;
+    padding: 12px 24px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #856404;
+    z-index: 99;
+  `;
+  banner.innerHTML = `⏰ Your subscription expires in ${daysLeft} day${daysLeft !== 1 ? 's' : ''}. <a href="#" onclick="showSubscriptionModal(); return false;" style="color: #c0392b; text-decoration: underline;">Renew now</a>`;
+  document.body.insertBefore(banner, document.body.firstChild);
+}
+// STATE PERSISTENCE
+function saveState() {
+  if (!qRows) qRows = [];
+  if (!pRows) pRows = [];
+  if (!pUsers) pUsers = [];
+  if (!imgRows) imgRows = [];
+  const state = {
+    pUsers,
+    pRows: pRows.map(r => ({...r, audioFile: null})),
+    qRows: qRows.map(r => ({...r, audioFile: null, imgFiles: [null,null,null]})),
+    imgRows: imgRows.map(r => ({...r, imageFile: null, audioFile: null}))
+  };
+  localStorage.setItem('chinese60s_draft', JSON.stringify(state));
+}
+
+function loadState() {
+  try {
+    const saved = localStorage.getItem('chinese60s_draft');
+    if (saved) {
+      const state = JSON.parse(saved);
+      pUsers = state.pUsers || [];
+      pRows = state.pRows || [];
+      qRows = state.qRows || [];
+      imgRows = state.imgRows || [];
+    }
+  } catch (e) {
+    console.warn('Could not restore state:', e);
+  }
+  renderPostRows();
+  renderQuizAll();
+  renderImgRows();
+}
+
+// SHARED HELPERS
+const esc = s => (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+function showStatus(id, type, html) {
+  const el = document.getElementById(id);
+  if(!el) return;
+  el.className = 'status ' + type;
+  el.innerHTML = html;
+}
+function shuffle(arr) {
+  const a=[...arr];
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
+  return a;
+}
+const PUNCT_RE = /^[，。！？、；：""''（）《》【】「」『』…—·～,.!?;:'"()\[\]{}<>\s]+$/;
+const isPunct = s => PUNCT_RE.test(s);
+
+// POSTS
+let pUsers = [];
+let pRows  = [];
+let currentAvatarFile = null;
+
+
+
+async function addUser() {
+  const name = document.getElementById('newUserName').value.trim();
+  if (!name) return alert('Enter a name.');
+  if (pUsers.find(u=>u.name===name)) return alert('Already exists.');
+
+  pUsers.push({name});
+  document.getElementById('newUserName').value='';
+  renderUsers();
+  renderPostRows();
+  saveState();
+}
+
+function removeUser(name) {
+  pUsers = pUsers.filter(u=>u.name!==name);
+  pRows.forEach(r=>{ if(r.user===name) r.user=pUsers[0]?.name||''; });
+  renderUsers();
+  renderPostRows();
+  saveState();
+}
+
+function renderUsers() {
+  const el = document.getElementById('userList');
+  if (!pUsers.length) { el.innerHTML='<div style="padding:8px;color:#bbb;font-size:.85rem;font-weight:600">No users yet</div>'; return; }
+  el.innerHTML = pUsers.map(u=>`
+    <div class="user-chip">
+      <div class="user-chip-letter">${esc(u.name[0].toUpperCase())}</div>
+      <span>${esc(u.name)}</span>
+      <button class="chip-remove" onclick="removeUser('${esc(u.name)}')">×</button>
+    </div>`).join('');
+}
+// ═══ SUBSCRIPTION FUNCTIONS ═══
+
+const PLAN_LIMITS = {
+  free: 5,     // 5 lesson rows, mỗi row có max 5 items/posts/quiz/images
+  plan_a: 10,  // 10 lesson rows, max 10 items mỗi
+  plan_b: 20,  // 20 lesson rows, max 20 items mỗi
+  plan_c: 50   // 50 lesson rows, max 50 items mỗi
+};
+
+function getUserLimit() {
+  const sub = window.userSubscription || 'free';
+  return PLAN_LIMITS[sub] || PLAN_LIMITS.free;
+}
+
+async function getTotalItemCount() {
+  if (!window.currentUser) return 0;
+  
+  try {
+    const response = await fetch(
+      `${window.API_BASE}/api/lesson-count`,
+      {
+        headers: {
+          'Authorization': `Bearer ${window.API_TOKEN}`
+        }
+      }
+    );
+    
+    if (!response.ok) return 0;
+    const { count } = await response.json();
+    return count;
+  } catch(e) {
+    console.error('Failed to get count:', e);
+    return 0;
+  }
+}
+
+
+
+function updateSubscriptionUI() {
+  const currentPlan = window.userSubscription || 'free';
+  
+  // Update header
+  const subBadge = currentPlan !== 'free' ? ' ⭐ ' + currentPlan.replace('plan_', '').toUpperCase() : '';
+  if (window.currentUser) {
+    document.getElementById('userDisplay').textContent = `👤 ${window.currentUser.displayName || 'User'}${subBadge}`;
+  }
+  
+  // ✅ Ẩn tất cả current plan buttons
+  document.querySelectorAll('.btn-plan-current').forEach(btn => {
+    btn.style.display = 'none';
+  });
+  
+  // ✅ Hiện lại upgrade/activate buttons
+  document.querySelectorAll('.btn-plan-upgrade, .btn-plan-activate').forEach(btn => {
+    btn.style.display = 'inline-flex';
+  });
+  
+  // ✅ Tìm card theo class
+  const planClassMap = {
+    'free': '.plan-free',
+    'plan_a': '.plan-a',
+    'plan_b': '.plan-b',
+    'plan_c': '.plan-c'
+  };
+  
+  const planClass = planClassMap[currentPlan];
+  if (planClass) {
+    const currentCard = document.querySelector(planClass);
+    if (currentCard) {
+      // Ẩn upgrade/activate buttons
+      const upgradeBtn = currentCard.querySelector('.btn-plan-upgrade');
+      const activateBtn = currentCard.querySelector('.btn-plan-activate');
+      if (upgradeBtn) upgradeBtn.style.display = 'none';
+      if (activateBtn) activateBtn.style.display = 'none';
+      
+      // Hiện current plan button
+      const currentBtn = currentCard.querySelector('.btn-plan-current');
+      if (currentBtn) currentBtn.style.display = 'inline-flex';
+    }
+  }
+}
+function showSubscriptionModal() {
+  const currentPlan = window.userSubscription || 'free';
+  
+  // ✅ Ẩn tất cả badges
+  document.querySelectorAll('.plan-badge').forEach(badge => {
+    badge.style.display = 'none';
+  });
+  
+  // ✅ Hiện đúng badge của plan hiện tại
+  const planBadgeMap = {
+    'free': '.plan-free .plan-badge',
+    'plan_a': '.plan-a .plan-badge',
+    'plan_b': '.plan-b .plan-badge',
+    'plan_c': '.plan-c .plan-badge'
+  };
+  
+  const badgeSelector = planBadgeMap[currentPlan];
+  if (badgeSelector) {
+    const badge = document.querySelector(badgeSelector);
+    if (badge) badge.style.display = 'inline-block';
+  }
+  
+  updateSubscriptionUI();
+  switchSubTab('plans');
+  
+  document.getElementById('subscriptionModal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeSubscriptionModal() {
+  document.getElementById('subscriptionModal').classList.remove('show');
+  document.body.style.overflow = 'auto';
+}
+
+function switchSubTab(tabName) {
+  document.querySelectorAll('.sub-tab').forEach(tab => tab.classList.remove('active'));
+  document.getElementById('sub-tab-' + tabName).classList.add('active');
+  document.getElementById('keyStatus').className = 'status';
+  document.getElementById('keyStatus').innerHTML = '';
+  
+  if (tabName === 'activate') {
+    setTimeout(() => {
+      document.getElementById('licenseKeyInput').focus();
+    }, 100);
+  }
+}
+
+// ✅ SET PLAN PREFIX khi click "Have a key?"
+function switchToActivateTab(productId) {
+  document.getElementById('licenseKeyInput').value = '';
+  document.getElementById('licenseKeyInput').dataset.productId = productId;
+  document.getElementById('keyStatus').className = 'status';
+  document.getElementById('keyStatus').innerHTML = '';
+  
+  switchSubTab('activate');
+  
+  setTimeout(() => {
+    document.getElementById('licenseKeyInput').focus();
+  }, 100);
+}
+ 
+// ═══ Main validation function ═══
+async function validateGumroadKey() {
+  const keyInput = document.getElementById('licenseKeyInput');
+  const licenseKey = keyInput.value.trim();  // ✅ KHÔNG .toUpperCase() nữa
+  
+  if (!licenseKey) {
+    showKeyStatus('err', '❌ Please enter a license key');
+    return;
+  }
+  
+  const productId = keyInput.dataset.productId;
+  if (!productId) {
+    showKeyStatus('err', '❌ Product ID not set');
+    return;
+  }
+  
+  showKeyStatus('info', '<span class="spinner"></span> Validating key...');
+  
+  try {
+    if (!window.currentUser) throw new Error('Please log in first');
+    if (!window.API_TOKEN) throw new Error('Authentication error');
+    
+    const response = await fetch(`${window.API_BASE}/api/validate-subscription-key`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${window.API_TOKEN}`
+      },
+      body: JSON.stringify({
+        license_key: licenseKey,  // ✅ KEY THÔI, KHÔNG PREFIX
+        product_id: productId,    // ✅ PRODUCT_ID PHÂN BIỆT
+        user_id: window.currentUser.uid,
+        email: window.currentUser.email
+      })
+    });
+
+    const data = await response.json();
+    
+    if (!response.ok) {
+      throw new Error(data.error || 'Invalid or already used key');
+    }
+
+    showKeyStatus('success', '✅ ' + data.message);
+    
+    setTimeout(async () => {
+      window.userSubscription = data.plan;
+      updateSubscriptionUI();
+      localStorage.setItem(`subscription_${window.currentUser.uid}`, data.plan);
+      closeSubscriptionModal();
+      showSuccessModal(`🎉 ${data.plan.replace('plan_', '').toUpperCase()} Plan Activated!\n✅ Valid for 40 days`);
+      
+      setTimeout(() => {
+        location.reload();
+      }, 2000);
+    }, 1500);
+    
+  } catch (e) {
+    showKeyStatus('err', '❌ ' + e.message);
+    console.error('Validation error:', e);
+  }
+}
+ 
+// ═══ Show status messages ═══
+function showKeyStatus(type, html) {
+  const el = document.getElementById('keyStatus');
+  if (!el) return;
+  el.className = 'status ' + type;
+  el.innerHTML = html;
+}
+
+// Close modal on Escape
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeSubscriptionModal();
+});
+
+function addPostRow() {
+  if (!pUsers.length) return alert('Add at least one user first.');
+  
+  const limit = getUserLimit();
+  
+  // ✅ Check RIÊNG posts
+  if (pRows.length >= limit) {
+    showStatus('submitStatus', 'err', 
+      `⚠️ Posts limit reached! You have ${pRows.length}/${limit} posts. Submit before adding more.`);
+    showSubscriptionModal();
+    return;
+  }
+  
+  pRows.push({
+    id: Date.now(),
+    user: pUsers[0].name,
+    title: '',
+    description: '',
+    audioFile: null,
+    segments: [],
+    composing: false
+  });
+  
+  renderPostRows();
+  saveState();
+}
+
+function removePostRow(id) {
+  pRows = pRows.filter(r=>r.id!==id);
+  renderPostRows();
+  saveState();
+}
+
+function updatePostRow(id,field,value) {
+  const r=pRows.find(r=>r.id===id);
+  if(r) {
+    r[field]=value;
+    saveState();
+  }
+}
+
+
+const pComposing = new Set();
+function pTitleInput(id,value) {
+  const r=pRows.find(r=>r.id===id); if(!r) return;
+  r.title=value;
+  if (!pComposing.has(id)) { r.segments=tokenize(value); pUpdateSegs(id); }
+}
+function pTitleCompStart(id) { pComposing.add(id); }
+function pTitleCompEnd(id,value) {
+  pComposing.delete(id);
+  const r=pRows.find(r=>r.id===id); if(!r) return;
+  r.title=value; r.segments=tokenize(value); pUpdateSegs(id);
+  saveState();
+}
+function pUpdateSegs(id) {
+  const r=pRows.find(r=>r.id===id); if(!r) return;
+  const el=document.getElementById('pseg-'+id); if(el) el.innerHTML=pSegHTML(r);
+}
+function pSplitSeg(id,idx) {
+  const r=pRows.find(r=>r.id===id); if(!r) return;
+  const tok=r.segments[idx]; if(tok.length<2) return;
+  r.segments.splice(idx,1,tok[0],tok.slice(1)); pUpdateSegs(id);
+  saveState();
+}
+function pMergeSeg(id,idx) {
+  const r=pRows.find(r=>r.id===id); if(!r||idx===0) return;
+  r.segments.splice(idx-1,2,r.segments[idx-1]+r.segments[idx]); pUpdateSegs(id);
+  saveState();
+}
+
+function pSegHTML(row) {
+  if (!row.segments.length) return '';
+  return `<div class="seg-section">
+    <div style="font-size:.78rem;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px">✂️ Segments</div>
+    <div class="seg-tokens">
+      ${row.segments.map((s,i)=>`
+        <div class="seg-token${isPunct(s)?' punct':''}">
+          <span class="seg-text">${esc(s)}</span>
+          ${s.length>1&&!isPunct(s)?`<button class="seg-btn seg-split-btn" onclick="pSplitSeg(${row.id},${i})">✂</button>`:''}
+          ${i>0?`<button class="seg-btn seg-merge-btn" onclick="pMergeSeg(${row.id},${i})">←</button>`:''}
+        </div>`).join('')}
+    </div>
+    <div class="seg-hint">✂ split first char · ← merge with previous</div>
+    <div class="seg-preview">[${row.segments.map(s=>`"${s}"`).join(', ')}]</div>
+  </div>`;
+}
+
+function renderPostRows() {
+  const el = document.getElementById('dialogueRows');
+  if (!pRows.length) {
+    el.innerHTML = pUsers.length
+      ? '<div class="empty-hint"><span class="icon">💬</span>Click Add Line to start</div>'
+      : '<div class="empty-hint"><span class="icon">🗣️</span>Add users first</div>';
+    return;
+  }
+  el.innerHTML = pRows.map((row,idx)=>{
+    const user=pUsers.find(u=>u.name===row.user);
+    return `<div class="dialogue-row">
+      <span class="row-num">Line ${idx+1}</span>
+      <button class="row-delete-btn" onclick="removePostRow(${row.id})">✕</button>
+      <div class="row-top">
+        <div class="row-user-col">
+          <div class="row-avatar">${esc((user?.name||'?')[0].toUpperCase())}</div>
+          <select style="font-size:.8rem;padding:5px 8px;border-radius:10px" onchange="updatePostRow(${row.id},'user',this.value);renderPostRows()">
+            ${pUsers.map(u=>`<option value="${esc(u.name)}" ${row.user===u.name?'selected':''}>${esc(u.name)}</option>`).join('')}
+          </select>
+        </div>
+        <div class="row-fields-col">
+          <div class="field"><label>Chinese Title</label>
+            <input type="text" placeholder="这是王老师…" value="${esc(row.title)}"
+              oninput="pTitleInput(${row.id},this.value)"
+              oncompositionstart="pTitleCompStart(${row.id})"
+              oncompositionend="pTitleCompEnd(${row.id},this.value)">
+          </div>
+          <div class="field"><label>Description <span style="color:#bbb;font-weight:500">(pinyin&lt;br&gt;English)</span></label>
+            <!-- ✅ THAY: Thêm pinyin-wrap + tone picker -->
+            <div class="pinyin-wrap" id="pdesc-wrap-${row.id}">
+              <textarea placeholder="wáng lǎoshī…&#10;Teacher Wang…" 
+                class="pinyin-input"
+                id="pdesc-${row.id}"
+                oninput="updatePostRow(${row.id},'description',this.value)"
+                autocomplete="off" autocorrect="off" spellcheck="false">${esc(row.description)}</textarea>
+              <button class="tone-helper-btn" onclick="togglePostDescTonePicker(${row.id})">🎵 tone marks</button>
+              <div class="tone-picker" id="ptone-picker-${row.id}">
+                <div class="tone-picker-title">Click to insert · or type vowel + 1–4</div>
+                ${['a','e','i','o','u','ü'].map(v=>`
+                  <div class="tone-row">${[1,2,3,4,5].map(t=>`<button class="tone-btn" onclick="insertPostDescTone(${row.id},'${v}',${t})">${TONES[v][t-1]}</button>`).join('')}
+                  <span style="padding:5px 6px;font-size:.78rem;color:#aaa;align-self:center">${v}</span></div>
+                `).join('')}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="pseg-${row.id}">${row.title?pSegHTML(row):''}</div>
+    </div>`;
+  }).join('');
+}
+// ═══ DIALOGUE LINES - TONE MARKS ═══
+
+let activePostDescTonePicker = null;
+
+function togglePostDescTonePicker(rowId){
+  const picker = document.getElementById('ptone-picker-' + rowId);
+  const isOpen = picker.classList.contains('open');
+  
+  // Đóng picker khác
+  document.querySelectorAll('.tone-picker.open').forEach(p => p.classList.remove('open'));
+  
+  if(!isOpen){
+    picker.classList.add('open');
+    activePostDescTonePicker = rowId;
+  } else {
+    activePostDescTonePicker = null;
+  }
+}
+
+function insertPostDescTone(rowId, vowel, tone){
+  const input = document.getElementById('pdesc-' + rowId);
+  if(!input) return;
+  
+  const cursor = input.selectionStart ?? input.value.length;
+  const { text, cursor: newCursor } = applyTone(input.value, cursor, vowel, tone);
+  
+  input.value = text;
+  input.setSelectionRange(newCursor, newCursor);
+  input.focus();
+  
+  updatePostRow(rowId, 'description', text);
+}
+
+// Đóng tone picker khi click ra ngoài
+document.addEventListener('click', e => {
+  if(!e.target.closest('.pinyin-wrap')){
+    document.querySelectorAll('.tone-picker.open').forEach(p => p.classList.remove('open'));
+    activePostDescTonePicker = null;
+  }
+});
+
+// Keyboard shortcut: vowel + 1-4 để thêm tone marks
+document.addEventListener('keydown', e => {
+  if(!['1','2','3','4','5'].includes(e.key)) return;
+  
+  const focused = document.activeElement;
+  if(!focused || !focused.classList.contains('pinyin-input')) return;
+  
+  // Kiểm tra: textarea này thuộc description (post) hay pinyin (image)?
+  const isPostDesc = focused.id.startsWith('pdesc-');
+  if(!isPostDesc) return;  // Chỉ xử lý description của posts
+  
+  const rowId = parseInt(focused.id.replace('pdesc-', ''));
+  const cursor = focused.selectionStart;
+  const before = focused.value.slice(0, cursor);
+  const vowelOrder = ['ü', 'a', 'o', 'e', 'i', 'u'];
+  
+  let found = null;
+  for(let i = before.length - 1; i >= 0; i--){
+    const ch = before[i].toLowerCase();
+    if(TONED_MAP[before[i]]){
+      found = { vowel: TONED_MAP[before[i]].base, idx: i };
+      break;
+    }
+    if(vowelOrder.includes(ch)){
+      found = { vowel: ch, idx: i };
+      break;
+    }
+  }
+  
+  if(!found) return;
+  
+  e.preventDefault();
+  const tone = parseInt(e.key);
+  const { text, cursor: newCursor } = applyTone(focused.value, cursor, found.vowel, tone);
+  
+  focused.value = text;
+  focused.setSelectionRange(newCursor, newCursor);
+  
+  updatePostRow(rowId, 'description', text);
+});
+// QUIZ
+let qRows = [];
+ 
+function newQRow() {
+  return {
+    id: Date.now() + Math.random(),
+    type: 't1',
+    fullSentence: '',
+    segments: [],
+    composing: false,
+    words: ['', '', ''],
+    t1correct: []
+  };
+}
+ 
+function addQuizRow() {
+  const limit = getUserLimit();
+  
+  // ✅ Check RIÊNG quiz
+  if (qRows.length >= limit) {
+    showStatus('submitStatus', 'err', 
+      `⚠️ Quiz limit reached! You have ${qRows.length}/${limit} quizzes. Submit before adding more.`);
+    showSubscriptionModal();
+    return;
+  }
+  
+  const r = newQRow();
+  qRows.push(r);
+  renderQuizAll();
+  saveState();
+}
+ 
+function removeQRow(id) {
+  qRows = qRows.filter(r => r.id !== id);
+  renderQuizAll();
+  saveState();
+}
+ 
+async function handleQuizAudio(id, event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const r = qRows.find(r => r.id === id);
+  if (!r) return;
+  r.audioFile = file;
+  saveState();
+  qRerenderRow(id);
+}
+ 
+function renderQuizAll() {
+  const el = document.getElementById('quizRows');
+  if (!qRows.length) {
+    el.innerHTML = '<div class="empty-hint"><span class="icon">📝</span>Click Add Quiz — pick a type for each</div>';
+    return;
+  }
+  el.innerHTML = qRows.map((r, i) => qRowHTML(r, i)).join('');
+}
+ 
+function qRerenderRow(id) {
+  const idx = qRows.findIndex(r => r.id === id);
+  if (idx < 0) return;
+  const el = document.getElementById('qrow-' + id);
+  if (!el) {
+    renderQuizAll();
+    return;
+  }
+  const tmp = document.createElement('div');
+  tmp.innerHTML = qRowHTML(qRows[idx], idx);
+  el.replaceWith(tmp.firstElementChild);
+}
+ 
+function qRowHTML(row, idx) {
+  return `<div class="quiz-row" id="qrow-${row.id}">
+    <div class="q-row-header">
+      <span class="row-num-badge">#${idx + 1}</span>
+      <button class="q-row-delete" onclick="removeQRow(${row.id})">✕</button>
+    </div>
+    <div>${qFormT1(row)}</div>
+  </div>`;
+}
+ 
+
+function qT1SegHTML(row) {
+  if (!row.segments.length) return '';
+  const nonP = row.segments.filter(s => !isPunct(s));
+  return `<div>
+    <div class="sub-label" style="margin-bottom:6px">✂️ Segments</div>
+    <div class="seg-area">
+      ${row.segments.map((s, i) => `
+        <div class="seg-tok${isPunct(s) ? ' punct' : ''}">
+          <span class="seg-text">${esc(s)}</span>
+          ${s.length > 1 && !isPunct(s) ? `<button class="seg-split-btn-q" onclick="qT1Split(${row.id},${i})">✂</button>` : ''}
+          ${i > 0 ? `<button class="seg-merge-btn-q" onclick="qT1Merge(${row.id},${i})">←</button>` : ''}
+        </div>`).join('')}
+    </div>
+    <div style="font-size:.72rem;color:#aaa;font-weight:600;margin-top:3px">✂ split first char · ← merge</div>
+  </div>
+  <div class="preview-box">
+    <div><strong>sentence:</strong> ${row.segments.map(s => isPunct(s) ? `<span style="color:#888">${esc(s)}</span>` : `<span class="blank-pill">___</span>`).join(' ')}</div>
+    <div style="margin-top:3px"><strong>words:</strong> ${shuffle(nonP).map(s => `<span class="blank-pill">${esc(s)}</span>`).join(' ')}</div>
+  </div>`;
+}
+ 
+function qFormT1(row) {
+  return `<div class="row-inner">
+    <div class="field"><label>📝 Full sentence</label>
+      <input type="text" placeholder="你是哪国人？" value="${esc(row.fullSentence)}"
+        oninput="qT1Input(${row.id},this.value)"
+        oncompositionstart="qSet(${row.id},'composing',true)"
+        oncompositionend="qT1CompEnd(${row.id},this.value)">
+    </div>
+    <div id="qt1seg-${row.id}">${qT1SegHTML(row)}</div>
+  </div>`;
+}
+ 
+function qT1UpdateSegs(id) {
+  const r = qRows.find(r => r.id === id);
+  if (!r) return;
+  const el = document.getElementById('qt1seg-' + id);
+  if (el) el.innerHTML = qT1SegHTML(r);
+}
+ 
+function qT1Input(id, value) {
+  const r = qRows.find(r => r.id === id);
+  if (!r) return;
+  r.fullSentence = value;
+  if (!r.composing) {
+    r.segments = tokenize(value);
+    qT1UpdateSegs(id);
+  }
+}
+ 
+function qT1CompEnd(id, value) {
+  const r = qRows.find(r => r.id === id);
+  if (!r) return;
+  r.composing = false;
+  r.fullSentence = value;
+  r.segments = tokenize(value);
+  qT1UpdateSegs(id);
+  saveState();
+}
+ 
+function qT1Split(id, idx) {
+  const r = qRows.find(r => r.id === id);
+  if (!r) return;
+  const tok = r.segments[idx];
+  if (tok.length < 2) return;
+  r.segments.splice(idx, 1, tok[0], tok.slice(1));
+  qT1UpdateSegs(id);
+  saveState();
+}
+ 
+function qT1Merge(id, idx) {
+  const r = qRows.find(r => r.id === id);
+  if (!r || idx === 0) return;
+  r.segments.splice(idx - 1, 2, r.segments[idx - 1] + r.segments[idx]);
+  qT1UpdateSegs(id);
+  saveState();
+}
+ 
+function qSet(id, field, value) {
+  const r = qRows.find(r => r.id === id);
+  if (r) r[field] = value;
+}
+
+// IMAGES
+let imgRows = [];
+let activeTonePicker = null;
+
+const TONES = {
+  a:['ā','á','ǎ','à','a'],e:['ē','é','ě','è','e'],
+  i:['ī','í','ǐ','ì','i'],o:['ō','ó','ǒ','ò','o'],
+  u:['ū','ú','ǔ','ù','u'],ü:['ǖ','ǘ','ǚ','ǜ','ü'],
+};
+const TONED_MAP = {};
+Object.entries(TONES).forEach(([base,arr])=>arr.forEach((ch,i)=>{if(i<4)TONED_MAP[ch]={base,tone:i+1};}));
+
+function applyTone(text,cursorPos,vowel,tone){
+  const before=text.slice(0,cursorPos),after=text.slice(cursorPos);
+  let idx=-1;
+  for(let i=before.length-1;i>=0;i--){
+    const ch=before[i].toLowerCase();
+    if(ch===vowel||(TONED_MAP[before[i]]&&TONED_MAP[before[i]].base===vowel)){idx=i;break;}
+  }
+  const newBefore=idx>=0?before.slice(0,idx)+TONES[vowel][tone-1]+before.slice(idx+1):before+TONES[vowel][tone-1];
+  return{text:newBefore+after,cursor:newBefore.length};
+}
+
+async function addImgRow() {
+  const limit = getUserLimit();
+  
+  // ✅ Check RIÊNG images
+  if (imgRows.length >= limit) {
+    showStatus('submitStatus', 'err', 
+      `⚠️ Vocabulary limit reached! You have ${imgRows.length}/${limit} words. Submit before adding more.`);
+    showSubscriptionModal();
+    return;
+  }
+  
+  const id = Date.now();
+  imgRows.push({id,imageFile:null,character:'',pinyin:'',meaning:'',audioFile:null});
+  renderImgRows();
+  saveState();
+}
+function removeImgRow(id){imgRows=imgRows.filter(r=>r.id!==id);renderImgRows();saveState();}
+
+function updateImgRow(id,field,value){
+  const row=imgRows.find(r=>r.id===id);
+  if(!row)return;
+  row[field]=value;
+  saveState();
+}
+
+async function handleImgUpload(id, event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const r = imgRows.find(r=>r.id===id);
+  if (!r) return;
+  r.imageFile = file;
+  saveState();
+  renderImgRows();
+}
+
+
+function renderImgRows(){
+  const el=document.getElementById('imageRows');
+  if(!imgRows.length){el.innerHTML='<div class="empty-hint"><span class="icon">🉐</span>Click "Add New Word" to start adding entries</div>';return;}
+  el.innerHTML=imgRows.map((row,idx)=>`
+    <div class="img-row" id="imgrow-${row.id}">
+      
+      <button class="row-delete-btn" onclick="removeImgRow(${row.id})" title="Remove">✕</button>
+      <div class="row-body">
+        <div class="row-fields">
+          <div class="fields-grid">
+            <div class="field">
+              <label>🀄 Character</label>
+              <input type="text" placeholder="你好" value="${esc(row.character)}" oninput="updateImgRow(${row.id},'character',this.value)">
+            </div>
+            <div class="field">
+              <label>🔤 Pinyin</label>
+              <div class="pinyin-wrap" id="ipinyin-wrap-${row.id}">
+                <input type="text" class="pinyin-input" id="ipinyin-${row.id}" placeholder="nǐ hǎo" value="${esc(row.pinyin)}"
+                  oninput="updateImgRow(${row.id},'pinyin',this.value)" autocomplete="off" autocorrect="off" spellcheck="false">
+                <button class="tone-helper-btn" onclick="toggleImgTonePicker(${row.id})">🎵 tone marks</button>
+                <div class="tone-picker" id="itone-picker-${row.id}">
+                  <div class="tone-picker-title">Click to insert · or type vowel + 1–4</div>
+                  ${['a','e','i','o','u','ü'].map(v=>`
+                    <div class="tone-row">${[1,2,3,4,5].map(t=>`<button class="tone-btn" onclick="insertImgTone(${row.id},'${v}',${t})">${TONES[v][t-1]}</button>`).join('')}
+                    <span style="padding:5px 6px;font-size:.78rem;color:#aaa;align-self:center">${v}</span></div>
+                  `).join('')}
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label>💬 Meaning</label>
+              <input type="text" placeholder="Hello" value="${esc(row.meaning)}" oninput="updateImgRow(${row.id},'meaning',this.value)">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function toggleImgTonePicker(rowId){
+  const picker=document.getElementById('itone-picker-'+rowId);
+  const isOpen=picker.classList.contains('open');
+  document.querySelectorAll('.tone-picker.open').forEach(p=>p.classList.remove('open'));
+  if(!isOpen){picker.classList.add('open');activeTonePicker=rowId;}else{activeTonePicker=null;}
+}
+
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.pinyin-wrap')){
+    document.querySelectorAll('.tone-picker.open').forEach(p=>p.classList.remove('open'));
+    activeTonePicker=null;
+  }
+});
+
+function insertImgTone(rowId,vowel,tone){
+  const input=document.getElementById('ipinyin-'+rowId);if(!input)return;
+  const cursor=input.selectionStart??input.value.length;
+  const{text,cursor:newCursor}=applyTone(input.value,cursor,vowel,tone);
+  input.value=text;input.setSelectionRange(newCursor,newCursor);input.focus();
+  updateImgRow(rowId,'pinyin',text);
+}
+
+document.addEventListener('keydown',e=>{
+  if(!['1','2','3','4','5'].includes(e.key))return;
+  const focused=document.activeElement;
+  if(!focused||!focused.classList.contains('pinyin-input'))return;
+  const rowId=parseInt(focused.id.replace('ipinyin-',''));
+  const cursor=focused.selectionStart;
+  const before=focused.value.slice(0,cursor);
+  const vowelOrder=['ü','a','o','e','i','u'];
+  let found=null;
+  for(let i=before.length-1;i>=0;i--){
+    const ch=before[i].toLowerCase();
+    if(TONED_MAP[before[i]]){found={vowel:TONED_MAP[before[i]].base,idx:i};break;}
+    if(vowelOrder.includes(ch)){found={vowel:ch,idx:i};break;}
+  }
+  if(!found)return;e.preventDefault();
+  const tone=parseInt(e.key);
+  const{text,cursor:newCursor}=applyTone(focused.value,cursor,found.vowel,tone);
+  focused.value=text;focused.setSelectionRange(newCursor,newCursor);
+  updateImgRow(rowId,'pinyin',text);
+});
+
+// TOKENIZER
+function tokenize(text) {
+  if(!text) return [];
+  const toks=[]; let cur='';
+  for(const ch of text){
+    if(isPunct(ch)){if(cur){toks.push(cur);cur='';}if(ch.trim())toks.push(ch);}
+    else cur+=ch;
+  }
+  if(cur) toks.push(cur);
+  return toks;
+}
+
+// SUBMIT ALL DATA - WITH FIREBASE TOKEN
+async function submitAll() {
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  
+  // ✅ Check limit TRƯỚC khi submit
+  const lessonCount = await getTotalItemCount();
+const limit = getUserLimit();
+
+if (lessonCount >= limit) {
+  showStatus('submitStatus', 'err', 
+    `❌ Lesson limit reached! You have ${lessonCount}/${limit} lessons. Upgrade to create more.`);
+  showSubscriptionModal();
+  btn.disabled = false;
+  return;
+}
+
+  showStatus('submitStatus', 'info', 
+    '<span class="spinner"></span> Submitting your content...');
+
+  try {
+    if (!currentUser) {
+      throw new Error('Please log in to submit content');
+    }
+
+    if (!API_TOKEN) {
+      throw new Error('Authentication token missing. Please refresh the page.');
+    }
+
+    const formData = new FormData();
+
+    // ✅ Each submission = 1 lesson row
+    formData.append('posts', JSON.stringify(pRows.map(r => ({
+      user: r.user,
+      title: r.title,
+      segments: r.segments,
+      description: r.description.replace(/\n/g, '<br>')
+    }))));
+
+    formData.append('quiz', JSON.stringify(qRows.map((r, idx) => {
+      const nonPunctSegs = r.segments.filter(s => !isPunct(s));
+      const sentenceParts = r.segments.map(s => isPunct(s) ? s : '___');
+      
+      return {
+        id: idx + 1,
+        fullSentence: r.fullSentence,
+        sentence: sentenceParts.join(' '),
+        blanks: nonPunctSegs.map(s => ({ answer: s })),
+        words: shuffle(nonPunctSegs)
+      };
+    })));
+
+    formData.append('images', JSON.stringify(imgRows.map(r => ({
+      character: r.character,
+      pinyin: r.pinyin,
+      meaning: r.meaning
+    }))));
+
+    // Attach files...
+    pRows.forEach((r, i) => {
+      if (r.audioFile) formData.append(`post_audio_${i}`, r.audioFile);
+    });
+    imgRows.forEach((r, i) => {
+      if (r.imageFile) formData.append(`img_image_${i}`, r.imageFile);
+      if (r.audioFile) formData.append(`img_audio_${i}`, r.audioFile);
+    });
+
+    const response = await fetch(`${window.API_BASE}/api/submit`, {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${API_TOKEN}` },
+      body: formData
+    });
+
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(error.error || `Server error: ${response.statusText}`);
+    }
+
+    showStatus('submitStatus', 'success', '✅ Content submitted successfully!');
+    showSuccessModal('All your content has been saved!');
+    clearAll();
+
+  } catch (e) {
+    showStatus('submitStatus', 'err', '❌ ' + e.message);
+    console.error('Submit error:', e);
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+function clearAll() {
+  if (!confirm('Clear all content and start over?')) return;
+  pUsers = [];
+  pRows = [];
+  qRows = [];
+  imgRows = [];
+  currentAvatarFile = null;
+  renderPostRows();
+  renderQuizAll();
+  renderImgRows();
+  localStorage.removeItem('chinese60s_draft');
+  showStatus('submitStatus', 'ok', '🔄 Cleared! Ready for new content.');
+}
+
+function showSuccessModal(message) {
+  document.getElementById('successMsg').textContent = message;
+  document.getElementById('successModal').classList.add('show');
+}
+
+function closeSuccessModal() {
+  document.getElementById('successModal').classList.remove('show');
+}
+
+// Save state before unload
+window.addEventListener('beforeunload', saveState);
+</script>
+<!-- SUBSCRIPTION MODAL -->
+<div class="subscription-modal" id="subscriptionModal">
+  <div class="sub-overlay" onclick="closeSubscriptionModal()"></div>
+  <div class="sub-content">
+    <button class="sub-close" onclick="closeSubscriptionModal()">✕</button>
+    
+    <!-- TAB 1: PLANS -->
+    <div class="sub-tab active" id="sub-tab-plans">
+      <div class="sub-header">
+        <div class="sub-icon">📦</div>
+        <h2>Choose Your Plan</h2>
+        <p>Upgrade to create unlimited content</p>
+      </div>
+
+      <div class="plans-grid">
+        <!-- FREE PLAN -->
+        <div class="plan-card plan-free">
+          <div class="plan-badge">Current Plan</div>
+          <div class="plan-name">Free</div>
+          <div class="plan-price">$0<span class="plan-period">/month</span></div>
+          <div class="plan-limit">Enjoy up to 5 submissions, each with</div>
+          <ul class="plan-features">
+            <li>5 sentences</li>
+            <li>5 quizzes</li>
+            <li>5 vocabulary items</li>
+          </ul>
+          <button class="btn btn-plan-current" disabled>Current Plan</button>
+        </div>
+
+        <!-- PLAN A -->
+        <div class="plan-card plan-a">
+          <div class="plan-badge plan-badge-a">Popular</div>
+          <div class="plan-name">Starter</div>
+          <div class="plan-price">$4.99<span class="plan-period">/month</span></div>
+          <div class="plan-limit">Enjoy up to 10 submissions, each with</div>
+          <ul class="plan-features">
+            <li>10 sentences</li>
+            <li>10 quizzes</li>
+            <li>10 vocabulary items</li>
+          </ul>
+          <a href="https://maxfilms.gumroad.com/l/lesson_builder_tool_starter" target="_blank" class="btn btn-plan-upgrade">
+            🛒 Buy on Gumroad
+            </a>
+          <button class="btn btn-plan-activate" 
+  onclick="switchToActivateTab('_DYSbAhcnplnuvbITAaS4w==')">
+  Have a key?
+</button>
+        </div>
+
+        <!-- PLAN B -->
+        <div class="plan-card plan-b">
+          <div class="plan-badge plan-badge-b">Best Value</div>
+          <div class="plan-name">Pro</div>
+          <div class="plan-price">$7.99<span class="plan-period">/month</span></div>
+          <div class="plan-limit">Enjoy up to 20 submissions, each with</div>
+          <ul class="plan-features">
+            <li>20 sentences</li>
+            <li>20 quizzes</li>
+            <li>20 vocabulary items</li>
+          </ul>
+          <a href="https://maxfilms.gumroad.com/l/lesson_builder_tool_pro" target="_blank" class="btn btn-plan-upgrade">
+            🛒 Buy on Gumroad
+          </a>
+          <button class="btn btn-plan-activate" 
+  onclick="switchToActivateTab('uDJUEtaZDQO6RMx2NKnUHQ==')">
+  Have a key?
+</button>
+        </div>
+
+        <!-- PLAN C -->
+        <div class="plan-card plan-c">
+          <div class="plan-badge plan-badge-c">Ultimate</div>
+          <div class="plan-name">Master</div>
+          <div class="plan-price">$19.99<span class="plan-period">/month</span></div>
+          <div class="plan-limit">Enjoy up to 50 submissions, each with</div>
+          <ul class="plan-features">
+            <li>50 sentences</li>
+            <li>50 quizzes</li>
+            <li>50 vocabulary items</li>
+          </ul>
+          <a href="https://maxfilms.gumroad.com/l/lesson_builder_tool_master" target="_blank" class="btn btn-plan-upgrade">
+            🛒 Buy on Gumroad
+          </a>
+          <button class="btn btn-plan-activate" 
+  onclick="switchToActivateTab('37sC-ZSp7TXkVHJGkOdJgg==')">
+  Have a key?
+</button>
+        </div>
+      </div>
+
+      <div class="plans-info">
+        <p>🔐 Secure & No credit card stored • Charged by Gumroad • Cancel anytime</p>
+      </div>
+    </div>
+
+    
+    <!-- TAB 2: ACTIVATE KEY -->
+<div class="sub-tab" id="sub-tab-activate">
+  <div class="sub-header">
+    <div class="sub-icon">🔑</div>
+    <h2>Activate Subscription</h2>
+    <p>Enter your license key received from Gumroad</p>
+  </div>
+
+  <div class="key-input-group">
+    <label>License Key</label>
+    <div style="display:flex; gap:8px; align-items:center;">
+      <input 
+  type="text" 
+  id="licenseKeyInput" 
+  placeholder="Enter your license key (e.g., abc123def456...)"
+  class="license-key-input"
+  style="width: 100%;"
+>
+    </div>
+    <div class="key-hint">📧 Check your email after purchase on Gumroad</div>
+  </div>
+  <!-- ✅ THÊM DÒNG NÀY -->
+    <div id="keyStatus" class="status"></div>
+      
+      <div class="sub-buttons">
+        <button class="btn btn-sub-primary" onclick="validateGumroadKey()">
+          ✅ Activate Key
+        </button>
+        <button class="btn btn-sub-secondary" onclick="switchSubTab('plans')">
+          ← Back to Plans
+        </button>
+      </div>
+  </div>
+</div>
 </body>
 </html>
