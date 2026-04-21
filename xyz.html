@@ -912,7 +912,7 @@
       </a>
       <a href="worksheet-builder.html" class="quick-link-box">
         <div class="quick-link-icon">㊗️</div>
-        <div class="quick-link-title">Hazi Worksheet Builder</div>
+        <div class="quick-link-title">Hanzi Worksheet Builder</div>
         <div class="quick-link-desc">Build your personal writing sheets</div>
       </a>
     </div>
@@ -1769,14 +1769,15 @@ function switchSubTabWithPlan(tabName, planName) {
 async function validateGumroadKey() {
   const keyInput = document.getElementById('licenseKeyInput');
   const prefix = document.getElementById('keyPrefix').textContent.trim();
-  const gumroadKey = keyInput.value.trim();  // ✅ Chỉ nhập key bình thường
+  const gumroadKey = keyInput.value.trim();
 
   if (!gumroadKey) {
     showKeyStatus('err', '❌ Please enter a license key');
     return;
   }
 
-  // ✅ Combine prefix + key
+  // ✅ Extract plan từ prefix
+  const planFromPrefix = prefix.replace('-', '').toLowerCase();
   const fullKey = prefix + gumroadKey;
 
   showKeyStatus('info', '<span class="spinner"></span> Validating key...');
@@ -1785,7 +1786,6 @@ async function validateGumroadKey() {
     if (!window.currentUser) throw new Error('Please log in first');
     if (!window.API_TOKEN) throw new Error('Authentication error.');
 
-    // Validate key
     const response = await fetch(`${window.API_BASE}/api/validate-subscription-key`, {
       method: 'POST',
       headers: {
@@ -1793,14 +1793,20 @@ async function validateGumroadKey() {
         'Authorization': `Bearer ${window.API_TOKEN}`
       },
       body: JSON.stringify({
-        license_key: fullKey,  // ✅ Gửi key + prefix
+        license_key: fullKey,
         user_id: window.currentUser.uid,
-        email: window.currentUser.email
+        email: window.currentUser.email,
+        expected_plan: `plan_${planFromPrefix}`  // ✅ THÊM ĐÂY
       })
     });
 
     const data = await response.json();
     if (!response.ok) throw new Error(data.error || 'Invalid or already used key');
+
+    // ✅ THÊM VALIDATION NÀY - Check plan khớp
+    if (data.plan !== `plan_${planFromPrefix}`) {
+      throw new Error(`❌ This key is for ${data.plan.toUpperCase()} plan, not ${planFromPrefix.toUpperCase()}`);
+    }
 
     showKeyStatus('success', '✅ ' + data.message);
     
@@ -1824,9 +1830,9 @@ async function validateGumroadKey() {
       if (!updateRes.ok) throw new Error('Failed to update subscription');
 
       window.userSubscription = planType;
-      updateSubscriptionUI(); // ✅ Cập nhật UI ngay
+      updateSubscriptionUI();
       localStorage.setItem(`subscription_${window.currentUser.uid}`, planType);
-      localStorage.setItem(`subscription_key_${window.currentUser.uid}`, fullKey);  // ✅ Lưu key + prefix
+      localStorage.setItem(`subscription_key_${window.currentUser.uid}`, fullKey);
       localStorage.setItem(`subscription_date_${window.currentUser.uid}`, new Date().toISOString());
       
       closeSubscriptionModal();
