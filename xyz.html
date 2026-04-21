@@ -1992,7 +1992,22 @@ function renderPostRows() {
               oncompositionend="pTitleCompEnd(${row.id},this.value)">
           </div>
           <div class="field"><label>Description <span style="color:#bbb;font-weight:500">(pinyin&lt;br&gt;English)</span></label>
-            <textarea placeholder="wáng lǎoshī…&#10;Teacher Wang…" oninput="updatePostRow(${row.id},'description',this.value)">${esc(row.description)}</textarea>
+            <!-- ✅ THAY: Thêm pinyin-wrap + tone picker -->
+            <div class="pinyin-wrap" id="pdesc-wrap-${row.id}">
+              <textarea placeholder="wáng lǎoshī…&#10;Teacher Wang…" 
+                class="pinyin-input"
+                id="pdesc-${row.id}"
+                oninput="updatePostRow(${row.id},'description',this.value)"
+                autocomplete="off" autocorrect="off" spellcheck="false">${esc(row.description)}</textarea>
+              <button class="tone-helper-btn" onclick="togglePostDescTonePicker(${row.id})">🎵 tone marks</button>
+              <div class="tone-picker" id="ptone-picker-${row.id}">
+                <div class="tone-picker-title">Click to insert · or type vowel + 1–4</div>
+                ${['a','e','i','o','u','ü'].map(v=>`
+                  <div class="tone-row">${[1,2,3,4,5].map(t=>`<button class="tone-btn" onclick="insertPostDescTone(${row.id},'${v}',${t})">${TONES[v][t-1]}</button>`).join('')}
+                  <span style="padding:5px 6px;font-size:.78rem;color:#aaa;align-self:center">${v}</span></div>
+                `).join('')}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -2000,7 +2015,87 @@ function renderPostRows() {
     </div>`;
   }).join('');
 }
+// ═══ DIALOGUE LINES - TONE MARKS ═══
 
+let activePostDescTonePicker = null;
+
+function togglePostDescTonePicker(rowId){
+  const picker = document.getElementById('ptone-picker-' + rowId);
+  const isOpen = picker.classList.contains('open');
+  
+  // Đóng picker khác
+  document.querySelectorAll('.tone-picker.open').forEach(p => p.classList.remove('open'));
+  
+  if(!isOpen){
+    picker.classList.add('open');
+    activePostDescTonePicker = rowId;
+  } else {
+    activePostDescTonePicker = null;
+  }
+}
+
+function insertPostDescTone(rowId, vowel, tone){
+  const input = document.getElementById('pdesc-' + rowId);
+  if(!input) return;
+  
+  const cursor = input.selectionStart ?? input.value.length;
+  const { text, cursor: newCursor } = applyTone(input.value, cursor, vowel, tone);
+  
+  input.value = text;
+  input.setSelectionRange(newCursor, newCursor);
+  input.focus();
+  
+  updatePostRow(rowId, 'description', text);
+}
+
+// Đóng tone picker khi click ra ngoài
+document.addEventListener('click', e => {
+  if(!e.target.closest('.pinyin-wrap')){
+    document.querySelectorAll('.tone-picker.open').forEach(p => p.classList.remove('open'));
+    activePostDescTonePicker = null;
+  }
+});
+
+// Keyboard shortcut: vowel + 1-4 để thêm tone marks
+document.addEventListener('keydown', e => {
+  if(!['1','2','3','4','5'].includes(e.key)) return;
+  
+  const focused = document.activeElement;
+  if(!focused || !focused.classList.contains('pinyin-input')) return;
+  
+  // Kiểm tra: textarea này thuộc description (post) hay pinyin (image)?
+  const isPostDesc = focused.id.startsWith('pdesc-');
+  if(!isPostDesc) return;  // Chỉ xử lý description của posts
+  
+  const rowId = parseInt(focused.id.replace('pdesc-', ''));
+  const cursor = focused.selectionStart;
+  const before = focused.value.slice(0, cursor);
+  const vowelOrder = ['ü', 'a', 'o', 'e', 'i', 'u'];
+  
+  let found = null;
+  for(let i = before.length - 1; i >= 0; i--){
+    const ch = before[i].toLowerCase();
+    if(TONED_MAP[before[i]]){
+      found = { vowel: TONED_MAP[before[i]].base, idx: i };
+      break;
+    }
+    if(vowelOrder.includes(ch)){
+      found = { vowel: ch, idx: i };
+      break;
+    }
+  }
+  
+  if(!found) return;
+  
+  e.preventDefault();
+  const tone = parseInt(e.key);
+  const { text, cursor: newCursor } = applyTone(focused.value, cursor, found.vowel, tone);
+  
+  focused.value = text;
+  focused.setSelectionRange(newCursor, newCursor);
+  
+  updatePostRow(rowId, 'description', text);
+});
 // QUIZ
 let qRows = [];
  
