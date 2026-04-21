@@ -587,14 +587,14 @@ app.post('/api/validate-worksheet-key', verifyFirebaseToken, async (req, res) =>
 app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res) => {
   try {
     const uid = req.user.uid;
-    const { license_key } = req.body;
-
+    const { license_key, expected_plan } = req.body;  // ✅ Thêm expected_plan
+    
     if (!license_key) {
       return res.status(400).json({ error: 'Missing license key' });
     }
-
+    
     const trimmedKey = license_key.trim().toUpperCase();
-
+    
     // ✅ Extract plan từ key prefix
     let plan = 'free';
     if (trimmedKey.startsWith('STARTER-')) {
@@ -606,27 +606,34 @@ app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res)
     } else {
       return res.status(400).json({ error: 'Invalid key format. Must start with STARTER-, PRO-, or MASTER-' });
     }
-
+    
+    // ✅ THÊM VALIDATION NÀY - Check plan khớp
+    if (expected_plan && plan !== expected_plan) {
+      return res.status(400).json({ 
+        error: `This key is for ${plan.replace('plan_', '').toUpperCase()} plan, not ${expected_plan.replace('plan_', '').toUpperCase()}` 
+      });
+    }
+    
     // Activate subscription
     const expiresAt = new Date();
     expiresAt.setDate(expiresAt.getDate() + 40);
-
+    
     const { data, error } = await supabase
       .from('user_subscriptions')
       .upsert([
         {
           user_id: uid,
           plan: plan,
-          license_key: trimmedKey,  // ✅ Lưu key + prefix
+          license_key: trimmedKey,
           activated_at: new Date().toISOString(),
           expires_at: expiresAt.toISOString(),
           updated_at: new Date().toISOString()
         }
       ], { onConflict: 'user_id' })
       .select();
-
+    
     if (error) throw error;
-
+    
     res.json({
       success: true,
       plan: plan,
@@ -634,7 +641,6 @@ app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res)
       expiresAt: expiresAt.toISOString(),
       data: data[0]
     });
-
   } catch (error) {
     console.error('[validate-subscription-key] Error:', error);
     res.status(500).json({ error: error.message });
