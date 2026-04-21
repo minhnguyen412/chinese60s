@@ -587,10 +587,15 @@ app.post('/api/validate-worksheet-key', verifyFirebaseToken, async (req, res) =>
 app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res) => {
   try {
     const uid = req.user.uid;
-    const { license_key, expected_plan } = req.body;
+    const { license_key, product_id } = req.body;  // ✅ LẤY product_id
     
     if (!license_key) {
       return res.status(400).json({ error: 'Missing license key' });
+    }
+    
+    // ✅ THÊM: Xác nhận product_id không null
+    if (!product_id) {
+      return res.status(400).json({ error: 'Product ID missing' });
     }
     
     const trimmedKey = license_key.trim().toUpperCase();
@@ -610,33 +615,47 @@ app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res)
       });
     }
     
-    // ═══ STEP 2: Verify extracted plan matches expected plan ═══
-    if (expected_plan && extractedPlan !== expected_plan) {
-      const extractedName = extractedPlan.replace('plan_', '').toUpperCase();
-      const expectedName = expected_plan.replace('plan_', '').toUpperCase();
-      
-      return res.status(400).json({ 
-        error: `❌ This key is for ${extractedName} plan, but you're trying to activate it for ${expectedName}. Please use the correct key for this plan.`
+    // ═══ STEP 2: Xác nhận Product ID khớp với Plan ═══
+    const planToProductMap = {
+      'plan_a': 'lesson_builder_tool_starter',  // Thay bằng ID thật
+      'plan_b': 'lesson_builder_tool_pro',
+      'plan_c': 'lesson_builder_tool_master',
+    };
+    
+    const expectedProductId = planToProductMap[extractedPlan];
+    
+    // ✅ KIỂM TRA: Product ID có khớp không
+    if (product_id !== expectedProductId) {
+      return res.status(400).json({
+        error: `❌ This key doesn't match the selected plan. Please use the correct key or select the right plan.`,
+        receivedProductId: product_id,
+        expectedProductId: expectedProductId
       });
     }
     
-    // ═══ STEP 3: (Optional) Verify with Gumroad API ═══
-    // TODO: Implement Gumroad API verification if needed
-    // const gumroadVerified = await verifyWithGumroad(trimmedKey);
-    // if (!gumroadVerified) {
-    //   return res.status(400).json({ error: 'Invalid or already used key' });
+    // ═══ STEP 3: Verify với Gumroad API ═══
+    // ✅ CÓ THỂ THÊM: Gọi Gumroad API với product_id + license_key
+    // const gumroadRes = await fetch('https://api.gumroad.com/v2/licenses/verify', {
+    //   method: 'POST',
+    //   headers: { 'Authorization': `Bearer ${process.env.GUMROAD_TOKEN}` },
+    //   body: JSON.stringify({ product_id, license_key: trimmedKey })
+    // });
+    // const gumroadData = await gumroadRes.json();
+    // if (!gumroadData.success) {
+    //   return res.status(400).json({ error: 'Invalid key on Gumroad' });
     // }
     
     // ═══ STEP 4: Activate subscription ═══
     const expiresAt = new Date();
-    expiresAt.setDate(expiresAt.getDate() + 40); // 40 days validity
+    expiresAt.setDate(expiresAt.getDate() + 40);
     
     const { data, error } = await supabase
       .from('user_subscriptions')
       .upsert([
         {
           user_id: uid,
-          plan: extractedPlan,  // ✅ Use extracted plan
+          plan: extractedPlan,
+          product_id: product_id,  // ✅ LƯU PRODUCT ID
           license_key: trimmedKey,
           activated_at: new Date().toISOString(),
           expires_at: expiresAt.toISOString(),
@@ -652,6 +671,7 @@ app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res)
     res.json({
       success: true,
       plan: extractedPlan,
+      product_id: product_id,  // ✅ TRẢ LẠI PRODUCT ID
       message: `✅ ${planDisplayName} subscription activated for 40 days`,
       expiresAt: expiresAt.toISOString(),
       data: data[0]
