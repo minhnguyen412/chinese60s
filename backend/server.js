@@ -587,7 +587,7 @@ app.post('/api/validate-worksheet-key', verifyFirebaseToken, async (req, res) =>
 app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res) => {
   try {
     const uid = req.user.uid;
-    const { license_key, expected_plan } = req.body;  // ✅ Thêm expected_plan
+    const { license_key, expected_plan } = req.body;
     
     if (!license_key) {
       return res.status(400).json({ error: 'Missing license key' });
@@ -595,35 +595,48 @@ app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res)
     
     const trimmedKey = license_key.trim().toUpperCase();
     
-    // ✅ Extract plan từ key prefix
-    let plan = 'free';
-    if (trimmedKey.startsWith('STARTER-')) {
-      plan = 'plan_starter';
-    } else if (trimmedKey.startsWith('PRO-')) {
-      plan = 'plan_pro';
-    } else if (trimmedKey.startsWith('MASTER-')) {
-      plan = 'plan_master';
-    } else {
-      return res.status(400).json({ error: 'Invalid key format. Must start with STARTER-, PRO-, or MASTER-' });
-    }
+    // ═══ STEP 1: Extract plan từ key prefix ═══
+    let extractedPlan = null;
     
-    // ✅ THÊM VALIDATION NÀY - Check plan khớp
-    if (expected_plan && plan !== expected_plan) {
+    if (trimmedKey.startsWith('STARTER-')) {
+      extractedPlan = 'plan_a';
+    } else if (trimmedKey.startsWith('PRO-')) {
+      extractedPlan = 'plan_b';
+    } else if (trimmedKey.startsWith('MASTER-')) {
+      extractedPlan = 'plan_c';
+    } else {
       return res.status(400).json({ 
-        error: `This key is not for ${expected_plan.replace('plan_', '').toUpperCase()} plan` 
+        error: 'Invalid key format. Must start with STARTER-, PRO-, or MASTER-' 
       });
     }
     
-    // Activate subscription
+    // ═══ STEP 2: Verify extracted plan matches expected plan ═══
+    if (expected_plan && extractedPlan !== expected_plan) {
+      const extractedName = extractedPlan.replace('plan_', '').toUpperCase();
+      const expectedName = expected_plan.replace('plan_', '').toUpperCase();
+      
+      return res.status(400).json({ 
+        error: `❌ This key is for ${extractedName} plan, but you're trying to activate it for ${expectedName}. Please use the correct key for this plan.`
+      });
+    }
+    
+    // ═══ STEP 3: (Optional) Verify with Gumroad API ═══
+    // TODO: Implement Gumroad API verification if needed
+    // const gumroadVerified = await verifyWithGumroad(trimmedKey);
+    // if (!gumroadVerified) {
+    //   return res.status(400).json({ error: 'Invalid or already used key' });
+    // }
+    
+    // ═══ STEP 4: Activate subscription ═══
     const expiresAt = new Date();
-    expiresAt.setDate(expiresAt.getDate() + 40);
+    expiresAt.setDate(expiresAt.getDate() + 40); // 40 days validity
     
     const { data, error } = await supabase
       .from('user_subscriptions')
       .upsert([
         {
           user_id: uid,
-          plan: plan,
+          plan: extractedPlan,  // ✅ Use extracted plan
           license_key: trimmedKey,
           activated_at: new Date().toISOString(),
           expires_at: expiresAt.toISOString(),
@@ -634,13 +647,16 @@ app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res)
     
     if (error) throw error;
     
+    const planDisplayName = extractedPlan.replace('plan_', '').toUpperCase();
+    
     res.json({
       success: true,
-      plan: plan,
-      message: `Subscription activated for 40 days (${plan.replace('plan_', '').toUpperCase()})`,
+      plan: extractedPlan,
+      message: `✅ ${planDisplayName} subscription activated for 40 days`,
       expiresAt: expiresAt.toISOString(),
       data: data[0]
     });
+    
   } catch (error) {
     console.error('[validate-subscription-key] Error:', error);
     res.status(500).json({ error: error.message });
