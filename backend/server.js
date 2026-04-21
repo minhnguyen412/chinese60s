@@ -385,7 +385,7 @@ app.get('/api/worksheet-print-count', verifyFirebaseToken, async (req, res) => {
     
     // Get subscription info
     const { data: subData } = await supabase
-      .from('user_subscriptions')
+      .from('worksheet_subscriptions')
       .select('plan, expires_at')
       .eq('user_id', uid)
       .single();
@@ -453,7 +453,7 @@ app.post('/api/worksheet-record-print', verifyFirebaseToken, async (req, res) =>
 
     // Get subscription & print count
     const { data: subData } = await supabase
-      .from('user_subscriptions')
+      .from('worksheet_subscriptions')
       .select('plan, expires_at')
       .eq('user_id', uid)
       .single();
@@ -468,7 +468,7 @@ app.post('/api/worksheet-record-print', verifyFirebaseToken, async (req, res) =>
       if (now > expireDate) {
         // Auto downgrade
         await supabase
-          .from('user_subscriptions')
+          .from('worksheet_subscriptions')
           .update({ plan: 'free' })
           .eq('user_id', uid);
         
@@ -509,6 +509,7 @@ app.post('/api/worksheet-record-print', verifyFirebaseToken, async (req, res) =>
       .insert([
         {
           user_id: uid,
+          plan: plan,
           printed_at: new Date().toISOString()
         }
       ])
@@ -554,7 +555,7 @@ app.post('/api/validate-worksheet-key', verifyFirebaseToken, async (req, res) =>
     expiresAt.setDate(expiresAt.getDate() + 40); // 40 days
 
     const { data, error } = await supabase
-      .from('user_subscriptions')
+      .from('worksheet_subscriptions')
       .upsert([
         {
           user_id: uid,
