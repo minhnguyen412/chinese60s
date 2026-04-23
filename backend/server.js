@@ -530,6 +530,7 @@ app.post('/api/worksheet-record-print', verifyFirebaseToken, async (req, res) =>
 });
 
 // Validate Gumroad key cho worksheet
+// Validate Gumroad key cho worksheet
 app.post('/api/validate-worksheet-key', verifyFirebaseToken, async (req, res) => {
   try {
     const uid = req.user.uid;
@@ -539,47 +540,124 @@ app.post('/api/validate-worksheet-key', verifyFirebaseToken, async (req, res) =>
       return res.status(400).json({ error: 'Missing license key' });
     }
 
-    // ✅ INTEGRATION POINT: Call Gumroad API để verify
-    // Hoặc kiểm tra trong database có key này hay không
+    console.log('🔍 [validate-worksheet-key]', { uid, license_key });
+
+    // ═══ STEP 1: CHECK XEM KEY ĐÃ ĐƯỢC DÙNG TRƯỚC ĐÓ KHÔNG ═══
+    const { data: existingKey } = await supabase
+      .from('license_key_tracking')
+      .select('*')
+      .eq('license_key', license_key)
+      .maybeSingle();
     
-    // Option 1: Simple check (key pattern)
-    if (!license_key || license_key.trim().length < 5) {
-      return res.status(400).json({ error: 'Invalid key format' });
+    if (existingKey) {
+      // Key đã được dùng trước đó
+      console.log('⚠️ Key already used:', {
+        used_by: existingKey.user_id,
+        activated_at: existingKey.activated_at,
+        expires_at: existingKey.expires_at
+      });
+      
+      return res.status(400).json({
+        error: '❌ This license key has already been used. Please purchase a new key.',
+        details: {
+          message: 'Each license key can only be used once.',
+          previousActivation: existingKey.activated_at
+        }
+      });
     }
 
-    // Option 2: Call Gumroad API (nếu cần verify thật)
-    // const gumroadRes = await fetch('https://api.gumroad.com/v2/licenses/verify', {...})
+    // ═══ STEP 2: VERIFY KEY VỚI GUMROAD (Optional) ═══
+    console.log('🔐 Verifying key with Gumroad API...');
+    
+    try {
+      const gumroadRes = await fetch('https://api.gumroad.com/v2/licenses/verify', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${process.env.GUMROAD_TOKEN}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          product_id: 'ZVD-qJaKJoXuQcyDT2c2zQ==', // Gumroad product ID
+          license_key: license_key
+        })
+      });
+      
+      const gumroadData = await gumroadRes.json();
+      
+      if (!gumroadData.success) {
+        console.error('❌ Gumroad validation failed:', gumroadData.message);
+        return res.status(400).json({
+          error: '❌ ' + (gumroadData.message || 'Invalid license key')
+        });
+      }
+      
+      console.log('✅ Gumroad validation passed');
+      
+    } catch (gumroadErr) {
+      console.warn('⚠️ Gumroad API error:', gumroadErr.message);
+      // Nếu Gumroad API down, vẫn cho qua
+    }
 
-    // For now, assume valid key → activate Pro plan
+    // ═══ STEP 3: ACTIVATE SUBSCRIPTION ═══
     const expiresAt = new Date();
     expiresAt.setDate(expiresAt.getDate() + 40); // 40 days
 
-    const { data, error } = await supabase
+    console.log('💾 Activating worksheet subscription...');
+
+    // ✅ INSERT vào license_key_tracking (tracking usage)
+    const { data: trackingData, error: trackingError } = await supabase
+      .from('license_key_tracking')
+      .insert([
+        {
+          product_id: 'worksheet_builder_print',
+          license_key: license_key,
+          user_id: uid,
+          plan: 'plan_pro',
+          activated_at: new Date().toISOString(),
+          expires_at: expiresAt.toISOString()
+        }
+      ])
+      .select();
+
+    if (trackingError) {
+      console.error('❌ Failed to track license key:', trackingError);
+      return res.status(400).json({
+        error: '❌ Failed to activate license. Please try again.'
+      });
+    }
+
+    // ✅ UPSERT vào worksheet_subscriptions
+    const { data: subData, error: subError } = await supabase
       .from('worksheet_subscriptions')
       .upsert([
         {
           user_id: uid,
-          plan: 'plan_pro', // For worksheet, just call it "pro"
+          plan: 'plan_pro',
+          license_key: license_key,
           activated_at: new Date().toISOString(),
           expires_at: expiresAt.toISOString(),
-          license_key: license_key,
           updated_at: new Date().toISOString()
         }
       ], { onConflict: 'user_id' })
       .select();
 
-    if (error) throw error;
+    if (subError) {
+      console.error('❌ Failed to update subscription:', subError);
+      return res.status(500).json({ error: 'Failed to save subscription' });
+    }
+
+    console.log('✅ Worksheet subscription activated successfully');
 
     res.json({
       success: true,
       plan: 'plan_pro',
-      message: 'Worksheet Pro activated for 40 days',
+      message: '✅ Worksheet Pro activated for 40 days',
       expiresAt: expiresAt.toISOString(),
-      data: data[0]
+      data: subData[0]
     });
 
   } catch (error) {
-    console.error('[validate-worksheet-key] Error:', error);
+    console.error('❌ [validate-worksheet-key] Error:', error);
     res.status(500).json({ error: error.message });
   }
 });
