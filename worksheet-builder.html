@@ -430,57 +430,57 @@ function updatePrintCountDisplay() {
   };
 
   window.validateWSKey = async function() {
-    const key = document.getElementById('wsKeyInput').value.trim().toUpperCase();
-    const statusEl = document.getElementById('wsKeyStatus');
-    
-    if (!key) {
-      statusEl.style.background = 'var(--red-pale)';
-      statusEl.style.color = 'var(--red)';
-      statusEl.textContent = '❌ Enter a key';
-      statusEl.style.display = 'block';
-      return;
-    }
+  const key = document.getElementById('wsKeyInput').value.trim();
+  const statusEl = document.getElementById('wsKeyStatus');
+  
+  if (!key) {
+    statusEl.style.background = 'var(--red-pale)';
+    statusEl.style.color = 'var(--red)';
+    statusEl.textContent = '❌ Enter a key';
+    statusEl.style.display = 'block';
+    return;
+  }
 
-    statusEl.innerHTML = '<span class="spinner"></span> Validating...';
+  statusEl.innerHTML = '<span class="spinner"></span> Validating...';
+  statusEl.style.display = 'block';
+
+  try {
+    if (!window.currentUser) throw new Error('Please log in first');
+    if (!window.API_TOKEN) throw new Error('Auth token missing');
+
+    const response = await fetch(`${window.API_BASE}/api/validate-worksheet-key`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${window.API_TOKEN}`
+      },
+      body: JSON.stringify({ license_key: key })
+    });
+
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error || 'Invalid key');
+
+    statusEl.style.background = 'var(--green-pale)';
+    statusEl.style.color = 'var(--green-dark)';
+    statusEl.textContent = '✅ ' + data.message;
     statusEl.style.display = 'block';
 
-    try {
-      if (!window.currentUser) throw new Error('Please log in first');
-      if (!window.API_TOKEN) throw new Error('Auth token missing');
+    setTimeout(() => {
+      window.userSubscription = 'plan_pro';
+      window.maxPrints = 999;
+      document.getElementById('wsKeyInput').value = '';
+      window.closeWSSubscriptionModal();
+      window.updatePrintCountDisplay();
+      location.reload();
+    }, 1500);
 
-      const response = await fetch(`${window.API_BASE}/api/validate-worksheet-key`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${window.API_TOKEN}`
-        },
-        body: JSON.stringify({ license_key: key })
-      });
-
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error || 'Invalid key');
-
-      statusEl.style.background = 'var(--green-pale)';
-      statusEl.style.color = 'var(--green-dark)';
-      statusEl.textContent = '✅ ' + data.message;
-      statusEl.style.display = 'block';
-
-      setTimeout(() => {
-        window.userSubscription = 'plan_pro';
-        window.maxPrints = 999;
-        document.getElementById('wsKeyInput').value = '';
-        window.closeWSSubscriptionModal();
-        window.updatePrintCountDisplay();
-        location.reload();
-      }, 1500);
-
-    } catch (e) {
-      statusEl.style.background = 'var(--red-pale)';
-      statusEl.style.color = 'var(--red)';
-      statusEl.textContent = '❌ ' + e.message;
-      statusEl.style.display = 'block';
-    }
-  };
+  } catch (e) {
+    statusEl.style.background = 'var(--red-pale)';
+    statusEl.style.color = 'var(--red)';
+    statusEl.textContent = '❌ ' + e.message;
+    statusEl.style.display = 'block';
+  }
+};
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') window.closeWSSubscriptionModal();
