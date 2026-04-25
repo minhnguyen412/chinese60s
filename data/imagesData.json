@@ -4358,5 +4358,205 @@
     "meaning": "white",
     "pinyin": "bái sè",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985054/%E7%99%BD%E8%89%B2_fkvtrm.mp3"
+  },
+  {
+    "id": 546,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981411/%E4%BC%9A_i0oinz.png",
+    "character": "会",
+    "meaning": "can; to be able to",
+    "pinyin": "huì",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985095/%E4%BC%9A_eum1ci.mp3"
+  },
+  {
+    "id": 547,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981448/%E6%89%93_c3ijlx.png",
+    "character": "打",
+    "meaning": "to play; to practice",
+    "pinyin": "dǎ",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985425/%E6%89%93_ok2ng0.mp3"
+  },
+  {
+    "id": 548,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981423/%E5%A4%AA%E6%9E%81%E6%8B%B3_jxu0ws.png",
+    "character": "太极拳",
+    "meaning": "Tai Chi; shadow boxing",
+    "pinyin": "tài jí quán",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985109/%E5%A4%AA%E6%9E%81%E6%8B%B3_rmmbto.mp3"
+  },
+  {
+    "id": 549,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981421/%E5%90%AC%E8%AF%B4_kesc5l.png",
+    "character": "听说",
+    "meaning": "to hear of",
+    "pinyin": "tīng shuō",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985104/%E5%90%AC%E8%AF%B4_kods1g.mp3"
+  },
+  {
+    "id": 550,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981410/%E4%B8%8B_bgjkww.png",
+    "character": "下",
+    "meaning": "next",
+    "pinyin": "xià",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985089/%E4%B8%8B_nksnzm.mp3"
+  },
+  {
+    "id": 551,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981446/%E6%8A%A5%E5%90%8D_ji1w9f.png",
+    "character": "报名",
+    "meaning": "to register (for)",
+    "pinyin": "bào míng",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985133/%E6%8A%A5%E5%90%8D_r7fdh0.mp3"
+  },
+  {
+    "id": 552,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981435/%E5%BC%80%E5%A7%8B_q32wm7.png",
+    "character": "开始",
+    "meaning": "to begin",
+    "pinyin": "kāi shǐ",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985118/%E5%BC%80%E5%A7%8B_gdferz.mp3"
+  },
+  {
+    "id": 553,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981461/%E8%83%BD_fqej7d.png",
+    "character": "能",
+    "meaning": "can; be able to",
+    "pinyin": "néng",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985246/%E8%83%BD_yghqxd.mp3"
+  },
+  {
+    "id": 554,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981413/%E5%86%8D_mbv0bz.png",
+    "character": "再",
+    "meaning": "again; once more",
+    "pinyin": "zài",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985620/%E5%86%8D_m0z3xz.mp3"
+  },
+  {
+    "id": 555,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981464/%E9%81%8D_wonkot.png",
+    "character": "遍",
+    "meaning": "(a classifier for action); one time; once through",
+    "pinyin": "biàn",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985253/%E9%81%8D_nhk6ne.mp3"
+  },
+  {
+    "id": 556,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981444/%E6%87%82_zfjn57.png",
+    "character": "懂",
+    "meaning": "to understand",
+    "pinyin": "dǒng",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985126/%E6%87%82_uet4p9.mp3"
+  },
+  {
+    "id": 557,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981462/%E8%88%92%E6%9C%8D_paxxed.png",
+    "character": "舒服",
+    "meaning": "comfortable",
+    "pinyin": "shū fu",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985251/%E8%88%92%E6%9C%8D_wgzada.mp3"
+  },
+  {
+    "id": 558,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981437/%E6%84%8F%E6%80%9D_w2tbtb.png",
+    "character": "意思",
+    "meaning": "meaning",
+    "pinyin": "yì si",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985123/%E6%84%8F%E6%80%9D_u87e4k.mp3"
+  },
+  {
+    "id": 559,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981453/%E6%AC%A1_pvcyua.png",
+    "character": "次",
+    "meaning": "(classifier) times",
+    "pinyin": "cì",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985148/%E6%AC%A1_by6mmh.mp3"
+  },
+  {
+    "id": 560,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981434/%E5%B0%8F%E6%97%B6_lggawh.png",
+    "character": "小时",
+    "meaning": "hour",
+    "pinyin": "xiǎo shí",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985117/%E5%B0%8F%E6%97%B6_rd7zvs.mp3"
+  },
+  {
+    "id": 561,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981462/%E8%AF%B7%E5%81%87_i8fuq1.png",
+    "character": "请假",
+    "meaning": "to ask for a leave",
+    "pinyin": "qǐng jià",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985251/%E8%AF%B7%E5%81%87_dt9x8p.mp3"
+  },
+  {
+    "id": 562,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981433/%E5%A4%B4%E7%96%BC_bkmzou.png",
+    "character": "头疼",
+    "meaning": "head ache",
+    "pinyin": "tóu téng",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985114/%E5%A4%B4%E7%96%BC_n8wjbn.mp3"
+  },
+  {
+    "id": 563,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981429/%E5%A4%B4_rzqemr.png",
+    "character": "头",
+    "meaning": "head",
+    "pinyin": "tóu",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985110/%E5%A4%B4_pwi7ie.mp3"
+  },
+  {
+    "id": 564,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981453/%E7%96%BC_lfu41e.png",
+    "character": "疼",
+    "meaning": "to ache",
+    "pinyin": "téng",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985183/%E7%96%BC_jrdqmb.mp3"
+  },
+  {
+    "id": 565,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981420/%E5%8F%91%E7%83%A7_sgy04x.png",
+    "character": "发烧",
+    "meaning": "to have a temperature",
+    "pinyin": "fā shāo",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985101/%E5%8F%91%E7%83%A7_iqtzok.mp3"
+  },
+  {
+    "id": 566,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981421/%E5%8F%AF%E8%83%BD_xb2hzf.png",
+    "character": "可能",
+    "meaning": "perhaps; probably",
+    "pinyin": "kě néng",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985102/%E5%8F%AF%E8%83%BD_mtmnrd.mp3"
+  },
+  {
+    "id": 567,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981421/%E5%92%B3%E5%97%BD_mwdzk7.png",
+    "character": "咳嗽",
+    "meaning": "to cough",
+    "pinyin": "ké sou",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985108/%E5%92%B3%E5%97%BD_w60dz9.mp3"
+  },
+  {
+    "id": 568,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981443/%E6%84%9F%E5%86%92_h5b7dc.png",
+    "character": "感冒",
+    "meaning": "to catch cold; flu",
+    "pinyin": "gǎn mào",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985124/%E6%84%9F%E5%86%92_pn4xzf.mp3"
+  },
+  {
+    "id": 569,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981455/%E7%9C%8B%E7%97%85_eiblvp.png",
+    "character": "看病",
+    "meaning": "to see a doctor",
+    "pinyin": "kàn bìng",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985244/%E7%9C%8B%E7%97%85_xoqeb9.mp3"
+  },
+  {
+    "id": 570,
+    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981454/%E7%97%85_lbzomz.png",
+    "character": "病",
+    "meaning": "illness; to be sick",
+    "pinyin": "bìng",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985243/%E7%97%85_iyxcsm.mp3"
   }
 ]
