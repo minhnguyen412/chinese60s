@@ -6584,7 +6584,7 @@
 }],
       "words": ["图书馆", "在", "西边"]
     },
-        {
+    {
       "id": 453,
       "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577850/345_yqktdw.mp3",
       "sentence": "___ ___ ___ ___ ___？",
@@ -6865,6 +6865,396 @@
   "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981371/%E7%99%BD%E8%89%B2_xlglyc.png"
 }],
       "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772981383/%E7%BB%BF_qm4dag.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1741078005/%E7%BA%A2_e6iw1y.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981371/%E7%99%BD%E8%89%B2_xlglyc.png"]
+    },
+    {
+      "id": 471,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086356/357_lmdvwp.mp3",
+      "sentence": "___ ___ ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "会"
+}, {
+  "answer": "打"
+}, {
+  "answer": "太"
+}, {
+  "answer": "极"
+}, {
+  "answer": "拳"
+}, {
+  "answer": "吗"
+}],
+      "words": ["吗", "太", "极", "拳", "会", "你", "打"]
+    },
+    {
+      "id": 472,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985109/%E5%A4%AA%E6%9E%81%E6%8B%B3_rmmbto.mp3",
+      "sentence": "太极拳 : ___",
+      "blanks": [{
+  "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981423/%E5%A4%AA%E6%9E%81%E6%8B%B3_jxu0ws.png"
+}],
+      "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772981423/%E5%A4%AA%E6%9E%81%E6%8B%B3_jxu0ws.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772983856/%E5%B9%B2%E5%87%80_wwymqi.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772983960/%E7%BB%83_znrv83.png"]
+    },
+    {
+      "id": 473,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086357/360_udvpng.mp3",
+      "sentence": "___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "想"
+}, {
+  "answer": "不"
+}, {
+  "answer": "想"
+}, {
+  "answer": "学"
+}],
+      "words": ["不", "你", "想", "学", "想"]
+    },
+    {
+      "id": 474,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086362/363_pvghav.mp3",
+      "sentence": "___ ___ ___ ___ ___ ___ ___， ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "听说"
+}, {
+  "answer": "体育"
+}, {
+  "answer": "老师"
+}, {
+  "answer": "下"
+}, {
+  "answer": "星期"
+}, {
+  "answer": "教"
+}, {
+  "answer": "太极拳"
+}, {
+  "answer": "我们"
+}, {
+  "answer": "去"
+}, {
+  "answer": "报名"
+}, {
+  "answer": "吧"
+}],
+      "words": ["听说", "太极拳", "老师", "我们", "吧", "教", "星期", "去", "体育", "报名", "下"]
+    },
+    {
+      "id": 475,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985104/%E5%90%AC%E8%AF%B4_kods1g.mp3",
+      "sentence": "听说 : ___",
+      "blanks": [{
+  "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981421/%E5%90%AC%E8%AF%B4_kesc5l.png"
+}],
+      "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772981421/%E5%90%AC%E8%AF%B4_kesc5l.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772983265/%E7%9C%8B%E8%A7%81_i674tt.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772983775/%E4%BD%9C%E4%B8%9A_gw0lu4.png"]
+    },
+    {
+      "id": 476,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985089/%E4%B8%8B_nksnzm.mp3",
+      "sentence": [
+        "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981410/%E4%B8%8B_bgjkww.png",
+        ": ___"
+      ],
+      "blanks": [{
+  "answer": "下"
+}],
+      "words": ["下", "能", "遍"]
+    },
+    {
+      "id": 477,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985133/%E6%8A%A5%E5%90%8D_r7fdh0.mp3",
+      "sentence": "报名 : ___",
+      "blanks": [{
+  "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981446/%E6%8A%A5%E5%90%8D_ji1w9f.png"
+}],
+      "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772982353/%E6%97%81%E8%BE%B9_xfxt5s.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982386/%E8%99%BD%E7%84%B6_e7co4x.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981446/%E6%8A%A5%E5%90%8D_ji1w9f.png"]
+    },
+    {
+      "id": 478,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086363/365_yalefy.mp3",
+      "sentence": "___， ___ ___ ___ ___， ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "老师"
+}, {
+  "answer": "我们"
+}, {
+  "answer": "想"
+}, {
+  "answer": "学"
+}, {
+  "answer": "太极拳"
+}, {
+  "answer": "现在"
+}, {
+  "answer": "可以"
+}, {
+  "answer": "报名"
+}, {
+  "answer": "吗"
+}],
+      "words": ["想", "吗", "报名", "可以", "我们", "太极拳", "学", "老师", "现在"]
+    },
+    {
+      "id": 479,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086366/367_eshbel.mp3",
+      "sentence": "___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "什么"
+}, {
+  "answer": "时候"
+}, {
+  "answer": "开始"
+}, {
+  "answer": "上课"
+}],
+      "words": ["开始", "时候", "上课", "什么"]
+    },
+    {
+      "id": 480,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985118/%E5%BC%80%E5%A7%8B_gdferz.mp3",
+      "sentence": "开始 : ___",
+      "blanks": [{
+  "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981435/%E5%BC%80%E5%A7%8B_q32wm7.png"
+}],
+      "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772981435/%E5%BC%80%E5%A7%8B_q32wm7.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981500/%E4%B8%8D%E9%94%99_uwsdjn.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981682/%E5%BE%97_x9kaco.png"]
+    },
+    {
+      "id": 481,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086369/371_beztds.mp3",
+      "sentence": "___， ___ ___ ___ ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "对不起"
+}, {
+  "answer": "您"
+}, {
+  "answer": "能"
+}, {
+  "answer": "不"
+}, {
+  "answer": "能"
+}, {
+  "answer": "再"
+}, {
+  "answer": "说"
+}, {
+  "answer": "一"
+}, {
+  "answer": "遍"
+}],
+      "words": ["一", "能", "对不起", "能", "您", "不", "遍", "再", "说"]
+    },
+    {
+      "id": 482,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086372/372_cc9pmv.mp3",
+      "sentence": "___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "我"
+}, {
+  "answer": "不"
+}, {
+  "answer": "懂"
+}, {
+  "answer": "“一三五”"
+}, {
+  "answer": "是"
+}, {
+  "answer": "什么"
+}, {
+  "answer": "意思"
+}],
+      "words": ["意思", "是", "不", "我", "懂", "“一三五”", "什么"]
+    },
+    {
+      "id": 483,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086373/374_zqbkvf.mp3",
+      "sentence": "___ ___ ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "从"
+}, {
+  "answer": "几"
+}, {
+  "answer": "点"
+}, {
+  "answer": "到"
+}, {
+  "answer": "几"
+}, {
+  "answer": "点"
+}, {
+  "answer": "上课"
+}],
+      "words": ["点", "点", "从", "到", "上课", "几", "几"]
+    },
+    {
+      "id": 484,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086373/375_ko0esv.mp3",
+      "sentence": "___ ___ ___ ___ ___ ___ ___。 ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "四"
+}, {
+  "answer": "点"
+}, {
+  "answer": "半"
+}, {
+  "answer": "到"
+}, {
+  "answer": "五"
+}, {
+  "answer": "点"
+}, {
+  "answer": "半"
+}, {
+  "answer": "一"
+}, {
+  "answer": "次"
+}, {
+  "answer": "一"
+}, {
+  "answer": "个"
+}, {
+  "answer": "小时"
+}],
+      "words": ["点", "五", "个", "一", "四", "小时", "次", "点", "半", "到", "一", "半"]
+    },
+    {
+      "id": 485,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086377/377_trnxq2.mp3",
+      "sentence": "___， ___ ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "老师"
+}, {
+  "answer": "玛丽"
+}, {
+  "answer": "让"
+}, {
+  "answer": "我"
+}, {
+  "answer": "给"
+}, {
+  "answer": "她"
+}, {
+  "answer": "请"
+}, {
+  "answer": "个"
+}, {
+  "answer": "假"
+}],
+      "words": ["请", "我", "给", "让", "假", "玛丽", "老师", "个", "她"]
+    },
+    {
+      "id": 486,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985251/%E8%AF%B7%E5%81%87_dt9x8p.mp3",
+      "sentence": [
+        "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981462/%E8%AF%B7%E5%81%87_i8fuq1.png",
+        ": ___"
+      ],
+      "blanks": [{
+  "answer": "请假"
+}],
+      "words": ["开始", "头疼", "请假"]
+    },
+    {
+      "id": 487,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086377/378_jxnvqu.mp3",
+      "sentence": "___ ___ ___ ___ ___， ___， ___， ___， ___ ___ ___。",
+      "blanks": [{
+  "answer": "她"
+}, {
+  "answer": "今天"
+}, {
+  "answer": "有点儿"
+}, {
+  "answer": "不"
+}, {
+  "answer": "舒服"
+}, {
+  "answer": "头疼"
+}, {
+  "answer": "发烧"
+}, {
+  "answer": "咳嗽"
+}, {
+  "answer": "可能"
+}, {
+  "answer": "感冒"
+}, {
+  "answer": "了"
+}],
+      "words": ["有点儿", "舒服", "感冒", "了", "头疼", "今天", "可能", "她", "不", "发烧", "咳嗽"]
+    },
+    {
+      "id": 488,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985251/%E8%88%92%E6%9C%8D_wgzada.mp3",
+      "sentence": "舒服 : ___",
+      "blanks": [{
+  "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981462/%E8%88%92%E6%9C%8D_paxxed.png"
+}],
+      "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772981453/%E7%96%BC_lfu41e.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981462/%E8%88%92%E6%9C%8D_paxxed.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981443/%E6%84%9F%E5%86%92_h5b7dc.png"]
+    },
+    {
+      "id": 489,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985108/%E5%92%B3%E5%97%BD_w60dz9.mp3",
+      "sentence": [
+        "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981421/%E5%92%B3%E5%97%BD_mwdzk7.png",
+        ": ___"
+      ],
+      "blanks": [{
+  "answer": "咳嗽"
+}],
+      "words": ["舒服", "头疼", "咳嗽"]
+    },
+    {
+      "id": 490,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985114/%E5%A4%B4%E7%96%BC_n8wjbn.mp3",
+      "sentence": "头疼 : ___",
+      "blanks": [{
+  "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981433/%E5%A4%B4%E7%96%BC_bkmzou.png"
+}],
+      "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772981433/%E5%A4%B4%E7%96%BC_bkmzou.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981311/%E9%AB%98%E5%85%B4_jlgx0w.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981411/%E4%BC%9A_i0oinz.png"]
+    },
+    {
+      "id": 491,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985124/%E6%84%9F%E5%86%92_pn4xzf.mp3",
+      "sentence": "感冒 : ___",
+      "blanks": [{
+  "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981443/%E6%84%9F%E5%86%92_h5b7dc.png"
+}],
+      "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772981272/%E5%85%B4%E8%B6%A3_yhlyjd.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981443/%E6%84%9F%E5%86%92_h5b7dc.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981288/%E6%84%89%E5%BF%AB_vmroed.png"]
+    },
+    {
+      "id": 492,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086377/379_udeh4m.mp3",
+      "sentence": "___ ___ ___ ___ ___， ___ ___ ___。",
+      "blanks": [{
+  "answer": "她"
+}, {
+  "answer": "要"
+}, {
+  "answer": "去"
+}, {
+  "answer": "医院"
+}, {
+  "answer": "看病"
+}, {
+  "answer": "不能"
+}, {
+  "answer": "来"
+}, {
+  "answer": "上课"
+}],
+      "words": ["她", "来", "医院", "上课", "看病", "不能", "去", "要"]
+    },
+    {
+      "id": 493,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985244/%E7%9C%8B%E7%97%85_xoqeb9.mp3",
+      "sentence": "看病 : ___",
+      "blanks": [{
+  "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981455/%E7%9C%8B%E7%97%85_eiblvp.png"
+}],
+      "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772981455/%E7%9C%8B%E7%97%85_eiblvp.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981255/%E9%9B%86%E5%90%88_nqrcrg.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981256/%E4%B8%8A%E8%AF%BE_d5muqx.png"]
     }
   ]
 }
