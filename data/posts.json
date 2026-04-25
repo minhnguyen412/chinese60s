@@ -3202,5 +3202,212 @@
     "description": "Bú kèqi.<br>You’re welcome.",
     "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577858/356_vxfnph.mp3"
+  },
+  {
+    "id": 357,
+    "user": "玛丽",
+    "title": "你会打太极拳吗？",
+    "segments": ["你", "会", "打", "太极拳", "吗", "？"],
+    "description": "Nǐ huì dǎ tàijíquán ma?<br>Do you know how to do Tai Chi?",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086356/357_lmdvwp.mp3"
+  },
+  {
+    "id": 358,
+    "user": "罗兰",
+    "title": "不会。你呢？",
+    "segments": ["不", "会", "。", "你", "呢", "？"],
+    "description": "Bú huì. Nǐ ne?<br>I don't know. How about you?",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753432295/roland_xvp4bn.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086356/358_n0ahyi.mp3"
+  },
+  {
+    "id": 359,
+    "user": "玛丽",
+    "title": "我也不会。",
+    "segments": ["我", "也", "不", "会", "。"],
+    "description": "Wǒ yě bú huì.<br>I don't know either.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086356/359_y8xyg7.mp3"
+  },
+  {
+    "id": 360,
+    "user": "玛丽",
+    "title": "你想不想学？",
+    "segments": ["你", "想", "不", "想", "学", "？"],
+    "description": "Nǐ xiǎng bu xiǎng xué?<br>Do you want to learn?",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086357/360_udvpng.mp3"
+  },
+  {
+    "id": 361,
+    "user": "罗兰",
+    "title": "想学。",
+    "segments": ["想", "学", "。"],
+    "description": "Xiǎng xué.<br>Yes, I do.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753432295/roland_xvp4bn.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086357/361_bqslp9.mp3"
+  },
+  {
+    "id": 362,
+    "user": "玛丽",
+    "title": "我也想学。",
+    "segments": ["我", "也", "想", "学", "。"],
+    "description": "Wǒ yě xiǎng xué.<br>I also want to learn.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086361/362_g6dw1q.mp3"
+  },
+  {
+    "id": 363,
+    "user": "玛丽",
+    "title": "听说体育老师下星期教太极拳，我们去报名吧。",
+    "segments": ["听说", "体育", "老师", "下", "星期", "教", "太极拳", "，", "我们", "去", "报名", "吧", "。"],
+    "description": "Tīngshuō tǐyù lǎoshī xià xīngqī jiāo tàijíquán, wǒmen qù bào míng ba.<br>I heard the PE teacher will teach Tai Chi next week. Let's go sign up.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086362/363_pvghav.mp3"
+  },
+  {
+    "id": 364,
+    "user": "罗兰",
+    "title": "好。",
+    "segments": ["好", "。"],
+    "description": "Hǎo.<br>Okay.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753432295/roland_xvp4bn.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086362/364_fvkndw.mp3"
+  },
+  {
+    "id": 365,
+    "user": "玛丽",
+    "title": "老师，我们想学太极拳，现在可以报名吗？",
+    "segments": ["老师", "，", "我们", "想", "学", "太极拳", "，", "现在", "可以", "报名", "吗", "？"],
+    "description": "Lǎoshī, wǒmen xiǎng xué tàijíquán, xiànzài kěyǐ bào míng ma?<br>Teacher, we want to learn Tai Chi. Can we sign up now?",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086363/365_yalefy.mp3"
+  },
+  {
+    "id": 366,
+    "user": "老师",
+    "title": "可以。",
+    "segments": ["可以", "。"],
+    "description": "Kěyǐ.<br>Yes, you can.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1777085457/gvtd_h1livb.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086363/366_mfmusb.mp3"
+  },
+  {
+    "id": 367,
+    "user": "玛丽",
+    "title": "什么时候开始上课？",
+    "segments": ["什么", "时候", "开始", "上课", "？"],
+    "description": "Shénme shíhou kāishǐ shàng kè?<br>When will the classes start?",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086366/367_eshbel.mp3"
+  },
+  {
+    "id": 368,
+    "user": "老师",
+    "title": "下星期一。",
+    "segments": ["下", "星期一", "。"],
+    "description": "Xià xīngqīyī.<br>Next Monday.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1777085457/gvtd_h1livb.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086367/368_c06cet.mp3"
+  },
+  {
+    "id": 369,
+    "user": "玛丽",
+    "title": "每天下午都有课吗？",
+    "segments": ["每", "天", "下午", "都", "有", "课", "吗", "？"],
+    "description": "Měi tiān xiàwǔ dōu yǒu kè ma?<br>Are there classes every afternoon?",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086367/369_tuxx39.mp3"
+  },
+  {
+    "id": 370,
+    "user": "老师",
+    "title": "不，只一三五下午。",
+    "segments": ["不", "，", "只", "一", "三", "五", "下午", "。"],
+    "description": "Bù, zhǐ yī sān wǔ xiàwǔ.<br>No, only Monday, Wednesday, and Friday afternoons.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1777085457/gvtd_h1livb.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086368/370_ywmnte.mp3"
+  },
+  {
+    "id": 371,
+    "user": "玛丽",
+    "title": "对不起，您能不能再说一遍？",
+    "segments": ["对不起", "，", "您", "能", "不", "能", "再", "说", "一", "遍", "？"],
+    "description": "Duì bu qǐ, nín néng bu néng zài shuō yí biàn?<br>Sorry, could you say that again?",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086369/371_beztds.mp3"
+  },
+  {
+    "id": 372,
+    "user": "玛丽",
+    "title": "我不懂“一三五”是什么意思。",
+    "segments": ["我", "不", "懂", "“", "一", "三", "五", "”", "是", "什么", "意思", "。"],
+    "description": "Wǒ bù dǒng \"yī sān wǔ\" shì shénme yìsi.<br> I don’t understand what “one, three, five” means.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086372/372_cc9pmv.mp3"
+  },
+  {
+    "id": 373,
+    "user": "老师",
+    "title": "就是星期一、星期三、星期五。",
+    "segments": ["就", "是", "星期一", "、", "星期三", "、", "星期五", "。"],
+    "description": "Jiù shì xīngqīyī, xīngqīsān, xīngqīwǔ.<br>It means Monday, Wednesday, and Friday.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1777085457/gvtd_h1livb.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086372/373_danccc.mp3"
+  },
+  {
+    "id": 374,
+    "user": "玛丽",
+    "title": "从几点到几点上课？",
+    "segments": ["从", "几", "点", "到", "几", "点", "上课", "？"],
+    "description": "Cóng jǐ diǎn dào jǐ diǎn shàng kè?<br>From what time to what time are the classes?",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734673380/lana_tdfvzz.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086373/374_zqbkvf.mp3"
+  },
+  {
+    "id": 375,
+    "user": "老师",
+    "title": "四点半到五点半。一次一个小时。",
+    "segments": ["四", "点", "半", "到", "五", "点", "半", "。", "一", "次", "一", "个", "小时", "。"],
+    "description": "Sì diǎn bàn dào wǔ diǎn bàn. Yí cì yí ge xiǎoshí.<br>From 4:30 to 5:30. One hour each time.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1777085457/gvtd_h1livb.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086373/375_ko0esv.mp3"
+  },
+  {
+    "id": 376,
+    "user": "老师",
+    "title": "玛丽！......玛丽怎么没来？",
+    "segments": ["玛丽", "！......", "玛丽", "怎么", "没", "来", "？"],
+    "description": "Mǎlì! ...... Mǎlì zěnme méi lái?<br>Why hasn’t Mary come?",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1777085457/gvtd_h1livb.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086374/376_dfcgju.mp3"
+  },
+  {
+    "id": 377,
+    "user": "罗兰",
+    "title": "老师，玛丽让我给她请个假。(请假）",
+    "segments": ["老师", "，", "玛丽让我给她请个假", "。", "(", "请假", "）"],
+    "description": "Lǎoshī, mǎlì ràng wǒ gěi tā qǐng ge jià.<br>Teacher, Mary asked me to ask for leave for her.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753432295/roland_xvp4bn.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086377/377_trnxq2.mp3"
+  },
+  {
+    "id": 378,
+    "user": "罗兰",
+    "title": "她今天有点儿不舒服，头疼，发烧，咳嗽，可能感冒了。",
+    "segments": ["她", "今天", "有", "点儿", "不", "舒服", "，", "头疼", "，", "发烧", "，", "咳嗽", "，", "可能", "感冒", "了", "。"],
+    "description": "Tā jīntiān yǒudiǎnr bù shūfu, tóu téng, fā shāo, késou, kěnéng gǎnmào le.<br> She’s not feeling well today—she has a headache, a fever, and a cough, she might have a cold.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753432295/roland_xvp4bn.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086377/378_jxnvqu.mp3"
+  },
+  {
+    "id": 379,
+    "user": "罗兰",
+    "title": "她要去医院看病，不能来上课。",
+    "segments": ["她", "要", "去", "医院", "看病", "，", "不", "能", "来", "上课", "。"],
+    "description": "Tā yào qù yīyuàn kàn bìng, bù néng lái shàng kè.<br>She needs to go to the hospital, so she can’t come to class.",
+    "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753432295/roland_xvp4bn.png",
+    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086377/379_udeh4m.mp3"
   }
 ]
