@@ -17,14 +17,6 @@
   },
   {
     "id": "3",
-    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672810/%E4%BD%A0%E5%A5%BD_m6lirl.png",
-    "character": "你好",
-    "meaning": "Hello",
-    "pinyin": "nǐ hǎo",
-    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673173/%E4%BD%A0%E5%A5%BD_sgujpl.mp3"
-  },
-  {
-    "id": "4",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672808/%E4%B8%80_s2mwmw.png",
     "character": "一",
     "meaning": "One",
@@ -32,7 +24,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673150/%E4%B8%80_ccdydi.mp3"
   },
   {
-    "id": "5",
+    "id": "4",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672809/%E4%BA%94_z5te9m.png",
     "character": "五",
     "meaning": "Five",
@@ -40,7 +32,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673165/%E4%BA%94_durk7r.mp3"
   },
   {
-    "id": "6",
+    "id": "5",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672811/%E5%85%AB_phjkv2.png",
     "character": "八",
     "meaning": "Eight",
@@ -48,7 +40,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673233/%E5%85%AB_jwszsy.mp3"
   },
   {
-    "id": "7",
+    "id": "6",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672815/%E5%A4%A7_jeqwtu.png",
     "character": "大",
     "meaning": "Big",
@@ -56,7 +48,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673261/%E5%A4%A7_ni23pu.mp3"
   },
   {
-    "id": "8",
+    "id": "7",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672809/%E4%B8%8D_zlrjlv.gif",
     "character": "不",
     "meaning": "No",
@@ -64,7 +56,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673155/%E4%B8%8D_p3kqjq.mp3"
   },
   {
-    "id": "9",
+    "id": "8",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672812/%E5%8F%A3_jhvoae.png",
     "character": "口",
     "meaning": "Mouth",
@@ -72,7 +64,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673245/%E5%8F%A3_dxcuqi.mp3"
   },
   {
-    "id": "10",
+    "id": "9",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672826/%E7%99%BD_ftcpd3.png",
     "character": "白",
     "meaning": "White",
@@ -80,7 +72,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673324/%E7%99%BD_kbwum2.mp3"
   },
   {
-    "id": "11",
+    "id": "10",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672816/%E5%A5%B3_gvhben.png",
     "character": "女",
     "meaning": "Female",
@@ -88,7 +80,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673265/%E5%A5%B3_kxwjg4.mp3"
   },
   {
-    "id": "12",
+    "id": "11",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672834/%E9%A9%AC_ofvub3.png",
     "character": "马",
     "meaning": "Horse",
@@ -96,7 +88,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673375/%E9%A9%AC_zbvgtx.mp3"
   },
   {
-    "id": "13",
+    "id": "12",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672820/%E5%BF%99_ieenmg.png",
     "character": "忙",
     "meaning": "Busy",
@@ -104,7 +96,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673287/%E5%BF%99_ez8ywo.mp3"
   },
   {
-    "id": "14",
+    "id": "13",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672813/%E5%90%97_qmlnoo.png",
     "character": "吗",
     "meaning": "吗：a particle used at the end of a question - <a href='grammar.html#grammar-4'>More</a>",
@@ -112,7 +104,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673249/%E5%90%97_waapj1.mp3"
   },
   {
-    "id": "15",
+    "id": "14",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672819/%E5%BE%88_nxxgce.png",
     "character": "很",
     "meaning": "Very - <a href='grammar.html#grammar-5'>More</a>",
@@ -120,7 +112,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673282/%E5%BE%88_h1omcw.mp3"
   },
   {
-    "id": "16",
+    "id": "15",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672824/%E6%B1%89%E8%AF%AD_henpn0.png",
     "character": "汉语",
     "meaning": "Chinese language",
@@ -128,7 +120,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673313/%E6%B1%89%E8%AF%AD_n6ho4r.mp3"
   },
   {
-    "id": "17",
+    "id": "16",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672832/%E9%9A%BE_qifqhi.png",
     "character": "难",
     "meaning": "Hard; difficult",
@@ -136,7 +128,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673364/%E9%9A%BE_soiuxw.mp3"
   },
   {
-    "id": "18",
+    "id": "17",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672816/%E5%A4%AA_wszlfh.png",
     "character": "太",
     "meaning": "too; excessively; over - <a href='grammar.html#grammar-5'>More</a>",
@@ -144,7 +136,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673264/%E5%A4%AA_z5ceyp.mp3"
   },
   {
-    "id": "19",
+    "id": "18",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672825/%E7%88%B8%E7%88%B8_kzlngz.png",
     "character": "爸",
     "meaning": "Dad",
@@ -152,7 +144,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673320/%E7%88%B8%E7%88%B8_ktwtw6.mp3"
   },
   {
-    "id": "20",
+    "id": "19",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672816/%E5%A6%88%E5%A6%88_ctbjof.png",
     "character": "妈",
     "meaning": "Mom",
@@ -160,7 +152,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673268/%E5%A6%88%E5%A6%88_cyj7nk.mp3"
   },
   {
-    "id": "21",
+    "id": "29",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672814/%E5%93%A5%E5%93%A5_lbmhbo.png",
     "character": "哥",
     "meaning": "Elder brother",
@@ -168,7 +160,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673250/%E5%93%A5%E5%93%A5_t3w2af.mp3"
   },
   {
-    "id": "22",
+    "id": "21",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672819/%E5%BC%9F%E5%BC%9F_wsmthy.png",
     "character": "弟",
     "meaning": "Younger brother",
@@ -176,7 +168,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673281/%E5%BC%9F%E5%BC%9F_taqkox.mp3"
   },
   {
-    "id": "23",
+    "id": "22",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672817/%E5%A6%B9%E5%A6%B9_whzdwy.png",
     "character": "妹",
     "meaning": "Younger sister",
@@ -184,7 +176,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673269/%E5%A6%B9%E5%A6%B9_fm9pax.mp3"
   },
   {
-    "id": "24",
+    "id": "23",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672810/%E4%BB%96%E5%A5%B9_ixxred.png",
     "character": "他",
     "meaning": "He",
@@ -192,7 +184,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673171/%E4%BB%96%E5%A5%B9_ajweaf.mp3"
   },
   {
-    "id": "25",
+    "id": "24",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672825/%E7%94%B7_ouuapy.png",
     "character": "男",
     "meaning": "Male",
@@ -200,7 +192,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673323/%E7%94%B7_s88syo.mp3"
   },
   {
-    "id": "26",
+    "id": "25",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672817/%E5%AD%A6_ohlrfe.png",
     "character": "学",
     "meaning": "to learn; to study",
@@ -208,7 +200,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673271/%E5%AD%A6_uno8r3.mp3"
   },
   {
-    "id": "27",
+    "id": "26",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672827/%E8%8B%B1%E8%AF%AD_cxk4uv.png",
     "character": "英语",
     "meaning": "English - language",
@@ -216,7 +208,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673334/%E8%8B%B1%E8%AF%AD_tqjyfh.mp3"
   },
   {
-    "id": "28",
+    "id": "27",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672832/%E9%98%BF%E6%8B%89%E4%BC%AF%E8%AF%AD_rfhm36.png",
     "character": "阿拉伯",
     "meaning": "Arabic - language",
@@ -224,7 +216,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673363/%E9%98%BF%E6%8B%89%E4%BC%AF%E8%AF%AD_m5mnbo.mp3"
   },
   {
-    "id": "29",
+    "id": "28",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672819/%E5%BE%B7%E8%AF%AD_wjfnwu.png",
     "character": "德",
     "meaning": "German - language",
@@ -232,7 +224,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673286/%E5%BE%B7%E8%AF%AD_k7rg1o.mp3"
   },
   {
-    "id": "30",
+    "id": "29",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672811/%E4%BF%84%E8%AF%AD_l9fgbe.png",
     "character": "俄",
     "meaning": "Russian - language",
@@ -240,15 +232,15 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673231/%E4%BF%84%E8%AF%AD_gc2zc6.mp3"
   },
   {
-    "id": "31",
+    "id": "30",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672825/%E6%B3%95%E8%AF%AD_nnkmqp.png",
-    "character": "法语",
+    "character": "法",
     "meaning": "French - language",
     "pinyin": "Fǎ",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673319/%E6%B3%95%E8%AF%AD_zadz99.mp3"
   },
   {
-    "id": "32",
+    "id": "31",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672833/%E9%9F%A9%E5%9B%BD%E8%AF%AD_dytmnk.png",
     "character": "韩国",
     "meaning": "Korean - language",
@@ -256,7 +248,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673368/%E9%9F%A9%E5%9B%BD%E8%AF%AD_x0qz9q.mp3"
   },
   {
-    "id": "33",
+    "id": "32",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672821/%E6%97%A5%E8%AF%AD_ant1jd.png",
     "character": "日",
     "meaning": "Japanese - language",
@@ -264,7 +256,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673296/%E6%97%A5%E8%AF%AD_aawi5r.mp3"
   },
   {
-    "id": "34",
+    "id": "33",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672828/%E8%A5%BF%E7%8F%AD%E7%89%99%E8%AF%AD_ur3jxi.png",
     "character": "西班牙",
     "meaning": "Spanish - language",
@@ -272,7 +264,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673339/%E8%A5%BF%E7%8F%AD%E7%89%99%E8%AF%AD_kgtucf.mp3"
   },
   {
-    "id": "35",
+    "id": "34",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672818/%E5%AF%B9_kivn0g.png",
     "character": "对",
     "meaning": "Right; OK; Correct; True",
@@ -280,7 +272,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673277/%E5%AF%B9_mvladp.mp3"
   },
   {
-    "id": "36",
+    "id": "35",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672821/%E6%98%8E%E5%A4%A9_owm1mr.png",
     "character": "明天",
     "meaning": "Tomorrow",
@@ -288,7 +280,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673297/%E6%98%8E%E5%A4%A9_af4anp.mp3"
   },
   {
-    "id": "37",
+    "id": "36",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672828/%E8%A7%81_yiuzs4.png",
     "character": "见",
     "meaning": "to see",
@@ -296,7 +288,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673341/%E8%A7%81_u0eked.mp3"
   },
   {
-    "id": "38",
+    "id": "37",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672812/%E5%8E%BB_oiwxvj.png",
     "character": "去",
     "meaning": "to go",
@@ -304,7 +296,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673241/%E5%8E%BB_kpu4fk.mp3"
   },
   {
-    "id": "39",
+    "id": "38",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672831/%E9%82%AE%E5%B1%80_dxtmll.png",
     "character": "邮局",
     "meaning": "Post office",
@@ -312,7 +304,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673356/%E9%82%AE%E5%B1%80_wj0anr.mp3"
   },
   {
-    "id": "40",
+    "id": "39",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672818/%E5%AF%84_cclogh.png",
     "character": "寄",
     "meaning": "to post; to mail; to send by mail",
@@ -320,7 +312,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673276/%E5%AF%84_bx1fjt.mp3"
   },
   {
-    "id": "41",
+    "id": "40",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672812/%E4%BF%A1_e90m13.png",
     "character": "信",
     "meaning": "Letter; Mail",
@@ -328,7 +320,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673232/%E4%BF%A1_nkuwzw.mp3"
   },
   {
-    "id": "42",
+    "id": "41",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672831/%E9%93%B6%E8%A1%8C_k0eh6l.png",
     "character": "银行",
     "meaning": "Bank",
@@ -336,7 +328,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673360/%E9%93%B6%E8%A1%8C_dk308f.mp3"
   },
   {
-    "id": "43",
+    "id": "42",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672812/%E5%8F%96_srztqx.png",
     "character": "取",
     "meaning": "to draw",
@@ -344,7 +336,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673244/%E5%8F%96_obawic.mp3"
   },
   {
-    "id": "44",
+    "id": "43",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672831/%E9%92%B1_pvd2bg.png",
     "character": "钱",
     "meaning": "Money",
@@ -352,7 +344,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673359/%E9%92%B1_fwinoj.mp3"
   },
   {
-    "id": "45",
+    "id": "44",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672811/%E5%85%AD_ofkopd.png",
     "character": "六",
     "meaning": "Six",
@@ -360,7 +352,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673234/%E5%85%AD_hlbdqd.mp3"
   },
   {
-    "id": "46",
+    "id": "45",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672807/%E4%B8%83_nznfhk.png",
     "character": "七",
     "meaning": "Seven",
@@ -368,7 +360,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673153/%E4%B8%83_msyi6a.mp3"
   },
   {
-    "id": "47",
+    "id": "46",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672808/%E4%B9%9D_wol8fi.png",
     "character": "九",
     "meaning": "Nine",
@@ -376,7 +368,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673162/%E4%B9%9D_hvhtri.mp3"
   },
   {
-    "id": "48",
+    "id": "47",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672810/%E4%BB%8A%E5%A4%A9_tknqeo.png",
     "character": "今",
     "meaning": "Today",
@@ -384,7 +376,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673170/%E4%BB%8A%E5%A4%A9_zjnvdz.mp3"
   },
   {
-    "id": "49",
+    "id": "48",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672815/%E5%A4%A9_f0dh1g.png",
     "character": "天",
     "meaning": "Day",
@@ -392,7 +384,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673262/%E5%A4%A9_yxd26w.mp3"
   },
   {
-    "id": "50",
+    "id": "49",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672823/%E6%98%A8%E5%A4%A9_btweuk.png",
     "character": "昨",
     "meaning": "Yesterday",
@@ -400,7 +392,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673308/%E6%98%A8%E5%A4%A9_r6p7h0.mp3"
   },
   {
-    "id": "51",
+    "id": "50",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672821/%E6%98%9F%E6%9C%9F_llj8un.png",
     "character": "星期",
     "meaning": "Week",
@@ -408,63 +400,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673298/%E6%98%9F%E6%9C%9F_nmkwcs.mp3"
   },
   {
-    "id": "52",
-    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672822/%E6%98%9F%E6%9C%9F%E4%B8%80_b9revh.png",
-    "character": "星期一",
-    "meaning": "Monday",
-    "pinyin": "xīngqīyī",
-    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673300/%E6%98%9F%E6%9C%9F%E4%B8%80_hrtfkt.mp3"
-  },
-  {
-    "id": "53",
-    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672823/%E6%98%9F%E6%9C%9F%E5%9B%9B_ttpomq.png",
-    "character": "星期二",
-    "meaning": "Tuesday",
-    "pinyin": "xīngqī’èr",
-    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673302/%E6%98%9F%E6%9C%9F%E4%BA%8C_sc50y5.mp3"
-  },
-  {
-    "id": "54",
-    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672822/%E6%98%9F%E6%9C%9F%E4%B8%89_cgstlz.png",
-    "character": "星期三",
-    "meaning": "Wednesday",
-    "pinyin": "xīngqīsān",
-    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673301/%E6%98%9F%E6%9C%9F%E4%B8%89_jw2tzj.mp3"
-  },
-  {
-    "id": "55",
-    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672823/%E6%98%9F%E6%9C%9F%E5%9B%9B_ttpomq.png",
-    "character": "星期四",
-    "meaning": "Thursday",
-    "pinyin": "xīngqīsì",
-    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673305/%E6%98%9F%E6%9C%9F%E5%9B%9B_xt3r4h.mp3"
-  },
-  {
-    "id": "56",
-    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672822/%E6%98%9F%E6%9C%9F%E4%BA%94_qdqy6n.png",
-    "character": "星期五",
-    "meaning": "Friday",
-    "pinyin": "xīngqīwǔ",
-    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673303/%E6%98%9F%E6%9C%9F%E4%BA%94_kl2ml0.mp3"
-  },
-  {
-    "id": "57",
-    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672822/%E6%98%9F%E6%9C%9F%E5%85%AD_pnecg3.png",
-    "character": "星期六",
-    "meaning": "Saturday",
-    "pinyin": "xīngqīliù",
-    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673304/%E6%98%9F%E6%9C%9F%E5%85%AD_e03xsw.mp3"
-  },
-  {
-    "id": "58",
-    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672823/%E6%98%9F%E6%9C%9F%E5%A4%A9_ryx2oq.png",
-    "character": "星期天",
-    "meaning": "Sunday",
-    "pinyin": "xīngqītiān",
-    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673306/%E6%98%9F%E6%9C%9F%E5%A4%A9_w9np9o.mp3"
-  },
-  {
-    "id": "59",
+    "id": "51",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672812/%E5%87%A0_kmdsuv.png",
     "character": "几",
     "meaning": "How many; what; several",
@@ -472,7 +408,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673237/%E5%87%A0_pakgmj.mp3"
   },
   {
-    "id": "60",
+    "id": "52",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672809/%E4%BA%8C_zh0dlf.png",
     "character": "二",
     "meaning": "Two",
@@ -480,7 +416,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673164/%E4%BA%8C_nvoe5j.mp3"
   },
   {
-    "id": "61",
+    "id": "53",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672808/%E4%B8%89_gylkny.png",
     "character": "三",
     "meaning": "Three",
@@ -488,7 +424,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673154/%E4%B8%89_dx0o9r.mp3"
   },
   {
-    "id": "62",
+    "id": "54",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672814/%E5%9B%9B_ahrcsk.png",
     "character": "四",
     "meaning": "Four",
@@ -496,7 +432,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673256/%E5%9B%9B_f14l1u.mp3"
   },
   {
-    "id": "63",
+    "id": "55",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672814/%E5%93%AA%E5%84%BF_vorrd2.png",
     "character": "哪儿",
     "meaning": "Where - <a href='grammar.html#grammar-7'>More</a>",
@@ -504,15 +440,15 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673253/%E5%93%AA%E5%84%BF_peovii.mp3"
   },
   {
-    "id": "64",
+    "id": "56",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672831/%E9%82%A3%E5%84%BF_jiqua1.png",
-    "character": "那儿",
+    "character": "那",
     "meaning": "There",
     "pinyin": "nàr",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673355/%E9%82%A3%E5%84%BF_tmvhxj.mp3"
   },
   {
-    "id": "65",
+    "id": "57",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672820/%E6%88%91_zxd8tf.png",
     "character": "我",
     "meaning": "I; me",
@@ -520,7 +456,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673289/%E6%88%91_mcexui.mp3"
   },
   {
-    "id": "66",
+    "id": "58",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672815/%E5%9B%9E_hwrdue.png",
     "character": "回",
     "meaning": "to go back to",
@@ -528,7 +464,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673257/%E5%9B%9E_osv0va.mp3"
   },
   {
-    "id": "67",
+    "id": "59",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672817/%E5%AD%A6%E6%A0%A1_efvsfl.png",
     "character": "学校",
     "meaning": "School",
@@ -536,7 +472,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673273/%E5%AD%A6%E6%A0%A1_dynqtx.mp3"
   },
   {
-    "id": "68",
+    "id": "60",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672811/%E5%86%8D%E8%A7%81_yf8qp5.png",
     "character": "再见",
     "meaning": "Goodbye",
@@ -544,7 +480,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673236/%E5%86%8D%E8%A7%81_vmcsdu.mp3"
   },
   {
-    "id": "69",
+    "id": "61",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672818/%E5%AF%B9%E4%B8%8D%E8%B5%B7-%E6%B2%A1%E5%85%B3%E7%B3%BB_xwqhtn.png",
     "character": "对不起",
     "meaning": "I'm sorry; Excuse me",
@@ -552,7 +488,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673279/%E5%AF%B9%E4%B8%8D%E8%B5%B7_yemi5c.mp3"
   },
   {
-    "id": "70",
+    "id": "62",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672818/%E5%AF%B9%E4%B8%8D%E8%B5%B7-%E6%B2%A1%E5%85%B3%E7%B3%BB_xwqhtn.png",
     "character": "没关系",
     "meaning": "Male",
@@ -560,7 +496,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673316/%E6%B2%A1%E5%85%B3%E7%B3%BB_xnvmzt.mp3"
   },
   {
-    "id": "71",
+    "id": "63",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672830/%E8%BF%99_cwz8nm.png",
     "character": "这",
     "meaning": "This",
@@ -568,7 +504,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673349/%E8%BF%99_oz7twd.mp3"
   },
   {
-    "id": "72",
+    "id": "64",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672823/%E6%98%AF_x3pk8j.png",
     "character": "是",
     "meaning": "to be - am, are, is...",
@@ -576,7 +512,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673309/%E6%98%AF_nuysgd.mp3"
   },
   {
-    "id": "73",
+    "id": "65",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672827/%E8%80%81%E5%B8%88_yp4q3u.png",
     "character": "老师",
     "meaning": "Teacher",
@@ -584,7 +520,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673331/%E8%80%81%E5%B8%88_uml35p.mp3"
   },
   {
-    "id": "74",
+    "id": "66",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672820/%E6%82%A8_ndcupj.png",
     "character": "您",
     "meaning": "You - honorific",
@@ -592,7 +528,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673288/%E6%82%A8_p8k1sj.mp3"
   },
   {
-    "id": "75",
+    "id": "67",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672829/%E8%AF%B7_ow5lc2.gif",
     "character": "请",
     "meaning": "Please",
@@ -600,7 +536,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673343/%E8%AF%B7_gfbu7q.mp3"
   },
   {
-    "id": "76",
+    "id": "68",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672831/%E8%BF%9B_yvpsep.png",
     "character": "进",
     "meaning": "to enter; to come in",
@@ -608,7 +544,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673352/%E8%BF%9B_ldhyvd.mp3"
   },
   {
-    "id": "77",
+    "id": "69",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672815/%E5%9D%90_v3qgxh.png",
     "character": "坐",
     "meaning": "to sit; to travel by",
@@ -616,7 +552,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673260/%E5%9D%90_of9mvo.mp3"
   },
   {
-    "id": "78",
+    "id": "70",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672814/%E5%96%9D_ohxgv5.png",
     "character": "喝",
     "meaning": "to drink",
@@ -624,7 +560,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673255/%E5%96%9D_d7eazr.mp3"
   },
   {
-    "id": "79",
+    "id": "71",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672827/%E8%8C%B6_wqnz2r.png",
     "character": "茶",
     "meaning": "Tea",
@@ -632,15 +568,15 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673336/%E8%8C%B6_qjl60i.mp3"
   },
   {
-    "id": "80",
+    "id": "72",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672829/%E8%B0%A2%E8%B0%A2-%E4%B8%8D%E5%AE%A2%E6%B0%94_tztr7m.png",
-    "character": "谢谢",
+    "character": "谢",
     "meaning": "to thank",
     "pinyin": "xièxie",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673346/%E8%B0%A2%E8%B0%A2_ktl3xf.mp3"
   },
   {
-    "id": "81",
+    "id": "73",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672818/%E5%AE%A2%E6%B0%94_bafdxn.png",
     "character": "客气",
     "meaning": "Polite; courteous",
@@ -648,7 +584,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673274/%E5%AE%A2%E6%B0%94_n00npd.mp3"
   },
   {
-    "id": "82",
+    "id": "74",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672818/%E5%B7%A5%E4%BD%9C_vym8um.png",
     "character": "工作",
     "meaning": "Work; to work",
@@ -656,7 +592,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673280/%E5%B7%A5%E4%BD%9C_dhayvb.mp3"
   },
   {
-    "id": "83",
+    "id": "75",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672830/%E8%BA%AB%E4%BD%93_gyl84l.png",
     "character": "身体",
     "meaning": "Health; body",
@@ -664,7 +600,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673348/%E8%BA%AB%E4%BD%93_psl9ep.mp3"
   },
   {
-    "id": "84",
+    "id": "76",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672812/%E5%8D%81_esobvq.png",
     "character": "十",
     "meaning": "Ten",
@@ -672,7 +608,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673240/%E5%8D%81_rc0f0d.mp3"
   },
   {
-    "id": "85",
+    "id": "77",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672820/%E6%97%A5_azc7sw.png",
     "character": "日",
     "meaning": "Sun; day",
@@ -680,7 +616,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673292/%E6%97%A5_hlr1cn.mp3"
   },
   {
-    "id": "86",
+    "id": "78",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672825/%E7%8E%8B_srbudo.png",
     "character": "王",
     "meaning": "Wang - a family name of Chinese",
@@ -688,7 +624,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673321/%E7%8E%8B_q6phj3.mp3"
   },
   {
-    "id": "87",
+    "id": "79",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672829/%E8%AF%B7%E9%97%AE_o1exei.gif",
     "character": "请问",
     "meaning": "Excuse me",
@@ -696,7 +632,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673344/%E8%AF%B7%E9%97%AE_xlo4e6.mp3"
   },
   {
-    "id": "88",
+    "id": "80",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672832/%E9%97%AE_dtqubo.png",
     "character": "问",
     "meaning": "to ask; to enquire",
@@ -704,7 +640,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673361/%E9%97%AE_sq4hfp.mp3"
   },
   {
-    "id": "89",
+    "id": "81",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672830/%E8%B4%B5%E5%A7%93_pve03x.png",
     "character": "贵姓",
     "meaning": "May I know your name?",
@@ -712,7 +648,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673347/%E8%B4%B5%E5%A7%93_z9hejd.mp3"
   },
   {
-    "id": "90",
+    "id": "82",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672817/%E5%A7%93_ekh31y.png",
     "character": "姓",
     "meaning": "Family name",
@@ -720,7 +656,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673270/%E5%A7%93_if5dig.mp3"
   },
   {
-    "id": "91",
+    "id": "83",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672813/%E5%8F%AB_bg2tz1.png",
     "character": "叫",
     "meaning": "to call; to name; to ask",
@@ -728,7 +664,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673246/%E5%8F%AB_oxmi4q.mp3"
   },
   {
-    "id": "92",
+    "id": "84",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672814/%E5%90%8D%E5%AD%97_lij4yw.gif",
     "character": "名字",
     "meaning": "Name",
@@ -736,7 +672,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673248/%E5%90%8D%E5%AD%97_nmd07q.mp3"
   },
   {
-    "id": "93",
+    "id": "85",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672814/%E5%93%AA_j3bq2j.png",
     "character": "哪",
     "meaning": "Which; where - <a href='grammar.html#grammar-7'>More</a>",
@@ -744,7 +680,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673252/%E5%93%AA_nab18b.mp3"
   },
   {
-    "id": "94",
+    "id": "86",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672815/%E5%9B%BD_fca15m.png",
     "character": "国",
     "meaning": "Country; Nationality",
@@ -752,7 +688,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673258/%E5%9B%BD_eqmzlt.mp3"
   },
   {
-    "id": "95",
+    "id": "87",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672808/%E4%B8%AD%E5%9B%BD_epnq01.png",
     "character": "中国",
     "meaning": "China",
@@ -760,63 +696,63 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673160/%E4%B8%AD%E5%9B%BD_ipqsgt.mp3"
   },
   {
-    "id": "96",
+    "id": "88",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672819/%E5%BE%B7%E5%9B%BD_f2kloi.png",
-    "character": "德国",
+    "character": "德",
     "meaning": "Germany",
     "pinyin": "déguó",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673283/%E5%BE%B7%E5%9B%BD_h3cg2y.mp3"
   },
   {
-    "id": "97",
+    "id": "89",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672810/%E4%BF%84%E5%9B%BD_m560gt.png",
-    "character": "俄国",
+    "character": "俄",
     "meaning": "Russia",
     "pinyin": "éguó",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673175/%E4%BF%84%E5%9B%BD_nq1p9a.mp3"
   },
   {
-    "id": "98",
+    "id": "90",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672824/%E6%B3%95%E5%9B%BD_wpez7g.png",
-    "character": "法国",
+    "character": "法",
     "meaning": "France",
     "pinyin": "fǎguó",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673317/%E6%B3%95%E5%9B%BD_aka8fv.mp3"
   },
   {
-    "id": "99",
+    "id": "91",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672833/%E9%9F%A9%E5%9B%BD_ravgae.png",
-    "character": "韩国",
+    "character": "韩",
     "meaning": "The Republic of Korea",
     "pinyin": "hánguó",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673367/%E9%9F%A9%E5%9B%BD_quq0m3.mp3"
   },
   {
-    "id": "100",
+    "id": "92",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672826/%E7%BE%8E%E5%9B%BD_peyubm.png",
-    "character": "美国",
+    "character": "美",
     "meaning": "The United States",
     "pinyin": "měiguó",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673330/%E7%BE%8E%E5%9B%BD_mgdfdf.mp3"
   },
   {
-    "id": "101",
+    "id": "93",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672821/%E6%97%A5%E6%9C%AC%E5%9B%BD_crvnbx.png",
-    "character": "日本国",
+    "character": "日本",
     "meaning": "Japan",
     "pinyin": "rìběn guó",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673295/%E6%97%A5%E6%9C%AC%E5%9B%BD_iqb7fq.mp3"
   },
   {
-    "id": "102",
+    "id": "94",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672827/%E8%8B%B1%E5%9B%BD_kaenob.png",
-    "character": "英国",
+    "character": "英",
     "meaning": "Britain",
     "pinyin": "yīngguó",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673332/%E8%8B%B1%E5%9B%BD_kqvgfq.mp3"
   },
   {
-    "id": "103",
+    "id": "95",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672809/%E4%BA%BA_kgwvki.png",
     "character": "人",
     "meaning": "Human being; man or women",
@@ -824,7 +760,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673168/%E4%BA%BA_nfa4gl.mp3"
   },
   {
-    "id": "104",
+    "id": "96",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672817/%E5%AD%A6%E4%B9%A0_tvsnpv.png",
     "character": "学习",
     "meaning": "to study; to learn",
@@ -832,7 +768,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673272/%E5%AD%A6%E4%B9%A0_zn9smo.mp3"
   },
   {
-    "id": "105",
+    "id": "97",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672824/%E6%B1%89%E5%AD%97_zqikwg.png",
     "character": "汉字",
     "meaning": "Chinese characters",
@@ -840,7 +776,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673312/%E6%B1%89%E5%AD%97_ix9xku.mp3"
   },
   {
-    "id": "106",
+    "id": "98",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672812/%E5%8F%91%E9%9F%B3_ov2vxu.png",
     "character": "发音",
     "meaning": "Pronunciation; pronounce",
@@ -848,7 +784,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673242/%E5%8F%91%E9%9F%B3_mvaakh.mp3"
   },
   {
-    "id": "107",
+    "id": "99",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672810/%E4%BB%80%E4%B9%88_uvncji.png",
     "character": "什么",
     "meaning": "What",
@@ -856,7 +792,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673169/%E4%BB%80%E4%B9%88_h6o9d2.mp3"
   },
   {
-    "id": "108",
+    "id": "100",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672809/%E4%B9%A6_f3edw3.png",
     "character": "书",
     "meaning": "Book",
@@ -864,7 +800,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673163/%E4%B9%A6_jjihr5.mp3"
   },
   {
-    "id": "109",
+    "id": "101",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672830/%E8%B0%81_o4ejhr.gif",
     "character": "谁",
     "meaning": "Who - <a href='grammar.html#grammar-7'>More</a>",
@@ -872,7 +808,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673345/%E8%B0%81_ueab1g.mp3"
   },
   {
-    "id": "110",
+    "id": "102",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672826/%E7%9A%84_ngnlln.png",
     "character": "的",
     "meaning": "a particle used after an attribute to indicate possession - <a href='grammar.html#grammar-8'>More</a><br>noun/pronoun/adj/verb/phrase + 的 = noun - <a href='grammar.html#grammar-13'>More</a>",
@@ -880,7 +816,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673325/%E7%9A%84_ksdvbh.mp3"
   },
   {
-    "id": "111",
+    "id": "103",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672830/%E9%82%A3_ffjyo1.png",
     "character": "那",
     "meaning": "that",
@@ -888,7 +824,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673353/%E9%82%A3_x4avs7.mp3"
   },
   {
-    "id": "112",
+    "id": "104",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672824/%E6%9D%82%E5%BF%97_adnplb.png",
     "character": "杂志",
     "meaning": "Magazine",
@@ -896,7 +832,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673311/%E6%9D%82%E5%BF%97_axn4uh.mp3"
   },
   {
-    "id": "113",
+    "id": "105",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672820/%E6%96%87_ajzklx.png",
     "character": "文",
     "meaning": "Language",
@@ -904,7 +840,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673290/%E6%96%87_hni4qd.mp3"
   },
   {
-    "id": "114",
+    "id": "106",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672808/%E4%B8%AD%E6%96%87_ceposq.png",
     "character": "中文",
     "meaning": "Chinese",
@@ -912,71 +848,71 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673161/%E4%B8%AD%E6%96%87_vbkj3r.mp3"
   },
   {
-    "id": "115",
+    "id": "107",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672832/%E9%98%BF%E6%8B%89%E4%BC%AF%E6%96%87_zso60r.png",
-    "character": "阿拉伯文",
+    "character": "阿拉伯",
     "meaning": "Arabic",
     "pinyin": "ālābówén",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673362/%E9%98%BF%E6%8B%89%E4%BC%AF%E6%96%87_fhvj7f.mp3"
   },
   {
-    "id": "116",
+    "id": "108",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672819/%E5%BE%B7%E6%96%87_raeko0.png",
-    "character": "德文",
+    "character": "德",
     "meaning": "German",
     "pinyin": "déwén",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673285/%E5%BE%B7%E6%96%87_pwvu91.mp3"
   },
   {
-    "id": "117",
+    "id": "109",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672811/%E4%BF%84%E6%96%87_mkwnvb.png",
-    "character": "俄文",
+    "character": "俄",
     "meaning": "Russian",
     "pinyin": "éwén",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673176/%E4%BF%84%E6%96%87_ueoqts.mp3"
   },
   {
-    "id": "118",
+    "id": "110",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672824/%E6%B3%95%E6%96%87_dlrex7.png",
-    "character": "法文",
+    "character": "法",
     "meaning": "French",
     "pinyin": "fǎwén",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673318/%E6%B3%95%E6%96%87_xiu1qb.mp3"
   },
   {
-    "id": "119",
+    "id": "111",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672833/%E9%9F%A9%E6%96%87_ipmlxt.png",
-    "character": "韩文",
+    "character": "韩",
     "meaning": "Korean",
     "pinyin": "hánwén",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673369/%E9%9F%A9%E6%96%87_txl2bn.mp3"
   },
   {
-    "id": "120",
+    "id": "112",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672821/%E6%97%A5%E6%96%87_lnpilr.png",
-    "character": "日文",
+    "character": "日",
     "meaning": "Japanese",
     "pinyin": "rìwén",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673293/%E6%97%A5%E6%96%87_ohzinm.mp3"
   },
   {
-    "id": "121",
+    "id": "113",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672828/%E8%A5%BF%E7%8F%AD%E7%89%99%E6%96%87_oozqag.png",
-    "character": "西班牙文",
+    "character": "西班牙",
     "meaning": "Spanish",
     "pinyin": "xībānyáwén",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673338/%E8%A5%BF%E7%8F%AD%E7%89%99%E6%96%87_v67ypk.mp3"
   },
   {
-    "id": "122",
+    "id": "114",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672827/%E8%8B%B1%E6%96%87_vr4hh3.png",
-    "character": "英文",
+    "character": "英",
     "meaning": "English",
     "pinyin": "yīngwén",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673333/%E8%8B%B1%E6%96%87_kjsarw.mp3"
   },
   {
-    "id": "123",
+    "id": "115",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672823/%E6%9C%8B%E5%8F%8B_pwkkse.png",
     "character": "朋友",
     "meaning": "Friend",
@@ -984,7 +920,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673310/%E6%9C%8B%E5%8F%8B_r32byy.mp3"
   },
   {
-    "id": "124",
+    "id": "116",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672808/%E4%B8%AD%E5%8D%88_x92kat.png",
     "character": "中午",
     "meaning": "Noon",
@@ -992,7 +928,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673159/%E4%B8%AD%E5%8D%88_vjz9te.mp3"
   },
   {
-    "id": "125",
+    "id": "117",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672813/%E5%90%83_vfypmt.gif",
     "character": "吃",
     "meaning": "to eat",
@@ -1000,7 +936,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673247/%E5%90%83_lqky04.mp3"
   },
   {
-    "id": "126",
+    "id": "118",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672833/%E9%A5%AD_ynvdmn.png",
     "character": "饭",
     "meaning": "Meal",
@@ -1008,7 +944,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673371/%E9%A5%AD_vjqqou.mp3"
   },
   {
-    "id": "127",
+    "id": "119",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672833/%E9%A3%9F%E5%A0%82_tj4j26.png",
     "character": "食堂",
     "meaning": "Dining hall",
@@ -1016,7 +952,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673370/%E9%A3%9F%E5%A0%82_jbj2j2.mp3"
   },
   {
-    "id": "128",
+    "id": "120",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672834/%E9%A6%92%E5%A4%B4_k2pat0.png",
     "character": "馒头",
     "meaning": "Sweet steamed bun",
@@ -1024,7 +960,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673373/%E9%A6%92%E5%A4%B4_dnbxzr.mp3"
   },
   {
-    "id": "129",
+    "id": "121",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672826/%E7%B1%B3%E9%A5%AD_iujkxl.png",
     "character": "米饭",
     "meaning": "Steamed rice",
@@ -1032,7 +968,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673329/%E7%B1%B3%E9%A5%AD_nkith6.mp3"
   },
   {
-    "id": "130",
+    "id": "122",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672826/%E7%B1%B3_tltwva.png",
     "character": "米",
     "meaning": "Rice",
@@ -1040,7 +976,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673327/%E7%B1%B3_lxyady.mp3"
   },
   {
-    "id": "131",
+    "id": "123",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672828/%E8%A6%81_vrtzsu.png",
     "character": "要",
     "meaning": "to want; to desire",
@@ -1048,7 +984,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673340/%E8%A6%81_f8jhhk.mp3"
   },
   {
-    "id": "132",
+    "id": "124",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672808/%E4%B8%AA_nr5pnu.png",
     "character": "个",
     "meaning": "a classifier basically used before nouns without a special classifier of their own",
@@ -1056,7 +992,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673157/%E4%B8%AA_fxjx7t.mp3"
   },
   {
-    "id": "133",
+    "id": "125",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672826/%E7%A2%97_fvrxoy.png",
     "character": "碗",
     "meaning": "Bowl",
@@ -1064,7 +1000,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673326/%E7%A2%97_mfsllx.mp3"
   },
   {
-    "id": "134",
+    "id": "126",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672834/%E9%B8%A1%E8%9B%8B_x5fmqr.png",
     "character": "鸡蛋",
     "meaning": "Egg",
@@ -1072,23 +1008,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673377/%E9%B8%A1%E8%9B%8B_siti7x.mp3"
   },
   {
-    "id": "135",
-    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672834/%E9%B8%A1_nb4s3r.png",
-    "character": "鸡",
-    "meaning": "Chicken",
-    "pinyin": "jī",
-    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673376/%E9%B8%A1_qom0a7.mp3"
-  },
-  {
-    "id": "136",
-    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672828/%E8%9B%8B_pjccha.png",
-    "character": "蛋",
-    "meaning": "Egg",
-    "pinyin": "dàn",
-    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673337/%E8%9B%8B_szyns5.mp3"
-  },
-  {
-    "id": "137",
+    "id": "127",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672824/%E6%B1%A4_v2ici1.png",
     "character": "汤",
     "meaning": "Soup",
@@ -1096,7 +1016,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673315/%E6%B1%A4_l4hbsa.mp3"
   },
   {
-    "id": "138",
+    "id": "128",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672814/%E5%95%A4%E9%85%92_su8nvb.png",
     "character": "啤酒",
     "meaning": "Beer",
@@ -1104,15 +1024,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673254/%E5%95%A4%E9%85%92_gwrn2k.mp3"
   },
   {
-    "id": "139",
-    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672831/%E9%85%92_uxad5w.png",
-    "character": "酒",
-    "meaning": "Alcoholic drink",
-    "pinyin": "jiǔ",
-    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673357/%E9%85%92_leyarj.mp3"
-  },
-  {
-    "id": "140",
+    "id": "129",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672830/%E8%BF%99%E4%BA%9B_snz8dq.png",
     "character": "这些",
     "meaning": "These - <a href='grammar.html#grammar-10'>More</a>",
@@ -1120,31 +1032,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673351/%E8%BF%99%E4%BA%9B_u0mkct.mp3"
   },
   {
-    "id": "141",
-    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672809/%E4%BA%9B_vzw6vo.png",
-    "character": "些",
-    "meaning": "classifier - some - <a href='grammar.html#grammar-10'>More</a>",
-    "pinyin": "xiē",
-    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673167/%E4%BA%9B_bueai8.mp3"
-  },
-  {
-    "id": "142",
-    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672808/%E4%B8%80%E4%BA%9B_mqsor0.png",
-    "character": "一些",
-    "meaning": "some; a few; a little - <a href='grammar.html#grammar-10'>More</a>",
-    "pinyin": "yìxiē",
-    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673152/%E4%B8%80%E4%BA%9B_goqgmk.mp3"
-  },
-  {
-    "id": "143",
-    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672830/%E9%82%A3%E4%BA%9B_is9xsd.png",
-    "character": "那些",
-    "meaning": "Those - <a href='grammar.html#grammar-10'>More</a>",
-    "pinyin": "nàxiē",
-    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673354/%E9%82%A3%E4%BA%9B_jg8gap.mp3"
-  },
-  {
-    "id": "144",
+    "id": "130",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672834/%E9%A5%BA%E5%AD%90_rp2mwl.png",
     "character": "饺子",
     "meaning": "Dumpling",
@@ -1152,7 +1040,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673372/%E9%A5%BA%E5%AD%90_lak83j.mp3"
   },
   {
-    "id": "145",
+    "id": "131",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672812/%E5%8C%85%E5%AD%90_xmzahv.png",
     "character": "包子",
     "meaning": "Steamed bun",
@@ -1160,7 +1048,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673238/%E5%8C%85%E5%AD%90_rlp4us.mp3"
   },
   {
-    "id": "146",
+    "id": "132",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672832/%E9%9D%A2%E6%9D%A1_p9jkzq.png",
     "character": "面条",
     "meaning": "Noodle",
@@ -1168,7 +1056,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673365/%E9%9D%A2%E6%9D%A1_qvegyw.mp3"
   },
   {
-    "id": "147",
+    "id": "133",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159624/%E4%B9%B0_cndi9x.png",
     "character": "买",
     "meaning": "to buy",
@@ -1176,7 +1064,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160486/%E4%B9%B0_ykspqu.mp3"
   },
   {
-    "id": "148",
+    "id": "134",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159485/%E6%B0%B4%E6%9E%9C_pwl398.png",
     "character": "水果",
     "meaning": "fruit",
@@ -1184,15 +1072,15 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160496/%E6%B0%B4%E6%9E%9C_hwrqy5.mp3"
   },
   {
-    "id": "149",
+    "id": "135",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159503/%E8%8B%B9%E6%9E%9C_pzyyjz.png",
-    "character": "苹果",
+    "character": "苹",
     "meaning": "apple",
     "pinyin": "píngguǒ",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160497/%E8%8B%B9%E6%9E%9C_bgivze.mp3"
   },
   {
-    "id": "150",
+    "id": "136",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159626/%E6%96%A4_ugin0g.png",
     "character": "斤",
     "meaning": "a weight unit in China",
@@ -1200,15 +1088,15 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160494/%E6%96%A4_gxolln.mp3"
   },
   {
-    "id": "151",
+    "id": "137",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159625/%E5%85%AC%E6%96%A4_isl1ka.png",
-    "character": "公斤",
+    "character": "公",
     "meaning": "kilogram",
     "pinyin": "gōngjīn",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160487/%E5%85%AC%E6%96%A4_zfaniq.mp3"
   },
   {
-    "id": "152",
+    "id": "138",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159543/%E8%B4%B5_wp9sw3.png",
     "character": "贵",
     "meaning": "expensive",
@@ -1216,7 +1104,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160500/%E8%B4%B5_oygag4.mp3"
   },
   {
-    "id": "153",
+    "id": "139",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738306999/%E4%BA%86_utmma2.png",
     "character": "了",
     "meaning": "modal particle",
@@ -1224,7 +1112,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160486/%E4%BA%86_ce3i4u.mp3"
   },
   {
-    "id": "154",
+    "id": "140",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738306999/%E5%90%A7_mp6adp.png",
     "character": "吧",
     "meaning": "a particle used at the end of a sentence, implying soliciting sb.'s advice, suggestion, request or mild command",
@@ -1232,7 +1120,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160489/%E5%90%A7_s5wuoz.mp3"
   },
   {
-    "id": "155",
+    "id": "141",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159626/%E5%A4%9A%E5%B0%91_jvewsg.png",
     "character": "多少",
     "meaning": "how much, how many",
@@ -1240,23 +1128,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160491/%E5%A4%9A%E5%B0%91_yqc3ks.mp3"
   },
   {
-    "id": "156",
-    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159625/%E5%A4%9A_ce42rq.png",
-    "character": "多¹",
-    "meaning": "many; a lot of",
-    "pinyin": "duō",
-    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160490/%E5%A4%9A_bmjqp8.mp3"
-  },
-  {
-    "id": "157",
-    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159626/%E5%B0%91_z96hs2.png",
-    "character": "少",
-    "meaning": "few; little; less",
-    "pinyin": "shǎo",
-    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160491/%E5%B0%91_cw3er8.mp3"
-  },
-  {
-    "id": "158",
+    "id": "142",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738306999/%E5%9D%97_pagt4w.png",
     "character": "块",
     "meaning": "a basic money unit in China",
@@ -1264,7 +1136,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160490/%E5%9D%97_shoee4.mp3"
   },
   {
-    "id": "159",
+    "id": "143",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738306999/%E5%85%83_ane7wy.png",
     "character": "元",
     "meaning": "a basic money unit in China",
@@ -1272,7 +1144,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160486/%E5%85%83_zi3mz6.mp3"
   },
   {
-    "id": "160",
+    "id": "144",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738306999/%E8%A7%92_oec4yb.png",
     "character": "角",
     "meaning": "equal to 10% of one kuai",
@@ -1280,7 +1152,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160499/%E8%A7%92_gaxprg.mp3"
   },
   {
-    "id": "161",
+    "id": "145",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738306999/%E6%AF%9B_dvrbxv.png",
     "character": "毛",
     "meaning": "equal to 10% of one kuai",
@@ -1288,7 +1160,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160496/%E6%AF%9B_wzasww.mp3"
   },
   {
-    "id": "162",
+    "id": "146",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738306998/%E5%88%86_c1k63i.png",
     "character": "分",
     "meaning": "equal to 1% of one kuai",
@@ -1296,7 +1168,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160488/%E5%88%86_cdko4d.mp3"
   },
   {
-    "id": "163",
+    "id": "147",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159623/%E8%BF%98_gefguh.png",
     "character": "还",
     "meaning": "also; in addition; still",
@@ -1304,7 +1176,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160485/%E8%BF%98_vhougp.mp3"
   },
   {
-    "id": "164",
+    "id": "148",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738306999/%E5%88%AB%E7%9A%84_rurfxc.png",
     "character": "别的",
     "meaning": "other",
@@ -1312,7 +1184,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160487/%E5%88%AB%E7%9A%84_rdlisb.mp3"
   },
   {
-    "id": "165",
+    "id": "149",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738414309/%E6%A9%98%E5%AD%90_o4g425.png",
     "character": "橘子",
     "meaning": "orange",
@@ -1320,7 +1192,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160495/%E6%A9%98%E5%AD%90_gbiaya.mp3"
   },
   {
-    "id": "166",
+    "id": "150",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159626/%E6%80%8E%E4%B9%88_jrtxyx.png",
     "character": "怎么",
     "meaning": "how",
@@ -1328,7 +1200,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160492/%E6%80%8E%E4%B9%88_vumrjs.mp3"
   },
   {
-    "id": "167",
+    "id": "151",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159626/%E5%8D%96_w1jftx.png",
     "character": "卖",
     "meaning": "to sell",
@@ -1336,7 +1208,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160488/%E5%8D%96_lcj7lg.mp3"
   },
   {
-    "id": "168",
+    "id": "152",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159624/%E4%B8%A4_hjfdvx.png",
     "character": "两",
     "meaning": "two",
@@ -1344,7 +1216,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160486/%E4%B8%A4_e80udh.mp3"
   },
   {
-    "id": "169",
+    "id": "153",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159624/%E4%B8%80%E5%85%B1_jdedky.png",
     "character": "一共",
     "meaning": "altogether",
@@ -1352,23 +1224,23 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160485/%E4%B8%80%E5%85%B1_w0k83n.mp3"
   },
   {
-    "id": "170",
+    "id": "154",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159485/%E7%BB%99_ttmbtg.png",
-    "character": "给¹",
+    "character": "给",
     "meaning": "to give",
     "pinyin": "gěi",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160497/%E7%BB%99_rgzsqq.mp3"
   },
   {
-    "id": "171",
+    "id": "155",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738159626/%E6%89%BE_1_kx7r6f.png",
-    "character": "找¹",
+    "character": "找",
     "meaning": "to give change",
     "pinyin": "zhǎo",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160493/%E6%89%BE_gv2zoz.mp3"
   },
   {
-    "id": "172",
+    "id": "156",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568492/%E4%B8%8B%E5%8D%88_s9bey4.png",
     "character": "下午",
     "meaning": "afternoon",
@@ -1376,7 +1248,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569111/%E4%B8%8B%E5%8D%88_ycrkhw.mp3"
   },
   {
-    "id": "173",
+    "id": "157",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568493/%E4%B8%8A%E5%8D%88_tvoei1.png",
     "character": "下午",
     "meaning": "morning",
@@ -1384,7 +1256,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569111/%E4%B8%8A%E5%8D%88_uca6fk.mp3"
   },
   {
-    "id": "174",
+    "id": "158",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568493/%E5%9B%BE%E4%B9%A6%E9%A6%86_rfvt9q.png",
     "character": "图书馆",
     "meaning": "library",
@@ -1392,7 +1264,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569128/%E5%9B%BE%E4%B9%A6%E9%A6%86_ciwidy.mp3"
   },
   {
-    "id": "175",
+    "id": "159",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568493/%E6%8D%A2_g9f9xq.png",
     "character": "换",
     "meaning": "to change; to exchange",
@@ -1400,7 +1272,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569129/%E6%8D%A2_ddajzt.mp3"
   },
   {
-    "id": "176",
+    "id": "160",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568493/%E5%B0%8F%E5%A7%90_gha0cd.png",
     "character": "小姐",
     "meaning": "miss",
@@ -1408,7 +1280,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569129/%E5%B0%8F%E5%A7%90_xdgpqk.mp3"
   },
   {
-    "id": "177",
+    "id": "161",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738569096/%E8%90%A5%E4%B8%9A%E5%91%98_cgccsx.png",
     "character": "营业员",
     "meaning": "shop employees",
@@ -1416,7 +1288,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569135/%E8%90%A5%E4%B8%9A%E5%91%98_pt5y9f.mp3"
   },
   {
-    "id": "178",
+    "id": "162",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568493/%E4%BA%BA%E6%B0%91%E5%B8%81_qveuw5.png",
     "character": "人民币",
     "meaning": "RMB",
@@ -1424,15 +1296,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569112/%E4%BA%BA%E6%B0%91%E5%B8%81_oaudyy.mp3"
   },
   {
-    "id": "179",
-    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568493/%E4%BA%BA%E6%B0%91_mw35if.png",
-    "character": "人民",
-    "meaning": "people",
-    "pinyin": "rénmín",
-    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569112/%E4%BA%BA%E6%B0%91_myohll.mp3"
-  },
-  {
-    "id": "180",
+    "id": "163",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568544/%E7%99%BE_ywolzb.png",
     "character": "百",
     "meaning": "hundred",
@@ -1440,7 +1304,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569133/%E7%99%BE_w68tvp.mp3"
   },
   {
-    "id": "181",
+    "id": "164",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568493/%E5%8D%83_cfp9b6.png",
     "character": "千",
     "meaning": "thousand",
@@ -1448,7 +1312,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569128/%E5%8D%83_rp3yuq.mp3"
   },
   {
-    "id": "182",
+    "id": "165",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568492/%E4%B8%87_hokuqb.png",
     "character": "万",
     "meaning": "ten thousand",
@@ -1456,7 +1320,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569111/%E4%B8%87_jt8yrs.mp3"
   },
   {
-    "id": "183",
+    "id": "166",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738569096/%E7%BE%8E%E5%85%83_rfqjkp.png",
     "character": "美元",
     "meaning": "US dollar",
@@ -1464,7 +1328,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569134/%E7%BE%8E%E5%85%83_qad1wg.mp3"
   },
   {
-    "id": "184",
+    "id": "167",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568494/%E6%B8%AF%E5%B8%81_t1qa1e.png",
     "character": "港币",
     "meaning": "Hong Kong dollar",
@@ -1472,23 +1336,23 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569133/%E6%B8%AF%E5%B8%81_asvyia.mp3"
   },
   {
-    "id": "185",
+    "id": "168",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568494/%E6%97%A5%E5%85%83_h1g7lw.png",
-    "character": "日元",
+    "character": "日",
     "meaning": "Japanese yen",
     "pinyin": "rìyuán",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569130/%E6%97%A5%E5%85%83_fypywe.mp3"
   },
   {
-    "id": "186",
+    "id": "169",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568494/%E6%AC%A7%E5%85%83_jwffke.png",
-    "character": "欧元",
+    "character": "欧",
     "meaning": "Euro",
     "pinyin": "ōuyuán",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569132/%E6%AC%A7%E5%85%83_o98xub.mp3"
   },
   {
-    "id": "187",
+    "id": "170",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738569096/%E7%AD%89_m3wa73.png",
     "character": "等",
     "meaning": "to wait",
@@ -1496,15 +1360,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569133/%E7%AD%89_oplpy0.mp3"
   },
   {
-    "id": "188",
-    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568492/%E4%B8%80%E4%BC%9A%E5%84%BF_v9luz2.png",
-    "character": "一会儿",
-    "meaning": "a little while",
-    "pinyin": "yíhuìr",
-    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569111/%E4%B8%80%E4%BC%9A%E5%84%BF_twxd7b.mp3"
-  },
-  {
-    "id": "189",
+    "id": "171",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568492/%E5%85%88%E7%94%9F_r6fbro.png",
     "character": "先生",
     "meaning": "Mr.; sir",
@@ -1512,7 +1368,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569113/%E5%85%88%E7%94%9F_ymhpjg.mp3"
   },
   {
-    "id": "190",
+    "id": "172",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738568494/%E6%95%B0_sylsva.png",
     "character": "数",
     "meaning": "to count",
@@ -1520,7 +1376,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738569129/%E6%95%B0_nkqa5w.mp3"
   },
   {
-    "id": "191",
+    "id": "173",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174874/%E5%8A%9E%E5%85%AC%E5%AE%A4_terktl.png",
     "character": "办公室",
     "meaning": "office",
@@ -1528,15 +1384,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175244/%E5%8A%9E%E5%85%AC%E5%AE%A4_a0vk13.mp3"
   },
   {
-    "id": "192",
-    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174873/%E5%8A%9E%E5%85%AC_cyv89m.png",
-    "character": "办公",
-    "meaning": "to work (in an office)",
-    "pinyin": "bàngōng",
-    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175244/%E5%8A%9E%E5%85%AC_en3c5l.mp3"
-  },
-  {
-    "id": "193",
+    "id": "174",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174873/%E8%81%8C%E5%91%98_hcnl5y.png",
     "character": "职员",
     "meaning": "employee; office worker",
@@ -1544,15 +1392,15 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175398/%E8%81%8C%E5%91%98_tlvb7g.mp3"
   },
   {
-    "id": "194",
+    "id": "175",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174875/%E6%89%BE_2_hav8l8.png",
-    "character": "找²",
+    "character": "找",
     "meaning": "to look for",
     "pinyin": "zhǎo",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738160493/%E6%89%BE_gv2zoz.mp3"
   },
   {
-    "id": "195",
+    "id": "176",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174874/%E5%9C%A8_pmhnxl.png",
     "character": "在",
     "meaning": "to be in/at; in; at - <a href='grammar.html#grammar-9'>More</a><br>in the process of",
@@ -1560,7 +1408,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175245/%E5%9C%A8_dadas6.mp3"
   },
   {
-    "id": "196",
+    "id": "177",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174874/%E5%AE%B6_tolh5l.png",
     "character": "家",
     "meaning": "home; (a classifier for a family, company, shop, etc.)",
@@ -1568,7 +1416,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175247/%E5%AE%B6_zhsqsg.mp3"
   },
   {
-    "id": "197",
+    "id": "178",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174874/%E5%91%A2_jpyw03.png",
     "character": "呢",
     "meaning": "a modal particle used at the end of a declarative sentence to indicate the continuation of an action or situation",
@@ -1576,7 +1424,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175245/%E5%91%A2_fy328k.mp3"
   },
   {
-    "id": "198",
+    "id": "179",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174873/%E4%BD%8F_ncefkt.png",
     "character": "住",
     "meaning": "to live",
@@ -1584,7 +1432,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175243/%E4%BD%8F_g4tfip.mp3"
   },
   {
-    "id": "199",
+    "id": "180",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174875/%E6%A5%BC_c2nmwi.png",
     "character": "楼",
     "meaning": "building",
@@ -1592,7 +1440,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175393/%E6%A5%BC_nmzuuj.mp3"
   },
   {
-    "id": "200",
+    "id": "181",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174874/%E9%97%A8_zrm3vn.png",
     "character": "门",
     "meaning": "door; gate",
@@ -1600,7 +1448,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175399/%E9%97%A8_u84ekq.mp3"
   },
   {
-    "id": "201",
+    "id": "182",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174875/%E6%88%BF%E9%97%B4_l3rknf.png",
     "character": "房间",
     "meaning": "room",
@@ -1608,7 +1456,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175248/%E6%88%BF%E9%97%B4_rddugb.mp3"
   },
   {
-    "id": "202",
+    "id": "183",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174873/%E5%8F%B7_glddmr.png",
     "character": "号",
     "meaning": "number",
@@ -1616,7 +1464,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175244/%E5%8F%B7_zgfixg.mp3"
   },
   {
-    "id": "203",
+    "id": "184",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174873/%E7%9F%A5%E9%81%93_ox7zkx.png",
     "character": "知道",
     "meaning": "to know",
@@ -1624,7 +1472,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175398/%E7%9F%A5%E9%81%93_xi3fxc.mp3"
   },
   {
-    "id": "204",
+    "id": "185",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174875/%E7%94%B5%E8%AF%9D_gvpcpf.png",
     "character": "电话",
     "meaning": "telephone",
@@ -1632,23 +1480,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175397/%E7%94%B5%E8%AF%9D_fybbg6.mp3"
   },
   {
-    "id": "205",
-    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174875/%E7%94%B5_dxdcqd.png",
-    "character": "电",
-    "meaning": "electricity",
-    "pinyin": "diàn",
-    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175393/%E7%94%B5_ijzbox.mp3"
-  },
-  {
-    "id": "206",
-    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174873/%E8%AF%9D_ewvfjr.png",
-    "character": "话",
-    "meaning": "words; speech",
-    "pinyin": "huà",
-    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175399/%E8%AF%9D_kbbqwo.mp3"
-  },
-  {
-    "id": "207",
+    "id": "186",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174873/%E5%8F%B7%E7%A0%81_sje1nc.png",
     "character": "号码",
     "meaning": "number",
@@ -1656,7 +1488,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175244/%E5%8F%B7%E7%A0%81_tzhzds.mp3"
   },
   {
-    "id": "208",
+    "id": "187",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174874/%E9%9B%B6_ndrq7n.png",
     "character": "零",
     "meaning": "zero",
@@ -1664,7 +1496,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175400/%E9%9B%B6_umq1vg.mp3"
   },
   {
-    "id": "209",
+    "id": "188",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174875/%E6%89%8B%E6%9C%BA_wgfzgw.png",
     "character": "手机",
     "meaning": "mobile phone",
@@ -1672,15 +1504,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175291/%E6%89%8B%E6%9C%BA_xckw1m.mp3"
   },
   {
-    "id": "210",
-    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739174875/%E6%89%8B_yrilev.png",
-    "character": "手",
-    "meaning": "hand",
-    "pinyin": "shǒu",
-    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739175248/%E6%89%8B_wwyr4e.mp3"
-  },
-  {
-    "id": "211",
+    "id": "189",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1734672810/%E4%BB%96%E5%A5%B9_ixxred.png",
     "character": "她",
     "meaning": "She",
@@ -1688,7 +1512,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673171/%E4%BB%96%E5%A5%B9_ajweaf.mp3"
   },
   {
-    "id": "212",
+    "id": "190",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780290/%E7%A7%98%E4%B9%A6_t5nkd8.png",
     "character": "秘书",
     "meaning": "secretary",
@@ -1696,7 +1520,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780826/%E7%A7%98%E4%B9%A6_lyfgto.mp3"
   },
   {
-    "id": "213",
+    "id": "191",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780289/%E5%85%88_cynx74.png",
     "character": "先",
     "meaning": "first",
@@ -1704,7 +1528,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780820/%E5%85%88_tbu8qi.mp3"
   },
   {
-    "id": "214",
+    "id": "192",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780289/%E4%BB%8B%E7%BB%8D_ehihby.png",
     "character": "介绍",
     "meaning": "to introduce",
@@ -1712,15 +1536,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780792/%E4%BB%8B%E7%BB%8D_n7yjoz.mp3"
   },
   {
-    "id": "215",
-    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780288/%E4%B8%80%E4%B8%8B%E5%84%BF_ghvx5e.png",
-    "character": "一下儿",
-    "meaning": "a number measure word used after a verb to indicate one action or one try",
-    "pinyin": "yíxiàr",
-    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780792/%E4%B8%80%E4%B8%8B%E5%84%BF_lmmn23.mp3"
-  },
-  {
-    "id": "216",
+    "id": "193",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780289/%E4%BD%8D_zeun2v.png",
     "character": "位",
     "meaning": "a classifier used before people",
@@ -1728,7 +1544,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780793/%E4%BD%8D_fxqro0.mp3"
   },
   {
-    "id": "217",
+    "id": "194",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780289/%E6%95%99%E6%8E%88_amzl34.png",
     "character": "教授",
     "meaning": "professor",
@@ -1736,7 +1552,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780823/%E6%95%99%E6%8E%88_krymqm.mp3"
   },
   {
-    "id": "218",
+    "id": "195",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780289/%E6%A0%A1%E9%95%BF_hlkfzf.png",
     "character": "校长",
     "meaning": "president; principal",
@@ -1744,7 +1560,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780824/%E6%A0%A1%E9%95%BF_fkr1ht.mp3"
   },
   {
-    "id": "219",
+    "id": "196",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780289/%E6%AC%A2%E8%BF%8E_yk97ds.png",
     "character": "欢迎",
     "meaning": "to welcome; to greet",
@@ -1752,7 +1568,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780824/%E6%AC%A2%E8%BF%8E_torg1p.mp3"
   },
   {
-    "id": "220",
+    "id": "197",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780290/%E7%95%99%E5%AD%A6%E7%94%9F_vpya7n.png",
     "character": "留学生",
     "meaning": "overseas student",
@@ -1760,15 +1576,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780825/%E7%95%99%E5%AD%A6%E7%94%9F_pbwyoz.mp3"
   },
   {
-    "id": "221",
-    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780290/%E7%95%99%E5%AD%A6_g0l30s.png",
-    "character": "留学",
-    "meaning": "to study abroad",
-    "pinyin": "liúxué",
-    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780825/%E7%95%99%E5%AD%A6_p0bey8.mp3"
-  },
-  {
-    "id": "222",
+    "id": "198",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780288/%E4%B9%9F_ywbwyj.png",
     "character": "也",
     "meaning": "also; too; either - <a href='grammar.html#grammar-6'>More</a>",
@@ -1776,31 +1584,14 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780792/%E4%B9%9F_obgyhn.mp3"
   },
   {
-    "id": "223",
+    "id": "199",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780290/%E6%88%91%E4%BB%AC_vuunh7.png",
-    "character": "我们",
+    "character": "们",
     "meaning": "we; us",
     "pinyin": "wǒmen",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780823/%E6%88%91%E4%BB%AC_ymvxjs.mp3"
-  },
   {
-    "id": "224",
-    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780289/%E4%BD%A0%E4%BB%AC_j8awmw.png",
-    "character": "你们",
-    "meaning": "you (pl.)",
-    "pinyin": "nǐmen",
-    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780819/%E4%BD%A0%E4%BB%AC_ia2ihu.mp3"
-  },
-  {
-    "id": "225",
-    "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780288/%E4%BB%96%E4%BB%AC_q5l67x.png",
-    "character": "他们",
-    "meaning": "they; them",
-    "pinyin": "tāmen",
-    "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780792/%E4%BB%96%E4%BB%AC_se20bo.mp3"
-  },
-  {
-    "id": "226",
+    "id": "200",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780291/%E9%83%BD_e8alze.png",
     "character": "都",
     "meaning": "all; both - <a href='grammar.html#grammar-6'>More</a>",
@@ -1808,7 +1599,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780826/%E9%83%BD_xcpuvq.mp3"
   },
   {
-    "id": "227",
+    "id": "201",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780289/%E4%BF%A9_mtslwd.png",
     "character": "俩",
     "meaning": "two",
@@ -1816,7 +1607,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780819/%E4%BF%A9_tuovmh.mp3"
   },
   {
-    "id": "228",
+    "id": "202",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780290/%E5%AD%A6%E7%94%9F_qrgeou.png",
     "character": "学生",
     "meaning": "student",
@@ -1824,7 +1615,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780822/%E5%AD%A6%E7%94%9F_kkkhiu.mp3"
   },
   {
-    "id": "229",
+    "id": "203",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739780290/%E6%B2%A1%E4%BB%80%E4%B9%88_q1shcw.png",
     "character": "没什么",
     "meaning": "do not matter; never to mind",
@@ -1832,7 +1623,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739780825/%E6%B2%A1%E4%BB%80%E4%B9%88_j0gta9.mp3"
   },
   {
-    "id": "230",
+    "id": "204",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386280/%E8%AF%AD%E8%A8%80_mljmqh.png",
     "character": "语言",
     "meaning": "language",
@@ -1840,7 +1631,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740386344/%E8%AF%AD%E8%A8%80_vhcdeo.mp3"
   },
   {
-    "id": "231",
+    "id": "205",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%A4%A7%E5%AD%A6_qlbzxs.png",
     "character": "大学",
     "meaning": "university",
@@ -1848,7 +1639,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740386335/%E5%A4%A7%E5%AD%A6_isnywc.mp3"
   },
   {
-    "id": "232",
+    "id": "206",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E6%80%8E%E4%B9%88%E6%A0%B7_gutw5o.png",
     "character": "怎么样",
     "meaning": "how; what about - <a href='grammar.html#grammar-7'>More</a>",
@@ -1856,7 +1647,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740386336/%E6%80%8E%E4%B9%88%E6%A0%B7_f5j4fv.mp3"
   },
   {
-    "id": "233",
+    "id": "207",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386280/%E8%A7%89%E5%BE%97_zrupuv.png",
     "character": "觉得",
     "meaning": "to feel; to think",
@@ -1864,7 +1655,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740386338/%E8%A7%89%E5%BE%97_ledjif.mp3"
   },
   {
-    "id": "234",
+    "id": "208",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386280/%E8%AF%AD%E6%B3%95_xlfi1t.png",
     "character": "语法",
     "meaning": "grammar",
@@ -1872,7 +1663,7 @@
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740386339/%E8%AF%AD%E6%B3%95_l7qmm6.mp3"
   },
   {
-    "id": "235",
+    "id": "209",
     "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1740386279/%E5%90%AC_a1yzp0.png",
     "character": "听",
     "meaning": "to listen",
