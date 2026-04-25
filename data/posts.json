@@ -3387,7 +3387,7 @@
     "id": 377,
     "user": "罗兰",
     "title": "老师，玛丽让我给她请个假。(请假）",
-    "segments": ["老师", "，", "玛丽让我给她请个假", "。", "(", "请假", "）"],
+    "segments": ["老师", "，", "玛丽", "让", "我", "给²", "她", "请", "个", "假", "。", "(", "请假", "）"],
     "description": "Lǎoshī, mǎlì ràng wǒ gěi tā qǐng ge jià.<br>Teacher, Mary asked me to ask for leave for her.",
     "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1753432295/roland_xvp4bn.png",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086377/377_trnxq2.mp3"
