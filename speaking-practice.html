@@ -1015,17 +1015,17 @@ async function loadSidebarList() {
     items.forEach((item, i) => {
       const emoji = pickEmojiForSidebar(item.title, i);
       
-      // ← Kiểm tra premium
-      const isPremiumLocked = item.premium && !window.__userIsPremium;
+      // ← FIX: Kiểm tra premium đúng cách
+      const isPremiumLocked = item.premium === true && window.__userIsPremium !== true;
       
       const li = document.createElement('li');
       li.className = 'sidebar-item';
       
       if (isPremiumLocked) {
         li.innerHTML = `
-          <span style="padding:12px 16px;display:flex;gap:12px;align-items:center;opacity:0.5;">
+          <span style="padding:12px 16px;display:flex;gap:12px;align-items:center;opacity:0.5;cursor:not-allowed;">
             <span class="sidebar-emoji">🔒</span>
-            <span class="sidebar-text">${item.title} (Premium)</span>
+            <span class="sidebar-text">${item.title} (⭐ Premium)</span>
           </span>
         `;
       } else {
@@ -1039,6 +1039,7 @@ async function loadSidebarList() {
       
       sidebarList.appendChild(li);
     });
+    console.log(`[Sidebar] Rendered with isPremium=${window.__userIsPremium}`);
   } catch (error) {
     console.error('Error loading sidebar:', error);
     sidebarList.innerHTML = `<li style="padding:12px 16px;color:#999;font-size:0.9rem;">Failed to load</li>`;
@@ -1293,12 +1294,16 @@ startBtn.addEventListener('click', async () => {
     return;
   }
   
-  // ← Kiểm tra gói premium & limit 10 câu
+  // ← FIX: Kiểm tra premium & limit 10 câu
   let count = parseInt(questionCountInput.value) || 10;
+  
+  console.log(`[Start Quiz] User: ${window.__currentUser.email}, isPremium: ${window.__userIsPremium}, count: ${count}`);
+  
   if (!window.__userIsPremium && count > 10) {
-    alert('Free account limited to 10 questions. Upgrade to unlock more!');
+    alert('🔒 Free account limited to 10 questions. Upgrade to unlock more!');
     count = 10;
     questionCountInput.value = 10;
+    console.log('[Start Quiz] Limited to 10 for free user');
   }
   
   const sortOrder = sortOrderSelect.value;
@@ -1517,8 +1522,10 @@ window.refreshPremiumStatus = async function () {
       const forever = data.isPremium === true;
       const hasUntil = data.premiumUntil && data.premiumUntil.toDate() > new Date();
       window.__userIsPremium = forever || hasUntil;
+      console.log(`[Premium Check] User: ${window.__currentUser.email}, isPremium: ${window.__userIsPremium}`, data);
     } else {
       window.__userIsPremium = false;
+      console.log(`[Premium Check] User: ${window.__currentUser.email}, No Firestore doc - FREE`);
     }
   } catch (e) {
     console.warn('[premium] Firestore check failed:', e);
@@ -1637,6 +1644,29 @@ document.addEventListener('click', function (e) {
 
   if (user) {
     window.__currentUser = user;
+
+    // ← Tạo user doc nếu chưa tồn tại
+    try {
+      const { getFirestore, doc, getDoc, setDoc } =
+        await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
+      const db = getFirestore();
+      const userDoc = doc(db, 'users', user.uid);
+      const snap = await getDoc(userDoc);
+      
+      if (!snap.exists()) {
+        // Tạo user doc mới (mặc định free)
+        await setDoc(userDoc, {
+          email: user.email,
+          displayName: user.displayName || 'User',
+          photoURL: user.photoURL || null,
+          isPremium: false,  // ← Mặc định FREE
+          createdAt: new Date().toISOString()
+        });
+        console.log('[Firestore] Created new user doc as FREE');
+      }
+    } catch (e) {
+      console.warn('[Firestore] Error creating user doc:', e);
+    }
 
     // ← Cập nhật UI
     if (signInBtn) signInBtn.style.display = 'none';
