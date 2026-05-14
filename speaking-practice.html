@@ -1021,24 +1021,29 @@ async function loadSidebarList() {
       li.className = 'sidebar-item';
       
       if (isPremiumLocked) {
-        // ← Click vào item premium → Hiện modal
-        li.innerHTML = `
-          <span style="padding:12px 16px;display:flex;gap:12px;align-items:center;opacity:0.5;cursor:pointer;">
-            <span class="sidebar-emoji">🔒</span>
-            <span class="sidebar-text">${item.title} (⭐ Premium)</span>
-          </span>
-        `;
-        li.addEventListener('click', () => {
-          openUpgradeModal();
-        });
-      } else {
-        li.innerHTML = `
-          <a href="${item.htmlLink}" target="_blank">
-            <span class="sidebar-emoji">${emoji}</span>
-            <span class="sidebar-text">${item.title}</span>
-          </a>
-        `;
-      }
+  // ← Premium item - Click hiện modal
+  li.innerHTML = `
+    <span style="padding:12px 16px;display:flex;gap:12px;align-items:center;opacity:0.5;cursor:pointer;">
+      <span class="sidebar-emoji">🔒</span>
+      <span class="sidebar-text">${item.title} (⭐ Premium)</span>
+    </span>
+  `;
+  li.addEventListener('click', () => {
+    openUpgradeModal();
+  });
+} else {
+  // ← Free item - Có thể click để mở
+  li.innerHTML = `
+    <span style="padding:12px 16px;display:flex;gap:12px;align-items:center;cursor:pointer;">
+      <span class="sidebar-emoji">${emoji}</span>
+      <span class="sidebar-text">${item.title}</span>
+    </span>
+  `;
+  // ← Lấy htmlLink từ item, không hiển thị trong href
+  li.addEventListener('click', () => {
+    window.open(item.htmlLink, '_blank');
+  });
+}
       
       sidebarList.appendChild(li);
     });
@@ -1271,6 +1276,15 @@ function showAnswer() {
 
 nextBtn.addEventListener('click', () => {
   speakIdx++;
+  
+  // ← FIX: Nếu free user đã làm xong 10 câu → Hiện upgrade modal
+  if (!window.__userIsPremium && speakIdx >= 10) {
+    console.log('[Speaking] Free user reached question limit');
+    setupCard.style.display = 'block';  // Quay lại setup
+    openUpgradeModal();  // Hiện modal
+    return;
+  }
+  
   showSpeakingQ();
 });
 
@@ -1301,11 +1315,11 @@ startBtn.addEventListener('click', async () => {
   
   console.log(`[Start Quiz] User: ${window.__currentUser.email}, isPremium: ${window.__userIsPremium}, count: ${count}`);
   
-  // ← SỬA: Nếu free và > 10 → Hiện upgrade modal
-  if (!window.__userIsPremium && count > 10) {
-    console.log('[Start Quiz] Limited to 10 for free user');
-    openUpgradeModal();  // ← Thay alert bằng modal
-    return;
+  // ← FIX: Nếu free và > 10 → Hiện upgrade modal SAU KHI BẮT ĐẦU
+  // Cho phép chơi 10 câu đầu, câu 11 sẽ bắt mua
+  if (!window.__userIsPremium) {
+    count = Math.min(count, 10);  // ← Giới hạn tối đa 10
+    console.log('[Start Quiz] Free user limited to 10 questions');
   }
   
   const sortOrder = sortOrderSelect.value;
