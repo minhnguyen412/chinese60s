@@ -1324,11 +1324,11 @@ startBtn.addEventListener('click', async () => {
   
   console.log(`[Start Quiz] User: ${window.__currentUser.email}, isPremium: ${window.__userIsPremium}, count: ${count}`);
   
-  // ← FIX: Nếu free và > 10 → Hiện upgrade modal SAU KHI BẮT ĐẦU
-  // Cho phép chơi 10 câu đầu, câu 11 sẽ bắt mua
-  if (!window.__userIsPremium) {
-    count = Math.min(count, 10);  // ← Giới hạn tối đa 10
-    console.log('[Start Quiz] Free user limited to 10 questions');
+  // ← FIX: Nếu free user nhập > 10 → Hiện upgrade modal NGAY
+  if (!window.__userIsPremium && count > 10) {
+    console.log('[Start Quiz] Free user tried to start with > 10 questions');
+    openUpgradeModal();  // ← Hiện modal upgrade
+    return;  // ← Không tiếp tục
   }
   
   const sortOrder = sortOrderSelect.value;
