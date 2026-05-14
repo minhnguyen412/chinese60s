@@ -1,0 +1,4364 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673138/%E8%BF%99%E6%98%AF%E7%8E%8B%E8%80%81%E5%B8%88%E8%BF%99%E6%98%AF%E6%88%91%E7%88%B8%E7%88%B8_m1wpqh.mp3",
+      "sentence": "___ ___ ___, ___ ___ ___ ___.",
+      "blanks": [{
+  "answer": "zhè"
+}, {
+  "answer": "shì"
+}, {
+  "answer": "wáng lǎoshī"
+}, {
+  "answer": "zhè"
+}, {
+  "answer": "shì"
+}, {
+  "answer": "wǒ"
+}, {
+  "answer": "bàba"
+}],
+      "words": ["zhè", "wǒ", "shì", "zhè", "wáng lǎoshī", "shì", "bàba"]
+    },
+    {
+      "id": 2,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673115/%E7%8E%8B%E8%80%81%E5%B8%88%E6%82%A8%E5%A5%BD_gmcnzg.mp3",
+      "sentence": "___, ___ ___!",
+      "blanks": [{
+  "answer": "wáng lǎoshī"
+}, {
+  "answer": "nín"
+}, {
+  "answer": "hǎo"
+}],
+      "words": ["nín", "wáng lǎoshī", "hǎo"]
+    },
+    {
+      "id": 3,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673099/%E6%82%A8%E5%A5%BD%E8%AF%B7%E8%BF%9B%E8%AF%B7%E5%9D%90%E8%AF%B7%E5%96%9D%E8%8C%B6_tx8mtv.mp3",
+      "sentence": "nín hǎo! qǐng ___! qǐng ___! qǐng ___ ___!",
+      "blanks": [{
+  "answer": "jìn"
+}, {
+  "answer": "zuò"
+}, {
+  "answer": "hē"
+}, {
+  "answer": "chá"
+}],
+      "words": ["zuò", "hē", "jìn", "chá"]
+    },
+    {
+      "id": 4,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673084/%E4%B8%8D%E5%AE%A2%E6%B0%94_yyqayx.mp3",
+      "sentence": "xièxie! ___!",
+      "blanks": [{
+  "answer": "bú kèqi"
+}],
+      "words": ["bù zhīdào", "bú kèqi", "méi shénme", "duì bu qǐ"]
+    },
+    {
+      "id": 5,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673083/%E4%B8%8D%E5%A4%AA%E5%BF%99_u5zgbz.mp3",
+      "sentence": "gōngzuò máng ma? ___ ___ ___.",
+      "blanks": [{
+  "answer": "bú"
+}, {
+  "answer": "tài"
+}, {
+  "answer": "máng"
+}],
+      "words": ["bú", "máng", "tài"]
+    },
+    {
+      "id": 6,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673122/%E8%BA%AB%E4%BD%93%E5%A5%BD%E5%90%97_j1pg0s.mp3",
+      "sentence": "___ ___ ___? hěn hǎo.",
+      "blanks": [{
+  "answer": "shēntǐ"
+}, {
+  "answer": "hǎo"
+}, {
+  "answer": "ma?"
+}],
+      "words": ["ma?", "hǎo", "shēntǐ"]
+    },
+    {
+      "id": 17,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673118/%E8%AF%B7%E9%97%AE%E4%BD%A0%E8%B4%B5%E5%A7%93_e22nk8.mp3",
+      "sentence": "___ ___ ___?",
+      "blanks": [{
+  "answer": "请问"
+}, {
+  "answer": "你"
+}, {
+  "answer": "贵姓"
+}],
+      "words": ["贵姓", "请问", "你"]
+    },
+    {
+      "id": 18,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673104/%E6%88%91%E5%A7%93%E5%BC%A0_o7ewjh.mp3",
+      "sentence": "My surname is Zhang. ___ ___ ___.",
+      "blanks": [{
+  "answer": "我"
+}, {
+  "answer": "姓"
+}, {
+  "answer": "张"
+}],
+      "words": ["张", "我", "姓"]
+    },
+    {
+      "id": 24,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673133/%E8%BF%99%E6%98%AF%E4%BB%80%E4%B9%88_lho2uy.mp3",
+      "sentence": "What is this? <br> ___ ___ ___?",
+      "blanks": [{
+  "answer": "这"
+}, {
+  "answer": "是"
+}, {
+  "answer": "什么"
+}],
+      "words": ["什么", "这", "是"]
+    },
+    {
+      "id": 25,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673131/%E8%BF%99%E6%98%AF%E4%B9%A6_lebbej.mp3",
+      "sentence": "This is a book. <br> ___ ___ ___.",
+      "blanks": [{
+  "answer": "这"
+}, {
+  "answer": "是"
+}, {
+  "answer": "书"
+}],
+      "words": ["书", "是", "这"]
+    },
+    {
+      "id": 27,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673134/%E8%BF%99%E6%98%AF%E4%BB%80%E4%B9%88%E4%B9%A6_zl0i7l.mp3",
+      "sentence": "What book is this? ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "这"
+}, {
+  "answer": "是"
+}, {
+  "answer": "什么"
+}, {
+  "answer": "书"
+}],
+      "words": ["什么", "书", "是", "这"]
+    },
+    {
+      "id": 29,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673140/%E8%BF%99%E6%98%AF%E8%B0%81%E7%9A%84%E4%B9%A6_l4mna3.mp3",
+      "sentence": "Whose book is this? <br> ___ ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "这"
+}, {
+  "answer": "是"
+}, {
+  "answer": "谁"
+}, {
+  "answer": "的"
+}, {
+  "answer": "书"
+}],
+      "words": ["谁", "这", "是", "书", "的"]
+    },
+    {
+      "id": 31,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673139/%E8%BF%99%E6%98%AF%E8%80%81%E5%B8%88%E7%9A%84%E4%B9%A6_ry6pfu.mp3",
+      "sentence": "This is the teacher's book.___ ___ ___ ___ ___.",
+      "blanks": [{
+  "answer": "这"
+}, {
+  "answer": "是"
+}, {
+  "answer": "老师"
+}, {
+  "answer": "的"
+}, {
+  "answer": "书"
+}],
+      "words": ["是", "老师", "书", "这", "的"]
+    },
+    {
+      "id": 32,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673142/%E9%82%A3%E6%98%AF%E4%BB%80%E4%B9%88_vhyyi4.mp3",
+      "sentence": "What is that? <br> ___ ___ ___?",
+      "blanks": [{
+  "answer": "那"
+}, {
+  "answer": "是"
+}, {
+  "answer": "什么"
+}],
+      "words": ["什么", "那", "是"]
+    },
+    {
+      "id": 34,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673144/%E9%82%A3%E6%98%AF%E4%BB%80%E4%B9%88%E6%9D%82%E5%BF%97_cj6lqe.mp3",
+      "sentence": "What magazine is that? ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "那"
+}, {
+  "answer": "是"
+}, {
+  "answer": "什么"
+}, {
+  "answer": "杂志"
+}],
+      "words": ["是", "什么", "杂志", "那"]
+    },
+    {
+      "id": 36,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673148/%E9%82%A3%E6%98%AF%E8%B0%81%E7%9A%84%E6%9D%82%E5%BF%97_pq9pbq.mp3",
+      "sentence": "Whose magazine is that? ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "那"
+}, {
+  "answer": "是"
+}, {
+  "answer": "谁"
+}, {
+  "answer": "的"
+}, {
+  "answer": "杂志"
+}],
+      "words": ["是", "谁", "杂志", "那", "的"]
+    },
+    {
+      "id": 37,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673145/%E9%82%A3%E6%98%AF%E6%88%91%E6%9C%8B%E5%8F%8B%E7%9A%84%E6%9D%82%E5%BF%97_va0ugf.mp3",
+      "sentence": "That's my friend's magazine. <br> ___ ___ ___ ___ ___ ___.",
+      "blanks": [{
+  "answer": "那"
+}, {
+  "answer": "是"
+}, {
+  "answer": "我"
+}, {
+  "answer": "朋友"
+}, {
+  "answer": "的"
+}, {
+  "answer": "杂志"
+}],
+      "words": ["那", "我", "的", "朋友", "是", "杂志"]
+    },
+    {
+      "id": 60,
+      "audio": "",
+      "sentence": "Are you busy?: ___ ___ ___?",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "忙"
+}, {
+  "answer": "吗"
+}],
+      "words": ["忙", "你", "吗"]
+    },
+    {
+      "id": 61,
+      "audio": "",
+      "sentence": "Very busy: ___ ___。",
+      "blanks": [{
+  "answer": "很"
+}, {
+  "answer": "忙"
+}],
+      "words": ["忙", "很"]
+    },
+    {
+      "id": 62,
+      "audio": "",
+      "sentence": "Is Chinese difficult?: ___ ___ ___?",
+      "blanks": [{
+  "answer": "汉语"
+}, {
+  "answer": "难"
+}, {
+  "answer": "吗"
+}],
+      "words": ["难", "吗", "汉语"]
+    },
+    {
+      "id": 63,
+      "audio": "",
+      "sentence": "Not too difficult: ___ ___ ___。",
+      "blanks": [{
+  "answer": "不"
+}, {
+  "answer": "太"
+}, {
+  "answer": "难"
+}],
+      "words": ["太", "不", "难"]
+    },
+    {
+      "id": 74,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277880/%E6%98%8E%E5%A4%A9%E8%A7%811_hicaru.mp3",
+      "sentence": "See you tomorrow! <br> ___!",
+      "blanks": [{
+  "answer": "明天见"
+}],
+      "words": ["对不起", "你好", "明天见"]
+    },
+    {
+      "id": 93,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277874/%E4%BD%A0%E5%AD%A6%E8%8B%B1%E8%AF%AD%E5%90%97_wafg5e.mp3",
+      "sentence": "Do you study English? <br> ___ ___ ___ ___ ?",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "学"
+}, {
+  "answer": "英语"
+}, {
+  "answer": "吗"
+}],
+      "words": ["学", "吗", "你", "英语"]
+    },
+    {
+      "id": 94,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277870/%E4%BD%A0%E5%8E%BB%E9%82%AE%E5%B1%80%E5%AF%84%E4%BF%A1%E5%90%97_p2pcho.mp3",
+      "sentence": "Are you going to the post office to send a letter? <br> ___ ___ ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "去"
+}, {
+  "answer": "邮局"
+}, {
+  "answer": "寄"
+}, {
+  "answer": "信"
+}, {
+  "answer": "吗"
+}],
+      "words": ["吗", "邮局", "寄", "去", "你", "信"]
+    },
+    {
+      "id": 95,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277878/%E5%8E%BB%E9%93%B6%E8%A1%8C%E5%8F%96%E9%92%B1_nj3s21.mp3",
+      "sentence": "I'm going to the bank to withdraw some money. <br> ___ ___ ___ ___.",
+      "blanks": [{
+  "answer": "去"
+}, {
+  "answer": "银行"
+}, {
+  "answer": "取"
+}, {
+  "answer": "钱"
+}],
+      "words": ["银行", "取", "去", "钱"]
+    },
+    {
+      "id": 98,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277869/%E4%BD%A0%E5%8E%BB%E5%93%AA%E5%84%BF_s6wvro.mp3",
+      "sentence": "Where are you going? <br> ___ ___ ___ ___ ?",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "去"
+}, {
+  "answer": "哪"
+}, {
+  "answer": "儿"
+}],
+      "words": ["儿", "哪", "去", "你"]
+    },
+    {
+      "id": 119,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277875/%E5%86%8D%E8%A7%811_xfrv1f.mp3",
+      "sentence": "Goodbye! <br> ___!",
+      "blanks": [{
+  "answer": "再见"
+}],
+      "words": ["没关系", "再见", "对不起"]
+    },
+    {
+      "id": 120,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277879/%E5%AF%B9%E4%B8%8D%E8%B5%B7_pot0kf.mp3",
+      "sentence": "Sorry! <br> ___!",
+      "blanks": [{
+  "answer": "对不起"
+}],
+      "words": ["没关系", "再见", "对不起"]
+    },
+    {
+      "id": 121,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673316/%E6%B2%A1%E5%85%B3%E7%B3%BB_xnvmzt.mp3",
+      "sentence": "No problem! <br> ___!",
+      "blanks": [{
+  "answer": "没关系"
+}],
+      "words": ["没关系", "再见", "对不起"]
+    },
+    {
+      "id": 122,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277868/%E4%BB%8A%E5%A4%A9%E6%98%9F%E6%9C%9F%E5%87%A0_hs2h4w.mp3",
+      "sentence": "What day is it today? <br> ___ ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "今"
+}, {
+  "answer": "天"
+}, {
+  "answer": "星"
+}, {
+  "answer": "期"
+}, {
+  "answer": "几"
+}],
+      "words": ["几", "星", "今", "天", "期"]
+    },
+    {
+      "id": 123,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277880/%E6%88%91%E5%8E%BB%E5%A4%A9%E5%AE%89%E9%97%A8_xzai2m.mp3",
+      "sentence": "I'm going to Tiananmen Square. <br> ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "我"
+}, {
+  "answer": "去"
+}, {
+  "answer": "天"
+}, {
+  "answer": "安"
+}, {
+  "answer": "门"
+}],
+      "words": ["门", "去", "天", "我", "安"]
+    },
+    {
+      "id": 124,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277869/%E4%BD%A0%E5%8E%BB%E4%B8%8D%E5%8E%BB_a19jse.mp3",
+      "sentence": "Are you going too? <br> ___ ___ ___ ___ ?",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "去"
+}, {
+  "answer": "不"
+}, {
+  "answer": "去"
+}],
+      "words": ["去", "不", "你", "去"]
+    },
+    {
+      "id": 125,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1735277869/%E4%B8%8D%E5%8E%BB%E6%88%91%E5%9B%9E%E5%AD%A6%E6%A0%A1_mlfjv9.mp3",
+      "sentence": "No, I'm going back to school. <br> ___ ___, ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "不"
+}, {
+  "answer": "去"
+}, {
+  "answer": "我"
+}, {
+  "answer": "回"
+}, {
+  "answer": "学"
+}, {
+  "answer": "校"
+}],
+      "words": ["回", "去", "我", "不", "校", "学"]
+    },
+    {
+      "id": 126,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673087/%E4%BD%A0%E5%90%83%E4%BB%80%E4%B9%88_irb48b.mp3",
+      "sentence": "What would you like to eat? <br> ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "吃"
+}, {
+  "answer": "什"
+}, {
+  "answer": "么"
+}],
+      "words": ["么", "吃", "你", "什"]
+    },
+    {
+      "id": 127,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673085/%E4%B8%AD%E5%8D%88%E4%BD%A0%E5%8E%BB%E5%93%AA%E5%84%BF%E5%90%83%E9%A5%AD_ooqmsk.mp3",
+      "sentence": "Where are you going for lunch? <br> ___ ___ ___ ___ ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "中"
+}, {
+  "answer": "午"
+}, {
+  "answer": "你"
+}, {
+  "answer": "去"
+}, {
+  "answer": "哪"
+}, {
+  "answer": "儿"
+}, {
+  "answer": "吃"
+}, {
+  "answer": "饭"
+}],
+      "words": ["儿", "你", "中", "吃", "去", "饭", "哪", "午"]
+    },
+    {
+      "id": 128,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673103/%E6%88%91%E5%90%83%E9%A6%92%E5%A4%B4_agj5ov.mp3",
+      "sentence": "I eat steamed buns.<br> ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "我"
+}, {
+  "answer": "吃"
+}, {
+  "answer": "馒"
+}, {
+  "answer": "头"
+}],
+      "words": ["头", "吃", "我", "馒"]
+    },
+    {
+      "id": 129,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673088/%E4%BD%A0%E5%96%9D%E4%BB%80%E4%B9%88_xdq5dj.mp3",
+      "sentence": "What would you like to drink? <br> ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "喝"
+}, {
+  "answer": "什"
+}, {
+  "answer": "么"
+}],
+      "words": ["什", "你", "喝", "么"]
+    },
+    {
+      "id": 130,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673109/%E6%88%91%E8%A6%81%E4%B8%80%E7%A2%97%E9%B8%A1%E8%9B%8B%E6%B1%A4_a6fju5.mp3",
+      "sentence": "I'd like a bowl of egg soup. <br> ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "我"
+}, {
+  "answer": "要"
+}, {
+  "answer": "一"
+}, {
+  "answer": "碗"
+}, {
+  "answer": "鸡"
+}, {
+  "answer": "蛋"
+}, {
+  "answer": "汤"
+}],
+      "words": ["鸡", "我", "汤", "要", "碗", "蛋", "一"]
+    },
+    {
+      "id": 131,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1734673126/%E8%BF%99%E4%BA%9B%E6%98%AF%E4%BB%80%E4%B9%88_na04t0.mp3",
+      "sentence": "What are these? <br> ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "这"
+}, {
+  "answer": "些"
+}, {
+  "answer": "是"
+}, {
+  "answer": "什"
+}, {
+  "answer": "么"
+}],
+      "words": ["什", "这", "么", "是", "些"]
+    },
+    {
+      "id": 148,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246212/%E8%8B%B9%E6%9E%9C%E4%B8%80%E6%96%A4%E5%A4%9A%E5%B0%91%E9%92%B1_pzh5z0.mp3",
+      "sentence": "How much does half a kilogram of apples cost? <br> ___ ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "苹果"
+}, {
+  "answer": "一"
+}, {
+  "answer": "斤"
+}, {
+  "answer": "多少"
+}, {
+  "answer": "钱"
+}],
+      "words": ["钱", "一", "多少", "斤", "苹果"]
+    },
+    {
+      "id": 149,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246213/%E4%BD%A0%E4%B9%B0%E4%BB%80%E4%B9%88_ub4edo.mp3",
+      "sentence": "What do you buy? <br> ___ ___ ___?",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "买"
+}, {
+  "answer": "什么"
+}],
+      "words": ["什么", "买", "你"]
+    },
+    {
+      "id": 150,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246214/%E6%88%91%E4%B9%B0%E6%B0%B4%E6%9E%9C_asfwbp.mp3",
+      "sentence": "I buy fruits. <br> ___ ___ ___。",
+      "blanks": [{
+  "answer": "我"
+}, {
+  "answer": "买"
+}, {
+  "answer": "水果"
+}],
+      "words": ["买", "水果", "我"]
+    },
+    {
+      "id": 151,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246212/%E4%B8%A4%E5%9D%97%E4%BA%94%E5%90%A7_w9kue0.mp3",
+      "sentence": "How about 2 yuan and 5 mao? <br> ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "两"
+}, {
+  "answer": "块"
+}, {
+  "answer": "五"
+}, {
+  "answer": "吧"
+}],
+      "words": ["吧", "五", "两", "块"]
+    },
+    {
+      "id": 152,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246213/%E4%BD%A0%E8%A6%81%E5%87%A0%E6%96%A4_yj6uwj.mp3",
+      "sentence": "How many kilograms do you want? <br> ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "要"
+}, {
+  "answer": "几"
+}, {
+  "answer": "斤"
+}],
+      "words": ["几", "你", "斤", "要"]
+    },
+    {
+      "id": 153,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246212/%E8%BF%98%E8%A6%81%E5%88%AB%E7%9A%84%E5%90%97_iosalu.mp3",
+      "sentence": "Do you need anything else? <br> ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "还"
+}, {
+  "answer": "要"
+}, {
+  "answer": "别的"
+}, {
+  "answer": "吗"
+}],
+      "words": ["别的", "要", "吗", "还"]
+    },
+    {
+      "id": 154,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246214/%E6%A9%98%E5%AD%90%E6%80%8E%E4%B9%88%E5%8D%96_xhg9i5.mp3",
+      "sentence": "How much are the oranges? <br> ___ ___ ___？",
+      "blanks": [{
+  "answer": "橘子"
+}, {
+  "answer": "怎么"
+}, {
+  "answer": "卖"
+}],
+      "words": ["橘子", "卖", "怎么"]
+    },
+    {
+      "id": 155,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246212/%E4%B8%80%E5%85%B1%E5%A4%9A%E5%B0%91%E9%92%B1_kufi2w.mp3",
+      "sentence": "How much is it in total? <br> ___ ___ ___？",
+      "blanks": [{
+  "answer": "一共"
+}, {
+  "answer": "多少"
+}, {
+  "answer": "钱"
+}],
+      "words": ["多少", "一共", "钱"]
+    },
+    {
+      "id": 156,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246213/%E4%BD%A0%E7%BB%99%E5%8D%81%E5%85%AD%E5%9D%97%E5%90%A7_trv02d.mp3",
+      "sentence": "You just need to give me 16 yuan. <br> ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "给"
+}, {
+  "answer": "十"
+}, {
+  "answer": "六"
+}, {
+  "answer": "块"
+}, {
+  "answer": "吧"
+}],
+      "words": ["给", "十", "块", "你", "六", "吧"]
+    },
+    {
+      "id": 157,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738246213/%E8%BF%99%E6%98%AF%E4%BA%94%E5%8D%81%E6%89%BE%E6%82%A8%E4%B8%89%E5%8D%81%E5%9B%9B%E5%9D%97_pdevbu.mp3",
+      "sentence": "This is 50 yuan, here's your change of 34 yuan. <br> ___ ___ ___ ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "这"
+}, {
+  "answer": "是"
+}, {
+  "answer": "五"
+}, {
+  "answer": "十"
+}, {
+  "answer": "找"
+}, {
+  "answer": "您"
+}, {
+  "answer": "三"
+}, {
+  "answer": "十"
+}, {
+  "answer": "四"
+}, {
+  "answer": "块"
+}],
+      "words": ["三", "块", "是", "您", "十", "这", "十", "找", "五", "四"]
+    },
+    {
+      "id": 169,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738653785/%E5%B0%8F%E5%A7%90%E6%88%91%E8%BF%98%E9%92%B1_hd2wl9.mp3",
+      "sentence": "Miss, I'd like to exchange money. <br> ___, ___ ___ ___。",
+      "blanks": [{
+  "answer": "小姐"
+}, {
+  "answer": "我"
+}, {
+  "answer": "换"
+}, {
+  "answer": "钱"
+}],
+      "words": ["钱", "小姐", "换", "我"]
+    },
+    {
+      "id": 170,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738653785/%E6%82%A8%E6%8D%A2%E4%BB%80%E4%B9%88%E5%89%8D_q9jhfx.mp3",
+      "sentence": "What currency would you like to exchange? <br> ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "您"
+}, {
+  "answer": "换"
+}, {
+  "answer": "什么"
+}, {
+  "answer": "钱"
+}],
+      "words": ["什么", "钱", "换", "您"]
+    },
+    {
+      "id": 171,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738653785/%E6%88%91%E6%8D%A2%E4%BA%BA%E6%B0%91%E5%B8%81_vcbgup.mp3",
+      "sentence": "I'd like to exchange Chinese yuan. <br> ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "我"
+}, {
+  "answer": "换"
+}, {
+  "answer": "人"
+}, {
+  "answer": "民"
+}, {
+  "answer": "币"
+}],
+      "words": ["人", "换", "币", "我", "民"]
+    },
+    {
+      "id": 172,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738653785/%E6%8D%A2%E5%A4%9A%E5%B0%91_bzsjla.mp3",
+      "sentence": "How much do you want to exchange? <br> ___ ___ ___?",
+      "blanks": [{
+  "answer": "换"
+}, {
+  "answer": "多"
+}, {
+  "answer": "少"
+}],
+      "words": ["多", "换", "少"]
+    },
+    {
+      "id": 173,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1738653784/%E4%BA%8C%E7%99%BE%E7%BE%8E%E5%85%83_yr1h3c.mp3",
+      "sentence": "200 dollars. <br> ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "二"
+}, {
+  "answer": "百"
+}, {
+  "answer": "美"
+}, {
+  "answer": "元"
+}],
+      "words": ["元", "百", "二", "美"]
+    },
+    {
+      "id": 186,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739259446/%E4%BB%96%E4%BD%8F%E5%93%AA%E5%84%BF_viqkwa.mp3",
+      "sentence": "Where does he live? <br> ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "他"
+}, {
+  "answer": "住"
+}, {
+  "answer": "哪"
+}, {
+  "answer": "儿"
+}],
+      "words": ["儿", "他", "哪", "住"]
+    },
+    {
+      "id": 187,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739259446/%E8%AF%B7%E9%97%AE%E8%BF%99%E6%98%AF%E5%8A%9E%E5%85%AC%E5%AE%A4%E5%90%97_sfigcs.mp3",
+      "sentence": "Excuse me, is this the office? <br> ___ ___, ___ ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "请"
+}, {
+  "answer": "问"
+}, {
+  "answer": "这"
+}, {
+  "answer": "是"
+}, {
+  "answer": "办"
+}, {
+  "answer": "公"
+}, {
+  "answer": "室"
+}, {
+  "answer": "吗"
+}],
+      "words": ["办", "请", "吗", "公", "这", "室", "是", "问"]
+    },
+    {
+      "id": 188,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739259447/%E6%98%AF%E4%BD%A0%E6%89%BE%E8%B0%81_ubb7gi.mp3",
+      "sentence": "Yes. Who are you looking for? <br> ___。 ___ ___ ___？",
+      "blanks": [{
+  "answer": "是"
+}, {
+  "answer": "你"
+}, {
+  "answer": "找"
+}, {
+  "answer": "谁"
+}],
+      "words": ["你", "找", "是", "谁"]
+    },
+    {
+      "id": 189,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739259447/%E7%8E%8B%E8%80%81%E5%B8%88%E5%9C%A8%E5%90%97_iivdqc.mp3",
+      "sentence": "Is teacher Wang here? <br> ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "王"
+}, {
+  "answer": "老"
+}, {
+  "answer": "师"
+}, {
+  "answer": "在"
+}, {
+  "answer": "吗"
+}],
+      "words": ["师", "在", "老", "王", "吗"]
+    },
+    {
+      "id": 190,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739259447/%E4%BB%96%E4%B8%8D%E5%9C%A8%E4%BB%96%E5%9C%A8%E5%AE%B6%E5%91%A2_npjsv3.mp3",
+      "sentence": "He is not here. He is at home. <br> ___ ___ ___。 ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "他"
+}, {
+  "answer": "不"
+}, {
+  "answer": "在"
+}, {
+  "answer": "他"
+}, {
+  "answer": "在"
+}, {
+  "answer": "家"
+}, {
+  "answer": "呢"
+}],
+      "words": ["呢", "他", "不", "在", "在", "家", "他"]
+    },
+    {
+      "id": 194,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739259446/%E4%BB%96%E4%BD%8F%E5%8D%81%E5%85%AB%E6%A5%BC%E4%B8%80%E9%97%A8%E6%88%BF%E9%97%B4%E5%8F%B7%E6%98%AF601_mbitjj.mp3",
+      "sentence": "He lives in Flat 18, door 1, room number is 601. <br> ___ ___ ___ ___ ___ ___ ___,  ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "他"
+}, {
+  "answer": "住"
+}, {
+  "answer": "十"
+}, {
+  "answer": "八"
+}, {
+  "answer": "楼"
+}, {
+  "answer": "一"
+}, {
+  "answer": "门"
+}, {
+  "answer": "房"
+}, {
+  "answer": "间"
+}, {
+  "answer": "号"
+}, {
+  "answer": "是"
+}, {
+  "answer": "601"
+}],
+      "words": ["住", "八", "门", "楼", "房", "十", "他", "号", "601", "是", "一", "间"]
+    },
+    {
+      "id": 195,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739259447/%E6%82%A8%E7%9F%A5%E9%81%93%E4%BB%96%E7%9A%84%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E5%90%97_j5qpeg.mp3",
+      "sentence": "Do you know his phone number? <br> ___ ___ ___ ___ ___ ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "您"
+}, {
+  "answer": "知"
+}, {
+  "answer": "道"
+}, {
+  "answer": "他"
+}, {
+  "answer": "的"
+}, {
+  "answer": "电"
+}, {
+  "answer": "话"
+}, {
+  "answer": "号"
+}, {
+  "answer": "码"
+}, {
+  "answer": "吗"
+}],
+      "words": ["知", "他", "话", "吗", "号", "的", "您", "码", "电", "道"]
+    },
+    {
+      "id": 196,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739259446/%E7%9F%A5%E9%81%9362931074_w3enee.mp3",
+      "sentence": "I know. 62931074. <br> ___ ___, ___ ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "知"
+}, {
+  "answer": "道"
+}, {
+  "answer": "六"
+}, {
+  "answer": "二"
+}, {
+  "answer": "九"
+}, {
+  "answer": "三"
+}, {
+  "answer": "幺"
+}, {
+  "answer": "零"
+}, {
+  "answer": "七"
+}, {
+  "answer": "四"
+}],
+      "words": ["知", "六", "九", "幺", "四", "零", "二", "七", "三", "道"]
+    },
+    {
+      "id": 197,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739259447/%E4%BB%96%E7%9A%84%E6%89%8B%E6%9C%BA%E5%8F%B7%E7%A0%81%E6%98%AF%E5%A4%9A%E5%B0%91_bjogw9.mp3",
+      "sentence": "What is his mobile number? <br> ___ ___ ___ ___ ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "他"
+}, {
+  "answer": "的"
+}, {
+  "answer": "手"
+}, {
+  "answer": "机"
+}, {
+  "answer": "号"
+}, {
+  "answer": "码"
+}, {
+  "answer": "是"
+}, {
+  "answer": "多"
+}, {
+  "answer": "少"
+}],
+      "words": ["机", "他", "码", "多", "的", "号", "少", "是", "手"]
+    },
+    {
+      "id": 198,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739259445/%E4%B8%8D%E7%9F%A5%E9%81%93_ped1lk.mp3",
+      "sentence": "I don't know. <br> ___ ___ ___。",
+      "blanks": [{
+  "answer": "不"
+}, {
+  "answer": "知"
+}, {
+  "answer": "道"
+}],
+      "words": ["知", "不", "道"]
+    },
+    {
+      "id": 206,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860813/%E8%BF%99%E4%BD%8D%E6%98%AF%E7%8E%8B%E6%95%99%E6%8E%88_irpzxf.mp3",
+      "sentence": "This is Professor Wang. <br> ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "这"
+}, {
+  "answer": "位"
+}, {
+  "answer": "是"
+}, {
+  "answer": "王"
+}, {
+  "answer": "教"
+}, {
+  "answer": "授"
+}],
+      "words": ["授", "这", "教", "是", "位", "王"]
+    },
+    {
+      "id": 207,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860814/%E6%88%91%E5%85%88%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E5%84%BF_kqxqwj.mp3",
+      "sentence": "First let me introduce you. <br> ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "我"
+}, {
+  "answer": "先"
+}, {
+  "answer": "介"
+}, {
+  "answer": "绍"
+}, {
+  "answer": "一"
+}, {
+  "answer": "下"
+}, {
+  "answer": "儿"
+}],
+      "words": ["儿", "先", "介", "我", "下", "一", "绍"]
+    },
+    {
+      "id": 208,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860814/%E8%BF%99%E6%98%AF%E9%A9%AC%E6%A0%A1%E9%95%BF_agwstg.mp3",
+      "sentence": "This is Principal Ma. <br> ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "这"
+}, {
+  "answer": "是"
+}, {
+  "answer": "马"
+}, {
+  "answer": "校"
+}, {
+  "answer": "长"
+}],
+      "words": ["马", "校", "这", "长", "是"]
+    },
+    {
+      "id": 209,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860812/%E6%AC%A2%E8%BF%8E%E6%82%A8%E7%8E%8B%E6%95%99%E6%8E%88_vaksg0.mp3",
+      "sentence": "Welcome, Professor Wang. <br> ___ ___ ___， ___ ___ ___。",
+      "blanks": [{
+  "answer": "欢"
+}, {
+  "answer": "迎"
+}, {
+  "answer": "您"
+}, {
+  "answer": "王"
+}, {
+  "answer": "教"
+}, {
+  "answer": "授"
+}],
+      "words": ["授", "您", "迎", "王", "欢", "教"]
+    },
+    {
+      "id": 213,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860814/%E6%88%91%E4%BB%AC%E9%83%BD%E6%98%AF%E7%95%99%E5%AD%A6%E7%94%9F_z7bypr.mp3",
+      "sentence": "We are both international students. <br> ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "我"
+}, {
+  "answer": "们"
+}, {
+  "answer": "都"
+}, {
+  "answer": "是"
+}, {
+  "answer": "留"
+}, {
+  "answer": "学"
+}, {
+  "answer": "生"
+}],
+      "words": ["是", "们", "留", "我", "生", "学", "都"]
+    },
+    {
+      "id": 214,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860812/%E4%BD%A0%E6%98%AF%E7%95%99%E5%AD%A6%E7%94%9F%E5%90%97_msu6y3.mp3",
+      "sentence": "Are you an international student? <br> ___ ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "是"
+}, {
+  "answer": "留"
+}, {
+  "answer": "学"
+}, {
+  "answer": "生"
+}, {
+  "answer": "吗"
+}],
+      "words": ["是", "吗", "留", "生", "学", "你"]
+    },
+    {
+      "id": 215,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860813/%E7%BD%97%E5%85%B0%E4%B9%9F%E6%98%AF%E7%95%99%E5%AD%A6%E7%94%9F%E5%90%97_gjz5jm.mp3",
+      "sentence": "Is Roland also an international student? <br> ___ ___ ___ ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "罗"
+}, {
+  "answer": "兰"
+}, {
+  "answer": "也"
+}, {
+  "answer": "是"
+}, {
+  "answer": "留"
+}, {
+  "answer": "学"
+}, {
+  "answer": "生"
+}, {
+  "answer": "吗"
+}],
+      "words": ["是", "吗", "留", "生", "学", "罗", "也", "兰"]
+    },
+    {
+      "id": 216,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860814/%E5%BC%A0%E4%B8%9C%E5%92%8C%E7%94%B0%E8%8A%B3%E4%B9%9F%E9%83%BD%E6%98%AF%E7%95%99%E5%AD%A6%E7%94%9F%E5%90%97_tkptm3.mp3",
+      "sentence": "Are Zhang Dong and Tian Fang also international students? <br> ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "张"
+}, {
+  "answer": "东"
+}, {
+  "answer": "和"
+}, {
+  "answer": "田"
+}, {
+  "answer": "芳"
+}, {
+  "answer": "也"
+}, {
+  "answer": "都"
+}, {
+  "answer": "是"
+}, {
+  "answer": "留"
+}, {
+  "answer": "学"
+}, {
+  "answer": "生"
+}, {
+  "answer": "吗"
+}],
+      "words": ["和", "东", "留", "田", "学", "芳", "也", "张", "都", "吗", "是", "生"]
+    },
+    {
+      "id": 217,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860811/%E4%B8%8D%E4%BB%96%E4%BB%AC%E4%BF%A9%E4%B8%8D%E6%98%AF%E7%95%99%E5%AD%A6%E7%94%9F_vjpgrs.mp3",
+      "sentence": "No, the two of them are not international students. <br> ___, ___ ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "不"
+}, {
+  "answer": "他"
+}, {
+  "answer": "们"
+}, {
+  "answer": "俩"
+}, {
+  "answer": "不"
+}, {
+  "answer": "是"
+}, {
+  "answer": "留"
+}, {
+  "answer": "学"
+}, {
+  "answer": "生"
+}],
+      "words": ["俩", "不", "他", "是", "学", "们", "生", "不", "留"]
+    },
+    {
+      "id": 221,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860812/%E4%BD%A0%E4%B9%9F%E6%98%AF%E4%B8%AD%E5%9B%BD%E4%BA%BA%E5%90%97_zh5wsz.mp3",
+      "sentence": "Are you Chinese too? <br> ___ ___ ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "也"
+}, {
+  "answer": "是"
+}, {
+  "answer": "中"
+}, {
+  "answer": "国"
+}, {
+  "answer": "人"
+}, {
+  "answer": "吗"
+}],
+      "words": ["也", "中", "人", "你", "吗", "国", "是"]
+    },
+    {
+      "id": 222,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860812/%E4%BB%96%E6%98%AF%E4%B8%AD%E5%9B%BD%E4%BA%BA%E5%90%97_cjizly.mp3",
+      "sentence": "Is he Chinese? <br> ___ ___ ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "他"
+}, {
+  "answer": "是"
+}, {
+  "answer": "中"
+}, {
+  "answer": "国"
+}, {
+  "answer": "人"
+}, {
+  "answer": "吗"
+}],
+      "words": ["中", "人", "他", "吗", "国", "是"]
+    },
+    {
+      "id": 223,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1739860811/%E4%B8%8D%E6%98%AF%E6%88%91%E6%98%AF%E9%9F%A9%E5%9B%BD%E4%BA%BA_ahchq4.mp3",
+      "sentence": "No, I am Korean. <br> ___ ___, ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "不"
+}, {
+  "answer": "是"
+}, {
+  "answer": "我"
+}, {
+  "answer": "是"
+}, {
+  "answer": "韩"
+}, {
+  "answer": "国"
+}, {
+  "answer": "人"
+}],
+      "words": ["不", "韩", "我", "人", "国", "是", "是"]
+    },
+    {
+      "id": 225,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466019/%E4%BD%A0%E5%9C%A8%E5%93%AA%E5%84%BF%E5%AD%A6%E4%B9%A0%E6%B1%89%E8%AF%AD_wdpb1q.mp3",
+      "sentence": "Where do you study Chinese? <br> ___ ___ ___ ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "在"
+}, {
+  "answer": "哪"
+}, {
+  "answer": "儿"
+}, {
+  "answer": "学"
+}, {
+  "answer": "习"
+}, {
+  "answer": "汉"
+}, {
+  "answer": "语"
+}],
+      "words": ["儿", "在", "习", "语", "学", "汉", "你", "哪"]
+    },
+    {
+      "id": 226,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466017/%E4%BD%A0%E4%BB%AC%E7%9A%84%E8%80%81%E5%B8%88%E6%80%8E%E4%B9%88%E6%A0%B7_ieovmv.mp3",
+      "sentence": "How is your teacher? <br> ___ ___ ___ ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "们"
+}, {
+  "answer": "的"
+}, {
+  "answer": "老"
+}, {
+  "answer": "师"
+}, {
+  "answer": "怎"
+}, {
+  "answer": "么"
+}, {
+  "answer": "样"
+}],
+      "words": ["的", "老", "你", "怎", "样", "师", "们", "么"]
+    },
+    {
+      "id": 227,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466020/%E4%BD%A0%E8%A7%89%E5%BE%97%E5%AD%A6%E4%B9%A0%E6%B1%89%E8%AF%AD%E9%9A%BE%E5%90%97_ccaf03.mp3",
+      "sentence": "Do you think studying Chinese is difficult? <br> ___ ___ ___ ___ ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "觉"
+}, {
+  "answer": "得"
+}, {
+  "answer": "学"
+}, {
+  "answer": "习"
+}, {
+  "answer": "汉"
+}, {
+  "answer": "语"
+}, {
+  "answer": "难"
+}, {
+  "answer": "吗"
+}],
+      "words": ["觉", "学", "汉", "吗", "难", "得", "语", "习", "你"]
+    },
+    {
+      "id": 228,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466021/%E5%90%AC%E5%92%8C%E8%AF%B4%E4%B9%9F%E6%AF%94%E8%BE%83%E5%AE%B9%E6%98%93%E4%BD%86%E6%98%AF%E8%AF%BB%E5%92%8C%E5%86%99%E5%BE%88%E9%9A%BE_yfgpqg.mp3",
+      "sentence": "Listening and Speaking are quite easy, but Reading and Writing are very difficult. <br> ___ ___ ___ ___ ___ ___ ___ ___， ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "听"
+}, {
+  "answer": "和"
+}, {
+  "answer": "说"
+}, {
+  "answer": "也"
+}, {
+  "answer": "比"
+}, {
+  "answer": "较"
+}, {
+  "answer": "容"
+}, {
+  "answer": "易"
+}, {
+  "answer": "但"
+}, {
+  "answer": "是"
+}, {
+  "answer": "读"
+}, {
+  "answer": "和"
+}, {
+  "answer": "写"
+}, {
+  "answer": "很"
+}, {
+  "answer": "难"
+}],
+      "words": ["也", "和", "容", "很", "比", "但", "听", "难", "读", "易", "说", "是", "较", "和", "写"]
+    },
+    {
+      "id": 234,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466017/%E4%BD%A0%E4%BB%AC%E7%9A%84%E8%80%81%E5%B8%88%E6%98%AF%E8%B0%81_s8gpba.mp3",
+      "sentence": "Who is your teacher? <br> ___ ___ ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "们"
+}, {
+  "answer": "的"
+}, {
+  "answer": "老"
+}, {
+  "answer": "师"
+}, {
+  "answer": "是"
+}, {
+  "answer": "谁"
+}],
+      "words": ["的", "老", "你", "谁", "是", "师", "们"]
+    },
+    {
+      "id": 235,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466018/%E4%BD%A0%E5%9C%A8%E5%93%AA%E4%B8%AA%E7%8F%AD%E5%AD%A6%E4%B9%A0_tpkrcx.mp3",
+      "sentence": "Which class are you in? <br> ___ ___ ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "在"
+}, {
+  "answer": "哪"
+}, {
+  "answer": "个"
+}, {
+  "answer": "班"
+}, {
+  "answer": "学"
+}, {
+  "answer": "习"
+}],
+      "words": ["在", "个", "你", "学", "班", "习", "哪"]
+    },
+    {
+      "id": 236,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1740466028/%E8%BF%99%E4%BD%8D%E6%98%AF%E6%96%B0%E5%90%8C%E5%AD%A6%E6%98%AF%E6%88%91%E7%9A%84%E5%90%8C%E5%B1%8B_dnl7cm.mp3",
+      "sentence": "This person is the new classmate, he is my roommate. <br> ___ ___ ___ ___ ___ ___， ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "这"
+}, {
+  "answer": "位"
+}, {
+  "answer": "是"
+}, {
+  "answer": "新"
+}, {
+  "answer": "同"
+}, {
+  "answer": "学"
+}, {
+  "answer": "是"
+}, {
+  "answer": "我"
+}, {
+  "answer": "的"
+}, {
+  "answer": "同"
+}, {
+  "answer": "屋"
+}],
+      "words": ["位", "同", "是", "同", "新", "我", "屋", "这", "的", "学", "是"]
+    },
+    {
+      "id": 239,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741160965/%E4%BD%A0%E6%B2%A1%E6%9C%89%E7%AE%B1%E5%AD%90%E5%90%97_c98m4k.mp3",
+      "sentence": "Don't you have a suitcase? <br> ___ ___ ___ ___ ___ ___? ",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "没"
+}, {
+  "answer": "有"
+}, {
+  "answer": "箱"
+}, {
+  "answer": "子"
+}, {
+  "answer": "吗"
+}],
+      "words": ["没", "子", "有", "吗", "你", "箱"]
+    },
+    {
+      "id": 240,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741160966/%E6%88%91%E7%9A%84%E5%BE%88%E9%87%8D%E4%BD%A0%E7%9A%84%E9%87%8D%E4%B8%8D%E9%87%8D_nbvawe.mp3",
+      "sentence": "Mine is very heavy. Are yours heavy? <br> ___ ___ ___ ___， ___ ___ ___ ___ ___? ",
+      "blanks": [{
+  "answer": "我"
+}, {
+  "answer": "的"
+}, {
+  "answer": "很"
+}, {
+  "answer": "重"
+}, {
+  "answer": "你"
+}, {
+  "answer": "的"
+}, {
+  "answer": "重"
+}, {
+  "answer": "不"
+}, {
+  "answer": "重"
+}],
+      "words": ["重", "的", "的", "重", "我", "不", "重", "你", "很"]
+    },
+    {
+      "id": 241,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741160967/%E8%BF%99%E4%B8%AA%E9%BB%91%E7%9A%84%E5%BE%88%E9%87%8D%E9%82%A3%E4%B8%AA%E7%BA%A2%E7%9A%84%E6%AF%94%E8%BE%83%E8%BD%BB_nk2ldf.mp3",
+      "sentence": "This black one is very heavy, that red one is lighter. <br> ___ ___ ___ ___ ___ ___， ___ ___ ___ ___ ___ ___ ___。 ",
+      "blanks": [{
+  "answer": "这"
+}, {
+  "answer": "个"
+}, {
+  "answer": "黑"
+}, {
+  "answer": "的"
+}, {
+  "answer": "很"
+}, {
+  "answer": "重"
+}, {
+  "answer": "那"
+}, {
+  "answer": "个"
+}, {
+  "answer": "红"
+}, {
+  "answer": "的"
+}, {
+  "answer": "比"
+}, {
+  "answer": "较"
+}, {
+  "answer": "轻"
+}],
+      "words": ["的", "那", "个", "重", "红", "比", "这", "较", "轻", "的", "很", "黑", "个"]
+    },
+    {
+      "id": 242,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741160965/%E4%BD%A0%E7%9A%84%E7%AE%B1%E5%AD%90%E5%BE%88%E6%96%B0%E6%88%91%E7%9A%84%E5%BE%88%E6%97%A7_pphef9.mp3",
+      "sentence": "Your suitcase is very new, mine is very old. <br> ___ ___ ___ ___ ___ ___， ___ ___ ___ ___。 ",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "的"
+}, {
+  "answer": "箱"
+}, {
+  "answer": "子"
+}, {
+  "answer": "很"
+}, {
+  "answer": "新"
+}, {
+  "answer": "我"
+}, {
+  "answer": "的"
+}, {
+  "answer": "很"
+}, {
+  "answer": "旧"
+}],
+      "words": ["子", "的", "新", "的", "旧", "你", "很", "很", "我", "箱"]
+    },
+    {
+      "id": 248,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741160966/%E5%85%88%E7%94%9F%E8%BF%99%E4%BA%9B%E9%BB%91%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88%E4%B8%9C%E8%A5%BF_xzvm8o.mp3",
+      "sentence": "Sir, what are these black things? <br> ___ ___， ___ ___ ___ ___ ___ ___ ___ ___ ___？ ",
+      "blanks": [{
+  "answer": "先"
+}, {
+  "answer": "生"
+}, {
+  "answer": "这"
+}, {
+  "answer": "些"
+}, {
+  "answer": "黑"
+}, {
+  "answer": "的"
+}, {
+  "answer": "是"
+}, {
+  "answer": "什"
+}, {
+  "answer": "么"
+}, {
+  "answer": "东"
+}, {
+  "answer": "西"
+}],
+      "words": ["黑", "是", "生", "么", "些", "先", "东", "的", "西", "什", "这"]
+    },
+    {
+      "id": 249,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741160965/%E8%BF%99%E6%98%AF%E4%B8%80%E4%BA%9B%E8%8D%AF_h4wifn.mp3",
+      "sentence": "These are some medicines. <br> ___ ___ ___ ___ ___。 ",
+      "blanks": [{
+  "answer": "这"
+}, {
+  "answer": "是"
+}, {
+  "answer": "一"
+}, {
+  "answer": "些"
+}, {
+  "answer": "药"
+}],
+      "words": ["是", "些", "一", "药", "这"]
+    },
+    {
+      "id": 250,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741160965/%E8%BF%99%E6%98%AF%E4%B8%8D%E6%98%AF%E8%8D%AF_vycqla.mp3",
+      "sentence": "Is this medicine too? <br> ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "这"
+}, {
+  "answer": "是"
+}, {
+  "answer": "不"
+}, {
+  "answer": "是"
+}, {
+  "answer": "药"
+}],
+      "words": ["是", "不", "药", "是", "这"]
+    },
+    {
+      "id": 251,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741160966/%E6%9C%89%E4%B8%A4%E4%BB%B6%E8%A1%A3%E6%9C%8D_irglbo.mp3",
+      "sentence": "There are two pieces of clothing, an umbrella and a bottle of perfume. <br> ___ ___ ___ ___ ___，___ ___ ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "有"
+}, {
+  "answer": "两"
+}, {
+  "answer": "件"
+}, {
+  "answer": "衣"
+}, {
+  "answer": "服"
+}, {
+  "answer": "一"
+}, {
+  "answer": "把"
+}, {
+  "answer": "雨"
+}, {
+  "answer": "伞"
+}, {
+  "answer": "和"
+}, {
+  "answer": "一"
+}, {
+  "answer": "瓶"
+}, {
+  "answer": "香"
+}, {
+  "answer": "水"
+}],
+      "words": ["雨", "服", "两", "和", "瓶", "伞", "一", "香", "件", "水", "一", "衣", "把", "有"]
+    },
+    {
+      "id": 252,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1741160967/%E8%BF%98%E6%9C%89%E4%B8%80%E6%9C%AC%E4%B9%A6_aaz1l1.mp3",
+      "sentence": "There are also a book, a dictionary, two CDs and three pens. <br> ___ ___ ___ ___ ___，___ ___ ___ ___， ___ ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "还"
+}, {
+  "answer": "有"
+}, {
+  "answer": "一"
+}, {
+  "answer": "本"
+}, {
+  "answer": "书"
+}, {
+  "answer": "一"
+}, {
+  "answer": "本"
+}, {
+  "answer": "词"
+}, {
+  "answer": "典"
+}, {
+  "answer": "两"
+}, {
+  "answer": "张"
+}, {
+  "answer": "光"
+}, {
+  "answer": "盘"
+}, {
+  "answer": "和"
+}, {
+  "answer": "三"
+}, {
+  "answer": "支"
+}, {
+  "answer": "笔"
+}],
+      "words": ["词", "两", "有", "光", "书", "典", "一", "一", "盘", "和", "还", "笔", "本", "本", "三", "张", "支"]
+    },
+    {
+      "id": 259,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437007/167_qocewz.mp3",
+      "sentence": "Is your health good? <br> ___ ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "您"
+}, {
+  "answer": "身"
+}, {
+  "answer": "体"
+}, {
+  "answer": "好"
+}, {
+  "answer": "吗"
+}],
+      "words": ["身", "吗", "您", "好", "体"]
+    },
+    {
+      "id": 260,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437008/170_zf37ca.mp3",
+      "sentence": "Has your work been busy lately? <br> ___ ___ ___ ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "最"
+}, {
+  "answer": "近"
+}, {
+  "answer": "工"
+}, {
+  "answer": "作"
+}, {
+  "answer": "忙"
+}, {
+  "answer": "不"
+}, {
+  "answer": "忙"
+}],
+      "words": ["作", "近", "忙", "忙", "最", "不", "工"]
+    },
+    {
+      "id": 261,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437008/172_phfz3t.mp3",
+      "sentence": "New school term just started, so I'm a bit busy. <br> ___ ___ ___, ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "刚"
+}, {
+  "answer": "开"
+}, {
+  "answer": "学"
+}, {
+  "answer": "有"
+}, {
+  "answer": "点"
+}, {
+  "answer": "儿"
+}, {
+  "answer": "忙"
+}],
+      "words": ["点", "开", "忙", "学", "刚", "儿", "有"]
+    },
+    {
+      "id": 262,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437009/173_aytrmy.mp3",
+      "sentence": "Would you like to drink something? Tea or coffee? <br> ___ ___ ___ ___ ___? ___ ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "喝"
+}, {
+  "answer": "点"
+}, {
+  "answer": "儿"
+}, {
+  "answer": "什"
+}, {
+  "answer": "么"
+}, {
+  "answer": "茶"
+}, {
+  "answer": "还"
+}, {
+  "answer": "是"
+}, {
+  "answer": "咖"
+}, {
+  "answer": "啡"
+}],
+      "words": ["点", "喝", "么", "是", "茶", "儿", "什", "咖", "还", "啡"]
+    },
+    {
+      "id": 265,
+      "audio": "",
+      "sentence": "You go to the bank or the post office? <br> ___ ___ ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "去"
+}, {
+  "answer": "银行"
+}, {
+  "answer": "还是"
+}, {
+  "answer": "去"
+}, {
+  "answer": "邮局"
+}],
+      "words": ["去", "还是", "邮局", "你", "去", "银行"]
+    },
+    {
+      "id": 266,
+      "audio": "",
+      "sentence": "You drink water or beer? <br> ___ ___ ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "喝"
+}, {
+  "answer": "水"
+}, {
+  "answer": "还是"
+}, {
+  "answer": "喝"
+}, {
+  "answer": "啤酒"
+}],
+      "words": ["喝", "还是", "水", "你", "啤酒", "喝"]
+    },
+    {
+      "id": 267,
+      "audio": "",
+      "sentence": "You study English or French? <br> ___ ___ ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "学习"
+}, {
+  "answer": "英语"
+}, {
+  "answer": "还是"
+}, {
+  "answer": "学习"
+}, {
+  "answer": "法语"
+}],
+      "words": ["还是", "学习", "法语", "你", "学习", "英语"]
+    },
+    {
+      "id": 268,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437009/175_bk8h2w.mp3",
+      "sentence": "Where is my bike? <br> ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "我"
+}, {
+  "answer": "的"
+}, {
+  "answer": "车"
+}, {
+  "answer": "呢"
+}],
+      "words": ["的", "我", "车", "呢"]
+    },
+    {
+      "id": 269,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437009/176_d96k3m.mp3",
+      "sentence": "Which color is your bike? <br> ___ ___ ___ ___ ___ ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "的"
+}, {
+  "answer": "车"
+}, {
+  "answer": "是"
+}, {
+  "answer": "什"
+}, {
+  "answer": "么"
+}, {
+  "answer": "颜"
+}, {
+  "answer": "色"
+}, {
+  "answer": "的"
+}],
+      "words": ["是", "么", "的", "色", "你", "的", "什", "颜", "车"]
+    },
+    {
+      "id": 270,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437007/178_jxfdlt.mp3",
+      "sentence": "Is it the new one or the old one? <br> ___ ___ ___ ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "是"
+}, {
+  "answer": "新"
+}, {
+  "answer": "的"
+}, {
+  "answer": "还"
+}, {
+  "answer": "是"
+}, {
+  "answer": "旧"
+}, {
+  "answer": "的"
+}],
+      "words": ["是", "新", "的", "是", "旧", "的", "还"]
+    },
+    {
+      "id": 271,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742437008/180_mqob9z.mp3",
+      "sentence": "Is that blue one yours? <br> ___ ___ ___ ___ ___ ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "那"
+}, {
+  "answer": "辆"
+}, {
+  "answer": "蓝"
+}, {
+  "answer": "的"
+}, {
+  "answer": "是"
+}, {
+  "answer": "不"
+}, {
+  "answer": "是"
+}, {
+  "answer": "你"
+}, {
+  "answer": "的"
+}],
+      "words": ["蓝", "不", "的", "那", "是", "的", "辆", "是", "你"]
+    },
+    {
+      "id": 274,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132251/184_h0xoqv.mp3",
+      "sentence": "How many people are in your family?<br> ___ ___ ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "家"
+}, {
+  "answer": "有"
+}, {
+  "answer": "几"
+}, {
+  "answer": "口"
+}, {
+  "answer": "人"
+}],
+      "words": ["几", "人", "你", "有", "口", "家"]
+    },
+    {
+      "id": 275,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132251/185_nkk87m.mp3",
+      "sentence": "There are five people in my family, my dad, my mom, an older brother, an older sister and me.<br> ___ ___ ___ ___ ___ ___, ___、___、___、___ ___ ___。",
+      "blanks": [{
+  "answer": "我"
+}, {
+  "answer": "家"
+}, {
+  "answer": "有"
+}, {
+  "answer": "五"
+}, {
+  "answer": "口"
+}, {
+  "answer": "人"
+}, {
+  "answer": "爸爸"
+}, {
+  "answer": "妈妈"
+}, {
+  "answer": "哥哥"
+}, {
+  "answer": "姐姐"
+}, {
+  "answer": "和"
+}, {
+  "answer": "我"
+}],
+      "words": ["五", "人", "我", "有", "口", "家", "哥哥", "和", "妈妈", "我", "姐姐", "爸爸"]
+    },
+    {
+      "id": 276,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132251/186_mbur39.mp3",
+      "sentence": "Do you have a family photo?<br> ___ ___ ___ ___ ___ ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "有"
+}, {
+  "answer": "没"
+}, {
+  "answer": "有"
+}, {
+  "answer": "全"
+}, {
+  "answer": "家"
+}, {
+  "answer": "的"
+}, {
+  "answer": "照"
+}, {
+  "answer": "片"
+}],
+      "words": ["全", "有", "片", "的", "你", "有", "照", "家", "没"]
+    },
+    {
+      "id": 276,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132252/189_tg6ilh.mp3",
+      "sentence": "I don't have neither older brothers nor older sisters, I only have two younger brothers.<br> ___ ___ ___, ___ ___ ___, ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "我"
+}, {
+  "answer": "没有"
+}, {
+  "answer": "哥哥"
+}, {
+  "answer": "也"
+}, {
+  "answer": "没有"
+}, {
+  "answer": "姐姐"
+}, {
+  "answer": "只"
+}, {
+  "answer": "有"
+}, {
+  "answer": "两"
+}, {
+  "answer": "个"
+}, {
+  "answer": "弟弟"
+}],
+      "words": ["没有", "姐姐", "有", "也", "弟弟", "个", "我", "只", "两", "没有", "哥哥"]
+    },
+    {
+      "id": 279,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132251/193_h1tpup.mp3",
+      "sentence": "What kind of company is yours? <br> ___ ___ ___ ___ ___ ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "们"
+}, {
+  "answer": "是"
+}, {
+  "answer": "一"
+}, {
+  "answer": "家"
+}, {
+  "answer": "什"
+}, {
+  "answer": "么"
+}, {
+  "answer": "公"
+}, {
+  "answer": "司"
+}],
+      "words": ["是", "家", "们", "么", "司", "你", "什", "公", "一"]
+    },
+    {
+      "id": 280,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132252/194_uaxxxd.mp3",
+      "sentence": "It's a foreign trade company. <br> ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "是"
+}, {
+  "answer": "一"
+}, {
+  "answer": "家"
+}, {
+  "answer": "外"
+}, {
+  "answer": "贸"
+}, {
+  "answer": "公"
+}, {
+  "answer": "司"
+}],
+      "words": ["家", "贸", "是", "司", "外", "公", "一"]
+    },
+    {
+      "id": 281,
+      "audio": "ttps://res.cloudinary.com/dndwvsqib/video/upload/v1743132253/196_vitnbg.mp3",
+      "sentence": "No, it's a relatively small company.<br> ___ ___, ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "不"
+}, {
+  "answer": "大"
+}, {
+  "answer": "是"
+}, {
+  "answer": "一"
+}, {
+  "answer": "家"
+}, {
+  "answer": "比较"
+}, {
+  "answer": "小"
+}, {
+  "answer": "的"
+}, {
+  "answer": "公司"
+}],
+      "words": ["大", "家", "是", "小", "不", "比较", "的", "一", "公司"]
+    },
+    {
+      "id": 282,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132253/197_brjcmo.mp3",
+      "sentence": "How many employees are there? <br> ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "有"
+}, {
+  "answer": "多"
+}, {
+  "answer": "少"
+}, {
+  "answer": "职"
+}, {
+  "answer": "员"
+}],
+      "words": ["多", "职", "有", "员", "少"]
+    },
+    {
+      "id": 283,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132253/198_efrhjj.mp3",
+      "sentence": "There are about over 100 employees. <br> ___ ___ ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "大"
+}, {
+  "answer": "概"
+}, {
+  "answer": "有"
+}, {
+  "answer": "一"
+}, {
+  "answer": "百"
+}, {
+  "answer": "多"
+}, {
+  "answer": "个"
+}, {
+  "answer": "职"
+}, {
+  "answer": "员"
+}],
+      "words": ["概", "多", "一", "职", "百", "大", "员", "个", "有"]
+    },
+    {
+      "id": 284,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743132253/200_ibwfsd.mp3",
+      "sentence": "Not all of them are Chinese, there are also foreign employees. <br> ___ ___ ___ ___ ___, ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "不"
+}, {
+  "answer": "都"
+}, {
+  "answer": "是"
+}, {
+  "answer": "中国"
+}, {
+  "answer": "职员"
+}, {
+  "answer": "也"
+}, {
+  "answer": "有"
+}, {
+  "answer": "外国"
+}, {
+  "answer": "职员"
+}],
+      "words": ["中国", "都", "也", "不", "外国", "有", "职员", "职员", "是"]
+    },
+    {
+      "id": 285,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254858/201_gpoygh.mp3",
+      "sentence": "I'm going to the library now. Want to come with me? <br> ___ ___ ___ ___, ___ ___ ___ ___ ___, ___ ___?",
+      "blanks": [{
+  "answer": "我"
+}, {
+  "answer": "现在"
+}, {
+  "answer": "去"
+}, {
+  "answer": "图书馆"
+}, {
+  "answer": "你"
+}, {
+  "answer": "跟"
+}, {
+  "answer": "我"
+}, {
+  "answer": "一起"
+}, {
+  "answer": "去"
+}, {
+  "answer": "好"
+}, {
+  "answer": "吗"
+}],
+      "words": ["去", "跟", "吗", "一起", "我", "好", "去", "我", "你", "现在", "图书馆"]
+    },
+    {
+      "id": 286,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254859/204_ab2szr.mp3",
+      "sentence": "I go often. I often borrow books and read there, too.<br> ___ ___。 ___ ___ ___ ___, ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "常"
+}, {
+  "answer": "去"
+}, {
+  "answer": "我"
+}, {
+  "answer": "常"
+}, {
+  "answer": "借"
+}, {
+  "answer": "书"
+}, {
+  "answer": "也"
+}, {
+  "answer": "常"
+}, {
+  "answer": "在"
+}, {
+  "answer": "那儿"
+}, {
+  "answer": "看"
+}, {
+  "answer": "书"
+}],
+      "words": ["借", "常", "去", "书", "那儿", "常", "看", "常", "在", "书", "也", "我"]
+    },
+    {
+      "id": 287,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254859/207_uikulc.mp3",
+      "sentence": "Sometimes I borrow books, sometimes I go online to do research, but I don’t usually read there.<br> ___ ___ ___ ___, ___ ___ ___ ___ ___ ___, ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "有"
+}, {
+  "answer": "时候"
+}, {
+  "answer": "借"
+}, {
+  "answer": "书"
+}, {
+  "answer": "有"
+}, {
+  "answer": "时候"
+}, {
+  "answer": "上"
+}, {
+  "answer": "网"
+}, {
+  "answer": "查"
+}, {
+  "answer": "资料"
+}, {
+  "answer": "但"
+}, {
+  "answer": "不"
+}, {
+  "answer": "常"
+}, {
+  "answer": "在"
+}, {
+  "answer": "那儿"
+}, {
+  "answer": "看"
+}, {
+  "answer": "书"
+}],
+      "words": ["上", "借", "不", "查", "有", "那儿", "书", "有", "在", "资料", "常", "时候", "看", "书", "但", "网", "时候"]
+    },
+    {
+      "id": 293,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254859/211_ktzr0z.mp3",
+      "sentence": "What do you usually do in the evening? <br> ___ ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "晚上"
+}, {
+  "answer": "你"
+}, {
+  "answer": "常"
+}, {
+  "answer": "做"
+}, {
+  "answer": "什么"
+}],
+      "words": ["常", "什么", "晚上", "做", "你"]
+    },
+    {
+      "id": 294,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254859/212_ryqwoz.mp3",
+      "sentence": "I review the texts, preview new vocabulary, or do exercises.<br> ___ ___, ___ ___, ___ ___ ___。",
+      "blanks": [{
+  "answer": "复习"
+}, {
+  "answer": "课文"
+}, {
+  "answer": "预习"
+}, {
+  "answer": "生词"
+}, {
+  "answer": "或者"
+}, {
+  "answer": "做"
+}, {
+  "answer": "练习"
+}],
+      "words": ["课文", "练习", "生词", "做", "或者", "复习", "预习"]
+    },
+    {
+      "id": 295,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254861/218_i2svp3.mp3",
+      "sentence": "Sometimes I rest in the dorm, and sometimes I go to the park with friends or go shopping at the supermarket.<br> ___ ___ ___ ___ ___, ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "有"
+}, {
+  "answer": "时候"
+}, {
+  "answer": "在"
+}, {
+  "answer": "宿舍"
+}, {
+  "answer": "休息"
+}, {
+  "answer": "有"
+}, {
+  "answer": "时候"
+}, {
+  "answer": "跟"
+}, {
+  "answer": "朋友"
+}, {
+  "answer": "一起"
+}, {
+  "answer": "去"
+}, {
+  "answer": "公园"
+}, {
+  "answer": "玩儿"
+}, {
+  "answer": "或者"
+}, {
+  "answer": "去"
+}, {
+  "answer": "超市"
+}, {
+  "answer": "买"
+}, {
+  "answer": "东西"
+}],
+      "words": ["在", "去", "朋友", "有", "去", "东西", "玩儿", "有", "超市", "时候", "买", "或者", "公园", "宿舍", "时候", "跟", "一起", "休息"]
+    },
+    {
+      "id": 296,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1744254860/216_pc2013.mp3",
+      "sentence": "I rarely watch them.<br> ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "我"
+}, {
+  "answer": "很"
+}, {
+  "answer": "少"
+}, {
+  "answer": "看"
+}],
+      "words": ["很", "看", "我", "少"]
+    },
+    {
+      "id": 302,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1749713859/221_plz3qn.mp3",
+      "sentence": "What’s he doing?<br> ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "他"
+}, {
+  "answer": "在"
+}, {
+  "answer": "做"
+}, {
+  "answer": "什么"
+}, {
+  "answer": "呢"
+}],
+      "words": ["在", "呢", "什么", "他", "做"]
+    },
+    {
+      "id": 303,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1749713860/222_xpqvqx.mp3",
+      "sentence": "When I came out, he was listening to music.<br> ___ ___ ___ ___, ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "我"
+}, {
+  "answer": "出来"
+}, {
+  "answer": "的"
+}, {
+  "answer": "时候"
+}, {
+  "answer": "他"
+}, {
+  "answer": "正在"
+}, {
+  "answer": "听"
+}, {
+  "answer": "音乐"
+}, {
+  "answer": "呢"
+}],
+      "words": ["他", "出来", "呢", "听", "我", "时候", "音乐", "正在", "的"]
+    },
+    {
+      "id": 304,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1749713859/223_p25gzm.mp3",
+      "sentence": "Are you listening to music?<br> ___ ___ ___ ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "是"
+}, {
+  "answer": "不"
+}, {
+  "answer": "是"
+}, {
+  "answer": "在"
+}, {
+  "answer": "听"
+}, {
+  "answer": "音乐"
+}, {
+  "answer": "呢"
+}],
+      "words": ["是", "音乐", "是", "呢", "听", "你", "在", "不"]
+    },
+    {
+      "id": 305,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1749713860/224_vw38zl.mp3",
+      "sentence": "No, I’m listening to the recording of the text.<br> ___, ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "没有"
+}, {
+  "answer": "我"
+}, {
+  "answer": "正"
+}, {
+  "answer": "听"
+}, {
+  "answer": "课文"
+}, {
+  "answer": "录音"
+}, {
+  "answer": "呢"
+}],
+      "words": ["正", "录音", "听", "没有", "呢", "课文", "我"]
+    },
+    {
+      "id": 306,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1749713860/227_fpodjm.mp3",
+      "sentence": "Let’s go to the bookstore together, okay?<br> ___ ___ ___ ___, ___ ___？",
+      "blanks": [{
+  "answer": "我们"
+}, {
+  "answer": "一起"
+}, {
+  "answer": "去"
+}, {
+  "answer": "书店"
+}, {
+  "answer": "好"
+}, {
+  "answer": "吗"
+}],
+      "words": ["去", "吗", "我们", "好", "书店", "一起"]
+    },
+    {
+      "id": 307,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1749713862/232_hw52xy.mp3",
+      "sentence": "Today’s Saturday, buses are too crowded. How about riding a bike?<br> ___ ___ ___ ___ ___ ___ ___，___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "今天"
+}, {
+  "answer": "星期"
+}, {
+  "answer": "六"
+}, {
+  "answer": "坐"
+}, {
+  "answer": "车"
+}, {
+  "answer": "太"
+}, {
+  "answer": "挤"
+}, {
+  "answer": "骑"
+}, {
+  "answer": "车"
+}, {
+  "answer": "怎么"
+}, {
+  "answer": "样"
+}],
+      "words": ["坐", "星期", "挤", "车", "车", "今天", "骑", "样", "怎么", "太", "六"]
+    },
+    {
+      "id": 318,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752649701/234_xoxskq.mp3",
+      "sentence": "Mary, how many classes do you have?<br> ___, ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "玛丽"
+}, {
+  "answer": "你们"
+}, {
+  "answer": "有"
+}, {
+  "answer": "几"
+}, {
+  "answer": "门"
+}, {
+  "answer": "课"
+}],
+      "words": ["你们", "几", "课", "玛丽", "门", "有"]
+    },
+    {
+      "id": 319,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752649702/235_vsumn1.mp3",
+      "sentence": "Now we only have four classes: general studies, speaking, listening and reading classes.<br> ___ ___ ___ ___ ___ ___, ___、 ___、 ___ ___ ___。",
+      "blanks": [{
+  "answer": "现在"
+}, {
+  "answer": "只"
+}, {
+  "answer": "有"
+}, {
+  "answer": "四"
+}, {
+  "answer": "门"
+}, {
+  "answer": "课"
+}, {
+  "answer": "综合课"
+}, {
+  "answer": "口语课"
+}, {
+  "answer": "听力课"
+}, {
+  "answer": "和"
+}, {
+  "answer": "阅读课"
+}],
+      "words": ["有", "阅读课", "门", "口语课", "和", "只", "听力课", "四", "综合课", "课", "现在"]
+    },
+    {
+      "id": 320,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752649709/238_sdbwdk.mp3",
+      "sentence": "What does Teacher Lin teach you?<br> ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "林"
+}, {
+  "answer": "老师"
+}, {
+  "answer": "教"
+}, {
+  "answer": "你们"
+}, {
+  "answer": "什么"
+}],
+      "words": ["你们", "教", "老师", "什么", "林"]
+    },
+    {
+      "id": 321,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752649712/240_yfsyvy.mp3",
+      "sentence": "Who teaches you guys General Studies and Speaking?<br> ___ ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "谁"
+}, {
+  "answer": "教"
+}, {
+  "answer": "你们"
+}, {
+  "answer": "综合课"
+}, {
+  "answer": "和"
+}, {
+  "answer": "口语课"
+}],
+      "words": ["教", "和", "综合课", "口语课", "你们", "谁"]
+    },
+    {
+      "id": 331,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984341/243_r3g3ir.mp3",
+      "sentence": "I'm going to the post office to send a parcel, and then to the bookstore to buy a book.<br> ___ ___ ___ ___ ___, ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "我"
+}, {
+  "answer": "去"
+}, {
+  "answer": "邮局"
+}, {
+  "answer": "寄"
+}, {
+  "answer": "包裹"
+}, {
+  "answer": "顺便"
+}, {
+  "answer": "去"
+}, {
+  "answer": "书店"
+}, {
+  "answer": "买"
+}, {
+  "answer": "一"
+}, {
+  "answer": "本"
+}, {
+  "answer": "书"
+}],
+      "words": ["寄", "去", "顺便", "书", "买", "本", "书店", "一", "我", "去", "包裹", "邮局"]
+    },
+    {
+      "id": 332,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984409/246_zjoerw.mp3",
+      "sentence": "While you're at it, can you buy me some stamps and a copy of Youth Daily?<br> ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "顺便"
+}, {
+  "answer": "替"
+}, {
+  "answer": "我"
+}, {
+  "answer": "买"
+}, {
+  "answer": "几"
+}, {
+  "answer": "张"
+}, {
+  "answer": "邮票"
+}, {
+  "answer": "和"
+}, {
+  "answer": "一"
+}, {
+  "answer": "份"
+}, {
+  "answer": "青年"
+}, {
+  "answer": "报"
+}, {
+  "answer": "吧"
+}],
+      "words": ["买", "青年", "替", "一", "张", "顺便", "吧", "和", "几", "份", "报", "我", "", "邮票", "你"]
+    },
+    {
+      "id": 333,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984410/248_x07qjb.mp3",
+      "sentence": "Let me give you some money.<br> ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "我"
+}, {
+  "answer": "给"
+}, {
+  "answer": "你"
+}, {
+  "answer": "拿"
+}, {
+  "answer": "钱"
+}],
+      "words": ["拿", "给", "钱", "我", "你"]
+    },
+    {
+      "id": 334,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984410/249_syeuc5.mp3",
+      "sentence": "No need, just use my money first.<br> ___, ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "不用"
+}, {
+  "answer": "先"
+}, {
+  "answer": "用"
+}, {
+  "answer": "我"
+}, {
+  "answer": "的"
+}, {
+  "answer": "钱"
+}, {
+  "answer": "买"
+}, {
+  "answer": "吧"
+}],
+      "words": ["用", "的", "不用", "我", "先", "买", "吧", "钱"]
+    },
+    {
+      "id": 345,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984410/250_uyvo5o.mp3",
+      "sentence": "Mary, I'm going to Shanghai tomorrow.<br> ___, ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "玛丽"
+}, {
+  "answer": "我"
+}, {
+  "answer": "明天"
+}, {
+  "answer": "去"
+}, {
+  "answer": "上海"
+}],
+      "words": ["上海", "玛丽", "明天", "我", "去"]
+    },
+    {
+      "id": 346,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984410/251_momslp.mp3",
+      "sentence": "Are you going to Shanghai for traveling?<br> ___ ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "去"
+}, {
+  "answer": "上海"
+}, {
+  "answer": "旅行"
+}, {
+  "answer": "吗"
+}],
+      "words": ["旅行", "上海", "你", "吗", "去"]
+    },
+    {
+      "id": 347,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984410/252_hdweyh.mp3",
+      "sentence": "No, a foreign trade delegation is going to visit Shanghai tomorrow<br>___, ___ ___ ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "不"
+}, {
+  "answer": "明天"
+}, {
+  "answer": "一"
+}, {
+  "answer": "个"
+}, {
+  "answer": "外贸"
+}, {
+  "answer": "代表"
+}, {
+  "answer": "团"
+}, {
+  "answer": "去"
+}, {
+  "answer": "上海"
+}, {
+  "answer": "参观"
+}],
+      "words": ["代表", "明天", "不", "去", "参观", "个", "上海", "一", "团", "外贸"]
+    },
+    {
+      "id": 348,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984410/253_yzci2w.mp3",
+      "sentence": "I'm going to be an interpreter for them.<br>___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "我"
+}, {
+  "answer": "去"
+}, {
+  "answer": "给"
+}, {
+  "answer": "他"
+}, {
+  "answer": "们"
+}, {
+  "answer": "当"
+}, {
+  "answer": "翻译"
+}],
+      "words": ["他", "当", "们", "给", "翻译", "我", "去"]
+    },
+    {
+      "id": 349,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984411/254_h0dibv.mp3",
+      "sentence": "Are you going by plane or train?<br>___ ___ ___ ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "坐"
+}, {
+  "answer": "飞机"
+}, {
+  "answer": "去"
+}, {
+  "answer": "还是"
+}, {
+  "answer": "坐"
+}, {
+  "answer": "火车"
+}, {
+  "answer": "去"
+}],
+      "words": ["火车", "飞机", "还是", "去", "坐", "去", "坐"]
+    },
+    {
+      "id": 350,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984411/256_gv4cw0.mp3",
+      "sentence": "When will you be back?<br>___ ___ ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "什"
+}, {
+  "answer": "么"
+}, {
+  "answer": "时"
+}, {
+  "answer": "候"
+}, {
+  "answer": "回"
+}, {
+  "answer": "来"
+}],
+      "words": ["回", "么", "时", "什", "候", "来"]
+    },
+    {
+      "id": 351,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984411/258_cinxf8.mp3",
+      "sentence": "Can you do me a favor?<br>___ ___ ___ ___ ___ ___, ___ ___?",
+      "blanks": [{
+  "answer": "替"
+}, {
+  "answer": "我"
+}, {
+  "answer": "办"
+}, {
+  "answer": "一"
+}, {
+  "answer": "件"
+}, {
+  "answer": "事"
+}, {
+  "answer": "行"
+}, {
+  "answer": "吗"
+}],
+      "words": ["替", "我", "吗", "一", "行", "事", "办", "件"]
+    },
+    {
+      "id": 352,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1752984412/260_noun28.mp3",
+      "sentence": "Please help me water my flowers.<br>___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "帮"
+}, {
+  "answer": "我"
+}, {
+  "answer": "浇"
+}, {
+  "answer": "一"
+}, {
+  "answer": "下"
+}, {
+  "answer": "儿"
+}, {
+  "answer": "花"
+}],
+      "words": ["花", "儿", "下", "一", "浇", "我", "帮"]
+    },
+    {
+      "id": 362,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696628/262_wq7qic.mp3",
+      "sentence": "I’d like to take a look at the down jackets.<br>___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "我"
+}, {
+  "answer": "看"
+}, {
+  "answer": "看"
+}, {
+  "answer": "羽"
+}, {
+  "answer": "绒"
+}, {
+  "answer": "服"
+}],
+      "words": ["服", "羽", "我", "看", "看", "绒"]
+    },
+    {
+      "id": 363,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696629/263_i2riaf.mp3",
+      "sentence": "What do you think of this one?<br>___ ___ ___ ___ ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "看"
+}, {
+  "answer": "看"
+}, {
+  "answer": "这"
+}, {
+  "answer": "件"
+}, {
+  "answer": "怎"
+}, {
+  "answer": "么"
+}, {
+  "answer": "样"
+}],
+      "words": ["么", "样", "看", "你", "看", "件", "怎", "这"]
+    },
+    {
+      "id": 364,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696630/264_qe7tgt.mp3",
+      "sentence": "It’s nice and cheap.<br>___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "又"
+}, {
+  "answer": "好"
+}, {
+  "answer": "又"
+}, {
+  "answer": "便"
+}, {
+  "answer": "宜"
+}],
+      "words": ["宜", "又", "好", "又", "便"]
+    },
+    {
+      "id": 365,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696632/265_tngxjt.mp3",
+      "sentence": "This one is a little long.<br>___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "这"
+}, {
+  "answer": "件"
+}, {
+  "answer": "有"
+}, {
+  "answer": "一"
+}, {
+  "answer": "点"
+}, {
+  "answer": "儿"
+}, {
+  "answer": "长"
+}],
+      "words": ["点", "一", "件", "这", "长", "儿", "有"]
+    },
+    {
+      "id": 366,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696631/267_b9wugc.mp3",
+      "sentence": "Do you want a dark color or a light color?<br>___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "要"
+}, {
+  "answer": "深"
+}, {
+  "answer": "颜"
+}, {
+  "answer": "色"
+}, {
+  "answer": "的"
+}, {
+  "answer": "还"
+}, {
+  "answer": "是"
+}, {
+  "answer": "要"
+}, {
+  "answer": "浅"
+}, {
+  "answer": "颜"
+}, {
+  "answer": "色"
+}, {
+  "answer": "的"
+}],
+      "words": ["的", "是", "还", "要", "颜", "深", "色", "颜", "浅", "要", "色", "你", "的"]
+    },
+    {
+      "id": 367,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696630/269_gj51ov.mp3",
+      "sentence": "Can I try it on?<br>___ ___ ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "我"
+}, {
+  "answer": "试"
+}, {
+  "answer": "试"
+}, {
+  "answer": "可"
+}, {
+  "answer": "以"
+}, {
+  "answer": "吗"
+}],
+      "words": ["试", "可", "以", "我", "试", "吗"]
+    },
+    {
+      "id": 368,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696629/274_ngxwfy.mp3",
+      "sentence": "How much is this kind of down jacket?<br>___ ___ ___ ___ ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "这"
+}, {
+  "answer": "种"
+}, {
+  "answer": "羽"
+}, {
+  "answer": "绒"
+}, {
+  "answer": "服"
+}, {
+  "answer": "怎"
+}, {
+  "answer": "么"
+}, {
+  "answer": "卖"
+}],
+      "words": ["绒", "种", "么", "服", "羽", "卖", "这", "怎"]
+    },
+    {
+      "id": 369,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696632/279_rj68g6.mp3",
+      "sentence": "But I can give you a 20% discount, so you can take it for 320.<br>___ ___ ___ ___ ___, ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "可"
+}, {
+  "answer": "以"
+}, {
+  "answer": "打"
+}, {
+  "answer": "八"
+}, {
+  "answer": "折"
+}, {
+  "answer": "你"
+}, {
+  "answer": "给"
+}, {
+  "answer": "三"
+}, {
+  "answer": "百"
+}, {
+  "answer": "二"
+}, {
+  "answer": "吧"
+}],
+      "words": ["打", "吧", "折", "百", "你", "以", "二", "八", "三", "给", "可"]
+    },
+    {
+      "id": 381,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736166/282_v3qeth.mp3",
+      "sentence": "What year will you graduate from university?<br>___ ___ ___ ___ ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "哪"
+}, {
+  "answer": "一"
+}, {
+  "answer": "年"
+}, {
+  "answer": "大"
+}, {
+  "answer": "学"
+}, {
+  "answer": "毕"
+}, {
+  "answer": "业"
+}],
+      "words": ["学", "你", "哪", "业", "一", "大", "毕", "年"]
+    },
+    {
+      "id": 382,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736166/285_iacapi.mp3",
+      "sentence": "How old are you this year?<br>___ ___ ___ ___ ___?",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "今"
+}, {
+  "answer": "年"
+}, {
+  "answer": "多"
+}, {
+  "answer": "大"
+}],
+      "words": ["今", "大", "多", "你", "年"]
+    },
+    {
+      "id": 383,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736167/288_szjm0p.mp3",
+      "sentence": "I was born in the year of the dog.<br>___ ___ ___。",
+      "blanks": [{
+  "answer": "属"
+}, {
+  "answer": "狗"
+}, {
+  "answer": "的"
+}],
+      "words": ["狗", "属", "的"]
+    },
+    {
+      "id": 391,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736167/289_njy1j0.mp3",
+      "sentence": "When is your birthday?<br>___ ___ ___ ___ ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "的"
+}, {
+  "answer": "生"
+}, {
+  "answer": "日"
+}, {
+  "answer": "是"
+}, {
+  "answer": "几"
+}, {
+  "answer": "月"
+}, {
+  "answer": "几"
+}, {
+  "answer": "号"
+}],
+      "words": ["日", "几", "几", "号", "你", "月", "生", "是", "的"]
+    },
+    {
+      "id": 392,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736167/290_ktdgrt.mp3",
+      "sentence": "My birthday is October 18th, and it happens to be a Saturday.<br>___ ___ ___ ___ ___ ___ ___ ___ ___ ___, ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "我"
+}, {
+  "answer": "的"
+}, {
+  "answer": "生"
+}, {
+  "answer": "日"
+}, {
+  "answer": "是"
+}, {
+  "answer": "十"
+}, {
+  "answer": "月"
+}, {
+  "answer": "十"
+}, {
+  "answer": "八"
+}, {
+  "answer": "号"
+}, {
+  "answer": "正"
+}, {
+  "answer": "好"
+}, {
+  "answer": "是"
+}, {
+  "answer": "星"
+}, {
+  "answer": "期"
+}, {
+  "answer": "六"
+}],
+      "words": ["星", "是", "十", "八", "正", "的", "好", "号", "我", "六", "期", "生", "日", "是", "十", "月"]
+    },
+    {
+      "id": 393,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736167/291_jqui2p.mp3",
+      "sentence": "Really? How are you planning to celebrate?<br>___ ___? ___ ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "是"
+}, {
+  "answer": "吗"
+}, {
+  "answer": "你"
+}, {
+  "answer": "打"
+}, {
+  "answer": "算"
+}, {
+  "answer": "怎"
+}, {
+  "answer": "么"
+}, {
+  "answer": "过"
+}],
+      "words": ["吗", "么", "怎", "打", "是", "算", "你", "过"]
+    },
+    {
+      "id": 394,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1756736168/292_fb4zvz.mp3",
+      "sentence": "I’m going to hold a birthday party.<br>___ ___ ___ ___ ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "我"
+}, {
+  "answer": "准"
+}, {
+  "answer": "备"
+}, {
+  "answer": "举"
+}, {
+  "answer": "行"
+}, {
+  "answer": "一"
+}, {
+  "answer": "个"
+}, {
+  "answer": "生"
+}, {
+  "answer": "日"
+}, {
+  "answer": "晚"
+}, {
+  "answer": "会"
+}],
+      "words": ["一", "举", "日", "备", "个", "准", "会", "生", "行", "晚", "我"]
+    },
+    {
+      "id": 403,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200927/300_aj3cor.mp3",
+      "sentence": "___ ___ ___ ___ ___ ___， ___ ___ ___。",
+      "blanks": [{
+  "answer": "我"
+}, {
+  "answer": "每天"
+}, {
+  "answer": "早上"
+}, {
+  "answer": "六点"
+}, {
+  "answer": "半"
+}, {
+  "answer": "起床"
+}, {
+  "answer": "七点"
+}, {
+  "answer": "吃"
+}, {
+  "answer": "早饭"
+}],
+      "words": ["六点", "七点", "每天", "吃", "我", "早饭", "早上", "半", "起床"]
+    },
+    {
+      "id": 404,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200928/301_venuyf.mp3",
+      "sentence": "Ten minutes to eight, I go to the classroom. Classes start at 8:00. ___ ___ ___ ___ ___， ___ ___。",
+      "blanks": [{
+  "answer": "差"
+}, {
+  "answer": "十分"
+}, {
+  "answer": "八点"
+}, {
+  "answer": "去"
+}, {
+  "answer": "教室"
+}, {
+  "answer": "八点"
+}, {
+  "answer": "上课"
+}],
+      "words": ["差", "去", "十分", "上课", "教室", "八点", "八点"]
+    },
+    {
+      "id": 405,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200928/302_yoszcl.mp3",
+      "sentence": "In the morning we have four classes, and classes finish at 12:00. ___ ___ ___ ___ ___ ___， ___ ___ ___。",
+      "blanks": [{
+  "answer": "上午"
+}, {
+  "answer": "我们"
+}, {
+  "answer": "有"
+}, {
+  "answer": "四"
+}, {
+  "answer": "节"
+}, {
+  "answer": "课"
+}, {
+  "answer": "十二"
+}, {
+  "answer": "点"
+}, {
+  "answer": "下课"
+}],
+      "words": ["下课", "上午", "点", "节", "我们", "十二", "课", "有", "四"]
+    },
+    {
+      "id": 406,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200928/303_o0kje1.mp3",
+      "sentence": "At noon I go to the dining hall to have lunch. ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "中午"
+}, {
+  "answer": "我"
+}, {
+  "answer": "去"
+}, {
+  "answer": "食堂"
+}, {
+  "answer": "吃"
+}, {
+  "answer": "午饭"
+}],
+      "words": ["吃", "食堂", "中午", "午饭", "我", "去"]
+    },
+    {
+      "id": 407,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200929/304_g1pdls.mp3",
+      "sentence": "After lunch, I often go to a friend’s place to chat. ___ ___， ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "午饭"
+}, {
+  "answer": "以后"
+}, {
+  "answer": "我"
+}, {
+  "answer": "常常"
+}, {
+  "answer": "去"
+}, {
+  "answer": "朋友"
+}, {
+  "answer": "那儿"
+}, {
+  "answer": "聊天儿"
+}],
+      "words": ["去", "聊天儿", "以后", "午饭", "我", "那儿", "常常", "朋友"]
+    },
+    {
+      "id": 408,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200931/305_fmjxt5.mp3",
+      "sentence": "When there are no classes in the afternoon, I go to the library to read, or practice speaking Chinese with Chinese friends. ___ ___ ___ ___ ___， ___ ___ ___ ___ ___， ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "下午"
+}, {
+  "answer": "没有"
+}, {
+  "answer": "课"
+}, {
+  "answer": "的"
+}, {
+  "answer": "时候"
+}, {
+  "answer": "我"
+}, {
+  "answer": "去"
+}, {
+  "answer": "图书馆"
+}, {
+  "answer": "看"
+}, {
+  "answer": "书"
+}, {
+  "answer": "或者"
+}, {
+  "answer": "跟"
+}, {
+  "answer": "中国"
+}, {
+  "answer": "朋友"
+}, {
+  "answer": "一起"
+}, {
+  "answer": "练习"
+}, {
+  "answer": "口语"
+}],
+      "words": ["图书馆", "中国", "的", "一起", "跟", "口语", "课", "去", "看", "下午", "没有", "练习", "时候", "朋友", "书", "或者", "我"]
+    },
+    {
+      "id": 409,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200932/306_kdwwve.mp3",
+      "sentence": "Sometimes I watch movie DVDs in the dormitory. ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "有时候"
+}, {
+  "answer": "在"
+}, {
+  "answer": "宿舍"
+}, {
+  "answer": "看"
+}, {
+  "answer": "电影"
+}, {
+  "answer": "光盘"
+}],
+      "words": ["看", "光盘", "宿舍", "电影", "有时候", "在"]
+    },
+    {
+      "id": 410,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200928/307_s6xfbo.mp3",
+      "sentence": "At 4:00 I go to the playground to exercise. ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "四点"
+}, {
+  "answer": "我"
+}, {
+  "answer": "去"
+}, {
+  "answer": "操场"
+}, {
+  "answer": "锻炼"
+}, {
+  "answer": "身体"
+}],
+      "words": ["锻炼", "身体", "我", "四点", "去", "操场"]
+    },
+    {
+      "id": 411,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200928/308_gdflyr.mp3",
+      "sentence": "At 5:00 I return to the dormitory to take a shower and wash clothes, at 6:30 or 7:00 I have dinner. ___ ___ ___ ___， ___ ___， ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "五点"
+}, {
+  "answer": "回"
+}, {
+  "answer": "宿舍"
+}, {
+  "answer": "洗澡"
+}, {
+  "answer": "洗"
+}, {
+  "answer": "衣服"
+}, {
+  "answer": "六点"
+}, {
+  "answer": "半"
+}, {
+  "answer": "或者"
+}, {
+  "answer": "七点"
+}, {
+  "answer": "吃"
+}, {
+  "answer": "晚饭"
+}],
+      "words": ["或者", "五点", "吃", "回", "半", "六点", "宿舍", "衣服", "七点", "晚饭", "洗", "洗澡"]
+    },
+    {
+      "id": 412,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200930/309_fagxjg.mp3",
+      "sentence": "In the evening, I do exercises, write Chinese characters, preview the text and new words, and then watch some TV and listen to some music, at 11:00 I go to sleep. ___ ___ ___ ___、 ___ ___、 ___ ___ ___ ___， ___ ___ ___、 ___ ___， ___ ___ ___。",
+      "blanks": [{
+  "answer": "晚上"
+}, {
+  "answer": "我"
+}, {
+  "answer": "做"
+}, {
+  "answer": "练习"
+}, {
+  "answer": "写"
+}, {
+  "answer": "汉字"
+}, {
+  "answer": "预习"
+}, {
+  "answer": "课文"
+}, {
+  "answer": "和"
+}, {
+  "answer": "生词"
+}, {
+  "answer": "然后"
+}, {
+  "answer": "看看"
+}, {
+  "answer": "电视"
+}, {
+  "answer": "听听"
+}, {
+  "answer": "音乐"
+}, {
+  "answer": "十一"
+}, {
+  "answer": "点"
+}, {
+  "answer": "睡觉"
+}],
+      "words": ["课文", "听听", "练习", "电视", "音乐", "和", "我", "做", "十一", "晚上", "睡觉", "汉字", "然后", "生词", "写", "预习", "点", "看看"]
+    },
+    {
+      "id": 413,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200929/310_xktjwl.mp3",
+      "sentence": "Classmates, tomorrow we will go climbing a mountain. ___， ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "同学们"
+}, {
+  "answer": "明天"
+}, {
+  "answer": "我们"
+}, {
+  "answer": "去"
+}, {
+  "answer": "爬山"
+}],
+      "words": ["明天", "去", "同学们", "我们", "爬山"]
+    },
+    {
+      "id": 415,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200931/312_zbx9uj.mp3",
+      "sentence": "Yes. The teachers and students of the first grade will all go. ___。 ___ ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "去"
+}, {
+  "answer": "一"
+}, {
+  "answer": "年级"
+}, {
+  "answer": "的"
+}, {
+  "answer": "老师"
+}, {
+  "answer": "和"
+}, {
+  "answer": "学生"
+}, {
+  "answer": "都"
+}, {
+  "answer": "去"
+}],
+      "words": ["去", "都", "的", "和", "年级", "去", "学生", "一", "老师"]
+    },
+    {
+      "id": 417,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200931/313_vqby1r.mp3",
+      "sentence": "What time will we leave tomorrow? ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "明天"
+}, {
+  "answer": "什么"
+}, {
+  "answer": "时候"
+}, {
+  "answer": "出发"
+}],
+      "words": ["明天", "时候", "出发", "什么"]
+    },
+    {
+      "id": 418,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200931/314_whsgp1.mp3",
+      "sentence": "Tomorrow morning at 7:00, gather in front of the building and get on the bus ___ ___ ___ ___ ___ ___ ___ ___",
+      "blanks": [{
+  "answer": "明天"
+}, {
+  "answer": "早上"
+}, {
+  "answer": "七点"
+}, {
+  "answer": "在"
+}, {
+  "answer": "楼"
+}, {
+  "answer": "前"
+}, {
+  "answer": "集合"
+}, {
+  "answer": "上车"
+}],
+      "words": ["楼", "七点", "集合", "明天", "前", "早上", "在", "上车"]
+    },
+    {
+      "id": 420,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200932/315_qgupgu.mp3",
+      "sentence": "We will leave on time at 7:15. ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "七"
+}, {
+  "answer": "点"
+}, {
+  "answer": "一"
+}, {
+  "answer": "刻"
+}, {
+  "answer": "准时"
+}, {
+  "answer": "出发"
+}],
+      "words": ["出发", "准时", "一", "点", "刻", "七"]
+    },
+    {
+      "id": 422,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1773200932/317_iejzc2.mp3",
+      "sentence": "No, we won’t come back, you need to bring lunch. ___ ___， ___ ___ ___。",
+      "blanks": [{
+  "answer": "不"
+}, {
+  "answer": "回来"
+}, {
+  "answer": "要"
+}, {
+  "answer": "带"
+}, {
+  "answer": "午饭"
+}],
+      "words": ["不", "回来", "带", "要", "午饭"]
+    },
+    {
+      "id": 424,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157468/320_qdk9lb.mp3",
+      "sentence": "Today I’d like to ask everyone to talk about your hobbies. ___ ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "今天"
+}, {
+  "answer": "想"
+}, {
+  "answer": "请"
+}, {
+  "answer": "大家"
+}, {
+  "answer": "谈谈"
+}, {
+  "answer": "自己"
+}, {
+  "answer": "的"
+}, {
+  "answer": "爱好"
+}],
+      "words": ["大家", "请", "的", "想", "爱好", "自己", "今天", "谈谈"]
+    },
+    {
+      "id": 426,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157468/322_pv8jjk.mp3",
+      "sentence": "Teacher, let me go first. ___， ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "老师"
+}, {
+  "answer": "让"
+}, {
+  "answer": "我"
+}, {
+  "answer": "先"
+}, {
+  "answer": "说"
+}, {
+  "answer": "吧"
+}],
+      "words": ["先", "我", "让", "说", "吧", "老师"]
+    },
+    {
+      "id": 428,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157469/324_uamsjt.mp3",
+      "sentence": "My hobby is watching Peking Opera. ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "我"
+}, {
+  "answer": "的"
+}, {
+  "answer": "爱好"
+}, {
+  "answer": "是"
+}, {
+  "answer": "看"
+}, {
+  "answer": "京剧"
+}],
+      "words": ["是", "我", "爱好", "的", "看", "京剧"]
+    },
+    {
+      "id": 429,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157469/326_x34j6y.mp3",
+      "sentence": "Yes, I like it very much. ___ ___， ___ ___。",
+      "blanks": [{
+  "answer": "是"
+}, {
+  "answer": "啊"
+}, {
+  "answer": "非常"
+}, {
+  "answer": "喜欢"
+}],
+      "words": ["啊", "非常", "喜欢", "是"]
+    },
+    {
+      "id": 431,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157470/327_yuq2pw.mp3",
+      "sentence": "I also want to learn to sing Peking Opera. I plan to hire a teacher to teach me. ___ ___ ___ ___ ___ ___， ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "我"
+}, {
+  "answer": "还"
+}, {
+  "answer": "想"
+}, {
+  "answer": "学"
+}, {
+  "answer": "唱"
+}, {
+  "answer": "京剧"
+}, {
+  "answer": "打算"
+}, {
+  "answer": "请"
+}, {
+  "answer": "一"
+}, {
+  "answer": "个"
+}, {
+  "answer": "老师"
+}, {
+  "answer": "教"
+}, {
+  "answer": "我"
+}],
+      "words": ["学", "我", "请", "想", "教", "京剧", "我", "个", "一", "唱", "打算", "老师", "还"]
+    },
+    {
+      "id": 433,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157470/329_r3ke4v.mp3",
+      "sentence": "I like playing on the computer. ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "我"
+}, {
+  "answer": "喜欢"
+}, {
+  "answer": "玩"
+}, {
+  "answer": "电脑"
+}],
+      "words": ["喜欢", "玩", "我", "电脑"]
+    },
+    {
+      "id": 435,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157468/332_yh1baw.mp3",
+      "sentence": "After class, listening to music or chatting with friends ___ ___， ___ ___ ___ ___ ___ ___ ___",
+      "blanks": [{
+  "answer": "下课"
+}, {
+  "answer": "以后"
+}, {
+  "answer": "听听"
+}, {
+  "answer": "音乐"
+}, {
+  "answer": "或者"
+}, {
+  "answer": "跟"
+}, {
+  "answer": "朋友"
+}, {
+  "answer": "聊"
+}, {
+  "answer": "聊天儿"
+}],
+      "words": ["下课", "聊天儿", "聊", "音乐", "朋友", "听听", "以后", "跟", "或者"]
+    },
+    {
+      "id": 436,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157468/333_yaqnnu.mp3",
+      "sentence": "makes me feel very happy. ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "感到"
+}, {
+  "answer": "心情"
+}, {
+  "answer": "很"
+}, {
+  "answer": "愉快"
+}],
+      "words": ["感到", "很", "愉快", "心情"]
+    },
+    {
+      "id": 440,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157469/334_unnjrp.mp3",
+      "sentence": "Tanaka, what do you often do in your spare time? ___ ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "田中"
+}, {
+  "answer": "业余"
+}, {
+  "answer": "时间"
+}, {
+  "answer": "常常"
+}, {
+  "answer": "做"
+}, {
+  "answer": "什么"
+}],
+      "words": ["业余", "常常", "田中", "什么", "时间", "做"]
+    },
+    {
+      "id": 442,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157470/335_sh2nt1.mp3",
+      "sentence": "Before coming to China, I was already very interested in calligraphy. ___ ___ ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "我"
+}, {
+  "answer": "来"
+}, {
+  "answer": "中国"
+}, {
+  "answer": "以前"
+}, {
+  "answer": "就"
+}, {
+  "answer": "对"
+}, {
+  "answer": "书法"
+}, {
+  "answer": "特别"
+}, {
+  "answer": "感兴趣"
+}],
+      "words": ["以前", "感兴趣", "来", "特别", "书法", "中国", "对", "我", "就"]
+    },
+    {
+      "id": 445,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157470/336_akz0ps.mp3",
+      "sentence": "This year my company sent me to China, and I’m very happy. ___ ___ ___ ___ ___ ___， ___ ___ ___。",
+      "blanks": [{
+  "answer": "今年"
+}, {
+  "answer": "公司"
+}, {
+  "answer": "派"
+}, {
+  "answer": "我"
+}, {
+  "answer": "来"
+}, {
+  "answer": "中国"
+}, {
+  "answer": "我"
+}, {
+  "answer": "非常"
+}, {
+  "answer": "高兴"
+}],
+      "words": ["非常", "派", "公司", "中国", "今年", "来", "我", "高兴", "我"]
+    },
+    {
+      "id": 447,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157471/337_xrhq3e.mp3",
+      "sentence": "Now I’m learning calligraphy with a teacher ___ ___ ___ ___ ___ ___ ___ ___ ___",
+      "blanks": [{
+  "answer": "现在"
+}, {
+  "answer": "我"
+}, {
+  "answer": "正"
+}, {
+  "answer": "跟"
+}, {
+  "answer": "一"
+}, {
+  "answer": "个"
+}, {
+  "answer": "老师"
+}, {
+  "answer": "学"
+}, {
+  "answer": "书法"
+}],
+      "words": ["学", "现在", "书法", "老师", "个", "一", "跟", "正", "我"]
+    },
+    {
+      "id": 448,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774157471/338_uwnhs2.mp3",
+      "sentence": "and I’m also learning to paint Chinese paintings. ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "还"
+}, {
+  "answer": "学"
+}, {
+  "answer": "画"
+}, {
+  "answer": "中国"
+}, {
+  "answer": "画儿"
+}],
+      "words": ["还", "学", "中国", "画", "画儿"]
+    },
+    {
+      "id": 450,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577850/339_r7d7if.mp3",
+      "sentence": "Is there a post office in the school? ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "学校"
+}, {
+  "answer": "里边"
+}, {
+  "answer": "有"
+}, {
+  "answer": "邮局"
+}, {
+  "answer": "吗"
+}],
+      "words": ["里边", "学校", "吗", "有", "邮局"]
+    },
+    {
+      "id": 452,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577851/342_junmei.mp3",
+      "sentence": "It’s on the west side of the library. ___ ___ ___。",
+      "blanks": [{
+  "answer": "在"
+}, {
+  "answer": "图书馆"
+}, {
+  "answer": "西边"
+}],
+      "words": ["图书馆", "在", "西边"]
+    },
+    {
+      "id": 453,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577850/345_yqktdw.mp3",
+      "sentence": "What is on the east side of the library? ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "图书馆"
+}, {
+  "answer": "东边"
+}, {
+  "answer": "是"
+}, {
+  "answer": "什么"
+}, {
+  "answer": "地方"
+}],
+      "words": ["什么", "地方", "是", "图书馆", "东边"]
+    },
+    {
+      "id": 454,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577850/346_eqci69.mp3",
+      "sentence": "There is a football field on the east side of the library. ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "图书馆"
+}, {
+  "answer": "东边"
+}, {
+  "answer": "是"
+}, {
+  "answer": "一"
+}, {
+  "answer": "个"
+}, {
+  "answer": "足球"
+}, {
+  "answer": "场"
+}],
+      "words": ["一", "东边", "图书馆", "足球", "场", "是", "个"]
+    },
+    {
+      "id": 457,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577851/349_hefgyn.mp3",
+      "sentence": "How far is it from here? ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "离"
+}, {
+  "answer": "这儿"
+}, {
+  "answer": "有"
+}, {
+  "answer": "多"
+}, {
+  "answer": "远"
+}],
+      "words": ["这儿", "离", "远", "多", "有"]
+    },
+    {
+      "id": 459,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577851/350_v2t81t.mp3",
+      "sentence": "From here to there is about seven to eight hundred meters. ___ ___ ___ ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "从"
+}, {
+  "answer": "这儿"
+}, {
+  "answer": "到"
+}, {
+  "answer": "那儿"
+}, {
+  "answer": "大概"
+}, {
+  "answer": "有"
+}, {
+  "answer": "七"
+}, {
+  "answer": "八"
+}, {
+  "answer": "百"
+}, {
+  "answer": "米"
+}],
+      "words": ["有", "百", "八", "七", "从", "那儿", "米", "这儿", "到", "大概"]
+    },
+    {
+      "id": 460,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577852/352_g2g0xj.mp3",
+      "sentence": "Go straight east from here ___ ___ ___ ___ ___ ___ ___",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "从"
+}, {
+  "answer": "这儿"
+}, {
+  "answer": "一直"
+}, {
+  "answer": "往"
+}, {
+  "answer": "东"
+}, {
+  "answer": "走"
+}],
+      "words": ["这儿", "走", "一直", "往", "东", "你", "从"]
+    },
+    {
+      "id": 463,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577852/353_rtnrms.mp3",
+      "sentence": "until you reach the traffic lights then turn left___ ___ ___ ___ ___ ___",
+      "blanks": [{
+  "answer": "到"
+}, {
+  "answer": "红绿灯"
+}, {
+  "answer": "那儿"
+}, {
+  "answer": "往"
+}, {
+  "answer": "左"
+}, {
+  "answer": "拐"
+}],
+      "words": ["到", "往", "拐", "左", "那儿", "红绿灯"]
+    },
+    {
+      "id": 465,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577851/348_bj50kv.mp3",
+      "sentence": "The museum is on the east side, between Heping Park and Renmin Square. ___ ___ ___， ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "博物馆"
+}, {
+  "answer": "在"
+}, {
+  "answer": "东边"
+}, {
+  "answer": "在"
+}, {
+  "answer": "和平"
+}, {
+  "answer": "公园"
+}, {
+  "answer": "和"
+}, {
+  "answer": "人民"
+}, {
+  "answer": "广场"
+}, {
+  "answer": "中间"
+}],
+      "words": ["人民", "博物馆", "东边", "在", "中间", "和", "在", "广场", "和平", "公园"]
+    },
+    {
+      "id": 469,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1774577852/354_e9qbh3.mp3",
+      "sentence": "On the east side of the road, there is a white building—that is the museum ___ ___ ___ ___ ___ ___ ___ ___， ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "马路"
+}, {
+  "answer": "东边"
+}, {
+  "answer": "有"
+}, {
+  "answer": "一"
+}, {
+  "answer": "座"
+}, {
+  "answer": "白色"
+}, {
+  "answer": "的"
+}, {
+  "answer": "大楼"
+}, {
+  "answer": "那"
+}, {
+  "answer": "就"
+}, {
+  "answer": "是"
+}, {
+  "answer": "博物馆"
+}],
+      "words": ["白色", "大楼", "马路", "就", "博物馆", "是", "东边", "一", "座", "的", "有", "那"]
+    },
+    {
+      "id": 471,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086356/357_lmdvwp.mp3",
+      "sentence": "Do you know how to do Tai Chi? ___ ___ ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "会"
+}, {
+  "answer": "打"
+}, {
+  "answer": "太"
+}, {
+  "answer": "极"
+}, {
+  "answer": "拳"
+}, {
+  "answer": "吗"
+}],
+      "words": ["吗", "太", "极", "拳", "会", "你", "打"]
+    },
+    {
+      "id": 473,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086357/360_udvpng.mp3",
+      "sentence": "Do you want to learn? ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "你"
+}, {
+  "answer": "想"
+}, {
+  "answer": "不"
+}, {
+  "answer": "想"
+}, {
+  "answer": "学"
+}],
+      "words": ["不", "你", "想", "学", "想"]
+    },
+    {
+      "id": 474,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086362/363_pvghav.mp3",
+      "sentence": "I heard the PE teacher will teach Tai Chi next week. Let's go sign up. ___ ___ ___ ___ ___ ___ ___， ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "听说"
+}, {
+  "answer": "体育"
+}, {
+  "answer": "老师"
+}, {
+  "answer": "下"
+}, {
+  "answer": "星期"
+}, {
+  "answer": "教"
+}, {
+  "answer": "太极拳"
+}, {
+  "answer": "我们"
+}, {
+  "answer": "去"
+}, {
+  "answer": "报名"
+}, {
+  "answer": "吧"
+}],
+      "words": ["听说", "太极拳", "老师", "我们", "吧", "教", "星期", "去", "体育", "报名", "下"]
+    },
+    {
+      "id": 478,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086363/365_yalefy.mp3",
+      "sentence": "Teacher, we want to learn Tai Chi. Can we sign up now? ___， ___ ___ ___ ___， ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "老师"
+}, {
+  "answer": "我们"
+}, {
+  "answer": "想"
+}, {
+  "answer": "学"
+}, {
+  "answer": "太极拳"
+}, {
+  "answer": "现在"
+}, {
+  "answer": "可以"
+}, {
+  "answer": "报名"
+}, {
+  "answer": "吗"
+}],
+      "words": ["想", "吗", "报名", "可以", "我们", "太极拳", "学", "老师", "现在"]
+    },
+    {
+      "id": 479,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086366/367_eshbel.mp3",
+      "sentence": "When will the classes start? ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "什么"
+}, {
+  "answer": "时候"
+}, {
+  "answer": "开始"
+}, {
+  "answer": "上课"
+}],
+      "words": ["开始", "时候", "上课", "什么"]
+    },
+    {
+      "id": 481,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086369/371_beztds.mp3",
+      "sentence": "Sorry, could you say that again? ___， ___ ___ ___ ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "对不起"
+}, {
+  "answer": "您"
+}, {
+  "answer": "能"
+}, {
+  "answer": "不"
+}, {
+  "answer": "能"
+}, {
+  "answer": "再"
+}, {
+  "answer": "说"
+}, {
+  "answer": "一"
+}, {
+  "answer": "遍"
+}],
+      "words": ["一", "能", "对不起", "能", "您", "不", "遍", "再", "说"]
+    },
+    {
+      "id": 482,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086372/372_cc9pmv.mp3",
+      "sentence": "I don’t understand what “one, three, five” means. ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "我"
+}, {
+  "answer": "不"
+}, {
+  "answer": "懂"
+}, {
+  "answer": "“一三五”"
+}, {
+  "answer": "是"
+}, {
+  "answer": "什么"
+}, {
+  "answer": "意思"
+}],
+      "words": ["意思", "是", "不", "我", "懂", "“一三五”", "什么"]
+    },
+    {
+      "id": 483,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086373/374_zqbkvf.mp3",
+      "sentence": "From what time to what time are the classes? ___ ___ ___ ___ ___ ___ ___？",
+      "blanks": [{
+  "answer": "从"
+}, {
+  "answer": "几"
+}, {
+  "answer": "点"
+}, {
+  "answer": "到"
+}, {
+  "answer": "几"
+}, {
+  "answer": "点"
+}, {
+  "answer": "上课"
+}],
+      "words": ["点", "点", "从", "到", "上课", "几", "几"]
+    },
+    {
+      "id": 484,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086373/375_ko0esv.mp3",
+      "sentence": "From 4:30 to 5:30. One hour each time.___ ___ ___ ___ ___ ___ ___。 ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "四"
+}, {
+  "answer": "点"
+}, {
+  "answer": "半"
+}, {
+  "answer": "到"
+}, {
+  "answer": "五"
+}, {
+  "answer": "点"
+}, {
+  "answer": "半"
+}, {
+  "answer": "一"
+}, {
+  "answer": "次"
+}, {
+  "answer": "一"
+}, {
+  "answer": "个"
+}, {
+  "answer": "小时"
+}],
+      "words": ["点", "五", "个", "一", "四", "小时", "次", "点", "半", "到", "一", "半"]
+    },
+    {
+      "id": 485,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086377/377_trnxq2.mp3",
+      "sentence": "Teacher, Mary asked me to ask for leave for her. ___， ___ ___ ___ ___ ___ ___ ___ ___。",
+      "blanks": [{
+  "answer": "老师"
+}, {
+  "answer": "玛丽"
+}, {
+  "answer": "让"
+}, {
+  "answer": "我"
+}, {
+  "answer": "给"
+}, {
+  "answer": "她"
+}, {
+  "answer": "请"
+}, {
+  "answer": "个"
+}, {
+  "answer": "假"
+}],
+      "words": ["请", "我", "给", "让", "假", "玛丽", "老师", "个", "她"]
+    },
+    {
+      "id": 487,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086377/378_jxnvqu.mp3",
+      "sentence": "She’s not feeling well today—she has a headache, a fever, and a cough, she might have a cold. ___ ___ ___ ___ ___， ___， ___， ___， ___ ___ ___。",
+      "blanks": [{
+  "answer": "她"
+}, {
+  "answer": "今天"
+}, {
+  "answer": "有点儿"
+}, {
+  "answer": "不"
+}, {
+  "answer": "舒服"
+}, {
+  "answer": "头疼"
+}, {
+  "answer": "发烧"
+}, {
+  "answer": "咳嗽"
+}, {
+  "answer": "可能"
+}, {
+  "answer": "感冒"
+}, {
+  "answer": "了"
+}],
+      "words": ["有点儿", "舒服", "感冒", "了", "头疼", "今天", "可能", "她", "不", "发烧", "咳嗽"]
+    },
+    {
+      "id": 492,
+      "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1777086377/379_udeh4m.mp3",
+      "sentence": "She needs to go to the hospital, so she can’t come to class. ___ ___ ___ ___ ___， ___ ___ ___。",
+      "blanks": [{
+  "answer": "她"
+}, {
+  "answer": "要"
+}, {
+  "answer": "去"
+}, {
+  "answer": "医院"
+}, {
+  "answer": "看病"
+}, {
+  "answer": "不能"
+}, {
+  "answer": "来"
+}, {
+  "answer": "上课"
+}],
+      "words": ["她", "来", "医院", "上课", "看病", "不能", "去", "要"]
+    }
+  ]
+}
