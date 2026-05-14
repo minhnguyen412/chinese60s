@@ -522,6 +522,15 @@ footer .social-icons a:hover { transform: translate(-1px,-2px); }
     /* Compact upgrade modal perks */
     #upgrade-modal .perks-list { gap: 4px; }
     #upgrade-modal .perks-list li { font-size: 0.78rem; }
+  /* USER DROPDOWN HOVER */
+.user-menu-wrap {
+  position: relative;
+}
+
+.user-menu-wrap:hover .user-dropdown,
+.user-menu-wrap.open .user-dropdown {
+  display: flex !important;
+}
 </style>
 </head>
 <body>
@@ -530,12 +539,108 @@ footer .social-icons a:hover { transform: translate(-1px,-2px); }
   <h1><a href="index.html" class="homepage-link">CHINESE60S</a></h1>
   <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
   <nav>
-    <ul>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="learning-page.html">Lessons</a></li>
-      <li><a href="blog.html">Blog</a></li>
-    </ul>
-  </nav>
+  <ul>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="learning-page.html">Lessons</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li id="auth-nav-item">
+      <button id="sign-in-btn" onclick="openLoginModal()" style="
+        background: var(--yellow);
+        border: var(--border);
+        border-radius: 50px;
+        padding: 6px 18px;
+        font-weight: 700;
+        font-size: 0.95rem;
+        cursor: pointer;
+        box-shadow: var(--shadow-sm);
+        font-family: 'Fredoka', sans-serif;
+      ">Sign In</button>
+      <div class="user-menu-wrap" id="user-menu-wrap" style="display:none;">
+        <div class="auth-pill" id="user-pill" onclick="toggleUserMenu()" style="
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          background: var(--white);
+          border: var(--border);
+          border-radius: 50px;
+          padding: 5px 14px 5px 6px;
+          box-shadow: var(--shadow-sm);
+          cursor: pointer;
+          font-weight: 600;
+          font-size: 0.9rem;
+          color: var(--black);
+          text-decoration: none;
+          white-space: nowrap;
+        ">
+          <div class="avatar" id="nav-avatar" style="
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 2px solid var(--black);
+            object-fit: cover;
+            background: var(--green-pale);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            overflow: hidden;
+            flex-shrink: 0;
+          ">👤</div>
+          <span id="nav-username">User</span>
+        </div>
+        <div class="user-dropdown" id="user-dropdown" style="
+          display: none;
+          position: absolute;
+          top: calc(100% + 10px);
+          right: 0;
+          background: var(--white);
+          border: var(--border-thick);
+          border-radius: 18px;
+          box-shadow: var(--shadow-lg);
+          padding: 8px;
+          min-width: 180px;
+          z-index: 200;
+          flex-direction: column;
+          gap: 4px;
+        ">
+          <a href="#" style="
+            display: block;
+            padding: 9px 14px;
+            border-radius: 12px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: 0.92rem;
+            text-decoration: none;
+            color: var(--black);
+            text-align: left;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: background 0.1s;
+          ">👤 My Profile</a>
+          <hr style="border: none; border-top: var(--border); margin: 4px 0;">
+          <button onclick="signOut()" style="
+            display: block;
+            width: 100%;
+            padding: 9px 14px;
+            border-radius: 12px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: 0.92rem;
+            text-decoration: none;
+            color: #c0392b;
+            text-align: left;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: background 0.1s;
+          ">🚪 Sign Out</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</nav>
 </header>
   <!-- LOGIN MODAL -->
   <div class="modal-overlay" id="login-modal">
@@ -1427,6 +1532,17 @@ window.refreshPremiumStatus = async function () {
 function renderSidebarAfterAuth() {
   loadSidebarList();
 }
+  window.toggleUserMenu = function () {
+  document.getElementById('user-menu-wrap').classList.toggle('open');
+};
+
+// Close dropdown khi click ngoài
+document.addEventListener('click', function (e) {
+  const wrap = document.getElementById('user-menu-wrap');
+  if (wrap && !wrap.contains(e.target) && !e.target.closest('#auth-nav-item')) {
+    wrap.classList.remove('open');
+  }
+});
 </script>
 <!-- ═══════════════════════════════════════════════════════════════
      FIREBASE AUTH
@@ -1505,24 +1621,45 @@ function renderSidebarAfterAuth() {
   };
 
   window.signOut = async function () {
-    try {
-      await fbSignOut(auth);
-    } catch (e) {
-      console.error(e);
-    }
-  };
+  try {
+    await fbSignOut(auth);
+    location.reload();  // ← Thêm dòng này
+  } catch (e) {
+    console.error(e);
+  }
+};
 
   onAuthStateChanged(auth, async function (user) {
-    if (user) {
-      window.__currentUser = user;
-      await window.refreshPremiumStatus();
-    } else {
-      window.__currentUser = null;
-      window.__userIsPremium = false;
-      window.__premiumLoaded = true;
-      renderSidebarAfterAuth();
-    }
-  });
+  const signInBtn = document.getElementById('sign-in-btn');
+  const userMenuWrap = document.getElementById('user-menu-wrap');
+  const navUsername = document.getElementById('nav-username');
+  const navAvatar = document.getElementById('nav-avatar');
+
+  if (user) {
+    window.__currentUser = user;
+
+    // ← Cập nhật UI
+    if (signInBtn) signInBtn.style.display = 'none';
+    if (userMenuWrap) userMenuWrap.style.display = 'block';
+    if (navUsername) navUsername.textContent = user.displayName?.split(' ')[0] || 'User';
+    if (navAvatar) navAvatar.innerHTML = user.photoURL
+      ? `<img src="${user.photoURL}" alt="avatar" referrerpolicy="no-referrer">`
+      : `<span>${(user.displayName?.[0] || '?').toUpperCase()}</span>`;
+
+    // Kiểm tra premium
+    await window.refreshPremiumStatus();
+  } else {
+    window.__currentUser = null;
+    window.__userIsPremium = false;
+    window.__premiumLoaded = true;
+
+    // ← Ẩn user menu
+    if (signInBtn) signInBtn.style.display = 'inline-block';
+    if (userMenuWrap) userMenuWrap.style.display = 'none';
+
+    renderSidebarAfterAuth();
+  }
+});
 </script>
 </body>
 </html>
