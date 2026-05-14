@@ -228,6 +228,33 @@ footer .social-icons a:hover { transform: translate(-1px,-2px); }
   .main-col {
     order: 1;  /* ← Main content lên trước */
   }
+  .sidebar {
+    order: 2;  /* ← Sidebar xuống sau */
+    width: 100%;  /* ← Full width */
+    max-height: 100%;
+    overflow-y: auto;
+  }
+  
+  .sidebar-title {
+    padding: 10px 14px;
+    font-size: 0.95rem;
+  }
+  
+  .sidebar-item a {
+    padding: 10px 14px;
+  }
+  
+  .sidebar-emoji {
+    font-size: 1.2rem;
+  }
+  
+  .sidebar-text {
+    font-size: 0.8rem;
+  }
+  
+  .card { 
+    padding: 14px 12px;
+  }
   .card { padding: 14px 12px; }
   .setup-grid { grid-template-columns: 1fr; gap: 12px; margin-bottom: 12px;}
   .sentence { font-size: 1.05rem; padding: 12px 14px; line-height: 2.2; }
