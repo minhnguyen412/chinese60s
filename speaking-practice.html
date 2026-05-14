@@ -760,24 +760,7 @@ footer .social-icons a:hover { transform: translate(-1px,-2px); }
       padding: 16px 18px;
       margin-bottom: 20px;
     "></div>
-    <!-- TIPS FOR STT -->
-<div style="
-  background: var(--blue-pale);
-  border: var(--border);
-  border-radius: 12px;
-  padding: 12px 14px;
-  margin-bottom: 16px;
-  font-size: 0.88rem;
-  color: #555;
-">
-  <strong>💡 STT Tips:</strong>
-  <ul style="margin: 6px 0 0 18px; padding: 0;">
-    <li>iPad: Use Safari 14.5+ or Chrome</li>
-    <li>Allow microphone permission in Settings</li>
-    <li>Speak clearly in Chinese (Mandarin)</li>
-    <li>If STT fails, you can still skip the question</li>
-  </ul>
-</div>
+    
 
     <!-- RECORDER -->
     <div style="background: var(--red-pale); border: var(--border); border-radius: 14px; padding: 16px 18px; margin-bottom: 20px;">
@@ -801,6 +784,24 @@ footer .social-icons a:hover { transform: translate(-1px,-2px); }
         word-break: break-word;
       ">Speech-to-text appears here...</div>
     </div>
+    <!-- TIPS FOR STT -->
+<div style="
+  background: var(--blue-pale);
+  border: var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  font-size: 0.88rem;
+  color: #555;
+">
+  <strong>💡 STT Tips:</strong>
+  <ul style="margin: 6px 0 0 18px; padding: 0;">
+    <li>iPad: Use Safari 14.5+ or Chrome</li>
+    <li>Allow microphone permission in Settings</li>
+    <li>Speak clearly in Chinese (Mandarin)</li>
+    <li>If STT fails, you can still skip the question</li>
+  </ul>
+</div>
 
     <!-- ANSWER KEY -->
     <div id="answerDisplay" style="display: none; background: var(--green-pale); border: var(--border); border-radius: 14px; padding: 16px 18px; margin-bottom: 20px;">
@@ -1175,7 +1176,30 @@ stopBtn.addEventListener('click', () => {
   stopRecording();
   showAnswer();
 });
+// ← Thêm: Retry STT nếu bị lỗi
+function retrySpeechRecognition() {
+  if (isRecording) {
+    stopRecording();
+  }
+  sttOutput.textContent = 'Retrying...';
+  sttOutput.style.color = 'var(--black)';
+  startSTT();
+}
 
+// Tạo nút retry (optional)
+const retryBtn = document.createElement('button');
+retryBtn.id = 'retryBtn';
+retryBtn.className = 'btn-start';
+retryBtn.textContent = '🔄 Retry STT';
+retryBtn.style.padding = '9px 20px';
+retryBtn.style.display = 'none';
+retryBtn.addEventListener('click', retrySpeechRecognition);
+
+// Thêm nút vào recorder section
+const recorderSection = document.querySelector('[style*="red-pale"]');
+if (recorderSection) {
+  recorderSection.parentElement.insertBefore(retryBtn, recorderSection.nextSibling);
+}
 async function startRecording() {
   try {
     const stream = await navigator.mediaDevices.getUserMedia({ 
@@ -1260,26 +1284,41 @@ function startSTT() {
 
   // ← Thêm: Kiểm tra nếu là iPad/iOS
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-  if (isIOS && !window.webkitSpeechRecognition) {
-    sttOutput.textContent = '❌ STT requires Safari 14.5+ or Chrome on iOS';
-    sttOutput.style.color = '#999';
-    console.warn('[STT] iOS Speech Recognition not fully supported');
-    return;
+  const isSafari = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
+  
+  if (isIOS && isSafari) {
+    sttOutput.textContent = '⚠️ STT limited on Safari iOS. Try Chrome instead.';
+    sttOutput.style.color = '#f57c00';
+    console.warn('[STT] iOS Safari - limited support');
+    // Vẫn cho phép tiếp tục nhưng cảnh báo
   }
 
   speechRec = new SR();
   speechRec.continuous = true;
   speechRec.interimResults = true;
   speechRec.lang = 'zh-CN';
-  speechRec.maxAlternatives = 1;  // ← Thêm: Limit alternatives
+  speechRec.maxAlternatives = 1;
 
   let finalText = '';
+  let timeoutId = null;
 
   speechRec.onstart = () => {
     console.log('[STT] Recognition started');
+    sttOutput.textContent = '🎤 Listening...';
+    sttOutput.style.color = 'var(--green)';
+    
+    // ← Thêm: Timeout 30 giây nếu không nhận được kết quả
+    timeoutId = setTimeout(() => {
+      console.warn('[STT] Timeout - no speech detected');
+      speechRec.abort();
+      sttOutput.textContent = '⏱️ No speech detected. Try again.';
+      sttOutput.style.color = '#f57c00';
+    }, 30000);
   };
 
   speechRec.onresult = (e) => {
+    clearTimeout(timeoutId);  // ← Clear timeout khi có kết quả
+    
     let interim = '';
     for (let i = e.resultIndex; i < e.results.length; i++) {
       if (e.results[i].isFinal) {
@@ -1295,20 +1334,40 @@ function startSTT() {
   };
 
   speechRec.onerror = (e) => {
+    clearTimeout(timeoutId);
     console.error('[STT] Error:', e.error);
-    if (e.error !== 'no-speech') {
-      sttOutput.textContent = `❌ STT error: ${e.error}`;
-      sttOutput.style.color = '#c00';
+    
+    let errorMsg = '';
+    switch(e.error) {
+      case 'aborted':
+        errorMsg = '⚠️ STT was interrupted. Try again.';
+        break;
+      case 'no-speech':
+        errorMsg = '🔇 No speech detected. Speak louder.';
+        break;
+      case 'network':
+        errorMsg = '🌐 Network error. Check connection.';
+        break;
+      case 'service-not-allowed':
+        errorMsg = '❌ STT service not allowed. Try Chrome.';
+        break;
+      default:
+        errorMsg = `❌ STT error: ${e.error}`;
     }
+    
+    sttOutput.textContent = errorMsg;
+    sttOutput.style.color = '#f57c00';
   };
 
   speechRec.onend = () => {
+    clearTimeout(timeoutId);
     console.log('[STT] Recognition ended');
   };
 
   try {
     speechRec.start();
   } catch (err) {
+    clearTimeout(timeoutId);
     console.error('[STT] Start error:', err);
     sttOutput.textContent = '❌ Could not start STT';
     sttOutput.style.color = '#c00';
