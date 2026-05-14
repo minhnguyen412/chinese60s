@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speaking Quiz - Practice Mode</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black:        #1a1a1a;
+  --red:          #ea3324;
+  --red-dark:     #b71c1c;
+  --red-light:    #ffd5d5;
+  --red-pale:     #fff5f5;
+  --cream:        #fffef5;
+  --white:        #ffffff;
+  --yellow:       #ffd84d;
+  --yellow-pale:  #fffbe6;
+  --orange-pale:  #feefdb;
+  --orange:       #fa9f33;
+  --blue-pale:    #d8ebff;
+  --blue:         #1e86fb;
+  --sky-pale:     #eaf8ff;
+  --green:        #4caf50;
+  --green-pale:   #f0fff0;
+  --green-dark:   #2e7d32;
+  --pink:         #ffadc5;
+  --pink-pale:    #fff2f6;
+  --border:       2.5px solid var(--black);
+  --border-thick: 3px solid var(--black);
+  --shadow-sm:    3px 3px 0 var(--black);
+  --shadow-md:    4px 4px 0 var(--black);
+  --shadow-lg:    6px 6px 0 var(--black);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Fredoka', sans-serif; font-weight: 500;
+  background: var(--cream); color: var(--black);
+  min-height: 100vh; display: flex; flex-direction: column;
+  overflow-x: hidden;
+}
+body::before {
+  content: ''; position: fixed; inset: 0;
+  background-image: radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px);
+  background-size: 22px 22px; pointer-events: none; z-index: 0;
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--red); border-bottom: var(--border-thick);
+  padding: 0 50px; height: 66px;
+  display: flex; justify-content: space-between; align-items: center;
+  position: sticky; top: 0; z-index: 100;
+}
+header h1 { font-weight: 700; font-size: 1.7rem; color: white; letter-spacing: 0.05em; text-shadow: 2px 2px 0 rgba(0,0,0,0.2); }
+.homepage-link { text-decoration: none; color: inherit; }
+.menu-toggle { display: none; font-size: 24px; background: none; border: none; color: white; cursor: pointer; }
+nav ul { list-style: none; display: flex; gap: 8px; align-items: center; }
+nav ul li a {
+  text-decoration: none; color: var(--black); font-weight: 700; font-size: 0.95rem;
+  background: var(--white); border: var(--border); border-radius: 50px;
+  padding: 6px 18px; display: inline-block; box-shadow: var(--shadow-sm);
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+nav ul li a:hover { transform: translate(-2px,-2px); box-shadow: var(--shadow-md); }
+
+/* ── MAIN LAYOUT ── */
+.container {
+  display: flex; gap: 26px; padding: 36px 56px 100px;
+  max-width: 1200px; margin: 0 auto; width: 100%;
+  position: relative; z-index: 1; flex: 1;
+  justify-content: center;
+}
+.main-col { flex: 1; display: flex; flex-direction: column; gap: 22px; min-width: 0; max-width: 800px; }
+
+/* ── CARDS ── */
+.card { background: var(--white); border: var(--border-thick); border-radius: 22px; box-shadow: var(--shadow-md); padding: 26px; }
+.card-title {
+  display: inline-block; font-weight: 700; font-size: 1rem;
+  background: var(--red); color: white; border: var(--border); border-radius: 50px;
+  padding: 5px 20px; box-shadow: var(--shadow-sm); margin-bottom: 18px; letter-spacing: 0.05em;
+}
+.card-title.yellow { background: var(--yellow); color: var(--black); }
+.card-title.blue   { background: var(--blue);   color: white; }
+.card-title.green  { background: var(--green);  color: white; }
+
+/* ── SETUP CARD ── */
+.setup-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  margin-bottom: 20px;
+}
+.form-group {
+  display: flex; flex-direction: column; gap: 8px;
+}
+.form-group label {
+  font-weight: 700; font-size: 0.95rem; color: var(--black);
+}
+.form-group select,
+.form-group input {
+  font-family: 'Fredoka', sans-serif; font-weight: 600;
+  padding: 10px 14px; border: var(--border); border-radius: 12px;
+  font-size: 0.95rem; background: var(--white);
+  transition: box-shadow 0.15s;
+}
+.form-group select:focus,
+.form-group input:focus {
+  outline: none; box-shadow: var(--shadow-md);
+}
+
+.setup-actions {
+  display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px;
+}
+.setup-actions button {
+  font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem;
+  padding: 12px 28px; border: var(--border-thick); border-radius: 50px;
+  cursor: pointer; transition: transform 0.12s, box-shadow 0.12s;
+  box-shadow: var(--shadow-md);
+}
+.btn-start { background: var(--green); color: white; }
+.btn-reset { background: var(--yellow); color: var(--black); }
+.setup-actions button:hover { transform: translate(-2px,-2px); box-shadow: var(--shadow-lg); }
+
+/* ── QUIZ CONTAINER ── */
+.qcontainer { background: var(--white); border: var(--border-thick); border-radius: 22px; box-shadow: var(--shadow-md); padding: 28px 26px; display: block; }
+.qcontainer.active { display: block; }
+
+.quiz-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+.quiz-title { display: inline-block; font-weight: 700; font-size: 1.15rem; background: var(--yellow); border: var(--border-thick); border-radius: 50px; padding: 8px 24px; box-shadow: var(--shadow-sm); }
+
+.quiz-progress-wrap { background: #eee; border: var(--border); border-radius: 50px; height: 10px; margin-bottom: 6px; overflow: hidden; }
+.quiz-progress-fill { height: 100%; background: var(--red); border-radius: 50px; transition: width 0.35s ease; }
+.quiz-counter { font-family: 'Quicksand', sans-serif; font-size: 0.82rem; font-weight: 700; color: #888; margin-bottom: 14px; }
+
+/* ── SENTENCE ── */
+.sentence {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px;
+  font-family: 'Quicksand', sans-serif; font-size: 1.2rem; font-weight: 600; line-height: 2.4;
+  margin-bottom: 16px; background: var(--red-pale); border: var(--border); border-radius: 14px; padding: 16px 18px;
+}
+
+/* ── BLANK ── */
+.blank {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 52px; height: 34px; padding: 0 10px;
+  border: 2.5px dashed #bbb; border-radius: 10px;
+  background: transparent; color: #999;
+  font-family: 'Quicksand', sans-serif; font-weight: 800; font-size: 0.95rem;
+  vertical-align: middle; margin: 0 3px;
+  transition: min-width 0.12s ease, border-color 0.15s, background 0.15s;
+  white-space: nowrap; overflow: hidden;
+}
+.blank.filled {
+  background: var(--sky-pale); border: var(--border); border-style: solid;
+  color: var(--black); padding: 0 10px; cursor: pointer;
+}
+.blank.filled:hover { background: #c8ecff; }
+.blank.reveal-correct {
+  background: var(--green-pale); border-color: var(--green-dark) !important;
+  border-style: solid; color: var(--green-dark); cursor: default;
+}
+.blank.reveal-wrong {
+  background: var(--pink-pale); border-color: #e53935 !important;
+  border-style: solid; color: #c0392b; cursor: default;
+}
+
+/* ── OPTIONS ── */
+.options { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; justify-content: flex-start; }
+.word {
+  font-family: 'Quicksand', sans-serif; font-weight: 800; font-size: 0.95rem;
+  padding: 8px 16px; background: var(--white); color: var(--black);
+  border: var(--border-thick); border-radius: 12px;
+  box-shadow: 0 4px 0 var(--black); cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+  user-select: none; white-space: nowrap; -webkit-tap-highlight-color: transparent;
+}
+.word:active:not(.used):not(:disabled) { transform: translateY(3px); box-shadow: 0 1px 0 var(--black); }
+.word:hover:not(.used):not(:disabled)  { transform: translateY(-2px); box-shadow: 0 6px 0 var(--black); background: var(--yellow-pale); }
+.word.used    { visibility: hidden; pointer-events: none; }
+.word:disabled { opacity: 0.35; pointer-events: none; }
+.word.correct-reveal   { background: var(--green-pale); border-color: var(--green-dark); }
+.word.incorrect-reveal { background: var(--pink-pale);  border-color: #e53935; }
+
+/* ── RESULT BAR ── */
+.result-bar { display: none; border: var(--border-thick); border-radius: 16px; padding: 14px 18px; margin-bottom: 14px; font-weight: 700; font-size: 1rem; align-items: center; gap: 10px; }
+.result-bar.correct   { background: var(--green-pale); border-color: var(--green-dark); color: var(--green-dark); }
+.result-bar.incorrect { background: var(--pink-pale);  border-color: #e53935;           color: #c0392b; }
+
+.quiz-actions { display: none; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+.quiz-actions button { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem; padding: 10px 26px; border: var(--border-thick); border-radius: 50px; box-shadow: var(--shadow-sm); cursor: pointer; transition: transform 0.12s, box-shadow 0.12s; }
+.quiz-actions button:hover { transform: translate(-2px,-2px); box-shadow: var(--shadow-md); }
+.btn-next   { background: var(--green);    color: white; }
+.btn-retry  { background: var(--red);      color: white; }
+.btn-finish { background: var(--yellow);   color: var(--black); }
+.btn-exit   { background: var(--black);    color: white; }
+
+/* ── SCORE SUMMARY ── */
+.score-summary { display: none; text-align: center; padding: 20px 0 8px; }
+.score-circle { width: 110px; height: 110px; border-radius: 50%; border: var(--border-thick); margin: 0 auto 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: var(--shadow-lg); font-weight: 700; }
+.score-circle .score-num   { font-size: 2rem; line-height: 1; }
+.score-circle .score-label { font-size: 0.8rem; color: #666; }
+.score-summary h2 { font-size: 1.3rem; margin-bottom: 6px; }
+.score-summary p  { color: #666; font-size: 0.95rem; margin-bottom: 18px; font-family: 'Quicksand', sans-serif; }
+.score-summary-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+.score-summary-actions button { font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem; padding: 10px 26px; border: var(--border-thick); border-radius: 50px; box-shadow: var(--shadow-sm); cursor: pointer; transition: transform 0.12s, box-shadow 0.12s; }
+.score-summary-actions button:hover { transform: translate(-2px,-2px); box-shadow: var(--shadow-md); }
+
+/* ── FOOTER ── */
+footer { background: var(--black); color: rgba(255,255,255,0.65); padding: 28px 50px; text-align: center; position: relative; z-index: 1; }
+footer .brand { font-weight: 700; color: var(--red-light); font-size: 1.2rem; margin-bottom: 4px; }
+footer p { font-size: 0.9rem; font-weight: 500; }
+footer .social-icons { margin-top: 14px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+footer .social-icons a { text-decoration: none; color: var(--black); font-weight: 700; font-size: 0.88rem; background: var(--red-light); border: var(--border); border-radius: 50px; padding: 5px 16px; box-shadow: var(--shadow-sm); transition: transform 0.12s; }
+footer .social-icons a:hover { transform: translate(-1px,-2px); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  header { padding: 0 16px; }
+  .menu-toggle { display: block; }
+  nav { display: none; position: absolute; top: 66px; left: 0; right: 0; background: var(--red); border-bottom: var(--border); padding: 12px 0; flex-direction: column; z-index: 99; }
+  nav.show { display: flex; }
+  nav ul { flex-direction: column; align-items: center; gap: 8px; padding: 6px 0; }
+  .container { padding: 14px 14px 80px; gap: 16px; }
+  .card { padding: 18px 16px; }
+  .setup-grid { grid-template-columns: 1fr; }
+  .sentence { font-size: 1.05rem; padding: 12px 14px; line-height: 2.2; }
+  .blank  { height: 30px; font-size: 0.85rem; min-width: 40px; }
+  .word   { font-size: 0.88rem; padding: 7px 13px; }
+  footer { padding: 24px 16px; }
+}
+@media (max-width: 480px) {
+  header h1 { font-size: 1.3rem; }
+  .sentence { font-size: 0.95rem; }
+  .word { font-size: 0.82rem; padding: 6px 11px; }
+}
+/* ── SIDEBAR ── */
+.sidebar {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  background: var(--white);
+  border: var(--border-thick);
+  border-radius: 18px;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.sidebar-title {
+  display: block;
+  font-weight: 700;
+  font-size: 1rem;
+  background: var(--orange-pale);
+  color: var(--orange);
+  border-bottom: var(--border-thick);
+  padding: 12px 16px;
+  box-shadow: none;
+  margin: 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.sidebar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  list-style: none;
+}
+
+.sidebar-item {
+  border-bottom: var(--border);
+  transition: background 0.12s;
+}
+
+.sidebar-item:last-child {
+  border-bottom: none;
+}
+
+.sidebar-item a {
+  text-decoration: none;
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  transition: background 0.12s;
+}
+
+.sidebar-item a:hover {
+  background: var(--yellow-pale);
+}
+
+.sidebar-emoji {
+  font-size: 1.4rem;
+  min-width: 24px;
+  text-align: center;
+}
+
+.sidebar-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.3;
+  flex: 1;
+  min-width: 0;
+  word-wrap: break-word;
+}
+
+/* Scrollbar styling */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: #bbb;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 240px;
+    max-height: 500px;
+  }
+  .sidebar-emoji {
+    font-size: 1.3rem;
+  }
+  .sidebar-text {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  .sidebar-title {
+    padding: 10px 14px;
+    font-size: 0.95rem;
+  }
+  .sidebar-item a {
+    padding: 10px 14px;
+  }
+  .sidebar-emoji {
+    font-size: 1.2rem;
+  }
+  .sidebar-text {
+    font-size: 0.8rem;
+  }
+}
+  /* ── ANSWER KEY ── */
+.answer-key-section {
+  margin-top: 30px;
+  padding: 20px;
+  background: var(--blue-pale);
+  border: var(--border-thick);
+  border-radius: 16px;
+}
+
+.answer-key-toggle {
+  width: 100%;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 12px 18px;
+  background: var(--blue);
+  color: white;
+  border: var(--border-thick);
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.12s, box-shadow 0.12s, background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.answer-key-toggle:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-md);
+}
+
+.answer-key-toggle.open {
+  background: var(--red);
+}
+
+.answer-key-toggle .toggle-icon {
+  transition: transform 0.3s;
+}
+
+.answer-key-toggle.open .toggle-icon {
+  transform: rotate(180deg);
+}
+
+.answer-key-content {
+  margin-top: 16px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.answer-key-content.show {
+  max-height: none;      /* Cho phép full height */
+  overflow-y: auto;
+}
+
+.answer-key-item {
+  background: white;
+  border: var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.95rem;
+}
+
+.answer-key-item-q {
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--black);
+}
+
+.answer-key-item-a {
+  color: var(--green-dark);
+  font-weight: 600;
+}
+  .btn-exit {
+  background: var(--black);
+  color: white;
+}
+  @keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1><a href="index.html" class="homepage-link">CHINESE60S</a></h1>
+  <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+  <nav>
+    <ul>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="learning-page.html">Lessons</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="main-col">
+    <!-- SETUP CARD -->
+<div class="card" id="setup-card">
+  <div class="card-title">⚙️ Speaking Setup</div>
+  <div class="setup-grid">
+    <div class="form-group">
+      <label for="sort-order">📋 Sort Order:</label>
+      <select id="sort-order">
+        <option value="show-all">Show All Questions</option>
+        <option value="small-to-large">Small to Large (1 → Last)</option>
+        <option value="large-to-small">Large to Small (Last → 1)</option>
+        <option value="random">Random Order</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="question-count">❓ Number of Questions:</label>
+      <input type="number" id="question-count" min="1" value="10" placeholder="Enter number">
+    </div>
+  </div>
+
+  <div class="setup-actions">
+    <button class="btn-start" id="start-button">▶ Start Speaking</button>
+    <button class="btn-reset" id="reset-button">↻ Reset</button>
+  </div>
+</div>
+    <!-- SPEAKING PRACTICE CONTAINER -->
+<div class="qcontainer" id="speaking-container">
+  <div class="card">
+    <div class="card-title">🎤 Speaking Practice</div>
+    
+    <div id="sentence-display" style="
+      font-family: 'Quicksand', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      line-height: 2.4;
+      background: var(--red-pale);
+      border: var(--border);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin-bottom: 20px;
+    "></div>
+
+    <!-- RECORDER -->
+    <div style="background: var(--red-pale); border: var(--border); border-radius: 14px; padding: 16px 18px; margin-bottom: 20px;">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap;">
+        <div class="rec-dot" id="recDot" style="width: 12px; height: 12px; border-radius: 50%; background: var(--muted); border: var(--border); flex-shrink: 0;"></div>
+        <div id="recTimer" style="font-family: 'Quicksand', sans-serif; font-weight: 700; font-size: 1.1rem; min-width: 50px;">00:00</div>
+        <button class="btn-start" id="recBtn" style="padding: 9px 20px;">● REC</button>
+        <button class="btn-reset" id="stopBtn" style="padding: 9px 20px;" disabled>■ Stop</button>
+      </div>
+      <div id="sttOutput" style="
+        font-family: 'Quicksand', sans-serif;
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: var(--muted);
+        background: var(--white);
+        border: var(--border);
+        border-radius: 10px;
+        padding: 11px 14px;
+        min-height: 52px;
+        white-space: pre-wrap;
+        word-break: break-word;
+      ">Speech-to-text appears here...</div>
+    </div>
+
+    <!-- ANSWER KEY -->
+    <div id="answerDisplay" style="display: none; background: var(--green-pale); border: var(--border); border-radius: 14px; padding: 16px 18px; margin-bottom: 20px;">
+      <div style="font-weight: 700; margin-bottom: 10px; color: var(--green-dark);">✓ Target Answer:</div>
+      <div id="targetAnswer" style="
+        font-family: 'Quicksand', sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--black);
+        background: white;
+        border: var(--border);
+        border-radius: 10px;
+        padding: 12px 14px;
+      "></div>
+    </div>
+
+   <!-- ACTIONS -->
+<div style="display: flex; gap: 10px; flex-wrap: wrap;">
+  <button class="btn-next" id="skipBtn" style="display: none;">⊘ Skip</button>
+  <button class="btn-next" id="nextBtn" style="display: none;">✓ Next</button>
+  <button class="btn-exit" id="exitBtn">Exit to Setup</button>
+</div>
+
+    <!-- COUNTER -->
+    <div id="speakCounter" style="
+      font-family: 'Quicksand', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #888;
+      margin-top: 14px;
+    "></div>
+  </div>
+</div>
+    <div class="answer-key-section" id="answer-key-section">
+  <button class="answer-key-toggle" id="answer-key-toggle">
+    📋 Show All Answers <span class="toggle-icon">▼</span>
+  </button>
+  <div class="answer-key-content" id="answer-key-content">
+    <div id="answer-key-list"></div>
+  </div>
+</div>
+
+  </div>
+  <!-- SIDEBAR -->
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-title">📚 Speaking Lessons</div>
+    <ul class="sidebar-list" id="sidebar-list">
+      <!-- Items will be loaded here -->
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <p class="brand">CHINESE60S</p>
+  <p>Learn Mandarin Chinese through images and videos</p>
+  <div class="social-icons">
+    <a href="#">Facebook</a><a href="#">YouTube</a>
+    <a href="#">TikTok</a><a href="#">Instagram</a>
+  </div>
+</footer>
+
+<script>
+// ════════════════════════════════════════════════════════════════
+// SOUND EFFECTS
+// ════════════════════════════════════════════════════════════════
+const SFX = {
+  click:     new Audio('assets/click.mp3'),
+  correct:   new Audio('assets/correct.mp3'),
+  incorrect: new Audio('assets/incorrect.mp3'),
+  victory:   new Audio('assets/victory.mp3'),
+};
+
+function play(k) {
+  try {
+    SFX[k].currentTime = 0;
+    SFX[k].play().catch(() => {});
+  } catch(e) {}
+}
+
+// ════════════════════════════════════════════════════════════════
+// UTILITY FUNCTIONS
+// ════════════════════════════════════════════════════════════════
+function isImg(s) {
+  return /\.(jpe?g|png|gif|webp|bmp|svg)$/i.test(String(s || ''));
+}
+
+function wordHTML(w) {
+  return isImg(w)
+    ? `<img src="${w}" alt="" style="height:40px;border-radius:6px;">`
+    : String(w);
+}
+
+function qs(sel) {
+  return document.querySelector(sel);
+}
+
+function qsa(sel) {
+  return document.querySelectorAll(sel);
+}
+
+// ════════════════════════════════════════════════════════════════
+// QUIZ STATE
+// ════════════════════════════════════════════════════════════════
+let allQuestions = [];      // Tất cả câu hỏi từ JSON
+let questions = [];         // Câu hỏi được lọc + sắp xếp
+let curIdx = 0;
+let scoreCorrect = 0;
+let slots = [];
+let revealed = false;
+
+
+
+
+// ════════════════════════════════════════════════════════════════
+// LOAD DATA
+// ════════════════════════════════════════════════════════════════
+async function loadAllQuestions() {
+  try {
+    const response = await fetch('data/speak.json');
+    allQuestions = await response.json();
+    if (!Array.isArray(allQuestions)) {
+      allQuestions = allQuestions.questions || [];
+    }
+    console.log(`📚 Loaded ${allQuestions.length} questions`);
+    return allQuestions;
+  } catch(err) {
+    console.error('Error loading questions:', err);
+    // Fallback data
+    allQuestions = [
+      { id:1, sentence:'She ___ to school every day.',     blanks:[{answer:'goes'}],  words:['goes','go','went','gone'] },
+      { id:2, sentence:'The report ___ three main ideas.', blanks:[{answer:'covers'}], words:['covers','cover','covered','has'] },
+      { id:3, sentence:'___ the graph shows, sales ___.',  blanks:[{answer:'As'},{answer:'rose'}], words:['As','Since','rose','fall','While','dropped'] },
+    ];
+    return allQuestions;
+  }
+}
+
+// ════════════════════════════════════════════════════════════════
+// FILTER & SORT QUESTIONS
+// ════════════════════════════════════════════════════════════════
+function filterAndSortQuestions(sortOrder, count) {
+  let filtered = [...allQuestions];
+  const maxCount = Math.min(count, filtered.length);
+
+  // Áp dụng sắp xếp
+  if (sortOrder === 'small-to-large') {
+    filtered.sort((a, b) => (a.id || 0) - (b.id || 0));
+    return filtered.slice(0, maxCount);
+  }
+
+  if (sortOrder === 'large-to-small') {
+    filtered.sort((a, b) => (b.id || 0) - (a.id || 0));
+    return filtered.slice(0, maxCount);
+  }
+
+  if (sortOrder === 'random') {
+    filtered.sort(() => Math.random() - 0.5);
+    return filtered.slice(0, maxCount);
+  }
+
+  // show-all: trả về tất cả
+  return filtered;
+}
+
+
+// ════════════════════════════════════════════════════════════════
+// EVENT LISTENERS
+// ════════════════════════════════════════════════════════════════
+
+
+// Mobile menu toggle
+qs('.menu-toggle')?.addEventListener('click', function () {
+  const nav = qs('nav');
+  nav.classList.toggle('show');
+  this.innerHTML = nav.classList.contains('show') ? '&#10005;' : '&#9776;';
+});
+
+// ════════════════════════════════════════════════════════════════
+// LOAD QUESTIONS ON PAGE LOAD
+// ════════════════════════════════════════════════════════════════
+
+// ════════════════════════════════════════════════════════════════
+// EMOJI MAP FOR SIDEBAR
+// ════════════════════════════════════════════════════════════════
+const emojiMap = [
+  { keys: ['food','eat','cook','recipe','restaurant','lunch','dinner','breakfast','coffee','drink'], emoji: '🍜' },
+  { keys: ['travel','trip','vacation','holiday','flight','hotel','city','abroad'], emoji: '✈️' },
+  { keys: ['sport','gym','exercise','fitness','run','football','basketball','swim'], emoji: '⚽' },
+  { keys: ['work','job','office','meeting','business','career','company'], emoji: '💼' },
+  { keys: ['school','study','exam','university','class','education','learn'], emoji: '🎓' },
+  { keys: ['money','finance','bank','budget','save','invest'], emoji: '💰' },
+  { keys: ['health','hospital','doctor','medicine','body','sleep','mental'], emoji: '🏥' },
+  { keys: ['family','home','house','parent','child','kid','baby'], emoji: '🏠' },
+  { keys: ['music','song','concert','band','sing','playlist'], emoji: '🎵' },
+  { keys: ['movie','film','cinema','watch','show','series'], emoji: '🎬' },
+  { keys: ['nature','environment','plant','animal','ocean','forest'], emoji: '🌿' },
+  { keys: ['technology','tech','computer','app','phone','internet','ai'], emoji: '💻' },
+  { keys: ['fashion','clothes','style','outfit','shopping'], emoji: '👗' },
+  { keys: ['speak','speaking','conversation','talk','discuss'], emoji: '💬' },
+  { keys: ['read','reading','book','article','story'], emoji: '📖' },
+];
+
+const fallbackEmojis = ['📝','🎯','💡','🌟','🔥','⚡','🎈','🌈','🦋','🎪'];
+
+function pickEmojiForSidebar(title, idx) {
+  const t = (title || '').toLowerCase();
+  for (const { keys, emoji } of emojiMap) {
+    if (keys.some(k => t.includes(k))) return emoji;
+  }
+  return fallbackEmojis[idx % fallbackEmojis.length];
+}
+
+// ════════════════════════════════════════════════════════════════
+// LOAD SIDEBAR THUMBNAILS
+// ════════════════════════════════════════════════════════════════
+async function loadSidebarList() {
+  const sidebarList = qs('#sidebar-list');
+  if (!sidebarList) return;
+
+  try {
+    const response = await fetch('data/thumbnail.json');
+    const items = await response.json();
+
+    if (!items.length) {
+      sidebarList.innerHTML = `<li style="padding:12px 16px;color:#999;font-size:0.9rem;">No items found</li>`;
+      return;
+    }
+
+    sidebarList.innerHTML = '';
+    items.forEach((item, i) => {
+      const emoji = pickEmojiForSidebar(item.title, i);
+      
+      const li = document.createElement('li');
+      li.className = 'sidebar-item';
+      li.innerHTML = `
+        <a href="${item.htmlLink}" target="_blank">
+          <span class="sidebar-emoji">${emoji}</span>
+          <span class="sidebar-text">${item.title || 'Untitled'}</span>
+        </a>
+      `;
+      sidebarList.appendChild(li);
+    });
+  } catch (error) {
+    console.error('Error loading sidebar:', error);
+    sidebarList.innerHTML = `<li style="padding:12px 16px;color:#999;font-size:0.9rem;">Failed to load</li>`;
+  }
+}
+
+// ════════════════════════════════════════════════════════════════
+// CALL ON PAGE LOAD
+// ════════════════════════════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', () => {
+  loadAllQuestions();
+  loadSidebarList();
+  loadAnswerKey();  // Load answer key ngay
+});
+// ════════════════════════════════════════════════════════════════
+// SPEAKING PRACTICE MODE
+// ════════════════════════════════════════════════════════════════
+let currentQuestion = null;
+let mediaRecorder = null;
+let audioChunks = [];
+let isRecording = false;
+let recSecs = 0;
+let timerInterval = null;
+let speechRec = null;
+let currentSTT = '';
+
+const recBtn = qs('#recBtn');
+const stopBtn = qs('#stopBtn');
+const recTimer = qs('#recTimer');
+const recDot = qs('#recDot');
+const sttOutput = qs('#sttOutput');
+const answerDisplay = qs('#answerDisplay');
+const targetAnswer = qs('#targetAnswer');
+const nextBtn = qs('#nextBtn');
+
+const skipBtn = qs('#skipBtn');
+const sentenceDisplay = qs('#sentence-display');
+const speakCounter = qs('#speakCounter');
+
+let speakIdx = 0;
+let speakQuestions = [];
+// ════════════════════════════════════════════════════════════════
+// SETUP VARIABLES
+// ════════════════════════════════════════════════════════════════
+const setupCard = qs('#setup-card');
+const sortOrderSelect = qs('#sort-order');
+const questionCountInput = qs('#question-count');
+const startBtn = qs('#start-button');
+const resetSetupBtn = qs('#reset-button');
+// ── LOAD QUESTIONS & INIT ──
+async function initSpeaking() {
+  if (allQuestions.length === 0) {
+    await loadAllQuestions();
+  }
+  // Không khởi động ngay, chờ user click "Start Speaking"
+  console.log('✅ Questions loaded, waiting for user to click "Start Speaking"');
+}
+
+function showSpeakingQ() {
+  if (speakIdx >= speakQuestions.length) {
+    alert('✅ Hoàn thành tất cả câu hỏi!');
+    // Quay lại setup
+    setupCard.style.display = 'block';
+    speakIdx = 0;
+    return;
+  }
+
+  currentQuestion = speakQuestions[speakIdx];
+  
+  // Hiển thị câu (với "___" thay thế blank)
+  let sentenceText = Array.isArray(currentQuestion.sentence)
+    ? currentQuestion.sentence.join(' ')
+    : String(currentQuestion.sentence || '');
+  
+  sentenceDisplay.textContent = sentenceText;
+  sentenceDisplay.style.display = '';
+  
+  // Reset state
+  resetRecorder();
+  answerDisplay.style.display = 'none';
+  nextBtn.style.display = 'none';
+  sttOutput.textContent = 'Speech-to-text appears here...';
+  sttOutput.style.color = 'var(--muted)';
+  skipBtn.style.display = 'block';  // ← Thêm dòng này
+  speakCounter.textContent = `Question ${speakIdx + 1} / ${speakQuestions.length}`;
+}
+
+function resetRecorder() {
+  if (isRecording) stopRecording();
+  currentSTT = '';
+  recSecs = 0;
+  recTimer.textContent = '00:00';
+  sttOutput.textContent = 'Speech-to-text appears here...';
+  sttOutput.style.color = 'var(--muted)';
+  recDot.style.background = 'var(--muted)';
+  recBtn.disabled = false;
+  stopBtn.disabled = true;
+}
+
+recBtn.addEventListener('click', async () => {
+  if (!isRecording) {
+    await startRecording();
+  }
+});
+
+stopBtn.addEventListener('click', () => {
+  stopRecording();
+  showAnswer();
+});
+
+async function startRecording() {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    const mimeType = getSupportedMimeType();
+    mediaRecorder = mimeType
+      ? new MediaRecorder(stream, { mimeType })
+      : new MediaRecorder(stream);
+    
+    audioChunks = [];
+    currentSTT = '';
+    mediaRecorder.ondataavailable = (e) => audioChunks.push(e.data);
+    mediaRecorder.start();
+    
+    isRecording = true;
+    recDot.style.background = 'var(--red)';
+    recDot.style.animation = 'blink 1s ease-in-out infinite';
+    recBtn.disabled = true;
+    stopBtn.disabled = false;
+    
+    recSecs = 0;
+    timerInterval = setInterval(() => {
+      recSecs++;
+      const m = String(Math.floor(recSecs / 60)).padStart(2, '0');
+      const s = String(recSecs % 60).padStart(2, '0');
+      recTimer.textContent = `${m}:${s}`;
+    }, 1000);
+    
+    startSTT();
+  } catch (err) {
+    alert('❌ Microphone error: ' + err.message);
+  }
+}
+
+function stopRecording() {
+  if (!mediaRecorder) return;
+  
+  mediaRecorder.stop();
+  mediaRecorder.stream.getTracks().forEach((t) => t.stop());
+  
+  isRecording = false;
+  clearInterval(timerInterval);
+  recDot.style.background = 'var(--muted)';
+  recDot.style.animation = 'none';
+  recBtn.disabled = false;
+  stopBtn.disabled = true;
+  
+  if (speechRec) {
+    speechRec.stop();
+    speechRec = null;
+  }
+}
+
+function getSupportedMimeType() {
+  const types = [
+    'audio/mp4',
+    'audio/webm;codecs=opus',
+    'audio/webm',
+    'audio/ogg;codecs=opus',
+    'audio/ogg',
+  ];
+  for (const t of types) {
+    if (MediaRecorder.isTypeSupported && MediaRecorder.isTypeSupported(t))
+      return t;
+  }
+  return '';
+}
+
+function startSTT() {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) {
+    sttOutput.textContent = 'STT not supported — use Chrome/Edge';
+    sttOutput.style.color = '#999';
+    return;
+  }
+
+  speechRec = new SR();
+  speechRec.continuous = true;
+  speechRec.interimResults = true;
+  speechRec.lang = 'en-US';
+
+  let finalText = '';
+
+  speechRec.onresult = (e) => {
+    let interim = '';
+    for (let i = e.resultIndex; i < e.results.length; i++) {
+      if (e.results[i].isFinal) {
+        finalText += e.results[i][0].transcript + ' ';
+      } else {
+        interim += e.results[i][0].transcript;
+      }
+    }
+    currentSTT = finalText + interim;
+    sttOutput.textContent = currentSTT || '...listening';
+    sttOutput.style.color = 'var(--black)';
+  };
+
+  speechRec.onerror = (e) => {
+    if (e.error !== 'no-speech') {
+      sttOutput.textContent = 'STT error: ' + e.error;
+      sttOutput.style.color = '#c00';
+    }
+  };
+
+  speechRec.start();
+}
+
+function showAnswer() {
+  const blanks = currentQuestion.blanks || [];
+  const answers = blanks.map((b) => b.answer).join(' / ');
+
+  targetAnswer.textContent = answers;
+  answerDisplay.style.display = 'block';
+  nextBtn.style.display = 'block';
+  
+}
+
+nextBtn.addEventListener('click', () => {
+  speakIdx++;
+  showSpeakingQ();
+});
+
+
+skipBtn.addEventListener('click', () => {
+  speakIdx++;
+  showSpeakingQ();
+});
+const exitBtn = qs('#exitBtn');
+
+exitBtn.addEventListener('click', () => {
+  if (confirm('Exit speaking practice? Your progress will be lost.')) {
+    location.reload();  // ← Thêm dòng này để F5 trang
+  }
+});
+
+// ════════════════════════════════════════════════════════════════
+// SETUP EVENT LISTENERS
+// ════════════════════════════════════════════════════════════════
+startBtn.addEventListener('click', async () => {
+  const sortOrder = sortOrderSelect.value;
+  const countInput = parseInt(questionCountInput.value) || 10;
+
+  if (allQuestions.length === 0) {
+    await loadAllQuestions();
+  }
+
+  // Áp dụng filter + sort
+  speakQuestions = filterAndSortQuestions(sortOrder, countInput);
+
+  if (speakQuestions.length === 0) {
+    alert('❌ No questions available!');
+    return;
+  }
+
+  // Ẩn setup card, khởi động speaking practice
+  setupCard.style.display = 'none';
+  speakIdx = 0;
+  showSpeakingQ();
+});
+
+resetSetupBtn.addEventListener('click', () => {
+  location.reload();  // Reload page như F5
+});
+// ════════════════════════════════════════════════════════════════
+// ANSWER KEY (COLLAPSIBLE)
+// ════════════════════════════════════════════════════════════════
+  let answerKeyInitialized = false;  // ← Thêm flag này
+  async function loadAnswerKey() {
+  const answerKeyToggle = qs('#answer-key-toggle');
+  const answerKeyContent = qs('#answer-key-content');
+  const answerKeyList = qs('#answer-key-list');
+
+  // Reset state
+  answerKeyContent.classList.remove('show');
+  answerKeyToggle.classList.remove('open');
+
+  // Chỉ gắn event listener ĐỘT NHẤ
+  if (!answerKeyInitialized) {
+    answerKeyToggle.addEventListener('click', () => {
+      answerKeyContent.classList.toggle('show');
+      answerKeyToggle.classList.toggle('open');
+      
+      const icon = answerKeyToggle.querySelector('.toggle-icon');
+      if (icon) {
+        icon.textContent = answerKeyContent.classList.contains('show') ? '▲' : '▼';
+      }
+    });
+    answerKeyInitialized = true;
+  }
+
+  // Load JSON riêng cho answer key
+  try {
+    const response = await fetch('data/speak.json');
+    let allData = await response.json();
+    if (!Array.isArray(allData)) {
+      allData = allData.questions || [];
+    }
+
+    answerKeyList.innerHTML = '';
+    allData.forEach((q, idx) => {
+      const blanks = q.blanks || [];
+      const answers = blanks.map(b => b.answer).join(' / ');
+      const sentence = Array.isArray(q.sentence)
+        ? q.sentence.join(' ')
+        : q.sentence;
+
+      const item = document.createElement('div');
+      item.className = 'answer-key-item';
+      item.innerHTML = `
+        <div class="answer-key-item-q">Q${idx + 1}: ${sentence}</div>
+        <div class="answer-key-item-a">✓ Answer: <strong>${answers}</strong></div>
+      `;
+      answerKeyList.appendChild(item);
+    });
+
+    console.log(`✅ Answer key loaded: ${allData.length} questions`);
+  } catch(err) {
+    console.error('Error loading answer key:', err);
+    answerKeyList.innerHTML = `<div class="answer-key-item">
+        <div class="answer-key-item-q">Q1: Sample question (data file not found)</div>
+        <div class="answer-key-item-a">✓ goes / rises</div>
+      </div>`;
+  }
+}
+// ── INIT ON PAGE LOAD ──
+document.addEventListener('DOMContentLoaded', async () => {
+  await loadAllQuestions();
+  await loadSidebarList();
+  await loadAnswerKey();
+  initSpeaking(); // ← Khởi động Speaking Practice
+});
+</script>
+
+</body>
+</html>
