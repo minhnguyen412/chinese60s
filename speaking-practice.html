@@ -1291,6 +1291,15 @@ nextBtn.addEventListener('click', () => {
 
 skipBtn.addEventListener('click', () => {
   speakIdx++;
+  
+  // ← FIX: Nếu free user đã làm xong 10 câu → Hiện upgrade modal
+  if (!window.__userIsPremium && speakIdx >= 10) {
+    console.log('[Speaking] Free user reached question limit (via skip)');
+    setupCard.style.display = 'block';  // Quay lại setup
+    openUpgradeModal();  // Hiện modal
+    return;
+  }
+  
   showSpeakingQ();
 });
 const exitBtn = qs('#exitBtn');
