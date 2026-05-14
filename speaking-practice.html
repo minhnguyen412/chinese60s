@@ -224,27 +224,26 @@ footer .social-icons a:hover { transform: translate(-1px,-2px); }
   nav { display: none; position: absolute; top: 66px; left: 0; right: 0; background: var(--red); border-bottom: var(--border); padding: 12px 0; flex-direction: column; z-index: 99; }
   nav.show { display: flex; }
   nav ul { flex-direction: column; align-items: center; gap: 8px; padding: 6px 0; }
-  .container { flex-direction: column; padding: 12px 0px 80px; gap: 0px; }
+  .container { flex-direction: column; padding: 12px 12px 80px; gap: 12px; }
   .main-col {
     order: 1;  /* ← Main content lên trước */
-    padding: 0 12px;
   }
   .sidebar {
     order: 2;
-    width: 100vw;  /* ← Dùng viewport width */
-    max-height: none;  /* ← Bỏ max-height */
+    width: 100%;
+    max-height: none;  /* ← Loại bỏ giới hạn chiều cao */
+    /* hoặc: max-height: 100%;  */
     overflow-y: auto;
-    margin-left: calc(-50vw + 50%);  /* ← Center nó */
-    margin-right: calc(-50vw + 50%);
-    padding: 0;
-    border-radius: 0;  /* ← Bỏ rounded corner */
-    margin-top: 12px;
-    margin-bottom: 20px;
+    margin-bottom: 20px;  /* ← Thêm margin dưới */
   }
   
   .sidebar-title {
     padding: 10px 14px;
     font-size: 0.95rem;
+  }
+  
+  .sidebar-item {
+    border-bottom: var(--border);
   }
   
   .sidebar-item a {
