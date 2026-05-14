@@ -760,6 +760,24 @@ footer .social-icons a:hover { transform: translate(-1px,-2px); }
       padding: 16px 18px;
       margin-bottom: 20px;
     "></div>
+    <!-- TIPS FOR STT -->
+<div style="
+  background: var(--blue-pale);
+  border: var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  font-size: 0.88rem;
+  color: #555;
+">
+  <strong>💡 STT Tips:</strong>
+  <ul style="margin: 6px 0 0 18px; padding: 0;">
+    <li>iPad: Use Safari 14.5+ or Chrome</li>
+    <li>Allow microphone permission in Settings</li>
+    <li>Speak clearly in Chinese (Mandarin)</li>
+    <li>If STT fails, you can still skip the question</li>
+  </ul>
+</div>
 
     <!-- RECORDER -->
     <div style="background: var(--red-pale); border: var(--border); border-radius: 14px; padding: 16px 18px; margin-bottom: 20px;">
@@ -1160,7 +1178,13 @@ stopBtn.addEventListener('click', () => {
 
 async function startRecording() {
   try {
-    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    const stream = await navigator.mediaDevices.getUserMedia({ 
+      audio: {
+        echoCancellation: true,
+        noiseSuppression: true,
+        autoGainControl: true
+      }
+    });
     const mimeType = getSupportedMimeType();
     mediaRecorder = mimeType
       ? new MediaRecorder(stream, { mimeType })
@@ -1228,8 +1252,18 @@ function getSupportedMimeType() {
 function startSTT() {
   const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
   if (!SR) {
-    sttOutput.textContent = 'STT not supported — use Chrome/Edge';
+    sttOutput.textContent = '❌ STT not supported on this browser';
     sttOutput.style.color = '#999';
+    console.warn('[STT] Speech Recognition not available');
+    return;
+  }
+
+  // ← Thêm: Kiểm tra nếu là iPad/iOS
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+  if (isIOS && !window.webkitSpeechRecognition) {
+    sttOutput.textContent = '❌ STT requires Safari 14.5+ or Chrome on iOS';
+    sttOutput.style.color = '#999';
+    console.warn('[STT] iOS Speech Recognition not fully supported');
     return;
   }
 
@@ -1237,8 +1271,13 @@ function startSTT() {
   speechRec.continuous = true;
   speechRec.interimResults = true;
   speechRec.lang = 'zh-CN';
+  speechRec.maxAlternatives = 1;  // ← Thêm: Limit alternatives
 
   let finalText = '';
+
+  speechRec.onstart = () => {
+    console.log('[STT] Recognition started');
+  };
 
   speechRec.onresult = (e) => {
     let interim = '';
@@ -1252,16 +1291,28 @@ function startSTT() {
     currentSTT = finalText + interim;
     sttOutput.textContent = currentSTT || '...listening';
     sttOutput.style.color = 'var(--black)';
+    console.log('[STT] Result:', currentSTT);
   };
 
   speechRec.onerror = (e) => {
+    console.error('[STT] Error:', e.error);
     if (e.error !== 'no-speech') {
-      sttOutput.textContent = 'STT error: ' + e.error;
+      sttOutput.textContent = `❌ STT error: ${e.error}`;
       sttOutput.style.color = '#c00';
     }
   };
 
-  speechRec.start();
+  speechRec.onend = () => {
+    console.log('[STT] Recognition ended');
+  };
+
+  try {
+    speechRec.start();
+  } catch (err) {
+    console.error('[STT] Start error:', err);
+    sttOutput.textContent = '❌ Could not start STT';
+    sttOutput.style.color = '#c00';
+  }
 }
 
 function showAnswer() {
