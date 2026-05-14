@@ -948,19 +948,18 @@ let revealed = false;
 async function loadAllQuestions() {
   try {
     const response = await fetch('data/speak.json');
+    
+    // ✅ ADD THIS LINE
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    
     allQuestions = await response.json();
-    if (!Array.isArray(allQuestions)) {
-      allQuestions = allQuestions.questions || [];
-    }
     console.log(`📚 Loaded ${allQuestions.length} questions`);
     return allQuestions;
   } catch(err) {
-    console.error('Error loading questions:', err);
+    console.error('❌ Failed to load questions:', err.message);
     // Fallback data
     allQuestions = [
-      { id:1, sentence:'She ___ to school every day.',     blanks:[{answer:'goes'}],  words:['goes','go','went','gone'] },
-      { id:2, sentence:'The report ___ three main ideas.', blanks:[{answer:'covers'}], words:['covers','cover','covered','has'] },
-      { id:3, sentence:'___ the graph shows, sales ___.',  blanks:[{answer:'As'},{answer:'rose'}], words:['As','Since','rose','fall','While','dropped'] },
+      { id:1, sentence:'Sample question', blanks:[{answer:'answer'}] }
     ];
     return allQuestions;
   }
@@ -1050,6 +1049,7 @@ async function loadSidebarList() {
 
   try {
     const response = await fetch('data/thumbnail.json');
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);  // ✅ ADD
     const items = await response.json();
 
     if (!items.length) {
@@ -1512,6 +1512,7 @@ resetSetupBtn.addEventListener('click', () => {
   // Load JSON riêng cho answer key
   try {
     const response = await fetch('data/speak.json');
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);  // ✅ ADD
     let allData = await response.json();
     if (!Array.isArray(allData)) {
       allData = allData.questions || [];
