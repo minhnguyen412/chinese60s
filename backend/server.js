@@ -1,6 +1,6 @@
 // ============================================
-// backend/server.js - Node.js + Express
-// Firebase Auth + Supabase Database
+// backend/server.js - Updated with RLS
+// Firebase Auth + Supabase Database (with RLS)
 // ============================================
 
 const express = require('express');
@@ -13,7 +13,7 @@ require('dotenv').config();
 const app = express();
 
 // ─────────────────────────────────────────
-// CORS CONFIG - FIXED
+// CORS CONFIG
 // ─────────────────────────────────────────
 
 const allowedOrigins = [
@@ -21,22 +21,15 @@ const allowedOrigins = [
   'http://localhost:3000',
   'https://chinese60s.com',
   'https://www.chinese60s.com',
-  ...(process.env.CLIENT_URL ? [process.env.CLIENT_URL] : []), // ✅ Properly spread
+  ...(process.env.CLIENT_URL ? [process.env.CLIENT_URL] : []),
 ];
 
 console.log('✅ Allowed origins:', allowedOrigins);
 
-// Main CORS middleware
 app.use(cors({
   origin: function(origin, callback) {
-    // Allow requests with no origin (Postman, curl, etc.)
-    if (!origin) {
-      return callback(null, true);
-    }
-    // Check if origin is allowed
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    }
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) return callback(null, true);
     callback(new Error('Not allowed by CORS: ' + origin));
   },
   credentials: true,
@@ -44,7 +37,6 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
 }));
 
-// ✅ FIXED: Preflight OPTIONS handler - properly reject instead of allow all
 app.options('*', cors({
   origin: function(origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
@@ -65,10 +57,9 @@ app.options('*', cors({
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
-// Multer for file uploads (memory storage)
 const upload = multer({ 
   storage: multer.memoryStorage(),
-  limits: { fileSize: 100 * 1024 * 1024 }, // 100MB
+  limits: { fileSize: 100 * 1024 * 1024 },
 });
 
 // ─────────────────────────────────────────
@@ -86,13 +77,32 @@ admin.initializeApp({
 const auth = admin.auth();
 
 // ─────────────────────────────────────────
-// SUPABASE CLIENT
+// SUPABASE CLIENTS - DUAL SETUP
 // ─────────────────────────────────────────
 
-const supabase = createClient(
+// Client 1: Anon key (RLS applies - for frontend queries)
+const supabaseAnon = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_ANON_KEY
+);
+
+// Client 2: Service role key (RLS bypassed - for backend operations)
+// ⚠️ CRITICAL: SERVICE_ROLE_KEY must NEVER be exposed to frontend
+const supabaseServiceRole = createClient(
   process.env.SUPABASE_URL,
   process.env.SUPABASE_SERVICE_ROLE_KEY
 );
+
+// Verify keys are configured
+if (!process.env.SUPABASE_SERVICE_ROLE_KEY) {
+  console.error('❌ ERROR: SUPABASE_SERVICE_ROLE_KEY not configured in .env');
+  console.error('   Get it from: Supabase Dashboard → Settings → API → Service Role (secret)');
+  process.exit(1);
+}
+
+console.log('✅ Supabase clients initialized:');
+console.log('   - Anon (frontend): RLS enabled');
+console.log('   - Service role (backend): RLS bypassed');
 
 // ─────────────────────────────────────────
 // AUTH MIDDLEWARE
@@ -129,12 +139,14 @@ async function verifyFirebaseToken(req, res, next) {
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date() });
 });
-// ✅ Thêm route này VÀO ĐÂY (trước submit)
+
+// Get lesson count
 app.get('/api/lesson-count', verifyFirebaseToken, async (req, res) => {
   try {
     const uid = req.user.uid;
     
-    const { count, error } = await supabase
+    // ✅ Use service role to bypass RLS (need to count ALL user's lessons)
+    const { count, error } = await supabaseServiceRole
       .from('lessons')
       .select('*', { count: 'exact', head: true })
       .eq('user_id', uid);
@@ -146,9 +158,11 @@ app.get('/api/lesson-count', verifyFirebaseToken, async (req, res) => {
       count: count || 0 
     });
   } catch (error) {
+    console.error('[lesson-count] Error:', error);
     res.status(500).json({ error: error.message });
   }
 });
+
 // Submit lesson content
 app.post('/api/submit', verifyFirebaseToken, upload.any(), async (req, res) => {
   try {
@@ -168,7 +182,7 @@ app.post('/api/submit', verifyFirebaseToken, upload.any(), async (req, res) => {
       return res.status(400).json({ error: 'Invalid JSON in body' });
     }
 
-    // ═══ FILE UPLOAD (Optional - Supabase Storage) ═══
+    // File upload to Supabase Storage
     const fileUrls = {};
 
     if (req.files && req.files.length > 0) {
@@ -176,7 +190,7 @@ app.post('/api/submit', verifyFirebaseToken, upload.any(), async (req, res) => {
         const filename = `${uid}/${Date.now()}-${Math.random().toString(36).slice(2)}-${file.originalname}`;
         
         try {
-          const { data, error } = await supabase.storage
+          const { data, error } = await supabaseServiceRole.storage
             .from('lesson-files')
             .upload(filename, file.buffer, {
               contentType: file.mimetype,
@@ -184,20 +198,19 @@ app.post('/api/submit', verifyFirebaseToken, upload.any(), async (req, res) => {
 
           if (error) throw error;
           
-          const { data: publicUrl } = supabase.storage
+          const { data: publicUrl } = supabaseServiceRole.storage
             .from('lesson-files')
             .getPublicUrl(data.path);
           
           fileUrls[file.fieldname] = publicUrl.publicUrl;
         } catch (uploadErr) {
           console.warn(`File upload failed for ${file.originalname}:`, uploadErr.message);
-          // Continue despite file upload failure
         }
       }
     }
 
-    // ═══ INSERT INTO SUPABASE ═══
-    const { data, error } = await supabase
+    // ✅ INSERT WITH SERVICE ROLE (bypass RLS)
+    const { data, error } = await supabaseServiceRole
       .from('lessons')
       .insert([
         {
@@ -233,7 +246,8 @@ app.get('/api/lessons', verifyFirebaseToken, async (req, res) => {
   try {
     const uid = req.user.uid;
     
-    const { data, error } = await supabase
+    // ✅ Use service role (still checks user_id = uid in app logic)
+    const { data, error } = await supabaseServiceRole
       .from('lessons')
       .select('*')
       .eq('user_id', uid)
@@ -243,6 +257,7 @@ app.get('/api/lessons', verifyFirebaseToken, async (req, res) => {
 
     res.json({ success: true, data });
   } catch (error) {
+    console.error('[lessons] Error:', error);
     res.status(500).json({ error: error.message });
   }
 });
@@ -253,8 +268,8 @@ app.delete('/api/lessons/:id', verifyFirebaseToken, async (req, res) => {
     const uid = req.user.uid;
     const lessonId = req.params.id;
 
-    // Verify ownership
-    const { data: lesson, error: fetchErr } = await supabase
+    // ✅ Verify ownership before delete
+    const { data: lesson, error: fetchErr } = await supabaseServiceRole
       .from('lessons')
       .select('user_id')
       .eq('id', lessonId)
@@ -265,7 +280,7 @@ app.delete('/api/lessons/:id', verifyFirebaseToken, async (req, res) => {
     }
 
     // Delete
-    const { error } = await supabase
+    const { error } = await supabaseServiceRole
       .from('lessons')
       .delete()
       .eq('id', lessonId);
@@ -274,17 +289,19 @@ app.delete('/api/lessons/:id', verifyFirebaseToken, async (req, res) => {
 
     res.json({ success: true, message: 'Lesson deleted' });
   } catch (error) {
+    console.error('[delete lesson] Error:', error);
     res.status(500).json({ error: error.message });
   }
 });
+
 // Update user subscription
 app.post('/api/update-subscription', verifyFirebaseToken, async (req, res) => {
   try {
     const uid = req.user.uid;
     const { plan, expireDate } = req.body;
 
-    // Tạo hoặc update record trong Supabase
-    const { data, error } = await supabase
+    // ✅ Use service role for subscription update
+    const { data, error } = await supabaseServiceRole
       .from('user_subscriptions')
       .upsert([
         {
@@ -305,6 +322,7 @@ app.post('/api/update-subscription', verifyFirebaseToken, async (req, res) => {
       data: data[0]
     });
   } catch (error) {
+    console.error('[update-subscription] Error:', error);
     res.status(500).json({ error: error.message });
   }
 });
@@ -314,7 +332,8 @@ app.get('/api/user-subscription', verifyFirebaseToken, async (req, res) => {
   try {
     const uid = req.user.uid;
     
-    const { data, error } = await supabase
+    // ✅ Use service role but still filter by user_id
+    const { data, error } = await supabaseServiceRole
       .from('user_subscriptions')
       .select('*')
       .eq('user_id', uid)
@@ -327,28 +346,28 @@ app.get('/api/user-subscription', verifyFirebaseToken, async (req, res) => {
       data: data || { plan: 'free' }
     });
   } catch (error) {
+    console.error('[user-subscription] Error:', error);
     res.status(500).json({ error: error.message });
   }
 });
+
 // Delete a word from images
 app.post('/api/delete-word', verifyFirebaseToken, async (req, res) => {
   try {
     const uid = req.user.uid;
     const { character } = req.body;
 
-    // ✅ Xóa filter submitted_at
-    const { data: lessons, error: fetchErr } = await supabase
+    // ✅ Use service role to find lesson
+    const { data: lessons, error: fetchErr } = await supabaseServiceRole
       .from('lessons')
       .select('id, images')
       .eq('user_id', uid)
       .order('submitted_at', { ascending: false });
-      // .limit(1); ← Bỏ limit để lấy tất cả
 
     if (fetchErr || !lessons || lessons.length === 0) {
       return res.status(404).json({ error: 'No lesson found' });
     }
 
-    // ✅ Tìm lesson chứa character cần xóa
     let targetLesson = null;
     for (let lesson of lessons) {
       if (lesson.images.some(img => img.character === character)) {
@@ -363,7 +382,8 @@ app.post('/api/delete-word', verifyFirebaseToken, async (req, res) => {
 
     const updatedImages = targetLesson.images.filter(item => item.character !== character);
 
-    const { error: updateErr } = await supabase
+    // ✅ Update with service role
+    const { error: updateErr } = await supabaseServiceRole
       .from('lessons')
       .update({ images: updatedImages })
       .eq('id', targetLesson.id);
@@ -376,15 +396,15 @@ app.post('/api/delete-word', verifyFirebaseToken, async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
-// ═══ WORKSHEET PRINT TRACKING ═══
 
-// Get print count for current month
+// ═══ WORKSHEET FUNCTIONS ═══
+
 app.get('/api/worksheet-print-count', verifyFirebaseToken, async (req, res) => {
   try {
     const uid = req.user.uid;
     
-    // Get subscription info
-    const { data: subData } = await supabase
+    // ✅ Use service role
+    const { data: subData } = await supabaseServiceRole
       .from('worksheet_subscriptions')
       .select('plan, expires_at')
       .eq('user_id', uid)
@@ -393,14 +413,12 @@ app.get('/api/worksheet-print-count', verifyFirebaseToken, async (req, res) => {
     const plan = subData?.plan || 'free';
     const expiresAt = subData?.expires_at;
 
-    // Check if expired
     if (plan !== 'free' && expiresAt) {
       const now = new Date();
       const expireDate = new Date(expiresAt);
       
       if (now > expireDate) {
-        // Auto downgrade
-        await supabase
+        await supabaseServiceRole
           .from('worksheet_subscriptions')
           .update({ plan: 'free' })
           .eq('user_id', uid);
@@ -416,11 +434,10 @@ app.get('/api/worksheet-print-count', verifyFirebaseToken, async (req, res) => {
       }
     }
 
-    // Count prints in this month (for free users)
     const now = new Date();
     const monthStart = new Date(now.getFullYear(), now.getMonth(), 1).toISOString();
 
-    const { count, error } = await supabase
+    const { count, error } = await supabaseServiceRole
       .from('worksheet_prints')
       .select('*', { count: 'exact', head: true })
       .eq('user_id', uid)
@@ -446,13 +463,11 @@ app.get('/api/worksheet-print-count', verifyFirebaseToken, async (req, res) => {
   }
 });
 
-// Record a print action
 app.post('/api/worksheet-record-print', verifyFirebaseToken, async (req, res) => {
   try {
     const uid = req.user.uid;
 
-    // Get subscription & print count
-    const { data: subData } = await supabase
+    const { data: subData } = await supabaseServiceRole
       .from('worksheet_subscriptions')
       .select('plan, expires_at')
       .eq('user_id', uid)
@@ -460,14 +475,12 @@ app.post('/api/worksheet-record-print', verifyFirebaseToken, async (req, res) =>
 
     const plan = subData?.plan || 'free';
 
-    // Check expiration
     if (plan !== 'free' && subData?.expires_at) {
       const now = new Date();
       const expireDate = new Date(subData.expires_at);
       
       if (now > expireDate) {
-        // Auto downgrade
-        await supabase
+        await supabaseServiceRole
           .from('worksheet_subscriptions')
           .update({ plan: 'free' })
           .eq('user_id', uid);
@@ -480,12 +493,11 @@ app.post('/api/worksheet-record-print', verifyFirebaseToken, async (req, res) =>
       }
     }
 
-    // Check limit (free users only)
     if (plan === 'free') {
       const now = new Date();
       const monthStart = new Date(now.getFullYear(), now.getMonth(), 1).toISOString();
 
-      const { count, error: countErr } = await supabase
+      const { count, error: countErr } = await supabaseServiceRole
         .from('worksheet_prints')
         .select('*', { count: 'exact', head: true })
         .eq('user_id', uid)
@@ -503,8 +515,8 @@ app.post('/api/worksheet-record-print', verifyFirebaseToken, async (req, res) =>
       }
     }
 
-    // Record print
-    const { data, error } = await supabase
+    // ✅ Record print with service role
+    const { data, error } = await supabaseServiceRole
       .from('worksheet_prints')
       .insert([
         {
@@ -529,8 +541,7 @@ app.post('/api/worksheet-record-print', verifyFirebaseToken, async (req, res) =>
   }
 });
 
-// Validate Gumroad key cho worksheet
-// Validate Gumroad key cho worksheet
+// Validate worksheet key
 app.post('/api/validate-worksheet-key', verifyFirebaseToken, async (req, res) => {
   try {
     const uid = req.user.uid;
@@ -542,33 +553,21 @@ app.post('/api/validate-worksheet-key', verifyFirebaseToken, async (req, res) =>
 
     console.log('🔍 [validate-worksheet-key]', { uid, license_key });
 
-    // ═══ STEP 1: CHECK XEM KEY ĐÃ ĐƯỢC DÙNG TRƯỚC ĐÓ KHÔNG ═══
-    const { data: existingKey } = await supabase
+    // ✅ CHECK duplicate with service role (need to see all keys)
+    const { data: existingKey } = await supabaseServiceRole
       .from('license_key_tracking')
       .select('*')
       .eq('license_key', license_key)
       .maybeSingle();
     
     if (existingKey) {
-      // Key đã được dùng trước đó
-      console.log('⚠️ Key already used:', {
-        used_by: existingKey.user_id,
-        activated_at: existingKey.activated_at,
-        expires_at: existingKey.expires_at
-      });
-      
+      console.log('⚠️ Key already used');
       return res.status(400).json({
         error: '❌ This license key has already been used. Please purchase a new key.',
-        details: {
-          message: 'Each license key can only be used once.',
-          previousActivation: existingKey.activated_at
-        }
       });
     }
 
-    // ═══ STEP 2: VERIFY KEY VỚI GUMROAD (Optional) ═══
-    console.log('🔐 Verifying key with Gumroad API...');
-    
+    // Verify with Gumroad (optional)
     try {
       const gumroadRes = await fetch('https://api.gumroad.com/v2/licenses/verify', {
         method: 'POST',
@@ -577,35 +576,26 @@ app.post('/api/validate-worksheet-key', verifyFirebaseToken, async (req, res) =>
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          product_id: 'ZVD-qJaKJoXuQcyDT2c2zQ==', // Gumroad product ID
+          product_id: 'ZVD-qJaKJoXuQcyDT2c2zQ==',
           license_key: license_key
         })
       });
       
       const gumroadData = await gumroadRes.json();
-      
       if (!gumroadData.success) {
-        console.error('❌ Gumroad validation failed:', gumroadData.message);
         return res.status(400).json({
           error: '❌ ' + (gumroadData.message || 'Invalid license key')
         });
       }
-      
-      console.log('✅ Gumroad validation passed');
-      
     } catch (gumroadErr) {
       console.warn('⚠️ Gumroad API error:', gumroadErr.message);
-      // Nếu Gumroad API down, vẫn cho qua
     }
 
-    // ═══ STEP 3: ACTIVATE SUBSCRIPTION ═══
+    // ✅ Activate with service role
     const expiresAt = new Date();
-    expiresAt.setDate(expiresAt.getDate() + 40); // 40 days
+    expiresAt.setDate(expiresAt.getDate() + 40);
 
-    console.log('💾 Activating worksheet subscription...');
-
-    // ✅ INSERT vào license_key_tracking (tracking usage)
-    const { data: trackingData, error: trackingError } = await supabase
+    const { data: trackingData, error: trackingError } = await supabaseServiceRole
       .from('license_key_tracking')
       .insert([
         {
@@ -626,8 +616,7 @@ app.post('/api/validate-worksheet-key', verifyFirebaseToken, async (req, res) =>
       });
     }
 
-    // ✅ UPSERT vào worksheet_subscriptions
-    const { data: subData, error: subError } = await supabase
+    const { data: subData, error: subError } = await supabaseServiceRole
       .from('worksheet_subscriptions')
       .upsert([
         {
@@ -646,7 +635,7 @@ app.post('/api/validate-worksheet-key', verifyFirebaseToken, async (req, res) =>
       return res.status(500).json({ error: 'Failed to save subscription' });
     }
 
-    console.log('✅ Worksheet subscription activated successfully');
+    console.log('✅ Worksheet subscription activated');
 
     res.json({
       success: true,
@@ -661,7 +650,8 @@ app.post('/api/validate-worksheet-key', verifyFirebaseToken, async (req, res) =>
     res.status(500).json({ error: error.message });
   }
 });
-// Validate Gumroad key cho Personal Lessons
+
+// Validate subscription key
 app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res) => {
   try {
     const uid = req.user.uid;
@@ -673,7 +663,6 @@ app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res)
     
     console.log('🔍 [validate-subscription-key]', { uid, license_key, product_id });
     
-    // Map product_id → plan
     const productToPlanMap = {
       '_DYSbAhcnplnuvbITAaS4w==': 'plan_a',
       'uDJUEtaZDQO6RMx2NKnUHQ==': 'plan_b',
@@ -686,8 +675,8 @@ app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res)
       return res.status(400).json({ error: 'Invalid product ID' });
     }
     
-    // ═══ STEP 1: CHECK XEM KEY ĐÃ ĐƯỢC DÙNG TRƯỚC ĐÓ KHÔNG ═══
-    const { data: existingKey } = await supabase
+    // ✅ CHECK duplicate with service role
+    const { data: existingKey } = await supabaseServiceRole
       .from('license_key_tracking')
       .select('*')
       .eq('license_key', license_key)
@@ -695,29 +684,14 @@ app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res)
       .maybeSingle();
     
     if (existingKey) {
-      // Key đã được dùng trước đó
-      console.log('⚠️ Key already used:', {
-        used_by: existingKey.user_id,
-        activated_at: existingKey.activated_at,
-        expires_at: existingKey.expires_at
-      });
-      
-      const expiresDate = new Date(existingKey.expires_at);
-      const now = new Date();
-      
-      // ❌ REJECT - Dù hết hạn hay còn hạn cũng không cho dùng lại
+      console.log('⚠️ Key already used');
       return res.status(400).json({
         error: '❌ This license key has already been used. Please purchase a new key.',
-        details: {
-          message: 'Each license key can only be used once. If your subscription has expired, please purchase a new key from Gumroad.',
-          previousActivation: existingKey.activated_at,
-          previousExpiration: existingKey.expires_at
-        }
       });
     }
     
-    // ═══ STEP 2: VERIFY KEY LẦN ĐẦU TIÊN VỚI GUMROAD ═══
-    console.log('🔐 Verifying new key with Gumroad API...');
+    // Verify with Gumroad
+    console.log('🔐 Verifying key with Gumroad API...');
     
     try {
       const gumroadRes = await fetch('https://api.gumroad.com/v2/licenses/verify', {
@@ -750,18 +724,15 @@ app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res)
       
     } catch (gumroadErr) {
       console.warn('⚠️ Gumroad API error:', gumroadErr.message);
-      // Nếu Gumroad API down, có thể tiếp tục hoặc reject
-      // Hiện tại: cho qua
     }
     
-    // ═══ STEP 3: ACTIVATE SUBSCRIPTION ═══
+    // ✅ Activate with service role
     const expiresAt = new Date();
     expiresAt.setDate(expiresAt.getDate() + 40);
     
     console.log('💾 Activating subscription...');
     
-    // INSERT vào license_key_tracking (tracking usage)
-    const { data: trackingData, error: trackingError } = await supabase
+    const { data: trackingData, error: trackingError } = await supabaseServiceRole
       .from('license_key_tracking')
       .insert([
         {
@@ -776,15 +747,13 @@ app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res)
       .select();
     
     if (trackingError) {
-      // Nếu insert tracking fail → reject
       console.error('❌ Failed to track license key:', trackingError);
       return res.status(400).json({
         error: '❌ Failed to activate license. Please try again.'
       });
     }
     
-    // UPSERT vào user_subscriptions (current subscription)
-    const { data: subData, error: subError } = await supabase
+    const { data: subData, error: subError } = await supabaseServiceRole
       .from('user_subscriptions')
       .upsert([
         {
@@ -822,6 +791,7 @@ app.post('/api/validate-subscription-key', verifyFirebaseToken, async (req, res)
     res.status(500).json({ error: error.message });
   }
 });
+
 // ─────────────────────────────────────────
 // ERROR HANDLING
 // ─────────────────────────────────────────
@@ -845,4 +815,5 @@ app.listen(PORT, () => {
   console.log(`✅ Server running on http://localhost:${PORT}`);
   console.log(`   Firebase Auth: ${admin.app().name}`);
   console.log(`   Supabase: ${process.env.SUPABASE_URL}`);
+  console.log(`   RLS: Enabled`);
 });
