@@ -26,6 +26,8 @@
   --green-dark:   #2e7d32;
   --pink:         #ffadc5;
   --pink-pale:    #fff2f6;
+  --lavender:     #c5b0f8;
+  --lavender-pale: #f3f0ff;
   --border:       2.5px solid var(--black);
   --border-thick: 3px solid var(--black);
   --shadow-sm:    3px 3px 0 var(--black);
@@ -450,6 +452,76 @@ footer .social-icons a:hover { transform: translate(-1px,-2px); }
   0%, 100% { opacity: 1; }
   50% { opacity: 0.3; }
 }
+  /* LOGIN MODAL */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 500; display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+    .modal {
+      background: var(--white);
+      border: var(--border-thick); border-radius: 24px;
+      box-shadow: var(--shadow-lg);
+      padding: 36px 32px; width: 360px; max-width: 90vw;
+      text-align: center; position: relative;
+    }
+    .modal-close {
+      position: absolute; top: 14px; right: 18px;
+      font-size: 1.5rem; cursor: pointer; color: #aaa; line-height: 1;
+      background: none; border: none; font-family: inherit;
+    }
+    .modal-close:hover { color: var(--black); }
+    .modal .modal-icon { font-size: 3rem; margin-bottom: 10px; }
+    .modal h2 { font-weight: 700; font-size: 1.5rem; margin-bottom: 8px; }
+    .modal p  { font-size: 0.97rem; color: #666; margin-bottom: 24px; line-height: 1.6; }
+
+    .google-btn {
+      display: inline-flex; align-items: center; gap: 10px; justify-content: center;
+      width: 100%; padding: 13px 20px;
+      background: var(--white); border: var(--border-thick); border-radius: 50px;
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem;
+      box-shadow: var(--shadow-md); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    .google-btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); }
+    .google-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+    /* UPGRADE MODAL */
+    #upgrade-modal .modal { width: 420px; max-width: 92vw; }
+    .upgrade-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--lavender); border: var(--border); border-radius: 50px;
+      padding: 4px 16px; font-size: 0.85rem; font-weight: 700;
+      box-shadow: var(--shadow-sm); margin-bottom: 14px;
+    }
+    .perks-list {
+      list-style: none; text-align: left;
+      background: var(--yellow-pale); border: var(--border); border-radius: 16px;
+      padding: 14px 18px; margin: 0 0 22px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .perks-list li { font-size: 0.95rem; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+    .perks-list li span.perk-icon { font-size: 1.1rem; flex-shrink: 0; }
+    .price-row { display: flex; align-items: baseline; justify-content: center; gap: 6px; margin-bottom: 20px; }
+    .price-big { font-size: 2.4rem; font-weight: 700; line-height: 1; }
+    .price-period { font-size: 0.9rem; color: #888; font-weight: 500; }
+    .upgrade-btn {
+      display: inline-flex; align-items: center; gap: 8px; justify-content: center;
+      width: 100%; padding: 14px 20px;
+      background: var(--green); color: white;
+      border: var(--border-thick); border-radius: 50px;
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1.1rem;
+      box-shadow: var(--shadow-md); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s; text-decoration: none;
+    }
+    .upgrade-btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); background: var(--green-dark); }
+    /* Compact upgrade modal perks */
+    #upgrade-modal .perks-list { gap: 4px; }
+    #upgrade-modal .perks-list li { font-size: 0.78rem; }
 </style>
 </head>
 <body>
@@ -465,6 +537,80 @@ footer .social-icons a:hover { transform: translate(-1px,-2px); }
     </ul>
   </nav>
 </header>
+  <!-- LOGIN MODAL -->
+  <div class="modal-overlay" id="login-modal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeLoginModal()">✕</button>
+      <div class="modal-icon">🔐</div>
+      <h2>Sign in to continue</h2>
+      <p>Sign in with your Google account to access the practice quiz and track your progress.</p>
+      <button class="google-btn" id="google-signin-btn" onclick="doGoogleSignIn()">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84z" fill="#EA4335"/>
+        </svg>
+        <span id="signin-btn-text">Continue with Google</span>
+      </button>
+      <div class="modal-error" id="modal-error"></div>
+    </div>
+  </div>
+
+  <!-- UPGRADE MODAL -->
+  <div class="modal-overlay" id="upgrade-modal">
+  <div class="modal" style="width:320px;max-width:92vw;padding:18px 18px 16px;overflow:hidden;">
+    <button class="modal-close" onclick="closeUpgradeModal()" style="top:10px;right:14px;font-size:1.1rem;">✕</button>
+    <div class="modal-icon" style="font-size:1.8rem;margin-bottom:3px;">⭐</div>
+    <div style="text-align:center;margin-bottom:6px;"><span class="upgrade-badge">✨ Lifetime Access — One-time</span></div>
+    <h2 style="font-size:1.15rem;margin-bottom:2px;text-align:center;">HSK 1 + 2 Full Pack</h2>
+    <p style="font-size:0.78rem;color:#777;text-align:center;margin-bottom:10px;line-height:1.4;">Pay once. Yours forever.<br>No subscription, no renewals.</p>
+
+    <!-- TABS -->
+    <div class="upgrade-tabs" style="display:flex;gap:5px;margin-bottom:11px;">
+      <button class="upgrade-tab active" id="tab-buy-btn" onclick="switchUpgradeTab('buy')" style="flex:1;padding:6px 4px;border-radius:50px;border:2px solid #222;font-size:0.78rem;font-weight:700;cursor:pointer;font-family:'Fredoka',sans-serif;background:var(--yellow);color:#222;box-shadow:3px 3px 0 #222;">☕ Buy Access</button>
+      <button class="upgrade-tab" id="tab-key-btn" onclick="switchUpgradeTab('key')" style="flex:1;padding:6px 4px;border-radius:50px;border:2px solid #222;font-size:0.78rem;font-weight:700;cursor:pointer;font-family:'Fredoka',sans-serif;background:var(--yellow-pale);color:#999;">🔑 I have a key</button>
+    </div>
+
+    <!-- PANEL: BUY -->
+    <div id="upgrade-panel-buy">
+      <ul class="perks-list" style="padding:8px 12px;margin-bottom:9px;">
+        <li style="font-size:0.78rem;gap:7px;"><span class="perk-icon">💬</span> Dialogue Lessons HSK 1 &amp; 2</li>
+        <li style="font-size:0.78rem;gap:7px;"><span class="perk-icon">📖</span> Grammar Explained Simply</li>
+        <li style="font-size:0.78rem;gap:7px;"><span class="perk-icon">📚</span> Essential Vocabulary</li>
+        <li style="font-size:0.78rem;gap:7px;"><span class="perk-icon">🎙️</span> Speaking Practice</li>
+        <li style="font-size:0.78rem;gap:7px;"><span class="perk-icon">✏️</span> Writing Practice</li>
+        <li style="font-size:0.78rem;gap:7px;"><span class="perk-icon">🧠</span> Interactive Quizzes</li>
+      </ul>
+      <div class="price-row" style="margin-bottom:10px;">
+        <span class="price-big" style="font-size:1.8rem;">$9</span>
+        <span class="price-period">one-time · lifetime</span>
+      </div>
+      <button class="upgrade-btn" onclick="goToGumroad()" style="font-size:0.88rem;padding:10px 14px;">
+        🛍️ Buy on Gumroad
+      </button>
+      <p style="font-size:0.62rem;color:#bbb;margin-top:3px;text-align:center;">
+        📩 <a href="https://instagram.com/chinese60s" target="_blank" style="color:#aaa;">Message us on Instagram (@chinese60s)</a>
+      </p>
+    </div>
+
+    <!-- PANEL: KEY -->
+    <div id="upgrade-panel-key" style="display:none;">
+      <p style="font-size:0.78rem;font-weight:600;color:#777;margin-bottom:5px;text-align:left;">Paste your Gumroad license key below:</p>
+      <input id="gumroad-key-input" type="text" placeholder="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+        style="width:100%;padding:9px 12px;border:2px solid #222;border-radius:10px;font-family:'Fredoka',sans-serif;font-size:0.82rem;background:var(--bg);color:#222;margin-bottom:9px;box-sizing:border-box;">
+      <button onclick="redeemGumroadKey()"
+        style="width:100%;padding:10px;background:var(--yellow);color:#222;border:2.5px solid #222;border-radius:50px;font-family:'Fredoka',sans-serif;font-weight:700;font-size:0.86rem;box-shadow:3px 3px 0 #222;cursor:pointer;">
+        🔓 Unlock Now
+      </button>
+      <div id="key-feedback" style="font-size:0.82rem;text-align:center;margin-top:8px;font-weight:600;min-height:20px;"></div>
+      <p style="font-size:0.68rem;color:#bbb;margin-top:8px;text-align:center;line-height:1.45;">
+        After purchase on Gumroad, you'll receive a license key via email.<br>
+        Paste it here to unlock your account instantly.
+      </p>
+    </div>
+  </div>
+</div>
 
 <div class="container">
   <div class="main-col">
@@ -764,14 +910,28 @@ async function loadSidebarList() {
     items.forEach((item, i) => {
       const emoji = pickEmojiForSidebar(item.title, i);
       
+      // ← Kiểm tra premium
+      const isPremiumLocked = item.premium && !window.__userIsPremium;
+      
       const li = document.createElement('li');
       li.className = 'sidebar-item';
-      li.innerHTML = `
-        <a href="${item.htmlLink}" target="_blank">
-          <span class="sidebar-emoji">${emoji}</span>
-          <span class="sidebar-text">${item.title || 'Untitled'}</span>
-        </a>
-      `;
+      
+      if (isPremiumLocked) {
+        li.innerHTML = `
+          <span style="padding:12px 16px;display:flex;gap:12px;align-items:center;opacity:0.5;">
+            <span class="sidebar-emoji">🔒</span>
+            <span class="sidebar-text">${item.title} (Premium)</span>
+          </span>
+        `;
+      } else {
+        li.innerHTML = `
+          <a href="${item.htmlLink}" target="_blank">
+            <span class="sidebar-emoji">${emoji}</span>
+            <span class="sidebar-text">${item.title}</span>
+          </a>
+        `;
+      }
+      
       sidebarList.appendChild(li);
     });
   } catch (error) {
@@ -962,7 +1122,7 @@ function startSTT() {
   speechRec = new SR();
   speechRec.continuous = true;
   speechRec.interimResults = true;
-  speechRec.lang = 'en-US';
+  speechRec.lang = 'zh-CN';
 
   let finalText = '';
 
@@ -1022,27 +1182,31 @@ exitBtn.addEventListener('click', () => {
 // SETUP EVENT LISTENERS
 // ════════════════════════════════════════════════════════════════
 startBtn.addEventListener('click', async () => {
+  // ← Kiểm tra đăng nhập
+  if (!window.__currentUser) {
+    openLoginModal();
+    return;
+  }
+  
+  // ← Kiểm tra gói premium & limit 10 câu
+  let count = parseInt(questionCountInput.value) || 10;
+  if (!window.__userIsPremium && count > 10) {
+    alert('Free account limited to 10 questions. Upgrade to unlock more!');
+    count = 10;
+    questionCountInput.value = 10;
+  }
+  
   const sortOrder = sortOrderSelect.value;
-  const countInput = parseInt(questionCountInput.value) || 10;
-
+  
   if (allQuestions.length === 0) {
     await loadAllQuestions();
   }
-
-  // Áp dụng filter + sort
-  speakQuestions = filterAndSortQuestions(sortOrder, countInput);
-
-  if (speakQuestions.length === 0) {
-    alert('❌ No questions available!');
-    return;
-  }
-
-  // Ẩn setup card, khởi động speaking practice
+  
+  speakQuestions = filterAndSortQuestions(sortOrder, count);
   setupCard.style.display = 'none';
   speakIdx = 0;
   showSpeakingQ();
 });
-
 resetSetupBtn.addEventListener('click', () => {
   location.reload();  // Reload page như F5
 });
@@ -1114,7 +1278,251 @@ document.addEventListener('DOMContentLoaded', async () => {
   await loadAnswerKey();
   initSpeaking(); // ← Khởi động Speaking Practice
 });
-</script>
+  // ════════════════════════════════════════════════════════════════
+// GLOBAL STATE & MODAL HELPERS
+// ════════════════════════════════════════════════════════════════
+window.__currentUser = null;
+window.__userIsPremium = false;
+window.__premiumLoaded = false;
 
+window.openLoginModal = function () {
+  const m = document.getElementById('login-modal');
+  m.classList.add('open');
+  const err = document.getElementById('modal-error');
+  const txt = document.getElementById('signin-btn-text');
+  if (err) { err.style.display = 'none'; err.textContent = ''; }
+  if (txt) txt.textContent = 'Continue with Google';
+  const btn = document.getElementById('google-signin-btn');
+  if (btn) btn.disabled = false;
+};
+
+window.closeLoginModal = function () {
+  document.getElementById('login-modal').classList.remove('open');
+};
+
+window.openUpgradeModal = function () {
+  document.getElementById('upgrade-modal').classList.add('open');
+};
+
+window.closeUpgradeModal = function () {
+  document.getElementById('upgrade-modal').classList.remove('open');
+};
+
+// Gumroad
+const GUMROAD_LINK = 'https://gumroad.com/l/hsk1_2_pack';
+
+window.goToGumroad = function () {
+  if (!window.__currentUser) {
+    window.__afterLoginAction = openUpgradeModal;
+    closeUpgradeModal();
+    openLoginModal();
+    return;
+  }
+  window.open(GUMROAD_LINK, '_blank');
+};
+
+window.switchUpgradeTab = function (tab) {
+  const isBuy = tab === 'buy';
+  document.getElementById('upgrade-panel-buy').style.display = isBuy ? 'block' : 'none';
+  document.getElementById('upgrade-panel-key').style.display = isBuy ? 'none' : 'block';
+  const buyBtn = document.getElementById('tab-buy-btn');
+  const keyBtn = document.getElementById('tab-key-btn');
+  buyBtn.style.background = isBuy ? 'var(--yellow)' : 'var(--yellow-pale)';
+  buyBtn.style.color = isBuy ? '#222' : '#999';
+  buyBtn.style.boxShadow = isBuy ? '3px 3px 0 #222' : 'none';
+  keyBtn.style.background = isBuy ? 'var(--yellow-pale)' : 'var(--yellow)';
+  keyBtn.style.color = isBuy ? '#999' : '#222';
+  keyBtn.style.boxShadow = isBuy ? 'none' : '3px 3px 0 #222';
+};
+
+const GUMROAD_PERMALINK = 'hsk1_2_pack';
+window.redeemGumroadKey = async function () {
+  const key = document.getElementById('gumroad-key-input').value.trim();
+  const fb = document.getElementById('key-feedback');
+  if (!key) {
+    fb.style.color = '#c0392b';
+    fb.textContent = 'Please enter your license key.';
+    return;
+  }
+  if (!window.__currentUser) {
+    window.__afterLoginAction = openUpgradeModal;
+    closeUpgradeModal();
+    openLoginModal();
+    return;
+  }
+  fb.style.color = '#888';
+  fb.textContent = 'Checking key…';
+  try {
+    const res = await fetch('https://api.gumroad.com/v2/licenses/verify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        product_id: 'k_9oIubGaXw_MMRKVwQ9lA==',
+        license_key: key,
+        increment_uses_count: 'false'
+      })
+    });
+    const data = await res.json();
+    if (data.success) {
+      const { getFirestore, doc, updateDoc } =
+        await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
+      await updateDoc(doc(getFirestore(), 'users', window.__currentUser.uid), {
+        isPremium: true,
+        gumroadKey: key,
+        activatedAt: new Date().toISOString()
+      });
+      window.__userIsPremium = true;
+      window.__premiumLoaded = true;
+      closeUpgradeModal();
+      renderSidebarAfterAuth();
+    } else {
+      fb.style.color = '#c0392b';
+      fb.textContent = data.message || 'Invalid key. Please check and try again.';
+    }
+  } catch (e) {
+    fb.style.color = '#c0392b';
+    fb.textContent = 'Network error. Please try again.';
+  }
+};
+
+document.addEventListener('click', function (e) {
+  const loginModal = document.getElementById('login-modal');
+  const upgradeModal = document.getElementById('upgrade-modal');
+  if (e.target === loginModal) closeLoginModal();
+  if (e.target === upgradeModal) closeUpgradeModal();
+});
+
+// ════════════════════════════════════════════════════════════════
+// PREMIUM CHECK
+// ════════════════════════════════════════════════════════════════
+window.refreshPremiumStatus = async function () {
+  if (!window.__currentUser) {
+    window.__userIsPremium = false;
+    window.__premiumLoaded = true;
+    renderSidebarAfterAuth();
+    return;
+  }
+  try {
+    const { getFirestore, doc, getDoc } =
+      await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
+    const db = getFirestore();
+    const snap = await getDoc(doc(db, 'users', window.__currentUser.uid));
+    if (snap.exists()) {
+      const data = snap.data();
+      const forever = data.isPremium === true;
+      const hasUntil = data.premiumUntil && data.premiumUntil.toDate() > new Date();
+      window.__userIsPremium = forever || hasUntil;
+    } else {
+      window.__userIsPremium = false;
+    }
+  } catch (e) {
+    console.warn('[premium] Firestore check failed:', e);
+    window.__userIsPremium = false;
+  }
+  window.__premiumLoaded = true;
+  renderSidebarAfterAuth();
+};
+
+// Re-render sidebar sau khi auth
+function renderSidebarAfterAuth() {
+  loadSidebarList();
+}
+</script>
+<!-- ═══════════════════════════════════════════════════════════════
+     FIREBASE AUTH
+═══════════════════════════════════════════════════════════════ -->
+<script type="module">
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+  import {
+    getAuth,
+    GoogleAuthProvider,
+    signInWithPopup,
+    signOut as fbSignOut,
+    onAuthStateChanged
+  } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+
+  const firebaseConfig = {
+    apiKey: 'AIzaSyAm-qQrpXKNdqFLITRAGCug7rkskGzyAkg',
+    authDomain: 'chinese60s.firebaseapp.com',
+    projectId: 'chinese60s',
+    storageBucket: 'chinese60s.firebasestorage.app',
+    messagingSenderId: '835657861121',
+    appId: '1:835657861121:web:f31727eb7ea3b876a5d800',
+    measurementId: 'G-70NQ4PFTSN'
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+  provider.setCustomParameters({ prompt: 'select_account' });
+
+  function showModalError(msg) {
+    const el = document.getElementById('modal-error');
+    if (!el) return;
+    el.textContent = msg;
+    el.style.display = 'block';
+    const btn = document.getElementById('google-signin-btn');
+    const txt = document.getElementById('signin-btn-text');
+    if (btn) btn.disabled = false;
+    if (txt) txt.textContent = 'Continue with Google';
+  }
+
+  function setSignInLoading(loading) {
+    const btn = document.getElementById('google-signin-btn');
+    const txt = document.getElementById('signin-btn-text');
+    if (!btn || !txt) return;
+    btn.disabled = loading;
+    txt.textContent = loading ? 'Opening Google…' : 'Continue with Google';
+  }
+
+  window.doGoogleSignIn = async function () {
+    const errEl = document.getElementById('modal-error');
+    if (errEl) {
+      errEl.style.display = 'none';
+      errEl.textContent = '';
+    }
+    setSignInLoading(true);
+    try {
+      await signInWithPopup(auth, provider);
+      closeLoginModal();
+      if (typeof window.__afterLoginAction === 'function') {
+        window.__afterLoginAction();
+        window.__afterLoginAction = null;
+      }
+    } catch (err) {
+      setSignInLoading(false);
+      console.error('Sign-in error:', err.code, err.message);
+      const msgs = {
+        'auth/popup-blocked': '🚫 Popup was blocked. Please allow popups for this site.',
+        'auth/popup-closed-by-user': '❌ Sign-in window was closed. Please try again.',
+        'auth/cancelled-popup-request': '❌ Sign-in was cancelled. Please try again.',
+        'auth/network-request-failed': '🌐 Network error. Check your connection.',
+        'auth/unauthorized-domain': '⚙️ Domain not authorised. Contact admin.',
+        'auth/user-disabled': '🚫 This account has been disabled.',
+      };
+      showModalError(msgs[err.code] || `Sign-in failed: ${err.message}`);
+    }
+  };
+
+  window.signOut = async function () {
+    try {
+      await fbSignOut(auth);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  onAuthStateChanged(auth, async function (user) {
+    if (user) {
+      window.__currentUser = user;
+      await window.refreshPremiumStatus();
+    } else {
+      window.__currentUser = null;
+      window.__userIsPremium = false;
+      window.__premiumLoaded = true;
+      renderSidebarAfterAuth();
+    }
+  });
+</script>
 </body>
 </html>
