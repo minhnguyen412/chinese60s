@@ -1457,21 +1457,28 @@ startBtn.addEventListener('click', async () => {
     return;
   }
   
+  // ✅ WAIT FOR QUESTIONS TO LOAD
+  if (allQuestions.length === 0) {
+    console.log('⏳ Loading questions...');
+    await loadAllQuestions();
+  }
+  
   let count = parseInt(questionCountInput.value) || 10;
   
   console.log(`[Start Quiz] User: ${window.__currentUser.email}, isPremium: ${window.__userIsPremium}, count: ${count}`);
   
-  // ← FIX: Nếu free user nhập > 10 → Hiện upgrade modal NGAY
   if (!window.__userIsPremium && count > 10) {
     console.log('[Start Quiz] Free user tried to start with > 10 questions');
-    openUpgradeModal();  // ← Hiện modal upgrade
-    return;  // ← Không tiếp tục
+    openUpgradeModal();
+    return;
   }
   
   const sortOrder = sortOrderSelect.value;
   
-  if (allQuestions.length === 0) {
-    await loadAllQuestions();
+  // ✅ ENSURE allQuestions IS POPULATED
+  if (!Array.isArray(allQuestions) || allQuestions.length === 0) {
+    alert('❌ Failed to load questions. Please refresh the page.');
+    return;
   }
   
   speakQuestions = filterAndSortQuestions(sortOrder, count);
