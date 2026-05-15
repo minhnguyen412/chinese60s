@@ -3531,7 +3531,7 @@
   "id": 393,
   "user": "麦克",
   "title": "老师，您看她太极拳打得怎么样？",
-  "segments": ["老师", "，", "您", "看", "她", "太极拳", "打", "得", "怎么样", "？"],
+  "segments": ["老师", "，", "您", "看²", "她", "太极拳", "打", "得", "怎么样", "？"],
   "description": "Lǎoshī, nín kàn tā tàijíquán dǎ de zěnmeyàng?<br>Teacher, what do you think of her tai chi? ",
   "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1735799749/sam_mjxry3.png",
   "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1778816793/793_ftmhu9.mp3"
