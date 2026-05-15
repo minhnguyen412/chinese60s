@@ -7308,8 +7308,7 @@
 {
   "id": 499,
   "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1778816791/783_v5gvqz.mp3",
-  "sentence": "My Chinese isn’t good, and I also can’t perform.
- ___ ___ ___ ___ ___ ___ ， ___ ___ ___ ___ 。",
+  "sentence": "My Chinese isn’t good, and I also can’t perform. ___ ___ ___ ___ ___ ___ ， ___ ___ ___ ___ 。",
   "blanks": [{ "answer": "说" }, { "answer": "也" }, { "answer": "汉语" }, { "answer": "我" }, { "answer": "得" }, { "answer": "表演" }, { "answer": "不" }, { "answer": "好" }, { "answer": "不" }, { "answer": "会" }],
   "words": ["我", "汉语", "说", "得", "不", "好", "也", "不", "会", "表演"]
 },
