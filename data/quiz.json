@@ -7522,10 +7522,10 @@
 },
 {
   "id": 523,
-  "audio": "刚才我看你跑得很快。你篮球打得怎么样？",
-  "sentence": "I saw you running really fast just now. How's your basketball skill? ___",
-  "blanks": [{ "answer": "刚才我看你跑得很快。你篮球打得怎么样？" }],
-  "words": ["刚才我看你跑得很快。你篮球打得怎么样？"]
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1778816801/798_z9w3ur.mp3",
+  "sentence": "Just now I saw that you run very fast. ___ ___ ___ ___ ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "刚才" }, { "answer": "我" }, { "answer": "看" }, { "answer": "你" }, { "answer": "跑" }, { "answer": "得" }, { "answer": "很" }, { "answer": "快" }],
+  "words": ["快", "刚才", "跑", "看", "得", "你", "我", "很"]
 },
 {
   "id": 524,
