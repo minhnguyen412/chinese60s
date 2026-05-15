@@ -947,17 +947,36 @@ let revealed = false;
 // ════════════════════════════════════════════════════════════════
 async function loadAllQuestions() {
   try {
+    console.log('🔄 Fetching data/speak.json...');
     const response = await fetch('data/speak.json');
     
-    // ✅ ADD THIS LINE
+    console.log('📊 Response:', {
+      status: response.status,
+      ok: response.ok,
+      url: response.url,
+      contentType: response.headers.get('content-type')
+    });
+    
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     
-    allQuestions = await response.json();
+    const data = await response.json();
+    console.log('✅ Parsed JSON:', data);
+    
+    if (Array.isArray(data)) {
+      allQuestions = data;
+    } else if (data.questions && Array.isArray(data.questions)) {
+      allQuestions = data.questions;
+    } else {
+      throw new Error('Invalid format: expected array or {questions: []}');
+    }
+    
     console.log(`📚 Loaded ${allQuestions.length} questions`);
     return allQuestions;
   } catch(err) {
-    console.error('❌ Failed to load questions:', err.message);
-    // Fallback data
+    console.error('❌ Error details:', {
+      message: err.message,
+      stack: err.stack
+    });
     allQuestions = [
       { id:1, sentence:'Sample question', blanks:[{answer:'answer'}] }
     ];
