@@ -386,8 +386,8 @@
   "description": "Lesson 25 (1): She Learns Very Well",
   "plan": "hsk12",
   "premium": true,
-  "thumbnail": "",
-  "videoLink": "",
+  "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1778849287/hyjc-1-25-1_wxobgl.png",
+  "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
   "htmlLink": "posts.html?postStartId=380&postEndId=392&quizStartId=494&quizEndId=515&writeStartId=571&writeEndId=588&id=39"
 },
 {
@@ -396,8 +396,8 @@
   "description": "Lesson 25 (2): She Gets Up Very Early Every Day",
   "plan": "hsk12",
   "premium": true,
-  "thumbnail": "",
-  "videoLink": "",
+  "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1778849288/hyjc-1-25-2_hvye02.png",
+  "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
   "htmlLink": "posts.html?postStartId=393&postEndId=403&quizStartId=516&quizEndId=531&writeStartId=589&writeEndId=603&id=40"
 }
 ]
