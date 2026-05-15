@@ -7474,7 +7474,7 @@
 {
   "id": 518,
   "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985258/%E4%B8%BA_iurwxl.mp3",
-  "sentence": "为 : ",
+  "sentence": "为 :___",
   "blanks": [{
     "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981335/%E5%88%B0_mspniz.png"
   }],
@@ -7580,13 +7580,6 @@
 },
 {
   "id": 530,
-  "audio": "因为",
-  "sentence": "because ",
-  "blanks": [{ "answer": "因为" }],
-  "words": ["因为"]
-},
-{
-  "id": 531,
   "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985343/%E6%99%9A_gh889j.mp3",
   "sentence": [
     "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981520/%E6%99%9A_g6utwv.png",
