@@ -7260,8 +7260,8 @@
   "id": 494,
   "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1778816791/780_hwvsgu.mp3",
   "sentence": "Roland, the TV station wants to invite international students to perform a Chinese program. Would you like to go? ___ ， ___ ___ ___ ___ ___ ___ ___ ___ ___ ， ___ ___ ___ ___ ？",
-  "blanks": [{ "answer": "去" }, { "answer": "愿意" }, { "answer": "汉语" }, { "answer": "想" }, { "answer": "节目" }, { "answer": "吗" }, { "answer": "你" }, { "answer": "请" }, { "answer": "个" }, { "answer": "留学生" }, { "answer": "罗兰" }, { "answer": "表演" }, { "answer": "电视台" }, { "answer": "一" }],
-  "words": ["罗兰", "电视台", "想", "请", "留学生", "表演", "一", "个", "汉语", "节目", "你", "愿意", "去", "吗"]
+  "blanks": [{ "answer": "罗兰" }, { "answer": "电视台" }, { "answer": "想" }, { "answer": "请" }, { "answer": "留学生" }, { "answer": "表演" }, { "answer": "一" }, { "answer": "个" }, { "answer": "汉语" }, { "answer": "节目" }, { "answer": "你" }, { "answer": "愿意" }, { "answer": "去" }, { "answer": "吗" }],
+  "words": ["吗", "电视台", "个", "愿意", "想", "罗兰", "你", "去", "留学生", "节目", "表演", "一", "请", "汉语"]
 },
 {
   "id": 495,
@@ -7309,15 +7309,15 @@
   "id": 499,
   "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1778816791/783_v5gvqz.mp3",
   "sentence": "My Chinese isn’t good, and I also can’t perform. ___ ___ ___ ___ ___ ___ ， ___ ___ ___ ___ 。",
-  "blanks": [{ "answer": "说" }, { "answer": "也" }, { "answer": "汉语" }, { "answer": "我" }, { "answer": "得" }, { "answer": "表演" }, { "answer": "不" }, { "answer": "好" }, { "answer": "不" }, { "answer": "会" }],
-  "words": ["我", "汉语", "说", "得", "不", "好", "也", "不", "会", "表演"]
+  "blanks": [{ "answer": "我" }, { "answer": "汉语" }, { "answer": "说" }, { "answer": "得" }, { "answer": "不" }, { "answer": "好" }, { "answer": "也" }, { "answer": "不" }, { "answer": "会" }, { "answer": "表演" }],
+  "words": ["表演", "也", "好", "得", "不", "说", "汉语", "我", "不", "会"]
 },
 {
   "id": 500,
   "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1778816792/784_lmmade.mp3",
   "sentence": "You’ve learned quite well and made a lot of progress. Your Chinese level has improved very quickly. ___ ___ ___ ___ ___ ， ___ ___ ___ ___ ， ___ ___ ___ ___ ___ ___ 。",
-  "blanks": [{ "answer": "很" }, { "answer": "错" }, { "answer": "汉语" }, { "answer": "提高" }, { "answer": "得" }, { "answer": "不" }, { "answer": "得" }, { "answer": "快" }, { "answer": "水平" }, { "answer": "有" }, { "answer": "你" }, { "answer": "进步" }, { "answer": "很" }, { "answer": "大" }, { "answer": "学" }],
-  "words": ["你", "学", "得", "不", "错", "有", "很", "大", "进步", "汉语", "水平", "提高", "得", "很", "快"]
+  "blanks": [{ "answer": "你" }, { "answer": "学" }, { "answer": "得" }, { "answer": "不" }, { "answer": "错" }, { "answer": "有" }, { "answer": "很" }, { "answer": "大" }, { "answer": "进步" }, { "answer": "汉语" }, { "answer": "水平" }, { "answer": "提高" }, { "answer": "得" }, { "answer": "很" }, { "answer": "快" }],
+  "words": ["得", "快", "大", "很", "错", "提高", "很", "不", "汉语", "水平", "你", "得", "学", "有", "进步"]
 },
 {
   "id": 501,
@@ -7365,8 +7365,8 @@
   "id": 505,
   "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1778816791/785_p0mtf9.mp3",
   "sentence": "Not really. My pronunciation isn’t accurate, and I don’t speak fluently either. ___ ， ___ ___ ___ ___ ___ ___ ， ___ ___ ___ ___ ___ 。",
-  "blanks": [{ "answer": "得" }, { "answer": "也" }, { "answer": "发" }, { "answer": "哪里" }, { "answer": "我" }, { "answer": "流利" }, { "answer": "得" }, { "answer": "不" }, { "answer": "说" }, { "answer": "发音" }, { "answer": "准" }, { "answer": "不" }],
-  "words": ["哪里", "我", "发音", "发", "得", "不", "准", "说", "得", "也", "不", "流利"]
+  "blanks": [{ "answer": "哪里" }, { "answer": "我" }, { "answer": "发音" }, { "answer": "发" }, { "answer": "得" }, { "answer": "不" }, { "answer": "准" }, { "answer": "说" }, { "answer": "得" }, { "answer": "也" }, { "answer": "不" }, { "answer": "流利" }],
+  "words": ["发", "发音", "得", "我", "不", "不", "哪里", "流利", "准", "也", "说", "得"]
 },
 {
   "id": 506,
@@ -7393,29 +7393,29 @@
   "id": 508,
   "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1778816792/787_rvxchn.mp3",
   "sentence": "She learns Chinese very well and speaks very fluently. ___ ___ ___ ___ ___ ___ ， ___ ___ ___ ___ 。",
-  "blanks": [{ "answer": "得" }, { "answer": "很" }, { "answer": "流利" }, { "answer": "好" }, { "answer": "学" }, { "answer": "很" }, { "answer": "得" }, { "answer": "汉语" }, { "answer": "说" }, { "answer": "她" }],
-  "words": ["她", "汉语", "学", "得", "很", "好", "说", "得", "很", "流利"]
+  "blanks": [{ "answer": "她" }, { "answer": "汉语" }, { "answer": "学" }, { "answer": "得" }, { "answer": "很" }, { "answer": "好" }, { "answer": "说" }, { "answer": "得" }, { "answer": "很" }, { "answer": "流利" }],
+  "words": ["说", "她", "很", "汉语", "得", "流利", "好", "得", "学", "很"]
 },
 {
   "id": 509,
   "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1778816792/788_lghirk.mp3",
   "sentence": "Mary can also sing Peking Opera. ___ ___ ___ ___ ___ 。",
-  "blanks": [{ "answer": "京剧" }, { "answer": "唱" }, { "answer": "会" }, { "answer": "还" }, { "answer": "玛丽" }],
-  "words": ["玛丽", "还", "会", "唱", "京剧"]
+  "blanks": [{ "answer": "玛丽" }, { "answer": "还" }, { "answer": "会" }, { "answer": "唱" }, { "answer": "京剧" }],
+  "words": ["会", "还", "唱", "京剧", "玛丽"]
 },
 {
   "id": 510,
   "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1778816792/789_vatfth.mp3",
   "sentence": "Really? How well does she sing Peking Opera? ___ ___ ？ ___ ___ ___ ___ ___ ？",
-  "blanks": [{ "answer": "得" }, { "answer": "怎么样" }, { "answer": "她" }, { "answer": "是" }, { "answer": "京剧" }, { "answer": "吗" }, { "answer": "唱" }],
-  "words": ["是", "吗", "她", "京剧", "唱", "得", "怎么样"]
+  "blanks": [{ "answer": "是" }, { "answer": "吗" }, { "answer": "她" }, { "answer": "京剧" }, { "answer": "唱" }, { "answer": "得" }, { "answer": "怎么样" }],
+  "words": ["得", "京剧", "是", "怎么样", "唱", "吗", "她"]
 },
 {
   "id": 511,
   "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1778816792/790_dlwr5j.mp3",
   "sentence": "Teacher Wang said she sings quite well. ___ ___ ___ ___ ___ ___ ___ 。",
-  "blanks": [{ "answer": "不错" }, { "answer": "老师" }, { "answer": "说" }, { "answer": "得" }, { "answer": "她" }, { "answer": "王" }, { "answer": "唱" }],
-  "words": ["王", "老师", "说", "她", "唱", "得", "不错"]
+  "blanks": [{ "answer": "王" }, { "answer": "老师" }, { "answer": "说" }, { "answer": "她" }, { "answer": "唱" }, { "answer": "得" }, { "answer": "不错" }],
+  "words": ["唱", "她", "老师", "不错", "得", "说", "王"]
 },
 {
   "id": 512,
@@ -7433,8 +7433,8 @@
   "id": 513,
   "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1778816793/792_jyyyxo.mp3",
   "sentence": "She works very hard and is also very serious. ___ ___ ___ ， ___ ___ ___ 。",
-  "blanks": [{ "answer": "非常" }, { "answer": "也" }, { "answer": "努力" }, { "answer": "认真" }, { "answer": "很" }, { "answer": "她" }],
-  "words": ["她", "非常", "努力", "也", "很", "认真"]
+  "blanks": [{ "answer": "她" }, { "answer": "非常" }, { "answer": "努力" }, { "answer": "也" }, { "answer": "很" }, { "answer": "认真" }],
+  "words": ["很", "非常", "努力", "认真", "她", "也"]
 },
 {
   "id": 514,
@@ -7461,15 +7461,15 @@
   "id": 516,
   "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1778816793/793_ftmhu9.mp3",
   "sentence": "Teacher, what do you think of her tai chi?  ___ ， ___ ___ ___ ___ ___ ___ ___ ？",
-  "blanks": [{ "answer": "打" }, { "answer": "老师" }, { "answer": "您" }, { "answer": "看" }, { "answer": "怎么样" }, { "answer": "太极拳" }, { "answer": "她" }, { "answer": "得" }],
-  "words": ["老师", "您", "看", "她", "太极拳", "打", "得", "怎么样"]
+  "blanks": [{ "answer": "老师" }, { "answer": "您" }, { "answer": "看" }, { "answer": "她" }, { "answer": "太极拳" }, { "answer": "打" }, { "answer": "得" }, { "answer": "怎么样" }],
+  "words": ["您", "太极拳", "老师", "看", "打", "得", "怎么样", "她"]
 },
 {
   "id": 517,
   "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1778816801/795_lawzmt.mp3",
   "sentence": "In order to learn tai chi, she gets up very early every day. ___ ___ ___ ， ___ ___ ___ ___ ___ ___ ___ 。",
-  "blanks": [{ "answer": "都" }, { "answer": "太极拳" }, { "answer": "得" }, { "answer": "学" }, { "answer": "很" }, { "answer": "起" }, { "answer": "她" }, { "answer": "为" }, { "answer": "每天" }, { "answer": "早" }],
-  "words": ["为", "学", "太极拳", "她", "每天", "都", "起", "得", "很", "早"]
+  "blanks": [{ "answer": "为" }, { "answer": "学" }, { "answer": "太极拳" }, { "answer": "她" }, { "answer": "每天" }, { "answer": "都" }, { "answer": "起" }, { "answer": "得" }, { "answer": "很" }, { "answer": "早" }],
+  "words": ["起", "太极拳", "得", "早", "都", "为", "她", "很", "学", "每天"]
 },
 {
   "id": 518,
@@ -7496,8 +7496,8 @@
   "id": 520,
   "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1778816801/797_byibsu.mp3",
   "sentence": "I like running and playing basketball. ",
-  "blanks": [{ "answer": "喜欢" }, { "answer": "打" }, { "answer": "跑步" }, { "answer": "篮球" }, { "answer": "我" }],
-  "words": ["我", "喜欢", "跑步", "打", "篮球"]
+  "blanks": [{ "answer": "我" }, { "answer": "喜欢" }, { "answer": "跑步" }, { "answer": "打" }, { "answer": "篮球" }],
+  "words": ["喜欢", "跑步", "篮球", "我", "打"]
 },
 {
   "id": 521,
@@ -7540,8 +7540,8 @@
   "id": 525,
   "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1778816804/801_xczg2a.mp3",
   "sentence": "Teacher, do you come here to exercise every day? ",
-  "blanks": [{ "answer": "每天" }, { "answer": "都" }, { "answer": "您" }, { "answer": "老师" }, { "answer": "锻炼" }, { "answer": "来" }, { "answer": "吗" }],
-  "words": ["老师", "您", "每天", "都", "来", "锻炼", "吗"]
+  "blanks": [{ "answer": "老师" }, { "answer": "您" }, { "answer": "每天" }, { "answer": "都" }, { "answer": "来" }, { "answer": "锻炼" }, { "answer": "吗" }],
+  "words": ["锻炼", "每天", "您", "吗", "都", "老师", "来"]
 },
 {
   "id": 526,
@@ -7559,8 +7559,8 @@
   "id": 527,
   "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1778816804/802_ktkz1f.mp3",
   "sentence": "Yes, I exercise every day consistently. What about you? ",
-  "blanks": [{ "answer": "你" }, { "answer": "天" }, { "answer": "呢" }, { "answer": "每" }, { "answer": "我" }, { "answer": "对" }, { "answer": "坚持" }, { "answer": "都" }, { "answer": "锻炼" }],
-  "words": ["对", "我", "每", "天", "都", "坚持", "锻炼", "你", "呢"]
+  "blanks": [{ "answer": "对" }, { "answer": "我" }, { "answer": "每" }, { "answer": "天" }, { "answer": "都" }, { "answer": "坚持" }, { "answer": "锻炼" }, { "answer": "你" }, { "answer": "呢" }],
+  "words": ["对", "每", "你", "都", "我", "锻炼", "坚持", "呢", "天"]
 },
 {
   "id": 528,
@@ -7575,8 +7575,8 @@
   "id": 529,
   "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1778816805/803_kpldtk.mp3",
   "sentence": "I don’t exercise often, because I often sleep very late at night, and I also get up very late in the morning. ",
-  "blanks": [{ "answer": "也" }, { "answer": "我" }, { "answer": "晚" }, { "answer": "得" }, { "answer": "晚上" }, { "answer": "得" }, { "answer": "常常" }, { "answer": "早上" }, { "answer": "起" }, { "answer": "常" }, { "answer": "锻炼" }, { "answer": "因为" }, { "answer": "我" }, { "answer": "很" }, { "answer": "晚" }, { "answer": "睡" }, { "answer": "很" }, { "answer": "不" }],
-  "words": ["我", "不", "常", "锻炼", "因为", "我", "晚上", "常常", "睡", "得", "很", "晚", "早上", "起", "得", "也", "很", "晚"]
+  "blanks": [{ "answer": "我" }, { "answer": "不" }, { "answer": "常" }, { "answer": "锻炼" }, { "answer": "因为" }, { "answer": "我" }, { "answer": "晚上" }, { "answer": "常常" }, { "answer": "睡" }, { "answer": "得" }, { "answer": "很" }, { "answer": "晚" }, { "answer": "早上" }, { "answer": "起" }, { "answer": "得" }, { "answer": "也" }, { "answer": "很" }, { "answer": "晚" }],
+  "words": ["常", "晚上", "不", "也", "常常", "锻炼", "得", "很", "睡", "得", "我", "因为", "晚", "我", "早上", "晚", "起", "很"]
 },
 {
   "id": 530,
