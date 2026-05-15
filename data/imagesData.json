@@ -4558,5 +4558,269 @@
     "meaning": "illness; to be sick",
     "pinyin": "bìng",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985243/%E7%97%85_iyxcsm.mp3"
-  }
+  },
+  {
+  "id": 571,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981529/%E7%94%B5%E8%A7%86%E5%8F%B0_wsibzg.png",
+  "character": "电视台",
+  "meaning": "television station",
+  "pinyin": "diàn shì tái",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985355/%E7%94%B5%E8%A7%86%E5%8F%B0_vi4dy3.mp3"
+},
+{
+  "id": 572,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981493/%E5%8F%B0_otgs6x.png",
+  "character": "台",
+  "meaning": "station",
+  "pinyin": "tái",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985270/%E5%8F%B0_vyxzlq.mp3"
+},
+{
+  "id": 573,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981540/%E8%A1%A8%E6%BC%94_quglt4.png",
+  "character": "表演",
+  "meaning": "to act; to perform",
+  "pinyin": "biǎo yǎn",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985366/%E8%A1%A8%E6%BC%94_ccyp1e.mp3"
+},
+{
+  "id": 574,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981538/%E8%8A%82%E7%9B%AE_g7jhgm.png",
+  "character": "节目",
+  "meaning": "program",
+  "pinyin": "jié mù",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985363/%E8%8A%82%E7%9B%AE_d0qaqq.mp3"
+},
+{
+  "id": 575,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981510/%E6%84%BF%E6%84%8F_dxwzzs.png",
+  "character": "愿意",
+  "meaning": "to be willing; to wish; to like",
+  "pinyin": "yuàn yì",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985334/%E6%84%BF%E6%84%8F_u0opfy.mp3"
+},
+{
+  "id": 576,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981486/%E4%B8%BA%E4%BB%80%E4%B9%88_q3lwll.png",
+  "character": "为什么",
+  "meaning": "why",
+  "pinyin": "wèi shén me",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985262/%E4%B8%BA%E4%BB%80%E4%B9%88_l85oxj.mp3"
+},
+{
+  "id": 577,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981502/%E5%BE%97_omo1b2.png",
+  "character": "得¹",
+  "meaning": "used after a verb or an adjective to introduce a complement of result or degree",
+  "pinyin": "de",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985491/%E5%BE%97_fl57gh.mp3"
+},
+{
+  "id": 578,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981500/%E4%B8%8D%E9%94%99_uwsdjn.png",
+  "character": "不错",
+  "meaning": "not bad; pretty good",
+  "pinyin": "bú cuò",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985257/%E4%B8%8D%E9%94%99_j9qw2l.mp3"
+},
+{
+  "id": 579,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981551/%E9%94%99_kyk08a.png",
+  "character": "错",
+  "meaning": "wrong",
+  "pinyin": "cuò",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985388/%E9%94%99_wffb7s.mp3"
+},
+{
+  "id": 580,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981550/%E8%BF%9B%E6%AD%A5_jyspvo.png",
+  "character": "进步",
+  "meaning": "to make a progress",
+  "pinyin": "jìn bù",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985381/%E8%BF%9B%E6%AD%A5_xicl7a.mp3"
+},
+{
+  "id": 581,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981523/%E6%B0%B4%E5%B9%B3_iikdzi.png",
+  "character": "水平",
+  "meaning": "level",
+  "pinyin": "shuǐ píng",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985347/%E6%B0%B4%E5%B9%B3_frivuo.mp3"
+},
+{
+  "id": 582,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981511/%E6%8F%90%E9%AB%98_gewtty.png",
+  "character": "提高",
+  "meaning": "to improve; to raise",
+  "pinyin": "tí gāo",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985340/%E6%8F%90%E9%AB%98_mriqva.mp3"
+},
+{
+  "id": 583,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981510/%E5%BF%AB_ibxywi.png",
+  "character": "快",
+  "meaning": "fast; quick; quickly",
+  "pinyin": "kuài",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985333/%E5%BF%AB_jqofhb.mp3"
+},
+{
+  "id": 584,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981495/%E5%93%AA%E9%87%8C_f3lqcp.png",
+  "character": "哪里",
+  "meaning": "I am (or feel) flattered (used when responding politely to a compliment",
+  "pinyin": "nǎ li",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985275/%E5%93%AA%E9%87%8C_ceu1lh.mp3"
+},
+{
+  "id": 585,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981487/%E5%87%86_awlnh0.png",
+  "character": "准",
+  "meaning": "accurate",
+  "pinyin": "zhǔn",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985263/%E5%87%86_jyez3p.mp3"
+},
+{
+  "id": 586,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981528/%E6%B5%81%E5%88%A9_yervao.png",
+  "character": "流利",
+  "meaning": "fluent",
+  "pinyin": "liú lì",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985348/%E6%B5%81%E5%88%A9_rtwmnn.mp3"
+},
+{
+  "id": 587,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981488/%E5%8A%AA%E5%8A%9B_lqdw0g.png",
+  "character": "努力",
+  "meaning": "hard working",
+  "pinyin": "nǔ lì",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985267/%E5%8A%AA%E5%8A%9B_hot4ig.mp3"
+},
+{
+  "id": 588,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981542/%E8%AE%A4%E7%9C%9F_vlchmm.png",
+  "character": "认真",
+  "meaning": "conscientious; earnest; serious",
+  "pinyin": "rèn zhēn",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985368/%E8%AE%A4%E7%9C%9F_yz4fea.mp3"
+},
+{
+  "id": 589,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982386/%E8%99%BD%E7%84%B6_e7co4x.png",
+  "character": "看²",
+  "meaning": "consider; judge",
+  "pinyin": "kàn",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1743045193/%E7%9C%8B_xfp51c.mp3"
+},
+{
+  "id": 590,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981335/%E5%88%B0_mspniz.png",
+  "character": "为",
+  "meaning": "for; for the sake of",
+  "pinyin": "wèi",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985258/%E4%B8%BA_iurwxl.mp3"
+},
+{
+  "id": 591,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981545/%E8%BF%99%E4%B9%88_jsdph5.png",
+  "character": "这么",
+  "meaning": "so; like this",
+  "pinyin": "zhè me",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985379/%E8%BF%99%E4%B9%88_udlf7u.mp3"
+},
+{
+  "id": 592,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981551/%E9%82%A3%E4%B9%88_nd2je9.png",
+  "character": "那么",
+  "meaning": "that; like that",
+  "pinyin": "nà me",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985384/%E9%82%A3%E4%B9%88_ir8rec.mp3"
+},
+{
+  "id": 593,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981519/%E6%97%A9_tvumfx.png",
+  "character": "早",
+  "meaning": "early",
+  "pinyin": "zǎo",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985341/%E6%97%A9_aa7xcf.mp3"
+},
+{
+  "id": 594,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981255/%E9%94%BB%E7%82%BC_whvm2s.png",
+  "character": "运动",
+  "meaning": "to do exercises",
+  "pinyin": "yùn dòng",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985376/%E8%BF%90%E5%8A%A8_kxqjmk.mp3"
+},
+{
+  "id": 595,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982353/%E6%97%81%E8%BE%B9_xfxt5s.png",
+  "character": "跑步",
+  "meaning": "to run; to jog",
+  "pinyin": "pǎo bù",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985373/%E8%B7%91%E6%AD%A5_njvd2m.mp3"
+},
+{
+  "id": 596,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1756797895/%E5%B0%B1-min_nwgfpw.png",
+  "character": "跑",
+  "meaning": "to run",
+  "pinyin": "pǎo",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985371/%E8%B7%91_jieucz.mp3"
+},
+{
+  "id": 597,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981535/%E7%AF%AE%E7%90%83_brsmvk.png",
+  "character": "篮球",
+  "meaning": "basketball",
+  "pinyin": "lán qiú",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985358/%E7%AF%AE%E7%90%83_fp4lsm.mp3"
+},
+{
+  "id": 598,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981529/%E7%90%83_vkzult.png",
+  "character": "球",
+  "meaning": "ball",
+  "pinyin": "qiú",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985354/%E7%90%83_vdrokk.mp3"
+},
+{
+  "id": 599,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1742351247/%E5%88%9A-min_rwxdtd.png",
+  "character": "刚才",
+  "meaning": "just now",
+  "pinyin": "gāng cái",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985266/%E5%88%9A%E6%89%8D_nofvvb.mp3"
+},
+{
+  "id": 600,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1755824082/%E5%8F%AF%E4%BB%A5-min_lfbgfm.png",
+  "character": "可以",
+  "meaning": "pretty good; not bad; passable",
+  "pinyin": "kě yǐ",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1755696643/%E5%8F%AF%E4%BB%A5_blfyad.mp3"
+},
+{
+  "id": 601,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981501/%E5%9D%9A%E6%8C%81_nkwabr.png",
+  "character": "坚持",
+  "meaning": "to persist in; to insist on",
+  "pinyin": "jiān chí",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985277/%E5%9D%9A%E6%8C%81_f5yo1p.mp3"
+},
+{
+  "id": 602,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981500/%E5%9B%A0%E4%B8%BA_c9ybac.png",
+  "character": "因为",
+  "meaning": "because",
+  "pinyin": "yīn wèi",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985276/%E5%9B%A0%E4%B8%BA_byvrgt.mp3"
+},
+{
+  "id": 603,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981520/%E6%99%9A_g6utwv.png",
+  "character": "晚",
+  "meaning": "late",
+  "pinyin": "wǎn",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985343/%E6%99%9A_gh889j.mp3"
+}
 ]
