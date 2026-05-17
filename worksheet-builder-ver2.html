@@ -1190,7 +1190,7 @@ window.openDlgMediaPicker = function() {
   overlay.appendChild(modal);
   
   if (dlgMediaData.length === 0) {
-    fetch('https://raw.githubusercontent.com/minhnguyen412/chinese60s/refs/heads/main/data/imagesData.json')
+    fetch('https://raw.githubusercontent.com/minhnguyen412/chinese60s/refs/heads/main/data/avatar.json')
       .then(r => r.json())
       .then(data => {
         dlgMediaData = data;
