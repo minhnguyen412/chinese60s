@@ -137,7 +137,7 @@ input#set-title:focus{box-shadow:var(--shadow-sm);}
 .dlg-speaker-name{font-weight:700;font-size:.95rem;color:var(--red);font-family:'Quicksand',sans-serif;}
 .dlg-line-num{font-size:.68rem;color:#bbb;font-family:'Quicksand',sans-serif;}
 .dlg-bubble{background:#fff;border:2.5px solid var(--red);border-radius:16px;padding:14px;margin-bottom:8px;}
-.dlg-text-original{font-family:'Noto Serif SC',serif;font-size:.9rem;color:#ccc;margin-bottom:12px;line-height:1.8;font-weight:600;background:#f9f9f9;padding:8px;border-radius:8px;}
+.dlg-text-original{font-family:'Noto Serif SC',serif;font-size: 1.2rem;color:#ccc;margin-bottom:12px;line-height:1.8;font-weight:600;background:#f9f9f9;padding:8px;border-radius:8px;}
 .dlg-writing-lines{display:flex;flex-direction:column;gap:10px;}
 .dlg-line{border-bottom:2px dashed #d0d0d0;height:28px;position:relative;}
 .dlg-line::after{content:'';position:absolute;bottom:3px;left:0;right:0;height:1px;background:#f0f0f0;}
@@ -288,7 +288,7 @@ input#set-title:focus{box-shadow:var(--shadow-sm);}
         </div>
       </div>
 
-      <button class="btn btn-yellow btn-full" style="margin:9px 16px 13px;" onclick="renderDialogueWorksheet()">📄 Create Worksheet</button>
+      
     </div>
   </aside>
 
@@ -949,6 +949,13 @@ window.removeDlgCharacter = function(idx) {
   updateDlgCharacterList();
   updateDlgSpeakerSelect();
   updateDlgLinesList();
+  // ✅ Render lại
+  if (dialogueLines.length > 0) {
+    renderDialogueWorksheet();
+  } else {
+    document.getElementById('worksheet-container').innerHTML = `
+      <div class="empty-state"><span class="icon">📄</span><p>Worksheet will appear here after adding lines</p></div>`;
+  }
 };
 
 window.addDialogueLine = function() {
@@ -975,6 +982,7 @@ window.addDialogueLine = function() {
   err.style.display = 'none';
   
   updateDlgLinesList();
+  if (dialogueLines.length > 0) renderDialogueWorksheet();
 };
 
 function updateDlgLinesList() {
@@ -1003,6 +1011,13 @@ function updateDlgLinesList() {
 window.removeDlgLine = function(idx) {
   dialogueLines.splice(idx, 1);
   updateDlgLinesList();
+  // ✅ Render lại
+  if (dialogueLines.length > 0) {
+    renderDialogueWorksheet();
+  } else {
+    document.getElementById('worksheet-container').innerHTML = `
+      <div class="empty-state"><span class="icon">📄</span><p>Worksheet will appear here after adding lines</p></div>`;
+  }
 };
 
 window.renderDialogueWorksheet = function() {
