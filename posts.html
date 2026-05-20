@@ -492,6 +492,50 @@
     #writer-container { display: flex; gap: 12px; justify-content: center; align-items: center; flex-wrap: wrap; }
     .image-card audio { width: 100%; margin-top: 10px; }
 
+    /* ═════════════════════════════════════════════════════════
+       WORKSHEET DOWNLOADS SECTION
+    ═════════════════════════════════════════════════════════ */
+    .worksheets-container {
+      background: var(--white); border: var(--border-thick);
+      border-radius: 22px; box-shadow: var(--shadow-md); padding: 24px;
+      margin-top: 12px;
+    }
+
+    .worksheets-container h2 {
+      font-weight: 700; font-size: 1.3rem; margin-bottom: 16px;
+      color: var(--black);
+    }
+
+    .worksheet-buttons {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    .worksheet-btn {
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px; padding: 14px 20px;
+      background: var(--sky); color: var(--black);
+      border: var(--border-thick); border-radius: 50px;
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 0.95rem;
+      box-shadow: var(--shadow-md); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s, background 0.12s;
+      text-decoration: none; white-space: nowrap;
+    }
+
+    .worksheet-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--black);
+      background: #5db3d5;
+    }
+
+    .worksheet-btn:nth-child(2) {
+      background: var(--peach);
+    }
+
+    .worksheet-btn:nth-child(2):hover {
+      background: #ff9a7a;
+    }
+
     /* SIDEBAR */
     .thumbnails-section {
       flex: 1; min-width: 260px; max-width: 320px;
@@ -605,6 +649,7 @@
       .word { font-size: 1.1rem; }
       .content-image { max-width: 80px; }
       .quiz-top h1 { font-size: 1.1rem; }
+      .worksheet-buttons { grid-template-columns: 1fr; }
     }
     @media (max-width: 480px) {
       header h1 { font-size: 1.3rem; }
@@ -788,6 +833,23 @@
       </div>
 
       <p class="hint-text">💡 Click on each Chinese character to see its meaning and pronunciation</p>
+
+      <!-- WORKSHEET DOWNLOADS -->
+      <div class="worksheets-container">
+        <h2>📄 Practice Materials</h2>
+        <div class="worksheet-buttons">
+          <a href="https://res.cloudinary.com/YOUR_CLOUDINARY_NAME/image/upload/YOUR_DIALOGUE_PDF_ID" 
+             download="dialogue-worksheet.pdf" 
+             class="worksheet-btn">
+            💬 Download Dialogue
+          </a>
+          <a href="https://res.cloudinary.com/YOUR_CLOUDINARY_NAME/image/upload/YOUR_CHARACTER_PDF_ID" 
+             download="character-worksheet.pdf" 
+             class="worksheet-btn">
+            🔤 Download Characters
+          </a>
+        </div>
+      </div>
     </div>
 
     <!-- Sidebar -->
