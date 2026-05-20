@@ -1711,44 +1711,36 @@ window.redeemGumroadKey = async function () {
     }
 
     // Update Dialogue button
-    if (hasDialogue) {
-      const dialogueBtn = document.getElementById('dialogue-pdf-btn');
-      if (dialogueBtn) {
-        dialogueBtn.href = video.dialoguePDF;
-        dialogueBtn.target = '_blank';
-        dialogueBtn.disabled = false;
-        dialogueBtn.style.opacity = '1';
-        dialogueBtn.style.pointerEvents = 'auto';
-        console.log('✓ Dialogue PDF loaded');
-      }
-    } else {
-      const dialogueBtn = document.getElementById('dialogue-pdf-btn');
-      if (dialogueBtn) {
-        dialogueBtn.disabled = true;
-        dialogueBtn.style.opacity = '0.5';
-        dialogueBtn.style.pointerEvents = 'none';
-      }
-    }
+if (hasDialogue) {
+  const dialogueBtn = document.getElementById('dialogue-pdf-btn');
+  if (dialogueBtn) {
+    dialogueBtn.href = video.dialoguePDF;
+    dialogueBtn.target = '_blank';
+    dialogueBtn.onclick = (e) => {
+      e.preventDefault();
+      window.open(video.dialoguePDF, '_blank');
+    };
+    dialogueBtn.disabled = false;
+    dialogueBtn.style.opacity = '1';
+    console.log('✓ Dialogue PDF loaded');
+  }
+}
 
-    // Update Character button
-    if (hasCharacter) {
-      const characterBtn = document.getElementById('character-pdf-btn');
-      if (characterBtn) {
-        characterBtn.href = video.characterPDF;
-        characterBtn.target = '_blank';
-        characterBtn.disabled = false;
-        characterBtn.style.opacity = '1';
-        characterBtn.style.pointerEvents = 'auto';
-        console.log('✓ Character PDF loaded');
-      }
-    } else {
-      const characterBtn = document.getElementById('character-pdf-btn');
-      if (characterBtn) {
-        characterBtn.disabled = true;
-        characterBtn.style.opacity = '0.5';
-        characterBtn.style.pointerEvents = 'none';
-      }
-    }
+// Update Character button
+if (hasCharacter) {
+  const characterBtn = document.getElementById('character-pdf-btn');
+  if (characterBtn) {
+    characterBtn.href = video.characterPDF;
+    characterBtn.target = '_blank';
+    characterBtn.onclick = (e) => {
+      e.preventDefault();
+      window.open(video.characterPDF, '_blank');
+    };
+    characterBtn.disabled = false;
+    characterBtn.style.opacity = '1';
+    console.log('✓ Character PDF loaded');
+  }
+}
 
     statusEl.className = 'pdf-status-msg success';
     statusEl.textContent = `✅ Practice materials ready for "${video.title}"`;
