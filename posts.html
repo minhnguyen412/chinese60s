@@ -658,6 +658,32 @@
       .qcontainer { padding: 18px 16px; }
       .content-image { max-width: 65px; }
     }
+    .pdf-status-msg {
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  display: none;
+  text-align: center;
+}
+
+.pdf-status-msg.loading {
+  background: #fffbe6;
+  color: #995500;
+  display: block;
+}
+
+.pdf-status-msg.success {
+  background: #d8f0a0;
+  color: #5a8f27;
+  display: block;
+}
+
+.pdf-status-msg.error {
+  background: #fff2f6;
+  color: #c0392b;
+  display: block;
+}
   </style>
 </head>
 <body>
@@ -835,21 +861,24 @@
       <p class="hint-text">💡 Click on each Chinese character to see its meaning and pronunciation</p>
 
       <!-- WORKSHEET DOWNLOADS -->
-      <div class="worksheets-container">
-        <h2>📄 Practice Materials</h2>
-        <div class="worksheet-buttons">
-          <a href="https://res.cloudinary.com/YOUR_CLOUDINARY_NAME/image/upload/YOUR_DIALOGUE_PDF_ID" 
-             download="dialogue-worksheet.pdf" 
-             class="worksheet-btn">
-            💬 Download Dialogue
-          </a>
-          <a href="https://res.cloudinary.com/YOUR_CLOUDINARY_NAME/image/upload/YOUR_CHARACTER_PDF_ID" 
-             download="character-worksheet.pdf" 
-             class="worksheet-btn">
-            🔤 Download Characters
-          </a>
-        </div>
-      </div>
+<div class="worksheets-container" id="worksheets-section">
+  <h2>📄 Practice Materials</h2>
+  <div id="pdf-status" class="pdf-status-msg"></div>
+  <div class="worksheet-buttons">
+    <a href="#" 
+       download="dialogue-worksheet.pdf" 
+       id="dialogue-pdf-btn"
+       class="worksheet-btn">
+      💬 Download Dialogue
+    </a>
+    <a href="#" 
+       download="character-worksheet.pdf" 
+       id="character-pdf-btn"
+       class="worksheet-btn">
+      🔤 Download Characters
+    </a>
+  </div>
+</div>
     </div>
 
     <!-- Sidebar -->
@@ -1637,6 +1666,112 @@ window.redeemGumroadKey = async function () {
       }
     });
   </script>
+<!-- ═══════════════════════════════════════════════════════════
+     LOAD WORKSHEET DOWNLOADS FROM THUMBNAIL.JSON
+═══════════════════════════════════════════════════════════ -->
+<script>
+  // Hàm load download links từ JSON
+  async function loadDownloadLinksFromJSON() {
+    const statusEl = document.getElementById('pdf-status');
+    const worksheetSection = document.getElementById('worksheets-section');
+    
+    try {
+      // Step 1: Lấy ID từ URL
+      const params = new URLSearchParams(window.location.search);
+      const postId = params.get('id');
 
+      if (!postId) {
+        console.warn('No post ID in URL');
+        statusEl.className = 'pdf-status-msg error';
+        statusEl.textContent = '❌ Unable to load practice materials';
+        return;
+      }
+
+      // Step 2: Fetch thumbnail.json
+      const response = await fetch('data/thumbnail.json');
+      
+      if (!response.ok) {
+        throw new Error('Failed to load JSON');
+      }
+
+      const videos = await response.json();
+      
+      // Step 3: Tìm video có ID khớp
+      const video = videos.find(v => v.id === parseInt(postId));
+
+      if (!video) {
+        console.warn(`No video found with ID: ${postId}`);
+        worksheetSection.style.display = 'none';
+        return;
+      }
+
+      // Step 4: Kiểm tra xem có PDF không
+      const hasDialogue = !!video.dialoguePDF;
+      const hasCharacter = !!video.characterPDF;
+
+      if (!hasDialogue && !hasCharacter) {
+        // Không có PDF → ẩn section
+        worksheetSection.style.display = 'none';
+        console.log('No PDFs for this lesson');
+        return;
+      }
+
+      // Step 5: Update Dialogue button
+      if (hasDialogue) {
+        const dialogueBtn = document.getElementById('dialogue-pdf-btn');
+        if (dialogueBtn) {
+          dialogueBtn.href = video.dialoguePDF;
+          dialogueBtn.disabled = false;
+          dialogueBtn.style.opacity = '1';
+          console.log('✓ Dialogue PDF loaded');
+        }
+      } else {
+        const dialogueBtn = document.getElementById('dialogue-pdf-btn');
+        if (dialogueBtn) {
+          dialogueBtn.disabled = true;
+          dialogueBtn.style.opacity = '0.5';
+        }
+      }
+
+      // Step 6: Update Character button
+      if (hasCharacter) {
+        const characterBtn = document.getElementById('character-pdf-btn');
+        if (characterBtn) {
+          characterBtn.href = video.characterPDF;
+          characterBtn.disabled = false;
+          characterBtn.style.opacity = '1';
+          console.log('✓ Character PDF loaded');
+        }
+      } else {
+        const characterBtn = document.getElementById('character-pdf-btn');
+        if (characterBtn) {
+          characterBtn.disabled = true;
+          characterBtn.style.opacity = '0.5';
+        }
+      }
+
+      // Step 7: Show success
+      statusEl.className = 'pdf-status-msg success';
+      statusEl.textContent = `✅ Practice materials ready for "${video.title}"`;
+      console.log('✓ All PDFs loaded successfully');
+
+    } catch (error) {
+      console.error('Error loading PDFs:', error);
+      statusEl.className = 'pdf-status-msg error';
+      statusEl.textContent = `❌ Error loading materials: ${error.message}`;
+      
+      // Disable buttons
+      const dialogueBtn = document.getElementById('dialogue-pdf-btn');
+      const characterBtn = document.getElementById('character-pdf-btn');
+      if (dialogueBtn) dialogueBtn.disabled = true;
+      if (characterBtn) characterBtn.disabled = true;
+    }
+  }
+
+  // Chạy khi DOM ready
+  document.addEventListener('DOMContentLoaded', () => {
+    loadDownloadLinksFromJSON();
+  });
+</script>
 </body>
 </html>
