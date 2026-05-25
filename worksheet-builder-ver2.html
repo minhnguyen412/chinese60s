@@ -22,7 +22,7 @@ header{background:var(--red);border-bottom:var(--border-thick);padding:0 32px;he
 header h1{font-weight:700;font-size:1.55rem;color:white;letter-spacing:.05em;text-shadow:2px 2px 0 rgba(0,0,0,.25);}
 .header-tag{background:var(--white);border:var(--border);border-radius:50px;padding:5px 18px;font-weight:700;font-size:.82rem;box-shadow:var(--shadow-sm);}
 .app{display:flex;height:calc(100vh - 62px);position:relative;z-index:1;}
-.sidebar{width:310px;min-width:260px;flex-shrink:0;background:var(--white);border-right:var(--border-thick);display:flex;flex-direction:column;overflow:hidden;}
+.sidebar{width:310px;min-width:260px;flex-shrink:0;background:var(--white);border-right:var(--border-thick);display:flex;flex-direction:column;overflow-y:auto;}
 .sb-section{padding:13px 16px;border-bottom:var(--border);}
 .sb-section h3{font-family:'Quicksand',sans-serif;font-weight:700;font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:9px;}
 textarea{font-family:'Quicksand',sans-serif;font-size:.76rem;background:var(--cream);color:var(--black);border:var(--border);border-radius:10px;padding:9px 11px;resize:vertical;line-height:1.6;outline:none;}
@@ -44,7 +44,7 @@ input#set-title:focus{box-shadow:var(--shadow-sm);}
 .setting-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;}
 .setting-row label{font-family:'Quicksand',sans-serif;font-weight:700;font-size:.72rem;color:var(--muted);}
 .sb-label{font-family:'Quicksand',sans-serif;font-weight:700;font-size:.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px;}
-.char-list{flex:1;overflow-y:auto;padding:9px;}
+.char-list{flex:1;overflow:visible;padding:9px;}
 .char-item{display:flex;align-items:center;gap:9px;padding:8px 11px;border:var(--border);border-radius:12px;background:var(--cream);margin-bottom:6px;transition:transform .1s,box-shadow .1s;}
 .char-item:hover{transform:translate(-1px,-1px);box-shadow:var(--shadow-sm);}
 .char-meta{flex:1;}
@@ -159,6 +159,9 @@ input#set-title:focus{box-shadow:var(--shadow-sm);}
   .ws-vocab-img-placeholder{width:160px!important;height:160px!important;}
   .ws-page-footer{display:none!important;}
 }
+  .pinyin-tone-btn{font-family:'Noto Serif SC',serif;font-weight:700;font-size:0.9rem;padding:8px;border:var(--border);border-radius:6px;background:white;cursor:pointer;transition:all .12s;}
+.pinyin-tone-btn:hover{transform:translate(-1px,-1px);box-shadow:var(--shadow-sm);}
+.pinyin-tone-btn:active{transform:translate(1px,1px);box-shadow:none;}
 </style>
 </head>
 <body>
@@ -192,12 +195,15 @@ input#set-title:focus{box-shadow:var(--shadow-sm);}
     <!-- ═════════════════════════════════════════════════════════ -->
     <!-- CHARACTER TAB CONTENT -->
     <!-- ═════════════════════════════════════════════════════════ -->
-    <div id="tab-character-content" style="flex:1; overflow:hidden; display:flex; flex-direction:column;">
+    <div id="tab-character-content" style="flex:1; overflow:visible; display:flex; flex-direction:column;">
       <div class="sb-section">
         <h3>Add Character</h3>
         <div style="display:flex; flex-direction:column; gap:8px;">
           <input type="text" id="inp-character" placeholder="Character" maxlength="10">
-          <input type="text" id="inp-pinyin" placeholder="Pinyin (e.g., nǐ hǎo)">
+          <div style="display:flex; gap:6px; align-items:center;">
+  <input type="text" id="inp-pinyin" placeholder="Pinyin (e.g., nǐ hǎo)" style="flex:1;">
+  <button class="btn btn-sky" style="padding:7px 12px; flex-shrink:0;" onclick="openPinyinHelper()">🔤 Tones</button>
+</div>
           <input type="text" id="inp-meaning" placeholder="Meaning (English)">
           <input type="text" id="inp-topic" placeholder="Topic (optional)">
           <textarea id="inp-notes" placeholder="Notes (optional)" style="height:50px;"></textarea>
@@ -246,7 +252,7 @@ input#set-title:focus{box-shadow:var(--shadow-sm);}
     <!-- ═════════════════════════════════════════════════════════ -->
     <!-- DIALOGUE TAB CONTENT -->
     <!-- ═════════════════════════════════════════════════════════ -->
-    <div id="tab-dialogue-content" style="flex:1; overflow:hidden; display:none; display:flex; flex-direction:column; padding:0;">
+    <div id="tab-dialogue-content" style="flex:1; overflow:visible; display:none; flex-direction:column; padding:0;">
       
       <!-- CHARACTERS SETUP -->
       <div style="padding:13px 16px; border-bottom:var(--border); flex-shrink:0;">
@@ -309,7 +315,86 @@ input#set-title:focus{box-shadow:var(--shadow-sm);}
     </div>
   </main>
 </div>
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PINYIN TONE HELPER MODAL -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div id="pinyinModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:200; overflow:auto;">
+  <div style="background:var(--white); margin:20px auto; max-width:500px; border-radius:12px; border:var(--border-thick); box-shadow:var(--shadow-lg);">
+    <div style="padding:16px; border-bottom:var(--border); display:flex; justify-content:space-between; align-items:center;">
+      <h3 style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:1.1rem;">Pinyin Tone Marks</h3>
+      <button onclick="closePinyinHelper()" style="background:none; border:none; font-size:1.5rem; cursor:pointer; color:var(--muted);">✕</button>
+    </div>
+    <div style="padding:16px;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <!-- A tones -->
+        <div style="padding:12px; background:var(--yellow-pale); border:1.5px solid #ffd84d; border-radius:10px;">
+          <div style="font-weight:700; font-size:0.85rem; margin-bottom:8px; color:var(--muted);">A</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px;">
+            <button type="button" class="pinyin-tone-btn" onclick="insertPinyinChar('ā')">ā (1st)</button>
+            <button type="button" class="pinyin-tone-btn" onclick="insertPinyinChar('á')">á (2nd)</button>
+            <button type="button" class="pinyin-tone-btn" onclick="insertPinyinChar('ǎ')">ǎ (3rd)</button>
+            <button type="button" class="pinyin-tone-btn" onclick="insertPinyinChar('à')">à (4th)</button>
+          </div>
+        </div>
 
+        <!-- E tones -->
+        <div style="padding:12px; background:var(--yellow-pale); border:1.5px solid #ffd84d; border-radius:10px;">
+          <div style="font-weight:700; font-size:0.85rem; margin-bottom:8px; color:var(--muted);">E</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px;">
+            <button type="button" class="pinyin-tone-btn" onclick="insertPinyinChar('ē')">ē (1st)</button>
+            <button type="button" class="pinyin-tone-btn" onclick="insertPinyinChar('é')">é (2nd)</button>
+            <button type="button" class="pinyin-tone-btn" onclick="insertPinyinChar('ě')">ě (3rd)</button>
+            <button type="button" class="pinyin-tone-btn" onclick="insertPinyinChar('è')">è (4th)</button>
+          </div>
+        </div>
+
+        <!-- I tones -->
+        <div style="padding:12px; background:var(--sky-pale); border:1.5px solid #72c8f0; border-radius:10px;">
+          <div style="font-weight:700; font-size:0.85rem; margin-bottom:8px; color:var(--muted);">I</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px;">
+            <button type="button" class="pinyin-tone-btn" onclick="insertPinyinChar('ī')">ī (1st)</button>
+            <button type="button" class="pinyin-tone-btn" onclick="insertPinyinChar('í')">í (2nd)</button>
+            <button type="button" class="pinyin-tone-btn" onclick="insertPinyinChar('ǐ')">ǐ (3rd)</button>
+            <button type="button" class="pinyin-tone-btn" onclick="insertPinyinChar('ì')">ì (4th)</button>
+          </div>
+        </div>
+
+        <!-- O tones -->
+        <div style="padding:12px; background:var(--sky-pale); border:1.5px solid #72c8f0; border-radius:10px;">
+          <div style="font-weight:700; font-size:0.85rem; margin-bottom:8px; color:var(--muted);">O</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px;">
+            <button type="button" class="pinyin-tone-btn" onclick="insertPinyinChar('ō')">ō (1st)</button>
+            <button type="button" class="pinyin-tone-btn" onclick="insertPinyinChar('ó')">ó (2nd)</button>
+            <button type="button" class="pinyin-tone-btn" onclick="insertPinyinChar('ǒ')">ǒ (3rd)</button>
+            <button type="button" class="pinyin-tone-btn" onclick="insertPinyinChar('ò')">ò (4th)</button>
+          </div>
+        </div>
+
+        <!-- U tones -->
+        <div style="padding:12px; background:#f0f0f0; border:1.5px solid #ddd; border-radius:10px;">
+          <div style="font-weight:700; font-size:0.85rem; margin-bottom:8px; color:var(--muted);">U</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px;">
+            <button type="button" class="pinyin-tone-btn" onclick="insertPinyinChar('ū')">ū (1st)</button>
+            <button type="button" class="pinyin-tone-btn" onclick="insertPinyinChar('ú')">ú (2nd)</button>
+            <button type="button" class="pinyin-tone-btn" onclick="insertPinyinChar('ǔ')">ǔ (3rd)</button>
+            <button type="button" class="pinyin-tone-btn" onclick="insertPinyinChar('ù')">ù (4th)</button>
+          </div>
+        </div>
+
+        <!-- Ü tones -->
+        <div style="padding:12px; background:#f0f0f0; border:1.5px solid #ddd; border-radius:10px;">
+          <div style="font-weight:700; font-size:0.85rem; margin-bottom:8px; color:var(--muted);">Ü</div>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px;">
+            <button type="button" class="pinyin-tone-btn" onclick="insertPinyinChar('ǖ')">ǖ (1st)</button>
+            <button type="button" class="pinyin-tone-btn" onclick="insertPinyinChar('ǘ')">ǘ (2nd)</button>
+            <button type="button" class="pinyin-tone-btn" onclick="insertPinyinChar('ǚ')">ǚ (3rd)</button>
+            <button type="button" class="pinyin-tone-btn" onclick="insertPinyinChar('ǜ')">ǜ (4th)</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <!-- ═══════════════════════════════════════════════════════════ -->
 <!-- MEDIA PICKER MODAL (Character) -->
 <!-- ═══════════════════════════════════════════════════════════ -->
@@ -614,6 +699,31 @@ document.getElementById('subscriptionModal').addEventListener('click', (e) => {
 <!-- MAIN WORKSHEET LOGIC -->
 <!-- ═══════════════════════════════════════════════════════════ -->
 <script>
+  window.openPinyinHelper = function() {
+  document.getElementById('pinyinModal').style.display = 'block';
+};
+
+window.closePinyinHelper = function() {
+  document.getElementById('pinyinModal').style.display = 'none';
+};
+
+window.insertPinyinChar = function(char) {
+  const input = document.getElementById('inp-pinyin');
+  const start = input.selectionStart;
+  const end = input.selectionEnd;
+  const text = input.value;
+  input.value = text.substring(0, start) + char + text.substring(end);
+  input.selectionStart = input.selectionEnd = start + 1;
+  input.focus();
+};
+
+// Close modal khi click ngoài
+document.addEventListener('click', function(e) {
+  const modal = document.getElementById('pinyinModal');
+  if (e.target === modal) {
+    closePinyinHelper();
+  }
+});
 let characters = [];
 let strokeCache = {};
 let isRendering = false;
