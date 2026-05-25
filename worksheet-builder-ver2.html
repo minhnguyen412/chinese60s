@@ -198,6 +198,37 @@ input#set-title:focus{box-shadow:var(--shadow-sm);}
         <div style="display:flex; flex-direction:column; gap:8px;">
           <input type="text" id="inp-character" placeholder="Character" maxlength="10">
           <input type="text" id="inp-pinyin" placeholder="Pinyin (e.g., nǐ hǎo)">
+          <div id="pinyin-helpers" style="display:flex; flex-wrap:wrap; gap:4px; margin-top:6px; padding:6px; background:var(--yellow-pale); border:1.5px solid #ffd84d; border-radius:8px;">
+  <button type="button" class="pinyin-btn" data-char="ā" style="font-size:0.75rem; padding:3px 7px; border:var(--border); border-radius:6px; background:white; cursor:pointer; font-family:'Noto Serif SC',serif; font-weight:700; transition:all .1s;" onclick="insertPinyinChar('ā', event)">ā</button>
+  <button type="button" class="pinyin-btn" data-char="á" style="font-size:0.75rem; padding:3px 7px; border:var(--border); border-radius:6px; background:white; cursor:pointer; font-family:'Noto Serif SC',serif; font-weight:700; transition:all .1s;" onclick="insertPinyinChar('á', event)">á</button>
+  <button type="button" class="pinyin-btn" data-char="ǎ" style="font-size:0.75rem; padding:3px 7px; border:var(--border); border-radius:6px; background:white; cursor:pointer; font-family:'Noto Serif SC',serif; font-weight:700; transition:all .1s;" onclick="insertPinyinChar('ǎ', event)">ǎ</button>
+  <button type="button" class="pinyin-btn" data-char="à" style="font-size:0.75rem; padding:3px 7px; border:var(--border); border-radius:6px; background:white; cursor:pointer; font-family:'Noto Serif SC',serif; font-weight:700; transition:all .1s;" onclick="insertPinyinChar('à', event)">à</button>
+  
+  <button type="button" class="pinyin-btn" data-char="ē" style="font-size:0.75rem; padding:3px 7px; border:var(--border); border-radius:6px; background:white; cursor:pointer; font-family:'Noto Serif SC',serif; font-weight:700; transition:all .1s;" onclick="insertPinyinChar('ē', event)">ē</button>
+  <button type="button" class="pinyin-btn" data-char="é" style="font-size:0.75rem; padding:3px 7px; border:var(--border); border-radius:6px; background:white; cursor:pointer; font-family:'Noto Serif SC',serif; font-weight:700; transition:all .1s;" onclick="insertPinyinChar('é', event)">é</button>
+  <button type="button" class="pinyin-btn" data-char="ě" style="font-size:0.75rem; padding:3px 7px; border:var(--border); border-radius:6px; background:white; cursor:pointer; font-family:'Noto Serif SC',serif; font-weight:700; transition:all .1s;" onclick="insertPinyinChar('ě', event)">ě</button>
+  <button type="button" class="pinyin-btn" data-char="è" style="font-size:0.75rem; padding:3px 7px; border:var(--border); border-radius:6px; background:white; cursor:pointer; font-family:'Noto Serif SC',serif; font-weight:700; transition:all .1s;" onclick="insertPinyinChar('è', event)">è</button>
+  
+  <button type="button" class="pinyin-btn" data-char="ī" style="font-size:0.75rem; padding:3px 7px; border:var(--border); border-radius:6px; background:white; cursor:pointer; font-family:'Noto Serif SC',serif; font-weight:700; transition:all .1s;" onclick="insertPinyinChar('ī', event)">ī</button>
+  <button type="button" class="pinyin-btn" data-char="í" style="font-size:0.75rem; padding:3px 7px; border:var(--border); border-radius:6px; background:white; cursor:pointer; font-family:'Noto Serif SC',serif; font-weight:700; transition:all .1s;" onclick="insertPinyinChar('í', event)">í</button>
+  <button type="button" class="pinyin-btn" data-char="ǐ" style="font-size:0.75rem; padding:3px 7px; border:var(--border); border-radius:6px; background:white; cursor:pointer; font-family:'Noto Serif SC',serif; font-weight:700; transition:all .1s;" onclick="insertPinyinChar('ǐ', event)">ǐ</button>
+  <button type="button" class="pinyin-btn" data-char="ì" style="font-size:0.75rem; padding:3px 7px; border:var(--border); border-radius:6px; background:white; cursor:pointer; font-family:'Noto Serif SC',serif; font-weight:700; transition:all .1s;" onclick="insertPinyinChar('ì', event)">ì</button>
+  
+  <button type="button" class="pinyin-btn" data-char="ō" style="font-size:0.75rem; padding:3px 7px; border:var(--border); border-radius:6px; background:white; cursor:pointer; font-family:'Noto Serif SC',serif; font-weight:700; transition:all .1s;" onclick="insertPinyinChar('ō', event)">ō</button>
+  <button type="button" class="pinyin-btn" data-char="ó" style="font-size:0.75rem; padding:3px 7px; border:var(--border); border-radius:6px; background:white; cursor:pointer; font-family:'Noto Serif SC',serif; font-weight:700; transition:all .1s;" onclick="insertPinyinChar('ó', event)">ó</button>
+  <button type="button" class="pinyin-btn" data-char="ǒ" style="font-size:0.75rem; padding:3px 7px; border:var(--border); border-radius:6px; background:white; cursor:pointer; font-family:'Noto Serif SC',serif; font-weight:700; transition:all .1s;" onclick="insertPinyinChar('ǒ', event)">ǒ</button>
+  <button type="button" class="pinyin-btn" data-char="ò" style="font-size:0.75rem; padding:3px 7px; border:var(--border); border-radius:6px; background:white; cursor:pointer; font-family:'Noto Serif SC',serif; font-weight:700; transition:all .1s;" onclick="insertPinyinChar('ò', event)">ò</button>
+  
+  <button type="button" class="pinyin-btn" data-char="ū" style="font-size:0.75rem; padding:3px 7px; border:var(--border); border-radius:6px; background:white; cursor:pointer; font-family:'Noto Serif SC',serif; font-weight:700; transition:all .1s;" onclick="insertPinyinChar('ū', event)">ū</button>
+  <button type="button" class="pinyin-btn" data-char="ú" style="font-size:0.75rem; padding:3px 7px; border:var(--border); border-radius:6px; background:white; cursor:pointer; font-family:'Noto Serif SC',serif; font-weight:700; transition:all .1s;" onclick="insertPinyinChar('ú', event)">ú</button>
+  <button type="button" class="pinyin-btn" data-char="ǔ" style="font-size:0.75rem; padding:3px 7px; border:var(--border); border-radius:6px; background:white; cursor:pointer; font-family:'Noto Serif SC',serif; font-weight:700; transition:all .1s;" onclick="insertPinyinChar('ǔ', event)">ǔ</button>
+  <button type="button" class="pinyin-btn" data-char="ù" style="font-size:0.75rem; padding:3px 7px; border:var(--border); border-radius:6px; background:white; cursor:pointer; font-family:'Noto Serif SC',serif; font-weight:700; transition:all .1s;" onclick="insertPinyinChar('ù', event)">ù</button>
+  
+  <button type="button" class="pinyin-btn" data-char="ǖ" style="font-size:0.75rem; padding:3px 7px; border:var(--border); border-radius:6px; background:white; cursor:pointer; font-family:'Noto Serif SC',serif; font-weight:700; transition:all .1s;" onclick="insertPinyinChar('ǖ', event)">ǖ</button>
+  <button type="button" class="pinyin-btn" data-char="ǘ" style="font-size:0.75rem; padding:3px 7px; border:var(--border); border-radius:6px; background:white; cursor:pointer; font-family:'Noto Serif SC',serif; font-weight:700; transition:all .1s;" onclick="insertPinyinChar('ǘ', event)">ǘ</button>
+  <button type="button" class="pinyin-btn" data-char="ǚ" style="font-size:0.75rem; padding:3px 7px; border:var(--border); border-radius:6px; background:white; cursor:pointer; font-family:'Noto Serif SC',serif; font-weight:700; transition:all .1s;" onclick="insertPinyinChar('ǚ', event)">ǚ</button>
+  <button type="button" class="pinyin-btn" data-char="ǜ" style="font-size:0.75rem; padding:3px 7px; border:var(--border); border-radius:6px; background:white; cursor:pointer; font-family:'Noto Serif SC',serif; font-weight:700; transition:all .1s;" onclick="insertPinyinChar('ǜ', event)">ǜ</button>
+</div>
           <input type="text" id="inp-meaning" placeholder="Meaning (English)">
           <input type="text" id="inp-topic" placeholder="Topic (optional)">
           <textarea id="inp-notes" placeholder="Notes (optional)" style="height:50px;"></textarea>
@@ -614,6 +645,16 @@ document.getElementById('subscriptionModal').addEventListener('click', (e) => {
 <!-- MAIN WORKSHEET LOGIC -->
 <!-- ═══════════════════════════════════════════════════════════ -->
 <script>
+window.insertPinyinChar = function(char, event) {
+  event.preventDefault();
+  const input = document.getElementById('inp-pinyin');
+  const start = input.selectionStart;
+  const end = input.selectionEnd;
+  const text = input.value;
+  input.value = text.substring(0, start) + char + text.substring(end);
+  input.selectionStart = input.selectionEnd = start + 1;
+  input.focus();
+};
 let characters = [];
 let strokeCache = {};
 let isRendering = false;
