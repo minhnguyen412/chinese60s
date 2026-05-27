@@ -323,6 +323,7 @@ let _iosAudioContext = null;
 let _isIOS = false;
 let _pendingAudioReset = false;
 let _lastAudioPlayTime = 0;
+let _audioSessionLocked = false;
 
 // Detect iOS
 (function detectIOS() {
@@ -341,44 +342,56 @@ function getAudioContext() {
     return _iosAudioContext;
 }
 
-// Reset audio session to PLAYBACK mode (for playing audio)
-async function resetToPlaybackMode() {
+// Force reset audio session to PLAYBACK mode (for playing audio)
+// This is critical for iOS - must be called after any recording ends
+async function forceResetAudioSession() {
     if (!_isIOS) return;
-    console.log('[iOS Audio] Resetting to PLAYBACK mode...');
+    console.log('[iOS Audio] Force resetting audio session...');
 
     try {
         const ctx = getAudioContext();
         if (!ctx) return;
 
-        // Resume context if suspended
-        if (ctx.state === 'suspended') {
-            await ctx.resume();
-        }
-
-        // Create a click/buzz sound to signal session switch
-        const bufferSize = ctx.sampleRate * 0.05;
+        // Create and play a silent buffer to force session switch
+        const bufferSize = ctx.sampleRate * 0.1;
         const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
         const data = buffer.getChannelData(0);
+        // Create a very short click sound
         for (let i = 0; i < bufferSize; i++) {
-            // Create a short fade-out buzz
-            data[i] = Math.sin(440 * Math.PI * 2 * i / ctx.sampleRate) * (1 - i / bufferSize) * 0.1;
+            const t = i / bufferSize;
+            data[i] = Math.sin(440 * Math.PI * 2 * i / ctx.sampleRate) * Math.sin(Math.PI * t) * 0.05;
         }
         const source = ctx.createBufferSource();
         source.buffer = buffer;
         source.connect(ctx.destination);
+
+        // Resume context first
+        if (ctx.state === 'suspended') {
+            await ctx.resume();
+        }
+
         source.start();
 
-        await new Promise(resolve => setTimeout(resolve, 100));
-        try { source.stop(); } catch(e) {}
+        // Wait for sound to complete
+        await new Promise(resolve => {
+            source.onended = resolve;
+            setTimeout(resolve, 150);
+        });
 
-        console.log('[iOS Audio] ✓ Ready for playback');
+        _audioSessionLocked = false;
         _pendingAudioReset = false;
+        console.log('[iOS Audio] ✓ Audio session reset complete');
     } catch (err) {
-        console.warn('[iOS Audio] Playback reset failed:', err);
+        console.warn('[iOS Audio] Force reset failed:', err);
     }
 }
 
-// Reset audio session to RECORD mode (for microphone)
+// Legacy function name for compatibility
+async function resetToPlaybackMode() {
+    await forceResetAudioSession();
+}
+
+// Legacy function name for compatibility
 async function resetToRecordMode() {
     if (!_isIOS) return;
     console.log('[iOS Audio] Resetting to RECORD mode...');
@@ -387,7 +400,6 @@ async function resetToRecordMode() {
         const ctx = getAudioContext();
         if (!ctx) return;
 
-        // Need user interaction here - create a "tap" that also checks mic
         if (ctx.state === 'suspended') {
             await ctx.resume();
         }
@@ -406,25 +418,28 @@ async function resetToRecordMode() {
     }
 }
 
-// Show iOS reset overlay
-function showIOSResetOverlay(message, callback) {
-    const overlay = document.createElement('div');
-    overlay.className = 'ios-reset-overlay';
-    overlay.innerHTML = `
-        <div class="ios-reset-popup">
-            <div class="tap-hint">👆</div>
-            <h3>Tap to Continue</h3>
-            <p>${message || 'Please tap to enable audio playback after recording.'}</p>
-        </div>
-    `;
-    document.body.appendChild(overlay);
+// ============================================================
+// AUDIO PLAYBACK WITH iOS SESSION FIX
+// ============================================================
+async function playAudioWithSessionFix(audioSrc) {
+    // On iOS, force reset session before playing
+    if (_isIOS) {
+        await forceResetAudioSession();
+    }
 
-    // Auto-reset audio session on tap
-    overlay.addEventListener('click', async () => {
-        overlay.remove();
-        await resetToPlaybackMode();
-        if (callback) callback();
-    }, { once: true });
+    const audio = new Audio(audioSrc);
+
+    // Ensure volume is at a reasonable level
+    audio.volume = 0.8;
+
+    try {
+        await audio.play();
+        _lastAudioPlayTime = Date.now();
+    } catch (err) {
+        console.warn('[Audio] Play failed:', err);
+    }
+
+    return audio;
 }
 
 // ============================================================
@@ -433,20 +448,10 @@ function showIOSResetOverlay(message, callback) {
 (function setupAudioTracking() {
     if (!_isIOS) return;
 
-    // Track when audio is played
-    document.addEventListener('play', (e) => {
-        if (e.target.tagName === 'AUDIO') {
-            _lastAudioPlayTime = Date.now();
-            _pendingAudioReset = true;
-            console.log('[iOS Audio] Audio playback detected');
-        }
-    }, true);
-
     // Track when recording ends (need to reset to playback mode)
     document.addEventListener('recording-off', async () => {
-        // Small delay to let speech recognition fully stop
         setTimeout(async () => {
-            await resetToPlaybackMode();
+            await forceResetAudioSession();
         }, 200);
     });
 })();
@@ -539,7 +544,8 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
             try {
                 audio.pause();
                 audio.currentTime = 0;
-                audio.volume = 0;
+                // NOTE: Don't set volume = 0 here - it causes issues on iOS
+                // where subsequent audio plays at very low volume
             } catch(e) {}
         });
 
@@ -547,7 +553,6 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
             try {
                 window.qAudio.pause();
                 window.qAudio.currentTime = 0;
-                window.qAudio.volume = 0;
             } catch(e) {}
         }
 
@@ -558,7 +563,6 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
                 try {
                     cardAudio.pause();
                     cardAudio.currentTime = 0;
-                    cardAudio.volume = 0;
                 } catch(e) {}
             }
         }
@@ -568,16 +572,12 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
             btn.style.opacity = '0.5';
         });
 
-        await new Promise(resolve => setTimeout(resolve, 400));
-
-        // iOS: Reset to record mode
+        // iOS: Reset to record mode BEFORE waiting (critical for session switch)
         if (_isIOS) {
             await resetToRecordMode();
-            // Show overlay if user played audio recently
-            if (_pendingAudioReset && Date.now() - _lastAudioPlayTime < 30000) {
-                await showIOSResetOverlay('Tap to enable microphone after playing audio.');
-            }
         }
+
+        await new Promise(resolve => setTimeout(resolve, 200));
 
         console.log('✓ All audio stopped');
     }
@@ -677,7 +677,7 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
 
         // iOS: Reset audio session for playback when closing popup
         if (_isIOS) {
-            setTimeout(() => resetToPlaybackMode(), 100);
+            setTimeout(() => forceResetAudioSession(), 100);
         }
 
         overlay.remove();
@@ -723,18 +723,30 @@ function loadPosts(startpId, endpId, listId) {
             audioBtn.textContent = '☊';
             audioBtn.style.cursor = 'pointer';
 
-            // iOS: Track audio playback for session management
+            // FIXED: Audio playback with volume reset on iOS
+            // Remove old duplicate listener and use clean implementation
             if (_isIOS) {
+                audioBtn.addEventListener('click', async (e) => {
+                    e.stopPropagation();
+                    // Force reset session and play audio with proper volume
+                    await forceResetAudioSession();
+                    const audio = new Audio(item.audioSrc);
+                    audio.volume = 0.8;
+                    try {
+                        await audio.play();
+                        _lastAudioPlayTime = Date.now();
+                    } catch (err) {
+                        console.warn('[Audio] iOS play failed:', err);
+                    }
+                });
+            } else {
+                // Non-iOS: normal playback
                 audioBtn.addEventListener('click', () => {
-                    // Mark that audio was just played - recording needs reset
-                    _lastAudioPlayTime = Date.now();
-                    _pendingAudioReset = true;
-                    // Also try to reset audio context in background
-                    resetToPlaybackMode();
-                }, { capture: true });
+                    const audio = new Audio(item.audioSrc);
+                    audio.volume = 0.8;
+                    audio.play().catch(err => console.warn('[Audio] play failed:', err));
+                });
             }
-
-            audioBtn.addEventListener('click', () => new Audio(item.audioSrc).play());
 
             const eyeBtn = document.createElement('button');
             eyeBtn.className = 'eye-btn';
