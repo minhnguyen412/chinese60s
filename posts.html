@@ -1509,120 +1509,159 @@ window.redeemGumroadKey = async function () {
   <script>
   window.initSpeechRecognition = function (correctSentence, micBtn) {
     if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
-      console.warn('Speech Recognition not supported');
+      console.warn('❌ Speech Recognition not supported');
       micBtn.disabled = true;
       micBtn.style.opacity = '0.5';
       return;
     }
-
+ 
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     let recognition = null;
     let isListening = false;
     let timeoutId = null;
-
+ 
+    // 🔑 Dừng tất cả audio trước khi record
+    function stopAllAudio() {
+      console.log('🔇 Stopping all audio...');
+      document.querySelectorAll('audio').forEach(audio => {
+        try {
+          audio.pause();
+          audio.currentTime = 0;
+        } catch(e) {}
+      });
+      if (window.qAudio) {
+        try {
+          window.qAudio.pause();
+          window.qAudio.currentTime = 0;
+        } catch(e) {}
+      }
+      document.querySelectorAll('.replay-btn').forEach(btn => {
+        btn.disabled = true;
+        btn.style.opacity = '0.5';
+      });
+    }
+ 
     function createNewRecognition() {
-      // Tạo instance mới mỗi lần (tránh state bẩn)
       recognition = new SpeechRecognition();
       recognition.lang = 'zh-CN';
       recognition.interimResults = false;
       recognition.maxAlternatives = 1;
-      recognition.continuous = false; // ⚠️ QUAN TRỌNG cho iOS
-
+      recognition.continuous = false;
+ 
       recognition.onstart = function () {
         isListening = true;
-        micBtn.textContent = '🔴 Listening...';
+        micBtn.textContent = '🎤 Recording...';
         micBtn.disabled = true;
-        
-        // Timeout 10s
+        console.log('🎙️ Recording started');
         timeoutId = setTimeout(() => {
           if (isListening) {
-            console.warn('Timeout - stopping');
+            console.warn('⏱️ Timeout - stopping');
             recognition.abort();
           }
         }, 10000);
       };
-
+ 
       recognition.onresult = function (event) {
         clearTimeout(timeoutId);
         if (event.results && event.results.length > 0) {
           const transcript = event.results[0][0].transcript;
           micBtn.textContent = '✅ Saved!';
-          console.log('STT result:', transcript);
-          
+          console.log('✓ Transcript:', transcript);
           const p = new URLSearchParams(window.location.search);
           const postId = p.get('id') || 'unknown';
           window.saveRecording(postId, transcript, correctSentence);
-
           setTimeout(() => {
             micBtn.textContent = '🎤';
             micBtn.disabled = false;
             isListening = false;
+            document.querySelectorAll('.replay-btn').forEach(btn => {
+              btn.disabled = false;
+              btn.style.opacity = '1';
+            });
           }, 1500);
         }
       };
-
+ 
       recognition.onerror = function (event) {
         clearTimeout(timeoutId);
-        console.warn('STT error:', event.error);
-        
+        console.warn('⚠️ Error:', event.error);
         const errors = {
-          'no-speech': '🔇 No speech',
-          'network': '📡 Network error',
-          'audio-capture': '🎤 No mic'
+          'no-speech': '🔇 Không nghe được - nói rõ hơn',
+          'audio-capture': '🎤 Không truy cập mic',
+          'network': '📡 Lỗi mạng',
+          'permission-denied': '❌ Từ chối quyền'
         };
-        
-        micBtn.textContent = errors[event.error] || '🎤';
+        micBtn.textContent = errors[event.error] || '❌ Error';
         micBtn.disabled = false;
         isListening = false;
-
-        setTimeout(() => {
-          micBtn.textContent = '🎤';
-        }, 2000);
+        document.querySelectorAll('.replay-btn').forEach(btn => {
+          btn.disabled = false;
+          btn.style.opacity = '1';
+        });
+        setTimeout(() => { micBtn.textContent = '🎤'; }, 2000);
       };
-
+ 
       recognition.onend = function () {
         clearTimeout(timeoutId);
         if (isListening) {
           isListening = false;
           micBtn.disabled = false;
-          if (micBtn.textContent === '🔴 Listening...') {
+          if (micBtn.textContent === '🎤 Recording...') {
             micBtn.textContent = '🎤';
           }
         }
       };
     }
-
+ 
     micBtn.addEventListener('click', async () => {
-      if (isListening) return;
-
+      if (isListening) {
+        console.warn('⚠️ Already recording');
+        return;
+      }
+ 
       try {
-        // Request mic permission trước (iOS requirement)
-        await navigator.mediaDevices.getUserMedia({ audio: true })
-          .then(stream => {
-            stream.getTracks().forEach(track => track.stop());
-          })
-          .catch(err => {
-            console.warn('Mic permission denied:', err);
-            micBtn.textContent = '❌ No access';
-            setTimeout(() => { micBtn.textContent = '🎤'; }, 2000);
-            return;
-          });
-
-        // Tạo recognition instance mới
+        // 1️⃣ Dừng tất cả audio
+        stopAllAudio();
+ 
+        // 2️⃣ Chờ iOS reset microphone
+        console.log('⏳ Resetting microphone...');
+        await new Promise(resolve => setTimeout(resolve, 500));
+ 
+        // 3️⃣ Request mic permission
+        console.log('🔐 Requesting microphone...');
+        const stream = await navigator.mediaDevices.getUserMedia({
+          audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true }
+        });
+        stream.getTracks().forEach(track => track.stop());
+        console.log('✓ Microphone ready');
+ 
+        // 4️⃣ Tạo recognition mới
         createNewRecognition();
-
+ 
+        // 5️⃣ Bắt đầu record
         try {
           recognition.start();
         } catch (e) {
-          console.warn('Start recognition error:', e);
+          console.warn('⚠️ Already running:', e.message);
         }
-
+ 
       } catch (err) {
-        console.error('Error:', err);
-        micBtn.textContent = '❌ Error';
-        setTimeout(() => { micBtn.textContent = '🎤'; }, 2000);
+        console.error('❌ Error:', err.name);
+        if (err.name === 'NotAllowedError') {
+          micBtn.textContent = '❌ Access denied';
+        } else if (err.name === 'NotFoundError') {
+          micBtn.textContent = '❌ No mic';
+        } else {
+          micBtn.textContent = '❌ Error';
+        }
+        setTimeout(() => {
+          micBtn.textContent = '🎤';
+          micBtn.disabled = false;
+        }, 2000);
       }
     });
+ 
+    console.log('✓ Speech Recognition initialized (audio-aware)');
   };
 </script>
 
