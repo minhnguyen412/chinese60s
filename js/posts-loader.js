@@ -294,12 +294,7 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
         <div class="rec-popup" id="rec-popup">
             <p class="rec-title">Pronunciation Practice</p>
 
-            <div class="rec-audio-wrap">
-                <button class="rec-play-btn" id="rec-play-btn" title="Listen to sample">
-                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                </button>
-                <span class="rec-audio-label">Listen to the sample first</span>
-            </div>
+            <!-- ❌ AUDIO BUTTON REMOVED - to avoid microphone conflict -->
 
             <div class="rec-wave idle" id="rec-wave">
                 <span></span><span></span><span></span><span></span><span></span>
@@ -325,21 +320,21 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
     const btnClose  = overlay.querySelector('#rec-btn-close');
     const playBtn   = overlay.querySelector('#rec-play-btn');
 
-    // --- Audio sample ---
-    let sampleAudio = null;
-    playBtn.addEventListener('click', () => {
-        if (sampleAudio && !sampleAudio.paused) {
-            sampleAudio.pause();
-            sampleAudio.currentTime = 0;
-            playBtn.classList.remove('playing');
-            return;
-        }
-        sampleAudio = new Audio(audioSrc);
-        playBtn.classList.add('playing');
-        sampleAudio.play();
-        sampleAudio.onended = () => playBtn.classList.remove('playing');
-        sampleAudio.onerror = () => playBtn.classList.remove('playing');
-    });
+    // ❌ AUDIO SAMPLE DISABLED - Removed to avoid microphone conflict
+    // let sampleAudio = null;
+    // playBtn.addEventListener('click', () => {
+    //     if (sampleAudio && !sampleAudio.paused) {
+    //         sampleAudio.pause();
+    //         sampleAudio.currentTime = 0;
+    //         playBtn.classList.remove('playing');
+    //         return;
+    //     }
+    //     sampleAudio = new Audio(audioSrc);
+    //     playBtn.classList.add('playing');
+    //     sampleAudio.play();
+    //     sampleAudio.onended = () => playBtn.classList.remove('playing');
+    //     sampleAudio.onerror = () => playBtn.classList.remove('playing');
+    // });
 
     // --- Recording logic ---
     let recognition = null;
