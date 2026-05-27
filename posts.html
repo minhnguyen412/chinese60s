@@ -1507,6 +1507,79 @@ window.redeemGumroadKey = async function () {
        SPEECH RECOGNITION
   ═══════════════════════════════════════════════════════════ -->
   <script>
+  // iOS Detection
+  const _isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+                 (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+  // Web Audio API context for iOS session reset
+  let _iOSAudioContext = null;
+
+  function _getIOSAudioContext() {
+    if (!_iOSAudioContext) {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (AudioContext) {
+        _iOSAudioContext = new AudioContext();
+      }
+    }
+    return _iOSAudioContext;
+  }
+
+  // Reset iOS audio session using Web Audio API
+  async function _resetIOSAudioSession() {
+    if (!_isIOS) return;
+
+    console.log('[iOS] Resetting audio session...');
+
+    try {
+      const ctx = _getIOSAudioContext();
+      if (ctx && ctx.state === 'suspended') {
+        await ctx.resume();
+      }
+
+      if (ctx) {
+        const bufferSize = ctx.sampleRate * 0.1;
+        const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+        const source = ctx.createBufferSource();
+        source.buffer = buffer;
+        source.connect(ctx.destination);
+        source.start();
+        await new Promise(resolve => setTimeout(resolve, 150));
+        try { source.stop(); } catch(e) {}
+      }
+
+      console.log('[iOS] Audio session reset complete');
+    } catch (err) {
+      console.warn('[iOS] Reset failed:', err);
+    }
+  }
+
+  // iOS Reset Overlay
+  function _showIOSResetOverlay() {
+    return new Promise((resolve) => {
+      const overlay = document.createElement('div');
+      overlay.style.cssText = `
+        position: fixed; inset: 0; background: rgba(0,0,0,.7);
+        display: flex; align-items: center; justify-content: center;
+        z-index: 99999; cursor: pointer;
+      `;
+      overlay.innerHTML = `
+        <div style="background:#fff;border-radius:20px;padding:32px 28px;text-align:center;max-width:320px;box-shadow:0 20px 60px rgba(0,0,0,.3);">
+          <div style="font-size:2rem;animation:pulse-tap 1s ease-in-out infinite;">👆</div>
+          <h3 style="font-size:1.2rem;margin:12px 0;color:#1a1a2e;">Tap to Enable Recording</h3>
+          <p style="font-size:0.95rem;color:#666;margin:0;line-height:1.5;">
+            Due to iOS restrictions, please tap to enable the microphone after playing audio.
+          </p>
+        </div>
+        <style>@keyframes pulse-tap{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}</style>
+      `;
+      document.body.appendChild(overlay);
+      overlay.addEventListener('click', () => {
+        overlay.remove();
+        resolve();
+      }, { once: true });
+    });
+  }
+
   window.initSpeechRecognition = function (correctSentence, micBtn) {
     if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
       console.warn('❌ Speech Recognition not supported');
@@ -1514,40 +1587,48 @@ window.redeemGumroadKey = async function () {
       micBtn.style.opacity = '0.5';
       return;
     }
- 
+
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     let recognition = null;
     let isListening = false;
     let timeoutId = null;
- 
+    let _needsIOSReset = false;
+
     // 🔑 Dừng tất cả audio trước khi record
-    function stopAllAudio() {
+    async function stopAllAudio() {
       console.log('🔇 Stopping all audio...');
       document.querySelectorAll('audio').forEach(audio => {
         try {
           audio.pause();
           audio.currentTime = 0;
+          audio.volume = 0;
         } catch(e) {}
       });
       if (window.qAudio) {
         try {
           window.qAudio.pause();
           window.qAudio.currentTime = 0;
+          window.qAudio.volume = 0;
         } catch(e) {}
       }
       document.querySelectorAll('.replay-btn').forEach(btn => {
         btn.disabled = true;
         btn.style.opacity = '0.5';
       });
+
+      // iOS-specific: Reset audio session
+      if (_isIOS) {
+        await _resetIOSAudioSession();
+      }
     }
- 
+
     function createNewRecognition() {
       recognition = new SpeechRecognition();
       recognition.lang = 'zh-CN';
       recognition.interimResults = false;
       recognition.maxAlternatives = 1;
       recognition.continuous = false;
- 
+
       recognition.onstart = function () {
         isListening = true;
         micBtn.textContent = '🎤 Recording...';
@@ -1560,7 +1641,7 @@ window.redeemGumroadKey = async function () {
           }
         }, 10000);
       };
- 
+
       recognition.onresult = function (event) {
         clearTimeout(timeoutId);
         if (event.results && event.results.length > 0) {
@@ -1581,7 +1662,7 @@ window.redeemGumroadKey = async function () {
           }, 1500);
         }
       };
- 
+
       recognition.onerror = function (event) {
         clearTimeout(timeoutId);
         console.warn('⚠️ Error:', event.error);
@@ -1598,9 +1679,15 @@ window.redeemGumroadKey = async function () {
           btn.disabled = false;
           btn.style.opacity = '1';
         });
+
+        // iOS: Track if we need user interaction
+        if (_isIOS && (event.error === 'audio-capture' || event.error === 'permission-denied')) {
+          _needsIOSReset = true;
+        }
+
         setTimeout(() => { micBtn.textContent = '🎤'; }, 2000);
       };
- 
+
       recognition.onend = function () {
         clearTimeout(timeoutId);
         if (isListening) {
@@ -1612,21 +1699,28 @@ window.redeemGumroadKey = async function () {
         }
       };
     }
- 
+
     micBtn.addEventListener('click', async () => {
       if (isListening) {
         console.warn('⚠️ Already recording');
         return;
       }
- 
+
       try {
+        // iOS: Show reset overlay if needed
+        if (_isIOS && _needsIOSReset) {
+          micBtn.textContent = '⏳ Preparing...';
+          await _showIOSResetOverlay();
+          _needsIOSReset = false;
+        }
+
         // 1️⃣ Dừng tất cả audio
-        stopAllAudio();
- 
+        await stopAllAudio();
+
         // 2️⃣ Chờ iOS reset microphone
         console.log('⏳ Resetting microphone...');
-        await new Promise(resolve => setTimeout(resolve, 500));
- 
+        await new Promise(resolve => setTimeout(resolve, 300));
+
         // 3️⃣ Request mic permission
         console.log('🔐 Requesting microphone...');
         const stream = await navigator.mediaDevices.getUserMedia({
@@ -1634,17 +1728,17 @@ window.redeemGumroadKey = async function () {
         });
         stream.getTracks().forEach(track => track.stop());
         console.log('✓ Microphone ready');
- 
+
         // 4️⃣ Tạo recognition mới
         createNewRecognition();
- 
+
         // 5️⃣ Bắt đầu record
         try {
           recognition.start();
         } catch (e) {
           console.warn('⚠️ Already running:', e.message);
         }
- 
+
       } catch (err) {
         console.error('❌ Error:', err.name);
         if (err.name === 'NotAllowedError') {
@@ -1654,16 +1748,31 @@ window.redeemGumroadKey = async function () {
         } else {
           micBtn.textContent = '❌ Error';
         }
+
+        // iOS: Mark for reset overlay next time
+        if (_isIOS) {
+          _needsIOSReset = true;
+        }
+
         setTimeout(() => {
           micBtn.textContent = '🎤';
           micBtn.disabled = false;
         }, 2000);
       }
     });
- 
-    console.log('✓ Speech Recognition initialized (audio-aware)');
+
+    // Track when user plays audio (for iOS reset tracking)
+    document.querySelectorAll('.audio, .replay-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (_isIOS) {
+          setTimeout(() => { _needsIOSReset = true; }, 100);
+        }
+      }, { once: false });
+    });
+
+    console.log('✓ Speech Recognition initialized (iOS-fixed)');
   };
-</script>
+  </script>
 
   <!-- Writing Quiz JS -->
   <script src="js/writing-quiz.js"></script>
