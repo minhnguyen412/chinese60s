@@ -1507,12 +1507,12 @@ window.redeemGumroadKey = async function () {
        SPEECH RECOGNITION
   ═══════════════════════════════════════════════════════════ -->
   <script>
-  // iOS Detection
+  // iOS Detection & Audio Session Management
   const _isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
                  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
-  // Web Audio API context for iOS session reset
   let _iOSAudioContext = null;
+  let _needsResetAfterRecord = false;
 
   function _getIOSAudioContext() {
     if (!_iOSAudioContext) {
@@ -1524,60 +1524,90 @@ window.redeemGumroadKey = async function () {
     return _iOSAudioContext;
   }
 
-  // Reset iOS audio session using Web Audio API
-  async function _resetIOSAudioSession() {
+  // Reset for PLAYBACK mode (after recording)
+  async function _resetToPlaybackMode() {
     if (!_isIOS) return;
-
-    console.log('[iOS] Resetting audio session...');
+    console.log('[iOS] Resetting to PLAYBACK mode...');
 
     try {
       const ctx = _getIOSAudioContext();
-      if (ctx && ctx.state === 'suspended') {
+      if (!ctx) return;
+
+      if (ctx.state === 'suspended') {
         await ctx.resume();
       }
 
-      if (ctx) {
-        const bufferSize = ctx.sampleRate * 0.1;
-        const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
-        const source = ctx.createBufferSource();
-        source.buffer = buffer;
-        source.connect(ctx.destination);
-        source.start();
-        await new Promise(resolve => setTimeout(resolve, 150));
-        try { source.stop(); } catch(e) {}
+      // Create brief click sound
+      const bufferSize = ctx.sampleRate * 0.05;
+      const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+      const data = buffer.getChannelData(0);
+      for (let i = 0; i < bufferSize; i++) {
+        data[i] = Math.sin(440 * Math.PI * 2 * i / ctx.sampleRate) * (1 - i / bufferSize) * 0.1;
+      }
+      const source = ctx.createBufferSource();
+      source.buffer = buffer;
+      source.connect(ctx.destination);
+      source.start();
+
+      await new Promise(resolve => setTimeout(resolve, 100));
+      try { source.stop(); } catch(e) {}
+
+      console.log('[iOS] ✓ Ready for playback');
+    } catch (err) {
+      console.warn('[iOS] Playback reset failed:', err);
+    }
+  }
+
+  // Reset for RECORD mode (before recording)
+  async function _resetToRecordMode() {
+    if (!_isIOS) return;
+    console.log('[iOS] Resetting to RECORD mode...');
+
+    try {
+      const ctx = _getIOSAudioContext();
+      if (!ctx) return;
+
+      if (ctx.state === 'suspended') {
+        await ctx.resume();
       }
 
-      console.log('[iOS] Audio session reset complete');
+      // Test mic access to force session switch
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        stream.getTracks().forEach(track => track.stop());
+        console.log('[iOS] ✓ Microphone ready');
+      } catch(e) {
+        console.warn('[iOS] Mic test failed:', e.message);
+      }
     } catch (err) {
-      console.warn('[iOS] Reset failed:', err);
+      console.warn('[iOS] Record reset failed:', err);
     }
   }
 
   // iOS Reset Overlay
-  function _showIOSResetOverlay() {
-    return new Promise((resolve) => {
-      const overlay = document.createElement('div');
-      overlay.style.cssText = `
-        position: fixed; inset: 0; background: rgba(0,0,0,.7);
-        display: flex; align-items: center; justify-content: center;
-        z-index: 99999; cursor: pointer;
-      `;
-      overlay.innerHTML = `
-        <div style="background:#fff;border-radius:20px;padding:32px 28px;text-align:center;max-width:320px;box-shadow:0 20px 60px rgba(0,0,0,.3);">
-          <div style="font-size:2rem;animation:pulse-tap 1s ease-in-out infinite;">👆</div>
-          <h3 style="font-size:1.2rem;margin:12px 0;color:#1a1a2e;">Tap to Enable Recording</h3>
-          <p style="font-size:0.95rem;color:#666;margin:0;line-height:1.5;">
-            Due to iOS restrictions, please tap to enable the microphone after playing audio.
-          </p>
-        </div>
-        <style>@keyframes pulse-tap{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}</style>
-      `;
-      document.body.appendChild(overlay);
-      overlay.addEventListener('click', () => {
-        overlay.remove();
-        resolve();
-      }, { once: true });
-    });
+  function _showIOSResetOverlay(message, callback) {
+    const overlay = document.createElement('div');
+    overlay.style.cssText = `
+      position: fixed; inset: 0; background: rgba(0,0,0,.7);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 99999; cursor: pointer;
+    `;
+    overlay.innerHTML = `
+      <div style="background:#fff;border-radius:20px;padding:32px 28px;text-align:center;max-width:320px;box-shadow:0 20px 60px rgba(0,0,0,.3);">
+        <div style="font-size:2rem;animation:pulse-tap 1s ease-in-out infinite;">👆</div>
+        <h3 style="font-size:1.2rem;margin:12px 0;color:#1a1a2e;">Tap to Continue</h3>
+        <p style="font-size:0.95rem;color:#666;margin:0;line-height:1.5;">
+          ${message || 'Tap to enable audio playback after recording.'}
+        </p>
+      </div>
+      <style>@keyframes pulse-tap{0%,100%{transform:scale(1)}50%{transform:scale(1.2)}}</style>
+    `;
+    document.body.appendChild(overlay);
+    overlay.addEventListener('click', async () => {
+      overlay.remove();
+      await _resetToPlaybackMode();
+      if (callback) callback();
+    }, { once: true });
   }
 
   window.initSpeechRecognition = function (correctSentence, micBtn) {
@@ -1594,7 +1624,17 @@ window.redeemGumroadKey = async function () {
     let timeoutId = null;
     let _needsIOSReset = false;
 
-    // 🔑 Dừng tất cả audio trước khi record
+    // Track audio playback for iOS session management
+    if (_isIOS) {
+      document.addEventListener('play', (e) => {
+        if (e.target.tagName === 'AUDIO') {
+          _needsIOSReset = true;
+          console.log('[iOS] Audio playback detected');
+        }
+      }, true);
+    }
+
+    // Stop all audio before recording
     async function stopAllAudio() {
       console.log('🔇 Stopping all audio...');
       document.querySelectorAll('audio').forEach(audio => {
@@ -1616,9 +1656,13 @@ window.redeemGumroadKey = async function () {
         btn.style.opacity = '0.5';
       });
 
-      // iOS-specific: Reset audio session
+      // iOS: Reset audio session
       if (_isIOS) {
-        await _resetIOSAudioSession();
+        await _resetToRecordMode();
+        if (_needsIOSReset) {
+          await _showIOSResetOverlay('Tap to enable microphone after playing audio.');
+          _needsIOSReset = false;
+        }
       }
     }
 
@@ -1644,28 +1688,39 @@ window.redeemGumroadKey = async function () {
 
       recognition.onresult = function (event) {
         clearTimeout(timeoutId);
-        if (event.results && event.results.length > 0) {
-          const transcript = event.results[0][0].transcript;
-          micBtn.textContent = '✅ Saved!';
-          console.log('✓ Transcript:', transcript);
-          const p = new URLSearchParams(window.location.search);
-          const postId = p.get('id') || 'unknown';
-          window.saveRecording(postId, transcript, correctSentence);
-          setTimeout(() => {
-            micBtn.textContent = '🎤';
-            micBtn.disabled = false;
-            isListening = false;
-            document.querySelectorAll('.replay-btn').forEach(btn => {
-              btn.disabled = false;
-              btn.style.opacity = '1';
-            });
-          }, 1500);
+              const transcript = event.results[0][0].transcript;
+        micBtn.textContent = '✅ Saved!';
+        console.log('✓ Transcript:', transcript);
+        const p = new URLSearchParams(window.location.search);
+        const postId = p.get('id') || 'unknown';
+        window.saveRecording(postId, transcript, correctSentence);
+
+        // iOS: Reset to playback mode after recording
+        if (_isIOS) {
+          _needsResetAfterRecord = true;
         }
+
+        setTimeout(() => {
+          micBtn.textContent = '🎤';
+          micBtn.disabled = false;
+          isListening = false;
+          document.querySelectorAll('.replay-btn').forEach(btn => {
+            btn.disabled = false;
+            btn.style.opacity = '1';
+          });
+        }, 1500);
       };
 
       recognition.onerror = function (event) {
         clearTimeout(timeoutId);
         console.warn('⚠️ Error:', event.error);
+
+        if (_isIOS && (event.error === 'audio-capture' || event.error === 'permission-denied')) {
+          _needsIOSReset = true;
+          _showIOSResetOverlay('Tap to retry recording.', () => startRec());
+          return;
+        }
+
         const errors = {
           'no-speech': '🔇 Không nghe được - nói rõ hơn',
           'audio-capture': '🎤 Không truy cập mic',
@@ -1679,12 +1734,6 @@ window.redeemGumroadKey = async function () {
           btn.disabled = false;
           btn.style.opacity = '1';
         });
-
-        // iOS: Track if we need user interaction
-        if (_isIOS && (event.error === 'audio-capture' || event.error === 'permission-denied')) {
-          _needsIOSReset = true;
-        }
-
         setTimeout(() => { micBtn.textContent = '🎤'; }, 2000);
       };
 
@@ -1700,45 +1749,21 @@ window.redeemGumroadKey = async function () {
       };
     }
 
-    micBtn.addEventListener('click', async () => {
-      if (isListening) {
-        console.warn('⚠️ Already recording');
-        return;
+    async function startRec() {
+      await stopAllAudio();
+      createNewRecognition();
+      try {
+        recognition.start();
+      } catch (e) {
+        console.warn('⚠️ Start failed:', e.message);
       }
+    }
+
+    micBtn.addEventListener('click', async () => {
+      if (isListening) return;
 
       try {
-        // iOS: Show reset overlay if needed
-        if (_isIOS && _needsIOSReset) {
-          micBtn.textContent = '⏳ Preparing...';
-          await _showIOSResetOverlay();
-          _needsIOSReset = false;
-        }
-
-        // 1️⃣ Dừng tất cả audio
-        await stopAllAudio();
-
-        // 2️⃣ Chờ iOS reset microphone
-        console.log('⏳ Resetting microphone...');
-        await new Promise(resolve => setTimeout(resolve, 300));
-
-        // 3️⃣ Request mic permission
-        console.log('🔐 Requesting microphone...');
-        const stream = await navigator.mediaDevices.getUserMedia({
-          audio: { echoCancellation: true, noiseSuppression: true, autoGainControl: true }
-        });
-        stream.getTracks().forEach(track => track.stop());
-        console.log('✓ Microphone ready');
-
-        // 4️⃣ Tạo recognition mới
-        createNewRecognition();
-
-        // 5️⃣ Bắt đầu record
-        try {
-          recognition.start();
-        } catch (e) {
-          console.warn('⚠️ Already running:', e.message);
-        }
-
+        await startRec();
       } catch (err) {
         console.error('❌ Error:', err.name);
         if (err.name === 'NotAllowedError') {
@@ -1748,12 +1773,7 @@ window.redeemGumroadKey = async function () {
         } else {
           micBtn.textContent = '❌ Error';
         }
-
-        // iOS: Mark for reset overlay next time
-        if (_isIOS) {
-          _needsIOSReset = true;
-        }
-
+        if (_isIOS) _needsIOSReset = true;
         setTimeout(() => {
           micBtn.textContent = '🎤';
           micBtn.disabled = false;
@@ -1761,16 +1781,19 @@ window.redeemGumroadKey = async function () {
       }
     });
 
-    // Track when user plays audio (for iOS reset tracking)
-    document.querySelectorAll('.audio, .replay-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        if (_isIOS) {
-          setTimeout(() => { _needsIOSReset = true; }, 100);
-        }
-      }, { once: false });
-    });
+    // Reset to playback mode when audio button clicked
+    if (_isIOS) {
+      document.querySelectorAll('.audio, .replay-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (_needsResetAfterRecord) {
+            _needsResetAfterRecord = false;
+            _resetToPlaybackMode();
+          }
+        }, { capture: true });
+      });
+    }
 
-    console.log('✓ Speech Recognition initialized (iOS-fixed)');
+    console.log('✓ Speech Recognition initialized (iOS bi-directional fixed)');
   };
   </script>
 
