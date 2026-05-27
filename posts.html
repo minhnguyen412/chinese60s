@@ -1507,33 +1507,124 @@ window.redeemGumroadKey = async function () {
        SPEECH RECOGNITION
   ═══════════════════════════════════════════════════════════ -->
   <script>
-    window.initSpeechRecognition = function (correctSentence, micBtn) {
-      if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
-        console.warn('Speech Recognition not supported');
-        return;
-      }
-      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-      const recognition = new SpeechRecognition();
-      recognition.lang            = 'zh-CN';
-      recognition.interimResults  = false;
-      recognition.maxAlternatives = 1;
+  window.initSpeechRecognition = function (correctSentence, micBtn) {
+    if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+      console.warn('Speech Recognition not supported');
+      micBtn.disabled = true;
+      micBtn.style.opacity = '0.5';
+      return;
+    }
 
-      micBtn.addEventListener('click', () => {
-        recognition.start();
-        micBtn.textContent = '🔴';
-      });
-      recognition.onresult = function (event) {
-        const transcript = event.results[0][0].transcript;
-        micBtn.textContent = '🎤';
-        console.log('STT result:', transcript);
-        const p      = new URLSearchParams(window.location.search);
-        const postId = p.get('id') || 'unknown';
-        window.saveRecording(postId, transcript, correctSentence);
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    let recognition = null;
+    let isListening = false;
+    let timeoutId = null;
+
+    function createNewRecognition() {
+      // Tạo instance mới mỗi lần (tránh state bẩn)
+      recognition = new SpeechRecognition();
+      recognition.lang = 'zh-CN';
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+      recognition.continuous = false; // ⚠️ QUAN TRỌNG cho iOS
+
+      recognition.onstart = function () {
+        isListening = true;
+        micBtn.textContent = '🔴 Listening...';
+        micBtn.disabled = true;
+        
+        // Timeout 10s
+        timeoutId = setTimeout(() => {
+          if (isListening) {
+            console.warn('Timeout - stopping');
+            recognition.abort();
+          }
+        }, 10000);
       };
-      recognition.onerror = function () { micBtn.textContent = '🎤'; };
-      recognition.onend   = function () { micBtn.textContent = '🎤'; };
-    };
-  </script>
+
+      recognition.onresult = function (event) {
+        clearTimeout(timeoutId);
+        if (event.results && event.results.length > 0) {
+          const transcript = event.results[0][0].transcript;
+          micBtn.textContent = '✅ Saved!';
+          console.log('STT result:', transcript);
+          
+          const p = new URLSearchParams(window.location.search);
+          const postId = p.get('id') || 'unknown';
+          window.saveRecording(postId, transcript, correctSentence);
+
+          setTimeout(() => {
+            micBtn.textContent = '🎤';
+            micBtn.disabled = false;
+            isListening = false;
+          }, 1500);
+        }
+      };
+
+      recognition.onerror = function (event) {
+        clearTimeout(timeoutId);
+        console.warn('STT error:', event.error);
+        
+        const errors = {
+          'no-speech': '🔇 No speech',
+          'network': '📡 Network error',
+          'audio-capture': '🎤 No mic'
+        };
+        
+        micBtn.textContent = errors[event.error] || '🎤';
+        micBtn.disabled = false;
+        isListening = false;
+
+        setTimeout(() => {
+          micBtn.textContent = '🎤';
+        }, 2000);
+      };
+
+      recognition.onend = function () {
+        clearTimeout(timeoutId);
+        if (isListening) {
+          isListening = false;
+          micBtn.disabled = false;
+          if (micBtn.textContent === '🔴 Listening...') {
+            micBtn.textContent = '🎤';
+          }
+        }
+      };
+    }
+
+    micBtn.addEventListener('click', async () => {
+      if (isListening) return;
+
+      try {
+        // Request mic permission trước (iOS requirement)
+        await navigator.mediaDevices.getUserMedia({ audio: true })
+          .then(stream => {
+            stream.getTracks().forEach(track => track.stop());
+          })
+          .catch(err => {
+            console.warn('Mic permission denied:', err);
+            micBtn.textContent = '❌ No access';
+            setTimeout(() => { micBtn.textContent = '🎤'; }, 2000);
+            return;
+          });
+
+        // Tạo recognition instance mới
+        createNewRecognition();
+
+        try {
+          recognition.start();
+        } catch (e) {
+          console.warn('Start recognition error:', e);
+        }
+
+      } catch (err) {
+        console.error('Error:', err);
+        micBtn.textContent = '❌ Error';
+        setTimeout(() => { micBtn.textContent = '🎤'; }, 2000);
+      }
+    });
+  };
+</script>
 
   <!-- Writing Quiz JS -->
   <script src="js/writing-quiz.js"></script>
