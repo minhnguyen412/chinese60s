@@ -455,11 +455,11 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
     }
 
     function closePopup() {
-        stopRec();
-        if (sampleAudio) { sampleAudio.pause(); sampleAudio = null; }
-        overlay.remove();
-    }
-
+    stopRec();
+    // ❌ sampleAudio is undefined (audio removed)
+    // if (sampleAudio) { sampleAudio.pause(); sampleAudio = null; }
+    overlay.remove();
+}
     btnStart.addEventListener('click', startRec);
     btnStop.addEventListener('click', stopRec);
     btnClose.addEventListener('click', closePopup);
