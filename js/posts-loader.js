@@ -376,6 +376,10 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
     }
 
     function startRec() {
+        // 🔑 DỪNG TẤT CẢ AUDIO trước khi record
+    document.querySelectorAll('audio').forEach(audio => {
+        try { audio.pause(); audio.currentTime = 0; } catch(e) {}
+    });
         const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
         if (!SR) {
             status.textContent = 'Your browser does not support speech recognition.';
