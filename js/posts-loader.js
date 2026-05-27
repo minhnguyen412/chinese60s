@@ -330,7 +330,60 @@ let _audioSessionLocked = false;
     _isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
              (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 })();
+// ============================================================
+// AUDIO PHASE MANAGER (2-phase system)
+// ============================================================
+let _currentPhase = 'IDLE';  // 'IDLE', 'PLAYBACK', 'RECORDING'
+let _isRecording = false;
 
+async function switchToPlaybackPhase() {
+    console.log('[Phase] Switching to PLAYBACK...');
+    if (_isRecording) {
+        document.dispatchEvent(new CustomEvent('force-stop-recording'));
+        _isRecording = false;
+    }
+    _currentPhase = 'PLAYBACK';
+    if (_isIOS) await forceResetAudioSession();
+}
+
+async function switchToRecordingPhase() {
+    console.log('[Phase] Switching to RECORDING...');
+    if (_currentPhase === 'PLAYBACK') await stopAllAudioPlayback();
+    _currentPhase = 'RECORDING';
+    _isRecording = true;
+    if (_isIOS) await resetToRecordMode();
+}
+
+async function stopAllAudioPlayback() {
+    console.log('[Audio] Stopping all playback...');
+    document.querySelectorAll('audio').forEach(audio => {
+        try { audio.pause(); audio.currentTime = 0; } catch(e) {}
+    });
+    if (window.qAudio) {
+        try { window.qAudio.pause(); window.qAudio.currentTime = 0; } catch(e) {}
+    }
+    const imageCard = document.querySelector('.image-card');
+    if (imageCard) {
+        const cardAudio = imageCard.querySelector('audio');
+        if (cardAudio) try { cardAudio.pause(); cardAudio.currentTime = 0; } catch(e) {}
+    }
+    document.querySelectorAll('.replay-btn').forEach(btn => {
+        btn.disabled = true; btn.style.opacity = '0.5';
+    });
+    await new Promise(resolve => setTimeout(resolve, 100));
+}
+
+async function endRecordingPhase() {
+    console.log('[Phase] Ending RECORDING...');
+    _isRecording = false;
+    _currentPhase = 'IDLE';
+    if (_isIOS) setTimeout(() => forceResetAudioSession(), 100);
+}
+
+document.addEventListener('force-stop-recording', () => {
+    const recognition = window._currentRecognition;
+    if (recognition) try { recognition.stop(); } catch(e) {}
+});
 // Get or create Web Audio Context
 function getAudioContext() {
     if (!_iosAudioContext) {
@@ -530,57 +583,22 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
         status.textContent = '✅ Done! Try again or close.';
         status.className   = 'rec-status done';
 
-        // iOS: Reset audio session for playback after recording ends
-        if (_isIOS) {
-            // Dispatch event to notify audio session should reset
-            document.dispatchEvent(new CustomEvent('recording-off'));
-        }
+        
     }
 
     async function stopAllAudio() {
-        console.log('🔇 Stopping all audio...');
+    console.log('🔇 Stopping recording...');
+    
+    // Stop all audio playback
+    await stopAllAudioPlayback();
 
-        document.querySelectorAll('audio').forEach(audio => {
-            try {
-                audio.pause();
-                audio.currentTime = 0;
-                // NOTE: Don't set volume = 0 here - it causes issues on iOS
-                // where subsequent audio plays at very low volume
-            } catch(e) {}
-        });
-
-        if (window.qAudio) {
-            try {
-                window.qAudio.pause();
-                window.qAudio.currentTime = 0;
-            } catch(e) {}
-        }
-
-        const imageCard = document.querySelector('.image-card');
-        if (imageCard) {
-            const cardAudio = imageCard.querySelector('audio');
-            if (cardAudio) {
-                try {
-                    cardAudio.pause();
-                    cardAudio.currentTime = 0;
-                } catch(e) {}
-            }
-        }
-
-        document.querySelectorAll('.replay-btn').forEach(btn => {
-            btn.disabled = true;
-            btn.style.opacity = '0.5';
-        });
-
-        // iOS: Reset to record mode BEFORE waiting (critical for session switch)
-        if (_isIOS) {
-            await resetToRecordMode();
-        }
-
-        await new Promise(resolve => setTimeout(resolve, 200));
-
-        console.log('✓ All audio stopped');
+    if (_isIOS) {
+        await resetToRecordMode();
     }
+
+    await new Promise(resolve => setTimeout(resolve, 200));
+    console.log('✓ Ready to record');
+}
 
     function startRec() {
         const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -596,6 +614,7 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
         }
 
         recognition = new SR();
+        window._currentRecognition = recognition;
         recognition.lang            = 'zh-CN';
         recognition.interimResults  = true;
         recognition.maxAlternatives = 1;
@@ -673,15 +692,13 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
     }
 
     function closePopup() {
-        stopRec();
+    stopRec();
 
-        // iOS: Reset audio session for playback when closing popup
-        if (_isIOS) {
-            setTimeout(() => forceResetAudioSession(), 100);
-        }
+    // End recording phase and return to IDLE
+    endRecordingPhase();
 
-        overlay.remove();
-    }
+    overlay.remove();
+}
 
     btnStart.addEventListener('click', startRecWithAudioStop);
     btnStop.addEventListener('click', stopRec);
@@ -725,28 +742,18 @@ function loadPosts(startpId, endpId, listId) {
 
             // FIXED: Audio playback with volume reset on iOS
             // Remove old duplicate listener and use clean implementation
-            if (_isIOS) {
-                audioBtn.addEventListener('click', async (e) => {
-                    e.stopPropagation();
-                    // Force reset session and play audio with proper volume
-                    await forceResetAudioSession();
-                    const audio = new Audio(item.audioSrc);
-                    audio.volume = 0.8;
-                    try {
-                        await audio.play();
-                        _lastAudioPlayTime = Date.now();
-                    } catch (err) {
-                        console.warn('[Audio] iOS play failed:', err);
-                    }
-                });
-            } else {
-                // Non-iOS: normal playback
-                audioBtn.addEventListener('click', () => {
-                    const audio = new Audio(item.audioSrc);
-                    audio.volume = 0.8;
-                    audio.play().catch(err => console.warn('[Audio] play failed:', err));
-                });
-            }
+            audioBtn.addEventListener('click', async (e) => {
+    e.stopPropagation();
+    await switchToPlaybackPhase();
+    const audio = new Audio(item.audioSrc);
+    audio.volume = 0.8;
+    try {
+        await audio.play();
+        _lastAudioPlayTime = Date.now();
+    } catch (err) {
+        console.warn('[Audio] play failed:', err);
+    }
+});
 
             const eyeBtn = document.createElement('button');
             eyeBtn.className = 'eye-btn';
@@ -825,14 +832,15 @@ function loadPosts(startpId, endpId, listId) {
             });
 
             // ✅ Recording button
-            micBtn.addEventListener('click', () => {
-                if (!window.__currentUser) {
-                    if (typeof window.openLoginModal === 'function') window.openLoginModal();
-                    return;
-                }
-                const correct = item.segments ? item.segments.join('') : '';
-                showRecordingPopup(correct, item.audioSrc, item.id);
-            });
+            micBtn.addEventListener('click', async () => {
+    if (!window.__currentUser) {
+        if (typeof window.openLoginModal === 'function') window.openLoginModal();
+        return;
+    }
+    await switchToRecordingPhase();
+    const correct = item.segments ? item.segments.join('') : '';
+    showRecordingPopup(correct, item.audioSrc, item.id);
+});
 
             // --- Description ---
             const p = document.createElement('p');
