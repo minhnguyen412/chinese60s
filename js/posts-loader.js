@@ -375,11 +375,53 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
         status.className   = 'rec-status done';
     }
 
+    // 🔑 IMPROVED: Dừng TẤT CẢ audio trước khi record (iOS fix)
+    async function stopAllAudio() {
+        console.log('🔇 Stopping all audio...');
+        
+        // Dừng TẤT CẢ audio elements (kể cả trong image-card)
+        document.querySelectorAll('audio').forEach(audio => {
+            try {
+                audio.pause();
+                audio.currentTime = 0;
+                audio.volume = 0;
+            } catch(e) {}
+        });
+        
+        // Dừng quiz audio
+        if (window.qAudio) {
+            try {
+                window.qAudio.pause();
+                window.qAudio.currentTime = 0;
+                window.qAudio.volume = 0;
+            } catch(e) {}
+        }
+        
+        // Dừng audio trong image-card nếu có
+        const imageCard = document.querySelector('.image-card');
+        if (imageCard) {
+            const cardAudio = imageCard.querySelector('audio');
+            if (cardAudio) {
+                try {
+                    cardAudio.pause();
+                    cardAudio.currentTime = 0;
+                    cardAudio.volume = 0;
+                } catch(e) {}
+            }
+        }
+        
+        // Disable replay buttons
+        document.querySelectorAll('.replay-btn').forEach(btn => {
+            btn.disabled = true;
+            btn.style.opacity = '0.5';
+        });
+        
+        // Wait a bit để iOS reset mic
+        await new Promise(resolve => setTimeout(resolve, 400));
+        console.log('✓ All audio stopped, microphone should be available');
+    }
+
     function startRec() {
-        // 🔑 DỪNG TẤT CẢ AUDIO trước khi record
-    document.querySelectorAll('audio').forEach(audio => {
-        try { audio.pause(); audio.currentTime = 0; } catch(e) {}
-    });
         const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
         if (!SR) {
             status.textContent = 'Your browser does not support speech recognition.';
@@ -454,17 +496,24 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
         }
     }
 
+    async function startRecWithAudioStop() {
+        // Dừng audio trước rồi mới start recording
+        await stopAllAudio();
+        startRec();
+    }
+
     function stopRec() {
         if (recognition) { try { recognition.stop(); } catch (e) {} }
     }
 
     function closePopup() {
-    stopRec();
-    // ❌ sampleAudio is undefined (audio removed)
-    // if (sampleAudio) { sampleAudio.pause(); sampleAudio = null; }
-    overlay.remove();
-}
-    btnStart.addEventListener('click', startRec);
+        stopRec();
+        // ❌ sampleAudio is undefined (audio removed)
+        // if (sampleAudio) { sampleAudio.pause(); sampleAudio = null; }
+        overlay.remove();
+    }
+
+    btnStart.addEventListener('click', startRecWithAudioStop);
     btnStop.addEventListener('click', stopRec);
     btnClose.addEventListener('click', closePopup);
     overlay.addEventListener('click', (e) => { if (e.target === overlay) closePopup(); });
@@ -621,4 +670,3 @@ function loadPosts(startpId, endpId, listId) {
     })
     .catch(err => console.error('Error fetching JSON:', err));
 }
-
