@@ -42,7 +42,7 @@ function showImageCard(imageData) {
             try {
                 const writer = HanziWriter.create(writerDiv, char, {
                     width: 100, height: 100, padding: 5,
-                    showOutline: true, strokeAnimationSpeed: 1.5, delayBetweenStrokes: 250,
+                    showOutline: true, strokeAnimationSpeed: 1.5, delayABetweenStrokes: 250,
                 });
                 writers.push({ writer, writerDiv });
                 writerDiv.addEventListener('click', () => writer.animateCharacter());
@@ -317,10 +317,12 @@ function saveRecordingToFirestore({ transcript, correctSentence, postId }) {
 }
 
 // ============================================================
-// iOS AUDIO SESSION RESET HELPER
+// iOS AUDIO SESSION MANAGER (FIXED - Bi-directional)
 // ============================================================
 let _iosAudioContext = null;
 let _isIOS = false;
+let _pendingAudioReset = false;
+let _lastAudioPlayTime = 0;
 
 // Detect iOS
 (function detectIOS() {
@@ -328,7 +330,7 @@ let _isIOS = false;
              (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 })();
 
-// Get or create Web Audio Context for iOS session reset
+// Get or create Web Audio Context
 function getAudioContext() {
     if (!_iosAudioContext) {
         const AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -339,62 +341,115 @@ function getAudioContext() {
     return _iosAudioContext;
 }
 
-// Reset iOS audio session by playing silent audio through Web Audio API
-async function resetIOSAudioSession() {
+// Reset audio session to PLAYBACK mode (for playing audio)
+async function resetToPlaybackMode() {
     if (!_isIOS) return;
-
-    console.log('[iOS Audio] Resetting audio session...');
+    console.log('[iOS Audio] Resetting to PLAYBACK mode...');
 
     try {
         const ctx = getAudioContext();
-        if (ctx && ctx.state === 'suspended') {
+        if (!ctx) return;
+
+        // Resume context if suspended
+        if (ctx.state === 'suspended') {
             await ctx.resume();
         }
 
-        // Create a silent audio buffer and play it to reset the session
-        if (ctx) {
-            const bufferSize = ctx.sampleRate * 0.1; // 100ms of silence
-            const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
-            const source = ctx.createBufferSource();
-            source.buffer = buffer;
-            source.connect(ctx.destination);
-            source.start();
-
-            // Wait for silent audio to finish
-            await new Promise(resolve => setTimeout(resolve, 150));
-
-            // Stop the source
-            try { source.stop(); } catch(e) {}
+        // Create a click/buzz sound to signal session switch
+        const bufferSize = ctx.sampleRate * 0.05;
+        const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+            // Create a short fade-out buzz
+            data[i] = Math.sin(440 * Math.PI * 2 * i / ctx.sampleRate) * (1 - i / bufferSize) * 0.1;
         }
+        const source = ctx.createBufferSource();
+        source.buffer = buffer;
+        source.connect(ctx.destination);
+        source.start();
 
-        console.log('[iOS Audio] Audio session reset complete');
+        await new Promise(resolve => setTimeout(resolve, 100));
+        try { source.stop(); } catch(e) {}
+
+        console.log('[iOS Audio] ✓ Ready for playback');
+        _pendingAudioReset = false;
     } catch (err) {
-        console.warn('[iOS Audio] Reset failed:', err);
+        console.warn('[iOS Audio] Playback reset failed:', err);
     }
 }
 
-// Show iOS user interaction required overlay
-function showIOSResetOverlay() {
-    return new Promise((resolve) => {
-        const overlay = document.createElement('div');
-        overlay.className = 'ios-reset-overlay';
-        overlay.innerHTML = `
-            <div class="ios-reset-popup">
-                <div class="tap-hint">👆</div>
-                <h3>Tap to Enable Recording</h3>
-                <p>Due to iOS restrictions, please tap anywhere to enable the microphone after playing audio.</p>
-            </div>
-        `;
-        document.body.appendChild(overlay);
+// Reset audio session to RECORD mode (for microphone)
+async function resetToRecordMode() {
+    if (!_isIOS) return;
+    console.log('[iOS Audio] Resetting to RECORD mode...');
 
-        const dismiss = () => {
-            overlay.remove();
-            resolve();
-        };
+    try {
+        const ctx = getAudioContext();
+        if (!ctx) return;
 
-        overlay.addEventListener('click', dismiss, { once: true });
-    });
+        // Need user interaction here - create a "tap" that also checks mic
+        if (ctx.state === 'suspended') {
+            await ctx.resume();
+        }
+
+        // Test microphone access to force session switch
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            stream.getTracks().forEach(track => track.stop());
+            console.log('[iOS Audio] ✓ Microphone access ready');
+        } catch(e) {
+            console.warn('[iOS Audio] Mic test failed, will retry:', e.message);
+        }
+
+    } catch (err) {
+        console.warn('[iOS Audio] Record reset failed:', err);
+    }
 }
+
+// Show iOS reset overlay
+function showIOSResetOverlay(message, callback) {
+    const overlay = document.createElement('div');
+    overlay.className = 'ios-reset-overlay';
+    overlay.innerHTML = `
+        <div class="ios-reset-popup">
+            <div class="tap-hint">👆</div>
+            <h3>Tap to Continue</h3>
+            <p>${message || 'Please tap to enable audio playback after recording.'}</p>
+        </div>
+    `;
+    document.body.appendChild(overlay);
+
+    // Auto-reset audio session on tap
+    overlay.addEventListener('click', async () => {
+        overlay.remove();
+        await resetToPlaybackMode();
+        if (callback) callback();
+    }, { once: true });
+}
+
+// ============================================================
+// TRACK AUDIO PLAYBACK (for iOS session management)
+// ============================================================
+(function setupAudioTracking() {
+    if (!_isIOS) return;
+
+    // Track when audio is played
+    document.addEventListener('play', (e) => {
+        if (e.target.tagName === 'AUDIO') {
+            _lastAudioPlayTime = Date.now();
+            _pendingAudioReset = true;
+            console.log('[iOS Audio] Audio playback detected');
+        }
+    }, true);
+
+    // Track when recording ends (need to reset to playback mode)
+    document.addEventListener('recording-off', async () => {
+        // Small delay to let speech recognition fully stop
+        setTimeout(async () => {
+            await resetToPlaybackMode();
+        }, 200);
+    });
+})();
 
 // ============================================================
 // RECORDING POPUP
@@ -409,8 +464,6 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
     overlay.innerHTML = `
         <div class="rec-popup" id="rec-popup">
             <p class="rec-title">Pronunciation Practice</p>
-
-            <!-- ❌ AUDIO BUTTON REMOVED - to avoid microphone conflict -->
 
             <div class="rec-wave idle" id="rec-wave">
                 <span></span><span></span><span></span><span></span><span></span>
@@ -434,27 +487,8 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
     const btnStart  = overlay.querySelector('#rec-btn-start');
     const btnStop   = overlay.querySelector('#rec-btn-stop');
     const btnClose  = overlay.querySelector('#rec-btn-close');
-    const playBtn   = overlay.querySelector('#rec-play-btn');
 
-    // ❌ AUDIO SAMPLE DISABLED - Removed to avoid microphone conflict
-    // let sampleAudio = null;
-    // playBtn.addEventListener('click', () => {
-    //     if (sampleAudio && !sampleAudio.paused) {
-    //         sampleAudio.pause();
-    //         sampleAudio.currentTime = 0;
-    //         playBtn.classList.remove('playing');
-    //         return;
-    //     }
-    //     sampleAudio = new Audio(audioSrc);
-    //     playBtn.classList.add('playing');
-    //     sampleAudio.play();
-    //     sampleAudio.onended = () => playBtn.classList.remove('playing');
-    //     sampleAudio.onerror = () => playBtn.classList.remove('playing');
-    // });
-
-    // --- Recording logic ---
     let recognition = null;
-    let _needsIOSReset = false; // Track if iOS needs user interaction
 
     function setListening(on) {
         wave.classList.toggle('idle', !on);
@@ -490,13 +524,17 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
 
         status.textContent = '✅ Done! Try again or close.';
         status.className   = 'rec-status done';
+
+        // iOS: Reset audio session for playback after recording ends
+        if (_isIOS) {
+            // Dispatch event to notify audio session should reset
+            document.dispatchEvent(new CustomEvent('recording-off'));
+        }
     }
 
-    // 🔑 IMPROVED: Dừng TẤT CẢ audio trước khi record (iOS fix)
     async function stopAllAudio() {
         console.log('🔇 Stopping all audio...');
 
-        // Dừng TẤT CẢ audio elements (kể cả trong image-card)
         document.querySelectorAll('audio').forEach(audio => {
             try {
                 audio.pause();
@@ -505,7 +543,6 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
             } catch(e) {}
         });
 
-        // Dừng quiz audio
         if (window.qAudio) {
             try {
                 window.qAudio.pause();
@@ -514,7 +551,6 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
             } catch(e) {}
         }
 
-        // Dừng audio trong image-card nếu có
         const imageCard = document.querySelector('.image-card');
         if (imageCard) {
             const cardAudio = imageCard.querySelector('audio');
@@ -527,21 +563,23 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
             }
         }
 
-        // Disable replay buttons
         document.querySelectorAll('.replay-btn').forEach(btn => {
             btn.disabled = true;
             btn.style.opacity = '0.5';
         });
 
-        // Wait a bit để iOS reset mic
         await new Promise(resolve => setTimeout(resolve, 400));
 
-        // iOS-specific: Reset audio session using Web Audio API
+        // iOS: Reset to record mode
         if (_isIOS) {
-            await resetIOSAudioSession();
+            await resetToRecordMode();
+            // Show overlay if user played audio recently
+            if (_pendingAudioReset && Date.now() - _lastAudioPlayTime < 30000) {
+                await showIOSResetOverlay('Tap to enable microphone after playing audio.');
+            }
         }
 
-        console.log('✓ All audio stopped, microphone should be available');
+        console.log('✓ All audio stopped');
     }
 
     function startRec() {
@@ -583,6 +621,13 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
         recognition.onerror = (e) => {
             if (e.error === 'aborted') return;
             setListening(false);
+
+            if (_isIOS && (e.error === 'not-allowed' || e.error === 'service-not-allowed')) {
+                _pendingAudioReset = true;
+                showIOSResetOverlay('Tap to retry recording.', () => startRec());
+                return;
+            }
+
             const msgs = {
                 'not-allowed'         : 'Microphone permission denied.',
                 'no-speech'           : 'No speech detected. Try again.',
@@ -591,18 +636,12 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
             };
             status.textContent = msgs[e.error] || `Error: ${e.error}`;
             status.className   = 'rec-status error';
-
-            // iOS-specific: If mic is busy after audio, show reset overlay
-            if (_isIOS && (e.error === 'not-allowed' || e.error === 'service-not-allowed')) {
-                _needsIOSReset = true;
-            }
         };
 
         recognition.onend = () => {
             setListening(false);
             if (finalTranscript.trim()) {
                 showResult(finalTranscript.trim());
-                // ✅ Gọi saveRecordingToFirestore — hàm này dùng window.saveRecording từ post.html
                 saveRecordingToFirestore({
                     transcript:      finalTranscript.trim(),
                     correctSentence: correctSentence,
@@ -621,24 +660,10 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
             setListening(false);
             status.textContent = 'Could not start recording. Try again.';
             status.className   = 'rec-status error';
-
-            // iOS-specific: If start fails, might need user interaction
-            if (_isIOS) {
-                _needsIOSReset = true;
-            }
         }
     }
 
     async function startRecWithAudioStop() {
-        // iOS: Show reset overlay if needed after user played audio
-        if (_isIOS && _needsIOSReset) {
-            status.textContent = '⏳ Preparing microphone...';
-            await showIOSResetOverlay();
-            await resetIOSAudioSession();
-            _needsIOSReset = false;
-        }
-
-        // Dừng audio trước rồi mới start recording
         await stopAllAudio();
         startRec();
     }
@@ -649,8 +674,12 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
 
     function closePopup() {
         stopRec();
-        // ❌ sampleAudio is undefined (audio removed)
-        // if (sampleAudio) { sampleAudio.pause(); sampleAudio = null; }
+
+        // iOS: Reset audio session for playback when closing popup
+        if (_isIOS) {
+            setTimeout(() => resetToPlaybackMode(), 100);
+        }
+
         overlay.remove();
     }
 
@@ -658,20 +687,6 @@ function showRecordingPopup(correctSentence, audioSrc, postId) {
     btnStop.addEventListener('click', stopRec);
     btnClose.addEventListener('click', closePopup);
     overlay.addEventListener('click', (e) => { if (e.target === overlay) closePopup(); });
-
-    // Track if user has played audio (for iOS tracking)
-    // This is set when audio is played outside the popup
-    const originalAudioBtns = document.querySelectorAll('.audio');
-    originalAudioBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            if (_isIOS) {
-                // User played audio, so they'll need the reset overlay
-                setTimeout(() => {
-                    _needsIOSReset = true;
-                }, 100);
-            }
-        }, { once: false });
-    });
 }
 
 // ============================================================
@@ -707,6 +722,18 @@ function loadPosts(startpId, endpId, listId) {
             audioBtn.className = 'audio';
             audioBtn.textContent = '☊';
             audioBtn.style.cursor = 'pointer';
+
+            // iOS: Track audio playback for session management
+            if (_isIOS) {
+                audioBtn.addEventListener('click', () => {
+                    // Mark that audio was just played - recording needs reset
+                    _lastAudioPlayTime = Date.now();
+                    _pendingAudioReset = true;
+                    // Also try to reset audio context in background
+                    resetToPlaybackMode();
+                }, { capture: true });
+            }
+
             audioBtn.addEventListener('click', () => new Audio(item.audioSrc).play());
 
             const eyeBtn = document.createElement('button');
@@ -748,7 +775,7 @@ function loadPosts(startpId, endpId, listId) {
 
             // --- Cấu trúc câu ---
             let structureDiv = null;
-            if (item.structure) {
+            if(item.structure) {
                 structureDiv = document.createElement('div');
                 structureDiv.className = 'structure-view';
                 structureDiv.innerHTML = item.structure;
@@ -785,7 +812,7 @@ function loadPosts(startpId, endpId, listId) {
                 }
             });
 
-            // ✅ Recording button — yêu cầu đăng nhập, sau đó mở popup
+            // ✅ Recording button
             micBtn.addEventListener('click', () => {
                 if (!window.__currentUser) {
                     if (typeof window.openLoginModal === 'function') window.openLoginModal();
