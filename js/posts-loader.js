@@ -1,3 +1,47 @@
+// ============================================================
+// ✅ FIXED: Global Single Audio Player - ONE player for ALL audio
+// KHÔNG tạo new Audio() ở bất kỳ đâu - gây conflict trên iOS
+// ============================================================
+let _globalAudioPlayer = null;
+
+function getGlobalAudioPlayer() {
+    if (!_globalAudioPlayer) {
+        _globalAudioPlayer = new Audio();
+        _globalAudioPlayer.preload = 'auto';
+        _globalAudioPlayer.volume = 1.0; // Luôn ở max volume
+        _globalAudioPlayer.setAttribute('playsinline', '');
+    }
+    return _globalAudioPlayer;
+}
+
+// Hàm play audio DUY NHẤT - KHÔNG tạo Audio mới
+async function playGlobalAudio(audioSrc) {
+    if (_isIOS) {
+        await forceResetAudioSession();
+    }
+
+    const player = getGlobalAudioPlayer();
+    player.pause();
+    player.currentTime = 0;
+    player.src = audioSrc;
+    player.volume = 1.0;
+
+    try {
+        await player.play();
+        _lastAudioPlayTime = Date.now();
+    } catch (err) {
+        console.warn('[GlobalAudio] Play failed:', err);
+    }
+}
+
+// Hàm stop audio DUY NHẤT
+function stopGlobalAudio() {
+    if (_globalAudioPlayer) {
+        _globalAudioPlayer.pause();
+        _globalAudioPlayer.currentTime = 0;
+    }
+}
+
 // Hàm kiểm tra phần tử có nằm trong viewport không
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
@@ -20,14 +64,18 @@ function showImageCard(imageData) {
         <h3>${imageData.character}</h3>
         <p>Meaning: ${imageData.meaning}</p>
         <p>Pinyin: ${imageData.pinyin}</p>
-        <audio controls>
-            <source src="${imageData.audioSrc}" type="audio/mpeg">
-            Your browser does not support the audio tag.
-        </audio>
+        <button class="card-audio-btn" style="padding: 8px 16px; background: #6366f1; color: white; border: none; border-radius: 8px; cursor: pointer;">🔊 Play Audio</button>
         <div id="writer-container" style="display: flex; gap: 10px;"></div>
     `;
     document.body.appendChild(card);
     activeImageCard = card;
+
+    // ✅ FIXED: Card audio button - dùng Global Audio Player
+    const cardAudioBtn = card.querySelector('.card-audio-btn');
+    cardAudioBtn.addEventListener('click', async () => {
+        await switchToPlaybackPhase();
+        await playGlobalAudio(imageData.audioSrc);
+    });
 
     const writerContainer = card.querySelector('#writer-container');
     let writers = [];
@@ -59,6 +107,7 @@ function showImageCard(imageData) {
 
 function closeImageCard() {
     if (activeImageCard) {
+        stopGlobalAudio(); // ✅ Stop audio when closing card
         activeImageCard.style.display = 'none';
         activeImageCard = null;
     }
@@ -356,16 +405,16 @@ async function switchToRecordingPhase() {
 
 async function stopAllAudioPlayback() {
     console.log('[Audio] Stopping all playback...');
+
+    // ✅ FIXED: Stop Global Audio Player
+    stopGlobalAudio();
+
+    // Stop all other audio elements (legacy support)
     document.querySelectorAll('audio').forEach(audio => {
         try { audio.pause(); audio.currentTime = 0; } catch(e) {}
     });
     if (window.qAudio) {
         try { window.qAudio.pause(); window.qAudio.currentTime = 0; } catch(e) {}
-    }
-    const imageCard = document.querySelector('.image-card');
-    if (imageCard) {
-        const cardAudio = imageCard.querySelector('audio');
-        if (cardAudio) try { cardAudio.pause(); cardAudio.currentTime = 0; } catch(e) {}
     }
     document.querySelectorAll('.replay-btn').forEach(btn => {
         btn.disabled = true; btn.style.opacity = '0.5';
@@ -472,27 +521,12 @@ async function resetToRecordMode() {
 }
 
 // ============================================================
-// AUDIO PLAYBACK WITH iOS SESSION FIX
+// ✅ FIXED: AUDIO PLAYBACK - Dùng Global Player thay vì new Audio()
 // ============================================================
+// Lưu Ý: playAudioWithSessionFix ĐÃ BỊ DEPRECATED - dùng playGlobalAudio() thay thế
 async function playAudioWithSessionFix(audioSrc) {
-    // On iOS, force reset session before playing
-    if (_isIOS) {
-        await forceResetAudioSession();
-    }
-
-    const audio = new Audio(audioSrc);
-
-    // Ensure volume is at a reasonable level
-    audio.volume = 0.8;
-
-    try {
-        await audio.play();
-        _lastAudioPlayTime = Date.now();
-    } catch (err) {
-        console.warn('[Audio] Play failed:', err);
-    }
-
-    return audio;
+    console.warn('[Audio] playAudioWithSessionFix is deprecated. Use playGlobalAudio() instead.');
+    return await playGlobalAudio(audioSrc);
 }
 
 // ============================================================
@@ -740,20 +774,12 @@ function loadPosts(startpId, endpId, listId) {
             audioBtn.textContent = '☊';
             audioBtn.style.cursor = 'pointer';
 
-            // FIXED: Audio playback with volume reset on iOS
-            // Remove old duplicate listener and use clean implementation
+            // ✅ FIXED: Dùng Global Audio Player - KHÔNG tạo Audio mới
             audioBtn.addEventListener('click', async (e) => {
-    e.stopPropagation();
-    await switchToPlaybackPhase();
-    const audio = new Audio(item.audioSrc);
-    audio.volume = 0.8;
-    try {
-        await audio.play();
-        _lastAudioPlayTime = Date.now();
-    } catch (err) {
-        console.warn('[Audio] play failed:', err);
-    }
-});
+                e.stopPropagation();
+                await switchToPlaybackPhase();
+                await playGlobalAudio(item.audioSrc);
+            });
 
             const eyeBtn = document.createElement('button');
             eyeBtn.className = 'eye-btn';
