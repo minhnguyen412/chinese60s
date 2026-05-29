@@ -579,7 +579,7 @@ Add your own notes and they'll be saved!"></textarea>
       notesSaveTimeout = setTimeout(saveNotes, 2000);
     });
 
-    // ── SIDEBAR RESIZE (Tối ưu với requestAnimationFrame) ──
+    // ── SIDEBAR RESIZE (Tối ưu với requestAnimationFrame + Touch Support) ──
     const sidebar = document.querySelector('.sidebar');
     const sidebarResizeHandle = document.querySelector('.sidebar-resize-handle');
     let resizingSidebar = false;
@@ -601,7 +601,7 @@ Add your own notes and they'll be saved!"></textarea>
       }
     }
 
-    sidebarResizeHandle.addEventListener('mousedown', (e) => {
+    function startSidebarResize(e) {
       // Reset state trước khi bắt đầu drag mới
       if (rafId) {
         cancelAnimationFrame(rafId);
@@ -611,25 +611,27 @@ Add your own notes and they'll be saved!"></textarea>
       isAnimating = false;
       
       resizingSidebar = true;
-      startX = e.clientX;
-      startWidth = sidebar.offsetWidth; // Lấy width hiện tại chính xác
+      startX = e.clientX !== undefined ? e.clientX : e.touches[0].clientX;
+      startWidth = sidebar.offsetWidth;
       document.body.style.cursor = 'ew-resize';
       document.body.style.userSelect = 'none';
+      document.body.style.touchAction = 'none';
       
       isAnimating = true;
       rafId = requestAnimationFrame(updateSidebarWidth);
       e.preventDefault();
-    });
+    }
 
-    document.addEventListener('mousemove', (e) => {
+    function moveSidebarResize(e) {
       if (resizingSidebar && isAnimating) {
-        const delta = e.clientX - startX;
+        const currentX = e.clientX !== undefined ? e.clientX : e.touches[0].clientX;
+        const delta = currentX - startX;
         const newWidth = startWidth + delta;
         pendingWidth = Math.max(300, Math.min(800, newWidth));
       }
-    }, { passive: true });
+    }
 
-    document.addEventListener('mouseup', () => {
+    function endSidebarResize() {
       if (resizingSidebar) {
         resizingSidebar = false;
         if (rafId) {
@@ -644,29 +646,43 @@ Add your own notes and they'll be saved!"></textarea>
         isAnimating = false;
         document.body.style.cursor = 'auto';
         document.body.style.userSelect = 'auto';
+        document.body.style.touchAction = 'auto';
       }
-    });
+    }
 
-    // ── INDIVIDUAL CARD RESIZE (Real-time only) ──
+    // Mouse events
+    sidebarResizeHandle.addEventListener('mousedown', startSidebarResize);
+    document.addEventListener('mousemove', moveSidebarResize, { passive: true });
+    document.addEventListener('mouseup', endSidebarResize);
+
+    // Touch events
+    sidebarResizeHandle.addEventListener('touchstart', startSidebarResize);
+    document.addEventListener('touchmove', moveSidebarResize, { passive: true });
+    document.addEventListener('touchend', endSidebarResize);
+    document.addEventListener('touchcancel', endSidebarResize);
+
+    // ── INDIVIDUAL CARD RESIZE (Real-time only + Touch Support) ──
     let resizingCard = null;
     let cardStartY = 0;
     let cardStartHeight = 0;
 
-    document.addEventListener('mousedown', (e) => {
+    function startCardResize(e) {
       const resizeHandle = e.target.closest('.card-resize-handle');
       if (resizeHandle) {
         resizingCard = resizeHandle.closest('.section-card');
-        cardStartY = e.clientY;
+        cardStartY = e.clientY !== undefined ? e.clientY : e.touches[0].clientY;
         cardStartHeight = resizingCard.offsetHeight;
         document.body.style.cursor = 'nwse-resize';
         document.body.style.userSelect = 'none';
+        document.body.style.touchAction = 'none';
         e.preventDefault();
       }
-    });
+    }
 
-    document.addEventListener('mousemove', (e) => {
+    function moveCardResize(e) {
       if (resizingCard) {
-        const delta = e.clientY - cardStartY;
+        const currentY = e.clientY !== undefined ? e.clientY : e.touches[0].clientY;
+        const delta = currentY - cardStartY;
         const newHeight = Math.max(150, cardStartHeight + delta);
         resizingCard.style.height = newHeight + 'px';
 
@@ -686,49 +702,64 @@ Add your own notes and they'll be saved!"></textarea>
           embed.style.height = Math.max(100, contentHeight) + 'px';
         }
       }
-    }, { passive: true });
+    }
 
-    document.addEventListener('mouseup', () => {
+    function endCardResize() {
       if (resizingCard) {
         resizingCard = null;
         document.body.style.cursor = 'auto';
         document.body.style.userSelect = 'auto';
+        document.body.style.touchAction = 'auto';
       }
-    });
+    }
 
-    // ── DRAG FUNCTIONALITY (Real-time only, no DOM reorder) ──
+    // Mouse events
+    document.addEventListener('mousedown', startCardResize);
+    document.addEventListener('mousemove', moveCardResize, { passive: true });
+    document.addEventListener('mouseup', endCardResize);
+
+    // Touch events
+    document.addEventListener('touchstart', startCardResize);
+    document.addEventListener('touchmove', moveCardResize, { passive: true });
+    document.addEventListener('touchend', endCardResize);
+    document.addEventListener('touchcancel', endCardResize);
+
+    // ── DRAG FUNCTIONALITY (Real-time only, no DOM reorder + Touch Support) ──
     const scroller = document.querySelector('.content-scroller');
     let draggedElement = null;
     let offsetY = 0;
 
-    document.addEventListener('mousedown', (e) => {
+    function startDrag(e) {
       const dragHandle = e.target.closest('.drag-handle');
       if (dragHandle && !e.target.closest('.section-card')) {
         draggedElement = dragHandle.closest('.draggable-section');
         if (!draggedElement) return;
 
         const rect = draggedElement.getBoundingClientRect();
-        offsetY = e.clientY - rect.top;
+        const clientY = e.clientY !== undefined ? e.clientY : e.touches[0].clientY;
+        offsetY = clientY - rect.top;
 
         draggedElement.classList.add('dragging');
         draggedElement.style.position = 'fixed';
         draggedElement.style.zIndex = '1000';
         draggedElement.style.width = rect.width + 'px';
         document.body.style.userSelect = 'none';
+        document.body.style.touchAction = 'none';
 
         e.preventDefault();
       }
-    });
+    }
 
-    document.addEventListener('mousemove', (e) => {
+    function moveDrag(e) {
       if (draggedElement) {
         const scrollRect = scroller.getBoundingClientRect();
-        draggedElement.style.top = (e.clientY - offsetY) + 'px';
+        const clientY = e.clientY !== undefined ? e.clientY : e.touches[0].clientY;
+        draggedElement.style.top = (clientY - offsetY) + 'px';
         draggedElement.style.left = scrollRect.left + 'px';
       }
-    }, { passive: true });
+    }
 
-    document.addEventListener('mouseup', () => {
+    function endDrag() {
       if (draggedElement) {
         draggedElement.classList.remove('dragging');
         draggedElement.style.position = 'relative';
@@ -737,9 +768,21 @@ Add your own notes and they'll be saved!"></textarea>
         draggedElement.style.left = 'auto';
         draggedElement.style.width = 'auto';
         document.body.style.userSelect = 'auto';
+        document.body.style.touchAction = 'auto';
         draggedElement = null;
       }
-    });
+    }
+
+    // Mouse events
+    document.addEventListener('mousedown', startDrag);
+    document.addEventListener('mousemove', moveDrag, { passive: true });
+    document.addEventListener('mouseup', endDrag);
+
+    // Touch events
+    document.addEventListener('touchstart', startDrag);
+    document.addEventListener('touchmove', moveDrag, { passive: true });
+    document.addEventListener('touchend', endDrag);
+    document.addEventListener('touchcancel', endDrag);
 
     // Initialize on page load
     window.addEventListener('DOMContentLoaded', () => {
