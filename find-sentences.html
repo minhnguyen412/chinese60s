@@ -478,6 +478,7 @@
     }
 
     // Main search function - supports phrase search
+    // Matches if ANY character from query appears in the sentence
     function performSearch() {
       const query = document.getElementById('search-input').value.trim();
       if (!query) {
@@ -491,30 +492,28 @@
         // Join all segments into one string
         const fullText = post.segments.join('');
         
-        // Check if query appears in the full text
-        if (fullText.includes(query)) {
-          // Find all indices of characters that are part of the matched phrase
-          const matchingSegments = [];
-          const queryChars = query.split('');
-          
-          // For each character in the query, find which segment indices it belongs to
-          for (const char of queryChars) {
-            for (let i = 0; i < post.segments.length; i++) {
-              if (post.segments[i].includes(char) && !matchingSegments.includes(i)) {
-                matchingSegments.push(i);
-              }
+        // Get unique characters from query
+        const queryChars = query.split('');
+        const matchingSegments = [];
+        
+        // Check if ANY character from query appears in the sentence
+        for (const char of queryChars) {
+          for (let i = 0; i < post.segments.length; i++) {
+            if (post.segments[i].includes(char) && !matchingSegments.includes(i)) {
+              matchingSegments.push(i);
             }
           }
+        }
 
-          if (matchingSegments.length > 0) {
-            const lesson = findLessonForPost(post.id);
-            results.push({
-              post,
-              lesson,
-              matchingSegments,
-              matchCount: matchingSegments.length
-            });
-          }
+        // Only include if at least one character matched
+        if (matchingSegments.length > 0) {
+          const lesson = findLessonForPost(post.id);
+          results.push({
+            post,
+            lesson,
+            matchingSegments,
+            matchCount: matchingSegments.length
+          });
         }
       }
 
@@ -585,17 +584,45 @@
       });
     }
 
+    // List of punctuation marks to skip in character grid
+    const PUNCTUATION = ['，', '。', '！', '？', '；', '：', '、', '…', '·', '「', '」', '『', '』', '（', '）', '《', '》', '"', '"', ''', ''', '—', '～'];
+
     // Build character grid showing ALL characters in the sentence
     // Matched characters are highlighted
+    // Punctuation marks are skipped
     function buildCharGrid(segments, matchingSegments, query) {
-      if (segments.length === 0) return '';
+      // Filter out punctuation marks
+      const displaySegments = segments.filter(seg => !PUNCTUATION.includes(seg));
+      
+      if (displaySegments.length === 0) return '';
       
       let html = '<div class="char-grid">';
       
-      // Display all segments, not just matched ones
-      segments.forEach((segment, index) => {
+      // Map original indices to filtered indices (skip punctuation)
+      const originalToFiltered = {};
+      let filteredIndex = 0;
+      for (let i = 0; i < segments.length; i++) {
+        if (!PUNCTUATION.includes(segments[i])) {
+          originalToFiltered[i] = filteredIndex;
+          filteredIndex++;
+        }
+      }
+      
+      // Display all non-punctuation segments
+      displaySegments.forEach((segment, filteredIdx) => {
+        // Find original index
+        let originalIdx = -1;
+        for (let i = 0; i < segments.length; i++) {
+          if (!PUNCTUATION.includes(segments[i])) {
+            if (originalToFiltered[i] === filteredIdx) {
+              originalIdx = i;
+              break;
+            }
+          }
+        }
+        
         const charInfo = getCharInfo(segment);
-        const isMatched = matchingSegments.includes(index);
+        const isMatched = matchingSegments.includes(originalIdx);
         
         // Highlight style for matched segments
         const highlightStyle = isMatched 
