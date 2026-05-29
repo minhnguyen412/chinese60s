@@ -48,8 +48,6 @@
       color: var(--black);
       overflow: hidden;
       height: 100vh;
-      display: flex;
-      flex-direction: column;
     }
 
     body::before {
@@ -71,9 +69,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: relative;
+      position: sticky;
+      top: 0;
       z-index: 200;
-      flex-shrink: 0;
     }
 
     header h1 {
@@ -88,8 +86,7 @@
     /* ── MAIN LAYOUT ── */
     .classroom-container {
       display: flex;
-      flex: 1;
-      height: auto;
+      height: calc(100vh - 66px);
       gap: 0;
     }
 
@@ -102,49 +99,61 @@
       display: flex;
       flex-direction: column;
       z-index: 100;
-      overflow: hidden;
       position: relative;
       flex-shrink: 0;
       will-change: width;
+      overflow-y: auto;
+      overflow-x: hidden;
     }
 
     .sidebar-resize-handle {
       position: absolute;
-      width: 16px;
+      width: 8px;
       height: 100%;
-      right: -8px;
+      right: -4px;
       top: 0;
       cursor: ew-resize;
       z-index: 150;
       background: transparent;
       will-change: background;
-      pointer-events: all;
-      transition: background 0.2s;
+      pointer-events: none;
     }
 
     .sidebar-resize-handle:hover {
       background: var(--green);
-      background: linear-gradient(to right, transparent, var(--green), transparent);
     }
 
-    .sidebar-resize-handle.resizing {
-      background: var(--green) !important;
+    /* Sidebar scrollbar */
+    .sidebar::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .sidebar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb {
+      background: var(--green);
+      border-radius: 4px;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb:hover {
+      background: var(--green-dark);
     }
 
     /* ── MAIN CONTENT ── */
     .main-content {
       flex: 1;
+      min-width: 0;
       height: 100%;
       display: flex;
       flex-direction: column;
       background: var(--bg);
-      min-width: 0;
       overflow: hidden;
     }
 
     .content-scroller {
       flex: 1;
-      height: 100%;
       overflow-y: auto;
       overflow-x: hidden;
       padding: 28px 32px;
@@ -205,6 +214,8 @@
       box-shadow: var(--shadow-md);
       display: flex;
       flex-direction: column;
+      min-height: 0;
+      overflow: hidden;
     }
 
     .section-card-title {
@@ -241,15 +252,19 @@
 
     .embed-frame {
       width: 100%;
-      height: 400px;
+      flex: 1;
+      min-height: 200px;
       border: var(--border);
       border-radius: 12px;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
     .embed-frame iframe {
       width: 100%;
-      height: 100%;
+      flex: 1;
+      min-height: 200px;
       border: none;
       display: block;
     }
@@ -272,6 +287,8 @@
 
     .embed-container {
       width: 100%;
+      height: 100%;
+      min-height: 300px;
       border: var(--border-thick);
       border-radius: 20px;
       overflow: hidden;
@@ -281,7 +298,7 @@
 
     .embed-container iframe {
       width: 100%;
-      height: 600px;
+      height: 100%;
       border: none;
       display: block;
     }
@@ -361,14 +378,22 @@
     @media (max-width: 900px) {
       .classroom-container {
         flex-direction: column;
+        height: auto;
+        min-height: calc(100vh - 66px);
       }
 
       .sidebar {
         width: 100%;
-        height: auto;
+        height: 200px;
         border-right: none;
         border-bottom: var(--border-thick);
-        max-height: 200px;
+        flex-shrink: 0;
+      }
+
+      .main-content {
+        flex: 1;
+        height: auto;
+        min-height: calc(100vh - 66px - 200px);
       }
 
       .lesson-index {
@@ -388,12 +413,21 @@
         grid-template-columns: 1fr;
       }
 
+      .two-column-section .section-card {
+        height: auto;
+        min-height: 250px;
+      }
+
+      .embed-frame {
+        min-height: 250px;
+      }
+
       .content-scroller {
         padding: 16px 20px;
       }
 
-      .embed-container iframe {
-        height: 400px;
+      .embed-container {
+        min-height: 350px;
       }
     }
   </style>
@@ -408,8 +442,8 @@
   <div class="classroom-container">
     <!-- SIDEBAR - Learning Page Index Embed -->
     <aside class="sidebar">
-      <div class="embed-frame" style="height: 100%; border: none; border-radius: 0;">
-        <iframe src="learning-page.html" style="height: 100%;"></iframe>
+      <div class="sidebar-content" style="height: 100%; border: none;">
+        <iframe src="learning-page.html" style="width: 100%; height: 100%; border: none; display: block;"></iframe>
       </div>
       <div class="sidebar-resize-handle"></div>
     </aside>
@@ -501,39 +535,74 @@ Add your own notes and they'll be saved!"></textarea>
       notesSaveTimeout = setTimeout(saveNotes, 2000);
     });
 
-    // ── SIDEBAR RESIZE (Simple & Smooth) ──
+    // ── SIDEBAR RESIZE (Tối ưu với requestAnimationFrame + Touch Support) ──
     const sidebar = document.querySelector('.sidebar');
     const sidebarResizeHandle = document.querySelector('.sidebar-resize-handle');
     let resizingSidebar = false;
     let startX = 0;
     let startWidth = 0;
+    let pendingWidth = null;
+    let rafId = null;
+    let isAnimating = false;
+
+    function updateSidebarWidth() {
+      if (pendingWidth !== null) {
+        sidebar.style.width = pendingWidth + 'px';
+        pendingWidth = null;
+      }
+      if (resizingSidebar) {
+        rafId = requestAnimationFrame(updateSidebarWidth);
+      } else {
+        isAnimating = false;
+      }
+    }
 
     function startSidebarResize(e) {
+      // Reset state trước khi bắt đầu drag mới
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+      pendingWidth = null;
+      isAnimating = false;
+      
       resizingSidebar = true;
       startX = e.clientX !== undefined ? e.clientX : e.touches[0].clientX;
       startWidth = sidebar.offsetWidth;
       document.body.style.cursor = 'ew-resize';
       document.body.style.userSelect = 'none';
       document.body.style.touchAction = 'none';
-      sidebarResizeHandle.classList.add('resizing');
+      
+      isAnimating = true;
+      rafId = requestAnimationFrame(updateSidebarWidth);
       e.preventDefault();
     }
 
     function moveSidebarResize(e) {
-      if (!resizingSidebar) return;
-      const currentX = e.clientX !== undefined ? e.clientX : e.touches[0].clientX;
-      const delta = currentX - startX;
-      const newWidth = Math.max(250, Math.min(900, startWidth + delta));
-      sidebar.style.width = newWidth + 'px';
+      if (resizingSidebar && isAnimating) {
+        const currentX = e.clientX !== undefined ? e.clientX : e.touches[0].clientX;
+        const delta = currentX - startX;
+        const newWidth = startWidth + delta;
+        pendingWidth = Math.max(300, Math.min(800, newWidth));
+      }
     }
 
     function endSidebarResize() {
       if (resizingSidebar) {
         resizingSidebar = false;
+        if (rafId) {
+          cancelAnimationFrame(rafId);
+          rafId = null;
+        }
+        // Apply final width
+        if (pendingWidth !== null) {
+          sidebar.style.width = pendingWidth + 'px';
+          pendingWidth = null;
+        }
+        isAnimating = false;
         document.body.style.cursor = 'auto';
         document.body.style.userSelect = 'auto';
         document.body.style.touchAction = 'auto';
-        sidebarResizeHandle.classList.remove('resizing');
       }
     }
 
@@ -631,7 +700,7 @@ Add your own notes and they'll be saved!"></textarea>
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
     
-    // Trigger canvas resize khi sidebar/container resize
+    // Trigger canvas resize khi sidebar/container resize (e.g. when resizing sidebar)
     const observer = new ResizeObserver(resizeCanvas);
     observer.observe(canvas.parentElement.parentElement);
     
@@ -639,7 +708,6 @@ Add your own notes and they'll be saved!"></textarea>
     let isDrawing = false;
     let lastX = 0;
     let lastY = 0;
-    let isEraser = false;
     
     // Mouse events
     canvas.addEventListener('mousedown', (e) => {
@@ -655,18 +723,14 @@ Add your own notes and they'll be saved!"></textarea>
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
       
-      if (isEraser) {
-        ctx.clearRect(x - 8, y - 8, 16, 16);
-      } else {
-        ctx.strokeStyle = '#222';
-        ctx.lineWidth = 2;
-        ctx.lineCap = 'round';
-        ctx.lineJoin = 'round';
-        ctx.beginPath();
-        ctx.moveTo(lastX, lastY);
-        ctx.lineTo(x, y);
-        ctx.stroke();
-      }
+      ctx.strokeStyle = '#222';
+      ctx.lineWidth = 2;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.beginPath();
+      ctx.moveTo(lastX, lastY);
+      ctx.lineTo(x, y);
+      ctx.stroke();
       
       lastX = x;
       lastY = y;
@@ -697,18 +761,14 @@ Add your own notes and they'll be saved!"></textarea>
       const x = touch.clientX - rect.left;
       const y = touch.clientY - rect.top;
       
-      if (isEraser) {
-        ctx.clearRect(x - 8, y - 8, 16, 16);
-      } else {
-        ctx.strokeStyle = '#222';
-        ctx.lineWidth = 2;
-        ctx.lineCap = 'round';
-        ctx.lineJoin = 'round';
-        ctx.beginPath();
-        ctx.moveTo(lastX, lastY);
-        ctx.lineTo(x, y);
-        ctx.stroke();
-      }
+      ctx.strokeStyle = '#222';
+      ctx.lineWidth = 2;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.beginPath();
+      ctx.moveTo(lastX, lastY);
+      ctx.lineTo(x, y);
+      ctx.stroke();
       
       lastX = x;
       lastY = y;
@@ -719,38 +779,15 @@ Add your own notes and they'll be saved!"></textarea>
       isDrawing = false;
     });
     
-    // Control buttons container
-    const btnContainer = document.createElement('div');
-    btnContainer.style.cssText = 'position: absolute; top: 10px; right: 10px; display: flex; gap: 8px; z-index: 10;';
-    canvas.parentElement.style.position = 'relative';
-    canvas.parentElement.appendChild(btnContainer);
-    
-    // Clear button
+    // Clear canvas button
     const clearBtn = document.createElement('button');
     clearBtn.textContent = '🗑️ Clear';
-    clearBtn.style.cssText = 'padding: 8px 12px; background: #7cb83e; color: white; border: 2px solid #222; border-radius: 8px; cursor: pointer; font-weight: 600; font-family: Fredoka, sans-serif;';
+    clearBtn.style.cssText = 'position: absolute; top: 10px; right: 10px; padding: 8px 12px; background: #7cb83e; color: white; border: 2px solid #222; border-radius: 8px; cursor: pointer; font-weight: 600; z-index: 10;';
     clearBtn.addEventListener('click', () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
     });
-    btnContainer.appendChild(clearBtn);
-    
-    // Eraser button
-    const eraserBtn = document.createElement('button');
-    eraserBtn.textContent = '✏️ Pen';
-    eraserBtn.style.cssText = 'padding: 8px 12px; background: #ffd84d; color: #222; border: 2px solid #222; border-radius: 8px; cursor: pointer; font-weight: 600; font-family: Fredoka, sans-serif;';
-    eraserBtn.addEventListener('click', () => {
-      isEraser = !isEraser;
-      if (isEraser) {
-        eraserBtn.textContent = '🧹 Eraser';
-        eraserBtn.style.background = '#ffb89a';
-        canvas.style.cursor = 'crosshair';
-      } else {
-        eraserBtn.textContent = '✏️ Pen';
-        eraserBtn.style.background = '#ffd84d';
-        canvas.style.cursor = 'crosshair';
-      }
-    });
-    btnContainer.appendChild(eraserBtn);
+    canvas.parentElement.style.position = 'relative';
+    canvas.parentElement.appendChild(clearBtn);
   </script>
 
 </body>
