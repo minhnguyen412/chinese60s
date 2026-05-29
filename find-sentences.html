@@ -1002,7 +1002,8 @@
             title: thumb.title,
             description: thumb.description,
             thumbnail: thumb.thumbnail,
-            htmlLink: thumb.htmlLink
+            htmlLink: thumb.htmlLink,
+            premium: thumb.premium || false
           };
         }
       }
@@ -1056,7 +1057,7 @@
         }
       }
 
-      // If exact match found, only return those
+      // If exact match found, ONLY return those (ignore all other matches)
       if (hasExactMatch) {
         displayResults(exactMatchResults, query);
         return;
@@ -1158,6 +1159,30 @@
         // Build character grid for matching segments
         const charGrid = buildCharGrid(post.segments, matchingSegments, query);
 
+        // Determine button behavior based on lesson premium status
+        let lessonButtonHTML = '';
+        if (lesson) {
+          if (lesson.premium) {
+            // Premium lesson - check access via Firebase
+            lessonButtonHTML = `
+              <button onclick="checkPremiumAccess(event, ${lesson.id}, true)"
+                style="padding:6px 14px;background:var(--green);color:white;border:var(--border-thick);border-radius:50px;font-weight:700;cursor:pointer;font-family:'Fredoka',sans-serif;">
+                🔒 Open Lesson (Premium) →
+              </button>
+            `;
+          } else {
+            // Free lesson - direct link
+            lessonButtonHTML = `
+              <a href="${lesson.htmlLink}"
+                style="text-decoration:none;">
+                <button style="padding:6px 14px;background:var(--green);color:white;border:var(--border-thick);border-radius:50px;font-weight:700;cursor:pointer;font-family:'Fredoka',sans-serif;">
+                  Open Lesson →
+                </button>
+              </a>
+            `;
+          }
+        }
+
         card.innerHTML = `
           <div class="result-header">
             <div class="result-lesson">
@@ -1166,9 +1191,7 @@
                 ? `<span class="lesson-badge">${lesson.title}${lesson.premium ? ' ⭐' : ''}</span>` 
                 : '<span class="lesson-badge">Lesson Unknown</span>'}
             </div>
-            ${lesson ? `<a href="${lesson.htmlLink}" 
-               onclick="return checkPremiumAccess(event, ${lesson.id}, ${lesson.premium || false})"
-               style="text-decoration:none;"><button style="padding:6px 14px;background:var(--green);color:white;border:var(--border-thick);border-radius:50px;font-weight:700;cursor:pointer;font-family:'Fredoka',sans-serif;">Open Lesson →</button></a>` : ''}
+            ${lessonButtonHTML}
           </div>
           <div class="result-content">
             <div class="result-sentence">
@@ -1267,32 +1290,46 @@
     }
 
     // ══════════════════════════════════════════════════════════
-    // PREMIUM ACCESS CHECK
+    // PREMIUM ACCESS CHECK - UPDATED
     // ══════════════════════════════════════════════════════════
     window.checkPremiumAccess = async function (event, lessonId, isPremium) {
-      // If not premium lesson, allow access
-      if (!isPremium) return true;
-      
       event.preventDefault();
       
       // Not logged in - show login modal
       if (!window.__currentUser) {
         window.__pendingLessonId = lessonId;
         window.__afterLoginAction = async () => {
-          // After login, check premium again
-          await window.checkAndAccessLesson(lessonId, event.target.closest('a').href);
+          // After login, check premium status
+          await window.verifyAndAccessLesson(lessonId, event.target.closest('button').getAttribute('onclick'));
         };
         openLoginModal();
         return false;
       }
       
-      // Logged in - check premium status
-      await window.checkAndAccessLesson(lessonId, event.target.closest('a').href);
+      // Logged in - verify premium status
+      await window.verifyAndAccessLesson(lessonId);
       return false;
     };
 
-    window.checkAndAccessLesson = async function (lessonId, url) {
+    window.verifyAndAccessLesson = async function (lessonId) {
       try {
+        // Find the lesson URL from allThumbnails
+        let lessonUrl = null;
+        for (const thumb of allThumbnails) {
+          const { id } = parseHtmlLink(thumb.htmlLink);
+          if (id === lessonId) {
+            lessonUrl = thumb.htmlLink;
+            break;
+          }
+        }
+
+        if (!lessonUrl) {
+          console.error('Lesson URL not found');
+          openUpgradeModal();
+          return;
+        }
+
+        // Check user's premium status from Firebase
         const { getFirestore, doc, getDoc } = 
           await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
         const db = getFirestore();
@@ -1300,7 +1337,7 @@
         
         if (snap.exists() && snap.data().isPremium === true) {
           // User has premium - allow access
-          window.location.href = url;
+          window.location.href = lessonUrl;
         } else {
           // User doesn't have premium - show upgrade modal
           openUpgradeModal();
