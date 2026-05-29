@@ -47,7 +47,7 @@
       background: var(--bg);
       color: var(--black);
       overflow: hidden;
-      height: 100vh;
+      height: 100dvh;
     }
 
     body::before {
@@ -86,7 +86,7 @@
     /* ── MAIN LAYOUT ── */
     .classroom-container {
       display: flex;
-      height: calc(100vh - 66px);
+      height: calc(100dvh - 66px);
       gap: 0;
     }
 
@@ -277,7 +277,8 @@
     /* ── FULL WIDTH SECTIONS ── */
     .full-width-section {
       margin-bottom: 32px;
-      min-height: 600px;
+      height: 65vh;
+      position: relative;
     }
 
     .section-heading {
@@ -293,13 +294,13 @@
 
     .embed-container {
       width: 100%;
-      height: 100%;
-      min-height: 550px;
+      height: 60vh;
       border: var(--border-thick);
       border-radius: 20px;
       overflow: hidden;
       box-shadow: var(--shadow-md);
       background: var(--white);
+      position: relative;
     }
 
     .embed-container iframe {
@@ -307,6 +308,27 @@
       height: 100%;
       border: none;
       display: block;
+    }
+
+    /* ── EMBED RESIZE HANDLE ── */
+    .embed-resize-handle {
+      position: absolute;
+      width: 100%;
+      height: 8px;
+      bottom: -4px;
+      left: 0;
+      cursor: ns-resize;
+      background: transparent;
+      pointer-events: auto;
+      z-index: 150;
+      transition: background 0.2s ease;
+      touch-action: none;
+    }
+
+    .embed-resize-handle:hover,
+    .embed-resize-handle.active {
+      background: var(--green);
+      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.15);
     }
 
     /* ── SCROLLBAR STYLING ── */
@@ -429,7 +451,7 @@
       .classroom-container {
         flex-direction: column;
         height: auto;
-        min-height: calc(100vh - 66px);
+        min-height: calc(100dvh - 66px);
       }
 
       .sidebar {
@@ -443,7 +465,7 @@
       .main-content {
         flex: 1;
         height: auto;
-        min-height: calc(100vh - 66px - 200px);
+        min-height: calc(100dvh - 66px - 200px);
       }
 
       .lesson-index {
@@ -477,10 +499,12 @@
       }
 
       .embed-container {
+        height: 50vh;
         min-height: 350px;
       }
 
       .full-width-section {
+        height: 55vh;
         min-height: 400px;
       }
     }
@@ -559,6 +583,7 @@ Add your own notes and they'll be saved!"></textarea>
           </div>
           <div class="embed-container">
             <iframe id="find-sentences-frame" src="find-sentences.html"></iframe>
+            <div class="embed-resize-handle"></div>
           </div>
         </section>
 
@@ -569,6 +594,7 @@ Add your own notes and they'll be saved!"></textarea>
           </div>
           <div class="embed-container">
             <iframe id="speaking-frame" src="speaking-practice.html"></iframe>
+            <div class="embed-resize-handle"></div>
           </div>
         </section>
 
@@ -842,6 +868,53 @@ Add your own notes and they'll be saved!"></textarea>
     });
 
     loadNotes();
+
+    // ── EMBED CONTAINER RESIZE ──
+    let isResizingEmbed = null;
+    let embedStartY = 0;
+
+    function startEmbedResize(e) {
+      const handle = e.target.closest('.embed-resize-handle');
+      if (handle) {
+        isResizingEmbed = handle.closest('.embed-container');
+        embedStartY = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
+        handle.classList.add('active');
+        document.body.style.userSelect = 'none';
+        document.body.style.touchAction = 'none';
+        e.preventDefault();
+      }
+    }
+
+    function moveEmbedResize(e) {
+      if (!isResizingEmbed) return;
+      
+      const clientY = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
+      const rect = isResizingEmbed.getBoundingClientRect();
+      const newHeight = clientY - rect.top;
+      
+      if (newHeight > 300) {
+        isResizingEmbed.style.height = newHeight + 'px';
+      }
+    }
+
+    function endEmbedResize() {
+      if (isResizingEmbed) {
+        const handle = isResizingEmbed.querySelector('.embed-resize-handle');
+        handle?.classList.remove('active');
+        isResizingEmbed = null;
+        document.body.style.userSelect = 'auto';
+        document.body.style.touchAction = 'auto';
+      }
+    }
+
+    document.addEventListener('mousedown', startEmbedResize);
+    document.addEventListener('mousemove', moveEmbedResize, { passive: true });
+    document.addEventListener('mouseup', endEmbedResize);
+    
+    document.addEventListener('touchstart', startEmbedResize, { passive: false });
+    document.addEventListener('touchmove', moveEmbedResize, { passive: true });
+    document.addEventListener('touchend', endEmbedResize);
+    document.addEventListener('touchcancel', endEmbedResize);
   </script>
 
 </body>
