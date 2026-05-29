@@ -116,10 +116,16 @@
       background: transparent;
       will-change: background;
       pointer-events: auto;
+      transition: background 0.2s;
     }
 
     .sidebar-resize-handle:hover {
       background: var(--green);
+      background: linear-gradient(to right, transparent, var(--green), transparent);
+    }
+
+    .sidebar-resize-handle.resizing {
+      background: var(--green) !important;
     }
 
     /* ── MAIN CONTENT ── */
@@ -504,6 +510,7 @@ Add your own notes and they'll be saved!"></textarea>
       document.body.style.cursor = 'ew-resize';
       document.body.style.userSelect = 'none';
       document.body.style.touchAction = 'none';
+      sidebarResizeHandle.classList.add('resizing');
       e.preventDefault();
     }
 
@@ -521,6 +528,7 @@ Add your own notes and they'll be saved!"></textarea>
         document.body.style.cursor = 'auto';
         document.body.style.userSelect = 'auto';
         document.body.style.touchAction = 'auto';
+        sidebarResizeHandle.classList.remove('resizing');
       }
     }
 
@@ -618,7 +626,7 @@ Add your own notes and they'll be saved!"></textarea>
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
     
-    // Trigger canvas resize khi sidebar/container resize (e.g. when resizing sidebar)
+    // Trigger canvas resize khi sidebar/container resize
     const observer = new ResizeObserver(resizeCanvas);
     observer.observe(canvas.parentElement.parentElement);
     
@@ -626,6 +634,7 @@ Add your own notes and they'll be saved!"></textarea>
     let isDrawing = false;
     let lastX = 0;
     let lastY = 0;
+    let isEraser = false;
     
     // Mouse events
     canvas.addEventListener('mousedown', (e) => {
@@ -641,14 +650,18 @@ Add your own notes and they'll be saved!"></textarea>
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
       
-      ctx.strokeStyle = '#222';
-      ctx.lineWidth = 2;
-      ctx.lineCap = 'round';
-      ctx.lineJoin = 'round';
-      ctx.beginPath();
-      ctx.moveTo(lastX, lastY);
-      ctx.lineTo(x, y);
-      ctx.stroke();
+      if (isEraser) {
+        ctx.clearRect(x - 8, y - 8, 16, 16);
+      } else {
+        ctx.strokeStyle = '#222';
+        ctx.lineWidth = 2;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(x, y);
+        ctx.stroke();
+      }
       
       lastX = x;
       lastY = y;
@@ -679,14 +692,18 @@ Add your own notes and they'll be saved!"></textarea>
       const x = touch.clientX - rect.left;
       const y = touch.clientY - rect.top;
       
-      ctx.strokeStyle = '#222';
-      ctx.lineWidth = 2;
-      ctx.lineCap = 'round';
-      ctx.lineJoin = 'round';
-      ctx.beginPath();
-      ctx.moveTo(lastX, lastY);
-      ctx.lineTo(x, y);
-      ctx.stroke();
+      if (isEraser) {
+        ctx.clearRect(x - 8, y - 8, 16, 16);
+      } else {
+        ctx.strokeStyle = '#222';
+        ctx.lineWidth = 2;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(x, y);
+        ctx.stroke();
+      }
       
       lastX = x;
       lastY = y;
@@ -697,15 +714,38 @@ Add your own notes and they'll be saved!"></textarea>
       isDrawing = false;
     });
     
-    // Clear canvas button
+    // Control buttons container
+    const btnContainer = document.createElement('div');
+    btnContainer.style.cssText = 'position: absolute; top: 10px; right: 10px; display: flex; gap: 8px; z-index: 10;';
+    canvas.parentElement.style.position = 'relative';
+    canvas.parentElement.appendChild(btnContainer);
+    
+    // Clear button
     const clearBtn = document.createElement('button');
     clearBtn.textContent = '🗑️ Clear';
-    clearBtn.style.cssText = 'position: absolute; top: 10px; right: 10px; padding: 8px 12px; background: #7cb83e; color: white; border: 2px solid #222; border-radius: 8px; cursor: pointer; font-weight: 600; z-index: 10;';
+    clearBtn.style.cssText = 'padding: 8px 12px; background: #7cb83e; color: white; border: 2px solid #222; border-radius: 8px; cursor: pointer; font-weight: 600; font-family: Fredoka, sans-serif;';
     clearBtn.addEventListener('click', () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
     });
-    canvas.parentElement.style.position = 'relative';
-    canvas.parentElement.appendChild(clearBtn);
+    btnContainer.appendChild(clearBtn);
+    
+    // Eraser button
+    const eraserBtn = document.createElement('button');
+    eraserBtn.textContent = '✏️ Pen';
+    eraserBtn.style.cssText = 'padding: 8px 12px; background: #ffd84d; color: #222; border: 2px solid #222; border-radius: 8px; cursor: pointer; font-weight: 600; font-family: Fredoka, sans-serif;';
+    eraserBtn.addEventListener('click', () => {
+      isEraser = !isEraser;
+      if (isEraser) {
+        eraserBtn.textContent = '🧹 Eraser';
+        eraserBtn.style.background = '#ffb89a';
+        canvas.style.cursor = 'crosshair';
+      } else {
+        eraserBtn.textContent = '✏️ Pen';
+        eraserBtn.style.background = '#ffd84d';
+        canvas.style.cursor = 'crosshair';
+      }
+    });
+    btnContainer.appendChild(eraserBtn);
   </script>
 
 </body>
