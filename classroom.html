@@ -272,6 +272,87 @@
       background: var(--green-dark);
     }
 
+    /* ── DRAGGABLE & RESIZABLE ── */
+    .draggable-section {
+      position: relative;
+      cursor: move;
+      transition: box-shadow 0.2s;
+    }
+
+    .draggable-section.dragging {
+      opacity: 0.8;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2) !important;
+      z-index: 1000;
+    }
+
+    .draggable-section:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+
+    .drag-handle {
+      cursor: grab;
+      padding: 4px 8px;
+      user-select: none;
+      display: inline-block;
+      font-size: 0.9rem;
+    }
+
+    .drag-handle:active {
+      cursor: grabbing;
+    }
+
+    .resize-handle {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background: var(--green);
+      border: 2px solid var(--black);
+      border-radius: 2px;
+      bottom: -8px;
+      right: -8px;
+      cursor: nwse-resize;
+      z-index: 10;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .resize-handle:hover {
+      background: var(--green-dark);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .video-section,
+    .two-column-section,
+    .full-width-section {
+      animation: slideIn 0.4s ease both;
+    }
+
+    .section-card {
+      animation: slideIn 0.4s ease both;
+    }
+
+    .section-card:nth-child(2) {
+      animation-delay: 0.1s;
+    }
+
+    .full-width-section:nth-of-type(2) {
+      animation-delay: 0.2s;
+    }
+
+    .full-width-section:nth-of-type(3) {
+      animation-delay: 0.3s;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 1200px) {
       .sidebar {
@@ -329,40 +410,6 @@
         height: 400px;
       }
     }
-
-    /* ── ANIMATIONS ── */
-    @keyframes slideIn {
-      from {
-        opacity: 0;
-        transform: translateY(12px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .video-section,
-    .two-column-section,
-    .full-width-section {
-      animation: slideIn 0.4s ease both;
-    }
-
-    .section-card {
-      animation: slideIn 0.4s ease both;
-    }
-
-    .section-card:nth-child(2) {
-      animation-delay: 0.1s;
-    }
-
-    .full-width-section:nth-of-type(2) {
-      animation-delay: 0.2s;
-    }
-
-    .full-width-section:nth-of-type(3) {
-      animation-delay: 0.3s;
-    }
   </style>
 </head>
 <body>
@@ -385,7 +432,11 @@
       <div class="content-scroller">
 
         <!-- VIDEO SECTION - YouTube Page Embed -->
-        <section class="video-section">
+        <section class="video-section draggable-section" data-section="video" style="position: relative;">
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: rgba(124,184,62,0.1); border-radius: 8px 8px 0 0; margin: -20px -20px 12px -20px;">
+            <span class="drag-handle">⋮⋮ Drag</span>
+            <span style="font-size: 0.85rem; color: #666;">Video</span>
+          </div>
           <div class="video-frame">
             <iframe id="youtube-page" 
               src="https://www.youtube.com/embed/videoseries?list=PLB6ZM4PO9Z-64vyh2hJYD2dEo-fTPmsJR"
@@ -393,12 +444,17 @@
               allowfullscreen>
             </iframe>
           </div>
+          <div class="resize-handle"></div>
         </section>
 
         <!-- TWO COLUMN SECTION: NOTES + WORD CANVAS -->
-        <section class="two-column-section">
+        <section class="two-column-section draggable-section" data-section="two-column">
           <!-- NOTES AREA -->
-          <div class="section-card" style="background: var(--yellow-pale); border: var(--border-thick);">
+          <div class="section-card" style="background: var(--yellow-pale); border: var(--border-thick); position: relative;">
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: rgba(255,216,77,0.3); margin: -20px -20px 12px -20px; border-radius: 8px 8px 0 0;">
+              <span class="drag-handle">⋮⋮</span>
+              <span style="font-size: 0.85rem; color: #666;">Notes</span>
+            </div>
             <div class="section-card-title" style="border-bottom: var(--border-thick);">📝 My Notes</div>
             <textarea class="notes-area" id="notes-area" placeholder="Write your notes here...
           
@@ -407,31 +463,45 @@ Key points:
 • 我叫... (wǒ jiào...) = My name is...
 
 Add your own notes and they'll be saved!"></textarea>
+            <div class="resize-handle"></div>
           </div>
 
           <!-- WORD CANVAS EMBED -->
-          <div class="section-card" style="background: var(--sky-pale); border: var(--border-thick);">
+          <div class="section-card" style="background: var(--sky-pale); border: var(--border-thick); position: relative;">
+            <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: rgba(114,200,240,0.2); margin: -20px -20px 12px -20px; border-radius: 8px 8px 0 0;">
+              <span class="drag-handle">⋮⋮</span>
+              <span style="font-size: 0.85rem; color: #0066cc;">Word Canvas</span>
+            </div>
             <div class="section-card-title" style="border-bottom: var(--border-thick); color: #0066cc;">✏️ Word Canvas</div>
             <div class="embed-frame">
               <iframe id="word-canvas-frame" src="word-canvas.html"></iframe>
             </div>
+            <div class="resize-handle"></div>
           </div>
         </section>
 
         <!-- SPEAKING PRACTICE SECTION -->
-        <section class="full-width-section">
-          <div class="section-heading">🎙️ Speaking Practice</div>
+        <section class="full-width-section draggable-section" data-section="speaking" style="position: relative;">
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: rgba(124,184,62,0.1); border-radius: 8px 8px 0 0; margin: -12px -16px 12px -16px;">
+            <span class="drag-handle">⋮⋮ Drag</span>
+            <span style="font-size: 0.85rem; color: #666;">Speaking Practice</span>
+          </div>
           <div class="embed-container">
             <iframe id="speaking-frame" src="speaking-practice.html"></iframe>
           </div>
+          <div class="resize-handle"></div>
         </section>
 
         <!-- FIND SENTENCES SECTION -->
-        <section class="full-width-section">
-          <div class="section-heading">🔍 Find Sentences</div>
+        <section class="full-width-section draggable-section" data-section="find-sentences" style="position: relative;">
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: rgba(124,184,62,0.1); border-radius: 8px 8px 0 0; margin: -12px -16px 12px -16px;">
+            <span class="drag-handle">⋮⋮ Drag</span>
+            <span style="font-size: 0.85rem; color: #666;">Find Sentences</span>
+          </div>
           <div class="embed-container">
             <iframe id="find-sentences-frame" src="find-sentences.html"></iframe>
           </div>
+          <div class="resize-handle"></div>
         </section>
 
       </div>
@@ -439,7 +509,7 @@ Add your own notes and they'll be saved!"></textarea>
   </div>
 
   <script>
-    // Notes persistence
+    // ── NOTES PERSISTENCE ──
     function saveNotes() {
       const notes = document.getElementById('notes-area').value;
       localStorage.setItem('classroom-notes', notes);
@@ -450,15 +520,152 @@ Add your own notes and they'll be saved!"></textarea>
       document.getElementById('notes-area').value = notes;
     }
 
-    // Auto-save notes every 2 seconds
     let notesSaveTimeout;
     document.getElementById('notes-area').addEventListener('input', () => {
       clearTimeout(notesSaveTimeout);
       notesSaveTimeout = setTimeout(saveNotes, 2000);
     });
 
-    // Load notes on page load
-    window.addEventListener('DOMContentLoaded', loadNotes);
+    // ── DRAG & RESIZE FUNCTIONALITY ──
+    const scroller = document.querySelector('.content-scroller');
+    let draggedElement = null;
+    let offsetY = 0;
+    let resizingElement = null;
+    let startY = 0;
+    let startHeight = 0;
+
+    // Save layout to localStorage
+    function saveLayout() {
+      const sections = Array.from(document.querySelectorAll('.draggable-section')).map(el => ({
+        id: el.dataset.section,
+        order: Array.from(scroller.children).indexOf(el),
+        height: el.style.height || 'auto'
+      }));
+      localStorage.setItem('classroom-layout', JSON.stringify(sections));
+    }
+
+    // Load layout from localStorage
+    function loadLayout() {
+      const layout = localStorage.getItem('classroom-layout');
+      if (!layout) return;
+      
+      try {
+        const sections = JSON.parse(layout);
+        const scrollerChildren = Array.from(scroller.children);
+        
+        sections.forEach(section => {
+          const el = document.querySelector(`[data-section="${section.id}"]`);
+          if (el && section.height !== 'auto') {
+            el.style.height = section.height;
+          }
+        });
+      } catch (e) {
+        console.error('Failed to load layout:', e);
+      }
+    }
+
+    // Drag functionality
+    document.addEventListener('mousedown', (e) => {
+      const dragHandle = e.target.closest('.drag-handle');
+      if (dragHandle) {
+        draggedElement = dragHandle.closest('.draggable-section');
+        if (!draggedElement) return;
+
+        const rect = draggedElement.getBoundingClientRect();
+        const scrollRect = scroller.getBoundingClientRect();
+        offsetY = e.clientY - rect.top;
+
+        draggedElement.classList.add('dragging');
+        draggedElement.style.position = 'fixed';
+        draggedElement.style.zIndex = '1000';
+        draggedElement.style.width = rect.width + 'px';
+
+        e.preventDefault();
+      }
+
+      // Resize functionality
+      const resizeHandle = e.target.closest('.resize-handle');
+      if (resizeHandle) {
+        resizingElement = resizeHandle.closest('.draggable-section');
+        if (!resizingElement) return;
+
+        startY = e.clientY;
+        startHeight = resizingElement.offsetHeight;
+        resizingElement.style.position = 'relative';
+
+        e.preventDefault();
+      }
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      // Dragging
+      if (draggedElement) {
+        const scrollRect = scroller.getBoundingClientRect();
+        draggedElement.style.top = (e.clientY - offsetY) + 'px';
+        draggedElement.style.left = scrollRect.left + 'px';
+      }
+
+      // Resizing
+      if (resizingElement) {
+        const delta = e.clientY - startY;
+        const newHeight = Math.max(200, startHeight + delta);
+        resizingElement.style.height = newHeight + 'px';
+      }
+    });
+
+    document.addEventListener('mouseup', () => {
+      if (draggedElement) {
+        const scrollRect = scroller.getBoundingClientRect();
+        const rect = draggedElement.getBoundingClientRect();
+        const relativeY = rect.top - scrollRect.top + scroller.scrollTop;
+
+        // Find insertion point
+        const scrollerChildren = Array.from(scroller.children);
+        let insertIndex = scrollerChildren.length;
+
+        for (let i = 0; i < scrollerChildren.length; i++) {
+          const child = scrollerChildren[i];
+          if (child === draggedElement) continue;
+          
+          const childRect = child.getBoundingClientRect();
+          const childRelativeY = childRect.top - scrollRect.top + scroller.scrollTop;
+          
+          if (relativeY < childRelativeY + childRect.height / 2) {
+            insertIndex = i;
+            break;
+          }
+        }
+
+        // Reorder in DOM
+        scroller.removeChild(draggedElement);
+        if (insertIndex >= scroller.children.length) {
+          scroller.appendChild(draggedElement);
+        } else {
+          scroller.insertBefore(draggedElement, scroller.children[insertIndex]);
+        }
+
+        draggedElement.classList.remove('dragging');
+        draggedElement.style.position = 'relative';
+        draggedElement.style.zIndex = 'auto';
+        draggedElement.style.top = 'auto';
+        draggedElement.style.left = 'auto';
+        draggedElement.style.width = 'auto';
+
+        saveLayout();
+        draggedElement = null;
+      }
+
+      if (resizingElement) {
+        resizingElement = null;
+        saveLayout();
+      }
+    });
+
+    // Initialize on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      loadNotes();
+      loadLayout();
+    });
   </script>
 
 </body>
