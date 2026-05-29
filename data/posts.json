@@ -3612,7 +3612,7 @@
   "id": 402,
   "user": "老师",
   "title": "对，我每天都坚持锻炼。你呢？",
-  "segments": ["对", "，", "我", "每", "天", "都", "坚持", "锻炼", "。", "你", "呢", "？"],
+  "segments": ["对¹", "，", "我", "每", "天", "都", "坚持", "锻炼", "。", "你", "呢", "？"],
   "description": "Duì, wǒ měi tiān dōu jiānchí duànliàn. Nǐ ne?<br>Yes, I exercise every day consistently. What about you?",
   "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1777085457/gvtd_h1livb.png",
   "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1778816804/802_ktkz1f.mp3"
