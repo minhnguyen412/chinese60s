@@ -293,12 +293,15 @@
       position: relative;
       cursor: move;
       transition: box-shadow 0.2s;
+      will-change: transform;
     }
 
     .draggable-section.dragging {
       opacity: 0.8;
       box-shadow: 0 8px 24px rgba(0,0,0,0.2) !important;
       z-index: 1000;
+      will-change: top, left, width;
+      transform: translateZ(0);
     }
 
     .draggable-section:hover {
@@ -329,10 +332,40 @@
       cursor: nwse-resize;
       z-index: 10;
       box-shadow: var(--shadow-sm);
+      will-change: background;
     }
 
     .resize-handle:hover {
       background: var(--green-dark);
+    }
+
+    /* Individual resize handles for notes and word canvas */
+    .section-card {
+      position: relative;
+    }
+
+    .section-card .card-resize-handle {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: var(--yellow);
+      border: 2px solid var(--black);
+      border-radius: 2px;
+      bottom: -6px;
+      right: -6px;
+      cursor: nwse-resize;
+      z-index: 10;
+      box-shadow: 2px 2px 0 var(--black);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .section-card:hover .card-resize-handle {
+      opacity: 1;
+    }
+
+    .section-card:nth-child(2) .card-resize-handle {
+      background: var(--sky);
     }
 
     /* ── ANIMATIONS ── */
@@ -467,7 +500,7 @@
         <!-- TWO COLUMN SECTION: NOTES + WORD CANVAS -->
         <section class="two-column-section draggable-section" data-section="two-column">
           <!-- NOTES AREA -->
-          <div class="section-card" style="background: var(--yellow-pale); border: var(--border-thick); position: relative;">
+          <div class="section-card" style="background: var(--yellow-pale); border: var(--border-thick); position: relative;" data-card="notes">
             <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: rgba(255,216,77,0.3); margin: -20px -20px 12px -20px; border-radius: 8px 8px 0 0;">
               <span class="drag-handle">⋮⋮</span>
               <span style="font-size: 0.85rem; color: #666;">Notes</span>
@@ -480,11 +513,11 @@ Key points:
 • 我叫... (wǒ jiào...) = My name is...
 
 Add your own notes and they'll be saved!"></textarea>
-            <div class="resize-handle"></div>
+            <div class="card-resize-handle"></div>
           </div>
 
           <!-- WORD CANVAS EMBED -->
-          <div class="section-card" style="background: var(--sky-pale); border: var(--border-thick); position: relative;">
+          <div class="section-card" style="background: var(--sky-pale); border: var(--border-thick); position: relative;" data-card="word-canvas">
             <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: rgba(114,200,240,0.2); margin: -20px -20px 12px -20px; border-radius: 8px 8px 0 0;">
               <span class="drag-handle">⋮⋮</span>
               <span style="font-size: 0.85rem; color: #0066cc;">Word Canvas</span>
@@ -493,7 +526,7 @@ Add your own notes and they'll be saved!"></textarea>
             <div class="embed-frame">
               <iframe id="word-canvas-frame" src="word-canvas.html"></iframe>
             </div>
-            <div class="resize-handle"></div>
+            <div class="card-resize-handle"></div>
           </div>
         </section>
 
@@ -555,6 +588,7 @@ Add your own notes and they'll be saved!"></textarea>
       startX = e.clientX;
       startWidth = sidebar.offsetWidth;
       document.body.style.cursor = 'ew-resize';
+      document.body.style.userSelect = 'none';
       e.preventDefault();
     });
 
@@ -563,14 +597,65 @@ Add your own notes and they'll be saved!"></textarea>
         const delta = e.clientX - startX;
         const newWidth = Math.max(300, startWidth + delta);
         sidebar.style.width = newWidth + 'px';
-        localStorage.setItem('sidebar-width', newWidth);
       }
-    });
+    }, { passive: true });
 
     document.addEventListener('mouseup', () => {
       if (resizingSidebar) {
         resizingSidebar = false;
         document.body.style.cursor = 'auto';
+        document.body.style.userSelect = 'auto';
+        localStorage.setItem('sidebar-width', sidebar.offsetWidth);
+      }
+    });
+
+    // ── INDIVIDUAL CARD RESIZE ──
+    let resizingCard = null;
+    let cardStartY = 0;
+    let cardStartHeight = 0;
+
+    document.addEventListener('mousedown', (e) => {
+      const resizeHandle = e.target.closest('.card-resize-handle');
+      if (resizeHandle) {
+        resizingCard = resizeHandle.closest('.section-card');
+        cardStartY = e.clientY;
+        cardStartHeight = resizingCard.offsetHeight;
+        document.body.style.cursor = 'nwse-resize';
+        document.body.style.userSelect = 'none';
+        e.preventDefault();
+      }
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (resizingCard) {
+        const delta = e.clientY - cardStartY;
+        const newHeight = Math.max(150, cardStartHeight + delta);
+        resizingCard.style.height = newHeight + 'px';
+
+        // Resize textarea or embed inside
+        const textarea = resizingCard.querySelector('.notes-area');
+        const embed = resizingCard.querySelector('.embed-frame');
+        const header = resizingCard.querySelector('[style*="display: flex"]');
+        const title = resizingCard.querySelector('.section-card-title');
+
+        const headerHeight = (header?.offsetHeight || 0) + (title?.offsetHeight || 0) + 24;
+        const contentHeight = newHeight - headerHeight;
+
+        if (textarea) {
+          textarea.style.height = Math.max(100, contentHeight) + 'px';
+        }
+        if (embed) {
+          embed.style.height = Math.max(100, contentHeight) + 'px';
+        }
+      }
+    }, { passive: true });
+
+    document.addEventListener('mouseup', () => {
+      if (resizingCard) {
+        resizingCard = null;
+        document.body.style.cursor = 'auto';
+        document.body.style.userSelect = 'auto';
+        saveCardSizes();
       }
     });
 
@@ -581,6 +666,7 @@ Add your own notes and they'll be saved!"></textarea>
     let resizingElement = null;
     let startY = 0;
     let startHeight = 0;
+    let dragGhost = null;
 
     // Save layout to localStorage
     function saveLayout() {
@@ -590,6 +676,17 @@ Add your own notes and they'll be saved!"></textarea>
         height: el.style.height || 'auto'
       }));
       localStorage.setItem('classroom-layout', JSON.stringify(sections));
+    }
+
+    function saveCardSizes() {
+      const cardSizes = {};
+      document.querySelectorAll('.section-card[data-card]').forEach(card => {
+        const cardId = card.dataset.card;
+        cardSizes[cardId] = {
+          height: card.style.height || 'auto'
+        };
+      });
+      localStorage.setItem('card-sizes', JSON.stringify(cardSizes));
     }
 
     // Load layout from localStorage
@@ -603,7 +700,6 @@ Add your own notes and they'll be saved!"></textarea>
           const el = document.querySelector(`[data-section="${section.id}"]`);
           if (el && section.height !== 'auto') {
             el.style.height = section.height;
-            // Also resize the iframe/embed inside
             const iframe = el.querySelector('iframe');
             const embedContainer = el.querySelector('.embed-container');
             if (embedContainer && iframe) {
@@ -616,6 +712,30 @@ Add your own notes and they'll be saved!"></textarea>
       } catch (e) {
         console.error('Failed to load layout:', e);
       }
+
+      const cardSizes = localStorage.getItem('card-sizes');
+      if (cardSizes) {
+        try {
+          const sizes = JSON.parse(cardSizes);
+          Object.keys(sizes).forEach(cardId => {
+            const card = document.querySelector(`[data-card="${cardId}"]`);
+            if (card && sizes[cardId].height !== 'auto') {
+              card.style.height = sizes[cardId].height;
+              const textarea = card.querySelector('.notes-area');
+              const embed = card.querySelector('.embed-frame');
+              const header = card.querySelector('[style*="display: flex"]');
+              const title = card.querySelector('.section-card-title');
+              const headerHeight = (header?.offsetHeight || 0) + (title?.offsetHeight || 0) + 24;
+              const contentHeight = parseFloat(sizes[cardId].height) - headerHeight;
+
+              if (textarea) textarea.style.height = Math.max(100, contentHeight) + 'px';
+              if (embed) embed.style.height = Math.max(100, contentHeight) + 'px';
+            }
+          });
+        } catch (e) {
+          console.error('Failed to load card sizes:', e);
+        }
+      }
     }
 
     // Load sidebar width
@@ -626,26 +746,26 @@ Add your own notes and they'll be saved!"></textarea>
       }
     }
 
-    // Drag functionality
+    // Drag functionality - optimized
     document.addEventListener('mousedown', (e) => {
       const dragHandle = e.target.closest('.drag-handle');
-      if (dragHandle) {
+      if (dragHandle && !dragHandle.closest('.section-card')?.querySelector('.card-resize-handle:hover')) {
         draggedElement = dragHandle.closest('.draggable-section');
         if (!draggedElement) return;
 
         const rect = draggedElement.getBoundingClientRect();
-        const scrollRect = scroller.getBoundingClientRect();
         offsetY = e.clientY - rect.top;
 
         draggedElement.classList.add('dragging');
         draggedElement.style.position = 'fixed';
         draggedElement.style.zIndex = '1000';
         draggedElement.style.width = rect.width + 'px';
+        document.body.style.userSelect = 'none';
 
         e.preventDefault();
       }
 
-      // Resize functionality
+      // Resize section
       const resizeHandle = e.target.closest('.resize-handle');
       if (resizeHandle) {
         resizingElement = resizeHandle.closest('.draggable-section');
@@ -653,28 +773,25 @@ Add your own notes and they'll be saved!"></textarea>
 
         startY = e.clientY;
         startHeight = resizingElement.offsetHeight;
-        resizingElement.style.position = 'relative';
         document.body.style.cursor = 'nwse-resize';
+        document.body.style.userSelect = 'none';
 
         e.preventDefault();
       }
     });
 
     document.addEventListener('mousemove', (e) => {
-      // Dragging
       if (draggedElement) {
         const scrollRect = scroller.getBoundingClientRect();
         draggedElement.style.top = (e.clientY - offsetY) + 'px';
         draggedElement.style.left = scrollRect.left + 'px';
       }
 
-      // Resizing
       if (resizingElement) {
         const delta = e.clientY - startY;
         const newHeight = Math.max(200, startHeight + delta);
         resizingElement.style.height = newHeight + 'px';
 
-        // Resize iframe/embed inside
         const iframe = resizingElement.querySelector('iframe');
         if (iframe) {
           const headerHeight = resizingElement.querySelector('[style*="display: flex"]')?.offsetHeight || 20;
@@ -682,7 +799,7 @@ Add your own notes and they'll be saved!"></textarea>
           iframe.style.height = Math.max(100, contentHeight) + 'px';
         }
       }
-    });
+    }, { passive: true });
 
     document.addEventListener('mouseup', () => {
       if (draggedElement) {
@@ -690,7 +807,6 @@ Add your own notes and they'll be saved!"></textarea>
         const rect = draggedElement.getBoundingClientRect();
         const relativeY = rect.top - scrollRect.top + scroller.scrollTop;
 
-        // Find insertion point
         const scrollerChildren = Array.from(scroller.children);
         let insertIndex = scrollerChildren.length;
 
@@ -707,7 +823,6 @@ Add your own notes and they'll be saved!"></textarea>
           }
         }
 
-        // Reorder in DOM
         scroller.removeChild(draggedElement);
         if (insertIndex >= scroller.children.length) {
           scroller.appendChild(draggedElement);
@@ -721,14 +836,16 @@ Add your own notes and they'll be saved!"></textarea>
         draggedElement.style.top = 'auto';
         draggedElement.style.left = 'auto';
         draggedElement.style.width = 'auto';
+        document.body.style.userSelect = 'auto';
 
         saveLayout();
         draggedElement = null;
       }
 
       if (resizingElement) {
-        resizingElement = null;
         document.body.style.cursor = 'auto';
+        document.body.style.userSelect = 'auto';
+        resizingElement = null;
         saveLayout();
       }
     });
