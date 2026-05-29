@@ -896,7 +896,7 @@
     let allCharacters = [];
 
     // List of punctuation marks to skip in character grid
-    const PUNCTUATION = ['，', '。', '！', '？', '；', '：', '、', '…', '·', '「', '」', '『', '』', '（', '）', '《', '》', '"', '"', ''', ''', '—', '～'];
+    const PUNCTUATION = ['，', '。', '！', '？', '；', '：', '、', '…', '·', '「', '」', '『', '』', '（', '）', '《', '》', '"', '"', "'", "'", '—', '～'];
 
     // Parse htmlLink to extract postStartId and postEndId
     function parseHtmlLink(htmlLink) {
@@ -931,7 +931,8 @@
     }
 
     // Main search function - supports phrase search
-    // Matches if ANY character from query appears in the sentence
+    // If query is 1 char: match any sentence containing that char
+    // If query is 2+ chars: match sentences containing consecutive chars or multiple matching chars
     function performSearch() {
       const query = document.getElementById('search-input').value.trim();
       if (!query) {
@@ -940,25 +941,56 @@
       }
 
       const results = [];
+      const queryLength = query.length;
 
       for (const post of allPosts) {
-        // Join all segments into one string
         const fullText = post.segments.join('');
-        
-        // Get unique characters from query
-        const queryChars = query.split('');
         const matchingSegments = [];
         
-        // Check if ANY character from query appears in the sentence
-        for (const char of queryChars) {
+        if (queryLength === 1) {
+          // Single character: match if it appears anywhere
+          const char = query;
           for (let i = 0; i < post.segments.length; i++) {
             if (post.segments[i].includes(char) && !matchingSegments.includes(i)) {
               matchingSegments.push(i);
             }
           }
+        } else {
+          // Multiple characters: match if:
+          // 1. The query appears as a consecutive substring, OR
+          // 2. At least 2 characters from query appear in the sentence
+          
+          let hasConsecutiveMatch = false;
+          let matchCount = 0;
+          
+          // Check for consecutive substring match
+          if (fullText.includes(query)) {
+            hasConsecutiveMatch = true;
+          }
+          
+          // Count how many unique characters from query appear in sentence
+          for (const char of query.split('')) {
+            if (fullText.includes(char)) {
+              matchCount++;
+            }
+          }
+          
+          // Include sentence if: has consecutive match OR has 2+ matching chars
+          if (hasConsecutiveMatch || matchCount >= 2) {
+            // Find all indices of characters that match
+            for (let i = 0; i < post.segments.length; i++) {
+              const segment = post.segments[i];
+              // Check if this segment contains any char from query
+              for (const char of query.split('')) {
+                if (segment.includes(char) && !matchingSegments.includes(i)) {
+                  matchingSegments.push(i);
+                  break;
+                }
+              }
+            }
+          }
         }
 
-        // Only include if at least one character matched
         if (matchingSegments.length > 0) {
           const lesson = findLessonForPost(post.id);
           results.push({
