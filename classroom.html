@@ -409,13 +409,9 @@
           <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: rgba(124,184,62,0.1); border-radius: 8px 8px 0 0; margin: -20px -20px 12px -20px;">
             <span style="font-size: 0.85rem; color: #666;">Video</span>
           </div>
-          <div class="video-frame">
-            <iframe id="youtube-page" 
-              src="https://www.youtube.com/embed/videoseries?list=PLB6ZM4PO9Z-64vyh2hJYD2dEo-fTPmsJR"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowfullscreen>
-            </iframe>
-          </div>
+          <div class="video-frame" style="background: white; display: flex; align-items: center; justify-content: center;">
+  <canvas id="whiteboard" style="border: 2px solid #222; cursor: crosshair; display: block;"></canvas>
+</div>
         </section>
 
         <!-- TWO COLUMN SECTION: NOTES + WORD CANVAS -->
@@ -644,6 +640,103 @@ Add your own notes and they'll be saved!"></textarea>
     window.addEventListener('DOMContentLoaded', () => {
       loadNotes();
     });
+    // ── WHITEBOARD CANVAS ──
+    const canvas = document.getElementById('whiteboard');
+    const ctx = canvas.getContext('2d');
+    
+    // Set canvas size to fill the frame
+    function resizeCanvas() {
+      const frame = canvas.parentElement;
+      canvas.width = frame.offsetWidth - 4;
+      canvas.height = frame.offsetHeight - 4;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    
+    // Drawing variables
+    let isDrawing = false;
+    let lastX = 0;
+    let lastY = 0;
+    
+    // Mouse events
+    canvas.addEventListener('mousedown', (e) => {
+      isDrawing = true;
+      const rect = canvas.getBoundingClientRect();
+      lastX = e.clientX - rect.left;
+      lastY = e.clientY - rect.top;
+    });
+    
+    canvas.addEventListener('mousemove', (e) => {
+      if (!isDrawing) return;
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      ctx.strokeStyle = '#222';
+      ctx.lineWidth = 2;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.beginPath();
+      ctx.moveTo(lastX, lastY);
+      ctx.lineTo(x, y);
+      ctx.stroke();
+      
+      lastX = x;
+      lastY = y;
+    });
+    
+    canvas.addEventListener('mouseup', () => {
+      isDrawing = false;
+    });
+    
+    canvas.addEventListener('mouseleave', () => {
+      isDrawing = false;
+    });
+    
+    // Touch events for iPad/mobile
+    canvas.addEventListener('touchstart', (e) => {
+      isDrawing = true;
+      const rect = canvas.getBoundingClientRect();
+      const touch = e.touches[0];
+      lastX = touch.clientX - rect.left;
+      lastY = touch.clientY - rect.top;
+      e.preventDefault();
+    });
+    
+    canvas.addEventListener('touchmove', (e) => {
+      if (!isDrawing) return;
+      const rect = canvas.getBoundingClientRect();
+      const touch = e.touches[0];
+      const x = touch.clientX - rect.left;
+      const y = touch.clientY - rect.top;
+      
+      ctx.strokeStyle = '#222';
+      ctx.lineWidth = 2;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.beginPath();
+      ctx.moveTo(lastX, lastY);
+      ctx.lineTo(x, y);
+      ctx.stroke();
+      
+      lastX = x;
+      lastY = y;
+      e.preventDefault();
+    });
+    
+    canvas.addEventListener('touchend', () => {
+      isDrawing = false;
+    });
+    
+    // Clear canvas button (optional - thêm nút xóa)
+    const clearBtn = document.createElement('button');
+    clearBtn.textContent = '🗑️ Clear';
+    clearBtn.style.cssText = 'position: absolute; top: 10px; right: 10px; padding: 8px 12px; background: #7cb83e; color: white; border: 2px solid #222; border-radius: 8px; cursor: pointer; font-weight: 600;';
+    clearBtn.addEventListener('click', () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    });
+    canvas.parentElement.style.position = 'relative';
+    canvas.parentElement.appendChild(clearBtn);
   </script>
 
 </body>
