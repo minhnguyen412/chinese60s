@@ -7,6 +7,10 @@
   <meta name="description" content="Interactive classroom for learning Chinese with video, notes, vocabulary, speaking, and sentence search.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
   <style>
     :root {
       --black: #222;
@@ -83,10 +87,212 @@
       text-shadow: 2px 2px 0 rgba(0,0,0,0.25);
     }
 
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      font-weight: 500;
+    }
+
+    .user-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 2px solid var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      color: var(--green);
+      font-size: 0.9rem;
+    }
+
+    .user-name {
+      max-width: 150px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .logout-btn {
+      padding: 8px 16px;
+      background: rgba(255,255,255,0.2);
+      color: white;
+      border: 2px solid white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .logout-btn:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    /* ── LOGIN OVERLAY ── */
+    .login-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .login-overlay h1 {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 700;
+      font-size: 3rem;
+      color: var(--green);
+      text-shadow: 3px 3px 0 var(--black);
+    }
+
+    .login-overlay p {
+      color: #666;
+      font-size: 1.1rem;
+      text-align: center;
+      max-width: 400px;
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 320px;
+    }
+
+    .login-form input {
+      padding: 14px 18px;
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1rem;
+      border: var(--border);
+      border-radius: 12px;
+      background: var(--white);
+      transition: all 0.2s ease;
+    }
+
+    .login-form input:focus {
+      outline: none;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .login-form button {
+      padding: 14px 18px;
+      background: var(--green);
+      color: white;
+      border: var(--border-thick);
+      border-radius: 12px;
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-md);
+    }
+
+    .login-form button:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .login-error {
+      color: #d63031;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    /* ── PRESENCE BAR ── */
+    .presence-bar {
+      background: var(--lavender-pale);
+      border-bottom: var(--border);
+      padding: 8px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.9rem;
+    }
+
+    .presence-label {
+      font-weight: 600;
+      color: var(--black);
+    }
+
+    .online-users {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .online-user {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--white);
+      border: var(--border);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-weight: 500;
+    }
+
+    .online-user .dot {
+      width: 8px;
+      height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    /* ── ACTIVITY NOTIFICATION ── */
+    .activity-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--white);
+      border: var(--border-thick);
+      border-radius: 12px;
+      padding: 12px 20px;
+      box-shadow: var(--shadow-lg);
+      z-index: 300;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+      transform: translateX(120%);
+      transition: transform 0.3s ease;
+    }
+
+    .activity-toast.show {
+      transform: translateX(0);
+    }
+
+    .activity-toast .user-badge {
+      background: var(--lavender);
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+
     /* ── MAIN LAYOUT ── */
     .classroom-container {
       display: flex;
-      height: calc(100dvh - 66px);
+      height: calc(100dvh - 66px - 44px);
       gap: 0;
     }
 
@@ -128,7 +334,6 @@
       box-shadow: -4px 0 8px rgba(0, 0, 0, 0.15);
     }
 
-    /* Sidebar scrollbar */
     .sidebar::-webkit-scrollbar {
       width: 8px;
     }
@@ -178,6 +383,7 @@
       overflow: hidden;
       box-shadow: var(--shadow-lg);
       background: var(--black);
+      position: relative;
     }
 
     .video-frame iframe {
@@ -410,6 +616,7 @@
       background: var(--green);
       box-shadow: 2px 0 6px rgba(0, 0, 0, 0.12);
     }
+
     .canvas-toolbar {
       position: absolute;
       top: 10px;
@@ -510,7 +717,7 @@
       .classroom-container {
         flex-direction: column;
         height: auto;
-        min-height: calc(100dvh - 66px);
+        min-height: calc(100dvh - 66px - 200px);
       }
 
       .sidebar {
@@ -571,16 +778,46 @@
 </head>
 <body>
 
+  <!-- LOGIN OVERLAY -->
+  <div class="login-overlay" id="loginOverlay">
+    <h1>CHINESE 60s</h1>
+    <p>Sign in to join the collaborative classroom. All your actions will be visible to other students in real-time.</p>
+    <form class="login-form" id="loginForm">
+      <input type="email" id="emailInput" placeholder="Email address" required>
+      <input type="password" id="passwordInput" placeholder="Password" required>
+      <button type="submit">Sign In</button>
+      <p class="login-error" id="loginError"></p>
+    </form>
+  </div>
+
   <header>
     <h1>CHINESE 60s</h1>
-    <div style="flex: 1;"></div>
+    <div class="header-right">
+      <div class="user-info" id="userInfo" style="display: none;">
+        <div class="user-avatar" id="userAvatar">?</div>
+        <span class="user-name" id="userName">User</span>
+      </div>
+      <button class="logout-btn" id="logoutBtn" style="display: none;">Logout</button>
+    </div>
   </header>
+
+  <!-- PRESENCE BAR -->
+  <div class="presence-bar" id="presenceBar" style="display: none;">
+    <span class="presence-label">Online Now:</span>
+    <div class="online-users" id="onlineUsers"></div>
+  </div>
+
+  <!-- ACTIVITY TOAST -->
+  <div class="activity-toast" id="activityToast">
+    <span class="user-badge" id="toastUser">User</span>
+    <span id="toastAction">performed an action</span>
+  </div>
 
   <div class="classroom-container">
     <!-- SIDEBAR - Learning Page Index Embed -->
     <aside class="sidebar">
       <div class="sidebar-content" style="height: 100%; border: none;">
-        <iframe src="learning-page.html" style="width: 100%; height: 100%; border: none; display: block;"></iframe>
+        <iframe id="sidebar-frame" src="learning-page.html" style="width: 100%; height: 100%; border: none; display: block;"></iframe>
       </div>
       <div class="sidebar-resize-handle"></div>
     </aside>
@@ -592,14 +829,14 @@
         <!-- VIDEO SECTION - YouTube Page Embed -->
         <section class="video-section" data-section="video" style="position: relative;">
           <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: rgba(124,184,62,0.1); border-radius: 8px 8px 0 0; margin: -20px -20px 12px -20px;">
-            <span style="font-size: 0.85rem; color: #666;">Video</span>
+            <span style="font-size: 0.85rem; color: #666;">Whiteboard</span>
           </div>
           <div class="video-frame" style="background: white; display: flex; align-items: center; justify-content: center; position: relative;">
             <canvas id="whiteboard" style="border: 2px solid #222; cursor: crosshair; display: block;"></canvas>
             <div class="canvas-toolbar">
-              <button class="canvas-btn draw-btn active" title="Chế độ vẽ">✏️ Draw</button>
-              <button class="canvas-btn erase-btn erase" title="Chế độ xóa">🧹 Erase</button>
-              <button class="canvas-btn clear-btn" title="Xóa toàn bộ">🗑️ Clear</button>
+              <button class="canvas-btn draw-btn active" title="Draw mode">Draw</button>
+              <button class="canvas-btn erase-btn erase" title="Erase mode">Erase</button>
+              <button class="canvas-btn clear-btn" title="Clear all">Clear</button>
             </div>
           </div>
         </section>
@@ -611,14 +848,8 @@
             <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: rgba(255,216,77,0.3); margin: -20px -20px 12px -20px; border-radius: 8px 8px 0 0;">
               <span style="font-size: 0.85rem; color: #666;">Notes</span>
             </div>
-            <div class="section-card-title" style="border-bottom: var(--border-thick);">📝 My Notes</div>
-            <textarea class="notes-area" id="notes-area" placeholder="Write your notes here...
-          
-Key points:
-• 你好 (nǐ hǎo) = Hello
-• 我叫... (wǒ jiào...) = My name is...
-
-Add your own notes and they'll be saved!"></textarea>
+            <div class="section-card-title" style="border-bottom: var(--border-thick);">My Notes</div>
+            <textarea class="notes-area" id="notes-area" placeholder="Write your notes here..."></textarea>
             <div class="card-resize-handle"></div>
             <div class="card-resize-handle-right"></div>
           </div>
@@ -628,7 +859,7 @@ Add your own notes and they'll be saved!"></textarea>
             <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: rgba(114,200,240,0.2); margin: -20px -20px 12px -20px; border-radius: 8px 8px 0 0;">
               <span style="font-size: 0.85rem; color: #0066cc;">Word Canvas</span>
             </div>
-            <div class="section-card-title" style="border-bottom: var(--border-thick); color: #0066cc;">✏️ Word Canvas</div>
+            <div class="section-card-title" style="border-bottom: var(--border-thick); color: #0066cc;">Word Canvas</div>
             <div class="embed-frame">
               <iframe id="word-canvas-frame" src="word-canvas.html"></iframe>
             </div>
@@ -664,22 +895,359 @@ Add your own notes and they'll be saved!"></textarea>
   </div>
 
   <script>
-    // ── NOTES PERSISTENCE ──
+    // ── FIREBASE CONFIGURATION ──
+    const firebaseConfig = {
+      apiKey: "AIzaSyAm-qQrpXKNdqFLITRAGCug7rkskGzyAkg",
+      authDomain: "chinese60s.firebaseapp.com",
+      projectId: "chinese60s",
+      storageBucket: "chinese60s.firebasestorage.app",
+      messagingSenderId: "835657861121",
+      appId: "1:835657861121:web:f31727eb7ea3b876a5d800",
+      measurementId: "G-70NQ4PFTSN"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    // ── GLOBAL STATE ──
+    let currentUser = null;
+    let currentUserName = 'Anonymous';
+    let activityUnsubscribe = null;
+
+    // ── DOM ELEMENTS ──
+    const loginOverlay = document.getElementById('loginOverlay');
+    const loginForm = document.getElementById('loginForm');
+    const loginError = document.getElementById('loginError');
+    const emailInput = document.getElementById('emailInput');
+    const passwordInput = document.getElementById('passwordInput');
+    const userInfo = document.getElementById('userInfo');
+    const userAvatar = document.getElementById('userAvatar');
+    const userName = document.getElementById('userName');
+    const logoutBtn = document.getElementById('logoutBtn');
+    const presenceBar = document.getElementById('presenceBar');
+    const onlineUsers = document.getElementById('onlineUsers');
+    const activityToast = document.getElementById('activityToast');
+    const toastUser = document.getElementById('toastUser');
+    const toastAction = document.getElementById('toastAction');
+
+    // ── AUTHENTICATION ──
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        currentUser = user;
+        currentUserName = user.displayName || user.email.split('@')[0];
+        showClassroom();
+        setupPresence();
+        listenToActivities();
+      } else {
+        currentUser = null;
+        hideClassroom();
+      }
+    });
+
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      loginError.textContent = '';
+
+      const email = emailInput.value;
+      const password = passwordInput.value;
+
+      try {
+        await auth.signInWithEmailAndPassword(email, password);
+        loginForm.reset();
+      } catch (error) {
+        loginError.textContent = error.message;
+      }
+    });
+
+    logoutBtn.addEventListener('click', () => {
+      auth.signOut();
+    });
+
+    function showClassroom() {
+      loginOverlay.style.display = 'none';
+      userInfo.style.display = 'flex';
+      logoutBtn.style.display = 'block';
+      presenceBar.style.display = 'flex';
+
+      userAvatar.textContent = currentUserName.charAt(0).toUpperCase();
+      userName.textContent = currentUserName;
+    }
+
+    function hideClassroom() {
+      loginOverlay.style.display = 'flex';
+      userInfo.style.display = 'none';
+      logoutBtn.style.display = 'none';
+      presenceBar.style.display = 'none';
+
+      if (activityUnsubscribe) {
+        activityUnsubscribe();
+      }
+    }
+
+    // ── PRESENCE SYSTEM ──
+    async function setupPresence() {
+      if (!currentUser) return;
+
+      const presenceRef = db.collection('classroom').doc('presence');
+
+      // Add user to presence
+      await presenceRef.collection('users').doc(currentUser.uid).set({
+        name: currentUserName,
+        email: currentUser.email,
+        onlineAt: firebase.firestore.FieldValue.serverTimestamp(),
+        lastSeen: firebase.firestore.FieldValue.serverTimestamp()
+      }, { merge: true });
+
+      // Remove on disconnect
+      presenceRef.collection('users').doc(currentUser.uid).onSnapshot(null, null, {
+        ifFailed: console.error
+      });
+
+      // Real-time presence updates
+      presenceRef.collection('users').onSnapshot((snapshot) => {
+        const users = [];
+        snapshot.forEach((doc) => {
+          const data = doc.data();
+          if (data.onlineAt && !data.removed) {
+            users.push(data);
+          }
+        });
+        updatePresenceBar(users);
+      });
+
+      // Cleanup on logout
+      auth.onAuthStateChanged((user) => {
+        if (!user) {
+          presenceRef.collection('users').doc(currentUser?.uid || 'anonymous').delete().catch(() => {});
+        }
+      });
+    }
+
+    function updatePresenceBar(users) {
+      onlineUsers.innerHTML = '';
+      users.forEach((user) => {
+        const userEl = document.createElement('div');
+        userEl.className = 'online-user';
+        userEl.innerHTML = `
+          <span class="dot"></span>
+          <span>${user.name}</span>
+        `;
+        if (user.uid === currentUser?.uid) {
+          userEl.style.background = 'var(--green-light)';
+        }
+        onlineUsers.appendChild(userEl);
+      });
+    }
+
+    // ── ACTIVITY TRACKING ──
+    const activitiesRef = db.collection('classroom').doc('activities');
+
+    async function trackActivity(action, data = {}) {
+      if (!currentUser) return;
+
+      const activity = {
+        userId: currentUser.uid,
+        userName: currentUserName,
+        action: action,
+        data: data,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      };
+
+      await activitiesRef.collection('logs').add(activity);
+    }
+
+    function listenToActivities() {
+      activityUnsubscribe = activitiesRef.collection('logs')
+        .orderBy('timestamp', 'desc')
+        .limit(50)
+        .onSnapshot((snapshot) => {
+          // Only show recent activities (last 5 seconds)
+          const now = Date.now();
+          snapshot.docChanges().forEach((change) => {
+            if (change.type === 'added') {
+              const activity = change.doc.data();
+              const timestamp = activity.timestamp?.toDate()?.getTime() || now;
+
+              // Only show activities from other users
+              if (activity.userId !== currentUser?.uid && now - timestamp < 5000) {
+                showActivityToast(activity.userName, activity.action);
+              }
+            }
+          });
+        });
+    }
+
+    function showActivityToast(userName, action) {
+      toastUser.textContent = userName;
+      toastAction.textContent = action;
+      activityToast.classList.add('show');
+
+      setTimeout(() => {
+        activityToast.classList.remove('show');
+      }, 4000);
+    }
+
+    // ── NOTES SYNC ──
+    const notesRef = db.collection('classroom').doc('notes');
+    let notesSaveTimeout = null;
+    let isRemoteUpdate = false;
+
+    // Listen for remote notes updates
+    notesRef.onSnapshot((doc) => {
+      if (doc.exists && !isRemoteUpdate) {
+        const notesArea = document.getElementById('notes-area');
+        if (document.activeElement !== notesArea) {
+          notesArea.value = doc.data().content || '';
+        }
+      }
+    });
+
+    // Save notes locally and sync
     function saveNotes() {
       const notes = document.getElementById('notes-area').value;
       localStorage.setItem('classroom-notes', notes);
+
+      isRemoteUpdate = true;
+      notesRef.set({
+        content: notes,
+        lastUpdateBy: currentUser?.uid || 'anonymous',
+        lastUpdateName: currentUserName
+      }).then(() => {
+        isRemoteUpdate = false;
+      }).catch(() => {
+        isRemoteUpdate = false;
+      });
+
+      trackActivity('updated notes');
     }
 
-    function loadNotes() {
-      const notes = localStorage.getItem('classroom-notes') || '';
-      document.getElementById('notes-area').value = notes;
-    }
-
-    let notesSaveTimeout;
     document.getElementById('notes-area').addEventListener('input', () => {
       clearTimeout(notesSaveTimeout);
-      notesSaveTimeout = setTimeout(saveNotes, 2000);
+      notesSaveTimeout = setTimeout(saveNotes, 1000);
     });
+
+    // ── SIDEBAR SYNC ──
+    const sidebarFrame = document.getElementById('sidebar-frame');
+
+    sidebarFrame.addEventListener('load', () => {
+      // Track sidebar interactions via postMessage
+      sidebarFrame.contentWindow.addEventListener('message', (event) => {
+        if (event.data && event.data.type === 'sidebar-action') {
+          trackActivity('interacted with sidebar: ' + event.data.action);
+
+          // Broadcast to other users
+          broadcastToIframes({
+            type: 'sidebar-update',
+            action: event.data.action,
+            data: event.data.data
+          });
+        }
+      });
+    });
+
+    // ── WORD CANVAS SYNC ──
+    const wordCanvasFrame = document.getElementById('word-canvas-frame');
+
+    wordCanvasFrame.addEventListener('load', () => {
+      wordCanvasFrame.contentWindow.addEventListener('message', (event) => {
+        if (event.data && event.data.type === 'canvas-action') {
+          trackActivity('interacted with Word Canvas: ' + event.data.action);
+
+          broadcastToIframes({
+            type: 'word-canvas-update',
+            action: event.data.action,
+            data: event.data.data
+          });
+        }
+      });
+    });
+
+    // ── FIND SENTENCES SYNC ──
+    const findSentencesFrame = document.getElementById('find-sentences-frame');
+
+    findSentencesFrame.addEventListener('load', () => {
+      findSentencesFrame.contentWindow.addEventListener('message', (event) => {
+        if (event.data && event.data.type === 'find-sentences-action') {
+          trackActivity('used Find Sentences: ' + event.data.action);
+
+          broadcastToIframes({
+            type: 'find-sentences-update',
+            action: event.data.action,
+            data: event.data.data
+          });
+        }
+      });
+    });
+
+    // ── SPEAKING SYNC ──
+    const speakingFrame = document.getElementById('speaking-frame');
+
+    speakingFrame.addEventListener('load', () => {
+      speakingFrame.contentWindow.addEventListener('message', (event) => {
+        if (event.data && event.data.type === 'speaking-action') {
+          trackActivity('used Speaking Practice: ' + event.data.action);
+
+          broadcastToIframes({
+            type: 'speaking-update',
+            action: event.data.action,
+            data: event.data.data
+          });
+        }
+      });
+    });
+
+    // ── WHITEBOARD SYNC ──
+    const whiteboardRef = db.collection('classroom').doc('whiteboard');
+    let isDrawingRemote = false;
+
+    whiteboardRef.onSnapshot((doc) => {
+      if (doc.exists && !isDrawingRemote) {
+        const data = doc.data();
+        if (data.lastDrawer !== currentUser?.uid) {
+          // Remote drawing update - redraw the last stroke
+          if (data.lastStroke) {
+            drawRemoteStroke(data.lastStroke);
+          }
+        }
+      }
+    });
+
+    function drawRemoteStroke(stroke) {
+      if (!stroke) return;
+
+      const canvas = document.getElementById('whiteboard');
+      const ctx = canvas.getContext('2d');
+
+      if (stroke.type === 'draw') {
+        ctx.strokeStyle = stroke.color || '#222';
+        ctx.lineWidth = stroke.width || 2;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.beginPath();
+        ctx.moveTo(stroke.x1, stroke.y1);
+        ctx.lineTo(stroke.x2, stroke.y2);
+        ctx.stroke();
+      } else if (stroke.type === 'erase') {
+        ctx.clearRect(stroke.x - 15, stroke.y - 15, 30, 30);
+      } else if (stroke.type === 'clear') {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+    }
+
+    function broadcastToIframes(message) {
+      const iframes = [sidebarFrame, wordCanvasFrame, findSentencesFrame, speakingFrame];
+      iframes.forEach((frame) => {
+        try {
+          if (frame.contentWindow) {
+            frame.contentWindow.postMessage(message, '*');
+          }
+        } catch (e) {
+          // Cross-origin restriction, ignore
+        }
+      });
+    }
 
     // ── SIDEBAR RESIZE (Simple & Smooth) ──
     const sidebar = document.querySelector('.sidebar');
@@ -699,15 +1267,15 @@ Add your own notes and they'll be saved!"></textarea>
 
       const containerRect = document.querySelector('.classroom-container').getBoundingClientRect();
       const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
-      
-      // Tính vị trí relative đến container
+
       const newWidth = clientX - containerRect.left;
-      
-      // Min 250px, Max 80% width
+
       const maxWidth = containerRect.width * 0.8;
       const constrainedWidth = Math.max(250, Math.min(maxWidth, newWidth));
-      
+
       sidebar.style.width = constrainedWidth + 'px';
+
+      trackActivity('resized sidebar to ' + Math.round(constrainedWidth) + 'px');
     }
 
     function endSidebarResize() {
@@ -719,12 +1287,10 @@ Add your own notes and they'll be saved!"></textarea>
       }
     }
 
-    // Mouse events
     sidebarResizeHandle.addEventListener('mousedown', startSidebarResize);
     document.addEventListener('mousemove', moveSidebarResize, { passive: true });
     document.addEventListener('mouseup', endSidebarResize);
 
-    // Touch events
     sidebarResizeHandle.addEventListener('touchstart', startSidebarResize, { passive: false });
     document.addEventListener('touchmove', moveSidebarResize, { passive: true });
     document.addEventListener('touchend', endSidebarResize);
@@ -732,7 +1298,7 @@ Add your own notes and they'll be saved!"></textarea>
 
     // ── CARD CONTAINER RESIZE ──
     let isResizingCard = null;
-    let resizeType = null; // 'vertical', 'horizontal-right', 'horizontal-left'
+    let resizeType = null;
     let resizeStartPos = 0;
 
     function startCardResize(e) {
@@ -774,7 +1340,6 @@ Add your own notes and they'll be saved!"></textarea>
 
         if (newHeight > 150) {
           isResizingCard.style.height = newHeight + 'px';
-          // Update textarea/embed height
           const textarea = isResizingCard.querySelector('.notes-area');
           const embed = isResizingCard.querySelector('.embed-frame');
           if (textarea) {
@@ -788,14 +1353,14 @@ Add your own notes and they'll be saved!"></textarea>
         const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
         const section = isResizingCard.closest('.two-column-section');
         const delta = clientX - resizeStartPos;
-        
+
         const notesCard = section.querySelector('[data-card="notes"]');
         const wordCard = section.querySelector('[data-card="word-canvas"]');
-        
+
         if (notesCard && wordCard) {
           const notesWidth = notesCard.offsetWidth + delta;
           const wordWidth = wordCard.offsetWidth - delta;
-          
+
           if (notesWidth > 250 && wordWidth > 250) {
             notesCard.style.flex = `0 0 ${notesWidth}px`;
             wordCard.style.flex = `0 0 ${wordWidth}px`;
@@ -806,14 +1371,14 @@ Add your own notes and they'll be saved!"></textarea>
         const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
         const section = isResizingCard.closest('.two-column-section');
         const delta = clientX - resizeStartPos;
-        
+
         const notesCard = section.querySelector('[data-card="notes"]');
         const wordCard = section.querySelector('[data-card="word-canvas"]');
-        
+
         if (notesCard && wordCard) {
           const wordWidth = wordCard.offsetWidth + delta;
           const notesWidth = notesCard.offsetWidth - delta;
-          
+
           if (notesWidth > 250 && wordWidth > 250) {
             notesCard.style.flex = `0 0 ${notesWidth}px`;
             wordCard.style.flex = `0 0 ${wordWidth}px`;
@@ -828,11 +1393,14 @@ Add your own notes and they'll be saved!"></textarea>
         const verticalHandle = isResizingCard.querySelector('.card-resize-handle');
         const horizontalRightHandle = isResizingCard.querySelector('.card-resize-handle-right');
         const horizontalLeftHandle = isResizingCard.querySelector('.card-resize-handle-left');
-        
+
         verticalHandle?.classList.remove('active');
         horizontalRightHandle?.classList.remove('active');
         horizontalLeftHandle?.classList.remove('active');
-        
+
+        const cardName = isResizingCard.dataset.card || 'card';
+        trackActivity('resized ' + cardName);
+
         isResizingCard = null;
         resizeType = null;
         document.body.style.userSelect = 'auto';
@@ -843,7 +1411,7 @@ Add your own notes and they'll be saved!"></textarea>
     document.addEventListener('mousedown', startCardResize);
     document.addEventListener('mousemove', moveCardResize, { passive: true });
     document.addEventListener('mouseup', endCardResize);
-    
+
     document.addEventListener('touchstart', startCardResize, { passive: false });
     document.addEventListener('touchmove', moveCardResize, { passive: true });
     document.addEventListener('touchend', endCardResize);
@@ -852,75 +1420,101 @@ Add your own notes and they'll be saved!"></textarea>
     // ── WHITEBOARD CANVAS ──
     const canvas = document.getElementById('whiteboard');
     const ctx = canvas.getContext('2d');
-    
-    // Set canvas size to fill the frame
+
     function resizeCanvas() {
       const frame = canvas.parentElement;
       const newWidth = frame.offsetWidth - 4;
       const newHeight = frame.offsetHeight - 4;
-      
-      // Chỉ resize nếu có thay đổi
+
       if (canvas.width !== newWidth || canvas.height !== newHeight) {
         canvas.width = newWidth;
         canvas.height = newHeight;
       }
     }
-    
+
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
-    
-    // Trigger canvas resize khi sidebar/container resize (e.g. when resizing sidebar)
+
     const observer = new ResizeObserver(resizeCanvas);
     observer.observe(canvas.parentElement.parentElement);
-    
+
     // Drawing variables
     let isDrawing = false;
     let lastX = 0;
     let lastY = 0;
     let isErasing = false;
-    
-    // Canvas toolbar buttons
+
     const drawBtn = document.querySelector('.draw-btn');
     const eraseBtn = document.querySelector('.erase-btn');
     const clearBtn = document.querySelector('.clear-btn');
-    
+
     drawBtn.addEventListener('click', () => {
       isErasing = false;
       drawBtn.classList.add('active');
       eraseBtn.classList.remove('active');
       canvas.style.cursor = 'crosshair';
+      trackActivity('switched whiteboard to draw mode');
     });
-    
+
     eraseBtn.addEventListener('click', () => {
       isErasing = true;
       eraseBtn.classList.add('active');
       drawBtn.classList.remove('active');
       canvas.style.cursor = 'grab';
+      trackActivity('switched whiteboard to erase mode');
     });
-    
+
     clearBtn.addEventListener('click', () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      trackActivity('cleared whiteboard');
+
+      // Sync clear to Firebase
+      whiteboardRef.set({
+        lastClearBy: currentUser?.uid || 'anonymous',
+        lastClearName: currentUserName,
+        lastClearTime: firebase.firestore.FieldValue.serverTimestamp()
+      });
     });
-    
-    // Mouse events
+
     canvas.addEventListener('mousedown', (e) => {
       isDrawing = true;
       const rect = canvas.getBoundingClientRect();
       lastX = e.clientX - rect.left;
       lastY = e.clientY - rect.top;
     });
-    
+
     canvas.addEventListener('mousemove', (e) => {
       if (!isDrawing) return;
       const rect = canvas.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      
+
+      const stroke = {
+        type: isErasing ? 'erase' : 'draw',
+        color: isErasing ? null : '#222',
+        width: isErasing ? null : 2,
+        x: x,
+        y: y,
+        x1: lastX,
+        y1: lastY,
+        x2: x,
+        y2: y
+      };
+
+      isDrawingRemote = true;
+      whiteboardRef.set({
+        lastStroke: stroke,
+        lastDrawer: currentUser?.uid || 'anonymous',
+        lastDrawTime: firebase.firestore.FieldValue.serverTimestamp()
+      }).then(() => {
+        isDrawingRemote = false;
+      }).catch(() => {
+        isDrawingRemote = false;
+      });
+
       if (isErasing) {
-        // Eraser mode - xóa vùng tròn
         ctx.clearRect(x - 15, y - 15, 30, 30);
       } else {
-        // Draw mode
         ctx.strokeStyle = '#222';
         ctx.lineWidth = 2;
         ctx.lineCap = 'round';
@@ -930,20 +1524,19 @@ Add your own notes and they'll be saved!"></textarea>
         ctx.lineTo(x, y);
         ctx.stroke();
       }
-      
+
       lastX = x;
       lastY = y;
     });
-    
+
     canvas.addEventListener('mouseup', () => {
       isDrawing = false;
     });
-    
+
     canvas.addEventListener('mouseleave', () => {
       isDrawing = false;
     });
-    
-    // Touch events for iPad/mobile
+
     canvas.addEventListener('touchstart', (e) => {
       isDrawing = true;
       const rect = canvas.getBoundingClientRect();
@@ -952,19 +1545,17 @@ Add your own notes and they'll be saved!"></textarea>
       lastY = touch.clientY - rect.top;
       e.preventDefault();
     });
-    
+
     canvas.addEventListener('touchmove', (e) => {
       if (!isDrawing) return;
       const rect = canvas.getBoundingClientRect();
       const touch = e.touches[0];
       const x = touch.clientX - rect.left;
       const y = touch.clientY - rect.top;
-      
+
       if (isErasing) {
-        // Eraser mode - xóa vùng tròn
         ctx.clearRect(x - 15, y - 15, 30, 30);
       } else {
-        // Draw mode
         ctx.strokeStyle = '#222';
         ctx.lineWidth = 2;
         ctx.lineCap = 'round';
@@ -974,17 +1565,19 @@ Add your own notes and they'll be saved!"></textarea>
         ctx.lineTo(x, y);
         ctx.stroke();
       }
-      
+
       lastX = x;
       lastY = y;
       e.preventDefault();
     });
-    
+
     canvas.addEventListener('touchend', () => {
       isDrawing = false;
     });
 
-    loadNotes();
+    // Load saved notes from localStorage
+    const savedNotes = localStorage.getItem('classroom-notes') || '';
+    document.getElementById('notes-area').value = savedNotes;
 
     // ── EMBED CONTAINER RESIZE ──
     let isResizingEmbed = null;
@@ -1004,11 +1597,11 @@ Add your own notes and they'll be saved!"></textarea>
 
     function moveEmbedResize(e) {
       if (!isResizingEmbed) return;
-      
+
       const clientY = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
       const rect = isResizingEmbed.getBoundingClientRect();
       const newHeight = clientY - rect.top;
-      
+
       if (newHeight > 300) {
         isResizingEmbed.style.height = newHeight + 'px';
       }
@@ -1018,6 +1611,10 @@ Add your own notes and they'll be saved!"></textarea>
       if (isResizingEmbed) {
         const handle = isResizingEmbed.querySelector('.embed-resize-handle');
         handle?.classList.remove('active');
+
+        const sectionId = isResizingEmbed.closest('[data-section]')?.dataset.section || 'embed';
+        trackActivity('resized ' + sectionId);
+
         isResizingEmbed = null;
         document.body.style.userSelect = 'auto';
         document.body.style.touchAction = 'auto';
@@ -1027,7 +1624,7 @@ Add your own notes and they'll be saved!"></textarea>
     document.addEventListener('mousedown', startEmbedResize);
     document.addEventListener('mousemove', moveEmbedResize, { passive: true });
     document.addEventListener('mouseup', endEmbedResize);
-    
+
     document.addEventListener('touchstart', startEmbedResize, { passive: false });
     document.addEventListener('touchmove', moveEmbedResize, { passive: true });
     document.addEventListener('touchend', endEmbedResize);
