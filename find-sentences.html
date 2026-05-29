@@ -95,6 +95,63 @@
     }
     nav ul li a:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
 
+    /* Auth button */
+    #sign-in-btn {
+      background: var(--yellow); border: var(--border); border-radius: 50px;
+      padding: 6px 18px; font-weight: 700; font-size: 0.9rem;
+      box-shadow: var(--shadow-sm); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s;
+      display: flex; align-items: center; gap: 6px;
+      font-family: 'Fredoka', sans-serif;
+    }
+    #sign-in-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+
+    /* Auth pill */
+    .auth-pill {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--white); border: var(--border); border-radius: 50px;
+      padding: 5px 14px 5px 6px;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s;
+      font-weight: 600; font-size: 0.9rem; color: var(--black);
+      text-decoration: none; white-space: nowrap;
+    }
+    .auth-pill:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+    
+    .auth-pill .avatar {
+      width: 28px; height: 28px; border-radius: 50%;
+      border: 2px solid var(--black); object-fit: cover;
+      background: var(--green-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 700; overflow: hidden;
+      flex-shrink: 0;
+    }
+    .auth-pill .avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* User dropdown menu */
+    .user-menu-wrap { position: relative; }
+    .user-dropdown {
+      display: none;
+      position: absolute; top: calc(100% + 10px); right: 0;
+      background: var(--white); border: var(--border-thick); border-radius: 18px;
+      box-shadow: var(--shadow-lg); padding: 8px;
+      min-width: 180px; z-index: 200;
+    }
+    .user-menu-wrap:hover .user-dropdown,
+    .user-menu-wrap.open .user-dropdown { display: flex; flex-direction: column; gap: 4px; }
+    .user-dropdown a, .user-dropdown button {
+      display: block; width: 100%;
+      padding: 9px 14px; border-radius: 12px;
+      font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 0.92rem;
+      text-decoration: none; color: var(--black); text-align: left;
+      background: none; border: none; cursor: pointer;
+      transition: background 0.1s;
+    }
+    .user-dropdown a:hover, .user-dropdown button:hover { background: var(--yellow-pale); }
+    .user-dropdown .sign-out { color: #c0392b; }
+    .user-dropdown .sep { border: none; border-top: var(--border); margin: 4px 0; }
+
     @media (max-width: 768px) {
       header { 
         padding: 0 16px; 
@@ -136,6 +193,12 @@
       
       nav ul li { width: 100%; text-align: center; }
       nav ul li a { width: 90%; }
+      
+      .user-dropdown { right: auto; left: 0; }
+      .results-container { padding: 24px 20px; }
+      .results-grid { gap: 16px; }
+      .char-grid { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 10px; }
+      .char-image { height: 60px; }
     }
 
     /* ── MAIN CONTENT ── */
@@ -556,6 +619,24 @@
         <li><a href="about.html">About Us</a></li>
         <li><a href="blog.html">Blog</a></li>
         <li><a href="courses.html">Courses</a></li>
+        <li><a href="shop.html" target="_blank">Shop</a></li>
+        <li id="auth-nav-item">
+          <button id="sign-in-btn" onclick="openLoginModal()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" fill="#333"/></svg>
+            Sign In
+          </button>
+          <div class="user-menu-wrap" id="user-menu-wrap" style="display:none;">
+            <div class="auth-pill" id="user-pill" onclick="toggleUserMenu()">
+              <div class="avatar" id="nav-avatar">👤</div>
+              <span id="nav-username">User</span>
+            </div>
+            <div class="user-dropdown" id="user-dropdown">
+              <a href="profile.html">👤 My Profile</a>
+              <hr class="sep">
+              <button class="sign-out" onclick="signOut()">🚪 Sign Out</button>
+            </div>
+          </div>
+        </li>
       </ul>
     </nav>
   </header>
@@ -714,8 +795,11 @@
     });
 
     // ══════════════════════════════════════════════════════════
-    // GLOBAL STATE & MODAL HELPERS
+    // USER MENU TOGGLE
     // ══════════════════════════════════════════════════════════
+    window.toggleUserMenu = function () {
+      document.getElementById('user-menu-wrap').classList.toggle('open');
+    };
     window.__currentUser   = null;
     window.__userIsPremium = false;
     window.__premiumLoaded = false;
@@ -931,8 +1015,8 @@
     }
 
     // Main search function - supports phrase search
-    // If query is 1 char: match any sentence containing that char
-    // If query is 2+ chars: match sentences containing consecutive chars or multiple matching chars
+    // If query is exact match (ignoring punctuation): only show that sentence
+    // Otherwise: 1 char = any match, 2+ chars = consecutive or 2+ matching chars
     function performSearch() {
       const query = document.getElementById('search-input').value.trim();
       if (!query) {
@@ -942,7 +1026,43 @@
 
       const results = [];
       const queryLength = query.length;
+      let hasExactMatch = false;
+      const exactMatchResults = [];
 
+      // First pass: check for exact matches (ignoring punctuation)
+      for (const post of allPosts) {
+        // Remove punctuation from full text and compare
+        const fullTextNoPunct = post.segments
+          .filter(seg => !PUNCTUATION.includes(seg))
+          .join('');
+        
+        if (fullTextNoPunct === query) {
+          hasExactMatch = true;
+          const lesson = findLessonForPost(post.id);
+          // For exact match, highlight all non-punctuation segments
+          const matchingSegments = [];
+          for (let i = 0; i < post.segments.length; i++) {
+            if (!PUNCTUATION.includes(post.segments[i])) {
+              matchingSegments.push(i);
+            }
+          }
+          exactMatchResults.push({
+            post,
+            lesson,
+            matchingSegments,
+            matchCount: matchingSegments.length,
+            isExactMatch: true
+          });
+        }
+      }
+
+      // If exact match found, only return those
+      if (hasExactMatch) {
+        displayResults(exactMatchResults, query);
+        return;
+      }
+
+      // Second pass: fuzzy matching (if no exact match)
       for (const post of allPosts) {
         const fullText = post.segments.join('');
         const matchingSegments = [];
@@ -997,7 +1117,8 @@
             post,
             lesson,
             matchingSegments,
-            matchCount: matchingSegments.length
+            matchCount: matchingSegments.length,
+            isExactMatch: false
           });
         }
       }
@@ -1297,6 +1418,11 @@
     };
 
     onAuthStateChanged(auth, async function (user) {
+      const signInBtn    = document.getElementById('sign-in-btn');
+      const userMenuWrap = document.getElementById('user-menu-wrap');
+      const navUsername  = document.getElementById('nav-username');
+      const navAvatar    = document.getElementById('nav-avatar');
+
       if (user) {
         window.__currentUser = user;
         const { getFirestore, doc, setDoc, serverTimestamp } =
@@ -1309,6 +1435,13 @@
           lastLogin:   serverTimestamp(),
         }, { merge: true });
 
+        if (signInBtn)    signInBtn.style.display    = 'none';
+        if (userMenuWrap) userMenuWrap.style.display = 'block';
+        if (navUsername)  navUsername.textContent    = user.displayName?.split(' ')[0] || 'User';
+        if (navAvatar)    navAvatar.innerHTML        = user.photoURL
+          ? `<img src="${user.photoURL}" alt="avatar" referrerpolicy="no-referrer">`
+          : `<span>${(user.displayName?.[0] || '?').toUpperCase()}</span>`;
+
         await window.refreshPremiumStatus();
 
         if (window.__onAuthReadyCbs) {
@@ -1320,6 +1453,9 @@
         window.__currentUser   = null;
         window.__userIsPremium = false;
         window.__premiumLoaded = true;
+
+        if (signInBtn)    signInBtn.style.display    = 'inline-flex';
+        if (userMenuWrap) userMenuWrap.style.display = 'none';
       }
     });
   </script>
