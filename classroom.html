@@ -104,23 +104,28 @@
       will-change: width;
       overflow-y: auto;
       overflow-x: hidden;
+      transition: width 0.1s ease;
     }
 
     .sidebar-resize-handle {
       position: absolute;
-      width: 8px;
+      width: 10px;
       height: 100%;
-      right: -4px;
+      right: -5px;
       top: 0;
       cursor: ew-resize;
       z-index: 150;
       background: transparent;
       will-change: background;
-      pointer-events: none;
+      pointer-events: auto;
+      touch-action: none;
+      transition: background 0.2s ease;
     }
 
-    .sidebar-resize-handle:hover {
+    .sidebar-resize-handle:hover,
+    .sidebar-resize-handle.active {
       background: var(--green);
+      box-shadow: -4px 0 8px rgba(0, 0, 0, 0.15);
     }
 
     /* Sidebar scrollbar */
@@ -272,6 +277,7 @@
     /* ── FULL WIDTH SECTIONS ── */
     .full-width-section {
       margin-bottom: 32px;
+      min-height: 600px;
     }
 
     .section-heading {
@@ -288,7 +294,7 @@
     .embed-container {
       width: 100%;
       height: 100%;
-      min-height: 300px;
+      min-height: 550px;
       border: var(--border-thick);
       border-radius: 20px;
       overflow: hidden;
@@ -320,6 +326,50 @@
 
     .content-scroller::-webkit-scrollbar-thumb:hover {
       background: var(--green-dark);
+    }
+
+    /* ── CANVAS TOOLBAR ── */
+    .canvas-toolbar {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+
+    .canvas-btn {
+      padding: 8px 12px;
+      background: #7cb83e;
+      color: white;
+      border: 2px solid #222;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-family: 'Fredoka', sans-serif;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .canvas-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .canvas-btn.active {
+      background: #5a8f27;
+      box-shadow: inset 0 0 0 2px #fff;
+    }
+
+    .canvas-btn.erase {
+      background: #ff6b6b;
+    }
+
+    .canvas-btn.erase.active {
+      background: #d63031;
     }
 
     /* ── ANIMATIONS ── */
@@ -429,6 +479,10 @@
       .embed-container {
         min-height: 350px;
       }
+
+      .full-width-section {
+        min-height: 400px;
+      }
     }
   </style>
 </head>
@@ -457,8 +511,13 @@
           <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: rgba(124,184,62,0.1); border-radius: 8px 8px 0 0; margin: -20px -20px 12px -20px;">
             <span style="font-size: 0.85rem; color: #666;">Video</span>
           </div>
-          <div class="video-frame" style="background: white; display: flex; align-items: center; justify-content: center;">
+          <div class="video-frame" style="background: white; display: flex; align-items: center; justify-content: center; position: relative;">
             <canvas id="whiteboard" style="border: 2px solid #222; cursor: crosshair; display: block;"></canvas>
+            <div class="canvas-toolbar">
+              <button class="canvas-btn draw-btn active" title="Chế độ vẽ">✏️ Draw</button>
+              <button class="canvas-btn erase-btn erase" title="Chế độ xóa">🧹 Erase</button>
+              <button class="canvas-btn clear-btn" title="Xóa toàn bộ">🗑️ Clear</button>
+            </div>
           </div>
         </section>
 
@@ -535,72 +594,39 @@ Add your own notes and they'll be saved!"></textarea>
       notesSaveTimeout = setTimeout(saveNotes, 2000);
     });
 
-    // ── SIDEBAR RESIZE (Tối ưu với requestAnimationFrame + Touch Support) ──
+    // ── SIDEBAR RESIZE (Simple & Smooth) ──
     const sidebar = document.querySelector('.sidebar');
     const sidebarResizeHandle = document.querySelector('.sidebar-resize-handle');
-    let resizingSidebar = false;
-    let startX = 0;
-    let startWidth = 0;
-    let pendingWidth = null;
-    let rafId = null;
-    let isAnimating = false;
-
-    function updateSidebarWidth() {
-      if (pendingWidth !== null) {
-        sidebar.style.width = pendingWidth + 'px';
-        pendingWidth = null;
-      }
-      if (resizingSidebar) {
-        rafId = requestAnimationFrame(updateSidebarWidth);
-      } else {
-        isAnimating = false;
-      }
-    }
+    let isResizingSidebar = false;
 
     function startSidebarResize(e) {
-      // Reset state trước khi bắt đầu drag mới
-      if (rafId) {
-        cancelAnimationFrame(rafId);
-        rafId = null;
-      }
-      pendingWidth = null;
-      isAnimating = false;
-      
-      resizingSidebar = true;
-      startX = e.clientX !== undefined ? e.clientX : e.touches[0].clientX;
-      startWidth = sidebar.offsetWidth;
-      document.body.style.cursor = 'ew-resize';
+      isResizingSidebar = true;
+      sidebarResizeHandle.classList.add('active');
       document.body.style.userSelect = 'none';
       document.body.style.touchAction = 'none';
-      
-      isAnimating = true;
-      rafId = requestAnimationFrame(updateSidebarWidth);
       e.preventDefault();
     }
 
     function moveSidebarResize(e) {
-      if (resizingSidebar && isAnimating) {
-        const currentX = e.clientX !== undefined ? e.clientX : e.touches[0].clientX;
-        const delta = currentX - startX;
-        const newWidth = startWidth + delta;
-        pendingWidth = Math.max(300, Math.min(800, newWidth));
-      }
+      if (!isResizingSidebar) return;
+
+      const containerRect = document.querySelector('.classroom-container').getBoundingClientRect();
+      const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+      
+      // Tính vị trí relative đến container
+      const newWidth = clientX - containerRect.left;
+      
+      // Min 250px, Max 80% width
+      const maxWidth = containerRect.width * 0.8;
+      const constrainedWidth = Math.max(250, Math.min(maxWidth, newWidth));
+      
+      sidebar.style.width = constrainedWidth + 'px';
     }
 
     function endSidebarResize() {
-      if (resizingSidebar) {
-        resizingSidebar = false;
-        if (rafId) {
-          cancelAnimationFrame(rafId);
-          rafId = null;
-        }
-        // Apply final width
-        if (pendingWidth !== null) {
-          sidebar.style.width = pendingWidth + 'px';
-          pendingWidth = null;
-        }
-        isAnimating = false;
-        document.body.style.cursor = 'auto';
+      if (isResizingSidebar) {
+        isResizingSidebar = false;
+        sidebarResizeHandle.classList.remove('active');
         document.body.style.userSelect = 'auto';
         document.body.style.touchAction = 'auto';
       }
@@ -612,7 +638,7 @@ Add your own notes and they'll be saved!"></textarea>
     document.addEventListener('mouseup', endSidebarResize);
 
     // Touch events
-    sidebarResizeHandle.addEventListener('touchstart', startSidebarResize);
+    sidebarResizeHandle.addEventListener('touchstart', startSidebarResize, { passive: false });
     document.addEventListener('touchmove', moveSidebarResize, { passive: true });
     document.addEventListener('touchend', endSidebarResize);
     document.addEventListener('touchcancel', endSidebarResize);
@@ -708,6 +734,30 @@ Add your own notes and they'll be saved!"></textarea>
     let isDrawing = false;
     let lastX = 0;
     let lastY = 0;
+    let isErasing = false;
+    
+    // Canvas toolbar buttons
+    const drawBtn = document.querySelector('.draw-btn');
+    const eraseBtn = document.querySelector('.erase-btn');
+    const clearBtn = document.querySelector('.clear-btn');
+    
+    drawBtn.addEventListener('click', () => {
+      isErasing = false;
+      drawBtn.classList.add('active');
+      eraseBtn.classList.remove('active');
+      canvas.style.cursor = 'crosshair';
+    });
+    
+    eraseBtn.addEventListener('click', () => {
+      isErasing = true;
+      eraseBtn.classList.add('active');
+      drawBtn.classList.remove('active');
+      canvas.style.cursor = 'grab';
+    });
+    
+    clearBtn.addEventListener('click', () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    });
     
     // Mouse events
     canvas.addEventListener('mousedown', (e) => {
@@ -723,14 +773,20 @@ Add your own notes and they'll be saved!"></textarea>
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
       
-      ctx.strokeStyle = '#222';
-      ctx.lineWidth = 2;
-      ctx.lineCap = 'round';
-      ctx.lineJoin = 'round';
-      ctx.beginPath();
-      ctx.moveTo(lastX, lastY);
-      ctx.lineTo(x, y);
-      ctx.stroke();
+      if (isErasing) {
+        // Eraser mode - xóa vùng tròn
+        ctx.clearRect(x - 15, y - 15, 30, 30);
+      } else {
+        // Draw mode
+        ctx.strokeStyle = '#222';
+        ctx.lineWidth = 2;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(x, y);
+        ctx.stroke();
+      }
       
       lastX = x;
       lastY = y;
@@ -761,14 +817,20 @@ Add your own notes and they'll be saved!"></textarea>
       const x = touch.clientX - rect.left;
       const y = touch.clientY - rect.top;
       
-      ctx.strokeStyle = '#222';
-      ctx.lineWidth = 2;
-      ctx.lineCap = 'round';
-      ctx.lineJoin = 'round';
-      ctx.beginPath();
-      ctx.moveTo(lastX, lastY);
-      ctx.lineTo(x, y);
-      ctx.stroke();
+      if (isErasing) {
+        // Eraser mode - xóa vùng tròn
+        ctx.clearRect(x - 15, y - 15, 30, 30);
+      } else {
+        // Draw mode
+        ctx.strokeStyle = '#222';
+        ctx.lineWidth = 2;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(x, y);
+        ctx.stroke();
+      }
       
       lastX = x;
       lastY = y;
@@ -778,16 +840,8 @@ Add your own notes and they'll be saved!"></textarea>
     canvas.addEventListener('touchend', () => {
       isDrawing = false;
     });
-    
-    // Clear canvas button
-    const clearBtn = document.createElement('button');
-    clearBtn.textContent = '🗑️ Clear';
-    clearBtn.style.cssText = 'position: absolute; top: 10px; right: 10px; padding: 8px 12px; background: #7cb83e; color: white; border: 2px solid #222; border-radius: 8px; cursor: pointer; font-weight: 600; z-index: 10;';
-    clearBtn.addEventListener('click', () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-    });
-    canvas.parentElement.style.position = 'relative';
-    canvas.parentElement.appendChild(clearBtn);
+
+    loadNotes();
   </script>
 
 </body>
