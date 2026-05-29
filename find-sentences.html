@@ -1065,66 +1065,81 @@
 
       // Second pass: fuzzy matching (if no exact match)
       for (const post of allPosts) {
-        const fullText = post.segments.join('');
-        const matchingSegments = [];
-        
-        if (queryLength === 1) {
-          // Single character: match if it appears anywhere
-          const char = query;
-          for (let i = 0; i < post.segments.length; i++) {
-            if (post.segments[i].includes(char) && !matchingSegments.includes(i)) {
-              matchingSegments.push(i);
-            }
-          }
-        } else {
-          // Multiple characters: match if:
-          // 1. The query appears as a consecutive substring, OR
-          // 2. At least 2 characters from query appear in the sentence
-          
-          let hasConsecutiveMatch = false;
-          let matchCount = 0;
-          
-          // Check for consecutive substring match
-          if (fullText.includes(query)) {
-            hasConsecutiveMatch = true;
-          }
-          
-          // Count how many unique characters from query appear in sentence
-          for (const char of query.split('')) {
-            if (fullText.includes(char)) {
-              matchCount++;
-            }
-          }
-          
-          // Include sentence if: has consecutive match OR has 2+ matching chars
-          if (hasConsecutiveMatch || matchCount >= 2) {
-            // Find all indices of characters that match
-            for (let i = 0; i < post.segments.length; i++) {
-              const segment = post.segments[i];
-              // Check if this segment contains any char from query
-              for (const char of query.split('')) {
-                if (segment.includes(char) && !matchingSegments.includes(i)) {
-                  matchingSegments.push(i);
-                  break;
-                }
-              }
-            }
-          }
-        }
-
-        if (matchingSegments.length > 0) {
-          const lesson = findLessonForPost(post.id);
-          results.push({
-            post,
-            lesson,
-            matchingSegments,
-            matchCount: matchingSegments.length,
-            isExactMatch: false
-          });
+  const fullText = post.segments.join('');
+  const matchingSegments = [];
+  
+  let matchPercentage = 0;
+  
+  if (queryLength === 1) {
+    // Single character: match if it appears anywhere
+    const char = query;
+    for (let i = 0; i < post.segments.length; i++) {
+      if (post.segments[i].includes(char) && !matchingSegments.includes(i)) {
+        matchingSegments.push(i);
+      }
+    }
+    matchPercentage = 100; // Single char always counts as match
+  } else {
+    // Multiple characters: calculate match percentage
+    
+    // Check for consecutive substring match
+    if (fullText.includes(query)) {
+      matchPercentage = 100; // Exact consecutive match
+    } else {
+      // Count how many characters from query appear in sentence
+      let matchCount = 0;
+      for (const char of query.split('')) {
+        if (fullText.includes(char)) {
+          matchCount++;
         }
       }
+      // Calculate percentage (e.g., 3/4 chars = 75%)
+      matchPercentage = Math.round((matchCount / query.length) * 100);
+      
+      // Only include if at least 50% match
+      if (matchPercentage < 50) {
+        matchPercentage = 0; // Discard
+      }
+    }
+    
+    // Find all indices of characters that match
+    if (matchPercentage >= 50) {
+      for (let i = 0; i < post.segments.length; i++) {
+        const segment = post.segments[i];
+        // Check if this segment contains any char from query
+        for (const char of query.split('')) {
+          if (segment.includes(char) && !matchingSegments.includes(i)) {
+            matchingSegments.push(i);
+            break;
+          }
+        }
+      }
+    }
+  }
 
-      displayResults(results, query);
+  if (matchingSegments.length > 0 && matchPercentage >= 50) {
+    const lesson = findLessonForPost(post.id);
+    results.push({
+      post,
+      lesson,
+      matchingSegments,
+      matchCount: matchingSegments.length,
+      isExactMatch: false,
+      matchPercentage: matchPercentage  // ← ADD THIS
+    });
+  }
+}
+
+// ← THÊM: Sort results by match percentage (cao nhất trước)
+results.sort((a, b) => {
+  // Exact matches first
+  if (a.isExactMatch && !b.isExactMatch) return -1;
+  if (!a.isExactMatch && b.isExactMatch) return 1;
+  // Then by percentage (cao nhất trước)
+  return (b.matchPercentage || 0) - (a.matchPercentage || 0);
+});
+
+displayResults(results, query);
     }
 
     // Display results
