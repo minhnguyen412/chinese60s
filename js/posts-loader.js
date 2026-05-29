@@ -64,18 +64,19 @@ function showImageCard(imageData) {
         <h3>${imageData.character}</h3>
         <p>Meaning: ${imageData.meaning}</p>
         <p>Pinyin: ${imageData.pinyin}</p>
-        <button class="card-audio-btn" style="padding: 8px 16px; background: #6366f1; color: white; border: none; border-radius: 8px; cursor: pointer;">🔊 Play Audio</button>
+        <div id="audio-player-container" style="margin: 12px 0;"></div>
         <div id="writer-container" style="display: flex; gap: 10px;"></div>
     `;
     document.body.appendChild(card);
     activeImageCard = card;
 
-    // ✅ FIXED: Card audio button - dùng Global Audio Player
-    const cardAudioBtn = card.querySelector('.card-audio-btn');
-    cardAudioBtn.addEventListener('click', async () => {
-        await switchToPlaybackPhase();
-        await playGlobalAudio(imageData.audioSrc);
-    });
+    // ✅ Chỉ có audio player thôi
+    const audioPlayerContainer = card.querySelector('#audio-player-container');
+    const audioPlayer = document.createElement('audio');
+    audioPlayer.controls = true;
+    audioPlayer.src = imageData.audioSrc;
+    audioPlayer.style.cssText = `width: 100%; height: 32px;`;
+    audioPlayerContainer.appendChild(audioPlayer);
 
     const writerContainer = card.querySelector('#writer-container');
     let writers = [];
@@ -104,7 +105,7 @@ function showImageCard(imageData) {
     if (characters.length > 0) initializeWriters(characters);
     else writerContainer.style.display = 'none';
 }
-
+    
 function closeImageCard() {
     if (activeImageCard) {
         stopGlobalAudio(); // ✅ Stop audio when closing card
