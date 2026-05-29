@@ -48,6 +48,8 @@
       color: var(--black);
       overflow: hidden;
       height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     body::before {
@@ -69,9 +71,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: sticky;
-      top: 0;
+      position: relative;
       z-index: 200;
+      flex-shrink: 0;
     }
 
     header h1 {
@@ -86,7 +88,8 @@
     /* ── MAIN LAYOUT ── */
     .classroom-container {
       display: flex;
-      height: calc(100vh - 66px);
+      flex: 1;
+      height: auto;
       gap: 0;
     }
 
@@ -107,15 +110,15 @@
 
     .sidebar-resize-handle {
       position: absolute;
-      width: 12px;
+      width: 16px;
       height: 100%;
-      right: -6px;
+      right: -8px;
       top: 0;
       cursor: ew-resize;
       z-index: 150;
       background: transparent;
       will-change: background;
-      pointer-events: auto;
+      pointer-events: all;
       transition: background 0.2s;
     }
 
