@@ -3603,7 +3603,7 @@
   "id": 401,
   "user": "麦克",
   "title": "老师，您每天都来锻炼吗？",
-  "segments": ["老师", "，", "您", "每天", "都", "来", "锻炼", "吗", "？"],
+  "segments": ["老师", "，", "您", "每", "天", "都", "来", "锻炼", "吗", "？"],
   "description": "Lǎoshī, nín měi tiān dōu lái duànliàn ma?<br>Teacher, do you come here to exercise every day?",
   "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1735799749/sam_mjxry3.png",
   "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1778816804/801_xczg2a.mp3"
