@@ -101,6 +101,8 @@
       z-index: 100;
       overflow: hidden;
       position: relative;
+      flex-shrink: 0;
+      will-change: width;
     }
 
     .sidebar-resize-handle {
@@ -112,6 +114,7 @@
       cursor: ew-resize;
       z-index: 150;
       background: transparent;
+      will-change: background;
     }
 
     .sidebar-resize-handle:hover {
@@ -576,12 +579,24 @@ Add your own notes and they'll be saved!"></textarea>
       notesSaveTimeout = setTimeout(saveNotes, 2000);
     });
 
-    // ── SIDEBAR RESIZE (Real-time only) ──
+    // ── SIDEBAR RESIZE (Tối ưu với requestAnimationFrame) ──
     const sidebar = document.querySelector('.sidebar');
     const sidebarResizeHandle = document.querySelector('.sidebar-resize-handle');
     let resizingSidebar = false;
     let startX = 0;
     let startWidth = 0;
+    let pendingWidth = null;
+    let rafId = null;
+
+    function updateSidebarWidth() {
+      if (pendingWidth !== null) {
+        sidebar.style.width = pendingWidth + 'px';
+        pendingWidth = null;
+      }
+      if (resizingSidebar) {
+        rafId = requestAnimationFrame(updateSidebarWidth);
+      }
+    }
 
     sidebarResizeHandle.addEventListener('mousedown', (e) => {
       resizingSidebar = true;
@@ -589,20 +604,29 @@ Add your own notes and they'll be saved!"></textarea>
       startWidth = sidebar.offsetWidth;
       document.body.style.cursor = 'ew-resize';
       document.body.style.userSelect = 'none';
+      rafId = requestAnimationFrame(updateSidebarWidth);
       e.preventDefault();
     });
 
     document.addEventListener('mousemove', (e) => {
       if (resizingSidebar) {
         const delta = e.clientX - startX;
-        const newWidth = Math.max(300, startWidth + delta);
-        sidebar.style.width = newWidth + 'px';
+        pendingWidth = Math.max(300, Math.min(800, startWidth + delta));
       }
     }, { passive: true });
 
     document.addEventListener('mouseup', () => {
       if (resizingSidebar) {
         resizingSidebar = false;
+        if (rafId) {
+          cancelAnimationFrame(rafId);
+          rafId = null;
+        }
+        // Apply final width
+        if (pendingWidth !== null) {
+          sidebar.style.width = pendingWidth + 'px';
+          pendingWidth = null;
+        }
         document.body.style.cursor = 'auto';
         document.body.style.userSelect = 'auto';
       }
