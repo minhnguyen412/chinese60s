@@ -291,86 +291,6 @@
       background: var(--green-dark);
     }
 
-    /* ── DRAGGABLE & RESIZABLE ── */
-    .draggable-section {
-      position: relative;
-      cursor: move;
-      transition: box-shadow 0.2s;
-      will-change: transform;
-    }
-
-    .draggable-section.dragging {
-      opacity: 0.8;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2) !important;
-      z-index: 1000;
-      will-change: top, left, width;
-      transform: translateZ(0);
-    }
-
-    .draggable-section:hover {
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-    }
-
-    .drag-handle {
-      cursor: grab;
-      padding: 4px 8px;
-      user-select: none;
-      display: inline-block;
-      font-size: 0.9rem;
-    }
-
-    .drag-handle:active {
-      cursor: grabbing;
-    }
-
-    .resize-handle {
-      position: absolute;
-      width: 16px;
-      height: 16px;
-      background: var(--green);
-      border: 2px solid var(--black);
-      border-radius: 2px;
-      bottom: -8px;
-      right: -8px;
-      cursor: nwse-resize;
-      z-index: 10;
-      box-shadow: var(--shadow-sm);
-      will-change: background;
-    }
-
-    .resize-handle:hover {
-      background: var(--green-dark);
-    }
-
-    /* Individual resize handles for notes and word canvas */
-    .section-card {
-      position: relative;
-    }
-
-    .section-card .card-resize-handle {
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      background: var(--yellow);
-      border: 2px solid var(--black);
-      border-radius: 2px;
-      bottom: -6px;
-      right: -6px;
-      cursor: nwse-resize;
-      z-index: 10;
-      box-shadow: 2px 2px 0 var(--black);
-      opacity: 0;
-      transition: opacity 0.2s;
-    }
-
-    .section-card:hover .card-resize-handle {
-      opacity: 1;
-    }
-
-    .section-card:nth-child(2) .card-resize-handle {
-      background: var(--sky);
-    }
-
     /* ── ANIMATIONS ── */
     @keyframes slideIn {
       from {
@@ -485,9 +405,8 @@
       <div class="content-scroller">
 
         <!-- VIDEO SECTION - YouTube Page Embed -->
-        <section class="video-section draggable-section" data-section="video" style="position: relative;">
+        <section class="video-section" data-section="video" style="position: relative;">
           <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: rgba(124,184,62,0.1); border-radius: 8px 8px 0 0; margin: -20px -20px 12px -20px;">
-            <span class="drag-handle">⋮⋮ Drag</span>
             <span style="font-size: 0.85rem; color: #666;">Video</span>
           </div>
           <div class="video-frame">
@@ -497,15 +416,13 @@
               allowfullscreen>
             </iframe>
           </div>
-          <div class="resize-handle"></div>
         </section>
 
         <!-- TWO COLUMN SECTION: NOTES + WORD CANVAS -->
-        <section class="two-column-section draggable-section" data-section="two-column">
+        <section class="two-column-section" data-section="two-column">
           <!-- NOTES AREA -->
           <div class="section-card" style="background: var(--yellow-pale); border: var(--border-thick); position: relative;" data-card="notes">
             <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: rgba(255,216,77,0.3); margin: -20px -20px 12px -20px; border-radius: 8px 8px 0 0;">
-              <span class="drag-handle">⋮⋮</span>
               <span style="font-size: 0.85rem; color: #666;">Notes</span>
             </div>
             <div class="section-card-title" style="border-bottom: var(--border-thick);">📝 My Notes</div>
@@ -522,7 +439,6 @@ Add your own notes and they'll be saved!"></textarea>
           <!-- WORD CANVAS EMBED -->
           <div class="section-card" style="background: var(--sky-pale); border: var(--border-thick); position: relative;" data-card="word-canvas">
             <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: rgba(114,200,240,0.2); margin: -20px -20px 12px -20px; border-radius: 8px 8px 0 0;">
-              <span class="drag-handle">⋮⋮</span>
               <span style="font-size: 0.85rem; color: #0066cc;">Word Canvas</span>
             </div>
             <div class="section-card-title" style="border-bottom: var(--border-thick); color: #0066cc;">✏️ Word Canvas</div>
@@ -533,28 +449,24 @@ Add your own notes and they'll be saved!"></textarea>
           </div>
         </section>
 
-        <!-- SPEAKING PRACTICE SECTION -->
-        <section class="full-width-section draggable-section" data-section="speaking" style="position: relative;">
-          <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: rgba(124,184,62,0.1); border-radius: 8px 8px 0 0; margin: -12px -16px 12px -16px;">
-            <span class="drag-handle">⋮⋮ Drag</span>
-            <span style="font-size: 0.85rem; color: #666;">Speaking Practice</span>
-          </div>
-          <div class="embed-container">
-            <iframe id="speaking-frame" src="speaking-practice.html"></iframe>
-          </div>
-          <div class="resize-handle"></div>
-        </section>
-
         <!-- FIND SENTENCES SECTION -->
-        <section class="full-width-section draggable-section" data-section="find-sentences" style="position: relative;">
+        <section class="full-width-section" data-section="find-sentences" style="position: relative;">
           <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: rgba(124,184,62,0.1); border-radius: 8px 8px 0 0; margin: -12px -16px 12px -16px;">
-            <span class="drag-handle">⋮⋮ Drag</span>
             <span style="font-size: 0.85rem; color: #666;">Find Sentences</span>
           </div>
           <div class="embed-container">
             <iframe id="find-sentences-frame" src="find-sentences.html"></iframe>
           </div>
-          <div class="resize-handle"></div>
+        </section>
+
+        <!-- SPEAKING PRACTICE SECTION -->
+        <section class="full-width-section" data-section="speaking" style="position: relative;">
+          <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: rgba(124,184,62,0.1); border-radius: 8px 8px 0 0; margin: -12px -16px 12px -16px;">
+            <span style="font-size: 0.85rem; color: #666;">Speaking Practice</span>
+          </div>
+          <div class="embed-container">
+            <iframe id="speaking-frame" src="speaking-practice.html"></iframe>
+          </div>
         </section>
 
       </div>
@@ -724,65 +636,9 @@ Add your own notes and they'll be saved!"></textarea>
     document.addEventListener('touchend', endCardResize);
     document.addEventListener('touchcancel', endCardResize);
 
-    // ── DRAG FUNCTIONALITY (Real-time only, no DOM reorder + Touch Support) ──
-    const scroller = document.querySelector('.content-scroller');
-    let draggedElement = null;
-    let offsetY = 0;
+    // ── DRAG FUNCTIONALITY - REMOVED ──
+    // Drag functionality has been removed as requested
 
-    function startDrag(e) {
-      const dragHandle = e.target.closest('.drag-handle');
-      if (dragHandle && !e.target.closest('.section-card')) {
-        draggedElement = dragHandle.closest('.draggable-section');
-        if (!draggedElement) return;
-
-        const rect = draggedElement.getBoundingClientRect();
-        const clientY = e.clientY !== undefined ? e.clientY : e.touches[0].clientY;
-        offsetY = clientY - rect.top;
-
-        draggedElement.classList.add('dragging');
-        draggedElement.style.position = 'fixed';
-        draggedElement.style.zIndex = '1000';
-        draggedElement.style.width = rect.width + 'px';
-        document.body.style.userSelect = 'none';
-        document.body.style.touchAction = 'none';
-
-        e.preventDefault();
-      }
-    }
-
-    function moveDrag(e) {
-      if (draggedElement) {
-        const scrollRect = scroller.getBoundingClientRect();
-        const clientY = e.clientY !== undefined ? e.clientY : e.touches[0].clientY;
-        draggedElement.style.top = (clientY - offsetY) + 'px';
-        draggedElement.style.left = scrollRect.left + 'px';
-      }
-    }
-
-    function endDrag() {
-      if (draggedElement) {
-        draggedElement.classList.remove('dragging');
-        draggedElement.style.position = 'relative';
-        draggedElement.style.zIndex = 'auto';
-        draggedElement.style.top = 'auto';
-        draggedElement.style.left = 'auto';
-        draggedElement.style.width = 'auto';
-        document.body.style.userSelect = 'auto';
-        document.body.style.touchAction = 'auto';
-        draggedElement = null;
-      }
-    }
-
-    // Mouse events
-    document.addEventListener('mousedown', startDrag);
-    document.addEventListener('mousemove', moveDrag, { passive: true });
-    document.addEventListener('mouseup', endDrag);
-
-    // Touch events
-    document.addEventListener('touchstart', startDrag);
-    document.addEventListener('touchmove', moveDrag, { passive: true });
-    document.addEventListener('touchend', endDrag);
-    document.addEventListener('touchcancel', endDrag);
 
     // Initialize on page load
     window.addEventListener('DOMContentLoaded', () => {
