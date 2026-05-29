@@ -64,21 +64,26 @@ function showImageCard(imageData) {
         <h3>${imageData.character}</h3>
         <p>Meaning: ${imageData.meaning}</p>
         <p>Pinyin: ${imageData.pinyin}</p>
-        <div id="audio-player-container" style="margin: 12px 0;"></div>
-        <div id="writer-container" style="display: flex; gap: 10px;"></div>
     `;
     document.body.appendChild(card);
     activeImageCard = card;
 
-    // ✅ Chỉ có audio player thôi
-    const audioPlayerContainer = card.querySelector('#audio-player-container');
+    // ✅ Tạo audio player và thêm vào card
+    const audioPlayerContainer = document.createElement('div');
+    audioPlayerContainer.style.cssText = 'margin: 12px 0;';
     const audioPlayer = document.createElement('audio');
     audioPlayer.controls = true;
     audioPlayer.src = imageData.audioSrc;
     audioPlayer.style.cssText = `width: 100%; height: 32px;`;
     audioPlayerContainer.appendChild(audioPlayer);
+    card.appendChild(audioPlayerContainer);  // ✅ APPEND VÀO CARD
 
-    const writerContainer = card.querySelector('#writer-container');
+    // Writer container
+    const writerContainer = document.createElement('div');
+    writerContainer.id = 'writer-container';
+    writerContainer.style.cssText = 'display: flex; gap: 10px;';
+    card.appendChild(writerContainer);
+
     let writers = [];
 
     function initializeWriters(characters) {
