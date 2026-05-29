@@ -350,7 +350,66 @@
       background: var(--green-dark);
     }
 
-    /* ── CANVAS TOOLBAR ── */
+    /* ── CARD RESIZE HANDLES ── */
+    .card-resize-handle {
+      position: absolute;
+      width: 100%;
+      height: 6px;
+      bottom: -3px;
+      left: 0;
+      cursor: ns-resize;
+      background: transparent;
+      pointer-events: auto;
+      z-index: 150;
+      transition: background 0.2s ease;
+      touch-action: none;
+    }
+
+    .card-resize-handle:hover,
+    .card-resize-handle.active {
+      background: var(--green);
+      box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.12);
+    }
+
+    .card-resize-handle-right {
+      position: absolute;
+      width: 6px;
+      height: 100%;
+      right: -3px;
+      top: 0;
+      cursor: ew-resize;
+      background: transparent;
+      pointer-events: auto;
+      z-index: 150;
+      transition: background 0.2s ease;
+      touch-action: none;
+    }
+
+    .card-resize-handle-right:hover,
+    .card-resize-handle-right.active {
+      background: var(--green);
+      box-shadow: -2px 0 6px rgba(0, 0, 0, 0.12);
+    }
+
+    .card-resize-handle-left {
+      position: absolute;
+      width: 6px;
+      height: 100%;
+      left: -3px;
+      top: 0;
+      cursor: ew-resize;
+      background: transparent;
+      pointer-events: auto;
+      z-index: 150;
+      transition: background 0.2s ease;
+      touch-action: none;
+    }
+
+    .card-resize-handle-left:hover,
+    .card-resize-handle-left.active {
+      background: var(--green);
+      box-shadow: 2px 0 6px rgba(0, 0, 0, 0.12);
+    }
     .canvas-toolbar {
       position: absolute;
       top: 10px;
@@ -561,6 +620,7 @@ Key points:
 
 Add your own notes and they'll be saved!"></textarea>
             <div class="card-resize-handle"></div>
+            <div class="card-resize-handle-right"></div>
           </div>
 
           <!-- WORD CANVAS EMBED -->
@@ -573,6 +633,7 @@ Add your own notes and they'll be saved!"></textarea>
               <iframe id="word-canvas-frame" src="word-canvas.html"></iframe>
             </div>
             <div class="card-resize-handle"></div>
+            <div class="card-resize-handle-left"></div>
           </div>
         </section>
 
@@ -669,18 +730,34 @@ Add your own notes and they'll be saved!"></textarea>
     document.addEventListener('touchend', endSidebarResize);
     document.addEventListener('touchcancel', endSidebarResize);
 
-    // ── INDIVIDUAL CARD RESIZE (Real-time only + Touch Support) ──
-    let resizingCard = null;
-    let cardStartY = 0;
-    let cardStartHeight = 0;
+    // ── CARD CONTAINER RESIZE ──
+    let isResizingCard = null;
+    let resizeType = null; // 'vertical', 'horizontal-right', 'horizontal-left'
+    let resizeStartPos = 0;
 
     function startCardResize(e) {
-      const resizeHandle = e.target.closest('.card-resize-handle');
-      if (resizeHandle) {
-        resizingCard = resizeHandle.closest('.section-card');
-        cardStartY = e.clientY !== undefined ? e.clientY : e.touches[0].clientY;
-        cardStartHeight = resizingCard.offsetHeight;
-        document.body.style.cursor = 'nwse-resize';
+      const verticalHandle = e.target.closest('.card-resize-handle');
+      const horizontalRightHandle = e.target.closest('.card-resize-handle-right');
+      const horizontalLeftHandle = e.target.closest('.card-resize-handle-left');
+
+      if (verticalHandle) {
+        isResizingCard = verticalHandle.closest('.section-card');
+        resizeType = 'vertical';
+        resizeStartPos = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
+        verticalHandle.classList.add('active');
+      } else if (horizontalRightHandle) {
+        isResizingCard = horizontalRightHandle.closest('.section-card');
+        resizeType = 'horizontal-right';
+        resizeStartPos = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+        horizontalRightHandle.classList.add('active');
+      } else if (horizontalLeftHandle) {
+        isResizingCard = horizontalLeftHandle.closest('.section-card');
+        resizeType = 'horizontal-left';
+        resizeStartPos = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+        horizontalLeftHandle.classList.add('active');
+      }
+
+      if (isResizingCard) {
         document.body.style.userSelect = 'none';
         document.body.style.touchAction = 'none';
         e.preventDefault();
@@ -688,46 +765,86 @@ Add your own notes and they'll be saved!"></textarea>
     }
 
     function moveCardResize(e) {
-      if (resizingCard) {
-        const currentY = e.clientY !== undefined ? e.clientY : e.touches[0].clientY;
-        const delta = currentY - cardStartY;
-        const newHeight = Math.max(150, cardStartHeight + delta);
-        resizingCard.style.height = newHeight + 'px';
+      if (!isResizingCard) return;
 
-        // Resize textarea or embed inside
-        const textarea = resizingCard.querySelector('.notes-area');
-        const embed = resizingCard.querySelector('.embed-frame');
-        const header = resizingCard.querySelector('[style*="display: flex"]');
-        const title = resizingCard.querySelector('.section-card-title');
+      if (resizeType === 'vertical') {
+        const clientY = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
+        const rect = isResizingCard.getBoundingClientRect();
+        const newHeight = clientY - rect.top;
 
-        const headerHeight = (header?.offsetHeight || 0) + (title?.offsetHeight || 0) + 24;
-        const contentHeight = newHeight - headerHeight;
-
-        if (textarea) {
-          textarea.style.height = Math.max(100, contentHeight) + 'px';
+        if (newHeight > 150) {
+          isResizingCard.style.height = newHeight + 'px';
+          // Update textarea/embed height
+          const textarea = isResizingCard.querySelector('.notes-area');
+          const embed = isResizingCard.querySelector('.embed-frame');
+          if (textarea) {
+            textarea.style.height = (newHeight - 80) + 'px';
+          }
+          if (embed) {
+            embed.style.height = (newHeight - 80) + 'px';
+          }
         }
-        if (embed) {
-          embed.style.height = Math.max(100, contentHeight) + 'px';
+      } else if (resizeType === 'horizontal-right') {
+        const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+        const section = isResizingCard.closest('.two-column-section');
+        const delta = clientX - resizeStartPos;
+        
+        const notesCard = section.querySelector('[data-card="notes"]');
+        const wordCard = section.querySelector('[data-card="word-canvas"]');
+        
+        if (notesCard && wordCard) {
+          const notesWidth = notesCard.offsetWidth + delta;
+          const wordWidth = wordCard.offsetWidth - delta;
+          
+          if (notesWidth > 250 && wordWidth > 250) {
+            notesCard.style.flex = `0 0 ${notesWidth}px`;
+            wordCard.style.flex = `0 0 ${wordWidth}px`;
+            resizeStartPos = clientX;
+          }
+        }
+      } else if (resizeType === 'horizontal-left') {
+        const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+        const section = isResizingCard.closest('.two-column-section');
+        const delta = clientX - resizeStartPos;
+        
+        const notesCard = section.querySelector('[data-card="notes"]');
+        const wordCard = section.querySelector('[data-card="word-canvas"]');
+        
+        if (notesCard && wordCard) {
+          const wordWidth = wordCard.offsetWidth + delta;
+          const notesWidth = notesCard.offsetWidth - delta;
+          
+          if (notesWidth > 250 && wordWidth > 250) {
+            notesCard.style.flex = `0 0 ${notesWidth}px`;
+            wordCard.style.flex = `0 0 ${wordWidth}px`;
+            resizeStartPos = clientX;
+          }
         }
       }
     }
 
     function endCardResize() {
-      if (resizingCard) {
-        resizingCard = null;
-        document.body.style.cursor = 'auto';
+      if (isResizingCard) {
+        const verticalHandle = isResizingCard.querySelector('.card-resize-handle');
+        const horizontalRightHandle = isResizingCard.querySelector('.card-resize-handle-right');
+        const horizontalLeftHandle = isResizingCard.querySelector('.card-resize-handle-left');
+        
+        verticalHandle?.classList.remove('active');
+        horizontalRightHandle?.classList.remove('active');
+        horizontalLeftHandle?.classList.remove('active');
+        
+        isResizingCard = null;
+        resizeType = null;
         document.body.style.userSelect = 'auto';
         document.body.style.touchAction = 'auto';
       }
     }
 
-    // Mouse events
     document.addEventListener('mousedown', startCardResize);
     document.addEventListener('mousemove', moveCardResize, { passive: true });
     document.addEventListener('mouseup', endCardResize);
-
-    // Touch events
-    document.addEventListener('touchstart', startCardResize);
+    
+    document.addEventListener('touchstart', startCardResize, { passive: false });
     document.addEventListener('touchmove', moveCardResize, { passive: true });
     document.addEventListener('touchend', endCardResize);
     document.addEventListener('touchcancel', endCardResize);
