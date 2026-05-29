@@ -64,26 +64,16 @@ function showImageCard(imageData) {
         <h3>${imageData.character}</h3>
         <p>Meaning: ${imageData.meaning}</p>
         <p>Pinyin: ${imageData.pinyin}</p>
+        <audio controls style="width: 100%; margin: 12px 0; height: 32px;">
+            <source src="${imageData.audioSrc}" type="audio/mpeg">
+            Your browser does not support the audio tag.
+        </audio>
+        <div id="writer-container" style="display: flex; gap: 10px;"></div>
     `;
     document.body.appendChild(card);
     activeImageCard = card;
 
-    // ✅ Tạo audio player và thêm vào card
-    const audioPlayerContainer = document.createElement('div');
-    audioPlayerContainer.style.cssText = 'margin: 12px 0;';
-    const audioPlayer = document.createElement('audio');
-    audioPlayer.controls = true;
-    audioPlayer.src = imageData.audioSrc;
-    audioPlayer.style.cssText = `width: 100%; height: 32px;`;
-    audioPlayerContainer.appendChild(audioPlayer);
-    card.appendChild(audioPlayerContainer);  // ✅ APPEND VÀO CARD
-
-    // Writer container
-    const writerContainer = document.createElement('div');
-    writerContainer.id = 'writer-container';
-    writerContainer.style.cssText = 'display: flex; gap: 10px;';
-    card.appendChild(writerContainer);
-
+    const writerContainer = card.querySelector('#writer-container');
     let writers = [];
 
     function initializeWriters(characters) {
@@ -96,7 +86,7 @@ function showImageCard(imageData) {
             try {
                 const writer = HanziWriter.create(writerDiv, char, {
                     width: 100, height: 100, padding: 5,
-                    showOutline: true, strokeAnimationSpeed: 1.5, delayABetweenStrokes: 250,
+                    showOutline: true, strokeAnimationSpeed: 1.5, delayBetweenStrokes: 250,
                 });
                 writers.push({ writer, writerDiv });
                 writerDiv.addEventListener('click', () => writer.animateCharacter());
