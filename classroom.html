@@ -410,8 +410,8 @@
             <span style="font-size: 0.85rem; color: #666;">Video</span>
           </div>
           <div class="video-frame" style="background: white; display: flex; align-items: center; justify-content: center;">
-  <canvas id="whiteboard" style="border: 2px solid #222; cursor: crosshair; display: block;"></canvas>
-</div>
+            <canvas id="whiteboard" style="border: 2px solid #222; cursor: crosshair; display: block;"></canvas>
+          </div>
         </section>
 
         <!-- TWO COLUMN SECTION: NOTES + WORD CANVAS -->
@@ -632,14 +632,6 @@ Add your own notes and they'll be saved!"></textarea>
     document.addEventListener('touchend', endCardResize);
     document.addEventListener('touchcancel', endCardResize);
 
-    // ── DRAG FUNCTIONALITY - REMOVED ──
-    // Drag functionality has been removed as requested
-
-
-    // Initialize on page load
-    window.addEventListener('DOMContentLoaded', () => {
-      loadNotes();
-    });
     // ── WHITEBOARD CANVAS ──
     const canvas = document.getElementById('whiteboard');
     const ctx = canvas.getContext('2d');
@@ -647,11 +639,22 @@ Add your own notes and they'll be saved!"></textarea>
     // Set canvas size to fill the frame
     function resizeCanvas() {
       const frame = canvas.parentElement;
-      canvas.width = frame.offsetWidth - 4;
-      canvas.height = frame.offsetHeight - 4;
+      const newWidth = frame.offsetWidth - 4;
+      const newHeight = frame.offsetHeight - 4;
+      
+      // Chỉ resize nếu có thay đổi
+      if (canvas.width !== newWidth || canvas.height !== newHeight) {
+        canvas.width = newWidth;
+        canvas.height = newHeight;
+      }
     }
+    
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
+    
+    // Trigger canvas resize khi sidebar/container resize (e.g. when resizing sidebar)
+    const observer = new ResizeObserver(resizeCanvas);
+    observer.observe(canvas.parentElement.parentElement);
     
     // Drawing variables
     let isDrawing = false;
@@ -728,10 +731,10 @@ Add your own notes and they'll be saved!"></textarea>
       isDrawing = false;
     });
     
-    // Clear canvas button (optional - thêm nút xóa)
+    // Clear canvas button
     const clearBtn = document.createElement('button');
     clearBtn.textContent = '🗑️ Clear';
-    clearBtn.style.cssText = 'position: absolute; top: 10px; right: 10px; padding: 8px 12px; background: #7cb83e; color: white; border: 2px solid #222; border-radius: 8px; cursor: pointer; font-weight: 600;';
+    clearBtn.style.cssText = 'position: absolute; top: 10px; right: 10px; padding: 8px 12px; background: #7cb83e; color: white; border: 2px solid #222; border-radius: 8px; cursor: pointer; font-weight: 600; z-index: 10;';
     clearBtn.addEventListener('click', () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
     });
