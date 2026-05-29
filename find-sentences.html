@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sentence Lookup — Chinese 60s</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #222;
+      --green: #7cb83e;
+      --green-dark: #5a8f27;
+      --green-light: #d8f0a0;
+      --green-pale: #f2fde0;
+      --yellow: #ffd84d;
+      --yellow-dark: #e6c200;
+      --yellow-pale: #fffbe6;
+      --peach: #ffb89a;
+      --peach-pale: #fff3ee;
+      --sky: #72c8f0;
+      --sky-pale: #eaf8ff;
+      --lavender: #c5b0f8;
+      --lavender-pale: #f3f0ff;
+      --pink: #ffadc5;
+      --pink-pale: #fff2f6;
+      --white: #fff;
+      --bg: #fffef5;
+      --shadow-sm: 3px 3px 0 var(--black);
+      --shadow-md: 4px 4px 0 var(--black);
+      --shadow-lg: 6px 6px 0 var(--black);
+      --border: 2.5px solid var(--black);
+      --border-thick: 3px solid var(--black);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 500;
+      background: var(--bg);
+      color: var(--black);
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: radial-gradient(circle, rgba(0,0,0,0.045) 1px, transparent 1px);
+      background-size: 22px 22px;
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--green);
+      border-bottom: var(--border-thick);
+      padding: 0 50px; height: 66px;
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 0 var(--black);
+    }
+    header h1 {
+      font-family: 'Fredoka', sans-serif; font-weight: 700;
+      font-size: 1.7rem; color: white;
+      letter-spacing: 0.04em;
+      text-shadow: 2px 2px 0 rgba(0,0,0,0.25);
+    }
+    .homepage-link { text-decoration: none; color: inherit; }
+    nav ul { list-style: none; display: flex; gap: 8px; }
+    nav ul li a {
+      text-decoration: none; color: var(--black);
+      font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1rem;
+      background: var(--white); border: var(--border); border-radius: 50px;
+      padding: 6px 18px; display: inline-block;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    nav ul li a:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+
+    @media (max-width: 768px) {
+      header { padding: 0 16px; }
+      nav ul { flex-wrap: wrap; gap: 6px; }
+    }
+
+    /* ── MAIN CONTENT ── */
+    main { flex: 1; padding: 0 0 80px; position: relative; z-index: 1; }
+    
+    /* ── SEARCH SECTION ── */
+    .search-hero {
+      background: linear-gradient(135deg, var(--sky-pale) 0%, var(--lavender-pale) 100%);
+      border-bottom: var(--border-thick);
+      padding: 40px 50px;
+      text-align: center;
+    }
+    .search-hero h2 {
+      font-size: 2rem; font-weight: 700; margin-bottom: 8px;
+      background: linear-gradient(135deg, var(--green-dark), var(--black));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .search-hero p {
+      font-size: 1rem; color: #666; margin-bottom: 24px;
+    }
+
+    .search-box {
+      position: relative; max-width: 600px; margin: 0 auto;
+      display: flex; gap: 12px;
+    }
+    .search-input {
+      flex: 1;
+      padding: 14px 20px;
+      border: var(--border-thick);
+      border-radius: 50px;
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.05rem; font-weight: 600;
+      background: var(--white);
+      color: var(--black);
+      box-shadow: var(--shadow-md);
+      transition: all 0.2s;
+    }
+    .search-input:focus {
+      outline: none;
+      border-color: var(--green);
+      box-shadow: 5px 5px 0 var(--black);
+    }
+    .search-input::placeholder {
+      color: #ccc;
+      font-weight: 500;
+    }
+    .search-btn {
+      padding: 14px 32px;
+      background: var(--green);
+      color: white;
+      border: var(--border-thick);
+      border-radius: 50px;
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      box-shadow: var(--shadow-md);
+      cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s, background 0.2s;
+    }
+    .search-btn:hover {
+      transform: translate(-2px,-2px);
+      box-shadow: 5px 5px 0 var(--black);
+      background: var(--green-dark);
+    }
+    .search-btn:active {
+      transform: translate(0, 0);
+      box-shadow: var(--shadow-sm);
+    }
+
+    @media (max-width: 768px) {
+      .search-hero { padding: 32px 20px; }
+      .search-hero h2 { font-size: 1.6rem; }
+      .search-box { flex-direction: column; gap: 10px; }
+      .search-btn { width: 100%; }
+    }
+
+    /* ── RESULTS SECTION ── */
+    .results-container {
+      max-width: 1200px; margin: 0 auto;
+      padding: 40px 50px;
+    }
+
+    .results-header {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 16px; margin-bottom: 32px;
+    }
+    .results-title {
+      font-size: 1.5rem; font-weight: 700;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .result-count {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--yellow); border: var(--border); border-radius: 50px;
+      padding: 6px 18px; font-weight: 700; font-size: 0.95rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .clear-search {
+      font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 0.95rem;
+      background: #f0f0f0; color: var(--black);
+      padding: 6px 18px; border: var(--border); border-radius: 50px;
+      cursor: pointer; box-shadow: var(--shadow-sm);
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    .clear-search:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+
+    .results-grid {
+      display: grid; gap: 24px;
+    }
+
+    /* ── RESULT CARD ── */
+    .result-card {
+      border: var(--border-thick); border-radius: 20px;
+      overflow: hidden; background: var(--white);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.15s, box-shadow 0.15s;
+      cursor: pointer;
+    }
+    .result-card:hover {
+      transform: translate(-3px, -3px);
+      box-shadow: 6px 6px 0 var(--black);
+    }
+
+    .result-header {
+      background: var(--green-pale); border-bottom: var(--border-thick);
+      padding: 16px 20px; display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .result-lesson {
+      font-weight: 700; font-size: 0.95rem;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .lesson-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--peach); border: 2px solid var(--black); border-radius: 50px;
+      padding: 4px 14px; font-size: 0.8rem; font-weight: 700;
+      box-shadow: 2px 2px 0 var(--black);
+    }
+
+    .result-content {
+      padding: 20px;
+    }
+
+    .result-sentence {
+      margin-bottom: 16px;
+    }
+    .result-chinese {
+      font-size: 1.4rem; font-weight: 700;
+      color: var(--black); line-height: 1.6;
+      margin-bottom: 8px;
+      word-break: break-word;
+    }
+    .result-pinyin {
+      font-size: 0.9rem; color: #888;
+      font-weight: 500; margin-bottom: 8px;
+      font-style: italic;
+    }
+    .result-english {
+      font-size: 0.95rem; color: #555;
+      line-height: 1.6;
+    }
+
+    /* ── HIGHLIGHTED CHARS ── */
+    .char-grid {
+      margin-top: 24px; padding-top: 20px;
+      border-top: var(--border);
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 12px;
+    }
+    .char-item {
+      border: var(--border-thick); border-radius: 12px;
+      background: var(--white);
+      padding: 12px; text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .char-item:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 4px 4px 0 var(--black);
+    }
+    .char-image {
+      width: 100%; height: 80px;
+      object-fit: contain; margin-bottom: 8px;
+      border: 2px solid #eee; border-radius: 8px;
+    }
+    .char-main {
+      font-size: 1.6rem; font-weight: 700;
+      color: var(--green); margin-bottom: 6px;
+    }
+    .char-pinyin {
+      font-size: 0.75rem; color: #888;
+      font-weight: 600; margin-bottom: 4px;
+    }
+    .char-meaning {
+      font-size: 0.8rem; font-weight: 600;
+      color: #666;
+    }
+    .char-audio {
+      margin-top: 8px;
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--yellow); border: 2px solid var(--black);
+      cursor: pointer; font-size: 0.9rem;
+      transition: transform 0.12s;
+    }
+    .char-audio:hover { transform: scale(1.1); }
+
+    .no-char-info {
+      text-align: center; color: #999; font-size: 0.85rem;
+      padding: 8px; font-style: italic;
+    }
+
+    /* ── EMPTY STATE ── */
+    .empty-state {
+      text-align: center; padding: 60px 40px;
+      color: #999;
+    }
+    .empty-state .emoji {
+      font-size: 3rem; margin-bottom: 16px;
+    }
+    .empty-state h3 {
+      font-size: 1.3rem; font-weight: 700; margin-bottom: 8px;
+      color: var(--black);
+    }
+    .empty-state p {
+      font-size: 0.95rem; margin-bottom: 24px;
+    }
+
+    /* ── LOADING ── */
+    .loading {
+      text-align: center; padding: 40px;
+      font-size: 1.05rem; color: #666; font-weight: 600;
+    }
+    .spinner {
+      display: inline-block; width: 24px; height: 24px;
+      border: 3px solid #ddd; border-top-color: var(--green);
+      border-radius: 50%; animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    footer {
+      background: #222; color: rgba(255,255,255,0.65);
+      padding: 28px 50px; text-align: center; position: relative; z-index: 1;
+    }
+    footer p { font-size: 0.95rem; font-weight: 500; }
+
+    @media (max-width: 768px) {
+      .results-container { padding: 24px 20px; }
+      .results-grid { gap: 16px; }
+      .char-grid { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 10px; }
+      .char-image { height: 60px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1><a href="index.html" class="homepage-link">CHINESE 60s</a></h1>
+    <nav>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="courses.html">Courses</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Search Hero -->
+  <main>
+    <div class="search-hero">
+      <h2>🔍 Find Sentences</h2>
+      <p>Search by character or phrase to find where it appears in our lessons</p>
+      <div class="search-box">
+        <input 
+          type="text" 
+          class="search-input" 
+          id="search-input"
+          placeholder="e.g. 你好, 王老师, 爸爸, 是..."
+          autocomplete="off"
+        >
+        <button class="search-btn" onclick="performSearch()">Search</button>
+      </div>
+    </div>
+
+    <!-- Results Section -->
+    <div class="results-container">
+      <div id="results-wrapper" style="display: none;">
+        <div class="results-header">
+          <div class="results-title">
+            🎯 Results
+            <span class="result-count"><span id="result-count">0</span> found</span>
+          </div>
+          <button class="clear-search" onclick="clearSearch()">← Back to Search</button>
+        </div>
+        <div class="results-grid" id="results-grid"></div>
+      </div>
+
+      <div id="empty-state" class="empty-state">
+        <div class="emoji">📚</div>
+        <h3>Start your search</h3>
+        <p>Type a character or phrase above to find it in our lessons</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>CHINESE 60s — Learn Mandarin through images and videos</p>
+  </footer>
+
+  <!-- Audio context for character sounds -->
+  <script>
+    const audioCache = {};
+
+    function playCharAudio(src) {
+      if (!src) return;
+      if (audioCache[src]) {
+        audioCache[src].currentTime = 0;
+        audioCache[src].play();
+      } else {
+        const audio = new Audio(src);
+        audioCache[src] = audio;
+        audio.play();
+      }
+    }
+
+    // Global data storage
+    let allPosts = [];
+    let allThumbnails = [];
+    let allCharacters = [];
+
+    // Load all data on page load
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        const [postsRes, thumbRes, charRes] = await Promise.all([
+          fetch('data/posts.json'),
+          fetch('data/thumbnail.json'),
+          fetch('data/imagesData.json')
+        ]);
+
+        if (postsRes.ok) allPosts = await postsRes.json();
+        if (thumbRes.ok) allThumbnails = await thumbRes.json();
+        if (charRes.ok) allCharacters = await charRes.json();
+
+        // Allow Enter key to search
+        document.getElementById('search-input').addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') performSearch();
+        });
+
+        console.log('Data loaded:', {
+          posts: allPosts.length,
+          thumbnails: allThumbnails.length,
+          characters: allCharacters.length
+        });
+      } catch (err) {
+        console.error('Failed to load data:', err);
+      }
+    });
+
+    // Parse htmlLink to extract postStartId and postEndId
+    function parseHtmlLink(htmlLink) {
+      const params = new URLSearchParams(htmlLink.split('?')[1] || '');
+      return {
+        postStartId: parseInt(params.get('postStartId'), 10),
+        postEndId: parseInt(params.get('postEndId'), 10),
+        id: parseInt(params.get('id'), 10)
+      };
+    }
+
+    // Find lesson info for a post
+    function findLessonForPost(postId) {
+      for (const thumb of allThumbnails) {
+        const { postStartId, postEndId, id } = parseHtmlLink(thumb.htmlLink);
+        if (postId >= postStartId && postId <= postEndId) {
+          return {
+            id,
+            title: thumb.title,
+            description: thumb.description,
+            thumbnail: thumb.thumbnail,
+            htmlLink: thumb.htmlLink
+          };
+        }
+      }
+      return null;
+    }
+
+    // Get character info from imagesData
+    function getCharInfo(character) {
+      return allCharacters.find(c => c.character === character);
+    }
+
+    // Main search function
+    function performSearch() {
+      const query = document.getElementById('search-input').value.trim();
+      if (!query) {
+        alert('Please enter a search term');
+        return;
+      }
+
+      const results = [];
+
+      for (const post of allPosts) {
+        // Check if query appears in segments
+        const matchingSegments = [];
+        
+        for (let i = 0; i < post.segments.length; i++) {
+          const segment = post.segments[i];
+          if (segment.includes(query)) {
+            matchingSegments.push(i);
+          }
+        }
+
+        if (matchingSegments.length > 0) {
+          const lesson = findLessonForPost(post.id);
+          results.push({
+            post,
+            lesson,
+            matchingSegments,
+            matchCount: matchingSegments.length
+          });
+        }
+      }
+
+      displayResults(results, query);
+    }
+
+    // Display results
+    function displayResults(results, query) {
+      const wrapper = document.getElementById('results-wrapper');
+      const empty = document.getElementById('empty-state');
+      const grid = document.getElementById('results-grid');
+      const count = document.getElementById('result-count');
+
+      grid.innerHTML = '';
+
+      if (results.length === 0) {
+        wrapper.style.display = 'none';
+        empty.style.display = 'block';
+        empty.innerHTML = `
+          <div class="emoji">🔍</div>
+          <h3>No results found</h3>
+          <p>Try searching for different characters or phrases</p>
+        `;
+        return;
+      }
+
+      wrapper.style.display = 'block';
+      empty.style.display = 'none';
+      count.textContent = results.length;
+
+      results.forEach(result => {
+        const { post, lesson, matchingSegments } = result;
+        const card = document.createElement('div');
+        card.className = 'result-card';
+
+        // Build character grid for matching segments
+        const charGrid = buildCharGrid(post.segments, matchingSegments, query);
+
+        card.innerHTML = `
+          <div class="result-header">
+            <div class="result-lesson">
+              📖
+              ${lesson 
+                ? `<span class="lesson-badge">${lesson.title}</span>` 
+                : '<span class="lesson-badge">Lesson Unknown</span>'}
+            </div>
+            ${lesson ? `<a href="${lesson.htmlLink}" style="text-decoration:none;"><button style="padding:6px 14px;background:var(--green);color:white;border:var(--border-thick);border-radius:50px;font-weight:700;cursor:pointer;font-family:'Fredoka',sans-serif;">Open Lesson →</button></a>` : ''}
+          </div>
+          <div class="result-content">
+            <div class="result-sentence">
+              <div class="result-chinese">${post.title}</div>
+              <div class="result-pinyin">${post.description.split('<br>')[0]}</div>
+              <div class="result-english">${post.description.split('<br>')[1] || ''}</div>
+            </div>
+            ${post.audioSrc ? `
+              <button onclick="playCharAudio('${post.audioSrc}')" 
+                style="padding:8px 16px;background:var(--yellow);border:var(--border);border-radius:50px;font-weight:700;cursor:pointer;font-family:'Fredoka',sans-serif;margin-bottom:20px;transition:transform 0.12s;box-shadow:var(--shadow-sm);"
+                onmouseover="this.style.transform='translate(-2px,-2px)';this.style.boxShadow='5px 5px 0 var(--black)';"
+                onmouseout="this.style.transform='translate(0,0)';this.style.boxShadow='var(--shadow-sm)';">
+                🔊 Play Audio
+              </button>
+            ` : ''}
+            ${charGrid}
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+    }
+
+    // Build character grid showing matched characters/phrases
+    function buildCharGrid(segments, matchingSegments, query) {
+      if (matchingSegments.length === 0) return '';
+
+      let html = '<div class="char-grid">';
+      
+      // Get unique matching segments to avoid duplicates
+      const uniqueMatches = [...new Set(matchingSegments.map(i => segments[i]))];
+
+      uniqueMatches.forEach(segment => {
+        const charInfo = getCharInfo(segment);
+        
+        if (charInfo) {
+          html += `
+            <div class="char-item">
+              ${charInfo.imageSrc ? `<img src="${charInfo.imageSrc}" alt="${segment}" class="char-image">` : ''}
+              <div class="char-main">${segment}</div>
+              <div class="char-pinyin">${charInfo.pinyin || ''}</div>
+              <div class="char-meaning">${charInfo.meaning || ''}</div>
+              ${charInfo.audioSrc ? `<span class="char-audio" onclick="playCharAudio('${charInfo.audioSrc}')">🔊</span>` : ''}
+            </div>
+          `;
+        } else {
+          html += `
+            <div class="char-item">
+              <div class="char-main">${segment}</div>
+              <div class="no-char-info">No character data</div>
+            </div>
+          `;
+        }
+      });
+
+      html += '</div>';
+      return html;
+    }
+
+    // Clear search
+    function clearSearch() {
+      document.getElementById('search-input').value = '';
+      document.getElementById('results-wrapper').style.display = 'none';
+      document.getElementById('empty-state').style.display = 'block';
+      document.getElementById('search-input').focus();
+    }
+  </script>
+
+</body>
+</html>
