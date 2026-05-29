@@ -7,9 +7,6 @@
   <meta name="description" content="Interactive classroom for learning Chinese with video, notes, vocabulary, speaking, and sentence search.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
-  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js"></script>
   <style>
     :root {
       --black: #222;
@@ -63,48 +60,6 @@
       z-index: 0;
     }
 
-    /* ── NOTIFICATION TOAST ── */
-    .notification-toast {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      max-width: 350px;
-      background: white;
-      border: var(--border-thick);
-      border-radius: 16px;
-      padding: 16px 20px;
-      box-shadow: var(--shadow-lg);
-      font-size: 0.95rem;
-      z-index: 500;
-      animation: slideInUp 0.3s ease;
-    }
-
-    .notification-toast.success {
-      border-color: var(--green);
-      background: var(--green-pale);
-    }
-
-    .notification-toast.info {
-      border-color: var(--sky);
-      background: var(--sky-pale);
-    }
-
-    .notification-toast.warning {
-      border-color: #ff9800;
-      background: #fff3e0;
-    }
-
-    @keyframes slideInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
     /* ── HEADER ── */
     header {
       background: var(--green);
@@ -126,22 +81,6 @@
       color: white;
       letter-spacing: 0.04em;
       text-shadow: 2px 2px 0 rgba(0,0,0,0.25);
-    }
-
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .user-badge {
-      background: rgba(255,255,255,0.3);
-      color: white;
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      border: 2px solid white;
     }
 
     /* ── MAIN LAYOUT ── */
@@ -471,7 +410,6 @@
       background: var(--green);
       box-shadow: 2px 0 6px rgba(0, 0, 0, 0.12);
     }
-
     .canvas-toolbar {
       position: absolute;
       top: 10px;
@@ -635,14 +573,12 @@
 
   <header>
     <h1>CHINESE 60s</h1>
-    <div class="header-right">
-      <span class="user-badge" id="user-badge">Loading...</span>
-    </div>
+    <div style="flex: 1;"></div>
   </header>
 
   <div class="classroom-container">
     <!-- SIDEBAR - Learning Page Index Embed -->
-    <aside class="sidebar" id="sidebar">
+    <aside class="sidebar">
       <div class="sidebar-content" style="height: 100%; border: none;">
         <iframe src="learning-page.html" style="width: 100%; height: 100%; border: none; display: block;"></iframe>
       </div>
@@ -661,9 +597,9 @@
           <div class="video-frame" style="background: white; display: flex; align-items: center; justify-content: center; position: relative;">
             <canvas id="whiteboard" style="border: 2px solid #222; cursor: crosshair; display: block;"></canvas>
             <div class="canvas-toolbar">
-              <button class="canvas-btn draw-btn active" title="Draw mode">✏️ Draw</button>
-              <button class="canvas-btn erase-btn erase" title="Erase mode">🧹 Erase</button>
-              <button class="canvas-btn clear-btn" title="Clear all">🗑️ Clear</button>
+              <button class="canvas-btn draw-btn active" title="Chế độ vẽ">✏️ Draw</button>
+              <button class="canvas-btn erase-btn erase" title="Chế độ xóa">🧹 Erase</button>
+              <button class="canvas-btn clear-btn" title="Xóa toàn bộ">🗑️ Clear</button>
             </div>
           </div>
         </section>
@@ -728,105 +664,10 @@ Add your own notes and they'll be saved!"></textarea>
   </div>
 
   <script>
-    // ── FIREBASE CONFIGURATION ──
-    const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "YOUR_PROJECT.firebaseapp.com",
-      projectId: "YOUR_PROJECT_ID",
-      databaseURL: "https://YOUR_PROJECT.firebaseio.com",
-      storageBucket: "YOUR_PROJECT.appspot.com"
-    };
-
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    const database = firebase.database();
-    const auth = firebase.auth();
-
-    let currentUser = null;
-    let currentUserName = "User";
-    let sessionId = Date.now().toString();
-
-    // ── NOTIFICATION SYSTEM ──
-    function showNotification(message, type = 'info') {
-      const toast = document.createElement('div');
-      toast.className = `notification-toast ${type}`;
-      toast.textContent = message;
-      document.body.appendChild(toast);
-
-      setTimeout(() => {
-        toast.style.animation = 'slideInUp 0.3s ease reverse';
-        setTimeout(() => toast.remove(), 300);
-      }, 3000);
-    }
-
-    // ── FIREBASE AUTH ──
-    auth.onAuthStateChanged(async (user) => {
-      if (user) {
-        currentUser = user;
-        currentUserName = user.displayName || user.email.split('@')[0];
-        document.getElementById('user-badge').textContent = `👤 ${currentUserName}`;
-        startCollaborativeTracking();
-      } else {
-        window.location.href = '/login'; // Redirect to login
-      }
-    });
-
-    // ── COLLABORATIVE TRACKING ──
-    function startCollaborativeTracking() {
-      const classroomRef = database.ref(`classrooms/${window.location.pathname}`);
-
-      // Listen for activities from other users
-      classroomRef.child('activities').on('child_added', (snapshot) => {
-        const activity = snapshot.val();
-        if (activity.uid !== currentUser.uid) {
-          const actionMap = {
-            'sidebar_resize': `${activity.userName} resized the sidebar`,
-            'whiteboard_draw': `${activity.userName} drew on the whiteboard`,
-            'whiteboard_erase': `${activity.userName} erased on the whiteboard`,
-            'whiteboard_clear': `${activity.userName} cleared the whiteboard`,
-            'notes_edit': `${activity.userName} edited notes`,
-            'word_canvas_interact': `${activity.userName} used the word canvas`,
-            'find_sentences_interact': `${activity.userName} searched for sentences`,
-            'speaking_practice': `${activity.userName} practiced speaking`
-          };
-
-          if (actionMap[activity.action]) {
-            showNotification(actionMap[activity.action], 'info');
-          }
-        }
-      });
-    }
-
-    // ── LOG ACTIVITY FUNCTION ──
-    function logActivity(action, data = {}) {
-      if (!currentUser) return;
-
-      const classroomRef = database.ref(`classrooms/${window.location.pathname}`);
-      const activityRef = classroomRef.child('activities').push();
-
-      activityRef.set({
-        uid: currentUser.uid,
-        userName: currentUserName,
-        action: action,
-        timestamp: firebase.database.ServerValue.TIMESTAMP,
-        data: data
-      }).catch(err => console.error('Activity log error:', err));
-    }
-
     // ── NOTES PERSISTENCE ──
     function saveNotes() {
       const notes = document.getElementById('notes-area').value;
       localStorage.setItem('classroom-notes', notes);
-
-      if (currentUser) {
-        logActivity('notes_edit', { contentLength: notes.length });
-        const userRef = database.ref(`classrooms/${window.location.pathname}/notes/${currentUser.uid}`);
-        userRef.set({
-          content: notes,
-          userName: currentUserName,
-          timestamp: firebase.database.ServerValue.TIMESTAMP
-        });
-      }
     }
 
     function loadNotes() {
@@ -859,7 +700,10 @@ Add your own notes and they'll be saved!"></textarea>
       const containerRect = document.querySelector('.classroom-container').getBoundingClientRect();
       const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
       
+      // Tính vị trí relative đến container
       const newWidth = clientX - containerRect.left;
+      
+      // Min 250px, Max 80% width
       const maxWidth = containerRect.width * 0.8;
       const constrainedWidth = Math.max(250, Math.min(maxWidth, newWidth));
       
@@ -872,14 +716,15 @@ Add your own notes and they'll be saved!"></textarea>
         sidebarResizeHandle.classList.remove('active');
         document.body.style.userSelect = 'auto';
         document.body.style.touchAction = 'auto';
-        logActivity('sidebar_resize', { width: sidebar.offsetWidth });
       }
     }
 
+    // Mouse events
     sidebarResizeHandle.addEventListener('mousedown', startSidebarResize);
     document.addEventListener('mousemove', moveSidebarResize, { passive: true });
     document.addEventListener('mouseup', endSidebarResize);
 
+    // Touch events
     sidebarResizeHandle.addEventListener('touchstart', startSidebarResize, { passive: false });
     document.addEventListener('touchmove', moveSidebarResize, { passive: true });
     document.addEventListener('touchend', endSidebarResize);
@@ -887,7 +732,7 @@ Add your own notes and they'll be saved!"></textarea>
 
     // ── CARD CONTAINER RESIZE ──
     let isResizingCard = null;
-    let resizeType = null;
+    let resizeType = null; // 'vertical', 'horizontal-right', 'horizontal-left'
     let resizeStartPos = 0;
 
     function startCardResize(e) {
@@ -929,10 +774,15 @@ Add your own notes and they'll be saved!"></textarea>
 
         if (newHeight > 150) {
           isResizingCard.style.height = newHeight + 'px';
+          // Update textarea/embed height
           const textarea = isResizingCard.querySelector('.notes-area');
           const embed = isResizingCard.querySelector('.embed-frame');
-          if (textarea) textarea.style.height = (newHeight - 80) + 'px';
-          if (embed) embed.style.height = (newHeight - 80) + 'px';
+          if (textarea) {
+            textarea.style.height = (newHeight - 80) + 'px';
+          }
+          if (embed) {
+            embed.style.height = (newHeight - 80) + 'px';
+          }
         }
       } else if (resizeType === 'horizontal-right') {
         const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
@@ -983,11 +833,6 @@ Add your own notes and they'll be saved!"></textarea>
         horizontalRightHandle?.classList.remove('active');
         horizontalLeftHandle?.classList.remove('active');
         
-        logActivity(`${isResizingCard.dataset.card}_resize`, {
-          height: isResizingCard.offsetHeight,
-          width: isResizingCard.offsetWidth
-        });
-
         isResizingCard = null;
         resizeType = null;
         document.body.style.userSelect = 'auto';
@@ -1008,11 +853,13 @@ Add your own notes and they'll be saved!"></textarea>
     const canvas = document.getElementById('whiteboard');
     const ctx = canvas.getContext('2d');
     
+    // Set canvas size to fill the frame
     function resizeCanvas() {
       const frame = canvas.parentElement;
       const newWidth = frame.offsetWidth - 4;
       const newHeight = frame.offsetHeight - 4;
       
+      // Chỉ resize nếu có thay đổi
       if (canvas.width !== newWidth || canvas.height !== newHeight) {
         canvas.width = newWidth;
         canvas.height = newHeight;
@@ -1022,14 +869,17 @@ Add your own notes and they'll be saved!"></textarea>
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
     
+    // Trigger canvas resize khi sidebar/container resize (e.g. when resizing sidebar)
     const observer = new ResizeObserver(resizeCanvas);
     observer.observe(canvas.parentElement.parentElement);
     
+    // Drawing variables
     let isDrawing = false;
     let lastX = 0;
     let lastY = 0;
     let isErasing = false;
     
+    // Canvas toolbar buttons
     const drawBtn = document.querySelector('.draw-btn');
     const eraseBtn = document.querySelector('.erase-btn');
     const clearBtn = document.querySelector('.clear-btn');
@@ -1039,7 +889,6 @@ Add your own notes and they'll be saved!"></textarea>
       drawBtn.classList.add('active');
       eraseBtn.classList.remove('active');
       canvas.style.cursor = 'crosshair';
-      logActivity('whiteboard_draw', { mode: 'activated' });
     });
     
     eraseBtn.addEventListener('click', () => {
@@ -1047,14 +896,13 @@ Add your own notes and they'll be saved!"></textarea>
       eraseBtn.classList.add('active');
       drawBtn.classList.remove('active');
       canvas.style.cursor = 'grab';
-      logActivity('whiteboard_erase', { mode: 'activated' });
     });
     
     clearBtn.addEventListener('click', () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      logActivity('whiteboard_clear');
     });
     
+    // Mouse events
     canvas.addEventListener('mousedown', (e) => {
       isDrawing = true;
       const rect = canvas.getBoundingClientRect();
@@ -1069,8 +917,10 @@ Add your own notes and they'll be saved!"></textarea>
       const y = e.clientY - rect.top;
       
       if (isErasing) {
+        // Eraser mode - xóa vùng tròn
         ctx.clearRect(x - 15, y - 15, 30, 30);
       } else {
+        // Draw mode
         ctx.strokeStyle = '#222';
         ctx.lineWidth = 2;
         ctx.lineCap = 'round';
@@ -1087,16 +937,13 @@ Add your own notes and they'll be saved!"></textarea>
     
     canvas.addEventListener('mouseup', () => {
       isDrawing = false;
-      if (lastX !== 0 && lastY !== 0) {
-        logActivity('whiteboard_draw', { x: lastX, y: lastY });
-      }
     });
     
     canvas.addEventListener('mouseleave', () => {
       isDrawing = false;
     });
     
-    // Touch events
+    // Touch events for iPad/mobile
     canvas.addEventListener('touchstart', (e) => {
       isDrawing = true;
       const rect = canvas.getBoundingClientRect();
@@ -1114,8 +961,10 @@ Add your own notes and they'll be saved!"></textarea>
       const y = touch.clientY - rect.top;
       
       if (isErasing) {
+        // Eraser mode - xóa vùng tròn
         ctx.clearRect(x - 15, y - 15, 30, 30);
       } else {
+        // Draw mode
         ctx.strokeStyle = '#222';
         ctx.lineWidth = 2;
         ctx.lineCap = 'round';
@@ -1133,17 +982,6 @@ Add your own notes and they'll be saved!"></textarea>
     
     canvas.addEventListener('touchend', () => {
       isDrawing = false;
-    });
-
-    // ── EMBED IFRAME INTERACTIONS ──
-    document.addEventListener('click', (e) => {
-      if (e.target.closest('#word-canvas-frame')) {
-        logActivity('word_canvas_interact');
-      } else if (e.target.closest('#find-sentences-frame')) {
-        logActivity('find_sentences_interact');
-      } else if (e.target.closest('#speaking-frame')) {
-        logActivity('speaking_practice');
-      }
     });
 
     loadNotes();
@@ -1180,7 +1018,6 @@ Add your own notes and they'll be saved!"></textarea>
       if (isResizingEmbed) {
         const handle = isResizingEmbed.querySelector('.embed-resize-handle');
         handle?.classList.remove('active');
-        logActivity('embed_container_resize', { height: isResizingEmbed.offsetHeight });
         isResizingEmbed = null;
         document.body.style.userSelect = 'auto';
         document.body.style.touchAction = 'auto';
