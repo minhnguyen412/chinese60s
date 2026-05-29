@@ -417,33 +417,8 @@
     let allThumbnails = [];
     let allCharacters = [];
 
-    // Load all data on page load
-    document.addEventListener('DOMContentLoaded', async () => {
-      try {
-        const [postsRes, thumbRes, charRes] = await Promise.all([
-          fetch('data/posts.json'),
-          fetch('data/thumbnail.json'),
-          fetch('data/imagesData.json')
-        ]);
-
-        if (postsRes.ok) allPosts = await postsRes.json();
-        if (thumbRes.ok) allThumbnails = await thumbRes.json();
-        if (charRes.ok) allCharacters = await charRes.json();
-
-        // Allow Enter key to search
-        document.getElementById('search-input').addEventListener('keypress', (e) => {
-          if (e.key === 'Enter') performSearch();
-        });
-
-        console.log('Data loaded:', {
-          posts: allPosts.length,
-          thumbnails: allThumbnails.length,
-          characters: allCharacters.length
-        });
-      } catch (err) {
-        console.error('Failed to load data:', err);
-      }
-    });
+    // List of punctuation marks to skip in character grid
+    const PUNCTUATION = ['，', '。', '！', '？', '；', '：', '、', '…', '·', '「', '」', '『', '』', '（', '）', '《', '》', '"', '"', ''', ''', '—', '～'];
 
     // Parse htmlLink to extract postStartId and postEndId
     function parseHtmlLink(htmlLink) {
@@ -584,9 +559,6 @@
       });
     }
 
-    // List of punctuation marks to skip in character grid
-    const PUNCTUATION = ['，', '。', '！', '？', '；', '：', '、', '…', '·', '「', '」', '『', '』', '（', '）', '《', '》', '"', '"', ''', ''', '—', '～'];
-
     // Build character grid showing ALL characters in the sentence
     // Matched characters are highlighted
     // Punctuation marks are skipped
@@ -660,6 +632,34 @@
       document.getElementById('empty-state').style.display = 'block';
       document.getElementById('search-input').focus();
     }
+
+    // Load all data on page load
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        const [postsRes, thumbRes, charRes] = await Promise.all([
+          fetch('data/posts.json'),
+          fetch('data/thumbnail.json'),
+          fetch('data/imagesData.json')
+        ]);
+
+        if (postsRes.ok) allPosts = await postsRes.json();
+        if (thumbRes.ok) allThumbnails = await thumbRes.json();
+        if (charRes.ok) allCharacters = await charRes.json();
+
+        // Allow Enter key to search
+        document.getElementById('search-input').addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') performSearch();
+        });
+
+        console.log('Data loaded:', {
+          posts: allPosts.length,
+          thumbnails: allThumbnails.length,
+          characters: allCharacters.length
+        });
+      } catch (err) {
+        console.error('Failed to load data:', err);
+      }
+    });
   </script>
 
 </body>
