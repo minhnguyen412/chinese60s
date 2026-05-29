@@ -576,7 +576,7 @@ Add your own notes and they'll be saved!"></textarea>
       notesSaveTimeout = setTimeout(saveNotes, 2000);
     });
 
-    // ── SIDEBAR RESIZE ──
+    // ── SIDEBAR RESIZE (Real-time only) ──
     const sidebar = document.querySelector('.sidebar');
     const sidebarResizeHandle = document.querySelector('.sidebar-resize-handle');
     let resizingSidebar = false;
@@ -605,11 +605,10 @@ Add your own notes and they'll be saved!"></textarea>
         resizingSidebar = false;
         document.body.style.cursor = 'auto';
         document.body.style.userSelect = 'auto';
-        localStorage.setItem('sidebar-width', sidebar.offsetWidth);
       }
     });
 
-    // ── INDIVIDUAL CARD RESIZE ──
+    // ── INDIVIDUAL CARD RESIZE (Real-time only) ──
     let resizingCard = null;
     let cardStartY = 0;
     let cardStartHeight = 0;
@@ -655,101 +654,17 @@ Add your own notes and they'll be saved!"></textarea>
         resizingCard = null;
         document.body.style.cursor = 'auto';
         document.body.style.userSelect = 'auto';
-        saveCardSizes();
       }
     });
 
-    // ── DRAG & RESIZE FUNCTIONALITY ──
+    // ── DRAG FUNCTIONALITY (Real-time only, no DOM reorder) ──
     const scroller = document.querySelector('.content-scroller');
     let draggedElement = null;
     let offsetY = 0;
-    let resizingElement = null;
-    let startY = 0;
-    let startHeight = 0;
-    let dragGhost = null;
 
-    // Save layout to localStorage
-    function saveLayout() {
-      const sections = Array.from(document.querySelectorAll('.draggable-section')).map(el => ({
-        id: el.dataset.section,
-        order: Array.from(scroller.children).indexOf(el),
-        height: el.style.height || 'auto'
-      }));
-      localStorage.setItem('classroom-layout', JSON.stringify(sections));
-    }
-
-    function saveCardSizes() {
-      const cardSizes = {};
-      document.querySelectorAll('.section-card[data-card]').forEach(card => {
-        const cardId = card.dataset.card;
-        cardSizes[cardId] = {
-          height: card.style.height || 'auto'
-        };
-      });
-      localStorage.setItem('card-sizes', JSON.stringify(cardSizes));
-    }
-
-    // Load layout from localStorage
-    function loadLayout() {
-      const layout = localStorage.getItem('classroom-layout');
-      if (!layout) return;
-      
-      try {
-        const sections = JSON.parse(layout);
-        sections.forEach(section => {
-          const el = document.querySelector(`[data-section="${section.id}"]`);
-          if (el && section.height !== 'auto') {
-            el.style.height = section.height;
-            const iframe = el.querySelector('iframe');
-            const embedContainer = el.querySelector('.embed-container');
-            if (embedContainer && iframe) {
-              const headerHeight = el.querySelector('[style*="display: flex"]')?.offsetHeight || 20;
-              const contentHeight = parseFloat(section.height) - headerHeight - 32;
-              iframe.style.height = contentHeight + 'px';
-            }
-          }
-        });
-      } catch (e) {
-        console.error('Failed to load layout:', e);
-      }
-
-      const cardSizes = localStorage.getItem('card-sizes');
-      if (cardSizes) {
-        try {
-          const sizes = JSON.parse(cardSizes);
-          Object.keys(sizes).forEach(cardId => {
-            const card = document.querySelector(`[data-card="${cardId}"]`);
-            if (card && sizes[cardId].height !== 'auto') {
-              card.style.height = sizes[cardId].height;
-              const textarea = card.querySelector('.notes-area');
-              const embed = card.querySelector('.embed-frame');
-              const header = card.querySelector('[style*="display: flex"]');
-              const title = card.querySelector('.section-card-title');
-              const headerHeight = (header?.offsetHeight || 0) + (title?.offsetHeight || 0) + 24;
-              const contentHeight = parseFloat(sizes[cardId].height) - headerHeight;
-
-              if (textarea) textarea.style.height = Math.max(100, contentHeight) + 'px';
-              if (embed) embed.style.height = Math.max(100, contentHeight) + 'px';
-            }
-          });
-        } catch (e) {
-          console.error('Failed to load card sizes:', e);
-        }
-      }
-    }
-
-    // Load sidebar width
-    function loadSidebarWidth() {
-      const width = localStorage.getItem('sidebar-width');
-      if (width) {
-        sidebar.style.width = width + 'px';
-      }
-    }
-
-    // Drag functionality - optimized
     document.addEventListener('mousedown', (e) => {
       const dragHandle = e.target.closest('.drag-handle');
-      if (dragHandle && !dragHandle.closest('.section-card')?.querySelector('.card-resize-handle:hover')) {
+      if (dragHandle && !e.target.closest('.section-card')) {
         draggedElement = dragHandle.closest('.draggable-section');
         if (!draggedElement) return;
 
@@ -764,20 +679,6 @@ Add your own notes and they'll be saved!"></textarea>
 
         e.preventDefault();
       }
-
-      // Resize section
-      const resizeHandle = e.target.closest('.resize-handle');
-      if (resizeHandle) {
-        resizingElement = resizeHandle.closest('.draggable-section');
-        if (!resizingElement) return;
-
-        startY = e.clientY;
-        startHeight = resizingElement.offsetHeight;
-        document.body.style.cursor = 'nwse-resize';
-        document.body.style.userSelect = 'none';
-
-        e.preventDefault();
-      }
     });
 
     document.addEventListener('mousemove', (e) => {
@@ -786,50 +687,10 @@ Add your own notes and they'll be saved!"></textarea>
         draggedElement.style.top = (e.clientY - offsetY) + 'px';
         draggedElement.style.left = scrollRect.left + 'px';
       }
-
-      if (resizingElement) {
-        const delta = e.clientY - startY;
-        const newHeight = Math.max(200, startHeight + delta);
-        resizingElement.style.height = newHeight + 'px';
-
-        const iframe = resizingElement.querySelector('iframe');
-        if (iframe) {
-          const headerHeight = resizingElement.querySelector('[style*="display: flex"]')?.offsetHeight || 20;
-          const contentHeight = newHeight - headerHeight - 32;
-          iframe.style.height = Math.max(100, contentHeight) + 'px';
-        }
-      }
     }, { passive: true });
 
     document.addEventListener('mouseup', () => {
       if (draggedElement) {
-        const scrollRect = scroller.getBoundingClientRect();
-        const rect = draggedElement.getBoundingClientRect();
-        const relativeY = rect.top - scrollRect.top + scroller.scrollTop;
-
-        const scrollerChildren = Array.from(scroller.children);
-        let insertIndex = scrollerChildren.length;
-
-        for (let i = 0; i < scrollerChildren.length; i++) {
-          const child = scrollerChildren[i];
-          if (child === draggedElement) continue;
-          
-          const childRect = child.getBoundingClientRect();
-          const childRelativeY = childRect.top - scrollRect.top + scroller.scrollTop;
-          
-          if (relativeY < childRelativeY + childRect.height / 2) {
-            insertIndex = i;
-            break;
-          }
-        }
-
-        scroller.removeChild(draggedElement);
-        if (insertIndex >= scroller.children.length) {
-          scroller.appendChild(draggedElement);
-        } else {
-          scroller.insertBefore(draggedElement, scroller.children[insertIndex]);
-        }
-
         draggedElement.classList.remove('dragging');
         draggedElement.style.position = 'relative';
         draggedElement.style.zIndex = 'auto';
@@ -837,24 +698,13 @@ Add your own notes and they'll be saved!"></textarea>
         draggedElement.style.left = 'auto';
         draggedElement.style.width = 'auto';
         document.body.style.userSelect = 'auto';
-
-        saveLayout();
         draggedElement = null;
-      }
-
-      if (resizingElement) {
-        document.body.style.cursor = 'auto';
-        document.body.style.userSelect = 'auto';
-        resizingElement = null;
-        saveLayout();
       }
     });
 
     // Initialize on page load
     window.addEventListener('DOMContentLoaded', () => {
       loadNotes();
-      loadLayout();
-      loadSidebarWidth();
     });
   </script>
 
