@@ -83,13 +83,6 @@
       text-shadow: 2px 2px 0 rgba(0,0,0,0.25);
     }
 
-    .header-breadcrumb {
-      font-family: 'Fredoka', sans-serif;
-      font-weight: 500;
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.8);
-    }
-
     /* ── MAIN LAYOUT ── */
     .classroom-container {
       display: flex;
@@ -101,70 +94,12 @@
     .sidebar {
       width: 340px;
       height: 100%;
-      background: var(--green-pale);
+      background: var(--white);
       border-right: var(--border-thick);
       display: flex;
       flex-direction: column;
       z-index: 100;
       overflow: hidden;
-    }
-
-    .sidebar-header {
-      padding: 20px 18px;
-      background: var(--green-light);
-      border-bottom: var(--border-thick);
-      font-family: 'Fredoka', sans-serif;
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
-
-    .lesson-index {
-      flex: 1;
-      overflow-y: auto;
-      padding: 12px 0;
-    }
-
-    .lesson-item {
-      padding: 12px 16px;
-      margin: 6px 12px;
-      border-radius: 14px;
-      background: var(--white);
-      border: var(--border);
-      cursor: pointer;
-      transition: all 0.12s;
-      font-family: 'Fredoka', sans-serif;
-      font-weight: 500;
-      font-size: 0.95rem;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .lesson-item:hover {
-      transform: translate(-2px, -2px);
-      box-shadow: 4px 4px 0 var(--black);
-    }
-
-    .lesson-item.active {
-      background: var(--yellow);
-      border: var(--border-thick);
-      box-shadow: var(--shadow-md);
-    }
-
-    .lesson-item .lesson-number {
-      display: inline-block;
-      background: var(--green);
-      color: white;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      text-align: center;
-      line-height: 28px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      margin-right: 10px;
-    }
-
-    .lesson-item.active .lesson-number {
-      background: var(--green-dark);
     }
 
     /* ── MAIN CONTENT ── */
@@ -434,15 +369,14 @@
 
   <header>
     <h1>CHINESE 60s</h1>
-    <div class="header-breadcrumb">Classroom / <span id="current-lesson">Lesson 1</span></div>
+    <div style="flex: 1;"></div>
   </header>
 
   <div class="classroom-container">
-    <!-- SIDEBAR -->
+    <!-- SIDEBAR - Learning Page Index Embed -->
     <aside class="sidebar">
-      <div class="sidebar-header">📚 Lessons</div>
-      <div class="lesson-index" id="lesson-index">
-        <!-- Populated by JavaScript -->
+      <div class="embed-frame" style="height: 100%; border: none; border-radius: 0;">
+        <iframe src="learning-page.html" style="height: 100%;"></iframe>
       </div>
     </aside>
 
@@ -450,17 +384,15 @@
     <div class="main-content">
       <div class="content-scroller">
 
-        <!-- VIDEO SECTION -->
+        <!-- VIDEO SECTION - YouTube Page Embed -->
         <section class="video-section">
           <div class="video-frame">
-            <iframe id="main-video" 
-              src="https://www.youtube.com/embed/g70M56gdZC0?si=x5Yf3g8zt0doR9-k" 
+            <iframe id="youtube-page" 
+              src="https://www.youtube.com/@chinese60s"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
               allowfullscreen>
             </iframe>
           </div>
-          <h2 class="video-title" id="video-title">Lesson 1: Hello & Introduction</h2>
-          <p class="video-meta" id="video-meta">Learn basic greetings and how to introduce yourself in Mandarin Chinese</p>
         </section>
 
         <!-- TWO COLUMN SECTION: NOTES + WORD CANVAS -->
@@ -490,7 +422,7 @@ Add your own notes and they'll be saved!"></textarea>
         <section class="full-width-section">
           <div class="section-heading">🎙️ Speaking Practice</div>
           <div class="embed-container">
-            <iframe id="speaking-frame" src="speaking.html"></iframe>
+            <iframe id="speaking-frame" src="speaking-practice.html"></iframe>
           </div>
         </section>
 
@@ -507,125 +439,14 @@ Add your own notes and they'll be saved!"></textarea>
   </div>
 
   <script>
-    // Sample lessons data
-    const lessons = [
-      {
-        id: 1,
-        title: 'Hello & Introduction',
-        videoId: 'g70M56gdZC0',
-        description: 'Learn basic greetings and how to introduce yourself in Mandarin Chinese',
-        meta: 'Foundation • 5 min'
-      },
-      {
-        id: 2,
-        title: 'Numbers 1-10',
-        videoId: 't0Lirymcbcw',
-        description: 'Master counting and number pronunciation',
-        meta: 'Foundation • 6 min'
-      },
-      {
-        id: 3,
-        title: 'Asking Basic Questions',
-        videoId: 'dQw4w9WgXcQ',
-        description: 'Learn how to ask questions in everyday situations',
-        meta: 'Foundation • 7 min'
-      },
-      {
-        id: 4,
-        title: 'Family & Relationships',
-        videoId: 'jNQXAC9IVRw',
-        description: 'Talk about family members and relationships',
-        meta: 'Foundation • 8 min'
-      },
-      {
-        id: 5,
-        title: 'Food & Ordering',
-        videoId: 'kffacxfA7g4',
-        description: 'Essential vocabulary for ordering food',
-        meta: 'Real-Life • 7 min'
-      },
-      {
-        id: 6,
-        title: 'Shopping & Prices',
-        videoId: '9bZkp7q19f0',
-        description: 'Learn how to shop and talk about prices',
-        meta: 'Real-Life • 8 min'
-      },
-      {
-        id: 7,
-        title: 'Directions & Getting Around',
-        videoId: 'aqz-KE-bpKQ',
-        description: 'Navigate and ask for directions in Chinese',
-        meta: 'Real-Life • 9 min'
-      },
-      {
-        id: 8,
-        title: 'Small Talk & Weather',
-        videoId: 'X8tzR_-2Nnw',
-        description: 'Common expressions and talking about weather',
-        meta: 'Real-Life • 6 min'
-      }
-    ];
-
-    let currentLessonId = 1;
-
-    // Render lesson index
-    function renderLessonIndex() {
-      const index = document.getElementById('lesson-index');
-      index.innerHTML = lessons.map(lesson => `
-        <div class="lesson-item ${lesson.id === currentLessonId ? 'active' : ''}" data-lesson-id="${lesson.id}">
-          <span class="lesson-number">${lesson.id}</span>
-          <span>${lesson.title}</span>
-        </div>
-      `).join('');
-
-      // Add click handlers
-      document.querySelectorAll('.lesson-item').forEach(item => {
-        item.addEventListener('click', () => {
-          const lessonId = parseInt(item.dataset.lessonId);
-          loadLesson(lessonId);
-        });
-      });
-    }
-
-    // Load lesson
-    function loadLesson(lessonId) {
-      const lesson = lessons.find(l => l.id === lessonId);
-      if (!lesson) return;
-
-      currentLessonId = lessonId;
-
-      // Update header
-      document.getElementById('current-lesson').textContent = `Lesson ${lesson.id}`;
-
-      // Update video
-      const videoFrame = document.getElementById('main-video');
-      videoFrame.src = `https://www.youtube.com/embed/${lesson.videoId}?si=x5Yf3g8zt0doR9-k`;
-
-      // Update video title and meta
-      document.getElementById('video-title').textContent = `Lesson ${lesson.id}: ${lesson.title}`;
-      document.getElementById('video-meta').textContent = lesson.description;
-
-      // Update sidebar active state
-      document.querySelectorAll('.lesson-item').forEach(item => {
-        item.classList.toggle('active', parseInt(item.dataset.lessonId) === lessonId);
-      });
-
-      // Scroll to top
-      document.querySelector('.content-scroller').scrollTop = 0;
-
-      // Load notes from localStorage
-      loadNotes();
-    }
-
     // Notes persistence
     function saveNotes() {
       const notes = document.getElementById('notes-area').value;
-      localStorage.setItem(`lesson-${currentLessonId}-notes`, notes);
+      localStorage.setItem('classroom-notes', notes);
     }
 
     function loadNotes() {
-      const notes = localStorage.getItem(`lesson-${currentLessonId}-notes`) || '';
+      const notes = localStorage.getItem('classroom-notes') || '';
       document.getElementById('notes-area').value = notes;
     }
 
@@ -636,9 +457,8 @@ Add your own notes and they'll be saved!"></textarea>
       notesSaveTimeout = setTimeout(saveNotes, 2000);
     });
 
-    // Initialize
-    renderLessonIndex();
-    loadLesson(1);
+    // Load notes on page load
+    window.addEventListener('DOMContentLoaded', loadNotes);
   </script>
 
 </body>
