@@ -477,7 +477,7 @@
       return allCharacters.find(c => c.character === character);
     }
 
-    // Main search function
+    // Main search function - supports phrase search
     function performSearch() {
       const query = document.getElementById('search-input').value.trim();
       if (!query) {
@@ -488,24 +488,33 @@
       const results = [];
 
       for (const post of allPosts) {
-        // Check if query appears in segments
-        const matchingSegments = [];
+        // Join all segments into one string
+        const fullText = post.segments.join('');
         
-        for (let i = 0; i < post.segments.length; i++) {
-          const segment = post.segments[i];
-          if (segment.includes(query)) {
-            matchingSegments.push(i);
+        // Check if query appears in the full text
+        if (fullText.includes(query)) {
+          // Find all indices of characters that are part of the matched phrase
+          const matchingSegments = [];
+          const queryChars = query.split('');
+          
+          // For each character in the query, find which segment indices it belongs to
+          for (const char of queryChars) {
+            for (let i = 0; i < post.segments.length; i++) {
+              if (post.segments[i].includes(char) && !matchingSegments.includes(i)) {
+                matchingSegments.push(i);
+              }
+            }
           }
-        }
 
-        if (matchingSegments.length > 0) {
-          const lesson = findLessonForPost(post.id);
-          results.push({
-            post,
-            lesson,
-            matchingSegments,
-            matchCount: matchingSegments.length
-          });
+          if (matchingSegments.length > 0) {
+            const lesson = findLessonForPost(post.id);
+            results.push({
+              post,
+              lesson,
+              matchingSegments,
+              matchCount: matchingSegments.length
+            });
+          }
         }
       }
 
@@ -576,23 +585,28 @@
       });
     }
 
-    // Build character grid showing matched characters/phrases
+    // Build character grid showing ALL characters in the sentence
+    // Matched characters are highlighted
     function buildCharGrid(segments, matchingSegments, query) {
-      if (matchingSegments.length === 0) return '';
-
+      if (segments.length === 0) return '';
+      
       let html = '<div class="char-grid">';
       
-      // Get unique matching segments to avoid duplicates
-      const uniqueMatches = [...new Set(matchingSegments.map(i => segments[i]))];
-
-      uniqueMatches.forEach(segment => {
+      // Display all segments, not just matched ones
+      segments.forEach((segment, index) => {
         const charInfo = getCharInfo(segment);
+        const isMatched = matchingSegments.includes(index);
+        
+        // Highlight style for matched segments
+        const highlightStyle = isMatched 
+          ? 'border: 3px solid var(--yellow); background: var(--yellow-pale);' 
+          : '';
         
         if (charInfo) {
           html += `
-            <div class="char-item">
+            <div class="char-item" style="${highlightStyle}${isMatched ? 'box-shadow: 4px 4px 0 rgba(255, 216, 77, 0.5);' : ''}">
               ${charInfo.imageSrc ? `<img src="${charInfo.imageSrc}" alt="${segment}" class="char-image">` : ''}
-              <div class="char-main">${segment}</div>
+              <div class="char-main" style="${isMatched ? 'color: var(--yellow-dark);' : ''}">${segment}</div>
               <div class="char-pinyin">${charInfo.pinyin || ''}</div>
               <div class="char-meaning">${charInfo.meaning || ''}</div>
               ${charInfo.audioSrc ? `<span class="char-audio" onclick="playCharAudio('${charInfo.audioSrc}')">🔊</span>` : ''}
@@ -600,9 +614,9 @@
           `;
         } else {
           html += `
-            <div class="char-item">
-              <div class="char-main">${segment}</div>
-              <div class="no-char-info">No character data</div>
+            <div class="char-item" style="${highlightStyle}${isMatched ? 'box-shadow: 4px 4px 0 rgba(255, 216, 77, 0.5);' : ''}">
+              <div class="char-main" style="${isMatched ? 'color: var(--yellow-dark);' : ''}">${segment}</div>
+              <div class="no-char-info">No data</div>
             </div>
           `;
         }
