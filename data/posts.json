@@ -3549,7 +3549,7 @@
   "id": 395,
   "user": "麦克",
   "title": "为学太极拳，她每天都起得很早。",
-  "segments": ["为", "学", "太极拳", "，", "她", "每天", "都", "起", "得", "很", "早", "。"],
+  "segments": ["为", "学", "太极拳", "，", "她", "每", "天", "都", "起", "得", "很", "早", "。"],
   "description": "Wèi xué tàijíquán, tā měi tiān dōu qǐ de hěn zǎo.<br>In order to learn tai chi, she gets up very early every day.",
   "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1735799749/sam_mjxry3.png",
   "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1778816801/795_lawzmt.mp3"
