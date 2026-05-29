@@ -100,6 +100,22 @@
       flex-direction: column;
       z-index: 100;
       overflow: hidden;
+      position: relative;
+    }
+
+    .sidebar-resize-handle {
+      position: absolute;
+      width: 8px;
+      height: 100%;
+      right: -4px;
+      top: 0;
+      cursor: ew-resize;
+      z-index: 150;
+      background: transparent;
+    }
+
+    .sidebar-resize-handle:hover {
+      background: var(--green);
     }
 
     /* ── MAIN CONTENT ── */
@@ -425,6 +441,7 @@
       <div class="embed-frame" style="height: 100%; border: none; border-radius: 0;">
         <iframe src="learning-page.html" style="height: 100%;"></iframe>
       </div>
+      <div class="sidebar-resize-handle"></div>
     </aside>
 
     <!-- MAIN CONTENT -->
@@ -526,6 +543,37 @@ Add your own notes and they'll be saved!"></textarea>
       notesSaveTimeout = setTimeout(saveNotes, 2000);
     });
 
+    // ── SIDEBAR RESIZE ──
+    const sidebar = document.querySelector('.sidebar');
+    const sidebarResizeHandle = document.querySelector('.sidebar-resize-handle');
+    let resizingSidebar = false;
+    let startX = 0;
+    let startWidth = 0;
+
+    sidebarResizeHandle.addEventListener('mousedown', (e) => {
+      resizingSidebar = true;
+      startX = e.clientX;
+      startWidth = sidebar.offsetWidth;
+      document.body.style.cursor = 'ew-resize';
+      e.preventDefault();
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (resizingSidebar) {
+        const delta = e.clientX - startX;
+        const newWidth = Math.max(300, startWidth + delta);
+        sidebar.style.width = newWidth + 'px';
+        localStorage.setItem('sidebar-width', newWidth);
+      }
+    });
+
+    document.addEventListener('mouseup', () => {
+      if (resizingSidebar) {
+        resizingSidebar = false;
+        document.body.style.cursor = 'auto';
+      }
+    });
+
     // ── DRAG & RESIZE FUNCTIONALITY ──
     const scroller = document.querySelector('.content-scroller');
     let draggedElement = null;
@@ -551,16 +599,30 @@ Add your own notes and they'll be saved!"></textarea>
       
       try {
         const sections = JSON.parse(layout);
-        const scrollerChildren = Array.from(scroller.children);
-        
         sections.forEach(section => {
           const el = document.querySelector(`[data-section="${section.id}"]`);
           if (el && section.height !== 'auto') {
             el.style.height = section.height;
+            // Also resize the iframe/embed inside
+            const iframe = el.querySelector('iframe');
+            const embedContainer = el.querySelector('.embed-container');
+            if (embedContainer && iframe) {
+              const headerHeight = el.querySelector('[style*="display: flex"]')?.offsetHeight || 20;
+              const contentHeight = parseFloat(section.height) - headerHeight - 32;
+              iframe.style.height = contentHeight + 'px';
+            }
           }
         });
       } catch (e) {
         console.error('Failed to load layout:', e);
+      }
+    }
+
+    // Load sidebar width
+    function loadSidebarWidth() {
+      const width = localStorage.getItem('sidebar-width');
+      if (width) {
+        sidebar.style.width = width + 'px';
       }
     }
 
@@ -592,6 +654,7 @@ Add your own notes and they'll be saved!"></textarea>
         startY = e.clientY;
         startHeight = resizingElement.offsetHeight;
         resizingElement.style.position = 'relative';
+        document.body.style.cursor = 'nwse-resize';
 
         e.preventDefault();
       }
@@ -610,6 +673,14 @@ Add your own notes and they'll be saved!"></textarea>
         const delta = e.clientY - startY;
         const newHeight = Math.max(200, startHeight + delta);
         resizingElement.style.height = newHeight + 'px';
+
+        // Resize iframe/embed inside
+        const iframe = resizingElement.querySelector('iframe');
+        if (iframe) {
+          const headerHeight = resizingElement.querySelector('[style*="display: flex"]')?.offsetHeight || 20;
+          const contentHeight = newHeight - headerHeight - 32;
+          iframe.style.height = Math.max(100, contentHeight) + 'px';
+        }
       }
     });
 
@@ -657,6 +728,7 @@ Add your own notes and they'll be saved!"></textarea>
 
       if (resizingElement) {
         resizingElement = null;
+        document.body.style.cursor = 'auto';
         saveLayout();
       }
     });
@@ -665,6 +737,7 @@ Add your own notes and they'll be saved!"></textarea>
     window.addEventListener('DOMContentLoaded', () => {
       loadNotes();
       loadLayout();
+      loadSidebarWidth();
     });
   </script>
 
