@@ -107,14 +107,15 @@
 
     .sidebar-resize-handle {
       position: absolute;
-      width: 8px;
+      width: 12px;
       height: 100%;
-      right: -4px;
+      right: -6px;
       top: 0;
       cursor: ew-resize;
       z-index: 150;
       background: transparent;
       will-change: background;
+      pointer-events: auto;
     }
 
     .sidebar-resize-handle:hover {
@@ -128,6 +129,8 @@
       display: flex;
       flex-direction: column;
       background: var(--bg);
+      min-width: 0;
+      overflow: hidden;
     }
 
     .content-scroller {
@@ -487,71 +490,34 @@ Add your own notes and they'll be saved!"></textarea>
       notesSaveTimeout = setTimeout(saveNotes, 2000);
     });
 
-    // ── SIDEBAR RESIZE (Tối ưu với requestAnimationFrame + Touch Support) ──
+    // ── SIDEBAR RESIZE (Simple & Smooth) ──
     const sidebar = document.querySelector('.sidebar');
     const sidebarResizeHandle = document.querySelector('.sidebar-resize-handle');
     let resizingSidebar = false;
     let startX = 0;
     let startWidth = 0;
-    let pendingWidth = null;
-    let rafId = null;
-    let isAnimating = false;
-
-    function updateSidebarWidth() {
-      if (pendingWidth !== null) {
-        sidebar.style.width = pendingWidth + 'px';
-        pendingWidth = null;
-      }
-      if (resizingSidebar) {
-        rafId = requestAnimationFrame(updateSidebarWidth);
-      } else {
-        isAnimating = false;
-      }
-    }
 
     function startSidebarResize(e) {
-      // Reset state trước khi bắt đầu drag mới
-      if (rafId) {
-        cancelAnimationFrame(rafId);
-        rafId = null;
-      }
-      pendingWidth = null;
-      isAnimating = false;
-      
       resizingSidebar = true;
       startX = e.clientX !== undefined ? e.clientX : e.touches[0].clientX;
       startWidth = sidebar.offsetWidth;
       document.body.style.cursor = 'ew-resize';
       document.body.style.userSelect = 'none';
       document.body.style.touchAction = 'none';
-      
-      isAnimating = true;
-      rafId = requestAnimationFrame(updateSidebarWidth);
       e.preventDefault();
     }
 
     function moveSidebarResize(e) {
-      if (resizingSidebar && isAnimating) {
-        const currentX = e.clientX !== undefined ? e.clientX : e.touches[0].clientX;
-        const delta = currentX - startX;
-        const newWidth = startWidth + delta;
-        pendingWidth = Math.max(300, Math.min(800, newWidth));
-      }
+      if (!resizingSidebar) return;
+      const currentX = e.clientX !== undefined ? e.clientX : e.touches[0].clientX;
+      const delta = currentX - startX;
+      const newWidth = Math.max(250, Math.min(900, startWidth + delta));
+      sidebar.style.width = newWidth + 'px';
     }
 
     function endSidebarResize() {
       if (resizingSidebar) {
         resizingSidebar = false;
-        if (rafId) {
-          cancelAnimationFrame(rafId);
-          rafId = null;
-        }
-        // Apply final width
-        if (pendingWidth !== null) {
-          sidebar.style.width = pendingWidth + 'px';
-          pendingWidth = null;
-        }
-        isAnimating = false;
         document.body.style.cursor = 'auto';
         document.body.style.userSelect = 'auto';
         document.body.style.touchAction = 'auto';
