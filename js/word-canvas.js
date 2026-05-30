@@ -1,5 +1,6 @@
 let data = []; // Khai báo biến data toàn cục
 let idToLesson = {}; // Map ID → Bài học
+let lessons = []; // Array của tất cả lessons
 
 // ── Load lesson data from thumbnail.json ──────────────────────────────────
 async function loadLessonMapping() {
@@ -7,7 +8,7 @@ async function loadLessonMapping() {
         const response = await fetch('../data/thumbnail.json');
         if (!response.ok) throw new Error('Failed to load thumbnail.json');
         
-        const lessons = await response.json();
+        lessons = await response.json();
         
         // Tạo map: ID => Bài học
         lessons.forEach(lesson => {
@@ -24,16 +25,17 @@ async function loadLessonMapping() {
                     title: lesson.title,
                     description: lesson.description,
                     topic: lesson.topic,
-                    plan: lesson.plan
+                    plan: lesson.plan,
+                    writeStartId: writeStart,
+                    writeEndId: writeEnd
                 };
             }
         });
         
-        console.log('Lesson mapping loaded:', idToLesson);
-        return idToLesson;
+        return lessons;
     } catch (error) {
         console.error('Error loading lesson mapping:', error);
-        return {};
+        return [];
     }
 }
 
@@ -43,7 +45,7 @@ const filesToFetch = [
 ];
 
 // Load lessons trước, sau đó load images
-loadLessonMapping().then(() => {
+loadLessonMapping().then((loadedLessons) => {
     Promise.all(filesToFetch.map(url => fetch(url).then(res => res.json())))
         .then(dataArrays => {
             data = dataArrays.flat();
@@ -60,6 +62,20 @@ loadLessonMapping().then(() => {
             const countInput = document.getElementById('countInput');
             const sortSelect = document.getElementById('sortSelect');
             const okButton = document.getElementById('okButton');
+            const lessonSelect = document.getElementById('lessonSelect');
+            
+            // ── Populate lesson dropdown ──────────────────────────────────────
+            function populateLessonDropdown() {
+                lessonSelect.innerHTML = '<option value="">All Lessons</option>';
+                loadedLessons.forEach(lesson => {
+                    const option = document.createElement('option');
+                    option.value = lesson.title;
+                    option.textContent = `${lesson.title} (${lesson.topic})`;
+                    lessonSelect.appendChild(option);
+                });
+            }
+            
+            populateLessonDropdown();
 
             // ── Render cards ──────────────────────────────────────────────────────
             function renderImages(images) {
@@ -94,17 +110,6 @@ loadLessonMapping().then(() => {
                     // ── COL 2: Info ───────────────────────────────────────────────
                     const infoCol = document.createElement('div');
                     infoCol.classList.add('card-info-col');
-
-                    // Lesson info badge (nếu có)
-                    if (item.lesson) {
-                        const lessonBadge = document.createElement('div');
-                        lessonBadge.classList.add('card-lesson-badge');
-                        lessonBadge.innerHTML = `
-                            <span class="lesson-title">${item.lesson.title}</span>
-                            <span class="lesson-topic">${item.lesson.topic}</span>
-                        `;
-                        infoCol.appendChild(lessonBadge);
-                    }
 
                     // Pinyin
                     const pinyinEl = document.createElement('p');
@@ -372,15 +377,47 @@ loadLessonMapping().then(() => {
             // ── Initial render ────────────────────────────────────────────────────
             setDataset(data.slice().reverse());
 
+            // ── Lesson dropdown filter ────────────────────────────────────────────
+            lessonSelect.addEventListener('change', () => {
+                const selectedLesson = lessonSelect.value;
+                let filtered;
+                
+                if (selectedLesson) {
+                    filtered = data.filter(item => item.lesson && item.lesson.title === selectedLesson);
+                } else {
+                    filtered = data.slice();
+                }
+                
+                // Apply sort
+                let sorted;
+                switch (sortSelect.value) {
+                    case 'newest':  sorted = filtered.slice().reverse(); break;
+                    case 'oldest':  sorted = filtered.slice(); break;
+                    case 'shuffle': sorted = filtered.slice().sort(() => Math.random() - 0.5); break;
+                    default:        sorted = filtered;
+                }
+                
+                setDataset(sorted);
+            });
+
             // ── OK button ─────────────────────────────────────────────────────────
             okButton.addEventListener('click', () => {
                 const count = parseInt(countInput.value) || data.length;
+                const selectedLesson = lessonSelect.value;
+                
+                let baseData;
+                if (selectedLesson) {
+                    baseData = data.filter(item => item.lesson && item.lesson.title === selectedLesson);
+                } else {
+                    baseData = data.slice();
+                }
+                
                 let sortedData;
                 switch (sortSelect.value) {
-                    case 'newest':  sortedData = data.slice().reverse(); break;
-                    case 'oldest':  sortedData = data.slice(); break;
-                    case 'shuffle': sortedData = data.slice().sort(() => Math.random() - 0.5); break;
-                    default:        sortedData = data;
+                    case 'newest':  sortedData = baseData.slice().reverse(); break;
+                    case 'oldest':  sortedData = baseData.slice(); break;
+                    case 'shuffle': sortedData = baseData.slice().sort(() => Math.random() - 0.5); break;
+                    default:        sortedData = baseData;
                 }
                 setDataset(sortedData.slice(0, count));
             });
