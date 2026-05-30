@@ -3625,5 +3625,302 @@
   "description": "Wǒ bù cháng duànliàn, yīnwèi wǒ wǎnshang chángchang shuì de hěn wǎn, zǎoshang qǐ de yě hěn wǎn.<br>I don’t exercise often, because I often sleep very late at night, and I also get up very late in the morning.",
   "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1735799749/sam_mjxry3.png",
   "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1778816805/803_kpldtk.mp3"
+},
+  {
+  "id": 404,
+  "user": "张东",
+  "title": "喂！是田芳吗？",
+  "segments": ["喂", "！", "是", "田芳", "吗", "？"],
+  "description": "Wèi! Shì Tián Fāng ma?<br>Hello! Is this Tian Fang?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151553/404_cy5rze.mp3"
+},
+{
+  "id": 405,
+  "user": "田芳妈",
+  "title": "田芳不在。是张东吧？",
+  "segments": ["田芳", "不", "在", "。", "是", "张东", "吧", "？"],
+  "description": "Tián Fāng bú zài. Shì Zhāng Dōng ba?<br>Tian Fang isn't here. Is this Zhang Dong?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/mama.0001_x8tqfm.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151553/405_ms2id6.mp3"
+},
+{
+  "id": 406,
+  "user": "张东",
+  "title": "阿姨，您好！田芳去哪儿了？",
+  "segments": ["阿姨", "，", "您", "好", "！", "田芳", "去", "哪儿", "了", "？"],
+  "description": "Āyí, nín hǎo! Tián Fāng qù nǎr le?<br>Hello, Auntie! Where did Tian Fang go?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151553/406_tek7z1.mp3"
+},
+{
+  "id": 407,
+  "user": "田芳妈",
+  "title": "她四点多就去同学家了。",
+  "segments": ["她", "四", "点", "多", "就", "去", "同学", "家", "了", "。"],
+  "description": "Tā sì diǎn duō jiù qù tóngxué jiā le.<br>She went to a classmate's house a little after four o'clock.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/mama.0001_x8tqfm.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151553/407_mx0ket.mp3"
+},
+{
+  "id": 408,
+  "user": "田芳妈",
+  "title": "她的一个中学同学要出国，她去看看她。",
+  "segments": ["她", "的", "一", "个", "中学", "同学", "要", "出国", "，", "她", "去", "看", "看", "她", "。"],
+  "description": "Tā de yí gè zhōngxué tóngxué yào chūguó, tā qù kànkan tā.<br>One of her middle school classmates is going abroad, so she went to visit her.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/mama.0001_x8tqfm.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151555/408_vqnpii.mp3"
+},
+{
+  "id": 409,
+  "user": "张东",
+  "title": "她什么时候能回来？",
+  "segments": ["她", "什么", "时候", "能", "回来", "？"],
+  "description": "Tā shénme shíhou néng huílái?<br>When will she be back?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151555/409_ycebzr.mp3"
+},
+{
+  "id": 410,
+  "user": "田芳妈",
+  "title": "她没说，你打她的手机吧。",
+  "segments": ["她", "没", "说", "，", "你", "打²", "她", "的", "手机", "吧", "。"],
+  "description": "Tā méi shuō, nǐ dǎ tā de shǒujī ba.<br>She didn't say. Try calling her mobile phone.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/mama.0001_x8tqfm.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151553/410_fkazf4.mp3"
+},
+{
+  "id": 411,
+  "user": "张东",
+  "title": "我打了。可是她关机了。",
+  "segments": ["我", "打²", "了", "。", "可是", "她", "关机", "了", "。"],
+  "description": "Wǒ dǎ le. Kěshì tā guānjī le.<br>I did, but her phone is turned off.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151553/411_xvexzq.mp3"
+},
+{
+  "id": 412,
+  "user": "田芳妈",
+  "title": "是吗，你过一会儿再打吧。",
+  "segments": ["是", "吗", "，", "你", "过", "一会儿", "再", "打²", "吧", "。"],
+  "description": "Shì ma? Nǐ guò yíhuìr zài dǎ ba.<br>Really? Try calling again a little later.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/mama.0001_x8tqfm.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151555/412_dd5qip.mp3"
+},
+{
+  "id": 413,
+  "user": "张东",
+  "title": "阿姨，田芳回来了没有？",
+  "segments": ["阿姨", "，", "田芳", "回来", "了", "没有", "？"],
+  "description": "Āyí, Tián Fāng huílái le méiyǒu?<br>Auntie, has Tian Fang come back yet?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151555/413_deaf2f.mp3"
+},
+{
+  "id": 414,
+  "user": "田芳妈",
+  "title": "还没有呢。",
+  "segments": ["还", "没有", "呢", "。"],
+  "description": "Hái méiyǒu ne.<br>Not yet.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/mama.0001_x8tqfm.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151555/414_eemaac.mp3"
+},
+{
+  "id": 415,
+  "user": "田芳",
+  "title": "妈，我回来了。",
+  "segments": ["妈", "，", "我", "回来", "了", "。"],
+  "description": "Mā, wǒ huílái le.<br>Mom, I'm back.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151555/415_jtrasy.mp3"
+},
+{
+  "id": 416,
+  "user": "妈妈",
+  "title": "张东给你打电话了没有？",
+  "segments": ["张东", "给", "你", "打²", "电话", "了", "没有", "？"],
+  "description": "Zhāng Dōng gěi nǐ dǎ diànhuà le méiyǒu?<br>Did Zhang Dong call you?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/mama.0001_x8tqfm.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151556/416_jzsvsm.mp3"
+},
+{
+  "id": 417,
+  "user": "田芳",
+  "title": "没有啊。",
+  "segments": ["没有", "啊", "。"],
+  "description": "Méiyǒu a.<br>No.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151556/417_wisgyc.mp3"
+},
+{
+  "id": 418,
+  "user": "妈妈",
+  "title": "他来电话找你，说打你的手机，你关机了。",
+  "segments": ["他", "来", "电话", "找", "你", "，", "说", "打²", "你", "的", "手机", "，", "你", "关机", "了", "。"],
+  "description": "Tā lái diànhuà zhǎo nǐ, shuō dǎ nǐ de shǒujī, nǐ guānjī le.<br>He called looking for you. He said he tried your mobile phone, but it was turned off.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/mama.0001_x8tqfm.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151556/418_wqwk53.mp3"
+},
+{
+  "id": 419,
+  "user": "田芳",
+  "title": "啊！对了，我忘开机了。",
+  "segments": ["啊", "！", "对了", "，", "我", "忘", "开机", "了", "。"],
+  "description": "A! Duì le, wǒ wàng kāijī le.<br>Oh, right! I forgot to turn it on.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151556/419_kap4bm.mp3"
+},
+{
+  "id": 420,
+  "user": "妈妈",
+  "title": "快！电话又响了，你去接吧。",
+  "segments": ["快", "！", "电话", "又", "响", "了", "，", "你", "去", "接", "吧", "。"],
+  "description": "Kuài! Diànhuà yòu xiǎng le, nǐ qù jiē ba.<br>Quick! The phone is ringing again. Go answer it.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/mama.0001_x8tqfm.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151557/420_kg0zxx.mp3"
+},
+{
+  "id": 421,
+  "user": "田芳",
+  "title": "下午你给我打电话了吧？",
+  "segments": ["下午", "你", "给", "我", "打²", "电话", "了", "吧", "？"],
+  "description": "Xiàwǔ nǐ gěi wǒ dǎ diànhuà le ba?<br>You called me this afternoon, didn't you?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151557/421_tfp851.mp3"
+},
+{
+  "id": 422,
+  "user": "张东",
+  "title": "打了，你怎么关机了？",
+  "segments": ["打²", "了", "，", "你", "怎么", "关机", "了", "？"],
+  "description": "Dǎ le, nǐ zěnme guānjī le?<br>Yes. Why was your phone turned off?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151557/422_gjctrd.mp3"
+},
+{
+  "id": 423,
+  "user": "田芳",
+  "title": "对不起。我忘开机了。",
+  "segments": ["对不起", "。", "我", "忘", "开机", "了", "。"],
+  "description": "Duìbuqǐ. Wǒ wàng kāijī le.<br>Sorry. I forgot to turn it on.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151557/423_klylgg.mp3"
+},
+{
+  "id": 424,
+  "user": "田芳",
+  "title": "下午你做什么了？",
+  "segments": ["下午", "你", "做", "什么", "了", "？"],
+  "description": "Xiàwǔ nǐ zuò shénme le?<br>What did you do this afternoon?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151557/424_qhrjx5.mp3"
+},
+{
+  "id": 425,
+  "user": "张东",
+  "title": "我去踢足球了。",
+  "segments": ["我", "去", "踢", "足球", "了", "。"],
+  "description": "Wǒ qù tī zúqiú le.<br>I went to play soccer.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151557/425_h3co4a.mp3"
+},
+{
+  "id": 426,
+  "user": "张东",
+  "title": "今天我们跟留学生代表队比赛了。",
+  "segments": ["今天", "我们", "跟", "留学生", "代表", "队", "比赛", "了", "。"],
+  "description": "Jīntiān wǒmen gēn liúxuéshēng dàibiǎoduì bǐsài le.<br>Today we had a match against the international students' team.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151558/426_uscnrv.mp3"
+},
+{
+  "id": 427,
+  "user": "田芳",
+  "title": "你们队又输了吧？",
+  "segments": ["你们", "队", "又", "输", "了", "吧", "？"],
+  "description": "Nǐmen yòu shū le ba?<br>You lost again, right?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151563/427_cxh4m3.mp3"
+},
+{
+  "id": 428,
+  "user": "张东",
+  "title": "没有。这次我们赢了。",
+  "segments": ["没有", "。", "这", "次", "我们", "赢", "了", "。"],
+  "description": "Méiyǒu. Zhè cì wǒmen yíng le.<br>No. This time we won.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151563/428_lflqro.mp3"
+},
+{
+  "id": 429,
+  "user": "田芳",
+  "title": "几比几？",
+  "segments": ["几", "比", "几", "？"],
+  "description": "Jǐ bǐ jǐ?<br>What was the score?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151563/429_ebjp1z.mp3"
+},
+{
+  "id": 430,
+  "user": "张东",
+  "title": "二比一。",
+  "segments": ["二", "比", "一", "。"],
+  "description": "Èr bǐ yī.<br>Two to one.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151563/430_iftzxq.mp3"
+},
+{
+  "id": 431,
+  "user": "田芳",
+  "title": "祝贺你们！",
+  "segments": ["祝贺", "你们", "！"],
+  "description": "Zhùhè nǐmen!<br>Congratulations!",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151563/431_lahgbm.mp3"
+},
+{
+  "id": 432,
+  "user": "田芳",
+  "title": "哎，你有什么事吗？",
+  "segments": ["哎", "，", "你", "有", "什么", "事", "吗", "？"],
+  "description": "Āi, nǐ yǒu shénme shì ma?<br>By the way, what did you need?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151563/432_hsmo20.mp3"
+},
+{
+  "id": 433,
+  "user": "张东",
+  "title": "我想问问你，你不是要上托福班吗？报名了没有？",
+  "segments": ["我", "想", "问", "问", "你", "，", "你", "不", "是", "要", "上", "托福", "班", "吗", "？", "报名", "了", "没有", "？"],
+  "description": "Wǒ xiǎng wènwen nǐ, nǐ bú shì yào shàng Tuōfú bān ma? Bàomíng le méiyǒu?<br>I wanted to ask you something. Aren't you planning to take a TOEFL prep class? Have you registered yet?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151564/433_vheeu8.mp3"
+},
+{
+  "id": 434,
+  "user": "田芳",
+  "title": "已经报了。你是不是也想考托福？",
+  "segments": ["已经", "报", "了", "。", "你", "是", "不", "是", "也", "想", "考", "托福", "？"],
+  "description": "Yǐjīng bào le. Nǐ shì bú shì yě xiǎng kǎo Tuōfú?<br>Yes, I've already registered. Are you thinking of taking the TOEFL too?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151564/434_s1qeu0.mp3"
+},
+{
+  "id": 435,
+  "user": "张东",
+  "title": "是。我想明天去报名，你陪我一起去，好吗？",
+  "segments": ["是", "。", "我", "想", "明天", "去", "报名", "，", "你", "陪", "我", "一起", "去", "，", "好", "吗", "？"],
+  "description": "Shì. Wǒ xiǎng míngtiān qù bàomíng, nǐ péi wǒ yìqǐ qù, hǎo ma?<br>Yes. I want to register tomorrow. Can you go with me?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151565/435_skb23f.mp3"
+},
+{
+  "id": 436,
+  "user": "田芳",
+  "title": "好的。",
+  "segments": ["好", "的", "。"],
+  "description": "Hǎo de.<br>Sure.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151565/436_ztlhwy.mp3"
 }
 ]
