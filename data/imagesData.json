@@ -4838,5 +4838,229 @@
     "pinyin": "qǐ",
     "meaning": "to get up",
     "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772984907/%E8%B5%B7%E5%BA%8A_bmu1jh.mp3"
-  }
+  },
+  {
+  "id": 606,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981579/%E5%96%82_mygqkh.png",
+  "character": "喂",
+  "meaning": "hello",
+  "pinyin": "wèi",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985411/%E5%96%82_qudyju.mp3"
+},
+{
+  "id": 607,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981627/%E9%98%BF%E5%A7%A8_rjsu3k.png",
+  "character": "阿姨",
+  "meaning": "aunt",
+  "pinyin": "ā yí",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985454/%E9%98%BF%E5%A7%A8_dtlrau.mp3"
+},
+{
+  "id": 608,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981559/%E4%B8%AD%E5%AD%A6_xchu6k.png",
+  "character": "中学",
+  "meaning": "middle school",
+  "pinyin": "zhōng xué",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985395/%E4%B8%AD%E5%AD%A6_sjxbcq.mp3"
+},
+{
+  "id": 609,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981572/%E5%87%BA%E5%9B%BD_nnpzuo.png",
+  "character": "出国",
+  "meaning": "to go abroad",
+  "pinyin": "chū guó",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985402/%E5%87%BA%E5%9B%BD_sqbd8g.mp3"
+},
+{
+  "id": 610,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981568/%E5%87%BA_y6qdvl.png",
+  "character": "出",
+  "meaning": "to proceed from inside to out-side",
+  "pinyin": "chū",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985401/%E5%87%BA_lpgwys.mp3"
+},
+{
+  "id": 611,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981596/%E6%89%93%E7%94%B5%E8%AF%9D_k3srfy.png",
+  "character": "打²",
+  "meaning": "to make (a phone call)",
+  "pinyin": "dǎ (打电话)",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985426/%E6%89%93%E7%94%B5%E8%AF%9D_s47e6e.mp3"
+},
+{
+  "id": 612,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981561/%E5%85%B3%E6%9C%BA_en2mzs.png",
+  "character": "关机",
+  "meaning": "to turn off one's mobile phone",
+  "pinyin": "guān jī",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985397/%E5%85%B3%E6%9C%BA_yy1lvn.mp3"
+},
+{
+  "id": 613,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981560/%E5%85%B3_yffe8w.png",
+  "character": "关",
+  "meaning": "to turn off; to switch off",
+  "pinyin": "guān",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985396/%E5%85%B3_fvncv1.mp3"
+},
+{
+  "id": 614,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981585/%E5%AF%B9%E4%BA%86_uiaz4s.png",
+  "character": "对了",
+  "meaning": "oh yes",
+  "pinyin": "duì le",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985413/%E5%AF%B9%E4%BA%86_ozfxrl.mp3"
+},
+{
+  "id": 615,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981595/%E5%BF%98_ktlarg.png",
+  "character": "忘",
+  "meaning": "to forget",
+  "pinyin": "wàng",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985424/%E5%BF%98_k23glv.mp3"
+},
+{
+  "id": 616,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981588/%E5%BC%80%E6%9C%BA_fzzgxs.png",
+  "character": "开机",
+  "meaning": "to turn on one's mobile phone",
+  "pinyin": "kāi jī",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985421/%E5%BC%80%E6%9C%BA_n8ys67.mp3"
+},
+{
+  "id": 617,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1742351247/%E5%BC%80-min_f3txuo.png",
+  "character": "开",
+  "meaning": "to turn on; to open; to drive",
+  "pinyin": "kāi",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742352612/%E5%BC%80_qepgpm.mp3"
+},
+{
+  "id": 618,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1755824083/%E5%8F%88-min_lhuv6h.png",
+  "character": "又",
+  "meaning": "again",
+  "pinyin": "yòu",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985403/%E5%8F%88_lihohw.mp3"
+},
+{
+  "id": 619,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981573/%E5%93%8D_z0z6qe.png",
+  "character": "响",
+  "meaning": "to make a sound",
+  "pinyin": "xiǎng",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985407/%E5%93%8D_i5pe9o.mp3"
+},
+{
+  "id": 620,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981597/%E6%8E%A5_yvd45e.png",
+  "character": "接",
+  "meaning": "to get; to receive",
+  "pinyin": "jiē",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985432/%E6%8E%A5_szgq8r.mp3"
+},
+{
+  "id": 621,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981616/%E8%B8%A2_w0i82i.png",
+  "character": "踢",
+  "meaning": "to kick; to play (football)",
+  "pinyin": "tī",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985447/%E8%B8%A2_lfo3ds.mp3"
+},
+{
+  "id": 622,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981607/%E6%AF%94%E8%B5%9B_tmgonz.png",
+  "character": "比赛",
+  "meaning": "to match; to contest; game",
+  "pinyin": "bǐ sài",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985438/%E6%AF%94%E8%B5%9B_wwdvzw.mp3"
+},
+{
+  "id": 623,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981625/%E9%98%9F_a0cwkv.png",
+  "character": "队",
+  "meaning": "team",
+  "pinyin": "duì",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985453/%E9%98%9F_gtx7nv.mp3"
+},
+{
+  "id": 624,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981617/%E8%BE%93_kgc9qy.png",
+  "character": "输",
+  "meaning": "to lose (a game)",
+  "pinyin": "shū",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985450/%E8%BE%93_kue83v.mp3"
+},
+{
+  "id": 625,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981616/%E8%B5%A2_evjphr.png",
+  "character": "赢",
+  "meaning": "to win",
+  "pinyin": "yíng",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985444/%E8%B5%A2_p1qbfr.mp3"
+},
+{
+  "id": 626,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981606/%E6%AF%94_mibg7m.png",
+  "character": "比",
+  "meaning": "(of a score) to",
+  "pinyin": "bǐ",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985434/%E6%AF%94_jom9c4.mp3"
+},
+{
+  "id": 627,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981609/%E7%A5%9D%E8%B4%BA_mnlyrf.png",
+  "character": "祝贺",
+  "meaning": "to congratulate",
+  "pinyin": "zhù hè",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985440/%E7%A5%9D%E8%B4%BA_on8mhj.mp3"
+},
+{
+  "id": 628,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981576/%E5%93%8E_d9rpws.png",
+  "character": "哎",
+  "meaning": "(interjection)",
+  "pinyin": "āi",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985409/%E5%93%8E_illumt.mp3"
+},
+{
+  "id": 629,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981559/%E4%B8%8A_x1ovjf.png",
+  "character": "上",
+  "meaning": "to attend (a class, program, etc.)",
+  "pinyin": "shàng",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985611/%E4%B8%8A_iyrxiu.mp3"
+},
+{
+  "id": 630,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981597/%E6%89%98%E7%A6%8F_vezztj.png",
+  "character": "托福",
+  "meaning": "TOEFL",
+  "pinyin": "tuō fú",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985431/%E6%89%98%E7%A6%8F_iwer21.mp3"
+},
+{
+  "id": 631,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981585/%E5%B7%B2%E7%BB%8F_pxijjv.png",
+  "character": "已经",
+  "meaning": "already",
+  "pinyin": "yǐ jīng",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985416/%E5%B7%B2%E7%BB%8F_yozfib.mp3"
+},
+{
+  "id": 632,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981615/%E8%80%83_worpib.png",
+  "character": "考",
+  "meaning": "to take (a test)",
+  "pinyin": "kǎo",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985443/%E8%80%83_bbut60.mp3"
+},
+{
+  "id": 633,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981629/%E9%99%AA_npuzbs.png",
+  "character": "陪",
+  "meaning": "to accompany",
+  "pinyin": "péi",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985459/%E9%99%AA_v6gzrg.mp3"
+}
 ]
