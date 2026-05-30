@@ -3756,7 +3756,7 @@
   "id": 418,
   "user": "妈妈",
   "title": "他来电话找你，说打你的手机，你关机了。",
-  "segments": ["他", "来", "电话", "找", "你", "，", "说", "打²", "你", "的", "手机", "，", "你", "关机", "了", "。"],
+  "segments": ["他", "来", "电话", "找²", "你", "，", "说", "打²", "你", "的", "手机", "，", "你", "关机", "了", "。"],
   "description": "Tā lái diànhuà zhǎo nǐ, shuō dǎ nǐ de shǒujī, nǐ guānjī le.<br>He called looking for you. He said he tried your mobile phone, but it was turned off.",
   "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738248230/mama.0001_x8tqfm.png",
   "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151556/418_wqwk53.mp3"
