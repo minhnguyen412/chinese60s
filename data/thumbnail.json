@@ -479,5 +479,29 @@
   "dialoguePDF": "https://drive.google.com/file/d/1PKpwyibeZE0CnhwmiYVKEi8Sw6ia76le/view?usp=drive_link",
     "characterPDF": "https://drive.google.com/file/d/1el72xvzXtKf1Sw7wpRoxkOBMa3nTrXOG/view?usp=drive_link",
   "htmlLink": "posts.html?postStartId=393&postEndId=403&quizStartId=516&quizEndId=531&writeStartId=589&writeEndId=603&id=40"
+},
+  {
+  "id": 41,
+  "title": "第二十六课 (一)：田芳去哪儿了",
+  "description": "Lesson 26 (1): Where did Tian Fang go?",
+  "plan": "hsk12",
+  "premium": true,
+  "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1780156855/hyjc-1-26-1_itbu4y.png",
+  "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
+  "dialoguePDF": "",
+  "characterPDF": "",
+  "htmlLink": "posts.html?postStartId=404&postEndId=414&quizStartId=531&quizEndId=543&writeStartId=606&writeEndId=620&id=41"
+},
+{
+  "id": 42,
+  "title": "第二十六课 (二)：他又来电话了",
+  "description": "Lesson 26 (2): He is calling you again",
+  "plan": "hsk12",
+  "premium": true,
+  "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1780156856/hyjc-1-26-2_ofg4tt.png",
+  "videoLink": "https://www.youtube.com/embed/s0QazUhB3v4?si=OBCdn4rEChNBP9vF",
+  "dialoguePDF": "",
+  "characterPDF": "",
+  "htmlLink": "posts.html?postStartId=415&postEndId=436&quizStartId=544&quizEndId=572&writeStartId=621&writeEndId=638&id=42"
 }
 ]
