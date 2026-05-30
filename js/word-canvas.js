@@ -428,19 +428,29 @@ loadLessonMapping().then((loadedLessons) => {
             });
 
             searchButton.addEventListener('click', () => {
-                const searchValue = searchInput.value.trim().toLowerCase();
-                if (searchValue) {
-                    const matchedImages = data.filter(item => 
-                        item.character.includes(searchValue) || 
-                        item.meaning.toLowerCase().includes(searchValue) || 
-                        item.pinyin.toLowerCase().includes(searchValue) ||
-                        (item.lesson && item.lesson.title.toLowerCase().includes(searchValue))
-                    );
-                    setDataset(matchedImages);
-                } else {
-                    setDataset(data.slice().reverse());
-                }
-            });
+    const searchValue = searchInput.value.trim().toLowerCase();
+    if (searchValue) {
+        // Ưu tiên: tìm trong character trước
+        const matchedByChar = data.filter(item => 
+            item.character.includes(searchValue)
+        );
+        
+        // Nếu có kết quả từ character, dùng nó
+        if (matchedByChar.length > 0) {
+            setDataset(matchedByChar);
+        } else {
+            // Nếu không, mới search trong meaning, pinyin, lesson
+            const matchedImages = data.filter(item => 
+                item.meaning.toLowerCase().includes(searchValue) || 
+                item.pinyin.toLowerCase().includes(searchValue) ||
+                (item.lesson && item.lesson.title.toLowerCase().includes(searchValue))
+            );
+            setDataset(matchedImages);
+        }
+    } else {
+        setDataset(data.slice().reverse());
+    }
+});
 
             // ── Enter in countInput ───────────────────────────────────────────────
             countInput.addEventListener('keypress', (e) => {
