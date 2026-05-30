@@ -23,9 +23,6 @@ async function loadLessonMapping() {
             for (let id = writeStart; id <= writeEnd; id++) {
                 idToLesson[id] = {
                     title: lesson.title,
-                    description: lesson.description,
-                    topic: lesson.topic,
-                    plan: lesson.plan,
                     writeStartId: writeStart,
                     writeEndId: writeEnd
                 };
