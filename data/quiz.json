@@ -7589,6 +7589,378 @@
     "answer": "晚"
   }],
   "words": ["早", "晚", "快", "赶"]
+},
+    {
+  "id": 531,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151553/407_mx0ket.mp3",
+  "sentence": "She went to a classmate's house a little after four o'clock. ___ ___ ___ ___ ___ ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "她" }, { "answer": "四" }, { "answer": "点" }, { "answer": "多" }, { "answer": "就" }, { "answer": "去" }, { "answer": "同学" }, { "answer": "家" }, { "answer": "了" }],
+  "words": ["多", "点", "了", "同学", "她", "四", "家", "就", "去"]
+},
+{
+  "id": 532,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151555/408_vqnpii.mp3",
+  "sentence": "One of her middle school classmates is going abroad, so she went to visit her. ___ ___ ___ ___ ___ ___ ___ ___ ， ___ ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "她" }, { "answer": "的" }, { "answer": "一" }, { "answer": "个" }, { "answer": "中学" }, { "answer": "同学" }, { "answer": "要" }, { "answer": "出国" }, { "answer": "她" }, { "answer": "去" }, { "answer": "看" }, { "answer": "看" }, { "answer": "她" }],
+  "words": ["的", "看", "她", "一", "去", "中学", "她", "要", "出国", "看", "同学", "个", "她"]
+},
+{
+  "id": 533,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985395/%E4%B8%AD%E5%AD%A6_sjxbcq.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981559/%E4%B8%AD%E5%AD%A6_xchu6k.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "中学"
+  }],
+  "words": ["老师", "中学", "秘书", "公司"]
+},
+{
+  "id": 534,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985402/%E5%87%BA%E5%9B%BD_sqbd8g.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981572/%E5%87%BA%E5%9B%BD_nnpzuo.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "出国"
+  }],
+  "words": ["学习", "锻炼", "游泳", "出国"]
+},
+{
+  "id": 535,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151555/409_ycebzr.mp3",
+  "sentence": "When will she be back? ___ ___ ___ ___ ___ ？",
+  "blanks": [{ "answer": "她" }, { "answer": "什么" }, { "answer": "时候" }, { "answer": "能" }, { "answer": "回来" }],
+  "words": ["时候", "能", "什么", "她", "回来"]
+},
+{
+  "id": 536,
+  "audio": "",
+  "sentence": "回来 : ___",
+  "blanks": [{
+    "answer": ""
+  }],
+  "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772983856/%E5%B9%B2%E5%87%80_wwymqi.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772983775/%E4%BD%9C%E4%B8%9A_gw0lu4.png"]
+},
+{
+  "id": 537,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151553/410_fkazf4.mp3",
+  "sentence": "She didn't say. Try calling her mobile phone. ___ ___ ___ ， ___ ___ ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "她" }, { "answer": "没" }, { "answer": "说" }, { "answer": "你" }, { "answer": "打" }, { "answer": "她" }, { "answer": "的" }, { "answer": "手机" }, { "answer": "吧" }],
+  "words": ["没", "打", "手机", "她", "吧", "的", "说", "你", "她"]
+},
+{
+  "id": 538,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985426/%E6%89%93%E7%94%B5%E8%AF%9D_s47e6e.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981596/%E6%89%93%E7%94%B5%E8%AF%9D_k3srfy.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "打"
+  }],
+  "words": ["打", "接", "找", "换"]
+},
+{
+  "id": 539,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151553/411_xvexzq.mp3",
+  "sentence": "I did, but her phone is turned off. ___ ___ ___ 。 ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "我" }, { "answer": "打" }, { "answer": "了" }, { "answer": "可是" }, { "answer": "她" }, { "answer": "关机" }, { "answer": "了" }],
+  "words": ["了", "打", "关机", "了", "可是", "她", "我"]
+},
+{
+  "id": 540,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985397/%E5%85%B3%E6%9C%BA_yy1lvn.mp3",
+  "sentence": "关机 : ___",
+  "blanks": [{
+    "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981561/%E5%85%B3%E6%9C%BA_en2mzs.png"
+  }],
+  "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772983074/%E6%89%93%E5%BC%80_keea8k.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982376/%E7%A7%9F_kfv1aq.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981561/%E5%85%B3%E6%9C%BA_en2mzs.png"]
+},
+{
+  "id": 541,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151555/412_dd5qip.mp3",
+  "sentence": "Really? Try calling again a little later. ___ ___ ， ___ ___ ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "是" }, { "answer": "吗" }, { "answer": "你" }, { "answer": "过" }, { "answer": "一会儿" }, { "answer": "再" }, { "answer": "打" }, { "answer": "吧" }],
+  "words": ["打", "一会儿", "再", "过", "你", "吧", "吗", "是"]
+},
+{
+  "id": 542,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151555/413_deaf2f.mp3",
+  "sentence": "Auntie, has Tian Fang come back yet? ___ ， ___ ___ ___ ___ ？",
+  "blanks": [{ "answer": "阿姨" }, { "answer": "田芳" }, { "answer": "回来" }, { "answer": "了" }, { "answer": "没有" }],
+  "words": ["田芳", "没有", "阿姨", "了", "回来"]
+},
+{
+  "id": 543,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985454/%E9%98%BF%E5%A7%A8_dtlrau.mp3",
+  "sentence": "阿姨 : ___",
+  "blanks": [{
+    "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981627/%E9%98%BF%E5%A7%A8_rjsu3k.png"
+  }],
+  "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772981627/%E9%98%BF%E5%A7%A8_rjsu3k.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981831/%E4%B8%8A%E5%8E%BB_iotimp.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981693/%E6%8B%89%E8%82%9A%E5%AD%90_jyjtzs.png"]
+},
+{
+  "id": 544,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151556/416_jzsvsm.mp3",
+  "sentence": "Did Zhang Dong call you? ___ ___ ___ ___ ___ ___ ___ ？",
+  "blanks": [{ "answer": "张东" }, { "answer": "给" }, { "answer": "你" }, { "answer": "打" }, { "answer": "电话" }, { "answer": "了" }, { "answer": "没有" }],
+  "words": ["你", "电话", "没有", "张东", "给", "了", "打"]
+},
+{
+  "id": 545,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151556/418_wqwk53.mp3",
+  "sentence": "He called looking for you. He said he tried your mobile phone, but it was turned off. ___ ___ ___ ___ ___ ， ___ ___ ___ ___ ___ ， ___ ___ ___ 。",
+  "blanks": [{ "answer": "他" }, { "answer": "来" }, { "answer": "电话" }, { "answer": "找" }, { "answer": "你" }, { "answer": "说" }, { "answer": "打" }, { "answer": "你" }, { "answer": "的" }, { "answer": "手机" }, { "answer": "你" }, { "answer": "关机" }, { "answer": "了" }],
+  "words": ["你", "的", "来", "了", "他", "找", "手机", "你", "说", "关机", "电话", "打", "你"]
+},
+{
+  "id": 546,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151556/419_kap4bm.mp3",
+  "sentence": "Oh, right! I forgot to turn it on. ___ ！ ___ ， ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "啊" }, { "answer": "对了" }, { "answer": "我" }, { "answer": "忘" }, { "answer": "开机" }, { "answer": "了" }],
+  "words": ["啊", "开机", "了", "对了", "忘", "我"]
+},
+{
+  "id": 547,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985424/%E5%BF%98_k23glv.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981595/%E5%BF%98_ktlarg.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "忘"
+  }],
+  "words": ["记", "疼", "忘", "读"]
+},
+{
+  "id": 548,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151557/420_kg0zxx.mp3",
+  "sentence": "Quick! The phone is ringing again. Go answer it. ___ ！ ___ ___ ___ ___ ， ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "快" }, { "answer": "电话" }, { "answer": "又" }, { "answer": "响" }, { "answer": "了" }, { "answer": "你" }, { "answer": "去" }, { "answer": "接" }, { "answer": "吧" }],
+  "words": ["了", "接", "吧", "去", "你", "响", "又", "快", "电话"]
+},
+{
+  "id": 549,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985403/%E5%8F%88_lihohw.mp3",
+  "sentence": "又 : ___",
+  "blanks": [{
+    "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1755824083/%E5%8F%88-min_lhuv6h.png"
+  }],
+  "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1755824083/%E5%8F%88-min_lhuv6h.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981649/%E5%88%AB_tzhurg.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981597/%E6%8E%A5_yvd45e.png"]
+},
+{
+  "id": 550,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985407/%E5%93%8D_i5pe9o.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981573/%E5%93%8D_z0z6qe.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "响"
+  }],
+  "words": ["关", "开", "响", "打"]
+},
+{
+  "id": 551,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985432/%E6%8E%A5_szgq8r.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981597/%E6%8E%A5_yvd45e.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "接"
+  }],
+  "words": ["又", "接", "响", "打"]
+},
+{
+  "id": 552,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151557/421_tfp851.mp3",
+  "sentence": "You called me this afternoon, didn't you? ___ ___ ___ ___ ___ ___ ___ ___ ？",
+  "blanks": [{ "answer": "下午" }, { "answer": "你" }, { "answer": "给" }, { "answer": "我" }, { "answer": "打" }, { "answer": "电话" }, { "answer": "了" }, { "answer": "吧" }],
+  "words": ["打", "我", "下午", "给", "电话", "你", "吧", "了"]
+},
+{
+  "id": 553,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151557/425_h3co4a.mp3",
+  "sentence": "I went to play soccer. ___ ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "我" }, { "answer": "去" }, { "answer": "踢" }, { "answer": "足球" }, { "answer": "了" }],
+  "words": ["去", "我", "足球", "踢", "了"]
+},
+{
+  "id": 554,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985447/%E8%B8%A2_lfo3ds.mp3",
+  "sentence": "踢 : ___",
+  "blanks": [{
+    "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981616/%E8%B8%A2_w0i82i.png"
+  }],
+  "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772981559/%E4%B8%8A_x1ovjf.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981616/%E8%B8%A2_w0i82i.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981579/%E5%96%82_mygqkh.png"]
+},
+{
+  "id": 555,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151558/426_uscnrv.mp3",
+  "sentence": "Today we had a match against the international students' team. ___ ___ ___ ___ ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "今天" }, { "answer": "我们" }, { "answer": "跟" }, { "answer": "留学生" }, { "answer": "代表" }, { "answer": "队" }, { "answer": "比赛" }, { "answer": "了" }],
+  "words": ["代表", "队", "我们", "跟", "留学生", "比赛", "今天", "了"]
+},
+{
+  "id": 556,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985453/%E9%98%9F_gtx7nv.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981625/%E9%98%9F_a0cwkv.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "队"
+  }],
+  "words": ["队", "人", "上", "给"]
+},
+{
+  "id": 557,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985438/%E6%AF%94%E8%B5%9B_wwdvzw.mp3",
+  "sentence": "比赛 : ___",
+  "blanks": [{
+    "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981607/%E6%AF%94%E8%B5%9B_tmgonz.png"
+  }],
+  "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772981559/%E4%B8%AD%E5%AD%A6_xchu6k.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981540/%E8%A1%A8%E6%BC%94_quglt4.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981607/%E6%AF%94%E8%B5%9B_tmgonz.png"]
+},
+{
+  "id": 558,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151563/427_cxh4m3.mp3",
+  "sentence": "You lost again, right? ___ ___ ___ ___ ___ ___ ？",
+  "blanks": [{ "answer": "你们" }, { "answer": "队" }, { "answer": "又" }, { "answer": "输" }, { "answer": "了" }, { "answer": "吧" }],
+  "words": ["队", "了", "又", "输", "你们", "吧"]
+},
+{
+  "id": 559,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985450/%E8%BE%93_kue83v.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981617/%E8%BE%93_kgc9qy.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "输"
+  }],
+  "words": ["考", "表演", "赢", "输"]
+},
+{
+  "id": 560,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151563/428_lflqro.mp3",
+  "sentence": "No. This time we won. ___ 。 ___ ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "没有" }, { "answer": "这" }, { "answer": "次" }, { "answer": "我们" }, { "answer": "赢" }, { "answer": "了" }],
+  "words": ["了", "次", "赢", "这", "没有", "我们"]
+},
+{
+  "id": 561,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985444/%E8%B5%A2_p1qbfr.mp3",
+  "sentence": "赢 : ___",
+  "blanks": [{
+    "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981616/%E8%B5%A2_evjphr.png"
+  }],
+  "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772981616/%E8%B5%A2_evjphr.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981520/%E6%99%9A_g6utwv.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981486/%E4%B8%BA%E4%BB%80%E4%B9%88_q3lwll.png"]
+},
+{
+  "id": 562,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151563/429_ebjp1z.mp3",
+  "sentence": "What was the score? ___ ___ ___ ？",
+  "blanks": [{ "answer": "几" }, { "answer": "比" }, { "answer": "几" }],
+  "words": ["几", "比", "几"]
+},
+{
+  "id": 563,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985434/%E6%AF%94_jom9c4.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981606/%E6%AF%94_mibg7m.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "比"
+  }],
+  "words": ["队", "比", "接", "响"]
+},
+{
+  "id": 564,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151563/431_lahgbm.mp3",
+  "sentence": "Congratulations! ___ ___ ！",
+  "blanks": [{ "answer": "祝贺" }, { "answer": "你们" }],
+  "words": ["祝贺", "你们"]
+},
+{
+  "id": 565,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985440/%E7%A5%9D%E8%B4%BA_on8mhj.mp3",
+  "sentence": "祝贺 : ___",
+  "blanks": [{
+    "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981609/%E7%A5%9D%E8%B4%BA_mnlyrf.png"
+  }],
+  "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772981609/%E7%A5%9D%E8%B4%BA_mnlyrf.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981462/%E8%88%92%E6%9C%8D_paxxed.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981453/%E7%96%BC_lfu41e.png"]
+},
+{
+  "id": 566,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151564/433_vheeu8.mp3",
+  "sentence": "I wanted to ask you something. Aren't you planning to take a TOEFL prep class? Have you registered yet? ___ ___ ___ ___ ___ ， ___ ___ ___ ___ ___ ___ ___ ___ ？ ___ ___ ___ ？",
+  "blanks": [{ "answer": "我" }, { "answer": "想" }, { "answer": "问" }, { "answer": "问" }, { "answer": "你" }, { "answer": "你" }, { "answer": "不" }, { "answer": "是" }, { "answer": "要" }, { "answer": "上" }, { "answer": "托福" }, { "answer": "班" }, { "answer": "吗" }, { "answer": "报名" }, { "answer": "了" }, { "answer": "没有" }],
+  "words": ["没有", "上", "问", "托福", "了", "你", "要", "我", "报名", "你", "班", "是", "想", "不", "吗", "问"]
+},
+{
+  "id": 567,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985431/%E6%89%98%E7%A6%8F_iwer21.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981597/%E6%89%98%E7%A6%8F_vezztj.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "托福"
+  }],
+  "words": ["托福", "节目", "代表", "足球"]
+},
+{
+  "id": 568,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151564/434_s1qeu0.mp3",
+  "sentence": "Yes, I've already registered. Are you thinking of taking the TOEFL too? ___ ___ ___ 。 ___ ___ ___ ___ ___ ___ ___ ___ ？",
+  "blanks": [{ "answer": "已经" }, { "answer": "报" }, { "answer": "了" }, { "answer": "你" }, { "answer": "是" }, { "answer": "不" }, { "answer": "是" }, { "answer": "也" }, { "answer": "想" }, { "answer": "考" }, { "answer": "托福" }],
+  "words": ["已经", "你", "是", "了", "想", "托福", "是", "也", "报", "考", "不"]
+},
+{
+  "id": 569,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985416/%E5%B7%B2%E7%BB%8F_yozfib.mp3",
+  "sentence": "已经 : ___",
+  "blanks": [{
+    "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981585/%E5%B7%B2%E7%BB%8F_pxijjv.png"
+  }],
+  "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772981448/%E6%89%93_c3ijlx.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981585/%E5%B7%B2%E7%BB%8F_pxijjv.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981446/%E6%8A%A5%E5%90%8D_ji1w9f.png"]
+},
+{
+  "id": 570,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985443/%E8%80%83_bbut60.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981615/%E8%80%83_worpib.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "考"
+  }],
+  "words": ["考", "踢", "忘", "给"]
+},
+{
+  "id": 571,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151565/435_skb23f.mp3",
+  "sentence": "Yes. I want to register tomorrow. Can you go with me? ___ 。 ___ ___ ___ ___ ___ ， ___ ___ ___ ___ ___ ， ___ ___ ？",
+  "blanks": [{ "answer": "是" }, { "answer": "我" }, { "answer": "想" }, { "answer": "明天" }, { "answer": "去" }, { "answer": "报名" }, { "answer": "你" }, { "answer": "陪" }, { "answer": "我" }, { "answer": "一起" }, { "answer": "去" }, { "answer": "好" }, { "answer": "吗" }],
+  "words": ["是", "明天", "报名", "想", "去", "吗", "你", "我", "一起", "陪", "我", "好", "去"]
+},
+{
+  "id": 572,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985459/%E9%99%AA_v6gzrg.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981629/%E9%99%AA_npuzbs.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "陪"
+  }],
+  "words": ["踢", "考", "陪", "又"]
 }
 
   ]
