@@ -67,7 +67,7 @@ loadLessonMapping().then((loadedLessons) => {
                 loadedLessons.forEach(lesson => {
                     const option = document.createElement('option');
                     option.value = lesson.title;
-                    option.textContent = `${lesson.title} (${lesson.topic})`;
+                    option.textContent = `${lesson.title}`;
                     lessonSelect.appendChild(option);
                 });
             }
