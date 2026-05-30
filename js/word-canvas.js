@@ -430,12 +430,17 @@ searchInput.addEventListener('keypress', (e) => {
 searchButton.addEventListener('click', () => {
     const searchValue = searchInput.value.trim().toLowerCase();
     if (searchValue) {
-        const matchedImages = data.filter(item => 
-            item.character.includes(searchValue) ||
-            item.meaning.toLowerCase().includes(searchValue) ||
-            item.pinyin.toLowerCase().includes(searchValue) ||
-            (item.lesson && item.lesson.title.toLowerCase().includes(searchValue))
-        );
+        const matchedImages = data.filter(item => {
+            // Exact match cho character (từng ký tự)
+            const charMatch = item.character.split('').some(c => c === searchValue);
+            
+            // Hoặc tìm trong meaning, pinyin, lesson (vẫn dùng includes)
+            const meaningMatch = item.meaning.toLowerCase().includes(searchValue);
+            const pinyinMatch = item.pinyin.toLowerCase().includes(searchValue);
+            const lessonMatch = item.lesson && item.lesson.title.toLowerCase().includes(searchValue);
+            
+            return charMatch || meaningMatch || pinyinMatch || lessonMatch;
+        });
         setDataset(matchedImages);
     } else {
         setDataset(data.slice().reverse());
