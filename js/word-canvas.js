@@ -421,31 +421,26 @@ loadLessonMapping().then((loadedLessons) => {
 
             // ── Search ────────────────────────────────────────────────────────────
             const searchInput = document.getElementById('searchInput');
-const searchButton = document.getElementById('searchButton');
+            const searchButton = document.getElementById('searchButton');
 
-searchInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') searchButton.click();
-});
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') searchButton.click();
+            });
 
-searchButton.addEventListener('click', () => {
-    const searchValue = searchInput.value.trim(); // ❌ Không dùng toLowerCase()
-    if (searchValue) {
-        const matchedImages = data.filter(item => {
-            // Character: không convert lowercase
-            const charMatch = item.character.includes(searchValue);
-            
-            // Meaning, pinyin, lesson: convert lowercase
-            const meaningMatch = item.meaning.toLowerCase().includes(searchValue.toLowerCase());
-            const pinyinMatch = item.pinyin.toLowerCase().includes(searchValue.toLowerCase());
-            const lessonMatch = item.lesson && item.lesson.title.toLowerCase().includes(searchValue.toLowerCase());
-            
-            return charMatch || meaningMatch || pinyinMatch || lessonMatch;
-        });
-        setDataset(matchedImages);
-    } else {
-        setDataset(data.slice().reverse());
-    }
-});
+            searchButton.addEventListener('click', () => {
+                const searchValue = searchInput.value.trim().toLowerCase();
+                if (searchValue) {
+                    const matchedImages = data.filter(item => 
+                        item.character.includes(searchValue) || 
+                        item.meaning.toLowerCase().includes(searchValue) || 
+                        item.pinyin.toLowerCase().includes(searchValue) ||
+                        (item.lesson && item.lesson.title.toLowerCase().includes(searchValue))
+                    );
+                    setDataset(matchedImages);
+                } else {
+                    setDataset(data.slice().reverse());
+                }
+            });
 
             // ── Enter in countInput ───────────────────────────────────────────────
             countInput.addEventListener('keypress', (e) => {
