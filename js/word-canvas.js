@@ -428,16 +428,16 @@ searchInput.addEventListener('keypress', (e) => {
 });
 
 searchButton.addEventListener('click', () => {
-    const searchValue = searchInput.value.trim().toLowerCase();
+    const searchValue = searchInput.value.trim(); // ❌ Không dùng toLowerCase()
     if (searchValue) {
         const matchedImages = data.filter(item => {
-            // Exact match cho character (từng ký tự)
-            const charMatch = item.character.split('').some(c => c === searchValue);
+            // Character: không convert lowercase
+            const charMatch = item.character.includes(searchValue);
             
-            // Hoặc tìm trong meaning, pinyin, lesson (vẫn dùng includes)
-            const meaningMatch = item.meaning.toLowerCase().includes(searchValue);
-            const pinyinMatch = item.pinyin.toLowerCase().includes(searchValue);
-            const lessonMatch = item.lesson && item.lesson.title.toLowerCase().includes(searchValue);
+            // Meaning, pinyin, lesson: convert lowercase
+            const meaningMatch = item.meaning.toLowerCase().includes(searchValue.toLowerCase());
+            const pinyinMatch = item.pinyin.toLowerCase().includes(searchValue.toLowerCase());
+            const lessonMatch = item.lesson && item.lesson.title.toLowerCase().includes(searchValue.toLowerCase());
             
             return charMatch || meaningMatch || pinyinMatch || lessonMatch;
         });
