@@ -421,25 +421,26 @@ loadLessonMapping().then((loadedLessons) => {
 
             // ── Search ────────────────────────────────────────────────────────────
             const searchInput = document.getElementById('searchInput');
-            const searchButton = document.getElementById('searchButton');
+const searchButton = document.getElementById('searchButton');
 
-            searchInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') searchButton.click();
-            });
-            searchButton.addEventListener('click', () => {
-                const val = searchInput.value.trim().toLowerCase();
-                if (val) {
-                    const matched = data.filter(item =>
-                        item.character.includes(val) ||
-                        item.meaning.toLowerCase().includes(val) ||
-                        item.pinyin.toLowerCase().includes(val) ||
-                        (item.lesson && item.lesson.title.toLowerCase().includes(val))
-                    );
-                    setDataset(matched);
-                } else {
-                    setDataset(data.slice().reverse());
-                }
-            });
+searchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') searchButton.click();
+});
+
+searchButton.addEventListener('click', () => {
+    const searchValue = searchInput.value.trim().toLowerCase();
+    if (searchValue) {
+        const matchedImages = data.filter(item => 
+            item.character.includes(searchValue) ||
+            item.meaning.toLowerCase().includes(searchValue) ||
+            item.pinyin.toLowerCase().includes(searchValue) ||
+            (item.lesson && item.lesson.title.toLowerCase().includes(searchValue))
+        );
+        setDataset(matchedImages);
+    } else {
+        setDataset(data.slice().reverse());
+    }
+});
 
             // ── Enter in countInput ───────────────────────────────────────────────
             countInput.addEventListener('keypress', (e) => {
