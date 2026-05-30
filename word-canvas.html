@@ -233,52 +233,6 @@
       footer { padding: 28px 20px; }
       .search-container input { width: 180px; }
     }
-    /* ────────────────────────────────────────────────────────────────────────────
-   LESSON BADGE STYLING
-   ──────────────────────────────────────────────────────────────────────────── */
- 
-.card-lesson-badge {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    margin-bottom: 12px;
-    padding: 8px 12px;
-    background: var(--sky-pale, #eaf8ff);
-    border: 2px solid var(--sky, #72c8f0);
-    border-radius: 8px;
-    font-size: 0.85rem;
-    font-weight: 600;
-}
- 
-.card-lesson-badge .lesson-title {
-    color: var(--sky, #72c8f0);
-    font-weight: 700;
-    font-size: 0.9rem;
-    line-height: 1.2;
-}
- 
-.card-lesson-badge .lesson-topic {
-    color: var(--black, #222);
-    font-size: 0.8rem;
-    font-weight: 500;
-    opacity: 0.7;
-}
- 
-/* Responsive ────────────────────────────────────────────────────────────── */
-@media (max-width: 768px) {
-    .card-lesson-badge {
-        padding: 6px 10px;
-        gap: 3px;
-    }
- 
-    .card-lesson-badge .lesson-title {
-        font-size: 0.8rem;
-    }
- 
-    .card-lesson-badge .lesson-topic {
-        font-size: 0.75rem;
-    }
-}
   </style>
 </head>
 <body>
@@ -314,6 +268,9 @@
       <button class="btn-green" id="searchButton">🔍 Search</button>
     </div>
     <div class="filter-controls">
+      <select id="lessonSelect">
+        <option value="">All Lessons</option>
+      </select>
       <input type="number" id="countInput" placeholder="Count" min="1" value="100">
       <select id="sortSelect">
         <option value="oldest">Oldest</option>
