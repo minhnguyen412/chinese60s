@@ -1195,7 +1195,24 @@
     
     // Update header
     updateUserDisplay(user);
+    // ✅ THÊM: Authenticate vào Supabase bằng Firebase token
+  try {
+    const idToken = await user.getIdToken();
+    const { createClient } = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm');
+    const supabase = createClient(
+      'https://dpnxyrkwjdtlunepeewz.supabase.co',
+      'sb_publishable_qZUI2tkjitvyZHDZnIRkpQ_yynAjgTA'
+    );
     
+    await supabase.auth.signInWithIdToken({
+      provider: 'firebase',
+      token: idToken
+    });
+    
+    console.log('[Supabase] Authenticated with Firebase token ✓');
+  } catch (e) {
+    console.warn('[Supabase auth] Error:', e);
+  }
     // ✅ Load personal lessons
     loadPersonalLessons(user.uid);
   });
