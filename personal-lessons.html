@@ -1195,24 +1195,7 @@
     
     // Update header
     updateUserDisplay(user);
-    // ✅ THÊM: Authenticate vào Supabase bằng Firebase token
-  try {
-    const idToken = await user.getIdToken();
-    const { createClient } = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm');
-    const supabase = createClient(
-      'https://dpnxyrkwjdtlunepeewz.supabase.co',
-      'sb_publishable_qZUI2tkjitvyZHDZnIRkpQ_yynAjgTA'
-    );
     
-    await supabase.auth.signInWithIdToken({
-      provider: 'firebase',
-      token: idToken
-    });
-    
-    console.log('[Supabase] Authenticated with Firebase token ✓');
-  } catch (e) {
-    console.warn('[Supabase auth] Error:', e);
-  }
     // ✅ Load personal lessons
     loadPersonalLessons(user.uid);
   });
@@ -1441,35 +1424,29 @@ function renderPersonalQuiz(quizData, imagesData) {
 
   // ✅ loadPersonalLessons - FIX: Lấy tất cả bài từ tất cả lessons, sắp xếp mới nhất trước
   async function loadPersonalLessons(userId) {
-    try {
-      console.log('[loadPersonalLessons] Starting with userId:', userId);
+  try {
+    console.log('[loadPersonalLessons] Starting with userId:', userId);
 
-      // ✅ FIX: Lấy tất cả lessons, sắp xếp theo created_at.desc (mới nhất trước)
-      const url = `${SUPABASE_URL}/rest/v1/lessons?user_id=eq.${userId}&select=*,posts,quiz,images&order=submitted_at.asc`;
-      console.log('[loadPersonalLessons] Fetching from:', url);
+    // ✅ IMPORT SUPABASE CLIENT
+    const { createClient } = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm');
+    
+    const supabase = createClient(
+      'https://dpnxyrkwjdtlunepeewz.supabase.co',
+      'sb_publishable_qZUI2tkjitvyZHDZnIRkpQ_yynAjgTA'
+    );
 
-      const response = await fetch(url, {
-        headers: {
-          'apikey': SUPABASE_KEY,
-          'Authorization': `Bearer ${SUPABASE_KEY}`,
-          'Content-Type': 'application/json'
-        }
-      });
+    // ✅ DÙNG SUPABASE CLIENT THAY VÌ FETCH
+    const { data, error } = await supabase
+      .from('lessons')
+      .select('*, posts, quiz, images')
+      .eq('user_id', userId)
+      .order('submitted_at', { ascending: true });
 
-      console.log('[loadPersonalLessons] Response status:', response.status, response.statusText);
+    console.log('[loadPersonalLessons] Response:', { data, error });
 
-      if (!response.ok) {
-        const errText = await response.text();
-        console.error('❌ Supabase error:', response.status, response.statusText, errText);
-        document.getElementById('itemList').innerHTML = 
-          `<div style="text-align:center;padding:40px;color:#e53935;">
-            <strong>Error ${response.status}:</strong> ${response.statusText}
-            <br><small>${errText}</small>
-          </div>`;
-        return;
-      }
-
-      const data = await response.json();
+    if (error) {
+      throw error;
+    }
       console.log('[loadPersonalLessons] Data received:', data);
 
       if (!data || data.length === 0) {
