@@ -71,14 +71,10 @@ input#set-title:focus{box-shadow:var(--shadow-sm);}
 .empty-state .icon{font-size:3.5rem;display:block;margin-bottom:12px;opacity:.3;}
 .empty-state p{font-family:'Quicksand',sans-serif;font-weight:700;font-size:.86rem;}
 .ws-scaler{transform-origin:top left;}
-
-/* ── TAB NAVIGATION ── */
 .tab-btn-group{display:flex;gap:6px;margin-bottom:9px;}
 .tab-btn{flex:1;padding:8px;border:var(--border);border-radius:8px;font-weight:700;font-size:.78rem;cursor:pointer;transition:all .12s;font-family:'Fredoka',sans-serif;}
 .tab-btn.active{background:var(--yellow);color:var(--black);}
 .tab-btn{background:#f0f0f0;color:#aaa;}
-
-/* ── WORKSHEET ── */
 .ws-page{width:794px;background:#fff;padding:20px 22px 14px;box-shadow:0 4px 28px rgba(0,0,0,.09);border-radius:6px;font-family:'Fredoka',sans-serif;}
 .ws-page-header{display:flex;align-items:center;margin-bottom:10px;height:44px;border:1.5px solid #e4e4e4;border-radius:10px;border-left:5px solid var(--red);background:#fff;padding:0 14px;}
 .ws-page-title{flex:1;}
@@ -129,8 +125,6 @@ input#set-title:focus{box-shadow:var(--shadow-sm);}
 .ws-notes-label{font-family:'Quicksand',sans-serif;font-size:.44rem;font-weight:700;color:#ddd;text-transform:uppercase;letter-spacing:.08em;writing-mode:vertical-rl;transform:rotate(180deg);flex-shrink:0;margin-top:2px;}
 .ws-notes-text{flex:1;font-family:'Quicksand',sans-serif;font-size:.72rem;font-weight:600;color:#555;line-height:1.6;word-break:break-word;padding:2px 0;}
 .ws-page-footer{text-align:right;font-family:'Quicksand',sans-serif;font-size:.5rem;color:#ddd;margin-top:5px;padding-top:3px;border-top:1px solid #f4f4f4;}
-
-/* ── DIALOGUE WORKSHEET ── */
 .dlg-message-block{break-inside:avoid;page-break-inside:avoid;margin-bottom:14px;background:#fff;border-radius:14px;padding:14px;border:1.5px solid #e4e4e4;}
 .dlg-message-header{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
 .dlg-avatar{width:48px;height:48px;border-radius:10px;object-fit:cover;border:2.5px solid var(--red);flex-shrink:0;}
@@ -141,7 +135,6 @@ input#set-title:focus{box-shadow:var(--shadow-sm);}
 .dlg-writing-lines{display:flex;flex-direction:column;gap:10px;}
 .dlg-line{border-bottom:2px dashed #d0d0d0;height:28px;position:relative;}
 .dlg-line::after{content:'';position:absolute;bottom:3px;left:0;right:0;height:1px;background:#f0f0f0;}
-
 @media print {
   @page{size:A4 portrait;margin:10mm 8mm 6mm 14mm;}
   html,body{height:auto!important;overflow:visible!important;background:white!important;font-size:100%!important;}
@@ -182,7 +175,6 @@ input#set-title:focus{box-shadow:var(--shadow-sm);}
 
 <div class="app">
   <aside class="sidebar">
-    <!-- TAB NAVIGATION -->
     <div class="sb-section" style="padding:9px 16px; border-bottom:var(--border); display:flex; gap:6px; flex-shrink:0;">
       <button class="tab-btn active" data-tab="character" onclick="switchTab('character')" style="flex:1; padding:8px; border:var(--border); border-radius:8px; background:var(--yellow); font-weight:700; font-size:.78rem; cursor:pointer; transition:all .12s; font-family:'Fredoka',sans-serif;">
         📝 Characters
@@ -192,87 +184,73 @@ input#set-title:focus{box-shadow:var(--shadow-sm);}
       </button>
     </div>
 
-    <!-- ═════════════════════════════════════════════════════════ -->
-    <!-- CHARACTER TAB CONTENT -->
-    <!-- ═════════════════════════════════════════════════════════ -->
     <div id="tab-character-content" style="flex:1; overflow:visible; display:flex; flex-direction:column;">
       <div class="sb-section">
         <h3>Add Character</h3>
         <div style="display:flex; flex-direction:column; gap:8px;">
           <input type="text" id="inp-character" placeholder="Character" maxlength="10">
           <div style="position:relative; display:flex; gap:6px; align-items:center;">
-  <input type="text" id="inp-pinyin" placeholder="Pinyin (e.g., nǐ hǎo)" style="flex:1;">
-  <button class="btn btn-sky" style="padding:7px 12px; flex-shrink:0;" onclick="togglePinyinHelper(event)">🔤 Tones</button>
-  <div id="pinyinDropdown" style="display:none; position:absolute; top:100%; right:0; background:white; border:var(--border-thick); border-radius:10px; padding:10px; margin-top:6px; z-index:50; box-shadow:var(--shadow-md); min-width:280px;">
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
-      <!-- A tones -->
-      <div>
-        <div style="font-weight:700; font-size:0.75rem; color:var(--muted); margin-bottom:6px;">A</div>
-        <div style="display:flex; gap:4px; flex-wrap:wrap;">
-          <button type="button" class="tone-btn" onclick="insertPinyinChar('ā')">ā</button>
-          <button type="button" class="tone-btn" onclick="insertPinyinChar('á')">á</button>
-          <button type="button" class="tone-btn" onclick="insertPinyinChar('ǎ')">ǎ</button>
-          <button type="button" class="tone-btn" onclick="insertPinyinChar('à')">à</button>
-        </div>
-      </div>
-
-      <!-- E tones -->
-      <div>
-        <div style="font-weight:700; font-size:0.75rem; color:var(--muted); margin-bottom:6px;">E</div>
-        <div style="display:flex; gap:4px; flex-wrap:wrap;">
-          <button type="button" class="tone-btn" onclick="insertPinyinChar('ē')">ē</button>
-          <button type="button" class="tone-btn" onclick="insertPinyinChar('é')">é</button>
-          <button type="button" class="tone-btn" onclick="insertPinyinChar('ě')">ě</button>
-          <button type="button" class="tone-btn" onclick="insertPinyinChar('è')">è</button>
-        </div>
-      </div>
-
-      <!-- I tones -->
-      <div>
-        <div style="font-weight:700; font-size:0.75rem; color:var(--muted); margin-bottom:6px;">I</div>
-        <div style="display:flex; gap:4px; flex-wrap:wrap;">
-          <button type="button" class="tone-btn" onclick="insertPinyinChar('ī')">ī</button>
-          <button type="button" class="tone-btn" onclick="insertPinyinChar('í')">í</button>
-          <button type="button" class="tone-btn" onclick="insertPinyinChar('ǐ')">ǐ</button>
-          <button type="button" class="tone-btn" onclick="insertPinyinChar('ì')">ì</button>
-        </div>
-      </div>
-
-      <!-- O tones -->
-      <div>
-        <div style="font-weight:700; font-size:0.75rem; color:var(--muted); margin-bottom:6px;">O</div>
-        <div style="display:flex; gap:4px; flex-wrap:wrap;">
-          <button type="button" class="tone-btn" onclick="insertPinyinChar('ō')">ō</button>
-          <button type="button" class="tone-btn" onclick="insertPinyinChar('ó')">ó</button>
-          <button type="button" class="tone-btn" onclick="insertPinyinChar('ǒ')">ǒ</button>
-          <button type="button" class="tone-btn" onclick="insertPinyinChar('ò')">ò</button>
-        </div>
-      </div>
-
-      <!-- U tones -->
-      <div>
-        <div style="font-weight:700; font-size:0.75rem; color:var(--muted); margin-bottom:6px;">U</div>
-        <div style="display:flex; gap:4px; flex-wrap:wrap;">
-          <button type="button" class="tone-btn" onclick="insertPinyinChar('ū')">ū</button>
-          <button type="button" class="tone-btn" onclick="insertPinyinChar('ú')">ú</button>
-          <button type="button" class="tone-btn" onclick="insertPinyinChar('ǔ')">ǔ</button>
-          <button type="button" class="tone-btn" onclick="insertPinyinChar('ù')">ù</button>
-        </div>
-      </div>
-
-      <!-- Ü tones -->
-      <div>
-        <div style="font-weight:700; font-size:0.75rem; color:var(--muted); margin-bottom:6px;">Ü</div>
-        <div style="display:flex; gap:4px; flex-wrap:wrap;">
-          <button type="button" class="tone-btn" onclick="insertPinyinChar('ǖ')">ǖ</button>
-          <button type="button" class="tone-btn" onclick="insertPinyinChar('ǘ')">ǘ</button>
-          <button type="button" class="tone-btn" onclick="insertPinyinChar('ǚ')">ǚ</button>
-          <button type="button" class="tone-btn" onclick="insertPinyinChar('ǜ')">ǜ</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+            <input type="text" id="inp-pinyin" placeholder="Pinyin (e.g., nǐ hǎo)" style="flex:1;">
+            <button class="btn btn-sky" style="padding:7px 12px; flex-shrink:0;" onclick="togglePinyinHelper(event)">🔤 Tones</button>
+            <div id="pinyinDropdown" style="display:none; position:absolute; top:100%; right:0; background:white; border:var(--border-thick); border-radius:10px; padding:10px; margin-top:6px; z-index:50; box-shadow:var(--shadow-md); min-width:280px;">
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+                <div>
+                  <div style="font-weight:700; font-size:0.75rem; color:var(--muted); margin-bottom:6px;">A</div>
+                  <div style="display:flex; gap:4px; flex-wrap:wrap;">
+                    <button type="button" class="tone-btn" onclick="insertPinyinChar('ā')">ā</button>
+                    <button type="button" class="tone-btn" onclick="insertPinyinChar('á')">á</button>
+                    <button type="button" class="tone-btn" onclick="insertPinyinChar('ǎ')">ǎ</button>
+                    <button type="button" class="tone-btn" onclick="insertPinyinChar('à')">à</button>
+                  </div>
+                </div>
+                <div>
+                  <div style="font-weight:700; font-size:0.75rem; color:var(--muted); margin-bottom:6px;">E</div>
+                  <div style="display:flex; gap:4px; flex-wrap:wrap;">
+                    <button type="button" class="tone-btn" onclick="insertPinyinChar('ē')">ē</button>
+                    <button type="button" class="tone-btn" onclick="insertPinyinChar('é')">é</button>
+                    <button type="button" class="tone-btn" onclick="insertPinyinChar('ě')">ě</button>
+                    <button type="button" class="tone-btn" onclick="insertPinyinChar('è')">è</button>
+                  </div>
+                </div>
+                <div>
+                  <div style="font-weight:700; font-size:0.75rem; color:var(--muted); margin-bottom:6px;">I</div>
+                  <div style="display:flex; gap:4px; flex-wrap:wrap;">
+                    <button type="button" class="tone-btn" onclick="insertPinyinChar('ī')">ī</button>
+                    <button type="button" class="tone-btn" onclick="insertPinyinChar('í')">í</button>
+                    <button type="button" class="tone-btn" onclick="insertPinyinChar('ǐ')">ǐ</button>
+                    <button type="button" class="tone-btn" onclick="insertPinyinChar('ì')">ì</button>
+                  </div>
+                </div>
+                <div>
+                  <div style="font-weight:700; font-size:0.75rem; color:var(--muted); margin-bottom:6px;">O</div>
+                  <div style="display:flex; gap:4px; flex-wrap:wrap;">
+                    <button type="button" class="tone-btn" onclick="insertPinyinChar('ō')">ō</button>
+                    <button type="button" class="tone-btn" onclick="insertPinyinChar('ó')">ó</button>
+                    <button type="button" class="tone-btn" onclick="insertPinyinChar('ǒ')">ǒ</button>
+                    <button type="button" class="tone-btn" onclick="insertPinyinChar('ò')">ò</button>
+                  </div>
+                </div>
+                <div>
+                  <div style="font-weight:700; font-size:0.75rem; color:var(--muted); margin-bottom:6px;">U</div>
+                  <div style="display:flex; gap:4px; flex-wrap:wrap;">
+                    <button type="button" class="tone-btn" onclick="insertPinyinChar('ū')">ū</button>
+                    <button type="button" class="tone-btn" onclick="insertPinyinChar('ú')">ú</button>
+                    <button type="button" class="tone-btn" onclick="insertPinyinChar('ǔ')">ǔ</button>
+                    <button type="button" class="tone-btn" onclick="insertPinyinChar('ù')">ù</button>
+                  </div>
+                </div>
+                <div>
+                  <div style="font-weight:700; font-size:0.75rem; color:var(--muted); margin-bottom:6px;">Ü</div>
+                  <div style="display:flex; gap:4px; flex-wrap:wrap;">
+                    <button type="button" class="tone-btn" onclick="insertPinyinChar('ǖ')">ǖ</button>
+                    <button type="button" class="tone-btn" onclick="insertPinyinChar('ǘ')">ǘ</button>
+                    <button type="button" class="tone-btn" onclick="insertPinyinChar('ǚ')">ǚ</button>
+                    <button type="button" class="tone-btn" onclick="insertPinyinChar('ǜ')">ǜ</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <input type="text" id="inp-meaning" placeholder="Meaning (English)">
           <input type="text" id="inp-topic" placeholder="Topic (optional)">
           <textarea id="inp-notes" placeholder="Notes (optional)" style="height:50px;"></textarea>
@@ -318,15 +296,9 @@ input#set-title:focus{box-shadow:var(--shadow-sm);}
       </div>
     </div>
 
-    <!-- ═════════════════════════════════════════════════════════ -->
-    <!-- DIALOGUE TAB CONTENT -->
-    <!-- ═════════════════════════════════════════════════════════ -->
     <div id="tab-dialogue-content" style="flex:1; overflow:visible; display:none; flex-direction:column; padding:0;">
-      
-      <!-- CHARACTERS SETUP -->
       <div style="padding:13px 16px; border-bottom:var(--border); flex-shrink:0;">
         <h3 style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:.68rem; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin-bottom:9px;">Setup Characters</h3>
-        
         <div style="display:flex; flex-direction:column; gap:8px;">
           <input type="text" id="dlg-char-name" placeholder="Character name" maxlength="20">
           <button class="btn btn-sky" style="padding:7px 12px; width:100%; justify-content:center;" onclick="openDlgMediaPicker()">🖼 Pick Avatar</button>
@@ -336,7 +308,6 @@ input#set-title:focus{box-shadow:var(--shadow-sm);}
         </div>
       </div>
 
-      <!-- CHARACTER LIST -->
       <div style="padding:13px 16px; border-bottom:var(--border); flex-shrink:0;">
         <h3 style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:.68rem; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin-bottom:9px;">Characters &nbsp;<span id="dlg-char-count" style="color:var(--red);font-weight:700;">0</span></h3>
         <div id="dlg-char-list" style="display:flex; flex-direction:column; gap:6px; max-height:150px; overflow-y:auto;">
@@ -344,26 +315,19 @@ input#set-title:focus{box-shadow:var(--shadow-sm);}
         </div>
       </div>
 
-      <!-- DIALOGUE LINES -->
       <div style="padding:13px 16px; flex:1; overflow-y:auto; display:flex; flex-direction:column; gap:9px;">
         <h3 style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:.68rem; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); margin-bottom:6px;">Add Lines</h3>
-        
         <div style="display:flex; flex-direction:column; gap:6px;">
           <select id="dlg-speaker" style="width:100%;">
             <option value="">Choose character...</option>
           </select>
-          
           <textarea id="dlg-text" placeholder="Line text" style="height:60px;"></textarea>
-          
           <button class="btn btn-red btn-full" onclick="addDialogueLine()">➕ Add Line</button>
         </div>
-        
         <div id="dlg-lines-list" style="display:flex; flex-direction:column; gap:6px; max-height:300px; overflow-y:auto;">
           <div style="text-align:center; color:var(--muted); padding:20px 0; font-size:0.78rem;">No lines yet</div>
         </div>
       </div>
-
-      
     </div>
   </aside>
 
@@ -385,9 +349,6 @@ input#set-title:focus{box-shadow:var(--shadow-sm);}
   </main>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════════ -->
-<!-- MEDIA PICKER MODAL (Character) -->
-<!-- ═══════════════════════════════════════════════════════════ -->
 <div id="mediaModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:200; overflow:auto;">
   <div style="background:var(--white); margin:20px auto; max-width:900px; border-radius:12px; border:var(--border-thick); box-shadow:var(--shadow-lg);">
     <div style="padding:16px; border-bottom:var(--border); display:flex; justify-content:space-between; align-items:center;">
@@ -407,21 +368,14 @@ input#set-title:focus{box-shadow:var(--shadow-sm);}
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════════ -->
-<!-- MEDIA PICKER MODAL (Dialogue) -->
-<!-- ═══════════════════════════════════════════════════════════ -->
 <div id="dlg-media-modal-overlay" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:200; overflow:auto;"></div>
-<!-- ═══════════════════════════════════════════════════════════ -->
-<!-- UPGRADE MODAL -->
-<!-- ═══════════════════════════════════════════════════════════ -->
+
 <div id="subscriptionModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:10000; align-items:center; justify-content:center; flex-direction:column;">
   <div style="background:white; border:3px solid #222; border-radius:24px; padding:40px; max-width:500px; box-shadow:6px 6px 0 #222;">
     <h2 style="font-size:1.6rem; font-weight:700; margin-bottom:16px;">⭐ Upgrade to Pro</h2>
     <p style="color:#666; margin-bottom:24px;">Get unlimited prints + more features</p>
     
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:24px;">
-
-      <!-- FREE -->
       <div style="border:3px solid #ddd; border-radius:14px; padding:20px; text-align:center; background:#fafafa;">
         <div style="font-size:2.2rem; font-weight:800; color:#888; line-height:1; margin-bottom:6px;">
           $0 <span style="font-size:0.85rem; color:#aaa; font-weight:600;">/month</span>
@@ -433,30 +387,24 @@ input#set-title:focus{box-shadow:var(--shadow-sm);}
         </button>
       </div>
 
-      <!-- PRO -->
       <div style="border:3px solid #2e7d32; border-radius:14px; padding:22px; text-align:center; background:#f2fde0; transform:scale(1.05); box-shadow:0 6px 0 #2e7d32; position:relative;">
         <div style="position:absolute; top:-10px; right:-10px; background:#ff5252; color:white; font-size:0.65rem; font-weight:700; padding:4px 10px; border-radius:50px; border:2px solid #222;">
           BEST VALUE
         </div>
-
         <div style="font-size:2.4rem; font-weight:900; color:#2e7d32; line-height:1; margin-bottom:6px;">
           $3.99 <span style="font-size:0.85rem; color:#388e3c; font-weight:600;">/month</span>
         </div>
-
         <div style="font-weight:800; font-size:1.05rem; color:#2e7d32; margin-bottom:6px;">
           Pro
         </div>
-
         <div style="color:#2e7d32; font-size:.9rem; margin-bottom:16px; font-weight:700;">
           Unlimited prints
         </div>
-
         <a href="https://maxfilms.gumroad.com/l/worksheet_builder_print" target="_blank"
           style="display:inline-block; padding:10px 18px; border:3px solid #222; border-radius:50px; background:#2e7d32; color:white; text-decoration:none; font-weight:700; font-size:0.85rem; cursor:pointer; box-shadow:3px 3px 0 #222; transition:all 0.12s;">
           🚀 Upgrade Now
         </a>
       </div>
-
     </div>
 
     <div style="margin-bottom:24px; padding:16px; background:#fffbe6; border:2px solid #ffd84d; border-radius:12px;">
@@ -471,10 +419,10 @@ input#set-title:focus{box-shadow:var(--shadow-sm);}
     <button onclick="closeWSSubscriptionModal()" style="width:100%; padding:12px; border:3px solid #222; border-radius:50px; background:white; font-weight:700; cursor:pointer; font-family:'Fredoka',sans-serif;">Close</button>
   </div>
 </div>
+
 <script type="module">
-  // ═══ FIREBASE INIT ═══
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-  import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+  import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
   import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
   const firebaseConfig = {
@@ -500,7 +448,8 @@ input#set-title:focus{box-shadow:var(--shadow-sm);}
   onAuthStateChanged(auth, async user => {
     if (!user) {
       window.currentUser = null;
-      document.getElementById('user-badge').textContent = '👤 Guest';
+      const badge = document.getElementById('user-badge');
+      badge.innerHTML = '👤 Guest &nbsp; <button onclick="window.loginUser()" style="background:var(--red); color:white; border:none; padding:4px 10px; border-radius:20px; font-weight:700; font-size:0.75rem; cursor:pointer;">Login</button>';
       updatePrintCountDisplay();
       return;
     }
@@ -531,7 +480,8 @@ input#set-title:focus{box-shadow:var(--shadow-sm);}
     }
 
     const subBadge = window.userSubscription !== 'free' ? ' ⭐ Pro' : '';
-    document.getElementById('user-badge').textContent = `👤 ${user.displayName || 'User'}${subBadge}`;
+    const badge = document.getElementById('user-badge');
+    badge.innerHTML = `👤 ${user.displayName || 'User'}${subBadge} &nbsp; <button onclick="window.logoutUser()" style="background:var(--muted); color:white; border:none; padding:4px 10px; border-radius:20px; font-weight:700; font-size:0.75rem; cursor:pointer;">Logout</button>`;
     updatePrintCountDisplay();
   });
 
@@ -612,865 +562,860 @@ input#set-title:focus{box-shadow:var(--shadow-sm);}
   };
 
   window.showSubscriptionModal = function() {
-  document.getElementById('subscriptionModal').style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-};
+    if (!window.currentUser) {
+      alert('Please log in first to upgrade');
+      window.loginUser();
+      return;
+    }
+    document.getElementById('subscriptionModal').style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  };
 
-window.closeWSSubscriptionModal = function() {
-  document.getElementById('subscriptionModal').style.display = 'none';
-  document.body.style.overflow = 'auto';
-};
+  window.closeWSSubscriptionModal = function() {
+    document.getElementById('subscriptionModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+  };
 
-window.validateWSKey = async function() {
-  const key = document.getElementById('wsKeyInput').value.trim();
-  const statusEl = document.getElementById('wsKeyStatus');
-  
-  if (!key) {
-    statusEl.style.background = 'var(--red-pale)';
-    statusEl.style.color = 'var(--red)';
-    statusEl.textContent = '❌ Enter a key';
-    statusEl.style.display = 'block';
-    return;
-  }
-
-  statusEl.innerHTML = '<span class="spinner"></span> Validating...';
-  statusEl.style.display = 'block';
-
-  try {
-    if (!window.currentUser) throw new Error('Please log in first');
-    if (!window.API_TOKEN) throw new Error('Auth token missing');
-
-    const response = await fetch(`${window.API_BASE}/api/validate-worksheet-key`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${window.API_TOKEN}`
-      },
-      body: JSON.stringify({ license_key: key })
-    });
-
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.error || 'Invalid key');
-
-    statusEl.style.background = 'var(--green-pale)';
-    statusEl.style.color = 'var(--green-dark)';
-    statusEl.textContent = '✅ ' + data.message;
-    statusEl.style.display = 'block';
-
-    setTimeout(() => {
-      window.userSubscription = 'plan_pro';
-      window.maxPrints = 999;
-      document.getElementById('wsKeyInput').value = '';
-      window.closeWSSubscriptionModal();
-      window.updatePrintCountDisplay();
-      location.reload();
-    }, 1500);
-
-  } catch (e) {
-    statusEl.style.background = 'var(--red-pale)';
-    statusEl.style.color = 'var(--red)';
-    statusEl.textContent = '❌ ' + e.message;
-    statusEl.style.display = 'block';
-  }
-};
-
-// Close modal khi nhấn Escape
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') window.closeWSSubscriptionModal();
-});
-
-// Close modal khi click ngoài
-document.getElementById('subscriptionModal').addEventListener('click', (e) => {
-  if (e.target.id === 'subscriptionModal') window.closeWSSubscriptionModal();
-});
-</script>
-
-<!-- ═══════════════════════════════════════════════════════════ -->
-<!-- MAIN WORKSHEET LOGIC -->
-<!-- ═══════════════════════════════════════════════════════════ -->
-<script>
-  window.togglePinyinHelper = function(event) {
-  event.stopPropagation();
-  const dropdown = document.getElementById('pinyinDropdown');
-  dropdown.style.display = dropdown.style.display === 'none' ? 'grid' : 'none';
-};
-
-window.insertPinyinChar = function(char, event) {
-  if (event) event.preventDefault();
-  const input = document.getElementById('inp-pinyin');
-  const start = input.selectionStart;
-  const end = input.selectionEnd;
-  const text = input.value;
-  input.value = text.substring(0, start) + char + text.substring(end);
-  input.selectionStart = input.selectionEnd = start + 1;
-  input.focus();
-  document.getElementById('pinyinDropdown').style.display = 'none';
-};
-
-// Close dropdown khi click ngoài
-document.addEventListener('click', function(e) {
-  const dropdown = document.getElementById('pinyinDropdown');
-  const btn = e.target.closest('[onclick*="togglePinyinHelper"]');
-  if (!btn && !e.target.closest('#pinyinDropdown')) {
-    dropdown.style.display = 'none';
-  }
-});
-let characters = [];
-let strokeCache = {};
-let isRendering = false;
-let hiddenRows = new Set();
-let activeTab = 'character';
-
-// ────────────────────────────────────
-// DIALOGUE BUILDER STATE
-// ────────────────────────────────────
-let dialogueCharacters = [];
-let dialogueLines = [];
-let dlgSelectedAvatarUrl = '';
-let dlgMediaData = [];
-
-// ════════════════════════════════════════════════════════════════
-// TAB SWITCHING
-// ════════════════════════════════════════════════════════════════
-window.switchTab = function(tab) {
-  activeTab = tab;
-  
-  const charContent = document.getElementById('tab-character-content');
-  const dlgContent = document.getElementById('tab-dialogue-content');
-  const charBtn = document.querySelector('[data-tab="character"]');
-  const dlgBtn = document.querySelector('[data-tab="dialogue"]');
-  
-  if (tab === 'character') {
-    charContent.style.display = 'flex';
-    dlgContent.style.display = 'none';
-    charBtn.style.background = 'var(--yellow)';
-    charBtn.style.color = '#1a1a1a';
-    dlgBtn.style.background = '#f0f0f0';
-    dlgBtn.style.color = '#aaa';
-  } else {
-    charContent.style.display = 'none';
-    dlgContent.style.display = 'flex';
-    charBtn.style.background = '#f0f0f0';
-    charBtn.style.color = '#aaa';
-    dlgBtn.style.background = 'var(--yellow)';
-    dlgBtn.style.color = '#1a1a1a';
-  }
-};
-
-// ════════════════════════════════════════════════════════════════
-// CHARACTER PRACTICE FUNCTIONS
-// ════════════════════════════════════════════════════════════════
-
-async function fetchCharData(ch) {
-  if (strokeCache[ch]) return strokeCache[ch];
-  const r = await fetch(`https://cdn.jsdelivr.net/npm/hanzi-writer-data@latest/${encodeURIComponent(ch)}.json`);
-  if (!r.ok) throw new Error(`No data: ${ch}`);
-  const d = await r.json();
-  strokeCache[ch] = d;
-  return d;
-}
-
-function buildStrokeSVG(sd, upTo, size, highlightLast=true) {
-  if (!sd) return `<svg width="${size}" height="${size}"><rect width="${size}" height="${size}" fill="transparent"/></svg>`;
-  const n = Math.min(upTo, (sd.strokes||[]).length);
-  const s = size / 1024;
-  let paths = '';
-  for (let i = 0; i < n; i++) {
-    const last = (i===n-1) && highlightLast;
-    const fill = last ? '#d94f3a' : (i < n-2 ? '#aaa' : '#777');
-    paths += `<path d="${sd.strokes[i]}" fill="${fill}"/>`;
-  }
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
-    <rect width="${size}" height="${size}" fill="transparent"/>
-    <line x1="${size/2}" y1="0" x2="${size/2}" y2="${size}" stroke="#ddd" stroke-width=".8"/>
-    <line x1="0" y1="${size/2}" x2="${size}" y2="${size/2}" stroke="#ddd" stroke-width=".8"/>
-    <g transform="scale(${s},${-s}) translate(0,-900)">${paths}</g>
-  </svg>`;
-}
-
-function buildFullSVG(sd, size) {
-  if (!sd) return `<svg width="${size}" height="${size}"></svg>`;
-  return buildStrokeSVG(sd, (sd.strokes||[]).length, size, false);
-}
-
-function getStepIndices(total, max) {
-  if (!total) return [];
-  if (max === 'all') return Array.from({length:total},(_,i)=>i+1);
-  const m = parseInt(max);
-  if (total <= m) return Array.from({length:total},(_,i)=>i+1);
-  return Array.from({length:m},(_,s)=>Math.round((s+1)*total/m));
-}
-
-function escapeHTML(str) {
-  return String(str||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-
-function renderNotes(str) {
-  return escapeHTML(str).replace(/\\n/g, '<br>').replace(/&lt;br\s*\/?&gt;/gi, '<br>');
-}
-
-function renderCharList() {
-  const list = document.getElementById('char-list');
-  list.innerHTML = '';
-
-  if (characters.length === 0) {
-    list.innerHTML = '<div class="empty-state"><span class="icon">汉</span><p>Paste JSON above then click Load</p></div>';
-    return;
-  }
-
-  characters.forEach((c, ei) => {
-    const raw  = [...c.character];
-    const uniq = raw.filter((ch, idx) => raw.indexOf(ch) === idx);
-    const div = document.createElement('div');
-    div.className = 'char-item';
-    div.id = `ci-${ei}`;
-    div.dataset.index = ei;
-
-    const pillsHTML = uniq.map((ch, ci) => {
-      const key = `${ei}_${ci}`;
-      const hidden = hiddenRows.has(key);
-      return `<span class="char-pill${hidden?' hidden':''}" data-key="${key}" title="${hidden?'Show':'Hide'}">${ch}</span>`;
-    }).join('');
-
-    div.innerHTML = `
-      <div class="char-meta" style="flex:1;min-width:0;">
-        <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
-          <span style="font-family:'Noto Serif SC',serif;font-size:1.1rem;color:#1a1a1a;">${c.character}</span>
-          <span class="char-pinyin">${c.pinyin||''}</span>
-        </div>
-        <div class="char-meaning">${c.meaning||''}</div>
-        ${c.notes ? `<div style="font-family:'Quicksand',sans-serif;font-size:.64rem;color:#b8860b;margin-top:3px;font-weight:600;">📝 ${c.notes}</div>` : ''}
-        <div class="char-pills">${pillsHTML}</div>
-      </div>
-      <div class="status-dot" id="sd-${ei}"></div>
-      <button class="char-delete" title="Delete" data-delete="${ei}">✕</button>`;
-
-    list.appendChild(div);
-  });
-
-  list.onclick = function(e) {
-    const deleteBtn = e.target.closest('.char-delete');
-    if (deleteBtn) {
-      const ei = parseInt(deleteBtn.dataset.delete);
-      deleteCharacter(ei);
+  window.validateWSKey = async function() {
+    const key = document.getElementById('wsKeyInput').value.trim();
+    const statusEl = document.getElementById('wsKeyStatus');
+    
+    if (!key) {
+      statusEl.style.background = 'var(--red-pale)';
+      statusEl.style.color = 'var(--red)';
+      statusEl.textContent = '❌ Enter a key';
+      statusEl.style.display = 'block';
       return;
     }
 
-    const pill = e.target.closest('.char-pill');
-    if (pill) {
-      const key = pill.dataset.key;
-      if (hiddenRows.has(key)) hiddenRows.delete(key); else hiddenRows.add(key);
-      renderCharList();
-      if (characters.length) renderCharacterWorksheet();
+    statusEl.innerHTML = '<span class="spinner"></span> Validating...';
+    statusEl.style.display = 'block';
+
+    try {
+      if (!window.currentUser) throw new Error('Please log in first');
+      if (!window.API_TOKEN) throw new Error('Auth token missing');
+
+      const response = await fetch(`${window.API_BASE}/api/validate-worksheet-key`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${window.API_TOKEN}`
+        },
+        body: JSON.stringify({ license_key: key })
+      });
+
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || 'Invalid key');
+
+      statusEl.style.background = 'var(--green-pale)';
+      statusEl.style.color = 'var(--green-dark)';
+      statusEl.textContent = '✅ ' + data.message;
+      statusEl.style.display = 'block';
+
+      setTimeout(() => {
+        window.userSubscription = 'plan_pro';
+        window.maxPrints = 999;
+        document.getElementById('wsKeyInput').value = '';
+        window.closeWSSubscriptionModal();
+        window.updatePrintCountDisplay();
+        location.reload();
+      }, 1500);
+
+    } catch (e) {
+      statusEl.style.background = 'var(--red-pale)';
+      statusEl.style.color = 'var(--red)';
+      statusEl.textContent = '❌ ' + e.message;
+      statusEl.style.display = 'block';
     }
   };
-}
 
-function deleteCharacter(ei) {
-  [...hiddenRows].forEach(k => { if (k.startsWith(`${ei}_`)) hiddenRows.delete(k); });
-  characters.splice(ei, 1);
-  document.getElementById('char-count').textContent = characters.length;
-  renderCharList();
-  if (characters.length) {
-    renderCharacterWorksheet();
-  } else {
-    document.getElementById('worksheet-container').innerHTML = `
-      <div class="empty-state"><span class="icon">📄</span><p>Worksheet will appear here after loading characters</p></div>`;
-  }
-}
+  // ✅ LOGIN/LOGOUT FUNCTIONS - Properly inside module scope with auth access
+  window.loginUser = async function() {
+    try {
+      const provider = new GoogleAuthProvider();
+      const result = await signInWithPopup(auth, provider);
+      console.log('Login successful:', result.user.email);
+    } catch (error) {
+      console.error('Login error:', error);
+      alert('Login failed: ' + error.message);
+    }
+  };
 
-async function fetchAllAndRender() {
-  if (isRendering) return;
-  isRendering = true;
+  window.logoutUser = async function() {
+    try {
+      await auth.signOut();
+      console.log('Logout successful');
+    } catch (error) {
+      console.error('Logout error:', error);
+    }
+  };
 
-  document.getElementById('worksheet-container').innerHTML=`<div class="loading-msg"><span class="spinner"></span>Loading stroke data…</div>`;
-
-  const allChars = new Set();
-  characters.forEach(c=>[...c.character].forEach(ch=>allChars.add(ch)));
-
-  await Promise.allSettled([...allChars].map(ch=>fetchCharData(ch).catch(()=>{})));
-
-  characters.forEach((c,i)=>{
-    const d=document.getElementById(`sd-${i}`);
-    if(d) d.className='status-dot '+([...c.character].some(ch=>strokeCache[ch])?'ok':'err');
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') window.closeWSSubscriptionModal();
   });
 
-  renderCharacterWorksheet();
-  isRendering = false;
-}
+  document.getElementById('subscriptionModal').addEventListener('click', (e) => {
+    if (e.target.id === 'subscriptionModal') window.closeWSSubscriptionModal();
+  });
+</script>
 
-function renderCharacterWorksheet() {
-  if (!characters.length) return;
+<script>
+  window.togglePinyinHelper = function(event) {
+    event.stopPropagation();
+    const dropdown = document.getElementById('pinyinDropdown');
+    dropdown.style.display = dropdown.style.display === 'none' ? 'grid' : 'none';
+  };
 
-  const title = document.getElementById('set-title').value || 'Chinese Writing Practice';
-  const cells = parseInt(document.getElementById('set-cells').value) || 7;
-  const faint = parseInt(document.getElementById('set-faint').value) || 2;
-  const sz    = parseInt(document.getElementById('set-stroke-size').value) || 38;
-  const mode  = document.getElementById('set-steps').value;
+  window.insertPinyinChar = function(char, event) {
+    if (event) event.preventDefault();
+    const input = document.getElementById('inp-pinyin');
+    const start = input.selectionStart;
+    const end = input.selectionEnd;
+    const text = input.value;
+    input.value = text.substring(0, start) + char + text.substring(end);
+    input.selectionStart = input.selectionEnd = start + 1;
+    input.focus();
+    document.getElementById('pinyinDropdown').style.display = 'none';
+  };
 
-  const rows = [];
-  characters.forEach((c, ei) => {
-    const raw  = [...c.character];
-    const uniq = raw.filter((ch, i) => raw.indexOf(ch) === i);
-    const syl  = (c.pinyin||'').trim().split(/\s+/);
-    const allHidden = uniq.every((_, ci) => hiddenRows.has(`${ei}_${ci}`));
-    let firstVisible = true;
-    uniq.forEach((ch, ci) => {
-      rows.push({
-        c, ch,
-        pinyin: syl[raw.indexOf(ch)] || '',
-        isFirst: firstVisible,
-        isFirstChar: ci === 0,
-        hidden: hiddenRows.has(`${ei}_${ci}`),
-        allHidden,
-        showNotes: firstVisible && !!(c.notes && c.notes.trim())
-      });
-      if (!hiddenRows.has(`${ei}_${ci}`)) firstVisible = false;
-    });
+  document.addEventListener('click', function(e) {
+    const dropdown = document.getElementById('pinyinDropdown');
+    const btn = e.target.closest('[onclick*="togglePinyinHelper"]');
+    if (!btn && !e.target.closest('#pinyinDropdown')) {
+      dropdown.style.display = 'none';
+    }
   });
 
-  let blocksHTML = '';
+  let characters = [];
+  let strokeCache = {};
+  let isRendering = false;
+  let hiddenRows = new Set();
+  let activeTab = 'character';
+  let dialogueCharacters = [];
+  let dialogueLines = [];
+  let dlgSelectedAvatarUrl = '';
+  let dlgMediaData = [];
 
-  rows.forEach(({ c, ch, pinyin, isFirst, isFirstChar, hidden, allHidden, showNotes }) => {
-    if (hidden && !(isFirstChar && allHidden)) return;
-
-    const sd  = strokeCache[ch];
-    const tot = sd ? (sd.strokes||[]).length : 0;
-    const allIdx = getStepIndices(tot, mode);
-
-    const showFullHeader = isFirst || (isFirstChar && allHidden);
-
-    const headerHTML = showFullHeader ? `
-      <div class="ws-vocab-header">
-        <span class="ws-hdr-hanzi">${c.character}</span>
-        <span class="ws-hdr-pinyin">${c.pinyin||''}</span>
-        <span class="ws-hdr-meaning">${c.meaning||''}</span>
-        ${c.topic?`<span class="ws-hdr-badge">${c.topic}</span>`:''}
-      </div>` : `
-      <div class="ws-vocab-cont">
-        <span class="ws-cont-hanzi">${c.character}</span>
-        <span class="ws-cont-label">cont.</span>
-      </div>`;
-
-    let imgColHTML;
-    if (showFullHeader && c.imageSrc) {
-      imgColHTML = `<div class="ws-row-img"><img class="ws-vocab-img" src="${c.imageSrc}" alt="${c.meaning||''}" loading="lazy" onerror="this.style.display='none'"></div>`;
-    } else if (showFullHeader) {
-      imgColHTML = `<div class="ws-row-img"><div class="ws-vocab-img-placeholder">🖼</div></div>`;
+  window.switchTab = function(tab) {
+    activeTab = tab;
+    const charContent = document.getElementById('tab-character-content');
+    const dlgContent = document.getElementById('tab-dialogue-content');
+    const charBtn = document.querySelector('[data-tab="character"]');
+    const dlgBtn = document.querySelector('[data-tab="dialogue"]');
+    
+    if (tab === 'character') {
+      charContent.style.display = 'flex';
+      dlgContent.style.display = 'none';
+      charBtn.style.background = 'var(--yellow)';
+      charBtn.style.color = '#1a1a1a';
+      dlgBtn.style.background = '#f0f0f0';
+      dlgBtn.style.color = '#aaa';
     } else {
-      imgColHTML = `<div class="ws-row-img-empty"></div>`;
+      charContent.style.display = 'none';
+      dlgContent.style.display = 'flex';
+      charBtn.style.background = '#f0f0f0';
+      charBtn.style.color = '#aaa';
+      dlgBtn.style.background = 'var(--yellow)';
+      dlgBtn.style.color = '#1a1a1a';
+    }
+  };
+
+  async function fetchCharData(ch) {
+    if (strokeCache[ch]) return strokeCache[ch];
+    const r = await fetch(`https://cdn.jsdelivr.net/npm/hanzi-writer-data@latest/${encodeURIComponent(ch)}.json`);
+    if (!r.ok) throw new Error(`No data: ${ch}`);
+    const d = await r.json();
+    strokeCache[ch] = d;
+    return d;
+  }
+
+  function buildStrokeSVG(sd, upTo, size, highlightLast=true) {
+    if (!sd) return `<svg width="${size}" height="${size}"><rect width="${size}" height="${size}" fill="transparent"/></svg>`;
+    const n = Math.min(upTo, (sd.strokes||[]).length);
+    const s = size / 1024;
+    let paths = '';
+    for (let i = 0; i < n; i++) {
+      const last = (i===n-1) && highlightLast;
+      const fill = last ? '#d94f3a' : (i < n-2 ? '#aaa' : '#777');
+      paths += `<path d="${sd.strokes[i]}" fill="${fill}"/>`;
+    }
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
+      <rect width="${size}" height="${size}" fill="transparent"/>
+      <line x1="${size/2}" y1="0" x2="${size/2}" y2="${size}" stroke="#ddd" stroke-width=".8"/>
+      <line x1="0" y1="${size/2}" x2="${size}" y2="${size/2}" stroke="#ddd" stroke-width=".8"/>
+      <g transform="scale(${s},${-s}) translate(0,-900)">${paths}</g>
+    </svg>`;
+  }
+
+  function buildFullSVG(sd, size) {
+    if (!sd) return `<svg width="${size}" height="${size}"></svg>`;
+    return buildStrokeSVG(sd, (sd.strokes||[]).length, size, false);
+  }
+
+  function getStepIndices(total, max) {
+    if (!total) return [];
+    if (max === 'all') return Array.from({length:total},(_,i)=>i+1);
+    const m = parseInt(max);
+    if (total <= m) return Array.from({length:total},(_,i)=>i+1);
+    return Array.from({length:m},(_,s)=>Math.round((s+1)*total/m));
+  }
+
+  function escapeHTML(str) {
+    return String(str||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function renderNotes(str) {
+    return escapeHTML(str).replace(/\\n/g, '<br>').replace(/&lt;br\s*\/?&gt;/gi, '<br>');
+  }
+
+  function renderCharList() {
+    const list = document.getElementById('char-list');
+    list.innerHTML = '';
+
+    if (characters.length === 0) {
+      list.innerHTML = '<div class="empty-state"><span class="icon">汉</span><p>Add characters</p></div>';
+      return;
     }
 
-    let cellsHTMLPlain = '';
-    for (let i = 0; i < cells; i++) {
-      cellsHTMLPlain += `<div class="ws-cell"><div class="ws-cell-d"></div></div>`;
-    }
+    characters.forEach((c, ei) => {
+      const raw  = [...c.character];
+      const uniq = raw.filter((ch, idx) => raw.indexOf(ch) === idx);
+      const div = document.createElement('div');
+      div.className = 'char-item';
+      div.id = `ci-${ei}`;
+      div.dataset.index = ei;
 
-    if (hidden && isFirstChar && allHidden) {
+      const pillsHTML = uniq.map((ch, ci) => {
+        const key = `${ei}_${ci}`;
+        const hidden = hiddenRows.has(key);
+        return `<span class="char-pill${hidden?' hidden':''}" data-key="${key}" title="${hidden?'Show':'Hide'}">${ch}</span>`;
+      }).join('');
+
+      div.innerHTML = `
+        <div class="char-meta" style="flex:1;min-width:0;">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px;">
+            <span style="font-family:'Noto Serif SC',serif;font-size:1.1rem;color:#1a1a1a;">${c.character}</span>
+            <span class="char-pinyin">${c.pinyin||''}</span>
+          </div>
+          <div class="char-meaning">${c.meaning||''}</div>
+          ${c.notes ? `<div style="font-family:'Quicksand',sans-serif;font-size:.64rem;color:#b8860b;margin-top:3px;font-weight:600;">📝 ${c.notes}</div>` : ''}
+          <div class="char-pills">${pillsHTML}</div>
+        </div>
+        <div class="status-dot" id="sd-${ei}"></div>
+        <button class="char-delete" title="Delete" data-delete="${ei}">✕</button>`;
+
+      list.appendChild(div);
+    });
+
+    list.onclick = function(e) {
+      const deleteBtn = e.target.closest('.char-delete');
+      if (deleteBtn) {
+        const ei = parseInt(deleteBtn.dataset.delete);
+        deleteCharacter(ei);
+        return;
+      }
+
+      const pill = e.target.closest('.char-pill');
+      if (pill) {
+        const key = pill.dataset.key;
+        if (hiddenRows.has(key)) hiddenRows.delete(key); else hiddenRows.add(key);
+        renderCharList();
+        if (characters.length) renderCharacterWorksheet();
+      }
+    };
+  }
+
+  function deleteCharacter(ei) {
+    [...hiddenRows].forEach(k => { if (k.startsWith(`${ei}_`)) hiddenRows.delete(k); });
+    characters.splice(ei, 1);
+    document.getElementById('char-count').textContent = characters.length;
+    renderCharList();
+    if (characters.length) {
+      renderCharacterWorksheet();
+    } else {
+      document.getElementById('worksheet-container').innerHTML = `
+        <div class="empty-state"><span class="icon">📄</span><p>Worksheet will appear here after loading characters</p></div>`;
+    }
+  }
+
+  async function fetchAllAndRender() {
+    if (isRendering) return;
+    isRendering = true;
+
+    document.getElementById('worksheet-container').innerHTML=`<div class="loading-msg"><span class="spinner"></span>Loading stroke data…</div>`;
+
+    const allChars = new Set();
+    characters.forEach(c=>[...c.character].forEach(ch=>allChars.add(ch)));
+
+    await Promise.allSettled([...allChars].map(ch=>fetchCharData(ch).catch(()=>{})));
+
+    characters.forEach((c,i)=>{
+      const d=document.getElementById(`sd-${i}`);
+      if(d) d.className='status-dot '+([...c.character].some(ch=>strokeCache[ch])?'ok':'err');
+    });
+
+    renderCharacterWorksheet();
+    isRendering = false;
+  }
+
+  function renderCharacterWorksheet() {
+    if (!characters.length) return;
+
+    const title = document.getElementById('set-title').value || 'Chinese Writing Practice';
+    const cells = parseInt(document.getElementById('set-cells').value) || 7;
+    const faint = parseInt(document.getElementById('set-faint').value) || 2;
+    const sz    = parseInt(document.getElementById('set-stroke-size').value) || 38;
+    const mode  = document.getElementById('set-steps').value;
+
+    const rows = [];
+    characters.forEach((c, ei) => {
+      const raw  = [...c.character];
+      const uniq = raw.filter((ch, i) => raw.indexOf(ch) === i);
+      const syl  = (c.pinyin||'').trim().split(/\s+/);
+      const allHidden = uniq.every((_, ci) => hiddenRows.has(`${ei}_${ci}`));
+      let firstVisible = true;
+      uniq.forEach((ch, ci) => {
+        rows.push({
+          c, ch,
+          pinyin: syl[raw.indexOf(ch)] || '',
+          isFirst: firstVisible,
+          isFirstChar: ci === 0,
+          hidden: hiddenRows.has(`${ei}_${ci}`),
+          allHidden,
+          showNotes: firstVisible && !!(c.notes && c.notes.trim())
+        });
+        if (!hiddenRows.has(`${ei}_${ci}`)) firstVisible = false;
+      });
+    });
+
+    let blocksHTML = '';
+
+    rows.forEach(({ c, ch, pinyin, isFirst, isFirstChar, hidden, allHidden, showNotes }) => {
+      if (hidden && !(isFirstChar && allHidden)) return;
+
+      const sd  = strokeCache[ch];
+      const tot = sd ? (sd.strokes||[]).length : 0;
+      const allIdx = getStepIndices(tot, mode);
+
+      const showFullHeader = isFirst || (isFirstChar && allHidden);
+
+      const headerHTML = showFullHeader ? `
+        <div class="ws-vocab-header">
+          <span class="ws-hdr-hanzi">${c.character}</span>
+          <span class="ws-hdr-pinyin">${c.pinyin||''}</span>
+          <span class="ws-hdr-meaning">${c.meaning||''}</span>
+          ${c.topic?`<span class="ws-hdr-badge">${c.topic}</span>`:''}
+        </div>` : `
+        <div class="ws-vocab-cont">
+          <span class="ws-cont-hanzi">${c.character}</span>
+          <span class="ws-cont-label">cont.</span>
+        </div>`;
+
+      let imgColHTML;
+      if (showFullHeader && c.imageSrc) {
+        imgColHTML = `<div class="ws-row-img"><img class="ws-vocab-img" src="${c.imageSrc}" alt="${c.meaning||''}" loading="lazy" onerror="this.style.display='none'"></div>`;
+      } else if (showFullHeader) {
+        imgColHTML = `<div class="ws-row-img"><div class="ws-vocab-img-placeholder">🖼</div></div>`;
+      } else {
+        imgColHTML = `<div class="ws-row-img-empty"></div>`;
+      }
+
+      let cellsHTMLPlain = '';
+      for (let i = 0; i < cells; i++) {
+        cellsHTMLPlain += `<div class="ws-cell"><div class="ws-cell-d"></div></div>`;
+      }
+
+      if (hidden && isFirstChar && allHidden) {
+        blocksHTML += `
+          <div class="ws-row-block">
+            ${imgColHTML}
+            <div class="ws-row-right">
+              ${headerHTML}
+              <div class="ws-practice-row">
+                <span class="ws-practice-label">Practice</span>
+                <div class="ws-cells-wrap">${cellsHTMLPlain}</div>
+              </div>
+              <div class="ws-practice-row">
+                <span class="ws-practice-label"></span>
+                <div class="ws-cells-wrap">${cellsHTMLPlain}</div>
+              </div>
+            </div>
+          </div>`;
+        return;
+      }
+
+      let cellsHTML = '';
+      for (let i = 0; i < cells; i++) {
+        const f = i < faint && sd;
+        cellsHTML += `<div class="ws-cell${f?' faint':''}"><div class="ws-cell-d"></div>${f?buildFullSVG(sd,58):''}</div>`;
+      }
+
+      const strokeSteps = sd && allIdx.length
+        ? allIdx.map(n=>`<div class="ws-stroke-step"><span class="ws-stroke-num">${n}</span>${buildStrokeSVG(sd,n,sz)}</div>`).join('')
+        : `<span class="ws-no-data">No stroke data</span>`;
+
+      const notesBoxHTML = showNotes ? `
+        <div class="ws-notes-box">
+          <span class="ws-notes-label">Notes</span>
+          <div class="ws-notes-text">${renderNotes(c.notes)}</div>
+        </div>` : '';
+
       blocksHTML += `
-        <div class="ws-row-block">
+        <div class="ws-row-block${isFirst?'':' ws-row-block-cont'}">
           ${imgColHTML}
           <div class="ws-row-right">
             ${headerHTML}
+            <div class="ws-char-body">
+              <div class="ws-big-char-label">
+                <div class="ws-big-hanzi">${ch}</div>
+                <div class="ws-big-pinyin">${pinyin}</div>
+              </div>
+              <div class="ws-strokes-panel">
+                <span class="ws-strokes-label">Strokes</span>
+                <div class="ws-strokes-wrap">${strokeSteps}</div>
+              </div>
+            </div>
             <div class="ws-practice-row">
               <span class="ws-practice-label">Practice</span>
-              <div class="ws-cells-wrap">${cellsHTMLPlain}</div>
+              <div class="ws-cells-wrap">${cellsHTML}</div>
             </div>
             <div class="ws-practice-row">
               <span class="ws-practice-label"></span>
               <div class="ws-cells-wrap">${cellsHTMLPlain}</div>
             </div>
+            ${notesBoxHTML}
           </div>
         </div>`;
+    });
+
+    document.getElementById('worksheet-container').innerHTML = `
+      <div class="ws-page">
+        <div class="ws-page-header">
+          <div class="ws-page-title">
+            <h2>${title}</h2>
+            <p>Visit chinese60s.com for more interactive lessons</p>
+          </div>
+          <div class="ws-page-badge">WRITING<br>PRACTICE</div>
+        </div>
+        ${blocksHTML}
+        <div class="ws-page-footer">Chinese60s · chinese60s.com</div>
+      </div>`;
+
+    applyScale();
+  }
+
+  function addCharacter() {
+    const character = document.getElementById('inp-character').value.trim();
+    const pinyin = document.getElementById('inp-pinyin').value.trim();
+    const meaning = document.getElementById('inp-meaning').value.trim();
+    const topic = document.getElementById('inp-topic').value.trim();
+    const notes = document.getElementById('inp-notes').value.trim();
+    const imageSrc = document.getElementById('inp-image').value.trim();
+    const err = document.getElementById('json-error');
+
+    err.style.display = 'none';
+
+    if (!character) {
+      err.textContent = 'Character is required';
+      err.style.display = 'block';
+      return;
+    }
+    if (!pinyin) {
+      err.textContent = 'Pinyin is required';
+      err.style.display = 'block';
       return;
     }
 
-    let cellsHTML = '';
-    for (let i = 0; i < cells; i++) {
-      const f = i < faint && sd;
-      cellsHTML += `<div class="ws-cell${f?' faint':''}"><div class="ws-cell-d"></div>${f?buildFullSVG(sd,58):''}</div>`;
+    characters.push({
+      character,
+      pinyin,
+      meaning: meaning || '(no meaning)',
+      topic: topic || '',
+      notes: notes || '',
+      imageSrc: imageSrc || ''
+    });
+
+    document.getElementById('inp-character').value = '';
+    document.getElementById('inp-pinyin').value = '';
+    document.getElementById('inp-meaning').value = '';
+    document.getElementById('inp-topic').value = '';
+    document.getElementById('inp-notes').value = '';
+    document.getElementById('inp-image').value = '';
+
+    document.getElementById('char-count').textContent = characters.length;
+    renderCharList();
+
+    fetchAllAndRender();
+  }
+
+  function applyScale() {
+    const wrap  = document.getElementById('worksheet-wrap');
+    const sc    = document.getElementById('ws-scaler');
+    const avail = wrap.clientWidth - 40;
+    const scale = Math.min(1, avail / 794);
+    sc.style.transform = `scale(${scale})`;
+    sc.style.width     = '794px';
+    const inner = document.getElementById('worksheet-container');
+    const innerH = inner ? inner.offsetHeight : 1123;
+    sc.style.height = (innerH * scale + 20) + 'px';
+    sc.style.display = 'block';
+  }
+
+  function renderAll() {
+    if (activeTab === 'character') {
+      renderCharacterWorksheet();
+    } else {
+      renderDialogueWorksheet();
+    }
+  }
+
+  window.addEventListener('resize', ()=>{ if(characters.length || dialogueLines.length) applyScale(); });
+
+  window.addDialogueCharacter = function() {
+    const name = document.getElementById('dlg-char-name').value.trim();
+    const avatar = document.getElementById('dlg-char-avatar').value.trim();
+    const err = document.getElementById('json-error');
+    
+    if (!name) {
+      err.textContent = 'Character name is required';
+      err.style.display = 'block';
+      return;
+    }
+    
+    if (!avatar) {
+      err.textContent = 'Please select an avatar';
+      err.style.display = 'block';
+      return;
     }
 
-    const strokeSteps = sd && allIdx.length
-      ? allIdx.map(n=>`<div class="ws-stroke-step"><span class="ws-stroke-num">${n}</span>${buildStrokeSVG(sd,n,sz)}</div>`).join('')
-      : `<span class="ws-no-data">No stroke data</span>`;
-
-    const notesBoxHTML = showNotes ? `
-      <div class="ws-notes-box">
-        <span class="ws-notes-label">Notes</span>
-        <div class="ws-notes-text">${renderNotes(c.notes)}</div>
-      </div>` : '';
-
-    blocksHTML += `
-      <div class="ws-row-block${isFirst?'':' ws-row-block-cont'}">
-        ${imgColHTML}
-        <div class="ws-row-right">
-          ${headerHTML}
-          <div class="ws-char-body">
-            <div class="ws-big-char-label">
-              <div class="ws-big-hanzi">${ch}</div>
-              <div class="ws-big-pinyin">${pinyin}</div>
-            </div>
-            <div class="ws-strokes-panel">
-              <span class="ws-strokes-label">Strokes</span>
-              <div class="ws-strokes-wrap">${strokeSteps}</div>
-            </div>
-          </div>
-          <div class="ws-practice-row">
-            <span class="ws-practice-label">Practice</span>
-            <div class="ws-cells-wrap">${cellsHTML}</div>
-          </div>
-          <div class="ws-practice-row">
-            <span class="ws-practice-label"></span>
-            <div class="ws-cells-wrap">${cellsHTMLPlain}</div>
-          </div>
-          ${notesBoxHTML}
-        </div>
-      </div>`;
-  });
-
-  document.getElementById('worksheet-container').innerHTML = `
-    <div class="ws-page">
-      <div class="ws-page-header">
-        <div class="ws-page-title">
-          <h2>${title}</h2>
-          <p>Visit chinese60s.com for more interactive lessons</p>
-        </div>
-        <div class="ws-page-badge">WRITING<br>PRACTICE</div>
-      </div>
-      ${blocksHTML}
-      <div class="ws-page-footer">Chinese60s · chinese60s.com</div>
-    </div>`;
-
-  applyScale();
-}
-
-function addCharacter() {
-  const character = document.getElementById('inp-character').value.trim();
-  const pinyin = document.getElementById('inp-pinyin').value.trim();
-  const meaning = document.getElementById('inp-meaning').value.trim();
-  const topic = document.getElementById('inp-topic').value.trim();
-  const notes = document.getElementById('inp-notes').value.trim();
-  const imageSrc = document.getElementById('inp-image').value.trim();
-  const err = document.getElementById('json-error');
-
-  err.style.display = 'none';
-
-  if (!character) {
-    err.textContent = 'Character is required';
-    err.style.display = 'block';
-    return;
-  }
-  if (!pinyin) {
-    err.textContent = 'Pinyin is required';
-    err.style.display = 'block';
-    return;
-  }
-
-  characters.push({
-    character,
-    pinyin,
-    meaning: meaning || '(no meaning)',
-    topic: topic || '',
-    notes: notes || '',
-    imageSrc: imageSrc || ''
-  });
-
-  document.getElementById('inp-character').value = '';
-  document.getElementById('inp-pinyin').value = '';
-  document.getElementById('inp-meaning').value = '';
-  document.getElementById('inp-topic').value = '';
-  document.getElementById('inp-notes').value = '';
-  document.getElementById('inp-image').value = '';
-
-  document.getElementById('char-count').textContent = characters.length;
-  renderCharList();
-
-  fetchAllAndRender();
-}
-
-function applyScale() {
-  const wrap  = document.getElementById('worksheet-wrap');
-  const sc    = document.getElementById('ws-scaler');
-  const avail = wrap.clientWidth - 40;
-  const scale = Math.min(1, avail / 794);
-  sc.style.transform = `scale(${scale})`;
-  sc.style.width     = '794px';
-  const inner = document.getElementById('worksheet-container');
-  const innerH = inner ? inner.offsetHeight : 1123;
-  sc.style.height = (innerH * scale + 20) + 'px';
-  sc.style.display = 'block';
-}
-
-function renderAll() {
-  if (activeTab === 'character') {
-    renderCharacterWorksheet();
-  } else {
-    renderDialogueWorksheet();
-  }
-}
-
-window.addEventListener('resize', ()=>{ if(characters.length || dialogueLines.length) applyScale(); });
-
-// ════════════════════════════════════════════════════════════════
-// DIALOGUE BUILDER FUNCTIONS
-// ════════════════════════════════════════════════════════════════
-
-window.addDialogueCharacter = function() {
-  const name = document.getElementById('dlg-char-name').value.trim();
-  const avatar = document.getElementById('dlg-char-avatar').value.trim();
-  const err = document.getElementById('json-error');
-  
-  if (!name) {
-    err.textContent = 'Character name is required';
-    err.style.display = 'block';
-    return;
-  }
-  
-  if (!avatar) {
-    err.textContent = 'Please select an avatar';
-    err.style.display = 'block';
-    return;
-  }
-
-  const charId = 'char_' + Date.now();
-  dialogueCharacters.push({ id: charId, name, avatar });
-  
-  document.getElementById('dlg-char-name').value = '';
-  document.getElementById('dlg-char-avatar').value = '';
-  document.getElementById('dlg-selected-avatar').style.display = 'none';
-  dlgSelectedAvatarUrl = '';
-  err.style.display = 'none';
-  
-  updateDlgCharacterList();
-  updateDlgSpeakerSelect();
-};
-
-function updateDlgCharacterList() {
-  const list = document.getElementById('dlg-char-list');
-  document.getElementById('dlg-char-count').textContent = dialogueCharacters.length;
-  
-  if (dialogueCharacters.length === 0) {
-    list.innerHTML = '<div style="text-align:center; color:var(--muted); padding:20px 0; font-size:0.78rem;">No characters yet</div>';
-    return;
-  }
-  
-  list.innerHTML = dialogueCharacters.map((char, idx) => `
-    <div style="display:flex; align-items:center; gap:8px; padding:8px; background:var(--cream); border:var(--border); border-radius:8px;">
-      <img src="${char.avatar}" alt="${char.name}" style="width:36px; height:36px; border-radius:6px; object-fit:cover; border:var(--border);">
-      <span style="flex:1; font-weight:700; font-size:0.85rem;">${char.name}</span>
-      <button class="char-delete" style="width:20px; height:20px;" onclick="removeDlgCharacter(${idx})">✕</button>
-    </div>
-  `).join('');
-};
-
-function updateDlgSpeakerSelect() {
-  const select = document.getElementById('dlg-speaker');
-  select.innerHTML = '<option value="">Choose character...</option>' + 
-    dialogueCharacters.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
-}
-
-window.removeDlgCharacter = function(idx) {
-  dialogueCharacters.splice(idx, 1);
-  dialogueLines = dialogueLines.filter(line => 
-    dialogueCharacters.some(c => c.id === line.speakerId)
-  );
-  updateDlgCharacterList();
-  updateDlgSpeakerSelect();
-  updateDlgLinesList();
-  // ✅ Render lại
-  if (dialogueLines.length > 0) {
-    renderDialogueWorksheet();
-  } else {
-    document.getElementById('worksheet-container').innerHTML = `
-      <div class="empty-state"><span class="icon">📄</span><p>Worksheet will appear here after adding lines</p></div>`;
-  }
-};
-
-window.addDialogueLine = function() {
-  const speakerId = document.getElementById('dlg-speaker').value;
-  const text = document.getElementById('dlg-text').value.trim();
-  const err = document.getElementById('json-error');
-  
-  if (!speakerId) {
-    err.textContent = 'Please choose a character';
-    err.style.display = 'block';
-    return;
-  }
-  
-  if (!text) {
-    err.textContent = 'Line text is required';
-    err.style.display = 'block';
-    return;
-  }
-
-  dialogueLines.push({ speakerId, text });
-  
-  document.getElementById('dlg-speaker').value = '';
-  document.getElementById('dlg-text').value = '';
-  err.style.display = 'none';
-  
-  updateDlgLinesList();
-  if (dialogueLines.length > 0) renderDialogueWorksheet();
-};
-
-function updateDlgLinesList() {
-  const list = document.getElementById('dlg-lines-list');
-  
-  if (dialogueLines.length === 0) {
-    list.innerHTML = '<div style="text-align:center; color:var(--muted); padding:20px 0; font-size:0.78rem;">No lines yet</div>';
-    return;
-  }
-  
-  list.innerHTML = dialogueLines.map((line, idx) => {
-    const char = dialogueCharacters.find(c => c.id === line.speakerId);
-    return `
-      <div style="display:flex; align-items:flex-start; gap:8px; padding:10px; background:var(--cream); border:var(--border); border-radius:8px;">
-        <img src="${char.avatar}" alt="${char.name}" style="width:36px; height:36px; border-radius:6px; object-fit:cover; border:var(--border); flex-shrink:0;">
-        <div style="flex:1; min-width:0;">
-          <div style="font-weight:700; font-size:0.78rem; color:var(--red); margin-bottom:3px;">${char.name}</div>
-          <div style="font-size:0.75rem; color:#555; word-break:break-word;">${line.text}</div>
-        </div>
-        <button class="char-delete" style="width:20px; height:20px; flex-shrink:0;" onclick="removeDlgLine(${idx})">✕</button>
-      </div>
-    `;
-  }).join('');
-}
-
-window.removeDlgLine = function(idx) {
-  dialogueLines.splice(idx, 1);
-  updateDlgLinesList();
-  // ✅ Render lại
-  if (dialogueLines.length > 0) {
-    renderDialogueWorksheet();
-  } else {
-    document.getElementById('worksheet-container').innerHTML = `
-      <div class="empty-state"><span class="icon">📄</span><p>Worksheet will appear here after adding lines</p></div>`;
-  }
-};
-
-window.renderDialogueWorksheet = function() {
-  if (!dialogueLines.length) {
-    alert('Please add at least one line');
-    return;
-  }
-
-  const title = document.getElementById('set-title').value || 'Dialogue Practice';
-  const lines = dialogueLines;
-
-  let blocksHTML = '';
-
-  lines.forEach((line, idx) => {
-    const char = dialogueCharacters.find(c => c.id === line.speakerId);
+    const charId = 'char_' + Date.now();
+    dialogueCharacters.push({ id: charId, name, avatar });
     
-    blocksHTML += `
-      <div class="dlg-message-block">
-        <div class="dlg-message-header">
-          <img src="${char.avatar}" alt="${char.name}" class="dlg-avatar">
-          <div>
-            <div class="dlg-speaker-name">${char.name}</div>
-            <div class="dlg-line-num">Line ${idx + 1}</div>
+    document.getElementById('dlg-char-name').value = '';
+    document.getElementById('dlg-char-avatar').value = '';
+    document.getElementById('dlg-selected-avatar').style.display = 'none';
+    dlgSelectedAvatarUrl = '';
+    err.style.display = 'none';
+    
+    updateDlgCharacterList();
+    updateDlgSpeakerSelect();
+  };
+
+  function updateDlgCharacterList() {
+    const list = document.getElementById('dlg-char-list');
+    document.getElementById('dlg-char-count').textContent = dialogueCharacters.length;
+    
+    if (dialogueCharacters.length === 0) {
+      list.innerHTML = '<div style="text-align:center; color:var(--muted); padding:20px 0; font-size:0.78rem;">No characters yet</div>';
+      return;
+    }
+    
+    list.innerHTML = dialogueCharacters.map((char, idx) => `
+      <div style="display:flex; align-items:center; gap:8px; padding:8px; background:var(--cream); border:var(--border); border-radius:8px;">
+        <img src="${char.avatar}" alt="${char.name}" style="width:36px; height:36px; border-radius:6px; object-fit:cover; border:var(--border);">
+        <span style="flex:1; font-weight:700; font-size:0.85rem;">${char.name}</span>
+        <button class="char-delete" style="width:20px; height:20px;" onclick="removeDlgCharacter(${idx})">✕</button>
+      </div>
+    `).join('');
+  }
+
+  function updateDlgSpeakerSelect() {
+    const select = document.getElementById('dlg-speaker');
+    select.innerHTML = '<option value="">Choose character...</option>' + 
+      dialogueCharacters.map(c => `<option value="${c.id}">${c.name}</option>`).join('');
+  }
+
+  window.removeDlgCharacter = function(idx) {
+    dialogueCharacters.splice(idx, 1);
+    dialogueLines = dialogueLines.filter(line => 
+      dialogueCharacters.some(c => c.id === line.speakerId)
+    );
+    updateDlgCharacterList();
+    updateDlgSpeakerSelect();
+    updateDlgLinesList();
+    if (dialogueLines.length > 0) {
+      renderDialogueWorksheet();
+    } else {
+      document.getElementById('worksheet-container').innerHTML = `
+        <div class="empty-state"><span class="icon">📄</span><p>Worksheet will appear here after adding lines</p></div>`;
+    }
+  };
+
+  window.addDialogueLine = function() {
+    const speakerId = document.getElementById('dlg-speaker').value;
+    const text = document.getElementById('dlg-text').value.trim();
+    const err = document.getElementById('json-error');
+    
+    if (!speakerId) {
+      err.textContent = 'Please choose a character';
+      err.style.display = 'block';
+      return;
+    }
+    
+    if (!text) {
+      err.textContent = 'Line text is required';
+      err.style.display = 'block';
+      return;
+    }
+
+    dialogueLines.push({ speakerId, text });
+    
+    document.getElementById('dlg-speaker').value = '';
+    document.getElementById('dlg-text').value = '';
+    err.style.display = 'none';
+    
+    updateDlgLinesList();
+    if (dialogueLines.length > 0) renderDialogueWorksheet();
+  };
+
+  function updateDlgLinesList() {
+    const list = document.getElementById('dlg-lines-list');
+    
+    if (dialogueLines.length === 0) {
+      list.innerHTML = '<div style="text-align:center; color:var(--muted); padding:20px 0; font-size:0.78rem;">No lines yet</div>';
+      return;
+    }
+    
+    list.innerHTML = dialogueLines.map((line, idx) => {
+      const char = dialogueCharacters.find(c => c.id === line.speakerId);
+      return `
+        <div style="display:flex; align-items:flex-start; gap:8px; padding:10px; background:var(--cream); border:var(--border); border-radius:8px;">
+          <img src="${char.avatar}" alt="${char.name}" style="width:36px; height:36px; border-radius:6px; object-fit:cover; border:var(--border); flex-shrink:0;">
+          <div style="flex:1; min-width:0;">
+            <div style="font-weight:700; font-size:0.78rem; color:var(--red); margin-bottom:3px;">${char.name}</div>
+            <div style="font-size:0.75rem; color:#555; word-break:break-word;">${line.text}</div>
+          </div>
+          <button class="char-delete" style="width:20px; height:20px; flex-shrink:0;" onclick="removeDlgLine(${idx})">✕</button>
+        </div>
+      `;
+    }).join('');
+  }
+
+  window.removeDlgLine = function(idx) {
+    dialogueLines.splice(idx, 1);
+    updateDlgLinesList();
+    if (dialogueLines.length > 0) {
+      renderDialogueWorksheet();
+    } else {
+      document.getElementById('worksheet-container').innerHTML = `
+        <div class="empty-state"><span class="icon">📄</span><p>Worksheet will appear here after adding lines</p></div>`;
+    }
+  };
+
+  window.renderDialogueWorksheet = function() {
+    if (!dialogueLines.length) {
+      alert('Please add at least one line');
+      return;
+    }
+
+    const title = document.getElementById('set-title').value || 'Dialogue Practice';
+    const lines = dialogueLines;
+
+    let blocksHTML = '';
+
+    lines.forEach((line, idx) => {
+      const char = dialogueCharacters.find(c => c.id === line.speakerId);
+      
+      blocksHTML += `
+        <div class="dlg-message-block">
+          <div class="dlg-message-header">
+            <img src="${char.avatar}" alt="${char.name}" class="dlg-avatar">
+            <div>
+              <div class="dlg-speaker-name">${char.name}</div>
+              <div class="dlg-line-num">Line ${idx + 1}</div>
+            </div>
+          </div>
+
+          <div class="dlg-bubble">
+            <div class="dlg-text-original">${line.text}</div>
+            
+            <div class="dlg-writing-lines">
+              <div class="dlg-line"></div>
+              <div class="dlg-line"></div>
+              <div class="dlg-line"></div>
+            </div>
           </div>
         </div>
+      `;
+    });
 
-        <div class="dlg-bubble">
-          <div class="dlg-text-original">${line.text}</div>
-          
-          <div class="dlg-writing-lines">
-            <div class="dlg-line"></div>
-            <div class="dlg-line"></div>
-            <div class="dlg-line"></div>
+    document.getElementById('worksheet-container').innerHTML = `
+      <div class="ws-page">
+        <div class="ws-page-header">
+          <div class="ws-page-title">
+            <h2>${title}</h2>
+            <p>Visit chinese60s.com for more interactive lessons</p>
           </div>
+          <div class="ws-page-badge">DIALOGUE<br>PRACTICE</div>
+        </div>
+        ${blocksHTML}
+        <div class="ws-page-footer">Chinese60s · chinese60s.com</div>
+      </div>`;
+
+    applyScale();
+  };
+
+  let mediaData = [];
+
+  window.openMediaPicker = function() {
+    document.getElementById('mediaModal').style.display = 'block';
+    if (mediaData.length === 0) {
+      loadMediaData();
+    }
+  };
+
+  window.closeMediaPicker = function() {
+    document.getElementById('mediaModal').style.display = 'none';
+  };
+
+  function loadMediaData() {
+    fetch('https://raw.githubusercontent.com/minhnguyen412/chinese60s/refs/heads/main/data/imagesData.json')
+      .then(res => res.json())
+      .then(data => {
+        mediaData = data;
+        renderMediaGrid(mediaData);
+      })
+      .catch(err => {
+        console.error('Error loading media:', err);
+        document.getElementById('mediaGrid').innerHTML = '<div style="grid-column:1/-1; color:var(--muted); text-align:center; padding:20px;">Failed to load images</div>';
+      });
+  }
+
+  function renderMediaGrid(images) {
+    const grid = document.getElementById('mediaGrid');
+
+    if (images.length === 0) {
+      grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; color:var(--muted); padding:20px;">No images found</div>';
+      return;
+    }
+
+    grid.innerHTML = images.map(item => `
+      <div style="border:var(--border); border-radius:8px; overflow:hidden; cursor:pointer; transition:transform 0.12s, box-shadow 0.12s;"
+        onmouseover="this.style.boxShadow='var(--shadow-md)'; this.style.transform='translate(-2px,-2px)';"
+        onmouseout="this.style.boxShadow='none'; this.style.transform='none';">
+        <img src="${item.imageSrc}" alt="${item.character}" style="width:100%; height:160px; object-fit:cover; display:block;">
+        <div style="padding:8px; text-align:center;">
+          <div style="font-weight:700; font-size:0.95rem; margin-bottom:2px;">${item.character}</div>
+          <div style="font-size:0.75rem; color:var(--muted); margin-bottom:6px;">${item.meaning}</div>
+          <button class="btn btn-sky btn-sm"
+            onclick="selectImage('${item.imageSrc.replace(/'/g, "\\'")}'); event.stopPropagation();">
+            ✓ Copy Link
+          </button>
         </div>
       </div>
-    `;
+    `).join('');
+  }
+
+  window.selectImage = function(imageSrc) {
+    document.getElementById('inp-image').value = imageSrc;
+    closeMediaPicker();
+  };
+
+  window.searchMedia = function() {
+    const query = document.getElementById('mediaSearch').value.trim().toLowerCase();
+
+    if (!query) {
+      renderMediaGrid(mediaData);
+      return;
+    }
+
+    const results = mediaData.filter(item =>
+      item.character.includes(query) ||
+      item.meaning.toLowerCase().includes(query) ||
+      (item.pinyin && item.pinyin.toLowerCase().includes(query))
+    );
+
+    renderMediaGrid(results);
+  };
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const mediaSearch = document.getElementById('mediaSearch');
+    if (mediaSearch) {
+      mediaSearch.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') searchMedia();
+      });
+    }
   });
 
-  document.getElementById('worksheet-container').innerHTML = `
-    <div class="ws-page">
-      <div class="ws-page-header">
-        <div class="ws-page-title">
-          <h2>${title}</h2>
-          <p>Visit chinese60s.com for more interactive lessons</p>
-        </div>
-        <div class="ws-page-badge">DIALOGUE<br>PRACTICE</div>
+  document.addEventListener('click', function(e) {
+    const modal = document.getElementById('mediaModal');
+    if (e.target === modal) {
+      closeMediaPicker();
+    }
+  });
+
+  window.openDlgMediaPicker = function() {
+    const overlay = document.getElementById('dlg-media-modal-overlay');
+    overlay.style.display = 'block';
+    overlay.onclick = closeDlgMediaPicker;
+
+    const modal = document.createElement('div');
+    modal.style.cssText = 'position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:var(--white); border:var(--border-thick); border-radius:12px; max-width:600px; max-height:80vh; overflow-y:auto; z-index:201; box-shadow:var(--shadow-lg);';
+    
+    modal.innerHTML = `
+      <div style="padding:16px; border-bottom:var(--border); display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; background:white; z-index:10;">
+        <h3 style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:1.1rem;">Select Avatar</h3>
+        <button onclick="closeDlgMediaPicker()" style="background:none; border:none; font-size:1.5rem; cursor:pointer; color:var(--muted);">✕</button>
       </div>
-      ${blocksHTML}
-      <div class="ws-page-footer">Chinese60s · chinese60s.com</div>
-    </div>`;
+      <div id="dlg-media-grid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; padding:16px;">
+        <div style="grid-column:1/-1; text-align:center; color:var(--muted); padding:40px;">Loading avatars...</div>
+      </div>`;
+    
+    overlay.appendChild(modal);
+    
+    if (dlgMediaData.length === 0) {
+      fetch('https://raw.githubusercontent.com/minhnguyen412/chinese60s/refs/heads/main/data/avatar.json')
+        .then(r => r.json())
+        .then(data => {
+          dlgMediaData = data;
+          renderDlgAvatarGrid(data);
+        })
+        .catch(() => {
+          document.getElementById('dlg-media-grid').innerHTML = '<div style="grid-column:1/-1; text-align:center; color:var(--muted); padding:20px;">Failed to load avatars</div>';
+        });
+    } else {
+      renderDlgAvatarGrid(dlgMediaData);
+    }
+  };
 
-  applyScale();
-};
+  window.closeDlgMediaPicker = function() {
+    const overlay = document.getElementById('dlg-media-modal-overlay');
+    overlay.style.display = 'none';
+    const modal = overlay.querySelector('div');
+    if (modal) modal.remove();
+  };
 
-// ════════════════════════════════════════════════════════════════
-// MEDIA PICKER (Character)
-// ════════════════════════════════════════════════════════════════
-
-let mediaData = [];
-
-window.openMediaPicker = function() {
-  document.getElementById('mediaModal').style.display = 'block';
-  if (mediaData.length === 0) {
-    loadMediaData();
-  }
-};
-
-window.closeMediaPicker = function() {
-  document.getElementById('mediaModal').style.display = 'none';
-};
-
-function loadMediaData() {
-  fetch('https://raw.githubusercontent.com/minhnguyen412/chinese60s/refs/heads/main/data/imagesData.json')
-    .then(res => res.json())
-    .then(data => {
-      mediaData = data;
-      renderMediaGrid(mediaData);
-    })
-    .catch(err => {
-      console.error('Error loading media:', err);
-      document.getElementById('mediaGrid').innerHTML = '<div style="grid-column:1/-1; color:var(--muted); text-align:center; padding:20px;">Failed to load images</div>';
-    });
-}
-
-function renderMediaGrid(images) {
-  const grid = document.getElementById('mediaGrid');
-
-  if (images.length === 0) {
-    grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; color:var(--muted); padding:20px;">No images found</div>';
-    return;
-  }
-
-  grid.innerHTML = images.map(item => `
-    <div style="border:var(--border); border-radius:8px; overflow:hidden; cursor:pointer; transition:transform 0.12s, box-shadow 0.12s;"
-      onmouseover="this.style.boxShadow='var(--shadow-md)'; this.style.transform='translate(-2px,-2px)';"
-      onmouseout="this.style.boxShadow='none'; this.style.transform='none';">
-      <img src="${item.imageSrc}" alt="${item.character}" style="width:100%; height:160px; object-fit:cover; display:block;">
-      <div style="padding:8px; text-align:center;">
-        <div style="font-weight:700; font-size:0.95rem; margin-bottom:2px;">${item.character}</div>
-        <div style="font-size:0.75rem; color:var(--muted); margin-bottom:6px;">${item.meaning}</div>
-        <button class="btn btn-sky btn-sm"
-          onclick="selectImage('${item.imageSrc.replace(/'/g, "\\'")}'); event.stopPropagation();">
-          ✓ Copy Link
-        </button>
+  function renderDlgAvatarGrid(avatars) {
+    const grid = document.getElementById('dlg-media-grid');
+    if (!grid) return;
+    
+    if (!avatars.length) {
+      grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; color:var(--muted); padding:20px;">No avatars available</div>';
+      return;
+    }
+    
+    grid.innerHTML = avatars.map(avatar => `
+      <div style="border:var(--border); border-radius:8px; overflow:hidden; cursor:pointer; transition:transform 0.12s; aspect-ratio:1;"
+        onmouseover="this.style.boxShadow='var(--shadow-md)'; this.style.transform='translate(-2px,-2px)';"
+        onmouseout="this.style.boxShadow='none'; this.style.transform='none';"
+        onclick="selectDlgAvatar('${avatar.imageSrc.replace(/'/g, "\\'")}')">
+        <img src="${avatar.imageSrc}" alt="avatar" style="width:100%; height:100%; object-fit:cover; display:block;">
       </div>
-    </div>
-  `).join('');
-}
-
-window.selectImage = function(imageSrc) {
-  document.getElementById('inp-image').value = imageSrc;
-  closeMediaPicker();
-};
-
-window.searchMedia = function() {
-  const query = document.getElementById('mediaSearch').value.trim().toLowerCase();
-
-  if (!query) {
-    renderMediaGrid(mediaData);
-    return;
+    `).join('');
   }
 
-  const results = mediaData.filter(item =>
-    item.character.includes(query) ||
-    item.meaning.toLowerCase().includes(query) ||
-    (item.pinyin && item.pinyin.toLowerCase().includes(query))
-  );
-
-  renderMediaGrid(results);
-};
-
-document.addEventListener('DOMContentLoaded', function() {
-  const mediaSearch = document.getElementById('mediaSearch');
-  if (mediaSearch) {
-    mediaSearch.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') searchMedia();
-    });
-  }
-});
-
-document.addEventListener('click', function(e) {
-  const modal = document.getElementById('mediaModal');
-  if (e.target === modal) {
-    closeMediaPicker();
-  }
-});
-
-// ════════════════════════════════════════════════════════════════
-// MEDIA PICKER (Dialogue)
-// ════════════════════════════════════════════════════════════════
-
-window.openDlgMediaPicker = function() {
-  const overlay = document.getElementById('dlg-media-modal-overlay');
-  overlay.style.display = 'block';
-  overlay.onclick = closeDlgMediaPicker;
-
-  const modal = document.createElement('div');
-  modal.style.cssText = 'position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); background:var(--white); border:var(--border-thick); border-radius:12px; max-width:600px; max-height:80vh; overflow-y:auto; z-index:201; box-shadow:var(--shadow-lg);';
-  
-  modal.innerHTML = `
-    <div style="padding:16px; border-bottom:var(--border); display:flex; justify-content:space-between; align-items:center; position:sticky; top:0; background:white; z-index:10;">
-      <h3 style="font-family:'Quicksand',sans-serif; font-weight:700; font-size:1.1rem;">Select Avatar</h3>
-      <button onclick="closeDlgMediaPicker()" style="background:none; border:none; font-size:1.5rem; cursor:pointer; color:var(--muted);">✕</button>
-    </div>
-    <div id="dlg-media-grid" style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; padding:16px;">
-      <div style="grid-column:1/-1; text-align:center; color:var(--muted); padding:40px;">Loading avatars...</div>
-    </div>`;
-  
-  overlay.appendChild(modal);
-  
-  if (dlgMediaData.length === 0) {
-    fetch('https://raw.githubusercontent.com/minhnguyen412/chinese60s/refs/heads/main/data/avatar.json')
-      .then(r => r.json())
-      .then(data => {
-        dlgMediaData = data;
-        renderDlgAvatarGrid(data);
-      })
-      .catch(() => {
-        document.getElementById('dlg-media-grid').innerHTML = '<div style="grid-column:1/-1; text-align:center; color:var(--muted); padding:20px;">Failed to load avatars</div>';
-      });
-  } else {
-    renderDlgAvatarGrid(dlgMediaData);
-  }
-};
-
-window.closeDlgMediaPicker = function() {
-  const overlay = document.getElementById('dlg-media-modal-overlay');
-  overlay.style.display = 'none';
-  const modal = overlay.querySelector('div');
-  if (modal) modal.remove();
-};
-
-function renderDlgAvatarGrid(avatars) {
-  const grid = document.getElementById('dlg-media-grid');
-  if (!grid) return;
-  
-  if (!avatars.length) {
-    grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; color:var(--muted); padding:20px;">No avatars available</div>';
-    return;
-  }
-  
-  grid.innerHTML = avatars.map(avatar => `
-    <div style="border:var(--border); border-radius:8px; overflow:hidden; cursor:pointer; transition:transform 0.12s; aspect-ratio:1;"
-      onmouseover="this.style.boxShadow='var(--shadow-md)'; this.style.transform='translate(-2px,-2px)';"
-      onmouseout="this.style.boxShadow='none'; this.style.transform='none';"
-      onclick="selectDlgAvatar('${avatar.imageSrc.replace(/'/g, "\\'")}')">
-      <img src="${avatar.imageSrc}" alt="avatar" style="width:100%; height:100%; object-fit:cover; display:block;">
-    </div>
-  `).join('');
-}
-
-window.selectDlgAvatar = function(url) {
-  document.getElementById('dlg-char-avatar').value = url;
-  dlgSelectedAvatarUrl = url;
-  
-  const preview = document.getElementById('dlg-selected-avatar');
-  preview.style.backgroundImage = `url('${url}')`;
-  preview.style.backgroundSize = 'cover';
-  preview.style.backgroundPosition = 'center';
-  preview.style.display = 'block';
-  
-  closeDlgMediaPicker();
-};
+  window.selectDlgAvatar = function(url) {
+    document.getElementById('dlg-char-avatar').value = url;
+    dlgSelectedAvatarUrl = url;
+    
+    const preview = document.getElementById('dlg-selected-avatar');
+    preview.style.backgroundImage = `url('${url}')`;
+    preview.style.backgroundSize = 'cover';
+    preview.style.backgroundPosition = 'center';
+    preview.style.display = 'block';
+    
+    closeDlgMediaPicker();
+  };
 </script>
 
 </body>
