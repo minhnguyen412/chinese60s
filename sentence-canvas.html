@@ -395,21 +395,25 @@
         removeCard(card);
       };
 
-      const canvas = document.createElement('canvas');
-      canvas.width = currentHanziSize - 20;
-      canvas.height = currentHanziSize - 40;
-      canvas.style.cursor = 'pointer';
+      // IMPORTANT: HanziWriter renders SVG by default. A <canvas> element
+      // never displays its DOM children (only non-rendered fallback
+      // content), so mounting HanziWriter on a <canvas> silently shows
+      // nothing with no console error. Use a <div> target instead.
+      const hanziTarget = document.createElement('div');
+      hanziTarget.style.width = (currentHanziSize - 20) + 'px';
+      hanziTarget.style.height = (currentHanziSize - 40) + 'px';
+      hanziTarget.style.cursor = 'pointer';
 
       card.appendChild(header);
       card.appendChild(closeBtn);
-      card.appendChild(canvas);
+      card.appendChild(hanziTarget);
       canvasContainer.appendChild(card);
 
       // Create Hanzi Writer
       // showCharacter: true + a light strokeColor gives a faint character
       // sitting in the middle of the card at all times ("chữ mờ").
-      // Clicking the canvas then plays the stroke-order animation on top of it.
-      const writer = HanziWriter.create(canvas, character, {
+      // Clicking it then plays the stroke-order animation on top of it.
+      const writer = HanziWriter.create(hanziTarget, character, {
         width: currentHanziSize - 20,
         height: currentHanziSize - 40,
         padding: 5,
@@ -442,7 +446,7 @@
       hanziCards.push(cardData);
 
       // Click to play the stroke order animation
-      canvas.addEventListener('click', () => {
+      hanziTarget.addEventListener('click', () => {
         if (isAnimating) return;
         isAnimating = true;
 
