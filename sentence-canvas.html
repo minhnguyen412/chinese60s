@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Drawing Canvas with Text Overlay</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    #controls {
+      margin-bottom: 10px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    input[type="text"] {
+      padding: 8px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      padding: 8px 12px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #f0f0f0;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    button:hover {
+      background-color: #e0e0e0;
+    }
+
+    button.active {
+      background-color: #4CAF50;
+      color: white;
+      border-color: #45a049;
+    }
+
+    .control-group {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .slider-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    input[type="range"] {
+      width: 120px;
+      cursor: pointer;
+    }
+
+    .slider-label {
+      font-size: 13px;
+      font-weight: bold;
+      min-width: 80px;
+    }
+
+    .slider-value {
+      font-size: 13px;
+      min-width: 35px;
+      background-color: #f0f0f0;
+      padding: 4px 8px;
+      border-radius: 3px;
+    }
+
+    .canvas-container {
+      position: relative;
+      width: 90vw;
+      height: 70vh;
+      border: 2px solid #333;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      background-image: 
+        linear-gradient(0deg, transparent 24%, rgba(200, 200, 200, 0.3) 25%, rgba(200, 200, 200, 0.3) 26%, transparent 27%, transparent 74%, rgba(200, 200, 200, 0.3) 75%, rgba(200, 200, 200, 0.3) 76%, transparent 77%, transparent),
+        linear-gradient(90deg, transparent 24%, rgba(200, 200, 200, 0.3) 25%, rgba(200, 200, 200, 0.3) 26%, transparent 27%, transparent 74%, rgba(200, 200, 200, 0.3) 75%, rgba(200, 200, 200, 0.3) 76%, transparent 77%, transparent);
+      background-size: 30px 30px;
+      background-color: #ffffff;
+    }
+
+    #textCanvas,
+    #drawingCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      touch-action: none;
+      cursor: none;
+      background-color: transparent;
+    }
+
+    #customCursor {
+      position: absolute;
+      pointer-events: none;
+      z-index: 10000;
+      width: 500px;
+      height: 500px;
+      background-image: url('https://res.cloudinary.com/dndwvsqib/image/upload/v1783244096/write_vqd2nt.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      transform: translate(-37%, -27%);
+    }
+  </style>
+</head>
+<body>
+  <div id="controls">
+    <!-- Text Input -->
+    <div class="control-group">
+      <input type="text" id="textInput" placeholder="Enter text...">
+      <button id="submitText">OK</button>
+    </div>
+
+    <!-- Draw/Erase Buttons -->
+    <div class="control-group">
+      <button id="drawButton" class="active">✏️ Draw</button>
+      <button id="eraseButton">🧹 Erase</button>
+    </div>
+
+    <!-- Line Width Control -->
+    <div class="slider-container">
+      <label class="slider-label">Line Width:</label>
+      <input type="range" id="lineWidthSlider" min="1" max="30" value="5">
+      <span class="slider-value"><span id="lineWidthValue">5</span>px</span>
+    </div>
+
+    <!-- Text Size Control -->
+    <div class="slider-container">
+      <label class="slider-label">Text Size:</label>
+      <input type="range" id="textSizeSlider" min="50" max="300" value="200">
+      <span class="slider-value"><span id="textSizeValue">200</span>px</span>
+    </div>
+
+    <!-- Text Opacity Control -->
+    <div class="slider-container">
+      <label class="slider-label">Text Opacity:</label>
+      <input type="range" id="textOpacitySlider" min="0" max="100" value="20">
+      <span class="slider-value"><span id="textOpacityValue">20</span>%</span>
+    </div>
+
+    <!-- Clear Button -->
+    <button id="clearButton">🗑️ Clear All</button>
+  </div>
+
+  <div class="canvas-container">
+    <canvas id="textCanvas"></canvas>
+    <canvas id="drawingCanvas"></canvas>
+  </div>
+  <div id="customCursor"></div>
+
+  <script>
+    const textCanvas = document.getElementById('textCanvas');
+    const drawingCanvas = document.getElementById('drawingCanvas');
+    const ctxText = textCanvas.getContext('2d');
+    const ctxDraw = drawingCanvas.getContext('2d');
+    const textInput = document.getElementById('textInput');
+    const submitText = document.getElementById('submitText');
+    const drawButton = document.getElementById('drawButton');
+    const eraseButton = document.getElementById('eraseButton');
+    const clearButton = document.getElementById('clearButton');
+    const customCursor = document.getElementById('customCursor');
+    
+    // Sliders
+    const lineWidthSlider = document.getElementById('lineWidthSlider');
+    const lineWidthValue = document.getElementById('lineWidthValue');
+    const textSizeSlider = document.getElementById('textSizeSlider');
+    const textSizeValue = document.getElementById('textSizeValue');
+    const textOpacitySlider = document.getElementById('textOpacitySlider');
+    const textOpacityValue = document.getElementById('textOpacityValue');
+
+    function setCanvasDimensions() {
+      textCanvas.width = textCanvas.clientWidth;
+      textCanvas.height = textCanvas.clientHeight;
+      drawingCanvas.width = textCanvas.width;
+      drawingCanvas.height = textCanvas.height;
+    }
+    setCanvasDimensions();
+
+    let isDrawing = false;
+    let isErasing = false;
+    let lastX = 0;
+    let lastY = 0;
+    let lastTime = 0;
+    let text = '';
+    let currentLineWidth = 5; // Default line width
+    let currentTextSize = 200; // Default text size
+    let currentTextOpacity = 20; // Default text opacity (20%)
+
+    // ========================================
+    // HÀM RENDER TEXT VỚI TỰ ĐỘNG THU NHỎ
+    // ========================================
+    function renderTextOnCanvas() {
+      ctxText.clearRect(0, 0, textCanvas.width, textCanvas.height);
+      
+      // Thiết lập font
+      let fontSize = currentTextSize;
+      ctxText.font = `${fontSize}px Arial`;
+      // Chuyển đổi opacity từ 0-100 thành 0-1
+      const opacityValue = currentTextOpacity / 100;
+      ctxText.fillStyle = `rgba(0, 0, 0, ${opacityValue})`;
+      ctxText.textAlign = 'center';
+      ctxText.textBaseline = 'middle';
+
+      // Kiểm tra nếu text quá rộng, thu nhỏ font
+      const maxWidth = textCanvas.width * 0.9; // 90% chiều rộng canvas
+      let measuredWidth = ctxText.measureText(text).width;
+
+      // Nếu text quá rộng, giảm kích thước font
+      while (measuredWidth > maxWidth && fontSize > 20) {
+        fontSize -= 10;
+        ctxText.font = `${fontSize}px Arial`;
+        measuredWidth = ctxText.measureText(text).width;
+      }
+
+      // Vẽ text ở giữa
+      ctxText.fillText(text, textCanvas.width / 2, textCanvas.height / 2);
+    }
+
+    // ========================================
+    // SỰ KIỆN SLIDER ĐIỀU CHỈNH NÉT VẼ
+    // ========================================
+    lineWidthSlider.addEventListener('input', (e) => {
+      currentLineWidth = parseInt(e.target.value);
+      lineWidthValue.textContent = currentLineWidth;
+    });
+
+    // ========================================
+    // SỰ KIỆN SLIDER ĐIỀU CHỈNH KỈ THƯỚC TEXT
+    // ========================================
+    textSizeSlider.addEventListener('input', (e) => {
+      currentTextSize = parseInt(e.target.value);
+      textSizeValue.textContent = currentTextSize;
+      if (text) {
+        renderTextOnCanvas(); // Cập nhật text khi thay đổi kích thước
+      }
+    });
+
+    // ========================================
+    // SỰ KIỆN SLIDER ĐIỀU CHỈNH ĐỘ ĐẬM CỦA TEXT
+    // ========================================
+    textOpacitySlider.addEventListener('input', (e) => {
+      currentTextOpacity = parseInt(e.target.value);
+      textOpacityValue.textContent = currentTextOpacity;
+      if (text) {
+        renderTextOnCanvas(); // Cập nhật text khi thay đổi opacity
+      }
+    });
+
+    // Submit button event listener
+    submitText.addEventListener('click', () => {
+      const inputText = textInput.value.trim();
+      if (inputText) {
+        text = inputText;
+        renderTextOnCanvas();
+      }
+    });
+
+    // Allow Enter key to submit text
+    textInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        submitText.click();
+      }
+    });
+
+    drawButton.addEventListener('click', () => {
+      isErasing = false;
+      drawButton.classList.add('active');
+      eraseButton.classList.remove('active');
+      customCursor.style.backgroundImage = "url('https://res.cloudinary.com/dndwvsqib/image/upload/v1783244096/write_vqd2nt.png')";
+    });
+
+    eraseButton.addEventListener('click', () => {
+      isErasing = true;
+      eraseButton.classList.add('active');
+      drawButton.classList.remove('active');
+      customCursor.style.backgroundImage = "url('https://res.cloudinary.com/dndwvsqib/image/upload/v1783244096/wipe_zbcqwl.png')";
+    });
+
+    clearButton.addEventListener('click', () => {
+      ctxDraw.clearRect(0, 0, drawingCanvas.width, drawingCanvas.height);
+    });
+
+    // Update custom cursor position for mouse
+    document.addEventListener('mousemove', (e) => {
+      customCursor.style.left = `${e.pageX}px`;
+      customCursor.style.top = `${e.pageY}px`;
+    });
+
+    // Update custom cursor position for touch
+    drawingCanvas.addEventListener('touchmove', (e) => {
+      const rect = drawingCanvas.getBoundingClientRect();
+      const touch = e.touches[0];
+      const cursorX = touch.clientX - rect.left;
+      const cursorY = touch.clientY - rect.top;
+
+      customCursor.style.left = `${touch.clientX}px`;
+      customCursor.style.top = `${touch.clientY}px`;
+
+      if (isDrawing) {
+        ctxDraw.lineTo(cursorX, cursorY);
+        ctxDraw.strokeStyle = isErasing ? 'white' : 'black';
+        ctxDraw.stroke();
+      }
+    });
+
+    // Hide custom cursor over input and button
+    textInput.addEventListener('mouseenter', () => {
+      customCursor.style.display = 'none';
+    });
+    textInput.addEventListener('mouseleave', () => {
+      customCursor.style.display = 'block';
+    });
+
+    document.querySelectorAll('#controls button').forEach(button => {
+      button.addEventListener('mouseenter', () => {
+        customCursor.style.display = 'none';
+      });
+      button.addEventListener('mouseleave', () => {
+        customCursor.style.display = 'block';
+      });
+    });
+
+    // ========================================
+    // TÍNH TOÁN NÉT VẼ ĐỘNG
+    // ========================================
+    function calculateLineWidth(distance, timeDiff) {
+      const velocity = distance / timeDiff;
+      const minLineWidth = 0.5;
+      const maxLineWidth = currentLineWidth; // Sử dụng giá trị từ slider
+      const speedFactor = 0.05;
+      return Math.max(minLineWidth, Math.min(maxLineWidth, maxLineWidth - velocity * speedFactor));
+    }
+
+    // Drawing functionality - Mouse
+    drawingCanvas.addEventListener('mousedown', (e) => {
+      isDrawing = true;
+      lastX = e.offsetX;
+      lastY = e.offsetY;
+      lastTime = Date.now();
+      ctxDraw.beginPath();
+      ctxDraw.moveTo(lastX, lastY);
+    });
+
+    drawingCanvas.addEventListener('mousemove', (e) => {
+      if (!isDrawing) return;
+
+      const currentX = e.offsetX;
+      const currentY = e.offsetY;
+      const currentTime = Date.now();
+
+      const distance = Math.sqrt((currentX - lastX) ** 2 + (currentY - lastY) ** 2);
+      const timeDiff = currentTime - lastTime;
+
+      const lineWidth = calculateLineWidth(distance, timeDiff);
+      ctxDraw.lineWidth = lineWidth;
+
+      if (isErasing) {
+        eraseLine(currentX, currentY);
+      } else {
+        ctxDraw.lineTo(currentX, currentY);
+        ctxDraw.strokeStyle = 'black';
+        ctxDraw.lineCap = 'round';
+        ctxDraw.lineJoin = 'round';
+        ctxDraw.stroke();
+      }
+
+      lastX = currentX;
+      lastY = currentY;
+      lastTime = currentTime;
+    });
+
+    drawingCanvas.addEventListener('mouseup', () => {
+      isDrawing = false;
+      ctxDraw.closePath();
+    });
+
+    drawingCanvas.addEventListener('mouseleave', () => {
+      isDrawing = false;
+    });
+
+    // Function to erase lines
+    function eraseLine(x, y) {
+      const eraseRadius = currentLineWidth * 1.5; // Kích thước xóa linh hoạt theo nét vẽ
+      ctxDraw.clearRect(x - eraseRadius, y - eraseRadius, eraseRadius * 2, eraseRadius * 2);
+    }
+
+    // Touch events for mobile devices
+    function getTouchPosition(e) {
+      const rect = drawingCanvas.getBoundingClientRect();
+      const devicePixelRatio = window.devicePixelRatio || 1;
+      const touch = e.touches[0];
+      return {
+        x: (touch.clientX - rect.left) * devicePixelRatio,
+        y: (touch.clientY - rect.top) * devicePixelRatio
+      };
+    }
+
+    drawingCanvas.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      const { x, y } = getTouchPosition(e);
+      isDrawing = true;
+      lastX = x;
+      lastY = y;
+      lastTime = Date.now();
+      ctxDraw.beginPath();
+      ctxDraw.moveTo(lastX, lastY);
+    });
+
+    drawingCanvas.addEventListener('touchmove', (e) => {
+      const rect = drawingCanvas.getBoundingClientRect();
+      const touch = e.touches[0];
+
+      customCursor.style.left = `${touch.clientX}px`;
+      customCursor.style.top = `${touch.clientY}px`;
+
+      if (!isDrawing) return;
+
+      const { x, y } = getTouchPosition(e);
+      const currentTime = Date.now();
+
+      const distance = Math.sqrt((x - lastX) ** 2 + (y - lastY) ** 2);
+      const timeDiff = currentTime - lastTime;
+
+      const lineWidth = calculateLineWidth(distance, timeDiff);
+      ctxDraw.lineWidth = lineWidth;
+
+      if (isErasing) {
+        eraseLine(x, y);
+      } else {
+        const devicePixelRatio = window.devicePixelRatio || 1;
+        const canvasX = (touch.clientX - rect.left) * devicePixelRatio;
+        const canvasY = (touch.clientY - rect.top) * devicePixelRatio;
+
+        ctxDraw.lineTo(x, y);
+        ctxDraw.strokeStyle = 'black';
+        ctxDraw.lineCap = 'round';
+        ctxDraw.lineJoin = 'round';
+        ctxDraw.stroke();
+      }
+
+      lastX = x;
+      lastY = y;
+      lastTime = currentTime;
+    });
+
+    drawingCanvas.addEventListener('touchend', () => {
+      isDrawing = false;
+      ctxDraw.closePath();
+    });
+
+    // Resize canvases on window resize
+    window.addEventListener('resize', setCanvasDimensions);
+
+  </script>
+</body>
+</html>
