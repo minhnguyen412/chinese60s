@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Drawing Canvas with Text Overlay</title>
+  <title>Drawing Canvas with Interactive Hanzi Writer</title>
+  <script src="https://cdn.jsdelivr.net/npm/hanzi-writer@3.5/dist/hanzi-writer.min.js"></script>
   <style>
     body {
       margin: 0;
@@ -94,6 +95,7 @@
         linear-gradient(90deg, transparent 24%, rgba(200, 200, 200, 0.3) 25%, rgba(200, 200, 200, 0.3) 26%, transparent 27%, transparent 74%, rgba(200, 200, 200, 0.3) 75%, rgba(200, 200, 200, 0.3) 76%, transparent 77%, transparent);
       background-size: 30px 30px;
       background-color: #ffffff;
+      overflow: hidden;
     }
 
     #textCanvas,
@@ -106,18 +108,75 @@
       touch-action: none;
       cursor: none;
       background-color: transparent;
+
     }
 
     #customCursor {
       position: absolute;
       pointer-events: none;
-      z-index: 10000;
+      z-index: 5000;
       width: 500px;
       height: 500px;
       background-image: url('https://res.cloudinary.com/dndwvsqib/image/upload/v1783244096/write_vqd2nt.png');
       background-size: contain;
       background-repeat: no-repeat;
       transform: translate(-37%, -27%);
+    }
+
+    .hanzi-card {
+      position: absolute;
+      background-color: white;
+      border: 2px solid #007bff;
+      border-radius: 8px;
+      padding: 10px;
+      cursor: grab;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .hanzi-card.dragging {
+      cursor: grabbing;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      z-index: 6000;
+    }
+
+    .hanzi-card canvas {
+      display: block;
+      cursor: pointer;
+    }
+
+    .hanzi-card-header {
+      font-size: 12px;
+      color: #666;
+      text-align: center;
+      margin-bottom: 5px;
+      cursor: move;
+    }
+
+    .hanzi-card-close {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 20px;
+      height: 20px;
+      background-color: #ff4444;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: bold;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 7000;
+    }
+
+    .hanzi-card-close:hover {
+      background-color: #cc0000;
     }
   </style>
 </head>
@@ -127,6 +186,12 @@
     <div class="control-group">
       <input type="text" id="textInput" placeholder="Enter text...">
       <button id="submitText">OK</button>
+    </div>
+
+    <!-- Hanzi Input -->
+    <div class="control-group">
+      <input type="text" id="hanziInput" placeholder="Enter Chinese character (e.g., 你好)">
+      <button id="addHanziBtn">Add Hanzi</button>
     </div>
 
     <!-- Draw/Erase Buttons -->
@@ -156,14 +221,22 @@
       <span class="slider-value"><span id="textOpacityValue">20</span>%</span>
     </div>
 
+    <!-- Hanzi Size Control -->
+    <div class="slider-container">
+      <label class="slider-label">Hanzi Size:</label>
+      <input type="range" id="hanziSizeSlider" min="80" max="250" value="150">
+      <span class="slider-value"><span id="hanziSizeValue">150</span>px</span>
+    </div>
+
     <!-- Clear Button -->
-    <button id="clearButton">🗑️ Clear All</button>
+    <button id="clearButton">🗑️ Clear Drawing</button>
   </div>
 
-  <div class="canvas-container">
+  <div class="canvas-container" id="canvasContainer">
     <canvas id="textCanvas"></canvas>
     <canvas id="drawingCanvas"></canvas>
   </div>
+
   <div id="customCursor"></div>
 
   <script>
@@ -173,10 +246,13 @@
     const ctxDraw = drawingCanvas.getContext('2d');
     const textInput = document.getElementById('textInput');
     const submitText = document.getElementById('submitText');
+    const hanziInput = document.getElementById('hanziInput');
+    const addHanziBtn = document.getElementById('addHanziBtn');
     const drawButton = document.getElementById('drawButton');
     const eraseButton = document.getElementById('eraseButton');
     const clearButton = document.getElementById('clearButton');
     const customCursor = document.getElementById('customCursor');
+    const canvasContainer = document.getElementById('canvasContainer');
     
     // Sliders
     const lineWidthSlider = document.getElementById('lineWidthSlider');
@@ -185,6 +261,8 @@
     const textSizeValue = document.getElementById('textSizeValue');
     const textOpacitySlider = document.getElementById('textOpacitySlider');
     const textOpacityValue = document.getElementById('textOpacityValue');
+    const hanziSizeSlider = document.getElementById('hanziSizeSlider');
+    const hanziSizeValue = document.getElementById('hanziSizeValue');
 
     function setCanvasDimensions() {
       textCanvas.width = textCanvas.clientWidth;
@@ -199,10 +277,15 @@
     let lastX = 0;
     let lastY = 0;
     let lastTime = 0;
+    let currentLineWidth = 5;
+    let currentHanziSize = 150;
+    let currentTextSize = 200;
+    let currentTextOpacity = 20;
     let text = '';
-    let currentLineWidth = 5; // Default line width
-    let currentTextSize = 200; // Default text size
-    let currentTextOpacity = 20; // Default text opacity (20%)
+    let hanziCards = [];
+    let draggedCard = null;
+    let dragOffsetX = 0;
+    let dragOffsetY = 0;
 
     // ========================================
     // RENDER TEXT WITH AUTO SHRINK FEATURE
@@ -264,7 +347,17 @@
       }
     });
 
-    // Submit button event listener
+    // ========================================
+    // HANZI SIZE SLIDER EVENT
+    // ========================================
+    hanziSizeSlider.addEventListener('input', (e) => {
+      currentHanziSize = parseInt(e.target.value);
+      hanziSizeValue.textContent = currentHanziSize;
+    });
+
+    // ========================================
+    // SUBMIT TEXT BUTTON EVENT
+    // ========================================
     submitText.addEventListener('click', () => {
       const inputText = textInput.value.trim();
       if (inputText) {
@@ -273,13 +366,197 @@
       }
     });
 
-    // Allow Enter key to submit text
     textInput.addEventListener('keypress', (e) => {
       if (e.key === 'Enter') {
         submitText.click();
       }
     });
 
+    // ========================================
+    // ADD HANZI CARD FUNCTION
+    // ========================================
+    function addHanziCard(character, x = 100, y = 100) {
+      const card = document.createElement('div');
+      card.className = 'hanzi-card';
+      card.style.left = x + 'px';
+      card.style.top = y + 'px';
+      card.style.width = currentHanziSize + 'px';
+      card.style.height = currentHanziSize + 'px';
+
+      const header = document.createElement('div');
+      header.className = 'hanzi-card-header';
+      header.textContent = character;
+
+      const closeBtn = document.createElement('button');
+      closeBtn.className = 'hanzi-card-close';
+      closeBtn.textContent = '×';
+      closeBtn.onclick = (e) => {
+        e.stopPropagation();
+        removeCard(card);
+      };
+
+      const canvas = document.createElement('canvas');
+      canvas.width = currentHanziSize - 20;
+      canvas.height = currentHanziSize - 40;
+      canvas.style.cursor = 'pointer';
+
+      card.appendChild(header);
+      card.appendChild(closeBtn);
+      card.appendChild(canvas);
+      canvasContainer.appendChild(card);
+
+      // Create Hanzi Writer
+      const writer = HanziWriter.create(canvas, character, {
+        width: currentHanziSize - 20,
+        height: currentHanziSize - 40,
+        padding: 5,
+        showOutline: true,
+        showCharacter: false,
+        strokeAnimationSpeed: 1,
+        delayBetweenStrokes: 200,
+      });
+
+      // Store card data
+      const cardData = {
+        element: card,
+        writer: writer,
+        character: character,
+        isDragging: false
+      };
+
+      hanziCards.push(cardData);
+
+      // Click to animate
+      canvas.addEventListener('click', () => {
+        writer.animateCharacter();
+      });
+
+      // Drag functionality
+      setupCardDrag(card, cardData);
+    }
+
+    // ========================================
+    // DRAG FUNCTIONALITY
+    // ========================================
+    function setupCardDrag(card, cardData) {
+      card.addEventListener('mousedown', (e) => {
+        if (e.target.tagName === 'BUTTON') return;
+        
+        draggedCard = cardData;
+        cardData.isDragging = true;
+        card.classList.add('dragging');
+
+        const rect = card.getBoundingClientRect();
+        const containerRect = canvasContainer.getBoundingClientRect();
+        dragOffsetX = e.clientX - rect.left;
+        dragOffsetY = e.clientY - rect.top;
+
+        isDrawing = false;
+      });
+
+      card.addEventListener('touchstart', (e) => {
+        if (e.target.tagName === 'BUTTON') return;
+        
+        draggedCard = cardData;
+        cardData.isDragging = true;
+        card.classList.add('dragging');
+
+        const rect = card.getBoundingClientRect();
+        const touch = e.touches[0];
+        dragOffsetX = touch.clientX - rect.left;
+        dragOffsetY = touch.clientY - rect.top;
+
+        isDrawing = false;
+      });
+    }
+
+    document.addEventListener('mousemove', (e) => {
+      customCursor.style.left = `${e.pageX}px`;
+      customCursor.style.top = `${e.pageY}px`;
+
+      if (draggedCard) {
+        const containerRect = canvasContainer.getBoundingClientRect();
+        let x = e.clientX - containerRect.left - dragOffsetX;
+        let y = e.clientY - containerRect.top - dragOffsetY;
+
+        // Constrain within container
+        x = Math.max(0, Math.min(x, containerRect.width - currentHanziSize));
+        y = Math.max(0, Math.min(y, containerRect.height - currentHanziSize));
+
+        draggedCard.element.style.left = x + 'px';
+        draggedCard.element.style.top = y + 'px';
+      }
+    });
+
+    document.addEventListener('touchmove', (e) => {
+      const touch = e.touches[0];
+      const containerRect = canvasContainer.getBoundingClientRect();
+      
+      customCursor.style.left = `${touch.clientX}px`;
+      customCursor.style.top = `${touch.clientY}px`;
+
+      if (draggedCard) {
+        let x = touch.clientX - containerRect.left - dragOffsetX;
+        let y = touch.clientY - containerRect.top - dragOffsetY;
+
+        x = Math.max(0, Math.min(x, containerRect.width - currentHanziSize));
+        y = Math.max(0, Math.min(y, containerRect.height - currentHanziSize));
+
+        draggedCard.element.style.left = x + 'px';
+        draggedCard.element.style.top = y + 'px';
+      }
+    });
+
+    document.addEventListener('mouseup', () => {
+      if (draggedCard) {
+        draggedCard.element.classList.remove('dragging');
+        draggedCard.isDragging = false;
+        draggedCard = null;
+      }
+      isDrawing = false;
+    });
+
+    document.addEventListener('touchend', () => {
+      if (draggedCard) {
+        draggedCard.element.classList.remove('dragging');
+        draggedCard.isDragging = false;
+        draggedCard = null;
+      }
+      isDrawing = false;
+    });
+
+    // ========================================
+    // REMOVE CARD FUNCTION
+    // ========================================
+    function removeCard(cardElement) {
+      const index = hanziCards.findIndex(c => c.element === cardElement);
+      if (index > -1) {
+        hanziCards.splice(index, 1);
+      }
+      cardElement.remove();
+    }
+
+    // ========================================
+    // ADD HANZI BUTTON EVENT
+    // ========================================
+    addHanziBtn.addEventListener('click', () => {
+      const input = hanziInput.value.trim();
+      if (input) {
+        addHanziCard(input, 100 + Math.random() * 200, 100 + Math.random() * 200);
+        hanziInput.value = '';
+        hanziInput.focus();
+      }
+    });
+
+    hanziInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        addHanziBtn.click();
+      }
+    });
+
+    // ========================================
+    // DRAW BUTTON EVENTS
+    // ========================================
     drawButton.addEventListener('click', () => {
       isErasing = false;
       drawButton.classList.add('active');
@@ -298,34 +575,18 @@
       ctxDraw.clearRect(0, 0, drawingCanvas.width, drawingCanvas.height);
     });
 
-    // Update custom cursor position for mouse
-    document.addEventListener('mousemove', (e) => {
-      customCursor.style.left = `${e.pageX}px`;
-      customCursor.style.top = `${e.pageY}px`;
-    });
-
-    // Update custom cursor position for touch
-    drawingCanvas.addEventListener('touchmove', (e) => {
-      const rect = drawingCanvas.getBoundingClientRect();
-      const touch = e.touches[0];
-      const cursorX = touch.clientX - rect.left;
-      const cursorY = touch.clientY - rect.top;
-
-      customCursor.style.left = `${touch.clientX}px`;
-      customCursor.style.top = `${touch.clientY}px`;
-
-      if (isDrawing) {
-        ctxDraw.lineTo(cursorX, cursorY);
-        ctxDraw.strokeStyle = isErasing ? 'white' : 'black';
-        ctxDraw.stroke();
-      }
-    });
-
-    // Hide custom cursor over input and button
+    // Hide custom cursor over input and buttons
     textInput.addEventListener('mouseenter', () => {
       customCursor.style.display = 'none';
     });
     textInput.addEventListener('mouseleave', () => {
+      customCursor.style.display = 'block';
+    });
+
+    hanziInput.addEventListener('mouseenter', () => {
+      customCursor.style.display = 'none';
+    });
+    hanziInput.addEventListener('mouseleave', () => {
       customCursor.style.display = 'block';
     });
 
@@ -344,13 +605,15 @@
     function calculateLineWidth(distance, timeDiff) {
       const velocity = distance / timeDiff;
       const minLineWidth = 0.5;
-      const maxLineWidth = currentLineWidth; // Use value from slider
+      const maxLineWidth = currentLineWidth;
       const speedFactor = 0.05;
       return Math.max(minLineWidth, Math.min(maxLineWidth, maxLineWidth - velocity * speedFactor));
     }
 
     // Drawing functionality - Mouse
     drawingCanvas.addEventListener('mousedown', (e) => {
+      if (draggedCard) return;
+      
       isDrawing = true;
       lastX = e.offsetX;
       lastY = e.offsetY;
@@ -398,23 +661,15 @@
 
     // Function to erase lines
     function eraseLine(x, y) {
-      const eraseRadius = currentLineWidth * 1.5; // Erase size adapts to line width
+      const eraseRadius = currentLineWidth * 1.5;
       ctxDraw.clearRect(x - eraseRadius, y - eraseRadius, eraseRadius * 2, eraseRadius * 2);
     }
 
     // Touch events for mobile devices
-    function getTouchPosition(e) {
-      const rect = drawingCanvas.getBoundingClientRect();
-      const devicePixelRatio = window.devicePixelRatio || 1;
-      const touch = e.touches[0];
-      return {
-        x: (touch.clientX - rect.left) * devicePixelRatio,
-        y: (touch.clientY - rect.top) * devicePixelRatio
-      };
-    }
-
     drawingCanvas.addEventListener('touchstart', (e) => {
-      e.preventDefault(); // Prevent page scrolling
+      if (draggedCard) return;
+      
+      e.preventDefault();
       const rect = drawingCanvas.getBoundingClientRect();
       const touch = e.touches[0];
       const x = touch.clientX - rect.left;
@@ -429,10 +684,8 @@
     });
 
     drawingCanvas.addEventListener('touchmove', (e) => {
-      e.preventDefault();
       const rect = drawingCanvas.getBoundingClientRect();
       const touch = e.touches[0];
-
       const x = touch.clientX - rect.left;
       const y = touch.clientY - rect.top;
 
@@ -470,7 +723,6 @@
 
     // Resize canvases on window resize
     window.addEventListener('resize', setCanvasDimensions);
-
   </script>
 </body>
 </html>
