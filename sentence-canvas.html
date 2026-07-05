@@ -114,7 +114,7 @@
       z-index: 10000;
       width: 500px;
       height: 500px;
-      background-image: url('https://res.cloudinary.com/dndwvsqib/image/upload/v1783244096/write_vqd2nt.png');
+      background-image: url('write.png');
       background-size: contain;
       background-repeat: no-repeat;
       transform: translate(-37%, -27%);
@@ -205,37 +205,37 @@
     let currentTextOpacity = 20; // Default text opacity (20%)
 
     // ========================================
-    // HÀM RENDER TEXT VỚI TỰ ĐỘNG THU NHỎ
+    // RENDER TEXT WITH AUTO SHRINK FEATURE
     // ========================================
     function renderTextOnCanvas() {
       ctxText.clearRect(0, 0, textCanvas.width, textCanvas.height);
       
-      // Thiết lập font
+      // Set font
       let fontSize = currentTextSize;
       ctxText.font = `${fontSize}px Arial`;
-      // Chuyển đổi opacity từ 0-100 thành 0-1
+      // Convert opacity from 0-100 to 0-1
       const opacityValue = currentTextOpacity / 100;
       ctxText.fillStyle = `rgba(0, 0, 0, ${opacityValue})`;
       ctxText.textAlign = 'center';
       ctxText.textBaseline = 'middle';
 
-      // Kiểm tra nếu text quá rộng, thu nhỏ font
-      const maxWidth = textCanvas.width * 0.9; // 90% chiều rộng canvas
+      // Check if text is too wide, auto shrink font
+      const maxWidth = textCanvas.width * 0.9; // 90% canvas width
       let measuredWidth = ctxText.measureText(text).width;
 
-      // Nếu text quá rộng, giảm kích thước font
+      // If text is too wide, decrease font size
       while (measuredWidth > maxWidth && fontSize > 20) {
         fontSize -= 10;
         ctxText.font = `${fontSize}px Arial`;
         measuredWidth = ctxText.measureText(text).width;
       }
 
-      // Vẽ text ở giữa
+      // Draw text at center
       ctxText.fillText(text, textCanvas.width / 2, textCanvas.height / 2);
     }
 
     // ========================================
-    // SỰ KIỆN SLIDER ĐIỀU CHỈNH NÉT VẼ
+    // LINE WIDTH SLIDER EVENT
     // ========================================
     lineWidthSlider.addEventListener('input', (e) => {
       currentLineWidth = parseInt(e.target.value);
@@ -243,24 +243,24 @@
     });
 
     // ========================================
-    // SỰ KIỆN SLIDER ĐIỀU CHỈNH KỈ THƯỚC TEXT
+    // TEXT SIZE SLIDER EVENT
     // ========================================
     textSizeSlider.addEventListener('input', (e) => {
       currentTextSize = parseInt(e.target.value);
       textSizeValue.textContent = currentTextSize;
       if (text) {
-        renderTextOnCanvas(); // Cập nhật text khi thay đổi kích thước
+        renderTextOnCanvas(); // Update text when size changes
       }
     });
 
     // ========================================
-    // SỰ KIỆN SLIDER ĐIỀU CHỈNH ĐỘ ĐẬM CỦA TEXT
+    // TEXT OPACITY SLIDER EVENT
     // ========================================
     textOpacitySlider.addEventListener('input', (e) => {
       currentTextOpacity = parseInt(e.target.value);
       textOpacityValue.textContent = currentTextOpacity;
       if (text) {
-        renderTextOnCanvas(); // Cập nhật text khi thay đổi opacity
+        renderTextOnCanvas(); // Update text when opacity changes
       }
     });
 
@@ -284,14 +284,14 @@
       isErasing = false;
       drawButton.classList.add('active');
       eraseButton.classList.remove('active');
-      customCursor.style.backgroundImage = "url('https://res.cloudinary.com/dndwvsqib/image/upload/v1783244096/write_vqd2nt.png')";
+      customCursor.style.backgroundImage = "url('write.png')";
     });
 
     eraseButton.addEventListener('click', () => {
       isErasing = true;
       eraseButton.classList.add('active');
       drawButton.classList.remove('active');
-      customCursor.style.backgroundImage = "url('https://res.cloudinary.com/dndwvsqib/image/upload/v1783244096/wipe_zbcqwl.png')";
+      customCursor.style.backgroundImage = "url('wipe.png')";
     });
 
     clearButton.addEventListener('click', () => {
@@ -339,12 +339,12 @@
     });
 
     // ========================================
-    // TÍNH TOÁN NÉT VẼ ĐỘNG
+    // CALCULATE DYNAMIC LINE WIDTH
     // ========================================
     function calculateLineWidth(distance, timeDiff) {
       const velocity = distance / timeDiff;
       const minLineWidth = 0.5;
-      const maxLineWidth = currentLineWidth; // Sử dụng giá trị từ slider
+      const maxLineWidth = currentLineWidth; // Use value from slider
       const speedFactor = 0.05;
       return Math.max(minLineWidth, Math.min(maxLineWidth, maxLineWidth - velocity * speedFactor));
     }
@@ -398,7 +398,7 @@
 
     // Function to erase lines
     function eraseLine(x, y) {
-      const eraseRadius = currentLineWidth * 1.5; // Kích thước xóa linh hoạt theo nét vẽ
+      const eraseRadius = currentLineWidth * 1.5; // Erase size adapts to line width
       ctxDraw.clearRect(x - eraseRadius, y - eraseRadius, eraseRadius * 2, eraseRadius * 2);
     }
 
@@ -414,8 +414,12 @@
     }
 
     drawingCanvas.addEventListener('touchstart', (e) => {
-      e.preventDefault();
-      const { x, y } = getTouchPosition(e);
+      e.preventDefault(); // Prevent page scrolling
+      const rect = drawingCanvas.getBoundingClientRect();
+      const touch = e.touches[0];
+      const x = touch.clientX - rect.left;
+      const y = touch.clientY - rect.top;
+      
       isDrawing = true;
       lastX = x;
       lastY = y;
@@ -425,17 +429,19 @@
     });
 
     drawingCanvas.addEventListener('touchmove', (e) => {
+      e.preventDefault();
       const rect = drawingCanvas.getBoundingClientRect();
       const touch = e.touches[0];
+
+      const x = touch.clientX - rect.left;
+      const y = touch.clientY - rect.top;
 
       customCursor.style.left = `${touch.clientX}px`;
       customCursor.style.top = `${touch.clientY}px`;
 
       if (!isDrawing) return;
 
-      const { x, y } = getTouchPosition(e);
       const currentTime = Date.now();
-
       const distance = Math.sqrt((x - lastX) ** 2 + (y - lastY) ** 2);
       const timeDiff = currentTime - lastTime;
 
@@ -445,10 +451,6 @@
       if (isErasing) {
         eraseLine(x, y);
       } else {
-        const devicePixelRatio = window.devicePixelRatio || 1;
-        const canvasX = (touch.clientX - rect.left) * devicePixelRatio;
-        const canvasY = (touch.clientY - rect.top) * devicePixelRatio;
-
         ctxDraw.lineTo(x, y);
         ctxDraw.strokeStyle = 'black';
         ctxDraw.lineCap = 'round';
