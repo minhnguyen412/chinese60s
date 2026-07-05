@@ -419,6 +419,14 @@
         outlineColor: 'rgba(0, 0, 0, 0.12)',  // faint outline guide
         strokeAnimationSpeed: 1,
         delayBetweenStrokes: 200,
+        onLoadCharDataError: function (reason) {
+          // This fires when the stroke-data JSON fails to load
+          // (e.g. blocked CORS/tracking prevention on file:// pages,
+          // or no internet connection).
+          console.error('HanziWriter: failed to load data for "' + character + '"', reason);
+          header.textContent = character + ' (lỗi tải dữ liệu nét chữ)';
+          header.style.color = '#cc0000';
+        },
       });
 
       let isAnimating = false;
