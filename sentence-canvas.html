@@ -112,17 +112,18 @@
     }
 
     #customCursor {
-      position: absolute;
-      pointer-events: none;
-      z-index: 5000;
-      width: 500px;
-      height: 500px;
-      background-image: url('https://res.cloudinary.com/dndwvsqib/image/upload/v1783244096/write_vqd2nt.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      transform: translate(-37%, -27%);
-    }
-
+  position: absolute;
+  pointer-events: none;
+  z-index: 5000;
+  width: 32px;
+  height: 32px;
+  font-size: 28px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+}
     .hanzi-card {
       position: absolute;
       background-color: white;
@@ -194,9 +195,10 @@
       <button id="addHanziBtn">Add Hanzi</button>
     </div>
 
-    <!-- Draw/Erase Buttons -->
+    <!-- Draw/Erase/Line Buttons -->
     <div class="control-group">
       <button id="drawButton" class="active">✏️ Draw</button>
+      <button id="lineButton">📏 Line</button>
       <button id="eraseButton">🧹 Erase</button>
     </div>
 
@@ -224,7 +226,7 @@
     <!-- Hanzi Size Control -->
     <div class="slider-container">
       <label class="slider-label">Hanzi Size:</label>
-      <input type="range" id="hanziSizeSlider" min="80" max="250" value="150">
+      <input type="range" id="hanziSizeSlider" min="80" max="200" value="150">
       <span class="slider-value"><span id="hanziSizeValue">150</span>px</span>
     </div>
 
@@ -249,6 +251,7 @@
     const hanziInput = document.getElementById('hanziInput');
     const addHanziBtn = document.getElementById('addHanziBtn');
     const drawButton = document.getElementById('drawButton');
+    const lineButton = document.getElementById('lineButton');
     const eraseButton = document.getElementById('eraseButton');
     const clearButton = document.getElementById('clearButton');
     const customCursor = document.getElementById('customCursor');
@@ -274,6 +277,10 @@
 
     let isDrawing = false;
     let isErasing = false;
+    let isLineMode = false;
+    let lineStartX = 0;
+    let lineStartY = 0;
+    let lineSnapshot = null;
     let lastX = 0;
     let lastY = 0;
     let lastTime = 0;
@@ -400,8 +407,8 @@
       // content), so mounting HanziWriter on a <canvas> silently shows
       // nothing with no console error. Use a <div> target instead.
       const hanziTarget = document.createElement('div');
-      hanziTarget.style.width = (currentHanziSize - 20) + 'px';
-      hanziTarget.style.height = (currentHanziSize - 40) + 'px';
+      hanziTarget.style.width = (currentHanziSize - 10) + 'px';
+      hanziTarget.style.height = (currentHanziSize - 20) + 'px';
       hanziTarget.style.cursor = 'pointer';
 
       card.appendChild(header);
@@ -414,13 +421,13 @@
       // sitting in the middle of the card at all times ("chữ mờ").
       // Clicking it then plays the stroke-order animation on top of it.
       const writer = HanziWriter.create(hanziTarget, character, {
-        width: currentHanziSize - 20,
-        height: currentHanziSize - 40,
+        width: currentHanziSize - 10,
+        height: currentHanziSize - 20,
         padding: 5,
         showOutline: true,
         showCharacter: true,
-        strokeColor: 'rgba(0, 0, 0, 0.15)',   // faint character fill
-        outlineColor: 'rgba(0, 0, 0, 0.12)',  // faint outline guide
+        strokeColor: 'rgba(0, 0, 0, 0.4)',   // faint character fill
+        outlineColor: 'rgba(0, 0, 0, 0.35)',  // faint outline guide
         strokeAnimationSpeed: 1,
         delayBetweenStrokes: 200,
         onLoadCharDataError: function (reason) {
@@ -599,16 +606,29 @@
     // ========================================
     drawButton.addEventListener('click', () => {
       isErasing = false;
+      isLineMode = false;
       drawButton.classList.add('active');
+      lineButton.classList.remove('active');
+      eraseButton.classList.remove('active');
+      customCursor.textContent = '✏️';
+    });
+
+    lineButton.addEventListener('click', () => {
+      isErasing = false;
+      isLineMode = true;
+      lineButton.classList.add('active');
+      drawButton.classList.remove('active');
       eraseButton.classList.remove('active');
       customCursor.style.backgroundImage = "url('https://res.cloudinary.com/dndwvsqib/image/upload/v1783244096/write_vqd2nt.png')";
     });
 
     eraseButton.addEventListener('click', () => {
       isErasing = true;
+      isLineMode = false;
       eraseButton.classList.add('active');
       drawButton.classList.remove('active');
-      customCursor.style.backgroundImage = "url('https://res.cloudinary.com/dndwvsqib/image/upload/v1783244096/wipe_zbcqwl.png')";
+      lineButton.classList.remove('active');
+      customCursor.textContent = '🧹';
     });
 
     clearButton.addEventListener('click', () => {
@@ -653,11 +673,19 @@
     // Drawing functionality - Mouse
     drawingCanvas.addEventListener('mousedown', (e) => {
       if (draggedCard) return;
-      
+
       isDrawing = true;
       lastX = e.offsetX;
       lastY = e.offsetY;
       lastTime = Date.now();
+
+      if (isLineMode) {
+        lineStartX = lastX;
+        lineStartY = lastY;
+        lineSnapshot = ctxDraw.getImageData(0, 0, drawingCanvas.width, drawingCanvas.height);
+        return;
+      }
+
       ctxDraw.beginPath();
       ctxDraw.moveTo(lastX, lastY);
     });
@@ -668,6 +696,20 @@
       const currentX = e.offsetX;
       const currentY = e.offsetY;
       const currentTime = Date.now();
+
+      if (isLineMode) {
+        // Restore canvas to state before this line started, then draw
+        // a fresh straight-line preview from start point to current point.
+        ctxDraw.putImageData(lineSnapshot, 0, 0);
+        ctxDraw.beginPath();
+        ctxDraw.moveTo(lineStartX, lineStartY);
+        ctxDraw.lineTo(currentX, currentY);
+        ctxDraw.strokeStyle = 'black';
+        ctxDraw.lineWidth = currentLineWidth;
+        ctxDraw.lineCap = 'round';
+        ctxDraw.stroke();
+        return;
+      }
 
       const distance = Math.sqrt((currentX - lastX) ** 2 + (currentY - lastY) ** 2);
       const timeDiff = currentTime - lastTime;
@@ -692,6 +734,7 @@
 
     drawingCanvas.addEventListener('mouseup', () => {
       isDrawing = false;
+      lineSnapshot = null;
       ctxDraw.closePath();
     });
 
@@ -719,6 +762,14 @@
       lastX = x;
       lastY = y;
       lastTime = Date.now();
+
+      if (isLineMode) {
+        lineStartX = x;
+        lineStartY = y;
+        lineSnapshot = ctxDraw.getImageData(0, 0, drawingCanvas.width, drawingCanvas.height);
+        return;
+      }
+
       ctxDraw.beginPath();
       ctxDraw.moveTo(lastX, lastY);
     });
@@ -733,6 +784,18 @@
       customCursor.style.top = `${touch.clientY}px`;
 
       if (!isDrawing) return;
+
+      if (isLineMode) {
+        ctxDraw.putImageData(lineSnapshot, 0, 0);
+        ctxDraw.beginPath();
+        ctxDraw.moveTo(lineStartX, lineStartY);
+        ctxDraw.lineTo(x, y);
+        ctxDraw.strokeStyle = 'black';
+        ctxDraw.lineWidth = currentLineWidth;
+        ctxDraw.lineCap = 'round';
+        ctxDraw.stroke();
+        return;
+      }
 
       const currentTime = Date.now();
       const distance = Math.sqrt((x - lastX) ** 2 + (y - lastY) ** 2);
@@ -758,6 +821,7 @@
 
     drawingCanvas.addEventListener('touchend', () => {
       isDrawing = false;
+      lineSnapshot = null;
       ctxDraw.closePath();
     });
 
