@@ -406,15 +406,22 @@
       canvasContainer.appendChild(card);
 
       // Create Hanzi Writer
+      // showCharacter: true + a light strokeColor gives a faint character
+      // sitting in the middle of the card at all times ("chữ mờ").
+      // Clicking the canvas then plays the stroke-order animation on top of it.
       const writer = HanziWriter.create(canvas, character, {
         width: currentHanziSize - 20,
         height: currentHanziSize - 40,
         padding: 5,
         showOutline: true,
-        showCharacter: false,
+        showCharacter: true,
+        strokeColor: 'rgba(0, 0, 0, 0.15)',   // faint character fill
+        outlineColor: 'rgba(0, 0, 0, 0.12)',  // faint outline guide
         strokeAnimationSpeed: 1,
         delayBetweenStrokes: 200,
       });
+
+      let isAnimating = false;
 
       // Store card data
       const cardData = {
@@ -426,9 +433,30 @@
 
       hanziCards.push(cardData);
 
-      // Click to animate
+      // Click to play the stroke order animation
       canvas.addEventListener('click', () => {
-        writer.animateCharacter();
+        if (isAnimating) return;
+        isAnimating = true;
+
+        // Hide the faint static character instantly, then animate the
+        // strokes being drawn in the correct order over the outline.
+        writer.hideCharacter({ duration: 0 });
+        writer.animateCharacter({
+          strokeColor: '#1a1a1a',
+          onComplete: () => {
+            // Briefly show the fully-drawn character in dark ink, then
+            // fade back to the faint version so it can be replayed.
+            setTimeout(() => {
+              writer.hideCharacter({
+                duration: 300,
+                onComplete: () => {
+                  writer.showCharacter({ duration: 0 });
+                  isAnimating = false;
+                }
+              });
+            }, 600);
+          }
+        });
       });
 
       // Drag functionality
