@@ -114,7 +114,7 @@
       z-index: 10000;
       width: 500px;
       height: 500px;
-      background-image: url('write.png');
+      background-image: url('https://res.cloudinary.com/dndwvsqib/image/upload/v1783244096/write_vqd2nt.png');
       background-size: contain;
       background-repeat: no-repeat;
       transform: translate(-37%, -27%);
@@ -284,14 +284,14 @@
       isErasing = false;
       drawButton.classList.add('active');
       eraseButton.classList.remove('active');
-      customCursor.style.backgroundImage = "url('write.png')";
+      customCursor.style.backgroundImage = "url('https://res.cloudinary.com/dndwvsqib/image/upload/v1783244096/write_vqd2nt.png')";
     });
 
     eraseButton.addEventListener('click', () => {
       isErasing = true;
       eraseButton.classList.add('active');
       drawButton.classList.remove('active');
-      customCursor.style.backgroundImage = "url('wipe.png')";
+      customCursor.style.backgroundImage = "url('https://res.cloudinary.com/dndwvsqib/image/upload/v1783244096/wipe_zbcqwl.png')";
     });
 
     clearButton.addEventListener('click', () => {
