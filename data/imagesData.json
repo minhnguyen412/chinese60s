@@ -5062,5 +5062,221 @@
   "meaning": "to accompany",
   "pinyin": "péi",
   "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985459/%E9%99%AA_v6gzrg.mp3"
+},
+  {
+  "id": 634,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981716/%E7%97%85%E4%BA%BA_dfnkry.png",
+  "character": "病人",
+  "meaning": "patient",
+  "pinyin": "bìng rén",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985509/%E7%97%85%E4%BA%BA_uttse4.mp3"
+},
+{
+  "id": 635,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981728/%E8%82%9A%E5%AD%90_c4eo2d.png",
+  "character": "肚子",
+  "meaning": "belly; abdomen",
+  "pinyin": "dù zi",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985515/%E8%82%9A%E5%AD%90_pirxl6.mp3"
+},
+{
+  "id": 636,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981652/%E5%8E%89%E5%AE%B3_ig1y8r.png",
+  "character": "厉害",
+  "meaning": "intense; severe",
+  "pinyin": "lì hai",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985470/%E5%8E%89%E5%AE%B3_bgu712.mp3"
+},
+{
+  "id": 637,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981708/%E7%89%87_rth4rq.png",
+  "character": "片",
+  "meaning": "a classifier for slices, tablets, etc.",
+  "pinyin": "piàn",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985504/%E7%89%87_ulksi7.mp3"
+},
+{
+  "id": 638,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981693/%E6%8B%89%E8%82%9A%E5%AD%90_jyjtzs.png",
+  "character": "拉肚子",
+  "meaning": "to suffer from diarrhea",
+  "pinyin": "lā dù zi",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985497/%E6%8B%89%E8%82%9A%E5%AD%90_byectm.mp3"
+},
+{
+  "id": 639,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985497/%E6%8B%89%E8%82%9A%E5%AD%90_byectm.mp3",
+  "character": "鱼",
+  "meaning": "fish",
+  "pinyin": "yú",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985526/%E9%B1%BC_pfiara.mp3"
+},
+{
+  "id": 640,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981712/%E7%89%9B%E8%82%89_pvx5cz.png",
+  "character": "牛肉",
+  "meaning": "beef",
+  "pinyin": "niú ròu",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985506/%E7%89%9B%E8%82%89_f58fma.mp3"
+},
+{
+  "id": 641,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981650/%E5%8C%96%E9%AA%8C_ow4wzi.png",
+  "character": "化验",
+  "meaning": "to test",
+  "pinyin": "huà yàn",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985469/%E5%8C%96%E9%AA%8C_lig9oa.mp3"
+},
+{
+  "id": 642,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981674/%E5%B0%8F%E4%BE%BF_jkobbz.png",
+  "character": "大便",
+  "meaning": "faeces; to defecate",
+  "pinyin": "dà biàn",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985479/%E5%A4%A7%E4%BE%BF_o1gn3f.mp3"
+},
+{
+  "id": 643,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985479/%E5%A4%A7%E4%BE%BF_o1gn3f.mp3",
+  "character": "小便",
+  "meaning": "urine of human beings; (of humans) to urinate",
+  "pinyin": "xiǎo biàn",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985486/%E5%B0%8F%E4%BE%BF_ymmmyk.mp3"
+},
+{
+  "id": 644,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981697/%E6%A3%80%E6%9F%A5_kpgnle.png",
+  "character": "检查",
+  "meaning": "to examine; to check up",
+  "pinyin": "jiǎn chá",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985499/%E6%A3%80%E6%9F%A5_itzh14.mp3"
+},
+{
+  "id": 645,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981727/%E7%BB%93%E6%9E%9C_ecpnfz.png",
+  "character": "结果",
+  "meaning": "result",
+  "pinyin": "jié guǒ",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985511/%E7%BB%93%E6%9E%9C_l0nb9i.mp3"
+},
+{
+  "id": 646,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1749659965/%E5%87%BA%E6%9D%A5-min_tygfc2.png",
+  "character": "出来²",
+  "meaning": "to come into sight; to materialize",
+  "pinyin": "chū lai",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985461/%E5%87%BA%E6%9D%A5_u83eju.mp3"
+},
+{
+  "id": 647,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981682/%E5%BE%97_x9kaco.png",
+  "character": "得²",
+  "meaning": "to suffer from",
+  "pinyin": "dé",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985491/%E5%BE%97_fl57gh.mp3"
+},
+{
+  "id": 648,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981731/%E8%82%A0%E7%82%8E_eq4gfr.png",
+  "character": "肠炎",
+  "meaning": "enteritis",
+  "pinyin": "cháng yán",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985517/%E8%82%A0%E7%82%8E_mp1mfo.mp3"
+},
+{
+  "id": 649,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981703/%E6%B6%88%E5%8C%96_pnqjys.png",
+  "character": "消化",
+  "meaning": "to digest",
+  "pinyin": "xiāo huà",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985501/%E6%B6%88%E5%8C%96_ijnmvq.mp3"
+},
+{
+  "id": 650,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981676/%E5%BC%80_%E8%8D%AF_bmorud.png",
+  "character": "开药",
+  "meaning": "to prescribe (medicine)",
+  "pinyin": "kāi yào",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985490/%E5%BC%80%E8%8D%AF_uzvmiw.mp3"
+},
+{
+  "id": 651,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981690/%E6%89%93%E9%92%88_blzyrd.png",
+  "character": "打针",
+  "meaning": "to give or have an injection",
+  "pinyin": "dǎ zhēn",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985496/%E6%89%93%E9%92%88_rafpez.mp3"
+},
+{
+  "id": 652,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981661/%E5%90%8E_eog6fc.png",
+  "character": "后",
+  "meaning": "after; behind",
+  "pinyin": "hòu",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985473/%E5%90%8E_ii8ht6.mp3"
+},
+{
+  "id": 653,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981661/%E5%93%AD_nflbla.png",
+  "character": "哭",
+  "meaning": "to cry; to weep",
+  "pinyin": "kū",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985476/%E5%93%AD_eakehe.mp3"
+},
+{
+  "id": 654,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985476/%E5%93%AD_eakehe.mp3",
+  "character": "寂寞",
+  "meaning": "lonely",
+  "pinyin": "jì mò",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985481/%E5%AF%82%E5%AF%9E_zusw0e.mp3"
+},
+{
+  "id": 655,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981683/%E6%89%80%E4%BB%A5_lxxj2c.png",
+  "character": "所以",
+  "meaning": "therefore",
+  "pinyin": "suǒ yǐ",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985493/%E6%89%80%E4%BB%A5_mpiros.mp3"
+},
+{
+  "id": 656,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981649/%E5%88%AB_tzhurg.png",
+  "character": "别",
+  "meaning": "don't; had better not",
+  "pinyin": "bié",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985468/%E5%88%AB_lacgm3.mp3"
+},
+{
+  "id": 657,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981764/%E9%9A%BE%E8%BF%87_xhh7br.png",
+  "character": "难过",
+  "meaning": "feeling bad; unhappy",
+  "pinyin": "nán guò",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985524/%E9%9A%BE%E8%BF%87_okluoj.mp3"
+},
+{
+  "id": 658,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981718/%E7%A4%BC%E5%A0%82_yku8b1.png",
+  "character": "礼堂",
+  "meaning": "auditorium",
+  "pinyin": "lǐ táng",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985510/%E7%A4%BC%E5%A0%82_vwavul.mp3"
+},
+{
+  "id": 659,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981738/%E8%88%9E%E4%BC%9A_wvn7tp.png",
+  "character": "舞会",
+  "meaning": "ball",
+  "pinyin": "wǔ huì",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985520/%E8%88%9E%E4%BC%9A_zcmfeb.mp3"
+},
+{
+  "id": 660,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981739/%E8%B7%B3%E8%88%9E_bxxemv.png",
+  "character": "跳舞",
+  "meaning": "to dance",
+  "pinyin": "tiào wǔ",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985522/%E8%B7%B3%E8%88%9E_ndf6jq.mp3"
 }
 ]
