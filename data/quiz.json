@@ -7961,6 +7961,294 @@
     "answer": "陪"
   }],
   "words": ["踢", "考", "陪", "又"]
+},
+    {
+  "id": 573,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332911/438_ovj3dk.mp3",
+  "sentence": "My stomach hurts terribly. I took two pills at home, but it's still not helping. ___ ___ ___ ___ ， ___ ___ ___ ___ ___ ___ ___ ， ___ ___ ___ 。",
+  "blanks": [{ "answer": "肚子" }, { "answer": "疼" }, { "answer": "得" }, { "answer": "厉害" }, { "answer": "在" }, { "answer": "家" }, { "answer": "吃" }, { "answer": "了" }, { "answer": "两" }, { "answer": "片" }, { "answer": "药" }, { "answer": "还" }, { "answer": "不" }, { "answer": "行" }],
+  "words": ["吃", "厉害", "在", "两", "疼", "行", "了", "肚子", "得", "不", "药", "家", "还", "片"]
+},
+{
+  "id": 574,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985515/%E8%82%9A%E5%AD%90_pirxl6.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981728/%E8%82%9A%E5%AD%90_c4eo2d.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "肚子"
+  }],
+  "words": ["头发", "肚子", "个子", "眼睛"]
+},
+{
+  "id": 575,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985470/%E5%8E%89%E5%AE%B3_bgu712.mp3",
+  "sentence": "厉害 : ___",
+  "blanks": [{
+    "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981652/%E5%8E%89%E5%AE%B3_ig1y8r.png"
+  }],
+  "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772983886/%E6%8C%BA_id5f77.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772983842/%E5%A5%BD%E5%A4%84_ji0auz.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981652/%E5%8E%89%E5%AE%B3_ig1y8r.png"]
+},
+{
+  "id": 576,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332911/439_chztj0.mp3",
+  "sentence": "Do you have diarrhea? ___ ___ ___ ？",
+  "blanks": [{ "answer": "拉肚子" }, { "answer": "了" }, { "answer": "吗" }],
+  "words": ["了", "拉肚子", "吗"]
+},
+{
+  "id": 577,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985497/%E6%8B%89%E8%82%9A%E5%AD%90_byectm.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981693/%E6%8B%89%E8%82%9A%E5%AD%90_jyjtzs.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "拉肚子"
+  }],
+  "words": ["头疼", "睡眠", "拉肚子", "发烧"]
+},
+{
+  "id": 578,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332911/441_g9ufut.mp3",
+  "sentence": "Just ate some fish and beef. ___ ___ ___ ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "就" }, { "answer": "吃" }, { "answer": "了" }, { "answer": "一些" }, { "answer": "鱼" }, { "answer": "和" }, { "answer": "牛肉" }],
+  "words": ["和", "吃", "了", "鱼", "就", "牛肉", "一些"]
+},
+{
+  "id": 579,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985526/%E9%B1%BC_pfiara.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985497/%E6%8B%89%E8%82%9A%E5%AD%90_byectm.mp3",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "鱼"
+  }],
+  "words": ["鱼", "虎", "蛇", "牛"]
+},
+{
+  "id": 580,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985506/%E7%89%9B%E8%82%89_f58fma.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981712/%E7%89%9B%E8%82%89_pvx5cz.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "牛肉"
+  }],
+  "words": ["鱼", "蔬菜", "肌肉", "牛肉"]
+},
+{
+  "id": 581,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332912/447_zhqggn.mp3",
+  "sentence": "First, go get a stool test done. After that, I'll examine you. ___ ___ ___ ___ ___ ___ ， ___ ___ ___ ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "你" }, { "answer": "先" }, { "answer": "去" }, { "answer": "化验" }, { "answer": "一下" }, { "answer": "大便" }, { "answer": "然后" }, { "answer": "我" }, { "answer": "再" }, { "answer": "给" }, { "answer": "你" }, { "answer": "检查" }, { "answer": "检查" }],
+  "words": ["先", "检查", "大便", "化验", "你", "给", "去", "再", "你", "我", "检查", "一下", "然后"]
+},
+{
+  "id": 582,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985469/%E5%8C%96%E9%AA%8C_lig9oa.mp3",
+  "sentence": "化验 : ___",
+  "blanks": [{
+    "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981650/%E5%8C%96%E9%AA%8C_ow4wzi.png"
+  }],
+  "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772981650/%E5%8C%96%E9%AA%8C_ow4wzi.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772983776/%E5%8A%9E%E6%B3%95_glcj4g.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982480/%E5%AE%8C_eeiash.png"]
+},
+{
+  "id": 583,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985499/%E6%A3%80%E6%9F%A5_itzh14.mp3",
+  "sentence": "检查 : ___",
+  "blanks": [{
+    "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981697/%E6%A3%80%E6%9F%A5_kpgnle.png"
+  }],
+  "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772983774/%E4%BC%9A%E8%AF%9D_pifb2g.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981697/%E6%A3%80%E6%9F%A5_kpgnle.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982422/%E8%B5%B6_fyepr1.png"]
+},
+{
+  "id": 584,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332912/449_zmdrnk.mp3",
+  "sentence": "Are the test results back yet? ___ ___ ___ ___ ___ ？",
+  "blanks": [{ "answer": "化验" }, { "answer": "结果" }, { "answer": "出来²" }, { "answer": "了" }, { "answer": "吗" }],
+  "words": ["吗", "化验", "结果", "了", "出来²"]
+},
+{
+  "id": 585,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985461/%E5%87%BA%E6%9D%A5_u83eju.mp3",
+  "sentence": "出来² : ___",
+  "blanks": [{
+    "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1749659965/%E5%87%BA%E6%9D%A5-min_tygfc2.png"
+  }],
+  "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1749659965/%E5%87%BA%E6%9D%A5-min_tygfc2.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981739/%E8%B7%B3%E8%88%9E_bxxemv.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981595/%E5%BF%98_ktlarg.png"]
+},
+{
+  "id": 586,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332912/451_cvs7jc.mp3",
+  "sentence": "Doctor, do I have enteritis? ___ ， ___ ___ ___ ___ ___ ___ ___ ？",
+  "blanks": [{ "answer": "大夫" }, { "answer": "我" }, { "answer": "是" }, { "answer": "不" }, { "answer": "是" }, { "answer": "得²" }, { "answer": "了" }, { "answer": "肠炎" }],
+  "words": ["肠炎", "是", "不", "我", "大夫", "得²", "了", "是"]
+},
+{
+  "id": 587,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985517/%E8%82%A0%E7%82%8E_mp1mfo.mp3",
+  "sentence": "肠炎 : ___",
+  "blanks": [{
+    "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981731/%E8%82%A0%E7%82%8E_eq4gfr.png"
+  }],
+  "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772981576/%E5%93%8E_d9rpws.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981652/%E5%8E%89%E5%AE%B3_ig1y8r.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981731/%E8%82%A0%E7%82%8E_eq4gfr.png"]
+},
+{
+  "id": 588,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332917/453_ts7ivp.mp3",
+  "sentence": "It's not enteritis, just indigestion. ___ ___ ___ ， ___ ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "不" }, { "answer": "是" }, { "answer": "肠炎" }, { "answer": "只" }, { "answer": "是" }, { "answer": "消化" }, { "answer": "不" }, { "answer": "好" }],
+  "words": ["只", "好", "消化", "肠炎", "不", "是", "不", "是"]
+},
+{
+  "id": 589,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985496/%E6%89%93%E9%92%88_rafpez.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981690/%E6%89%93%E9%92%88_blzyrd.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "打针"
+  }],
+  "words": ["开药", "化验", "检查", "打针"]
+},
+{
+  "id": 590,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332917/456_hokmos.mp3",
+  "sentence": "Three times a day, two pills each time, after meals. ___ ___ ___ ___ ， ___ ___ ___ ___ ， ___ ___ ___ 。",
+  "blanks": [{ "answer": "一" }, { "answer": "天" }, { "answer": "三" }, { "answer": "次" }, { "answer": "一" }, { "answer": "次" }, { "answer": "两" }, { "answer": "片" }, { "answer": "饭" }, { "answer": "后" }, { "answer": "吃" }],
+  "words": ["天", "吃", "后", "一", "片", "次", "两", "次", "三", "饭", "一"]
+},
+{
+  "id": 591,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332918/457_vrlv0m.mp3",
+  "sentence": "Mary, why are you crying? Are you sick? ___ ， ___ ___ ___ ___ ？ ___ ___ ___ ？",
+  "blanks": [{ "answer": "玛丽" }, { "answer": "你" }, { "answer": "怎么" }, { "answer": "哭" }, { "answer": "了" }, { "answer": "病" }, { "answer": "了" }, { "answer": "吗" }],
+  "words": ["哭", "病", "了", "玛丽", "你", "怎么", "了", "吗"]
+},
+{
+  "id": 592,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985476/%E5%93%AD_eakehe.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981661/%E5%93%AD_nflbla.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "哭"
+  }],
+  "words": ["尝", "哭", "吃", "笑"]
+},
+{
+  "id": 593,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332920/459_xj9kc5.mp3",
+  "sentence": "Because I feel lonely and my mood is bad, I am very sad. ___ ___ ___ ， ___ ___ ___ ， ___ ___ ___ 。",
+  "blanks": [{ "answer": "因为" }, { "answer": "感到" }, { "answer": "寂寞" }, { "answer": "心情" }, { "answer": "不" }, { "answer": "好" }, { "answer": "所以" }, { "answer": "很" }, { "answer": "难过" }],
+  "words": ["因为", "感到", "所以", "寂寞", "好", "心情", "难过", "很", "不"]
+},
+{
+  "id": 594,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985481/%E5%AF%82%E5%AF%9E_zusw0e.mp3",
+  "sentence": "寂寞 : ___",
+  "blanks": [{
+    "answer": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985476/%E5%93%AD_eakehe.mp3"
+  }],
+  "words": ["https://res.cloudinary.com/dndwvsqib/video/upload/v1772985476/%E5%93%AD_eakehe.mp3", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981528/%E6%B5%81%E5%88%A9_yervao.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981461/%E8%83%BD_fqej7d.png"]
+},
+{
+  "id": 595,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985524/%E9%9A%BE%E8%BF%87_okluoj.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981764/%E9%9A%BE%E8%BF%87_xhh7br.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "难过"
+  }],
+  "words": ["快乐", "忙碌", "舒服", "难过"]
+},
+{
+  "id": 596,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332921/460_daiihr.mp33",
+  "sentence": "Don't be sad anymore. ___ ___ ___ 。",
+  "blanks": [{ "answer": "别" }, { "answer": "难过" }, { "answer": "了" }],
+  "words": ["难过", "别", "了"]
+},
+{
+  "id": 597,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985468/%E5%88%AB_lacgm3.mp3",
+  "sentence": "别 : ___",
+  "blanks": [{
+    "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981649/%E5%88%AB_tzhurg.png"
+  }],
+  "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772981413/%E5%86%8D_mbv0bz.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981649/%E5%88%AB_tzhurg.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981429/%E5%A4%B4_rzqemr.png"]
+},
+{
+  "id": 598,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332922/462_qkejwt.mp3",
+  "sentence": "I also often miss home, but I don't feel lonely. ___ ___ ___ ___ ___ ， ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "我" }, { "answer": "也" }, { "answer": "常" }, { "answer": "想" }, { "answer": "家" }, { "answer": "但是" }, { "answer": "不" }, { "answer": "感到" }, { "answer": "寂寞" }],
+  "words": ["家", "想", "寂寞", "也", "我", "不", "感到", "但是", "常"]
+},
+{
+  "id": 599,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332923/464_g2bfe5.mp3",
+  "sentence": "When we were at home, we often played together, so whenever I feel lonely, I always miss them. ___ ， ___ ___ ___ ___ ___ ， ___ ___ ___ ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "在家时" }, { "answer": "我们" }, { "answer": "常常" }, { "answer": "一起" }, { "answer": "玩" }, { "answer": "儿" }, { "answer": "所以" }, { "answer": "感到" }, { "answer": "寂寞" }, { "answer": "时" }, { "answer": "总" }, { "answer": "想" }, { "answer": "他们" }],
+  "words": ["时", "常常", "感到", "玩", "我们", "儿", "在家时", "想", "总", "一起", "他们", "寂寞", "所以"]
+},
+{
+  "id": 600,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332922/465_ywbl0z.mp3",
+  "sentence": "Tonight there's a dance party in the auditorium, let's go dance together. ___ ___ ___ ___ ___ ， ___ ___ ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "今天" }, { "answer": "晚上" }, { "answer": "礼堂" }, { "answer": "有" }, { "answer": "舞会" }, { "answer": "我们" }, { "answer": "一起" }, { "answer": "去" }, { "answer": "跳" }, { "answer": "跳舞" }, { "answer": "吧" }],
+  "words": ["礼堂", "舞会", "我们", "今天", "一起", "去", "晚上", "有", "跳舞", "吧", "跳"]
+},
+{
+  "id": 601,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985510/%E7%A4%BC%E5%A0%82_vwavul.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981718/%E7%A4%BC%E5%A0%82_yku8b1.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "礼堂"
+  }],
+  "words": ["餐厅", "礼堂", "图书馆", "教室"]
+},
+{
+  "id": 602,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985520/%E8%88%9E%E4%BC%9A_zcmfeb.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981738/%E8%88%9E%E4%BC%9A_wvn7tp.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "舞会"
+  }],
+  "words": ["舞会", "比赛", "旅游", "考试"]
+},
+{
+  "id": 603,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985522/%E8%B7%B3%E8%88%9E_ndf6jq.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981739/%E8%B7%B3%E8%88%9E_bxxemv.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "跳舞"
+  }],
+  "words": ["跑步", "游泳", "跳舞", "讲课"]
+},
+{
+  "id": 604,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332924/469_gyprxj.mp3",
+  "sentence": "You wait for me in the dorm, I'll come to get you. ___ ___ ___ ___ ___ ， ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "你" }, { "answer": "在" }, { "answer": "宿舍" }, { "answer": "等" }, { "answer": "我" }, { "answer": "我" }, { "answer": "来" }, { "answer": "叫" }, { "answer": "你" }],
+  "words": ["叫", "你", "你", "来", "我", "等", "我", "在", "宿舍"]
 }
 
   ]
