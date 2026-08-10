@@ -503,5 +503,29 @@
   "dialoguePDF": "",
   "characterPDF": "",
   "htmlLink": "posts.html?postStartId=415&postEndId=436&quizStartId=544&quizEndId=572&writeStartId=621&writeEndId=638&id=42"
+},
+  {
+  "id": 43,
+  "title": "第二十七课 (一)：你怎么了",
+  "description": "Lesson 27 (1): What's wrong with you?",
+  "plan": "hsk12",
+  "premium": true,
+  "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1786348337/hyjc-1-27-1_y2mmh8.png",
+  "videoLink": "",
+  "dialoguePDF": "",
+  "characterPDF": "",
+  "htmlLink": "posts.html?postStartId=437&postEndId=456&quizStartId=573&quizEndId=590&writeStartId=634&writeEndId=652&id=43"
+},
+{
+  "id": 44,
+  "title": "第二十七课 (二)：玛丽哭了",
+  "description": "Lesson 27 (2): Mary was crying",
+  "plan": "hsk12",
+  "premium": true,
+  "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1786348339/hyjc-1-27-2_aorqmv.png",
+  "videoLink": "",
+  "dialoguePDF": "",
+  "characterPDF": "",
+  "htmlLink": "posts.html?postStartId=457&postEndId=470&quizStartId=591&quizEndId=604&writeStartId=653&writeEndId=660&id=44"
 }
 ]
