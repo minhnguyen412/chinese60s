@@ -3975,7 +3975,7 @@
   "segments": ["就", "吃", "了", "一些", "鱼", "和", "牛肉", "。"],
   "description": "Jiù chī le yīxiē yú hé niúròu.<br>Just ate some fish and beef.",
   "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1735799749/henry_zju5lb.png",
-  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332911/441_g9ufut.mp3"
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332911/442_lufezp.mp3"
 },
 {
   "id": 443,
@@ -4079,9 +4079,9 @@
 {
   "id": 454,
   "user": "大夫",
-  "title": "先给你一些药。再给你打一针。(打针)",
-  "segments": ["先", "给", "你", "一些", "药", "。", "再", "给", "你", "打", "一", "针", "。", "(", "打针", ")"],
-  "description": "xiān gěi nǐ yī xiē yào. zài gěi nǐ dǎ yī zhēn.<br>First, I'll give you some medicine, then an injection.",
+  "title": "先给你开一些药。再给你打一针。(打针)",
+  "segments": ["先", "给", "你", "开", "一些", "药", "。", "再", "给", "你", "打", "一", "针", "。", "(", "打针", ")"],
+  "description": "xiān gěi nǐ kāi yī xiē yào. zài gěi nǐ dǎ yī zhēn.<br>First, I'll give you some medicine, then an injection.",
   "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1786333085/bacsy.0001_uxnzeg.png",
   "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332917/454_dxiarl.mp3"
 },
@@ -4170,7 +4170,7 @@
   "id": 464,
   "user": "玛丽",
   "title": "在家时，我们常常一起玩儿，所以感到寂寞时总想他们。",
-  "segments": ["在家时", "，", "我们", "常常", "一起", "玩", "儿", "，", "所以", "感到", "寂寞", "时", "总", "想", "他们", "。"],
+  "segments": ["在", "家", "时", "，", "我们", "常常", "一起", "玩", "儿", "，", "所以", "感到", "寂寞", "时", "总", "想", "他们", "。"],
   "description": "Zàijiā shí, wǒmen chángcháng yìqǐ wánr, suǒyǐ gǎndào jìmò shí zǒng xiǎng tāmen.<br>When we were at home, we often played together, so whenever I feel lonely, I always miss them.",
   "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png",
   "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332923/464_g2bfe5.mp3"
