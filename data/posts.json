@@ -4016,8 +4016,8 @@
 {
   "id": 447,
   "user": "大夫",
-  "title": "你先去化验一下大便，然后我再给你检查检查。",
-  "segments": ["你", "先", "去", "化验", "一下", "大便", "，", "然后", "我", "再", "给", "你", "检查", "检查", "。"],
+  "title": "你先去化验一下大便，然后我再给²你检查检查。",
+  "segments": ["你", "先", "去", "化验", "一下", "大便", "，", "然后", "我", "再", "给²", "你", "检查", "检查", "。"],
   "description": "Nǐ xiān qù huàyàn yīxià dàbiàn, ránhòu wǒ zài gěi nǐ jiǎnchá jiǎnchá.<br>First, go get a stool test done. After that, I'll examine you.",
   "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1786333085/bacsy.0001_uxnzeg.png",
   "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332912/447_zhqggn.mp3"
@@ -4079,8 +4079,8 @@
 {
   "id": 454,
   "user": "大夫",
-  "title": "先给你开一些药。再给你打一针。(打针)",
-  "segments": ["先", "给", "你", "开", "一些", "药", "。", "再", "给", "你", "打", "一", "针", "。", "(", "打针", ")"],
+  "title": "先给²你开一些药。再给你打一针。(打针)",
+  "segments": ["先", "给²", "你", "开", "一些", "药", "。", "再", "给²", "你", "打", "一", "针", "。", "(", "打针", ")"],
   "description": "xiān gěi nǐ kāi yī xiē yào. zài gěi nǐ dǎ yī zhēn.<br>First, I'll give you some medicine, then an injection.",
   "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1786333085/bacsy.0001_uxnzeg.png",
   "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332917/454_dxiarl.mp3"
