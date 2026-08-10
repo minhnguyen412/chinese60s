@@ -3922,5 +3922,311 @@
   "description": "Hǎo de.<br>Sure.",
   "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1741161158/chamu.0001_xqotwq.png",
   "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1780151565/436_ztlhwy.mp3"
+},
+  {
+  "id": 437,
+  "user": "大夫",
+  "title": "你怎么了？",
+  "segments": ["你", "怎么", "了", "？"],
+  "description": "Nǐ zěnme le?<br>What's wrong with you?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1786333085/bacsy.0001_uxnzeg.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png"
+},
+{
+  "id": 438,
+  "user": "病人",
+  "title": "肚子疼得厉害，在家吃了两片药，还不行。",
+  "segments": ["肚子", "疼", "得", "厉害", "，", "在", "家", "吃", "了", "两", "片", "药", "，", "还", "不", "行", "。"],
+  "description": "Dùzi téng de lìhai, zài jiā chī le liǎng piàn yào, hái bùxíng.<br>My stomach hurts terribly. I took two pills at home, but it's still not helping.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1735799749/henry_zju5lb.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332911/438_ovj3dk.mp3"
+},
+{
+  "id": 439,
+  "user": "大夫",
+  "title": "拉肚子了吗？",
+  "segments": ["拉肚子", "了", "吗", "？"],
+  "description": "Lā dùzi le ma?<br>Do you have diarrhea?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1786333085/bacsy.0001_uxnzeg.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332911/439_chztj0.mp3"
+},
+{
+  "id": 440,
+  "user": "病人",
+  "title": "拉了。",
+  "segments": ["拉", "了", "。"],
+  "description": "lā le<br>Had a bowel movement.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1735799749/henry_zju5lb.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332910/440_be1ujl.mp3"
+},
+{
+  "id": 441,
+  "user": "大夫",
+  "title": "昨天吃什么了？",
+  "segments": ["昨天", "吃", "什么", "了", "？"],
+  "description": "Zuótiān chī shénme le?<br>What did you eat yesterday?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1786333085/bacsy.0001_uxnzeg.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332911/441_g9ufut.mp3"
+},
+{
+  "id": 442,
+  "user": "病人",
+  "title": "就吃了一些鱼和牛肉。",
+  "segments": ["就", "吃", "了", "一些", "鱼", "和", "牛肉", "。"],
+  "description": "Jiù chī le yīxiē yú hé niúròu.<br>Just ate some fish and beef.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1735799749/henry_zju5lb.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332911/441_g9ufut.mp3"
+},
+{
+  "id": 443,
+  "user": "大夫",
+  "title": "喝什么了？",
+  "segments": ["喝", "什么", "了", "？"],
+  "description": "hē shénme le?<br>What did you drink?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1786333085/bacsy.0001_uxnzeg.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332911/443_pjpw5w.mp3"
+},
+{
+  "id": 444,
+  "user": "病人",
+  "title": "喝了一瓶啤酒。",
+  "segments": ["喝", "了", "一", "瓶", "啤酒", "。"],
+  "description": "hē le yì píng pí jiǔ<br>I drank a bottle of beer.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1735799749/henry_zju5lb.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332911/444_irlsul.mp3"
+},
+{
+  "id": 445,
+  "user": "大夫",
+  "title": "发烧吗？",
+  "segments": ["发烧", "吗", "？"],
+  "description": "Fāshāo ma?<br>Do you have a fever?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1786333085/bacsy.0001_uxnzeg.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332912/445_oanhl8.mp3"
+},
+{
+  "id": 446,
+  "user": "病人",
+  "title": "不发烧。",
+  "segments": ["不", "发烧", "。"],
+  "description": "bù fā shāo<br>No fever.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1735799749/henry_zju5lb.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332912/446_ummcbn.mp3"
+},
+{
+  "id": 447,
+  "user": "大夫",
+  "title": "你先去化验一下大便，然后我再给你检查检查。",
+  "segments": ["你", "先", "去", "化验", "一下", "大便", "，", "然后", "我", "再", "给", "你", "检查", "检查", "。"],
+  "description": "Nǐ xiān qù huàyàn yīxià dàbiàn, ránhòu wǒ zài gěi nǐ jiǎnchá jiǎnchá.<br>First, go get a stool test done. After that, I'll examine you.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1786333085/bacsy.0001_uxnzeg.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332912/447_zhqggn.mp3"
+},
+{
+  "id": 448,
+  "user": "病人",
+  "title": "好吧。",
+  "segments": ["好", "吧", "。"],
+  "description": "hǎoba<br>Okay.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1735799749/henry_zju5lb.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332912/448_jjzfjd.mp3"
+},
+{
+  "id": 449,
+  "user": "大夫",
+  "title": "化验结果出来²了吗？",
+  "segments": ["化验", "结果", "出来²", "了", "吗", "？"],
+  "description": "huàyàn jiéguǒ chūlái le ma?<br>Are the test results back yet?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1786333085/bacsy.0001_uxnzeg.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332912/449_zmdrnk.mp3"
+},
+{
+  "id": 450,
+  "user": "病人",
+  "title": "出来²了。",
+  "segments": ["出来²", "了", "。"],
+  "description": "chūlai le<br>It's out.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1735799749/henry_zju5lb.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332912/450_df8l2p.mp3"
+},
+{
+  "id": 451,
+  "user": "病人",
+  "title": "大夫，我是不是得²了肠炎？",
+  "segments": ["大夫", "，", "我", "是", "不", "是", "得²", "了", "肠炎", "？"],
+  "description": "Dàifu, wǒ shì bu shì déle chángyán?<br>Doctor, do I have enteritis?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1735799749/henry_zju5lb.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332912/451_cvs7jc.mp3"
+},
+{
+  "id": 452,
+  "user": "大夫",
+  "title": "我看了化验结果。",
+  "segments": ["我", "看", "了", "化验", "结果", "。"],
+  "description": "wǒ kàn le huàyàn jiéguǒ<br>I saw the lab test results.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1786333085/bacsy.0001_uxnzeg.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332917/452_wlymzs.mp3"
+},
+{
+  "id": 453,
+  "user": "大夫",
+  "title": "不是肠炎，只是消化不好。",
+  "segments": ["不", "是", "肠炎", "，", "只", "是", "消化", "不", "好", "。"],
+  "description": "Bù shì chángyán, zhǐ shì xiāohuà bù hǎo.<br>It's not enteritis, just indigestion.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1786333085/bacsy.0001_uxnzeg.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332917/453_ts7ivp.mp3"
+},
+{
+  "id": 454,
+  "user": "大夫",
+  "title": "先给你一些药。再给你打一针。(打针)",
+  "segments": ["先", "给", "你", "一些", "药", "。", "再", "给", "你", "打", "一", "针", "。", "(", "打针", ")"],
+  "description": "xiān gěi nǐ yī xiē yào. zài gěi nǐ dǎ yī zhēn.<br>First, I'll give you some medicine, then an injection.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1786333085/bacsy.0001_uxnzeg.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332917/454_dxiarl.mp3"
+},
+{
+  "id": 455,
+  "user": "病人",
+  "title": "这药怎么吃？",
+  "segments": ["这", "药", "怎么", "吃", "？"],
+  "description": "Zhè yào zěnme chī?<br>How should I take this medicine?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1735799749/henry_zju5lb.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332917/455_bidt31.mp3"
+},
+{
+  "id": 456,
+  "user": "大夫",
+  "title": "一天三次，一次两片，饭后吃。",
+  "segments": ["一", "天", "三", "次", "，", "一", "次", "两", "片", "，", "饭", "后", "吃", "。"],
+  "description": "yī tiān sān cì, yī cì liǎng piàn, fàn hòu chī<br>Three times a day, two pills each time, after meals.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1786333085/bacsy.0001_uxnzeg.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332917/456_hokmos.mp3"
+},
+{
+  "id": 457,
+  "user": "罗兰",
+  "title": "玛丽，你怎么哭了？病了吗？",
+  "segments": ["玛丽", "，", "你", "怎么", "哭", "了", "？", "病", "了", "吗", "？"],
+  "description": "Mǎlì, nǐ zěnme kūle? Bìng le ma?<br>Mary, why are you crying? Are you sick?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739861164/DEVI.0001_vviafz.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332918/457_vrlv0m.mp3"
+},
+{
+  "id": 458,
+  "user": "玛丽",
+  "title": "不是。想家了。",
+  "segments": ["不", "是", "。", "想", "家", "了", "。"],
+  "description": "bù shì. xiǎng jiā le.<br>No. I'm homesick.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332918/458_ixro8e.mp3"
+},
+{
+  "id": 459,
+  "user": "玛丽",
+  "title": "因为感到寂寞，心情不好，所以很难过。",
+  "segments": ["因为", "感到", "寂寞", "，", "心情", "不", "好", "，", "所以", "很", "难过", "。"],
+  "description": "Yīnwèi gǎndào jìmò, xīnqíng bù hǎo, suǒyǐ hěn nánguò.<br>Because I feel lonely and my mood is bad, I am very sad.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332920/459_xj9kc5.mp3"
+},
+{
+  "id": 460,
+  "user": "罗兰",
+  "title": "别难过了。",
+  "segments": ["别", "难过", "了", "。"],
+  "description": "Bié nánguò le.<br>Don't be sad anymore.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739861164/DEVI.0001_vviafz.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332921/460_daiihr.mp33"
+},
+{
+  "id": 461,
+  "user": "玛丽",
+  "title": "你不想家吗？",
+  "segments": ["你", "不", "想", "家", "吗", "？"],
+  "description": "Nǐ bù xiǎng jiā ma?<br>Aren't you homesick?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332921/461_nikkve.mp3"
+},
+{
+  "id": 462,
+  "user": "罗兰",
+  "title": "我也常想家，但是不感到寂寞。",
+  "segments": ["我", "也", "常", "想", "家", "，", "但是", "不", "感到", "寂寞", "。"],
+  "description": "Wǒ yě cháng xiǎngjiā, dànshì bù gǎndào jìmò.<br>I also often miss home, but I don't feel lonely.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739861164/DEVI.0001_vviafz.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332922/462_qkejwt.mp3"
+},
+{
+  "id": 463,
+  "user": "玛丽",
+  "title": "我有姐姐，还有弟弟。",
+  "segments": ["我", "有", "姐姐", "，", "还", "有", "弟弟", "。"],
+  "description": "Wǒ yǒu jiějie, hái yǒu dìdi.<br>I have an older sister and a younger brother.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332922/463_ll81uj.mp3"
+},
+{
+  "id": 464,
+  "user": "玛丽",
+  "title": "在家时，我们常常一起玩儿，所以感到寂寞时总想他们。",
+  "segments": ["在家时", "，", "我们", "常常", "一起", "玩", "儿", "，", "所以", "感到", "寂寞", "时", "总", "想", "他们", "。"],
+  "description": "Zàijiā shí, wǒmen chángcháng yìqǐ wánr, suǒyǐ gǎndào jìmò shí zǒng xiǎng tāmen.<br>When we were at home, we often played together, so whenever I feel lonely, I always miss them.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332923/464_g2bfe5.mp3"
+},
+{
+  "id": 465,
+  "user": "罗兰",
+  "title": "今天晚上礼堂有舞会，我们一起去跳跳舞吧。",
+  "segments": ["今天", "晚上", "礼堂", "有", "舞会", "，", "我们", "一起", "去", "跳", "跳舞", "吧", "。"],
+  "description": "Jīn tiān wǎn shàng lǐ táng yǒu wǔ huì, wǒ men yī qǐ qù tiào tiào wǔ ba.<br>Tonight there's a dance party in the auditorium, let's go dance together.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739861164/DEVI.0001_vviafz.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332922/465_ywbl0z.mp3"
+},
+{
+  "id": 466,
+  "user": "罗兰",
+  "title": "玩玩儿就好了。",
+  "segments": ["玩", "玩", "儿", "就", "好", "了", "。"],
+  "description": "wánwanr jiù hǎo le<br>Just have a bit of fun, that's all.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739861164/DEVI.0001_vviafz.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332923/466_yvp4ti.mp3"
+},
+{
+  "id": 467,
+  "user": "玛丽",
+  "title": "什么时候去？",
+  "segments": ["什么", "时候", "去", "？"],
+  "description": "Shénme shíhou qù?<br>When are we going?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332923/467_w00ei8.mp3"
+},
+{
+  "id": 468,
+  "user": "罗兰",
+  "title": "吃了晚饭就去吧。",
+  "segments": ["吃", "了", "晚饭", "就", "去", "吧", "。"],
+  "description": "Chīle wǎnfàn jiù qù ba.<br>Let's go right after dinner.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739861164/DEVI.0001_vviafz.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332923/468_j749es.mp3"
+},
+{
+  "id": 469,
+  "user": "罗兰",
+  "title": "你在宿舍等我，我来叫你。",
+  "segments": ["你", "在", "宿舍", "等", "我", "，", "我", "来", "叫", "你", "。"],
+  "description": "nǐ zài sùshè děng wǒ, wǒ lái jiào nǐ.<br>You wait for me in the dorm, I'll come to get you.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739861164/DEVI.0001_vviafz.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332924/469_gyprxj.mp3"
+},
+{
+  "id": 470,
+  "user": "玛丽",
+  "title": "好吧。",
+  "segments": ["好", "吧。"],
+  "description": "hǎo ba.<br>Alright.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332924/470_kkhly9.mp3"
 }
 ]
