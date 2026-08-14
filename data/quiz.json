@@ -8249,6 +8249,390 @@
   "sentence": "You wait for me in the dorm, I'll come to get you. ___ ___ ___ ___ ___ ， ___ ___ ___ ___ 。",
   "blanks": [{ "answer": "你" }, { "answer": "在" }, { "answer": "宿舍" }, { "answer": "等" }, { "answer": "我" }, { "answer": "我" }, { "answer": "来" }, { "answer": "叫" }, { "answer": "你" }],
   "words": ["叫", "你", "你", "来", "我", "等", "我", "在", "宿舍"]
+},
+  {
+  "id": 605,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625930/472_kgjmpu.mp3",
+  "sentence": "Me too. I received your call and arrived here at 8:30. ___ ___ ___ ， ___ ___ ___ ___ ___ ， ___ ___ ___ ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "我" }, { "answer": "也" }, { "answer": "是" }, { "answer": "接" }, { "answer": "了" }, { "answer": "你" }, { "answer": "的" }, { "answer": "电话" }, { "answer": "八" }, { "answer": "点" }, { "answer": "半" }, { "answer": "就" }, { "answer": "到" }, { "answer": "这儿" }, { "answer": "了" }],
+  "words": ["了", "到", "半", "电话", "我", "点", "是", "也", "这儿", "你", "八", "接", "就", "了", "的"]
+},
+{
+  "id": 606,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625930/473_hg46nz.mp3",
+  "sentence": "How many houses did you view last time? ___ ___ ___ ___ ___ ___ ___ ___ ？",
+  "blanks": [{ "answer": "上" }, { "answer": "次" }, { "answer": "您" }, { "answer": "看" }, { "answer": "了" }, { "answer": "几" }, { "answer": "套" }, { "answer": "房子" }],
+  "words": ["几", "次", "上", "看", "套", "您", "房子", "了"]
+},
+{
+  "id": 607,
+  "audio": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982340/%E6%88%BF%E5%AD%90_ikuuxu.png",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985567/%E6%88%BF%E5%AD%90_i1ogv6.mp3",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "房子"
+  }],
+  "words": ["套房", "公园", "体育馆", "车站"]
+},
+{
+  "id": 608,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625930/474_oavcnw.mp3",
+  "sentence": "I looked at three options, but wasn't very satisfied with any of them. ___ ___ ___ ___ ， ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "看" }, { "answer": "了" }, { "answer": "三" }, { "answer": "套" }, { "answer": "都" }, { "answer": "不" }, { "answer": "太" }, { "answer": "满意" }],
+  "words": ["满意", "看", "太", "了", "三", "不", "套", "都"]
+},
+{
+  "id": 609,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985585/%E6%BB%A1%E6%84%8F_u6nkuo.mp3",
+  "sentence": "满意 : ___",
+  "blanks": [{
+    "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982366/%E6%BB%A1%E6%84%8F_s1keho.png"
+  }],
+  "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772984010/%E4%B8%8D%E8%BF%87_uclyld.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982366/%E6%BB%A1%E6%84%8F_s1keho.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772983884/%E6%85%A2%E6%80%A7%E7%97%85_mtrwhm.png"]
+},
+{
+  "id": 610,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625931/475_xpgiaz.mp3",
+  "sentence": "Some are too small, and some have very chaotic surroundings. ___ ___ ___ ， ___ ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "有的" }, { "answer": "太" }, { "answer": "小" }, { "answer": "有的" }, { "answer": "周围" }, { "answer": "环境" }, { "answer": "太" }, { "answer": "乱" }],
+  "words": ["小", "太", "有的", "乱", "周围", "太", "有的", "环境"]
+},
+{
+  "id": 611,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985545/%E5%91%A8%E5%9B%B4_pglumo.mp3",
+  "sentence": "周围 : ___",
+  "blanks": [{
+    "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981865/%E5%91%A8%E5%9B%B4_oecarx.png"
+  }],
+  "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772981865/%E5%91%A8%E5%9B%B4_oecarx.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772983874/%E6%84%9F%E8%B0%A2_jy5c6i.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772983816/%E5%8D%88%E8%A7%89_f4ftdc.png"]
+},
+{
+  "id": 612,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985589/%E7%8E%AF%E5%A2%83_njbds4.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982367/%E7%8E%AF%E5%A2%83_e3ilj1.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "环境"
+  }],
+  "words": ["眼睛", "北京", "环境", "京剧"]
+},
+{
+  "id": 613,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625931/477_jyfo9b.mp3",
+  "sentence": "The kitchens and bedrooms in these houses are still alright, but the living room is a bit small. ___ ___ ___ ___ ， ___ 、 ___ ___ ___ ， ___ ___ ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "这" }, { "answer": "几" }, { "answer": "套" }, { "answer": "房子" }, { "answer": "厨房" }, { "answer": "卧室" }, { "answer": "还" }, { "answer": "可以" }, { "answer": "但是" }, { "answer": "客厅" }, { "answer": "面积" }, { "answer": "小" }, { "answer": "了" }, { "answer": "点儿" }],
+  "words": ["小", "但是", "几", "点儿", "房子", "面积", "了", "这", "卧室", "套", "客厅", "可以", "还", "厨房"]
+},
+{
+  "id": 614,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985543/%E5%8E%A8%E6%88%BF_idbxpn.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981855/%E5%8E%A8%E6%88%BF_gyvqnx.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "厨房"
+  }],
+  "words": ["楼下", "厨房", "洗手间", "卧室"]
+},
+{
+  "id": 615,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985542/%E5%8D%A7%E5%AE%A4_lmiicv.mp3",
+  "sentence": "卧室 : ___",
+  "blanks": [{
+    "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981854/%E5%8D%A7%E5%AE%A4_vzsreq.png"
+  }],
+  "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772983340/%E7%AD%94_hok0nc.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772983074/%E6%95%85%E4%BA%8B_etja3n.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981854/%E5%8D%A7%E5%AE%A4_vzsreq.png"]
+},
+{
+  "id": 616,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985556/%E5%AE%A2%E5%8E%85_rnunkp.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981879/%E5%AE%A2%E5%8E%85_fnyzqw.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "客厅"
+  }],
+  "words": ["厨房", "客厅", "卧室", "卫生间"]
+},
+{
+  "id": 617,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985609/%E9%9D%A2%E7%A7%AF_fxronq.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982468/%E9%9D%A2%E7%A7%AF_yk8qq4.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "面积"
+  }],
+  "words": ["面积", "颜色", "个子", "公里"]
+},
+{
+  "id": 618,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625930/479_nwyhfj.mp3",
+  "sentence": "Yes, there's a unit on the eighteenth floor upstairs; the living room is over thirty square meters. ___ ， ___ ___ ___ ___ ___ ___ ___ ， ___ ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "有" }, { "answer": "楼上" }, { "answer": "十" }, { "answer": "八" }, { "answer": "层" }, { "answer": "有" }, { "answer": "一" }, { "answer": "套" }, { "answer": "客厅" }, { "answer": "三" }, { "answer": "十" }, { "answer": "多" }, { "answer": "平(方)米" }],
+  "words": ["三", "平(方)米", "八", "十", "多", "一", "客厅", "有", "楼上", "十", "有", "层", "套"]
+},
+{
+  "id": 619,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985561/%E5%B9%B3%E6%96%B9%E7%B1%B3_bhub2n.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982331/%E5%B9%B3%E6%96%B9%E7%B1%B3_iyhxdf.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "平(方)米"
+  }],
+  "words": ["环境", "高度", "平(方)米", "周围"]
+},
+{
+  "id": 620,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625930/480_i4sz6r.mp3",
+  "sentence": "Let's go up and take a look. ___ ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "咱们" }, { "answer": "上去" }, { "answer": "看" }, { "answer": "看" }, { "answer": "吧" }],
+  "words": ["吧", "看", "上去", "看", "咱们"]
+},
+{
+  "id": 621,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985531/%E4%B8%8A%E5%8E%BB_xwghtv.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981831/%E4%B8%8A%E5%8E%BB_iotimp.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "上去"
+  }],
+  "words": ["上去", "下去", "出去", "进去"]
+},
+{
+  "id": 622,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625931/481_olweqj.mp3",
+  "sentence": "This apartment won't get any sunlight in the afternoon, will it? ___ ___ ___ ___ ___ ___ ___ ___ ___ ？",
+  "blanks": [{ "answer": "这" }, { "answer": "套" }, { "answer": "房子" }, { "answer": "下午" }, { "answer": "就" }, { "answer": "没有" }, { "answer": "阳光" }, { "answer": "了" }, { "answer": "吧" }],
+  "words": ["了", "这", "套", "没有", "吧", "就", "下午", "阳光", "房子"]
+},
+{
+  "id": 623,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985608/%E9%98%B3%E5%85%89_oyldnd.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982467/%E9%98%B3%E5%85%89_hzuzc6.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "阳光"
+  }],
+  "words": ["月亮", "阳光", "运", "河"]
+},
+{
+  "id": 624,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625932/483_djmwz2.mp3",
+  "sentence": "I still want sunlight in both the morning and the afternoon. ___ ___ ___ ___ ___ ___ ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "我" }, { "answer": "还是" }, { "answer": "想" }, { "answer": "要" }, { "answer": "上" }, { "answer": "下午" }, { "answer": "都" }, { "answer": "有" }, { "answer": "阳光" }, { "answer": "的" }],
+  "words": ["都", "阳光", "的", "下午", "我", "有", "上", "还是", "想", "要"]
+},
+{
+  "id": 625,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625932/486_ozi8xu.mp3",
+  "sentence": "The traffic jam on the road is really bad. ___ ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "路上" }, { "answer": "堵车" }, { "answer": "堵" }, { "answer": "得" }, { "answer": "厉害" }],
+  "words": ["得", "堵", "路上", "堵车", "厉害"]
+},
+{
+  "id": 626,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985550/%E5%A0%B5%E8%BD%A6_kr6cfx.mp3",
+  "sentence": "堵车 : ___",
+  "blanks": [{
+    "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981869/%E5%A0%B5%E8%BD%A6_irv4e7.png"
+  }],
+  "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772981869/%E5%A0%B5%E8%BD%A6_irv4e7.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982481/%E5%B9%B2_gcziz8.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982377/%E7%AB%99_sxnt9k.png"]
+},
+{
+  "id": 627,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625932/487_bwcimm.mp3",
+  "sentence": "I rushed back as soon as I got off work, and I've only just arrived home now. ___ ___ ___ ___ ___ ___ ___ ___ ， ___ ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "我" }, { "answer": "下" }, { "answer": "了" }, { "answer": "班" }, { "answer": "就" }, { "answer": "往" }, { "answer": "回" }, { "answer": "赶" }, { "answer": "到" }, { "answer": "现在" }, { "answer": "才" }, { "answer": "到" }, { "answer": "家" }],
+  "words": ["就", "了", "往", "现在", "回", "到", "我", "赶", "才", "下", "到", "班", "家"]
+},
+{
+  "id": 628,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985601/%E8%B5%B6_zru0h7.mp3",
+  "sentence": "赶 : ___",
+  "blanks": [{
+    "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982422/%E8%B5%B6_fyepr1.png"
+  }],
+  "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772982367/%E7%8E%AF%E5%A2%83_e3ilj1.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982366/%E6%B2%B3_vhgrbp.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982422/%E8%B5%B6_fyepr1.png"]
+},
+{
+  "id": 629,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625933/490_fwurcd.mp3",
+  "sentence": "Let's go take a look together after you've had a rest. ___ ___ ___ ___ ___ ， ___ ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "等" }, { "answer": "你" }, { "answer": "休息" }, { "answer": "的" }, { "answer": "时候" }, { "answer": "再" }, { "answer": "一起" }, { "answer": "去" }, { "answer": "看" }, { "answer": "看" }],
+  "words": ["去", "看", "时候", "等", "再", "的", "休息", "看", "你", "一起"]
+},
+{
+  "id": 630,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625933/491_wvtg2t.mp3",
+  "sentence": "If you're also satisfied, then we'll rent it. ___ ___ ___ ___ ， ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "要是" }, { "answer": "你" }, { "answer": "也" }, { "answer": "满意" }, { "answer": "咱们" }, { "answer": "就" }, { "answer": "租" }, { "answer": "了" }],
+  "words": ["满意", "要是", "你", "咱们", "了", "也", "租", "就"]
+},
+{
+  "id": 631,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625933/492_jkfnpv.mp3",
+  "sentence": "How much is the rent? ___ ___ ___ ？",
+  "blanks": [{ "answer": "房租" }, { "answer": "多少" }, { "answer": "钱" }],
+  "words": ["多少", "钱", "房租"]
+},
+{
+  "id": 632,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985568/%E6%88%BF%E7%A7%9F_kwuryn.mp3",
+  "sentence": "房租 : ___",
+  "blanks": [{
+    "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982341/%E6%88%BF%E7%A7%9F_o8vghh.png"
+  }],
+  "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772982342/%E6%89%8D_hliwl8.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982341/%E6%88%BF%E7%A7%9F_o8vghh.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982330/%E5%B1%82_h5fz5t.png"]
+},
+{
+  "id": 633,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625940/495_s3hdq9.mp3",
+  "sentence": "Although it's a bit expensive, the house is really good. ___ ___ ___ ___ ， ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "虽然" }, { "answer": "贵" }, { "answer": "了" }, { "answer": "点儿" }, { "answer": "但是" }, { "answer": "房子" }, { "answer": "真" }, { "answer": "好" }],
+  "words": ["好", "但是", "虽然", "点儿", "贵", "房子", "了", "真"]
+},
+{
+  "id": 634,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625940/498_cpodhb.mp3",
+  "sentence": "To the west are mountains. At the foot of the mountains, there is a small river, and by the river is a very large park. ___ ___ ___ ， ___ ___ ___ ___ ___ ___ ___ ， ___ ___ ___ ___ ___ ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "西边" }, { "answer": "是" }, { "answer": "山" }, { "answer": "山" }, { "answer": "下边" }, { "answer": "有" }, { "answer": "一" }, { "answer": "条" }, { "answer": "小" }, { "answer": "河" }, { "answer": "河" }, { "answer": "边" }, { "answer": "是" }, { "answer": "一" }, { "answer": "个" }, { "answer": "很" }, { "answer": "大" }, { "answer": "的" }, { "answer": "公园" }],
+  "words": ["西边", "山", "很", "河", "小", "条", "个", "一", "一", "大", "是", "是", "有", "河", "边", "的", "下边", "公园", "山"]
+},
+{
+  "id": 635,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985584/%E6%B2%B3_m8rkxf.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982366/%E6%B2%B3_vhgrbp.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "河"
+  }],
+  "words": ["河", "山", "田", "草"]
+},
+{
+  "id": 636,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625940/499_r8zbck.mp3",
+  "sentence": "It's very quiet. ___ ___ ___ 。",
+  "blanks": [{ "answer": "周围" }, { "answer": "非常" }, { "answer": "安静" }],
+  "words": ["安静", "非常", "周围"]
+},
+{
+  "id": 637,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625941/501_k7ma9w.mp3",
+  "sentence": "Transportation is very convenient. ___ ___ ___ 。",
+  "blanks": [{ "answer": "交通" }, { "answer": "很" }, { "answer": "方便" }],
+  "words": ["交通", "很", "方便"]
+},
+{
+  "id": 638,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985536/%E4%BA%A4%E9%80%9A_r3t7sl.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981834/%E4%BA%A4%E9%80%9A_jj2unf.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "交通"
+  }],
+  "words": ["生活", "交通", "卫生", "业务"]
+},
+{
+  "id": 639,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985574/%E6%96%B9%E4%BE%BF_sjc08f.mp3",
+  "sentence": "方便 : ___",
+  "blanks": [{
+    "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982343/%E6%96%B9%E4%BE%BF_xfegqz.png"
+  }],
+  "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772981869/%E5%A0%B5%E8%BD%A6_irv4e7.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982343/%E6%96%B9%E4%BE%BF_xfegqz.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981831/%E4%B8%8A%E5%8E%BB_iotimp.png"]
+},
+{
+  "id": 640,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625941/502_isr8s8.mp3",
+  "sentence": "There's a bus stop right downstairs, and it only takes ten minutes by bus to get to the company. ___ ___ ___ ___ ___ ___ ， ___ ___ ___ ___ ___ ___ ___ ___ ___ 。",
+  "blanks": [{ "answer": "楼" }, { "answer": "下" }, { "answer": "就" }, { "answer": "有" }, { "answer": "公共汽车" }, { "answer": "站" }, { "answer": "坐" }, { "answer": "车" }, { "answer": "十" }, { "answer": "分" }, { "answer": "钟" }, { "answer": "就" }, { "answer": "到" }, { "answer": "公司" }, { "answer": "了" }],
+  "words": ["楼", "钟", "十", "站", "坐", "公司", "有", "就", "分", "了", "下", "公共汽车", "就", "到", "车"]
+},
+{
+  "id": 641,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985595/%E7%AB%99_gmbb09.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982377/%E7%AB%99_sxnt9k.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "站"
+  }],
+  "words": ["店", "馆", "子", "站"]
+},
+{
+  "id": 642,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625941/503_kwq7lg.mp3",
+  "sentence": "The subway station is right next to the bus station. ___ ___ ___ ___ ___ ___ ___",
+  "blanks": [{ "answer": "汽车" }, { "answer": "站" }, { "answer": "旁边" }, { "answer": "就" }, { "answer": "是" }, { "answer": "地铁" }, { "answer": "站。" }],
+  "words": ["地铁", "汽车", "是", "站。", "就", "站", "旁边"]
+},
+{
+  "id": 643,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985575/%E6%97%81%E8%BE%B9_dchscu.mp3",
+  "sentence": "旁边 : ___",
+  "blanks": [{
+    "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982353/%E6%97%81%E8%BE%B9_xfxt5s.png"
+  }],
+  "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772982353/%E6%97%81%E8%BE%B9_xfxt5s.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981830/%E4%B9%B1_dagxsm.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981727/%E7%BB%93%E6%9E%9C_ecpnfz.png"]
+},
+{
+  "id": 644,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985549/%E5%9C%B0%E9%93%81_umfvim.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981865/%E5%9C%B0%E9%93%81_cwar6f.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "地铁"
+  }],
+  "words": ["飞机", "地铁", "汽车", "摩托车"]
+},
+{
+  "id": 645,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625941/504_hresqm.mp3",
+  "sentence": "Nearby, there are schools, hospitals, and gymnasiums... ___ ___ ___ 、 ___ ___ ___ ___",
+  "blanks": [{ "answer": "附近" }, { "answer": "有" }, { "answer": "学校" }, { "answer": "医院" }, { "answer": "和" }, { "answer": "体育馆" }, { "answer": "......" }],
+  "words": ["......", "体育馆", "有", "学校", "和", "医院", "附近"]
+},
+{
+  "id": 646,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985608/%E9%99%84%E8%BF%91_od15m5.mp3",
+  "sentence": "附近 : ___",
+  "blanks": [{
+    "answer": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982468/%E9%99%84%E8%BF%91_om3yoi.png"
+  }],
+  "words": ["https://res.cloudinary.com/dndwvsqib/image/upload/v1772981667/%E5%AF%82%E5%AF%9E_dnmxqx.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981629/%E9%99%AA_npuzbs.png", "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982468/%E9%99%84%E8%BF%91_om3yoi.png"]
+},
+{
+  "id": 647,
+  "audio": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985537/%E4%BD%93%E8%82%B2%E9%A6%86_ccbi8w.mp3",
+  "sentence": [
+    "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981846/%E4%BD%93%E8%82%B2%E9%A6%86_w8mwlt.png",
+    ": ___"
+  ],
+  "blanks": [{
+    "answer": "体育馆"
+  }],
+  "words": ["大使馆", "博物馆", "体育馆", "图书馆"]
 }
 
   ]
