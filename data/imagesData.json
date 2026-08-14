@@ -5278,5 +5278,301 @@
   "meaning": "to dance",
   "pinyin": "tiào wǔ",
   "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985522/%E8%B7%B3%E8%88%9E_ndf6jq.mp3"
+},
+  {
+  "id": 661,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982376/%E7%A7%9F_kfv1aq.png",
+  "character": "租",
+  "meaning": "to rent",
+  "pinyin": "zū",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985593/%E7%A7%9F_tdz0qm.mp3"
+},
+{
+  "id": 662,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981877/%E5%A5%97_xlsqbx.png",
+  "character": "套",
+  "meaning": "(classifier) set; suite",
+  "pinyin": "tào",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985553/%E5%A5%97_a8dwra.mp3"
+},
+{
+  "id": 663,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985567/%E6%88%BF%E5%AD%90_i1ogv6.mp3",
+  "character": "房子",
+  "meaning": "house; building",
+  "pinyin": "fáng zi",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982340/%E6%88%BF%E5%AD%90_ikuuxu.png"
+},
+{
+  "id": 664,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982366/%E6%BB%A1%E6%84%8F_s1keho.png",
+  "character": "满意",
+  "meaning": "satisfied, satisfactory",
+  "pinyin": "mǎn yì",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985585/%E6%BB%A1%E6%84%8F_u6nkuo.mp3"
+},
+{
+  "id": 665,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982354/%E6%9C%89%E7%9A%84_tj5dxu.png",
+  "character": "有的",
+  "meaning": "some; part of a group of people or things",
+  "pinyin": "yǒu de",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985578/%E6%9C%89%E7%9A%84_p3kcne.mp3"
+},
+{
+  "id": 666,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981865/%E5%91%A8%E5%9B%B4_oecarx.png",
+  "character": "周围",
+  "meaning": "surrounding area; circum-ambiance",
+  "pinyin": "zhōu wéi",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985545/%E5%91%A8%E5%9B%B4_pglumo.mp3"
+},
+{
+  "id": 667,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982367/%E7%8E%AF%E5%A2%83_e3ilj1.png",
+  "character": "环境",
+  "meaning": "environment; surroundings",
+  "pinyin": "huán jìng",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985589/%E7%8E%AF%E5%A2%83_njbds4.mp3"
+},
+{
+  "id": 668,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981830/%E4%B9%B1_dagxsm.png",
+  "character": "乱",
+  "meaning": "disorderly",
+  "pinyin": "luàn",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985531/%E4%B9%B1_dsqatw.mp3"
+},
+{
+  "id": 669,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981855/%E5%8E%A8%E6%88%BF_gyvqnx.png",
+  "character": "厨房",
+  "meaning": "kitchen",
+  "pinyin": "chú fáng",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985543/%E5%8E%A8%E6%88%BF_idbxpn.mp3"
+},
+{
+  "id": 670,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981854/%E5%8D%A7%E5%AE%A4_vzsreq.png",
+  "character": "卧室",
+  "meaning": "bedroom",
+  "pinyin": "wò shì",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985542/%E5%8D%A7%E5%AE%A4_lmiicv.mp3"
+},
+{
+  "id": 671,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981879/%E5%AE%A2%E5%8E%85_fnyzqw.png",
+  "character": "客厅",
+  "meaning": "living room",
+  "pinyin": "kè tīng",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985556/%E5%AE%A2%E5%8E%85_rnunkp.mp3"
+},
+{
+  "id": 672,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982468/%E9%9D%A2%E7%A7%AF_yk8qq4.png",
+  "character": "面积",
+  "meaning": "area",
+  "pinyin": "miàn jī",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985609/%E9%9D%A2%E7%A7%AF_fxronq.mp3"
+},
+{
+  "id": 673,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982330/%E5%B1%82_h5fz5t.png",
+  "character": "层",
+  "meaning": "(classifier) storey; floor; tier; stratum",
+  "pinyin": "céng",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985560/%E5%B1%82_h5rgbv.mp3"
+},
+{
+  "id": 674,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982331/%E5%B9%B3%E6%96%B9%E7%B1%B3_iyhxdf.png",
+  "character": "平(方)米",
+  "meaning": "square metre",
+  "pinyin": "píng (fāng) mǐ",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985561/%E5%B9%B3%E6%96%B9%E7%B1%B3_bhub2n.mp3"
+},
+{
+  "id": 675,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981831/%E4%B8%8A%E5%8E%BB_iotimp.png",
+  "character": "上去",
+  "meaning": "to go up",
+  "pinyin": "shàng qu",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985531/%E4%B8%8A%E5%8E%BB_xwghtv.mp3"
+},
+{
+  "id": 676,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982467/%E9%98%B3%E5%85%89_hzuzc6.png",
+  "character": "阳光",
+  "meaning": "sunshine",
+  "pinyin": "yáng guāng",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985608/%E9%98%B3%E5%85%89_oyldnd.mp3"
+},
+{
+  "id": 677,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982386/%E8%99%BD%E7%84%B6_e7co4x.png",
+  "character": "还是²",
+  "meaning": "had better",
+  "pinyin": "hái shi",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1742354130/%E8%BF%98%E6%98%AF_firabi.mp3"
+},
+{
+  "id": 678,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981878/%E5%A6%BB%E5%AD%90_ena2qf.png",
+  "character": "妻子",
+  "meaning": "wife",
+  "pinyin": "qī zi",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985554/%E5%A6%BB%E5%AD%90_xn6zul.mp3"
+},
+{
+  "id": 679,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982332/%E6%83%85%E5%86%B5_ya9z5d.png",
+  "character": "情况",
+  "meaning": "situation; condition; state of affairs",
+  "pinyin": "qíng kuàng",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985564/%E6%83%85%E5%86%B5_zznsxk.mp3"
+},
+{
+  "id": 680,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982342/%E6%89%8D_hliwl8.png",
+  "character": "才",
+  "meaning": "just",
+  "pinyin": "cái",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985571/%E6%89%8D_auz2fm.mp3"
+},
+{
+  "id": 681,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981869/%E5%A0%B5%E8%BD%A6_irv4e7.png",
+  "character": "堵车",
+  "meaning": "traffic jam; traffic congestion",
+  "pinyin": "dǔ chē",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985550/%E5%A0%B5%E8%BD%A6_kr6cfx.mp3"
+},
+{
+  "id": 682,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982422/%E8%B5%B6_fyepr1.png",
+  "character": "赶",
+  "meaning": "to try to catch; to make a dash",
+  "pinyin": "gǎn",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985601/%E8%B5%B6_zru0h7.mp3"
+},
+{
+  "id": 683,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982387/%E8%A6%81%E6%98%AF_bgbtvt.png",
+  "character": "要是",
+  "meaning": "if",
+  "pinyin": "yào shi",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985601/%E8%A6%81%E6%98%AF_whteji.mp3"
+},
+{
+  "id": 684,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982341/%E6%88%BF%E7%A7%9F_o8vghh.png",
+  "character": "房租",
+  "meaning": "rent; rental",
+  "pinyin": "fáng zū",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985568/%E6%88%BF%E7%A7%9F_kwuryn.mp3"
+},
+{
+  "id": 685,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982386/%E8%99%BD%E7%84%B6_e7co4x.png",
+  "character": "虽然",
+  "meaning": "though; although",
+  "pinyin": "suī rán",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985596/%E8%99%BD%E7%84%B6_zreqas.mp3"
+},
+{
+  "id": 686,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982376/%E7%9C%9F_pifflv.png",
+  "character": "真",
+  "meaning": "really; truly; indeed; true; real",
+  "pinyin": "zhēn",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985591/%E7%9C%9F_yu82cv.mp3"
+},
+{
+  "id": 687,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982357/%E6%9D%A1_rrmzre.png",
+  "character": "条",
+  "meaning": "a classifier for river, fish, legs, etc",
+  "pinyin": "tiáo",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985581/%E6%9D%A1_sprnvi.mp3"
+},
+{
+  "id": 688,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982366/%E6%B2%B3_vhgrbp.png",
+  "character": "河",
+  "meaning": "river",
+  "pinyin": "hé",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985584/%E6%B2%B3_m8rkxf.mp3"
+},
+{
+  "id": 689,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981834/%E4%BA%A4%E9%80%9A_jj2unf.png",
+  "character": "交通",
+  "meaning": "transportation",
+  "pinyin": "jiāo tōng",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985536/%E4%BA%A4%E9%80%9A_r3t7sl.mp3"
+},
+{
+  "id": 690,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982343/%E6%96%B9%E4%BE%BF_xfegqz.png",
+  "character": "方便",
+  "meaning": "convenient",
+  "pinyin": "fāng biàn",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985574/%E6%96%B9%E4%BE%BF_sjc08f.mp3"
+},
+{
+  "id": 691,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982377/%E7%AB%99_sxnt9k.png",
+  "character": "站",
+  "meaning": "station",
+  "pinyin": "zhàn",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985595/%E7%AB%99_gmbb09.mp3"
+},
+{
+  "id": 692,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981846/%E5%85%AC%E5%85%B1%E6%B1%BD%E8%BD%A6_tmumix.png",
+  "character": "公共汽车",
+  "meaning": "bus",
+  "pinyin": "gòng gòng qì chē",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985538/%E5%85%AC%E5%85%B1%E6%B1%BD%E8%BD%A6_gb0jhb.mp3"
+},
+{
+  "id": 693,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982377/%E7%AB%99_sxnt9k.png",
+  "character": "车站",
+  "meaning": "station; bus stop",
+  "pinyin": "chē zhàn",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985603/%E8%BD%A6%E7%AB%99_ezf7ur.mp3"
+},
+{
+  "id": 694,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982353/%E6%97%81%E8%BE%B9_xfxt5s.png",
+  "character": "旁边",
+  "meaning": "side",
+  "pinyin": "páng biān",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985575/%E6%97%81%E8%BE%B9_dchscu.mp3"
+},
+{
+  "id": 695,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981865/%E5%9C%B0%E9%93%81_cwar6f.png",
+  "character": "地铁",
+  "meaning": "subway; tube train",
+  "pinyin": "dì tiě",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985549/%E5%9C%B0%E9%93%81_umfvim.mp3"
+},
+{
+  "id": 696,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772982468/%E9%99%84%E8%BF%91_om3yoi.png",
+  "character": "附近",
+  "meaning": "nearby; vicinity",
+  "pinyin": "fù jìn",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985608/%E9%99%84%E8%BF%91_od15m5.mp3"
+},
+{
+  "id": 697,
+  "imageSrc": "https://res.cloudinary.com/dndwvsqib/image/upload/v1772981846/%E4%BD%93%E8%82%B2%E9%A6%86_w8mwlt.png",
+  "character": "体育馆",
+  "meaning": "gymnasium",
+  "pinyin": "tǐ yù guǎn",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1772985537/%E4%BD%93%E8%82%B2%E9%A6%86_ccbi8w.mp3"
 }
 ]
