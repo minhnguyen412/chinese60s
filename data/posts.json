@@ -4228,5 +4228,311 @@
   "description": "hǎo ba.<br>Alright.",
   "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/base-2.0001_uhvxqt.png",
   "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786332924/470_kkhly9.mp3"
+},
+  {
+  "id": 471,
+  "user": "小张",
+  "title": "我吃了早饭就来了。",
+  "segments": ["我", "吃", "了", "早饭", "就", "来", "了", "。"],
+  "description": "wǒ chī le zǎofàn jiù lái le.<br>I came right after breakfast.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625930/471_vg4pyb.mp3"
+},
+{
+  "id": 472,
+  "user": "业务员",
+  "title": "我也是，接了你的电话，八点半就到这儿了。",
+  "segments": ["我", "也", "是", "，", "接", "了", "你", "的", "电话", "，", "八", "点", "半", "就", "到", "这儿", "了", "。"],
+  "description": "Wǒ yě shì, jiē le nǐ de diànhuà, bā diǎn bàn jiù dào zhè'er le.<br>Me too. I received your call and arrived here at 8:30.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739260265/dgguan.0001_t3holk.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625930/472_kgjmpu.mp3"
+},
+{
+  "id": 473,
+  "user": "业务员",
+  "title": "上次您看了几套房子？",
+  "segments": ["上", "次", "您", "看", "了", "几", "套", "房子", "？"],
+  "description": "Shàngcì nín kànle jǐ tào fángzi?<br>How many houses did you view last time?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739260265/dgguan.0001_t3holk.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625930/473_hg46nz.mp3"
+},
+{
+  "id": 474,
+  "user": "小张",
+  "title": "看了三套，都不太满意。",
+  "segments": ["看", "了", "三", "套", "，", "都", "不", "太", "满意", "。"],
+  "description": "Kàn le sān tào, dōu bù tài mǎnyì.<br>I looked at three options, but wasn't very satisfied with any of them.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625930/474_oavcnw.mp3"
+},
+{
+  "id": 475,
+  "user": "小张",
+  "title": "有的太小，有的周围环境太乱。",
+  "segments": ["有的", "太", "小", "，", "有的", "周围", "环境", "太", "乱", "。"],
+  "description": "Yǒu de tài xiǎo, yǒu de zhōuwéi huánjìng tài luàn.<br>Some are too small, and some have very chaotic surroundings.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625931/475_xpgiaz.mp3"
+},
+{
+  "id": 476,
+  "user": "业务员",
+  "title": "我再带你去看几套吧。",
+  "segments": ["我", "再", "带", "你", "去", "看", "几", "套", "吧", "。"],
+  "description": "wǒ zài dài nǐ qù kàn jǐ tào ba<br>Let me take you to see a few more units.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739260265/dgguan.0001_t3holk.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625931/476_y6rld9.mp3"
+},
+{
+  "id": 477,
+  "user": "小张",
+  "title": "这几套房子，厨房、卧室还可以，但是客厅面积小了点儿。",
+  "segments": ["这", "几", "套", "房子", "，", "厨房", "、", "卧室", "还", "可以", "，", "但是", "客厅", "面积", "小", "了", "点儿", "。"],
+  "description": "Zhè jǐ tào fángzi, chúfáng, wòshì hái kěyǐ, dànshì kètīng miànjī xiǎo le diǎnr.<br>The kitchens and bedrooms in these houses are still alright, but the living room is a bit small.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625931/477_jyfo9b.mp3"
+},
+{
+  "id": 478,
+  "user": "小张",
+  "title": "有没有大一点儿的？",
+  "segments": ["有", "没有", "大", "一点儿", "的", "？"],
+  "description": "Yǒu méiyǒu dà yìdiǎnr de?<br>Do you have a bigger one?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625931/478_lzgasj.mp3"
+},
+{
+  "id": 479,
+  "user": "业务员",
+  "title": "有，楼上十八层有一套，客厅三十多平(方)米。",
+  "segments": ["有", "，", "楼上", "十", "八", "层", "有", "一", "套", "，", "客厅", "三", "十", "多", "平(方)米", "。"],
+  "description": "Yǒu, lóu shàng shíbā céng yǒu yī tào, kètīng sānshí duō píngfāngmǐ.<br>Yes, there's a unit on the eighteenth floor upstairs; the living room is over thirty square meters.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739260265/dgguan.0001_t3holk.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625930/479_nwyhfj.mp3"
+},
+{
+  "id": 480,
+  "user": "业务员",
+  "title": "咱们上去看看吧。",
+  "segments": ["咱们", "上去", "看", "看", "吧", "。"],
+  "description": "zánmen shàngqù kànkan ba<br>Let's go up and take a look.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739260265/dgguan.0001_t3holk.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625930/480_i4sz6r.mp3"
+},
+{
+  "id": 481,
+  "user": "小张",
+  "title": "这套房子下午就没有阳光了吧？",
+  "segments": ["这", "套", "房子", "下午", "就", "没有", "阳光", "了", "吧", "？"],
+  "description": "Zhè tào fángzi xiàwǔ jiù méiyǒu yángguāng le ba?<br>This apartment won't get any sunlight in the afternoon, will it?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625931/481_olweqj.mp3"
+},
+{
+  "id": 482,
+  "user": "业务员",
+  "title": "是的。",
+  "segments": ["是", "的", "。"],
+  "description": "Shì de.<br>Yes.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1739260265/dgguan.0001_t3holk.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625931/482_rywyed.mp3"
+},
+{
+  "id": 483,
+  "user": "小张",
+  "title": "我还是想要上下午都有阳光的。",
+  "segments": ["我", "还是", "想", "要", "上", "下午", "都", "有", "阳光", "的", "。"],
+  "description": "Wǒ háishì xiǎng yào shàng xiàwǔ dōu yǒu yángguāng de.<br>I still want sunlight in both the morning and the afternoon.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625932/483_djmwz2.mp3"
+},
+{
+  "id": 484,
+  "user": "小张",
+  "title": "怎么现在才下班？",
+  "segments": ["怎么", "现在", "才", "下班", "？"],
+  "description": "zěnme xiànzài cái xiàbān?<br>How come you're only getting off work now?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625932/484_kl4srj.mp3"
+},
+{
+  "id": 485,
+  "user": "妻子",
+  "title": "我早就下班了。",
+  "segments": ["我", "早", "就", "下班", "了", "。"],
+  "description": "wǒ zǎo jiù xià bān le<br>I've been off work for a while now.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/xiaojie.0001_gjt1qd.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625932/484_kl4srj.mp3"
+},
+{
+  "id": 486,
+  "user": "妻子",
+  "title": "路上堵车堵得厉害。",
+  "segments": ["路上", "堵车", "堵", "得", "厉害", "。"],
+  "description": "Lùshàng dǔchē dǔ de lìhai.<br>The traffic jam on the road is really bad.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/xiaojie.0001_gjt1qd.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625932/486_ozi8xu.mp3"
+},
+{
+  "id": 487,
+  "user": "妻子",
+  "title": "我下了班就往回赶，到现在才到家。",
+  "segments": ["我", "下", "了", "班", "就", "往", "回", "赶", "，", "到", "现在", "才", "到", "家", "。"],
+  "description": "Wǒ xiàle bān jiù wǎng huí gǎn, dào xiànzài cái dào jiā.<br>I rushed back as soon as I got off work, and I've only just arrived home now.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/xiaojie.0001_gjt1qd.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625932/487_bwcimm.mp3"
+},
+{
+  "id": 488,
+  "user": "妻子",
+  "title": "你今天看了几套房子？",
+  "segments": ["你", "今天", "看", "了", "几", "套", "房子", "？"],
+  "description": "nǐ jīn tiān kàn le jǐ tào fáng zi?<br>How many houses did you look at today?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/xiaojie.0001_gjt1qd.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625932/488_l8gvjt.mp3"
+},
+{
+  "id": 489,
+  "user": "小张",
+  "title": "看了七八套。有一套我觉得不错。",
+  "segments": ["看", "了", "七", "八", "套", "。", "有", "一", "套", "我", "觉得", "不错", "。"],
+  "description": "Kàn le qī bā tào. Yǒu yī tào wǒ jué de bù cuò.<br>I looked at seven or eight units. There was one that I thought was pretty good.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625933/489_pheowt.mp3"
+},
+{
+  "id": 490,
+  "user": "小张",
+  "title": "等你休息的时候，再一起去看看。",
+  "segments": ["等", "你", "休息", "的", "时候", "，", "再", "一起", "去", "看", "看", "。"],
+  "description": "Děng nǐ xiūxī de shíhou, zài yīqǐ qù kànkan.<br>Let's go take a look together after you've had a rest.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625933/490_fwurcd.mp3"
+},
+{
+  "id": 491,
+  "user": "小张",
+  "title": "要是你也满意，咱们就租了。",
+  "segments": ["要是", "你", "也", "满意", "，", "咱们", "就", "租", "了", "。"],
+  "description": "Yàoshi nǐ yě mǎnyì, zánmen jiù zū le.<br>If you're also satisfied, then we'll rent it.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625933/491_wvtg2t.mp3"
+},
+{
+  "id": 492,
+  "user": "妻子",
+  "title": "房租多少钱？",
+  "segments": ["房租", "多少", "钱", "？"],
+  "description": "fángzū duōshǎo qián?<br>How much is the rent?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/xiaojie.0001_gjt1qd.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625933/492_jkfnpv.mp3"
+},
+{
+  "id": 493,
+  "user": "小张",
+  "title": "一个月三千块。",
+  "segments": ["一", "个", "月", "三", "千", "块", "。"],
+  "description": "Yī ge yuè sān qiān kuài.<br>Three thousand yuan a month.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625933/493_qdviww.mp3"
+},
+{
+  "id": 494,
+  "user": "妻子",
+  "title": "怎么这么贵！",
+  "segments": ["怎么", "这么", "贵", "！"],
+  "description": "zěnme zhème guì!<br>Why is it so expensive!",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/xiaojie.0001_gjt1qd.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625933/493_qdviww.mp3"
+},
+{
+  "id": 495,
+  "user": "小张",
+  "title": "虽然贵了点儿，但是房子真好。",
+  "segments": ["虽然", "贵", "了", "点儿", "，", "但是", "房子", "真", "好", "。"],
+  "description": "Suīrán guìle diǎnr, dànshì fángzi zhēn hǎo.<br>Although it's a bit expensive, the house is really good.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625940/495_s3hdq9.mp3"
+},
+{
+  "id": 496,
+  "user": "妻子",
+  "title": "周围环境怎么样？",
+  "segments": ["周围", "环境", "怎么样", "？"],
+  "description": "Zhōuwéi huánjìng zěnmeyàng?<br>How is the surrounding environment?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/xiaojie.0001_gjt1qd.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625940/496_vc80mo.mp3"
+},
+{
+  "id": 497,
+  "user": "小张",
+  "title": "环境特别好。",
+  "segments": ["环境", "特别", "好", "。"],
+  "description": "huánjìng tèbié hǎo<br>The environment is particularly good.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625940/497_fzvxie.mp3"
+},
+{
+  "id": 498,
+  "user": "小张",
+  "title": "西边是山，山下边有一条小河，河边是一个很大的公园。",
+  "segments": ["西边", "是", "山", "，", "山", "下边", "有", "一", "条", "小", "河", "，", "河", "边", "是", "一", "个", "很", "大", "的", "公园", "。"],
+  "description": "Xī biān shì shān, shān xià biān yǒu yī tiáo xiǎo hé, hé biān shì yī gè hěn dà de gōng yuán.<br>To the west are mountains. At the foot of the mountains, there is a small river, and by the river is a very large park.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625940/498_cpodhb.mp3"
+},
+{
+  "id": 499,
+  "user": "小张",
+  "title": "周围非常安静。",
+  "segments": ["周围", "非常", "安静", "。"],
+  "description": "zhōuwéi fēicháng ānjìng<br>It's very quiet.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625940/499_r8zbck.mp3"
+},
+{
+  "id": 500,
+  "user": "妻子",
+  "title": "交通方便不方便？",
+  "segments": ["交通", "方便", "不", "方便", "？"],
+  "description": "Jiāotōng fāngbiàn bù fāngbiàn?<br>Is the transportation convenient?",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1738654255/xiaojie.0001_gjt1qd.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625940/500_wf0lat.mp3"
+},
+{
+  "id": 501,
+  "user": "小张",
+  "title": "交通很方便。",
+  "segments": ["交通", "很", "方便", "。"],
+  "description": "Jiāo tōng hěn fāng biàn.<br>Transportation is very convenient.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625941/501_k7ma9w.mp3"
+},
+{
+  "id": 502,
+  "user": "小张",
+  "title": "楼下就有公共汽车站，坐车十分钟就到公司了。",
+  "segments": ["楼", "下", "就", "有", "公共汽车", "站", "，", "坐", "车", "十", "分", "钟", "就", "到", "公司", "了", "。"],
+  "description": "Lóuxià jiù yǒu gōnggòng qìchēzhàn, zuòchē shífēnzhōng jiù dào gōngsī le.<br>There's a bus stop right downstairs, and it only takes ten minutes by bus to get to the company.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625941/502_isr8s8.mp3"
+},
+{
+  "id": 503,
+  "user": "小张",
+  "title": "汽车站旁边就是地铁站。",
+  "segments": ["汽车", "站", "旁边", "就", "是", "地铁", "站。"],
+  "description": "Qìchēzhàn pángbiān jiùshì dìtiězhàn.<br>The subway station is right next to the bus station.",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625941/503_kwq7lg.mp3"
+},
+{
+  "id": 504,
+  "user": "小张",
+  "title": "附近有学校、医院和体育馆......",
+  "segments": ["附近", "有", "学校", "、", "医院", "和", "体育馆", "......"],
+  "description": "fùjìn yǒu xuéxiào, yīyuàn hé tǐyùguǎn......<br>Nearby, there are schools, hospitals, and gymnasiums...",
+  "avatar": "https://res.cloudinary.com/dndwvsqib/image/upload/v1736318342/linlaoshi.0001_zbrfsn.png",
+  "audioSrc": "https://res.cloudinary.com/dndwvsqib/video/upload/v1786625941/504_hresqm.mp3"
 }
 ]
