@@ -527,5 +527,29 @@
   "dialoguePDF": "",
   "characterPDF": "",
   "htmlLink": "posts.html?postStartId=457&postEndId=470&quizStartId=591&quizEndId=604&writeStartId=653&writeEndId=660&id=44"
+},
+{
+  "id": 45,
+  "title": "第二十八课 (一)：我吃了早饭就来了",
+  "description": "Lesson 28 (1): I came right after breakfast",
+  "plan": "hsk12",
+  "premium": true,
+  "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1786696217/hyjc-1-28-1_z23zv5.png",
+  "videoLink": "",
+  "dialoguePDF": "",
+  "characterPDF": "",
+  "htmlLink": "posts.html?postStartId=471&postEndId=483&quizStartId=605&quizEndId=624&writeStartId=661&writeEndId=677&id=45"
+},
+{
+  "id": 46,
+  "title": "第二十八课 (二)：我早就下班了",
+  "description": "Lesson 28 (2): I've been off work for a while now",
+  "plan": "hsk12",
+  "premium": true,
+  "thumbnail": "https://res.cloudinary.com/dndwvsqib/image/upload/v1786696217/hyjc-1-28-2_t1uq8e.png",
+  "videoLink": "",
+  "dialoguePDF": "",
+  "characterPDF": "",
+  "htmlLink": "posts.html?postStartId=484&postEndId=504&quizStartId=625&quizEndId=647&writeStartId=678&writeEndId=697&id=46"
 }
 ]
