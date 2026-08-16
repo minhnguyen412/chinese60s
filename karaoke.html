@@ -221,7 +221,7 @@
         }
 
         .sentence-translation {
-            font-size: 11px;
+            font-size: 15px;
             color: #888;
             margin-bottom: 8px;
             line-height: 1.3;
@@ -448,6 +448,7 @@
                 position: relative;
                 z-index: 80;
                 order: 1;
+                margin-bottom: 0;
             }
 
             .main-grid {
@@ -648,15 +649,15 @@
                         <span>None</span>
                     </label>
                     <label>
+                        <input type="radio" name="subtitle" value="english" onchange="changeSubtitle('english')"checked>
+                        <span>English</span>
+                    </label>
+                    <label>
                         <input type="radio" name="subtitle" value="vietnamese" onchange="changeSubtitle('vietnamese')">
                         <span>Vietnamese</span>
                     </label>
                     <label>
-                        <input type="radio" name="subtitle" value="english" onchange="changeSubtitle('english')">
-                        <span>English</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="subtitle" value="both" onchange="changeSubtitle('both')" checked>
+                        <input type="radio" name="subtitle" value="both" onchange="changeSubtitle('both')">
                         <span>Both</span>
                     </label>
                 </div>
@@ -682,11 +683,11 @@
                 <span>Vietnamese</span>
             </label>
             <label>
-                <input type="radio" name="subtitle" value="english" onchange="changeSubtitle('english')">
+                <input type="radio" name="subtitle" value="english" onchange="changeSubtitle('english')"checked>
                 <span>English</span>
             </label>
             <label>
-                <input type="radio" name="subtitle" value="both" onchange="changeSubtitle('both')" checked>
+                <input type="radio" name="subtitle" value="both" onchange="changeSubtitle('both')">
                 <span>Both</span>
             </label>
         </div>
@@ -723,7 +724,7 @@
         let updateInterval = null;
         let videoStartTime = 0;
         let videoPausedTime = 0;
-        let subtitleMode = 'both';
+        let subtitleMode = 'english';
 
         const transcriptArea = document.getElementById('transcriptArea');
         const timeDisplay = document.getElementById('timeDisplay');
