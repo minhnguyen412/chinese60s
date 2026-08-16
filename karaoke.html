@@ -56,64 +56,40 @@
 
         .video-player {
             width: 100%;
-            height: 400px;
+            aspect-ratio: 16 / 9;
             background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .player-controls {
-            padding: 20px;
+            padding: 15px;
             display: flex;
-            gap: 10px;
+            gap: 8px;
             flex-wrap: wrap;
             align-items: center;
             background: #1a1a1a;
             border-top: 1px solid #333;
         }
 
-        .input-group {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .input-group label {
-            display: block;
-            font-size: 12px;
-            color: #aaa;
-            margin-bottom: 5px;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 10px;
-            background: #2a2a2a;
-            border: 1px solid #444;
-            border-radius: 6px;
-            color: #fff;
-            font-size: 14px;
-        }
-
-        .input-group input:focus {
-            outline: none;
-            border-color: #667eea;
-            background: #333;
-        }
-
         .button-group {
             display: flex;
-            gap: 8px;
+            gap: 6px;
             flex-wrap: wrap;
         }
 
         button {
-            padding: 10px 16px;
+            padding: 8px 12px;
             background: #667eea;
             color: white;
             border: none;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
             transition: all 0.3s;
+            white-space: nowrap;
         }
 
         button:hover {
@@ -133,6 +109,56 @@
             background: #555;
         }
 
+        .time-display {
+            padding: 8px 12px;
+            background: #2a2a2a;
+            border-radius: 6px;
+            font-size: 11px;
+            color: #888;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            min-width: 100px;
+            margin-left: auto;
+        }
+
+        .language-toggle {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .language-toggle label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .language-toggle input[type="checkbox"] {
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Status */
+        .status {
+            padding: 12px;
+            background: #1a1a1a;
+            border-top: 1px solid #333;
+            font-size: 12px;
+        }
+
+        .info-box {
+            background: #2a3a5a;
+            border-left: 3px solid #667eea;
+            padding: 10px;
+            border-radius: 6px;
+            color: #aaa;
+        }
+
         .transcript-section {
             background: #1a1a1a;
             border-radius: 12px;
@@ -140,26 +166,26 @@
             border: 1px solid #333;
             display: flex;
             flex-direction: column;
-            height: 600px;
+            height: 550px;
         }
 
         .transcript-header {
-            padding: 15px;
+            padding: 12px;
             background: #2a2a2a;
             border-bottom: 1px solid #333;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
         }
 
         .transcript-area {
             flex: 1;
             overflow-y: auto;
-            padding: 15px;
+            padding: 12px;
         }
 
         .sentence {
-            margin-bottom: 20px;
-            padding: 12px;
+            margin-bottom: 15px;
+            padding: 10px;
             background: #252525;
             border-radius: 8px;
             border-left: 3px solid #555;
@@ -178,11 +204,11 @@
             box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
         }
 
-        .sentence-text {
-            font-size: 16px;
-            font-weight: 500;
+        .sentence-translation {
+            font-size: 11px;
+            color: #888;
             margin-bottom: 8px;
-            letter-spacing: 0.5px;
+            line-height: 1.3;
         }
 
         .character-line {
@@ -192,26 +218,26 @@
         }
 
         .char {
-            padding: 6px 8px;
+            padding: 8px 10px;
             background: #333;
             border-radius: 4px;
-            font-size: 14px;
             transition: all 0.1s;
             cursor: pointer;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 2px;
+            gap: 3px;
         }
 
         .char .pinyin {
-            font-size: 10px;
+            font-size: 11px;
             color: #aaa;
             line-height: 1;
         }
 
         .char .char-text {
-            font-size: 14px;
+            font-size: 18px;
+            font-weight: 600;
         }
 
         .char.active {
@@ -233,8 +259,8 @@
         }
 
         .meta-info {
-            font-size: 12px;
-            color: #888;
+            font-size: 10px;
+            color: #666;
             margin-top: 6px;
         }
 
@@ -257,31 +283,12 @@
 
         .loading {
             text-align: center;
-            padding: 40px 20px;
+            padding: 30px 15px;
             color: #aaa;
-        }
-
-        .info-box {
-            background: #2a3a5a;
-            border-left: 3px solid #667eea;
-            padding: 12px;
-            border-radius: 6px;
-            font-size: 13px;
-            color: #aaa;
-            margin-bottom: 15px;
-        }
-
-        .time-display {
-            padding: 10px;
-            background: #2a2a2a;
-            border-radius: 6px;
             font-size: 12px;
-            color: #888;
-            text-align: center;
-            font-family: 'Courier New', monospace;
-            min-width: 120px;
         }
 
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -309,8 +316,8 @@
             background: #1a1a1a;
             border: 1px solid #333;
             border-radius: 12px;
-            padding: 30px;
-            max-width: 500px;
+            padding: 20px;
+            max-width: 420px;
             width: 90%;
             animation: slideUp 0.3s;
         }
@@ -320,88 +327,182 @@
             to { transform: translateY(0); opacity: 1; }
         }
 
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 28px;
-            cursor: pointer;
-            color: #aaa;
-        }
-
-        .modal-close:hover {
-            color: #fff;
-        }
-
         .character-detail {
             text-align: center;
         }
 
+        .character-detail-header {
+            margin-bottom: 15px;
+        }
+
+        .character-detail h2 {
+            font-size: 36px;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .character-detail-pinyin {
+            font-size: 16px;
+            color: #667eea;
+            font-style: italic;
+        }
+
+        .character-detail-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .detail-column {
+            text-align: left;
+        }
+
         .character-detail-image {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 20px;
+            width: 100%;
+            height: auto;
+            max-height: 150px;
             border-radius: 8px;
             object-fit: cover;
         }
 
-        .character-detail h2 {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
-
-        .character-detail-pinyin {
-            font-size: 18px;
-            color: #667eea;
-            margin-bottom: 15px;
-            font-style: italic;
-        }
-
-        .character-detail-info {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 20px;
-            text-align: left;
-        }
-
         .info-item {
             background: #2a2a2a;
-            padding: 12px;
-            border-radius: 8px;
+            padding: 10px;
+            border-radius: 6px;
         }
 
         .info-label {
-            font-size: 12px;
-            color: #aaa;
-            margin-bottom: 5px;
+            font-size: 11px;
+            color: #888;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .info-value {
-            font-size: 14px;
+            font-size: 13px;
             color: #fff;
+            line-height: 1.4;
         }
 
         .character-audio {
-            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .character-audio .speaker-icon {
+            font-size: 18px;
         }
 
         .character-audio audio {
-            width: 100%;
-            margin-top: 10px;
+            flex: 1;
+            height: 28px;
+            max-width: 100%;
         }
 
+        /* Mobile Responsive */
         @media (max-width: 1024px) {
             .main-grid {
                 grid-template-columns: 1fr;
             }
 
             .video-player {
-                height: 300px;
+                aspect-ratio: 16 / 9;
             }
 
             .transcript-section {
                 height: 400px;
+            }
+
+            .player-controls {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .button-group {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .time-display {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            .language-toggle {
+                width: 100%;
+            }
+
+            .modal-content {
+                max-width: 90%;
+                padding: 16px;
+            }
+
+            .character-detail h2 {
+                font-size: 32px;
+            }
+
+            .character-detail-body {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .header h1 {
+                font-size: 22px;
+            }
+
+            .header p {
+                font-size: 12px;
+            }
+
+            .main-grid {
+                gap: 15px;
+            }
+
+            .video-player {
+                aspect-ratio: 16 / 9;
+            }
+
+            .transcript-section {
+                height: 350px;
+            }
+
+            .character-detail h2 {
+                font-size: 28px;
+            }
+
+            .character-detail-pinyin {
+                font-size: 14px;
+            }
+
+            button {
+                padding: 7px 10px;
+                font-size: 12px;
+            }
+
+            .char .char-text {
+                font-size: 16px;
+            }
+
+            .sentence {
+                padding: 8px;
+                margin-bottom: 12px;
+            }
+
+            .sentence-translation {
+                font-size: 10px;
+            }
+
+            .meta-info {
+                font-size: 9px;
             }
         }
     </style>
@@ -410,7 +511,7 @@
     <div class="container">
         <div class="header">
             <h1>🎵 Karaoke Player - YouTube</h1>
-            <p>YouTube video + Perfect karaoke sync (Increases view count)</p>
+            <p>YouTube video + Perfect karaoke sync</p>
         </div>
 
         <div class="main-grid">
@@ -420,23 +521,31 @@
                     <div class="loading">📺 Đang tải video YouTube...</div>
                 </div>
 
-
-
                 <!-- Controls -->
                 <div class="player-controls">
                     <div class="button-group">
-                        <button onclick="togglePlayPause()" id="playBtn">▶️ Play</button>
-                        <button onclick="stopVideo()" class="secondary">⏹️ Stop</button>
-                        <button onclick="rewindVideo()" class="secondary">⏮️ -10s</button>
-                        <button onclick="forwardVideo()" class="secondary">⏭️ +10s</button>
+                        <button onclick="togglePlayPause()" id="playBtn">▶️</button>
+                        <button onclick="stopVideo()" class="secondary">⏹️</button>
+                        <button onclick="rewindVideo()" class="secondary">⏮️</button>
+                        <button onclick="forwardVideo()" class="secondary">⏭️</button>
                     </div>
                     <div class="time-display">
                         <div id="timeDisplay">0:00 / 0:00</div>
                     </div>
                 </div>
 
+                <!-- Language Toggle -->
+                <div class="player-controls" style="border-top: none; padding-top: 0;">
+                    <div class="language-toggle">
+                        <label>
+                            <input type="checkbox" id="showVietnamese" onchange="toggleLanguage()">
+                            <span>Show Vietnamese</span>
+                        </label>
+                    </div>
+                </div>
+
                 <!-- Status -->
-                <div style="padding: 15px; background: #1a1a1a; border-top: 1px solid #333;">
+                <div class="status">
                     <div class="info-box" id="statusBox">
                         ⏳ Đang tải video và transcript...
                     </div>
@@ -457,11 +566,8 @@
 
     <!-- Character Detail Modal -->
     <div id="characterModal" class="modal">
-        <div style="position: relative; width: 100%;">
-            <span class="modal-close" onclick="closeCharacterModal()">&times;</span>
-            <div class="modal-content">
-                <div class="character-detail" id="characterDetailContent">
-                </div>
+        <div class="modal-content">
+            <div class="character-detail" id="characterDetailContent">
             </div>
         </div>
     </div>
@@ -477,13 +583,14 @@
         let updateInterval = null;
         let videoStartTime = 0;
         let videoPausedTime = 0;
-        let currentLanguage = 'english'; // 'english' or 'vietnamese'
+        let showVietnameseText = false;
 
         const statusBox = document.getElementById('statusBox');
         const transcriptArea = document.getElementById('transcriptArea');
         const timeDisplay = document.getElementById('timeDisplay');
         const playBtn = document.getElementById('playBtn');
         const videoPlayer = document.getElementById('videoPlayer');
+        const showVietnamesesCheckbox = document.getElementById('showVietnamese');
 
         // YouTube API ready
         function onYouTubeIframeAPIReady() {
@@ -524,7 +631,7 @@
             // Initialize player after short delay
             setTimeout(() => {
                 player = new YT.Player('yt-player', {
-                    height: '400',
+                    height: '100%',
                     width: '100%',
                     videoId: videoId,
                     events: {
@@ -543,14 +650,14 @@
         function onPlayerStateChange(event) {
             if (event.data === YT.PlayerState.PLAYING) {
                 videoStartTime = player.getCurrentTime();
-                playBtn.textContent = '⏸️ Pause';
+                playBtn.textContent = '⏸️';
                 startSync();
             } else if (event.data === YT.PlayerState.PAUSED) {
                 videoPausedTime = player.getCurrentTime();
-                playBtn.textContent = '▶️ Play';
+                playBtn.textContent = '▶️';
                 stopSync();
             } else if (event.data === YT.PlayerState.ENDED) {
-                playBtn.textContent = '▶️ Play';
+                playBtn.textContent = '▶️';
                 stopSync();
             }
         }
@@ -629,6 +736,11 @@
             return sentence ? { english: sentence.english, vietnamese: sentence.vietnamese } : { english: '', vietnamese: '' };
         }
 
+        function toggleLanguage() {
+            showVietnameseText = showVietnamesesCheckbox.checked;
+            renderTranscript();
+        }
+
         function renderTranscript() {
             if (!transcriptData || transcriptData.sentences.length === 0) {
                 transcriptArea.innerHTML = '<div class="loading">No data</div>';
@@ -638,7 +750,14 @@
             let html = '';
             transcriptData.sentences.forEach((sentence, idx) => {
                 const translation = getSentenceTranslation(sentence.id);
-                const displayText = currentLanguage === 'vietnamese' ? translation.vietnamese : translation.english;
+                
+                let translationHtml = '';
+                if (showVietnameseText && translation.vietnamese) {
+                    translationHtml = `<div class="sentence-translation">🇻🇳 ${translation.vietnamese}</div>`;
+                }
+                if (translation.english) {
+                    translationHtml += `<div class="sentence-translation">🇬🇧 ${translation.english}</div>`;
+                }
 
                 const charGroupsHtml = sentence.characters
                     .map((char, charIdx) => {
@@ -657,7 +776,7 @@
 
                 html += `
                     <div class="sentence" data-index="${idx}" onclick="seekToSentence(${idx})">
-                        <div class="sentence-text">${displayText || sentence.text}</div>
+                        ${translationHtml}
                         <div class="character-line">${charGroupsHtml}</div>
                         <div class="meta-info">
                             ${formatTime(sentence.startTime)} - ${formatTime(sentence.endTime)} 
@@ -804,7 +923,7 @@
                 player.stopVideo();
                 updateTranscriptHighlight(0);
                 updateTimeDisplay(0);
-                playBtn.textContent = '▶️ Play';
+                playBtn.textContent = '▶️';
             } catch (e) {
                 console.error('Stop error:', e);
             }
@@ -851,33 +970,30 @@
             }
 
             let html = `
-                <h2>${charInfo.character}</h2>
-                <div class="character-detail-pinyin">${charInfo.pinyin}</div>
-            `;
-
-            if (charInfo.imageSrc) {
-                html += `<img src="${charInfo.imageSrc}" alt="${charInfo.character}" class="character-detail-image">`;
-            }
-
-            html += `
-                <div class="character-detail-info">
-                    <div class="info-item">
-                        <div class="info-label">Meaning</div>
-                        <div class="info-value">${charInfo.meaning}</div>
+                <div class="character-detail-header">
+                    <h2>${charInfo.character}</h2>
+                    <div class="character-detail-pinyin">${charInfo.pinyin}</div>
+                </div>
+                <div class="character-detail-body">
+                    <div class="detail-column">
+                        ${charInfo.imageSrc ? `<img src="${charInfo.imageSrc}" alt="${charInfo.character}" class="character-detail-image">` : ''}
+                    </div>
+                    <div class="detail-column">
+                        <div class="info-item">
+                            <div class="info-label">Meaning</div>
+                            <div class="info-value">${charInfo.meaning || 'N/A'}</div>
+                        </div>
+                        ${charInfo.audioSrc ? `
+                            <div class="character-audio">
+                                <span class="speaker-icon">🔊</span>
+                                <audio controls>
+                                    <source src="${charInfo.audioSrc}" type="audio/mpeg">
+                                </audio>
+                            </div>
+                        ` : ''}
                     </div>
                 </div>
             `;
-
-            if (charInfo.audioSrc) {
-                html += `
-                    <div class="character-audio">
-                        <audio controls>
-                            <source src="${charInfo.audioSrc}" type="audio/mpeg">
-                            Your browser does not support the audio element.
-                        </audio>
-                    </div>
-                `;
-            }
 
             document.getElementById('characterDetailContent').innerHTML = html;
             document.getElementById('characterModal').classList.add('show');
