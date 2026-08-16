@@ -13,8 +13,8 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #f5f5f0;
-            color: #333;
+            background: #0f0f0f;
+            color: #fff;
         }
 
         .container {
@@ -30,21 +30,15 @@
         .header {
             text-align: center;
             margin-bottom: 30px;
-            background: #d8f0a0;
-            border-radius: 16px;
-            padding: 24px;
-            border: 2px solid #7cb83e;
-            box-shadow: 0 4px 12px rgba(124, 184, 62, 0.15);
         }
 
         .header h1 {
             font-size: 28px;
             margin-bottom: 10px;
-            color: #333;
         }
 
         .header p {
-            color: #666;
+            color: #aaa;
             font-size: 14px;
         }
 
@@ -58,21 +52,20 @@
         }
 
         .video-section {
-            background: #ffffff;
+            background: #1a1a1a;
             border-radius: 12px;
             overflow: hidden;
-            border: 2px solid #7cb83e;
+            border: 1px solid #333;
             display: flex;
             flex-direction: column;
             height: fit-content;
             grid-area: video;
-            box-shadow: 0 4px 12px rgba(124, 184, 62, 0.1);
         }
 
         .video-player {
             width: 100%;
             aspect-ratio: 16 / 9;
-            background: #f0f0f0;
+            background: #000;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -84,8 +77,8 @@
             gap: 8px;
             flex-wrap: wrap;
             align-items: center;
-            background: #f9f9f7;
-            border-top: 2px solid #7cb83e;
+            background: #1a1a1a;
+            border-top: 1px solid #333;
             width: 100%;
         }
 
@@ -97,7 +90,7 @@
 
         button {
             padding: 8px 12px;
-            background: #7cb83e;
+            background: #667eea;
             color: white;
             border: none;
             border-radius: 6px;
@@ -106,13 +99,11 @@
             font-weight: 500;
             transition: all 0.3s;
             white-space: nowrap;
-            box-shadow: 0 2px 6px rgba(124, 184, 62, 0.2);
         }
 
         button:hover {
-            background: #5a8f27;
+            background: #5568d3;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(124, 184, 62, 0.3);
         }
 
         button:active {
@@ -120,27 +111,23 @@
         }
 
         button.secondary {
-            background: #e8e8e8;
-            color: #333;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            background: #444;
         }
 
         button.secondary:hover {
-            background: #d8d8d8;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            background: #555;
         }
 
         .time-display {
             padding: 8px 12px;
-            background: #f0f0f0;
+            background: #2a2a2a;
             border-radius: 6px;
             font-size: 11px;
-            color: #666;
+            color: #888;
             text-align: center;
             font-family: 'Courier New', monospace;
             min-width: 100px;
             margin-left: auto;
-            border: 1px solid #ddd;
         }
 
         .subtitle-selector {
@@ -148,9 +135,8 @@
             gap: 8px;
             align-items: center;
             padding: 15px;
-            background: #f9f9f7;
-            border-top: 2px solid #7cb83e;
-            border-bottom: 2px solid #7cb83e;
+            background: none;
+            border-top: 1px solid #333;
             flex-wrap: wrap;
             margin: 0;
             width: 100%;
@@ -163,14 +149,12 @@
             gap: 6px;
             font-size: 12px;
             cursor: pointer;
-            color: #333;
         }
 
         .subtitle-selector input[type="radio"] {
             cursor: pointer;
             width: 16px;
             height: 16px;
-            accent-color: #7cb83e;
         }
 
         /* Status */
@@ -187,15 +171,14 @@
         }
 
         .transcript-section {
-            background: #ffffff;
+            background: #1a1a1a;
             border-radius: 12px;
             overflow: hidden;
-            border: 2px solid #7cb83e;
+            border: 1px solid #333;
             display: flex;
             flex-direction: column;
             height: 550px;
             grid-area: transcript;
-            box-shadow: 0 4px 12px rgba(124, 184, 62, 0.1);
         }
 
         .transcript-header {
@@ -206,114 +189,86 @@
             flex: 1;
             overflow-y: auto;
             padding: 12px;
-            background: #fafaf8;
         }
 
         .sentence {
-            margin-bottom: 20px;
-            padding: 16px;
-            background: #f0f8e0;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #252525;
             border-radius: 8px;
-            border-left: 3px solid #7cb83e;
+            border-left: 3px solid #555;
             cursor: pointer;
             transition: all 0.3s;
         }
 
         .sentence:hover {
-            background: #e8f4d0;
-            border-left-color: #5a8f27;
+            background: #2a2a2a;
+            border-left-color: #667eea;
         }
 
         .sentence.active {
-            background: #d8f0a0;
-            border-left-color: #5a8f27;
-            box-shadow: 0 2px 8px rgba(124, 184, 62, 0.3);
+            background: #2a3a5a;
+            border-left-color: #667eea;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
         }
 
         .sentence-translation {
-            font-size: 0.95rem;
-            color: #555;
-            margin-bottom: 12px;
-            line-height: 1.5;
-            font-weight: 500;
+            font-size: 11px;
+            color: #888;
+            margin-bottom: 8px;
+            line-height: 1.3;
         }
 
         .character-line {
             display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-bottom: 12px;
-        }
-
-        .pinyin-row {
-            display: flex;
             flex-wrap: wrap;
-            gap: 6px;
-        }
-
-        .pinyin-item {
-            font-size: 0.75rem;
-            color: #999;
-            min-width: 28px;
-            text-align: center;
-            height: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .chinese-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
+            gap: 4px;
         }
 
         .char {
-            padding: 0;
-            background: transparent;
-            border-radius: 0;
+            padding: 8px 10px;
+            background: #333;
+            border-radius: 4px;
+            transition: all 0.1s;
             cursor: pointer;
-            display: inline-block;
-            transition: all 0.15s;
-            border: none;
-            text-align: center;
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: #333;
-            min-width: 28px;
-            height: 32px;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
+            gap: 3px;
         }
 
-        .char:hover {
-            color: #7cb83e;
-            text-shadow: 0 0 8px rgba(124, 184, 62, 0.3);
+        .char .pinyin {
+            font-size: 11px;
+            color: #aaa;
+            line-height: 1;
+        }
+
+        .char .char-text {
+            font-size: 18px;
+            font-weight: 600;
         }
 
         .char.active {
-            background: #7cb83e;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 4px;
-            transform: scale(1.1);
-            box-shadow: 0 2px 8px rgba(124, 184, 62, 0.6);
+            background: #667eea;
+            color: #fff;
+            transform: scale(1.15);
+            box-shadow: 0 0 8px rgba(102, 126, 234, 0.6);
+            font-weight: 600;
         }
 
         .char.upcoming {
-            opacity: 0.5;
-            color: #ccc;
+            background: #3a3a3a;
+            opacity: 0.6;
         }
 
         .char.passed {
+            background: #444;
             opacity: 0.8;
-            color: #888;
         }
 
         .meta-info {
             font-size: 10px;
-            color: #999;
+            color: #666;
             margin-top: 6px;
         }
 
@@ -322,22 +277,22 @@
         }
 
         .transcript-area::-webkit-scrollbar-track {
-            background: #f9f9f7;
+            background: #2a2a2a;
         }
 
         .transcript-area::-webkit-scrollbar-thumb {
-            background: #7cb83e;
+            background: #555;
             border-radius: 3px;
         }
 
         .transcript-area::-webkit-scrollbar-thumb:hover {
-            background: #5a8f27;
+            background: #667eea;
         }
 
         .loading {
             text-align: center;
             padding: 30px 15px;
-            color: #999;
+            color: #aaa;
             font-size: 12px;
         }
 
@@ -350,7 +305,7 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.8);
             animation: fadeIn 0.3s;
             touch-action: none;
             -webkit-user-select: none;
@@ -369,8 +324,8 @@
         }
 
         .modal-content {
-            background: #ffffff;
-            border: 2px solid #7cb83e;
+            background: #1a1a1a;
+            border: 1px solid #333;
             border-radius: 12px;
             padding: 20px;
             max-width: 420px;
@@ -379,7 +334,6 @@
             max-height: 80vh;
             overflow-y: auto;
             pointer-events: auto;
-            box-shadow: 0 8px 24px rgba(124, 184, 62, 0.2);
         }
 
         @keyframes slideUp {
@@ -399,12 +353,11 @@
             font-size: 36px;
             margin-bottom: 6px;
             font-weight: 600;
-            color: #333;
         }
 
         .character-detail-pinyin {
             font-size: 16px;
-            color: #7cb83e;
+            color: #667eea;
             font-style: italic;
         }
 
@@ -428,15 +381,14 @@
         }
 
         .info-item {
-            background: #f0f8e0;
+            background: #2a2a2a;
             padding: 10px;
             border-radius: 6px;
-            border: 1px solid #d8f0a0;
         }
 
         .info-label {
             font-size: 11px;
-            color: #666;
+            color: #888;
             margin-bottom: 4px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -444,7 +396,7 @@
 
         .info-value {
             font-size: 13px;
-            color: #333;
+            color: #fff;
             line-height: 1.4;
         }
 
@@ -672,22 +624,22 @@
 
                 <!-- Subtitle Selector (Desktop) -->
                 <div class="subtitle-selector" id="desktopSubtitleSelector" style="display: none; position: static; background: none; padding: 15px; border-top: 1px solid #333; margin: 0;">
-                    <span style="font-size: 12px; margin-right: 8px; color: #333; font-weight: 600;">Subtitles:</span>
+                    <span style="font-size: 12px; margin-right: 8px;">Phụ đề:</span>
                     <label>
                         <input type="radio" name="subtitle" value="none" onchange="changeSubtitle('none')">
-                        <span>None</span>
+                        <span>Không</span>
                     </label>
                     <label>
                         <input type="radio" name="subtitle" value="vietnamese" onchange="changeSubtitle('vietnamese')">
-                        <span>Vietnamese</span>
+                        <span>Tiếng Việt</span>
                     </label>
                     <label>
-                        <input type="radio" name="subtitle" value="english" onchange="changeSubtitle('english')" checked>
+                        <input type="radio" name="subtitle" value="english" onchange="changeSubtitle('english')">
                         <span>English</span>
                     </label>
                     <label>
-                        <input type="radio" name="subtitle" value="both" onchange="changeSubtitle('both')">
-                        <span>Both</span>
+                        <input type="radio" name="subtitle" value="both" onchange="changeSubtitle('both')" checked>
+                        <span>Cả hai</span>
                     </label>
                 </div>
             </div>
@@ -702,22 +654,22 @@
 
         <!-- Subtitle Selector (Mobile) -->
         <div class="subtitle-selector">
-            <span style="font-size: 12px; margin-right: 8px; color: #333; font-weight: 600;">Subtitles:</span>
+            <span style="font-size: 12px; margin-right: 8px;">Phụ đề:</span>
             <label>
                 <input type="radio" name="subtitle" value="none" onchange="changeSubtitle('none')">
-                <span>None</span>
+                <span>Không</span>
             </label>
             <label>
                 <input type="radio" name="subtitle" value="vietnamese" onchange="changeSubtitle('vietnamese')">
-                <span>Vietnamese</span>
+                <span>Tiếng Việt</span>
             </label>
             <label>
-                <input type="radio" name="subtitle" value="english" onchange="changeSubtitle('english')" checked>
+                <input type="radio" name="subtitle" value="english" onchange="changeSubtitle('english')">
                 <span>English</span>
             </label>
             <label>
-                <input type="radio" name="subtitle" value="both" onchange="changeSubtitle('both')">
-                <span>Both</span>
+                <input type="radio" name="subtitle" value="both" onchange="changeSubtitle('both')" checked>
+                <span>Cả hai</span>
             </label>
         </div>
 
@@ -753,7 +705,7 @@
         let updateInterval = null;
         let videoStartTime = 0;
         let videoPausedTime = 0;
-        let subtitleMode = 'english';
+        let subtitleMode = 'both';
 
         const transcriptArea = document.getElementById('transcriptArea');
         const timeDisplay = document.getElementById('timeDisplay');
@@ -914,26 +866,17 @@
                         
                         return `
                             <span class="char" data-sentence="${idx}" data-char="${charIdx}" onclick="showCharacterDetail('${charText}', event)">
-                                ${charText}
+                                <span class="pinyin">${pinyin}</span>
+                                <span class="char-text">${charText}</span>
                             </span>
                         `;
-                    })
-                    .join('');
-
-                const pinyinRow = sentence.characters
-                    .map((char) => {
-                        const pinyin = char.pinyin || '';
-                        return `<div class="pinyin-item">${pinyin}</div>`;
                     })
                     .join('');
 
                 html += `
                     <div class="sentence" data-index="${idx}" onclick="seekToSentence(${idx})">
                         ${translationHtml}
-                        <div class="character-line">
-                            <div class="pinyin-row">${pinyinRow}</div>
-                            <div class="chinese-row">${charGroupsHtml}</div>
-                        </div>
+                        <div class="character-line">${charGroupsHtml}</div>
                         <div class="meta-info">
                             ${formatTime(sentence.startTime)} - ${formatTime(sentence.endTime)} 
                             (${sentence.duration.toFixed(1)}s)
