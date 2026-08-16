@@ -2,7 +2,8 @@
   "metadata": {
     "totalSentences": 34,
     "totalDuration": 106.86,
-    "convertedAt": "2026-08-16T07:16:54.552Z"
+    "convertedAt": "2026-08-16T10:34:15.826Z",
+    "hasPinyin": true
   },
   "sentences": [
     {
@@ -15,12 +16,14 @@
         {
           "chars": "你",
           "startTime": 3.66,
-          "duration": 0.22
+          "duration": 0.22,
+          "pinyin": "nǐ"
         },
         {
           "chars": "好",
           "startTime": 3.88,
-          "duration": 0.73
+          "duration": 0.73,
+          "pinyin": "hǎo"
         },
         {
           "chars": ",",
@@ -30,22 +33,26 @@
         {
           "chars": "你",
           "startTime": 4.86,
-          "duration": 0.3
+          "duration": 0.3,
+          "pinyin": "nǐ"
         },
         {
           "chars": "是",
           "startTime": 5.16,
-          "duration": 0.18
+          "duration": 0.18,
+          "pinyin": "shì"
         },
         {
           "chars": "老师",
           "startTime": 5.34,
-          "duration": 0.46
+          "duration": 0.46,
+          "pinyin": "lǎoshī"
         },
         {
           "chars": "吗",
           "startTime": 5.8,
-          "duration": 0.13
+          "duration": 0.13,
+          "pinyin": "ma"
         },
         {
           "chars": "?",
@@ -64,12 +71,14 @@
         {
           "chars": "不",
           "startTime": 6.88,
-          "duration": 0.24
+          "duration": 0.24,
+          "pinyin": "bù"
         },
         {
           "chars": "是",
           "startTime": 7.12,
-          "duration": 0.32
+          "duration": 0.32,
+          "pinyin": "shì"
         },
         {
           "chars": ",",
@@ -79,22 +88,26 @@
         {
           "chars": "我",
           "startTime": 7.78,
-          "duration": 0.2
+          "duration": 0.2,
+          "pinyin": "wǒ"
         },
         {
           "chars": "不",
           "startTime": 7.98,
-          "duration": 0.12
+          "duration": 0.12,
+          "pinyin": "bù"
         },
         {
           "chars": "是",
           "startTime": 8.1,
-          "duration": 0.14
+          "duration": 0.14,
+          "pinyin": "shì"
         },
         {
           "chars": "老师",
           "startTime": 8.24,
-          "duration": 0.9
+          "duration": 0.9,
+          "pinyin": "lǎoshī"
         },
         {
           "chars": ",",
@@ -104,17 +117,20 @@
         {
           "chars": "我",
           "startTime": 9.32,
-          "duration": 0.36
+          "duration": 0.36,
+          "pinyin": "wǒ"
         },
         {
           "chars": "是",
           "startTime": 9.68,
-          "duration": 0.2
+          "duration": 0.2,
+          "pinyin": "shì"
         },
         {
           "chars": "学生",
           "startTime": 9.88,
-          "duration": 0.84
+          "duration": 0.84,
+          "pinyin": "xuésheng"
         },
         {
           "chars": ",",
@@ -124,17 +140,20 @@
         {
           "chars": "她",
           "startTime": 10.94,
-          "duration": 0.34
+          "duration": 0.34,
+          "pinyin": "tā"
         },
         {
           "chars": "是",
           "startTime": 11.28,
-          "duration": 0.26
+          "duration": 0.26,
+          "pinyin": "shì"
         },
         {
           "chars": "老师",
           "startTime": 11.54,
-          "duration": 0.42
+          "duration": 0.42,
+          "pinyin": "lǎoshī"
         },
         {
           "chars": "。",
@@ -153,7 +172,8 @@
         {
           "chars": "谢谢",
           "startTime": 12.9,
-          "duration": 0.48
+          "duration": 0.48,
+          "pinyin": "xièxie"
         },
         {
           "chars": "。",
@@ -191,7 +211,8 @@
         {
           "chars": "老师",
           "startTime": 16.17,
-          "duration": 0.88
+          "duration": 0.88,
+          "pinyin": "lǎoshī"
         },
         {
           "chars": ",",
@@ -201,12 +222,14 @@
         {
           "chars": "你",
           "startTime": 17.23,
-          "duration": 0.26
+          "duration": 0.26,
+          "pinyin": "nǐ"
         },
         {
           "chars": "好",
           "startTime": 17.49,
-          "duration": 0.2
+          "duration": 0.2,
+          "pinyin": "hǎo"
         },
         {
           "chars": "。",
@@ -225,12 +248,14 @@
         {
           "chars": "你",
           "startTime": 18.51,
-          "duration": 0.26
+          "duration": 0.26,
+          "pinyin": "nǐ"
         },
         {
           "chars": "好",
           "startTime": 18.77,
-          "duration": 0.36
+          "duration": 0.36,
+          "pinyin": "hǎo"
         },
         {
           "chars": ",",
@@ -240,22 +265,26 @@
         {
           "chars": "你",
           "startTime": 19.81,
-          "duration": 0.24
+          "duration": 0.24,
+          "pinyin": "nǐ"
         },
         {
           "chars": "是",
           "startTime": 20.05,
-          "duration": 0.14
+          "duration": 0.14,
+          "pinyin": "shì"
         },
         {
           "chars": "留学生",
           "startTime": 20.19,
-          "duration": 0.76
+          "duration": 0.76,
+          "pinyin": "liúxuéshēng"
         },
         {
           "chars": "吗",
           "startTime": 20.95,
-          "duration": 0.36
+          "duration": 0.36,
+          "pinyin": "ma"
         },
         {
           "chars": "?",
@@ -274,7 +303,8 @@
         {
           "chars": "是",
           "startTime": 21.75,
-          "duration": 0.42
+          "duration": 0.42,
+          "pinyin": "shì"
         },
         {
           "chars": ",",
@@ -284,17 +314,20 @@
         {
           "chars": "我",
           "startTime": 22.57,
-          "duration": 0.18
+          "duration": 0.18,
+          "pinyin": "wǒ"
         },
         {
           "chars": "是",
           "startTime": 22.75,
-          "duration": 0.12
+          "duration": 0.12,
+          "pinyin": "shì"
         },
         {
           "chars": "留学生",
           "startTime": 22.87,
-          "duration": 0.84
+          "duration": 0.84,
+          "pinyin": "liúxuéshēng"
         },
         {
           "chars": "。",
@@ -313,22 +346,26 @@
         {
           "chars": "你",
           "startTime": 24.79,
-          "duration": 0.24
+          "duration": 0.24,
+          "pinyin": "nǐ"
         },
         {
           "chars": "叫",
           "startTime": 25.03,
-          "duration": 0.22
+          "duration": 0.22,
+          "pinyin": "jiào"
         },
         {
           "chars": "什么",
           "startTime": 25.25,
-          "duration": 0.3
+          "duration": 0.3,
+          "pinyin": "shénme"
         },
         {
           "chars": "名字",
           "startTime": 25.55,
-          "duration": 0.71
+          "duration": 0.71,
+          "pinyin": "míngzi"
         },
         {
           "chars": "?",
@@ -347,12 +384,14 @@
         {
           "chars": "我",
           "startTime": 26.85,
-          "duration": 0.22
+          "duration": 0.22,
+          "pinyin": "wǒ"
         },
         {
           "chars": "叫",
           "startTime": 27.07,
-          "duration": 0.26
+          "duration": 0.26,
+          "pinyin": "jiào"
         },
         {
           "chars": "大卫",
@@ -376,17 +415,20 @@
         {
           "chars": "同学",
           "startTime": 30.92,
-          "duration": 0.42
+          "duration": 0.42,
+          "pinyin": "tóngxué"
         },
         {
           "chars": "们",
           "startTime": 31.34,
-          "duration": 0.22
+          "duration": 0.22,
+          "pinyin": "men"
         },
         {
           "chars": "好",
           "startTime": 31.56,
-          "duration": 0.28
+          "duration": 0.28,
+          "pinyin": "hǎo"
         },
         {
           "chars": "!",
@@ -405,12 +447,14 @@
         {
           "chars": "老师",
           "startTime": 32.38,
-          "duration": 0.58
+          "duration": 0.58,
+          "pinyin": "lǎoshī"
         },
         {
           "chars": "好",
           "startTime": 32.96,
-          "duration": 0.36
+          "duration": 0.36,
+          "pinyin": "hǎo"
         },
         {
           "chars": "!",
@@ -429,22 +473,26 @@
         {
           "chars": "我",
           "startTime": 33.78,
-          "duration": 0.22
+          "duration": 0.22,
+          "pinyin": "wǒ"
         },
         {
           "chars": "来",
           "startTime": 34,
-          "duration": 0.2
+          "duration": 0.2,
+          "pinyin": "lái"
         },
         {
           "chars": "介绍",
           "startTime": 34.2,
-          "duration": 0.46
+          "duration": 0.46,
+          "pinyin": "jièshào"
         },
         {
           "chars": "一下儿",
           "startTime": 34.66,
-          "duration": 0.32
+          "duration": 0.32,
+          "pinyin": "yíxiàr"
         },
         {
           "chars": "。",
@@ -463,12 +511,14 @@
         {
           "chars": "我",
           "startTime": 35.95,
-          "duration": 0.2
+          "duration": 0.2,
+          "pinyin": "wǒ"
         },
         {
           "chars": "姓",
           "startTime": 36.15,
-          "duration": 0.36
+          "duration": 0.36,
+          "pinyin": "xìng"
         },
         {
           "chars": "刘",
@@ -483,7 +533,8 @@
         {
           "chars": "叫",
           "startTime": 37.21,
-          "duration": 0.26
+          "duration": 0.26,
+          "pinyin": "jiào"
         },
         {
           "chars": "刘明",
@@ -498,22 +549,26 @@
         {
           "chars": "是",
           "startTime": 38.51,
-          "duration": 0.22
+          "duration": 0.22,
+          "pinyin": "shì"
         },
         {
           "chars": "你们",
           "startTime": 38.73,
-          "duration": 0.2
+          "duration": 0.2,
+          "pinyin": "nǐmen"
         },
         {
           "chars": "的",
           "startTime": 38.93,
-          "duration": 0.12
+          "duration": 0.12,
+          "pinyin": "de"
         },
         {
           "chars": "老师",
           "startTime": 39.05,
-          "duration": 0.64
+          "duration": 0.64,
+          "pinyin": "lǎoshī"
         },
         {
           "chars": "。",
@@ -532,22 +587,26 @@
         {
           "chars": "你",
           "startTime": 40.38,
-          "duration": 0.3
+          "duration": 0.3,
+          "pinyin": "nǐ"
         },
         {
           "chars": "叫",
           "startTime": 40.68,
-          "duration": 0.22
+          "duration": 0.22,
+          "pinyin": "jiào"
         },
         {
           "chars": "什么",
           "startTime": 40.9,
-          "duration": 0.32
+          "duration": 0.32,
+          "pinyin": "shénme"
         },
         {
           "chars": "名字",
           "startTime": 41.22,
-          "duration": 0.6
+          "duration": 0.6,
+          "pinyin": "míngzi"
         },
         {
           "chars": "?",
@@ -566,12 +625,14 @@
         {
           "chars": "我",
           "startTime": 42.18,
-          "duration": 0.3
+          "duration": 0.3,
+          "pinyin": "wǒ"
         },
         {
           "chars": "叫",
           "startTime": 42.48,
-          "duration": 0.28
+          "duration": 0.28,
+          "pinyin": "jiào"
         },
         {
           "chars": "大卫",
@@ -595,27 +656,32 @@
         {
           "chars": "你",
           "startTime": 44.14,
-          "duration": 0.2
+          "duration": 0.2,
+          "pinyin": "nǐ"
         },
         {
           "chars": "是",
           "startTime": 44.34,
-          "duration": 0.18
+          "duration": 0.18,
+          "pinyin": "shì"
         },
         {
           "chars": "哪",
           "startTime": 44.52,
-          "duration": 0.28
+          "duration": 0.28,
+          "pinyin": "nǎ"
         },
         {
           "chars": "国",
           "startTime": 44.8,
-          "duration": 0.18
+          "duration": 0.18,
+          "pinyin": "guó"
         },
         {
           "chars": "人",
           "startTime": 44.98,
-          "duration": 0.38
+          "duration": 0.38,
+          "pinyin": "rén"
         },
         {
           "chars": "?",
@@ -634,12 +700,14 @@
         {
           "chars": "我",
           "startTime": 46.15,
-          "duration": 0.2
+          "duration": 0.2,
+          "pinyin": "wǒ"
         },
         {
           "chars": "是",
           "startTime": 46.35,
-          "duration": 0.18
+          "duration": 0.18,
+          "pinyin": "shì"
         },
         {
           "chars": "美",
@@ -649,12 +717,14 @@
         {
           "chars": "国",
           "startTime": 46.73,
-          "duration": 0.18
+          "duration": 0.18,
+          "pinyin": "guó"
         },
         {
           "chars": "人",
           "startTime": 46.91,
-          "duration": 0.24
+          "duration": 0.24,
+          "pinyin": "rén"
         },
         {
           "chars": "。",
@@ -673,17 +743,20 @@
         {
           "chars": "我",
           "startTime": 47.35,
-          "duration": 0.24
+          "duration": 0.24,
+          "pinyin": "wǒ"
         },
         {
           "chars": "来",
           "startTime": 47.59,
-          "duration": 0.2
+          "duration": 0.2,
+          "pinyin": "lái"
         },
         {
           "chars": "介绍",
           "startTime": 47.79,
-          "duration": 0.35
+          "duration": 0.35,
+          "pinyin": "jièshào"
         },
         {
           "chars": "一下",
@@ -698,12 +771,14 @@
         {
           "chars": "她",
           "startTime": 49.33,
-          "duration": 0.24
+          "duration": 0.24,
+          "pinyin": "tā"
         },
         {
           "chars": "叫",
           "startTime": 49.57,
-          "duration": 0.38
+          "duration": 0.38,
+          "pinyin": "jiào"
         },
         {
           "chars": "玛丽",
@@ -718,12 +793,14 @@
         {
           "chars": "他",
           "startTime": 50.93,
-          "duration": 0.26
+          "duration": 0.26,
+          "pinyin": "tā"
         },
         {
           "chars": "叫",
           "startTime": 51.19,
-          "duration": 0.22
+          "duration": 0.22,
+          "pinyin": "jiào"
         },
         {
           "chars": "李军",
@@ -752,17 +829,20 @@
         {
           "chars": "你",
           "startTime": 53.8,
-          "duration": 0.24
+          "duration": 0.24,
+          "pinyin": "nǐ"
         },
         {
           "chars": "很",
           "startTime": 54.04,
-          "duration": 0.32
+          "duration": 0.32,
+          "pinyin": "hěn"
         },
         {
           "chars": "高兴",
           "startTime": 54.36,
-          "duration": 0.7
+          "duration": 0.7,
+          "pinyin": "gāo xìng"
         },
         {
           "chars": "。",
@@ -781,22 +861,26 @@
         {
           "chars": "我",
           "startTime": 55.76,
-          "duration": 0.22
+          "duration": 0.22,
+          "pinyin": "wǒ"
         },
         {
           "chars": "也",
           "startTime": 55.98,
-          "duration": 0.2
+          "duration": 0.2,
+          "pinyin": "yě"
         },
         {
           "chars": "很",
           "startTime": 56.18,
-          "duration": 0.2
+          "duration": 0.2,
+          "pinyin": "hěn"
         },
         {
           "chars": "高兴",
           "startTime": 56.38,
-          "duration": 0.88
+          "duration": 0.88,
+          "pinyin": "gāo xìng"
         },
         {
           "chars": "。",
@@ -806,27 +890,32 @@
         {
           "chars": "你",
           "startTime": 57.66,
-          "duration": 0.28
+          "duration": 0.28,
+          "pinyin": "nǐ"
         },
         {
           "chars": "是",
           "startTime": 57.94,
-          "duration": 0.22
+          "duration": 0.22,
+          "pinyin": "shì"
         },
         {
           "chars": "美国",
           "startTime": 58.16,
-          "duration": 0.38
+          "duration": 0.38,
+          "pinyin": "měiguó"
         },
         {
           "chars": "人",
           "startTime": 58.54,
-          "duration": 0.16
+          "duration": 0.16,
+          "pinyin": "rén"
         },
         {
           "chars": "吗",
           "startTime": 58.7,
-          "duration": 0.26
+          "duration": 0.26,
+          "pinyin": "ma"
         },
         {
           "chars": "？",
@@ -845,7 +934,8 @@
         {
           "chars": "不",
           "startTime": 59.58,
-          "duration": 1.04
+          "duration": 1.04,
+          "pinyin": "bù"
         },
         {
           "chars": "，",
@@ -855,27 +945,32 @@
         {
           "chars": "我",
           "startTime": 61,
-          "duration": 0.26
+          "duration": 0.26,
+          "pinyin": "wǒ"
         },
         {
           "chars": "不",
           "startTime": 61.26,
-          "duration": 0.12
+          "duration": 0.12,
+          "pinyin": "bù"
         },
         {
           "chars": "是",
           "startTime": 61.38,
-          "duration": 0.16
+          "duration": 0.16,
+          "pinyin": "shì"
         },
         {
           "chars": "美国",
           "startTime": 61.54,
-          "duration": 0.54
+          "duration": 0.54,
+          "pinyin": "měiguó"
         },
         {
           "chars": "人",
           "startTime": 62.08,
-          "duration": 0.32
+          "duration": 0.32,
+          "pinyin": "rén"
         },
         {
           "chars": "，",
@@ -885,12 +980,14 @@
         {
           "chars": "我",
           "startTime": 62.64,
-          "duration": 0.22
+          "duration": 0.22,
+          "pinyin": "wǒ"
         },
         {
           "chars": "是",
           "startTime": 62.86,
-          "duration": 0.14
+          "duration": 0.14,
+          "pinyin": "shì"
         },
         {
           "chars": "加拿大",
@@ -900,7 +997,8 @@
         {
           "chars": "人",
           "startTime": 63.5,
-          "duration": 0.66
+          "duration": 0.66,
+          "pinyin": "rén"
         },
         {
           "chars": "。",
@@ -910,12 +1008,14 @@
         {
           "chars": "你",
           "startTime": 64.88,
-          "duration": 0.32
+          "duration": 0.32,
+          "pinyin": "nǐ"
         },
         {
           "chars": "呢",
           "startTime": 65.2,
-          "duration": 0.48
+          "duration": 0.48,
+          "pinyin": "ne"
         },
         {
           "chars": "？",
@@ -934,22 +1034,26 @@
         {
           "chars": "我",
           "startTime": 67.1,
-          "duration": 0.3
+          "duration": 0.3,
+          "pinyin": "wǒ"
         },
         {
           "chars": "是",
           "startTime": 67.4,
-          "duration": 0.48
+          "duration": 0.48,
+          "pinyin": "shì"
         },
         {
           "chars": "中国",
           "startTime": 67.88,
-          "duration": 0.56
+          "duration": 0.56,
+          "pinyin": "zhōngguó"
         },
         {
           "chars": "人",
           "startTime": 68.44,
-          "duration": 0.2
+          "duration": 0.2,
+          "pinyin": "rén"
         },
         {
           "chars": "。",
@@ -978,27 +1082,32 @@
         {
           "chars": "那",
           "startTime": 72.43,
-          "duration": 0.34
+          "duration": 0.34,
+          "pinyin": "nà"
         },
         {
           "chars": "是",
           "startTime": 72.77,
-          "duration": 0.18
+          "duration": 0.18,
+          "pinyin": "shì"
         },
         {
           "chars": "谁",
           "startTime": 72.95,
-          "duration": 0.16
+          "duration": 0.16,
+          "pinyin": "shéi/shuí"
         },
         {
           "chars": "的",
           "startTime": 73.11,
-          "duration": 0.2
+          "duration": 0.2,
+          "pinyin": "de"
         },
         {
           "chars": "书",
           "startTime": 73.31,
-          "duration": 0.38
+          "duration": 0.38,
+          "pinyin": "shū"
         },
         {
           "chars": "?",
@@ -1008,27 +1117,32 @@
         {
           "chars": "是",
           "startTime": 74.31,
-          "duration": 0.24
+          "duration": 0.24,
+          "pinyin": "shì"
         },
         {
           "chars": "你",
           "startTime": 74.55,
-          "duration": 0.3
+          "duration": 0.3,
+          "pinyin": "nǐ"
         },
         {
           "chars": "的",
           "startTime": 74.85,
-          "duration": 0.14
+          "duration": 0.14,
+          "pinyin": "de"
         },
         {
           "chars": "书",
           "startTime": 74.99,
-          "duration": 0.24
+          "duration": 0.24,
+          "pinyin": "shū"
         },
         {
           "chars": "吗",
           "startTime": 75.23,
-          "duration": 0.24
+          "duration": 0.24,
+          "pinyin": "ma"
         },
         {
           "chars": "?",
@@ -1047,12 +1161,14 @@
         {
           "chars": "不",
           "startTime": 75.95,
-          "duration": 0.26
+          "duration": 0.26,
+          "pinyin": "bù"
         },
         {
           "chars": "是",
           "startTime": 76.21,
-          "duration": 0.38
+          "duration": 0.38,
+          "pinyin": "shì"
         },
         {
           "chars": "，",
@@ -1062,32 +1178,38 @@
         {
           "chars": "那",
           "startTime": 76.79,
-          "duration": 0.26
+          "duration": 0.26,
+          "pinyin": "nà"
         },
         {
           "chars": "是",
           "startTime": 77.05,
-          "duration": 0.12
+          "duration": 0.12,
+          "pinyin": "shì"
         },
         {
           "chars": "我",
           "startTime": 77.17,
-          "duration": 0.26
+          "duration": 0.26,
+          "pinyin": "wǒ"
         },
         {
           "chars": "同屋",
           "startTime": 77.43,
-          "duration": 0.4
+          "duration": 0.4,
+          "pinyin": "tóngwū"
         },
         {
           "chars": "的",
           "startTime": 77.83,
-          "duration": 0.22
+          "duration": 0.22,
+          "pinyin": "de"
         },
         {
           "chars": "书",
           "startTime": 78.05,
-          "duration": 0.36
+          "duration": 0.36,
+          "pinyin": "shū"
         },
         {
           "chars": "。",
@@ -1106,12 +1228,14 @@
         {
           "chars": "是",
           "startTime": 79.03,
-          "duration": 0.4
+          "duration": 0.4,
+          "pinyin": "shì"
         },
         {
           "chars": "汉语",
           "startTime": 79.43,
-          "duration": 0.56
+          "duration": 0.56,
+          "pinyin": "hànyǔ"
         },
         {
           "chars": "课本",
@@ -1121,7 +1245,8 @@
         {
           "chars": "吗",
           "startTime": 80.35,
-          "duration": 0.28
+          "duration": 0.28,
+          "pinyin": "ma"
         },
         {
           "chars": "?",
@@ -1140,12 +1265,14 @@
         {
           "chars": "不",
           "startTime": 81.79,
-          "duration": 0.32
+          "duration": 0.32,
+          "pinyin": "bù"
         },
         {
           "chars": "是",
           "startTime": 82.11,
-          "duration": 0.38
+          "duration": 0.38,
+          "pinyin": "shì"
         },
         {
           "chars": ",",
@@ -1155,7 +1282,8 @@
         {
           "chars": "是",
           "startTime": 82.65,
-          "duration": 0.54
+          "duration": 0.54,
+          "pinyin": "shì"
         },
         {
           "chars": "汉日",
@@ -1165,7 +1293,8 @@
         {
           "chars": "词典",
           "startTime": 83.65,
-          "duration": 0.72
+          "duration": 0.72,
+          "pinyin": "cídiǎn"
         },
         {
           "chars": "。",
@@ -1184,12 +1313,14 @@
         {
           "chars": "什么",
           "startTime": 85.13,
-          "duration": 0.6
+          "duration": 0.6,
+          "pinyin": "shénme"
         },
         {
           "chars": "词典",
           "startTime": 85.73,
-          "duration": 0.58
+          "duration": 0.58,
+          "pinyin": "cídiǎn"
         },
         {
           "chars": "?",
@@ -1213,22 +1344,26 @@
         {
           "chars": "词典",
           "startTime": 87.87,
-          "duration": 0.82
+          "duration": 0.82,
+          "pinyin": "cídiǎn"
         },
         {
           "chars": "就",
           "startTime": 88.69,
-          "duration": 0.42
+          "duration": 0.42,
+          "pinyin": "jiù"
         },
         {
           "chars": "是",
           "startTime": 89.11,
-          "duration": 0.32
+          "duration": 0.32,
+          "pinyin": "shì"
         },
         {
           "chars": "汉语",
           "startTime": 89.43,
-          "duration": 0.62
+          "duration": 0.62,
+          "pinyin": "hànyǔ"
         },
         {
           "chars": "、",
@@ -1238,12 +1373,14 @@
         {
           "chars": "日语",
           "startTime": 90.31,
-          "duration": 0.48
+          "duration": 0.48,
+          "pinyin": "Rìyǔ"
         },
         {
           "chars": "词典",
           "startTime": 90.79,
-          "duration": 0.58
+          "duration": 0.58,
+          "pinyin": "cídiǎn"
         },
         {
           "chars": "。",
@@ -1262,22 +1399,26 @@
         {
           "chars": "这",
           "startTime": 92.07,
-          "duration": 0.28
+          "duration": 0.28,
+          "pinyin": "zhè"
         },
         {
           "chars": "是",
           "startTime": 92.35,
-          "duration": 0.16
+          "duration": 0.16,
+          "pinyin": "shì"
         },
         {
           "chars": "什么",
           "startTime": 92.51,
-          "duration": 0.36
+          "duration": 0.36,
+          "pinyin": "shénme"
         },
         {
           "chars": "杂志",
           "startTime": 92.87,
-          "duration": 0.64
+          "duration": 0.64,
+          "pinyin": "zázhì"
         },
         {
           "chars": "?",
@@ -1296,12 +1437,14 @@
         {
           "chars": "音乐",
           "startTime": 94.29,
-          "duration": 0.54
+          "duration": 0.54,
+          "pinyin": "yīnyuè"
         },
         {
           "chars": "杂志",
           "startTime": 94.83,
-          "duration": 0.58
+          "duration": 0.58,
+          "pinyin": "zázhì"
         },
         {
           "chars": "。",
@@ -1320,7 +1463,8 @@
         {
           "chars": "是",
           "startTime": 96.18,
-          "duration": 0.24
+          "duration": 0.24,
+          "pinyin": "shì"
         },
         {
           "chars": "日本",
@@ -1330,17 +1474,20 @@
         {
           "chars": "的",
           "startTime": 96.96,
-          "duration": 0.22
+          "duration": 0.22,
+          "pinyin": "de"
         },
         {
           "chars": "杂志",
           "startTime": 97.18,
-          "duration": 0.53
+          "duration": 0.53,
+          "pinyin": "zázhì"
         },
         {
           "chars": "吗",
           "startTime": 97.71,
-          "duration": 0.29
+          "duration": 0.29,
+          "pinyin": "ma"
         },
         {
           "chars": "?",
@@ -1359,12 +1506,14 @@
         {
           "chars": "不",
           "startTime": 98.67,
-          "duration": 0.4
+          "duration": 0.4,
+          "pinyin": "bù"
         },
         {
           "chars": "是",
           "startTime": 99.07,
-          "duration": 0.38
+          "duration": 0.38,
+          "pinyin": "shì"
         },
         {
           "chars": ",",
@@ -1374,22 +1523,26 @@
         {
           "chars": "是",
           "startTime": 99.55,
-          "duration": 0.24
+          "duration": 0.24,
+          "pinyin": "shì"
         },
         {
           "chars": "中国",
           "startTime": 99.79,
-          "duration": 0.48
+          "duration": 0.48,
+          "pinyin": "zhōngguó"
         },
         {
           "chars": "的",
           "startTime": 100.27,
-          "duration": 0.16
+          "duration": 0.16,
+          "pinyin": "de"
         },
         {
           "chars": "杂志",
           "startTime": 100.43,
-          "duration": 0.58
+          "duration": 0.58,
+          "pinyin": "zázhì"
         },
         {
           "chars": "。",
@@ -1408,27 +1561,32 @@
         {
           "chars": "是",
           "startTime": 101.65,
-          "duration": 0.22
+          "duration": 0.22,
+          "pinyin": "shì"
         },
         {
           "chars": "你",
           "startTime": 101.87,
-          "duration": 0.29
+          "duration": 0.29,
+          "pinyin": "nǐ"
         },
         {
           "chars": "的",
           "startTime": 102.16,
-          "duration": 0.13
+          "duration": 0.13,
+          "pinyin": "de"
         },
         {
           "chars": "杂志",
           "startTime": 102.29,
-          "duration": 0.62
+          "duration": 0.62,
+          "pinyin": "zázhì"
         },
         {
           "chars": "吗",
           "startTime": 102.91,
-          "duration": 0.4
+          "duration": 0.4,
+          "pinyin": "ma"
         },
         {
           "chars": "?",
@@ -1447,12 +1605,14 @@
         {
           "chars": "不",
           "startTime": 103.85,
-          "duration": 0.34
+          "duration": 0.34,
+          "pinyin": "bù"
         },
         {
           "chars": "是",
           "startTime": 104.19,
-          "duration": 0.32
+          "duration": 0.32,
+          "pinyin": "shì"
         },
         {
           "chars": ",",
@@ -1462,27 +1622,32 @@
         {
           "chars": "是",
           "startTime": 104.73,
-          "duration": 0.2
+          "duration": 0.2,
+          "pinyin": "shì"
         },
         {
           "chars": "我",
           "startTime": 104.93,
-          "duration": 0.22
+          "duration": 0.22,
+          "pinyin": "wǒ"
         },
         {
           "chars": "朋友",
           "startTime": 105.15,
-          "duration": 0.46
+          "duration": 0.46,
+          "pinyin": "péngyou"
         },
         {
           "chars": "的",
           "startTime": 105.61,
-          "duration": 0.16
+          "duration": 0.16,
+          "pinyin": "de"
         },
         {
           "chars": "杂志",
           "startTime": 105.77,
-          "duration": 0.64
+          "duration": 0.64,
+          "pinyin": "zázhì"
         },
         {
           "chars": "。",
