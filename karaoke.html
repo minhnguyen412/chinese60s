@@ -872,8 +872,8 @@
                 const charGroupsHtml = sentence.characters
                     .map((char, charIdx) => {
                         const charText = char.chars || char.char;
+                        const pinyin = char.pinyin || ''; // Lấy trực tiếp từ transcript
                         const charInfo = getCharacterInfo(charText);
-                        const pinyin = charInfo ? charInfo.pinyin : '';
                         
                         return `
                             <span class="char" data-sentence="${idx}" data-char="${charIdx}" onclick="showCharacterDetail('${charText}', event)">
