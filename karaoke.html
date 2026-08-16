@@ -1,302 +1,468 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karaoke Player - YouTube</title>
+    <title>Karaoke Player - Learn Chinese</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
+        :root {
+            --black: #222;
+            --green: #7cb83e;
+            --green-dark: #5a8f27;
+            --green-light: #d8f0a0;
+            --green-pale: #f2fde0;
+            --yellow: #ffd84d;
+            --white: #fff;
+            --bg: #fffef5;
+            --shadow-sm: 3px 3px 0 var(--black);
+            --shadow-md: 4px 4px 0 var(--black);
+            --shadow-lg: 6px 6px 0 var(--black);
+            --border: 2.5px solid var(--black);
+            --border-thick: 3px solid var(--black);
+        }
+
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #0f0f0f;
-            color: #fff;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 500;
+            background: var(--bg);
+            color: var(--black);
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(0,0,0,0.045) 1px, transparent 1px);
+            background-size: 22px 22px;
+            pointer-events: none;
+            z-index: 0;
         }
 
-        .mobile-layout {
-            display: none;
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .header h1 {
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-
-        .header p {
-            color: #aaa;
-            font-size: 14px;
-        }
-
-        .main-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 20px;
-            margin-top: 20px;
-            grid-template-areas: "video transcript";
-        }
-
-        .video-section {
-            background: #1a1a1a;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid #333;
+        /* ── HEADER ── */
+        header {
+            background: var(--green);
+            border-bottom: var(--border-thick);
+            padding: 0 50px;
+            height: 66px;
             display: flex;
-            flex-direction: column;
-            height: fit-content;
-            grid-area: video;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 0 var(--black);
         }
 
-        .video-player {
+        header h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            font-size: 1.7rem;
+            color: white;
+            letter-spacing: 0.04em;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.25);
+        }
+
+        .homepage-link {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 8px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--black);
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            background: var(--white);
+            border: var(--border);
+            border-radius: 50px;
+            padding: 6px 18px;
+            display: inline-block;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.12s, box-shadow 0.12s;
+        }
+
+        nav ul li a:hover {
+            transform: translate(-2px,-2px);
+            box-shadow: 5px 5px 0 var(--black);
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 0 16px;
+                height: auto;
+                min-height: 66px;
+                flex-wrap: wrap;
+                gap: 8px;
+                padding: 8px 16px;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            nav {
+                display: none;
+                position: absolute;
+                top: 66px;
+                left: 0;
+                right: 0;
+                background: var(--green);
+                border-bottom: var(--border);
+                padding: 12px 0;
+                flex-direction: column;
+            }
+            nav.show {
+                display: flex;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+                padding: 6px 0;
+            }
+        }
+
+        /* ── HERO BANNER ── */
+        .hero-section {
+            background: var(--green-pale);
+            border-bottom: var(--border-thick);
+            padding: 40px 50px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-section h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--black);
+            line-height: 1.2;
+        }
+
+        .hero-section p {
+            font-size: 1.1rem;
+            color: #666;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--yellow);
+            border: var(--border-thick);
+            border-radius: 50px;
+            padding: 10px 24px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 16px;
+        }
+
+        /* ── MAIN CONTENT ── */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .player-container {
+            background: var(--white);
+            border: var(--border-thick);
+            border-radius: 20px;
+            padding: 0;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 32px;
+        }
+
+        .video-player-wrap {
             width: 100%;
             aspect-ratio: 16 / 9;
             background: #000;
             display: flex;
             align-items: center;
             justify-content: center;
+            border-bottom: var(--border-thick);
         }
 
-        .player-controls {
-            padding: 15px;
+        .video-player-wrap #yt-player {
+            width: 100%;
+            height: 100%;
+        }
+
+        .loading-text {
+            text-align: center;
+            color: #888;
+            font-size: 1rem;
+        }
+
+        /* ── CONTROLS ── */
+        .controls-section {
+            padding: 20px;
+            background: var(--green-pale);
+            border-bottom: var(--border-thick);
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .control-group {
             display: flex;
             gap: 8px;
             flex-wrap: wrap;
-            align-items: center;
-            background: #1a1a1a;
-            border-top: 1px solid #333;
-            width: 100%;
         }
 
-        .button-group {
-            display: flex;
-            gap: 6px;
-            flex-wrap: wrap;
-        }
-
-        button {
-            padding: 8px 12px;
-            background: #667eea;
-            color: white;
-            border: none;
-            border-radius: 6px;
+        .control-btn {
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            background: var(--yellow);
+            color: var(--black);
+            padding: 10px 20px;
+            border: var(--border-thick);
+            border-radius: 50px;
+            box-shadow: var(--shadow-sm);
             cursor: pointer;
-            font-size: 13px;
-            font-weight: 500;
-            transition: all 0.3s;
+            transition: transform 0.12s, box-shadow 0.12s;
             white-space: nowrap;
         }
 
-        button:hover {
-            background: #5568d3;
-            transform: translateY(-2px);
+        .control-btn:hover {
+            transform: translate(-2px,-2px);
+            box-shadow: 5px 5px 0 var(--black);
         }
 
-        button:active {
-            transform: translateY(0);
+        .control-btn.secondary {
+            background: var(--white);
         }
 
-        button.secondary {
-            background: #444;
-        }
-
-        button.secondary:hover {
-            background: #555;
-        }
-
-        .time-display {
-            padding: 8px 12px;
-            background: #2a2a2a;
-            border-radius: 6px;
-            font-size: 11px;
-            color: #888;
-            text-align: center;
-            font-family: 'Courier New', monospace;
-            min-width: 100px;
-            margin-left: auto;
-        }
-
-        .subtitle-selector {
-            display: flex;
-            gap: 8px;
-            align-items: center;
-            padding: 15px;
-            background: none;
-            border-top: 1px solid #333;
-            flex-wrap: wrap;
-            margin: 0;
-            width: 100%;
-            order: 2;
-        }
-
-        .subtitle-selector label {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 12px;
-            cursor: pointer;
-        }
-
-        .subtitle-selector input[type="radio"] {
-            cursor: pointer;
-            width: 16px;
-            height: 16px;
-        }
-
-        /* Status */
-        .status {
-            display: none;
-        }
-
-        .info-box {
-            background: #2a3a5a;
-            border-left: 3px solid #667eea;
-            padding: 10px;
-            border-radius: 6px;
-            color: #aaa;
-        }
-
-        .transcript-section {
-            background: #1a1a1a;
+        .time-display-box {
+            padding: 10px 18px;
+            background: var(--white);
+            border: var(--border);
             border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid #333;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--black);
+            margin-left: auto;
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* ── SUBTITLE SELECTOR ── */
+        .subtitle-section {
+            padding: 20px;
+            background: var(--white);
+            border-bottom: var(--border-thick);
             display: flex;
-            flex-direction: column;
-            height: 550px;
-            grid-area: transcript;
+            gap: 16px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .subtitle-label {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--black);
+        }
+
+        .subtitle-options {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .subtitle-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .subtitle-option input[type="radio"] {
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--green);
+        }
+
+        .subtitle-option label {
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.95rem;
+            user-select: none;
+        }
+
+        /* ── TRANSCRIPT ── */
+        .transcript-container {
+            background: var(--white);
+            border: var(--border-thick);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
         }
 
         .transcript-header {
-            display: none;
+            padding: 20px;
+            background: var(--green);
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-bottom: var(--border-thick);
         }
 
         .transcript-area {
-            flex: 1;
+            height: 400px;
             overflow-y: auto;
-            padding: 12px;
+            padding: 20px;
         }
 
         .sentence {
-            margin-bottom: 15px;
-            padding: 10px;
-            background: #252525;
-            border-radius: 8px;
-            border-left: 3px solid #555;
+            margin-bottom: 16px;
+            padding: 14px;
+            background: var(--green-pale);
+            border-radius: 12px;
+            border-left: 4px solid var(--green);
             cursor: pointer;
             transition: all 0.3s;
         }
 
         .sentence:hover {
-            background: #2a2a2a;
-            border-left-color: #667eea;
+            background: #e8f7cc;
+            border-left-color: var(--green-dark);
+            transform: translateX(4px);
         }
 
         .sentence.active {
-            background: #2a3a5a;
-            border-left-color: #667eea;
-            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+            background: var(--yellow);
+            border-left-color: var(--green-dark);
+            box-shadow: var(--shadow-sm);
         }
 
         .sentence-translation {
-            font-size: 11px;
-            color: #888;
-            margin-bottom: 8px;
-            line-height: 1.3;
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 10px;
+            font-weight: 500;
+            line-height: 1.4;
         }
 
         .character-line {
             display: flex;
             flex-wrap: wrap;
-            gap: 4px;
+            gap: 6px;
+            margin-bottom: 10px;
         }
 
         .char {
-            padding: 8px 10px;
-            background: #333;
-            border-radius: 4px;
-            transition: all 0.1s;
+            padding: 8px 12px;
+            background: var(--white);
+            border: 2px solid var(--green);
+            border-radius: 8px;
             cursor: pointer;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 3px;
+            transition: all 0.15s;
+            font-weight: 600;
+        }
+
+        .char:hover {
+            background: var(--green-light);
+            transform: translateY(-2px);
         }
 
         .char .pinyin {
-            font-size: 11px;
-            color: #aaa;
+            font-size: 0.75rem;
+            color: #888;
             line-height: 1;
         }
 
         .char .char-text {
-            font-size: 18px;
-            font-weight: 600;
+            font-size: 1rem;
+            font-weight: 700;
         }
 
         .char.active {
-            background: #667eea;
-            color: #fff;
-            transform: scale(1.15);
-            box-shadow: 0 0 8px rgba(102, 126, 234, 0.6);
-            font-weight: 600;
+            background: var(--green);
+            color: white;
+            border-color: var(--green-dark);
+            transform: scale(1.12) translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .char.active .pinyin {
+            color: rgba(255,255,255,0.9);
         }
 
         .char.upcoming {
-            background: #3a3a3a;
-            opacity: 0.6;
+            opacity: 0.5;
+            background: #f5f5f5;
         }
 
         .char.passed {
-            background: #444;
-            opacity: 0.8;
+            opacity: 0.7;
+            background: #e8e8e8;
         }
 
         .meta-info {
-            font-size: 10px;
-            color: #666;
-            margin-top: 6px;
+            font-size: 0.8rem;
+            color: #999;
+            margin-top: 8px;
+            font-weight: 500;
         }
 
         .transcript-area::-webkit-scrollbar {
-            width: 6px;
+            width: 8px;
         }
 
         .transcript-area::-webkit-scrollbar-track {
-            background: #2a2a2a;
+            background: var(--green-pale);
         }
 
         .transcript-area::-webkit-scrollbar-thumb {
-            background: #555;
-            border-radius: 3px;
+            background: var(--green);
+            border-radius: 4px;
         }
 
         .transcript-area::-webkit-scrollbar-thumb:hover {
-            background: #667eea;
+            background: var(--green-dark);
         }
 
-        .loading {
-            text-align: center;
-            padding: 30px 15px;
-            color: #aaa;
-            font-size: 12px;
-        }
-
-        /* Modal */
+        /* ── MODAL ── */
         .modal {
             display: none;
             position: fixed;
@@ -305,11 +471,8 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.6);
             animation: fadeIn 0.3s;
-            touch-action: none;
-            -webkit-user-select: none;
-            user-select: none;
         }
 
         @keyframes fadeIn {
@@ -324,20 +487,20 @@
         }
 
         .modal-content {
-            background: #1a1a1a;
-            border: 1px solid #333;
-            border-radius: 12px;
-            padding: 20px;
+            background: var(--white);
+            border: var(--border-thick);
+            border-radius: 20px;
+            padding: 30px;
             max-width: 420px;
             width: 90%;
             animation: slideUp 0.3s;
             max-height: 80vh;
             overflow-y: auto;
-            pointer-events: auto;
+            box-shadow: var(--shadow-lg);
         }
 
         @keyframes slideUp {
-            from { transform: translateY(50px); opacity: 0; }
+            from { transform: translateY(40px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
 
@@ -345,352 +508,286 @@
             text-align: center;
         }
 
-        .character-detail-header {
-            margin-bottom: 15px;
-        }
-
         .character-detail h2 {
-            font-size: 36px;
-            margin-bottom: 6px;
-            font-weight: 600;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--black);
         }
 
         .character-detail-pinyin {
-            font-size: 16px;
-            color: #667eea;
+            font-size: 1.2rem;
+            color: var(--green);
             font-style: italic;
+            margin-bottom: 20px;
+            font-weight: 600;
         }
 
         .character-detail-body {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-top: 15px;
-        }
-
-        .detail-column {
+            gap: 16px;
             text-align: left;
         }
 
-        .character-detail-image {
+        .detail-column img {
             width: 100%;
             height: auto;
-            max-height: 150px;
-            border-radius: 8px;
-            object-fit: cover;
+            border-radius: 12px;
+            border: var(--border);
         }
 
         .info-item {
-            background: #2a2a2a;
-            padding: 10px;
-            border-radius: 6px;
+            background: var(--green-pale);
+            padding: 12px;
+            border-radius: 12px;
+            border: var(--border);
         }
 
         .info-label {
-            font-size: 11px;
-            color: #888;
-            margin-bottom: 4px;
+            font-size: 0.8rem;
+            color: #666;
             text-transform: uppercase;
+            font-weight: 700;
             letter-spacing: 0.5px;
+            margin-bottom: 6px;
         }
 
         .info-value {
-            font-size: 13px;
-            color: #fff;
-            line-height: 1.4;
+            font-size: 0.95rem;
+            color: var(--black);
+            font-weight: 600;
+            line-height: 1.5;
         }
 
         .character-audio {
             display: flex;
             align-items: center;
-            gap: 8px;
-            margin-top: 8px;
-        }
-
-        .character-audio .speaker-icon {
-            font-size: 18px;
+            gap: 10px;
+            margin-top: 10px;
         }
 
         .character-audio audio {
             flex: 1;
-            height: 28px;
-            max-width: 100%;
+            height: 32px;
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 1024px) {
-            .container {
-                padding: 0;
-                display: flex;
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #999;
+            transition: color 0.2s;
+        }
+
+        .modal-close:hover {
+            color: var(--black);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            header {
+                padding: 0 16px;
+            }
+
+            header h1 {
+                font-size: 1.4rem;
+            }
+
+            .hero-section {
+                padding: 30px 20px;
+            }
+
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-section p {
+                font-size: 0.95rem;
+            }
+
+            main {
+                padding: 30px 20px;
+            }
+
+            .controls-section {
                 flex-direction: column;
+                align-items: stretch;
             }
 
-            .header {
-                padding: 10px 15px;
-                position: relative;
-                z-index: 80;
-                order: 1;
+            .time-display-box {
+                margin-left: 0;
             }
 
-            .main-grid {
-                grid-template-columns: 1fr;
-                grid-template-areas: 
-                    "video"
-                    "transcript";
-                gap: 0;
-                margin-bottom: 0;
-                padding: 0;
-                order: 2;
+            .subtitle-section {
+                flex-direction: column;
+                align-items: flex-start;
             }
 
-            .video-section {
-                border: none;
-                border-radius: 0;
-                height: auto;
-                aspect-ratio: 16 / 9;
-                margin: 0;
-                padding: 0;
-                grid-area: video;
-            }
-
-            .video-player {
-                aspect-ratio: 16 / 9;
-                margin: 0;
-                padding: 0;
-            }
-
-            .player-controls {
-                display: none;
-            }
-
-            .transcript-section {
-                width: 100%;
+            .transcript-area {
                 height: 300px;
-                border: none;
-                border-radius: 0;
-                margin: 0;
-                padding: 0;
-                grid-area: transcript;
-            }
-
-            .subtitle-selector {
-                order: 3;
-                background: #2a2a2a;
-                padding: 8px 12px;
-                border-radius: 0;
-                margin: 0;
-                width: 100%;
-                border-top: 1px solid #333;
-                border-bottom: 1px solid #333;
-            }
-
-            .subtitle-selector span {
-                margin-right: 12px;
-            }
-
-            .subtitle-selector label {
-                margin-right: 12px;
-            }
-
-            .player-controls:last-of-type {
-                display: flex !important;
-                order: 4;
-                width: 100%;
-                padding: 10px 15px;
-                border-radius: 0;
-                flex-direction: row;
-                gap: 8px;
-                background: #1a1a1a;
-                border: none;
-                border-top: 1px solid #333;
-                margin: 0;
-                position: static;
-            }
-
-            .modal-content {
-                max-width: 90%;
-                padding: 16px;
-                max-height: 70vh;
-            }
-
-            .character-detail h2 {
-                font-size: 32px;
             }
 
             .character-detail-body {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
             }
 
-            #desktopControls {
-                display: none !important;
-            }
-
-            #desktopSubtitleSelector {
-                display: none !important;
-            }
-
-            .subtitle-selector:first-of-type {
-                display: none;
-            }
-        }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 0;
-            }
-
-            .container {
-                padding: 0;
-            }
-
-            .header {
-                padding: 10px 15px;
-            }
-
-            .header h1 {
-                font-size: 22px;
-            }
-
-            .header p {
-                font-size: 12px;
-            }
-
-            .main-grid {
-                gap: 15px;
-            }
-
-            .video-player {
-                aspect-ratio: 16 / 9;
+            .modal-content {
+                padding: 24px;
+                max-width: 90%;
             }
 
             .character-detail h2 {
-                font-size: 28px;
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 8px 12px;
             }
 
-            .character-detail-pinyin {
-                font-size: 14px;
+            header h1 {
+                font-size: 1.2rem;
             }
 
-            button {
-                padding: 7px 10px;
-                font-size: 12px;
+            .hero-section {
+                padding: 20px 16px;
             }
 
-            .char .char-text {
-                font-size: 16px;
+            .hero-section h1 {
+                font-size: 1.5rem;
+            }
+
+            main {
+                padding: 20px 16px;
+            }
+
+            .control-btn {
+                font-size: 0.85rem;
+                padding: 8px 16px;
+            }
+
+            .controls-section {
+                padding: 16px;
+            }
+
+            .subtitle-section {
+                padding: 16px;
+            }
+
+            .subtitle-options {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .transcript-area {
+                height: 250px;
+                padding: 14px;
             }
 
             .sentence {
-                padding: 8px;
+                padding: 10px;
                 margin-bottom: 12px;
             }
 
-            .sentence-translation {
-                font-size: 10px;
+            .char {
+                padding: 6px 10px;
+                font-size: 0.9rem;
             }
 
-            .meta-info {
-                font-size: 9px;
+            .character-detail h2 {
+                font-size: 2rem;
+            }
+
+            .modal-content {
+                padding: 20px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>🎵 Karaoke Player - YouTube</h1>
-            <p>YouTube video + Perfect karaoke sync</p>
-        </div>
+    <!-- Header -->
+    <header>
+        <h1><a href="index.html" class="homepage-link">CHINESE 60s</a></h1>
+        <button class="menu-toggle">☰</button>
+        <nav>
+            <ul>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="courses.html">Courses</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <div class="main-grid">
-            <!-- Video Player Section -->
-            <div class="video-section">
-                <div class="video-player" id="videoPlayer">
-                    <div class="loading">📺 Đang tải video YouTube...</div>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-badge">🎬 Interactive Lesson</div>
+        <h1>Learn Basic Chinese Conversations - Animated and Easy!</h1>
+        <p>Boya 1 (Part 1) • Dialogue with Perfect Timing Sync</p>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Video Player -->
+        <div class="player-container">
+            <div class="video-player-wrap" id="videoPlayer">
+                <div class="loading-text">📺 Loading video...</div>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls-section">
+                <div class="control-group">
+                    <button class="control-btn" onclick="togglePlayPause()" id="playBtn">▶️ Play</button>
+                    <button class="control-btn secondary" onclick="stopVideo()">⏹️ Stop</button>
+                    <button class="control-btn secondary" onclick="rewindVideo()">⏮️ Rewind 10s</button>
+                    <button class="control-btn secondary" onclick="forwardVideo()">⏭️ Forward 10s</button>
                 </div>
+                <div class="time-display-box" id="timeDisplay">0:00 / 0:00</div>
+            </div>
 
-                <!-- Controls (Desktop only) -->
-                <div class="player-controls" id="desktopControls" style="display: none;">
-                    <div class="button-group">
-                        <button onclick="togglePlayPause()" id="playBtn">▶️</button>
-                        <button onclick="stopVideo()" class="secondary">⏹️</button>
-                        <button onclick="rewindVideo()" class="secondary">⏮️</button>
-                        <button onclick="forwardVideo()" class="secondary">⏭️</button>
+            <!-- Subtitle Selector -->
+            <div class="subtitle-section">
+                <span class="subtitle-label">📝 Subtitles:</span>
+                <div class="subtitle-options">
+                    <div class="subtitle-option">
+                        <input type="radio" id="sub-none" name="subtitle" value="none" onchange="changeSubtitle('none')">
+                        <label for="sub-none">None</label>
                     </div>
-                    <div class="time-display">
-                        <div id="timeDisplay">0:00 / 0:00</div>
+                    <div class="subtitle-option">
+                        <input type="radio" id="sub-vietnamese" name="subtitle" value="vietnamese" onchange="changeSubtitle('vietnamese')">
+                        <label for="sub-vietnamese">Vietnamese</label>
+                    </div>
+                    <div class="subtitle-option">
+                        <input type="radio" id="sub-english" name="subtitle" value="english" onchange="changeSubtitle('english')">
+                        <label for="sub-english">English</label>
+                    </div>
+                    <div class="subtitle-option">
+                        <input type="radio" id="sub-both" name="subtitle" value="both" onchange="changeSubtitle('both')" checked>
+                        <label for="sub-both">Both</label>
                     </div>
                 </div>
-
-                <!-- Subtitle Selector (Desktop) -->
-                <div class="subtitle-selector" id="desktopSubtitleSelector" style="display: none; position: static; background: none; padding: 15px; border-top: 1px solid #333; margin: 0;">
-                    <span style="font-size: 12px; margin-right: 8px;">Phụ đề:</span>
-                    <label>
-                        <input type="radio" name="subtitle" value="none" onchange="changeSubtitle('none')">
-                        <span>Không</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="subtitle" value="vietnamese" onchange="changeSubtitle('vietnamese')">
-                        <span>Tiếng Việt</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="subtitle" value="english" onchange="changeSubtitle('english')">
-                        <span>English</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="subtitle" value="both" onchange="changeSubtitle('both')" checked>
-                        <span>Cả hai</span>
-                    </label>
-                </div>
-            </div>
-
-            <!-- Transcript Section -->
-            <div class="transcript-section">
-                <div class="transcript-area" id="transcriptArea">
-                    <div class="loading">⏳ Đang tải transcript...</div>
-                </div>
             </div>
         </div>
 
-        <!-- Subtitle Selector (Mobile) -->
-        <div class="subtitle-selector">
-            <span style="font-size: 12px; margin-right: 8px;">Phụ đề:</span>
-            <label>
-                <input type="radio" name="subtitle" value="none" onchange="changeSubtitle('none')">
-                <span>Không</span>
-            </label>
-            <label>
-                <input type="radio" name="subtitle" value="vietnamese" onchange="changeSubtitle('vietnamese')">
-                <span>Tiếng Việt</span>
-            </label>
-            <label>
-                <input type="radio" name="subtitle" value="english" onchange="changeSubtitle('english')">
-                <span>English</span>
-            </label>
-            <label>
-                <input type="radio" name="subtitle" value="both" onchange="changeSubtitle('both')" checked>
-                <span>Cả hai</span>
-            </label>
-        </div>
-
-        <div class="player-controls">
-            <div class="button-group">
-                <button onclick="togglePlayPause()" id="playBtn">▶️</button>
-                <button onclick="stopVideo()" class="secondary">⏹️</button>
-                <button onclick="rewindVideo()" class="secondary">⏮️</button>
-                <button onclick="forwardVideo()" class="secondary">⏭️</button>
-            </div>
-            <div class="time-display">
-                <div id="timeDisplay">0:00 / 0:00</div>
+        <!-- Transcript -->
+        <div class="transcript-container">
+            <div class="transcript-header">📚 Dialogue Transcript</div>
+            <div class="transcript-area" id="transcriptArea">
+                <div class="loading-text">⏳ Loading transcript...</div>
             </div>
         </div>
-    </div>
+    </main>
 
     <!-- Character Detail Modal -->
     <div id="characterModal" class="modal">
         <div class="modal-content" onclick="event.stopPropagation();">
-            <div class="character-detail" id="characterDetailContent">
-            </div>
+            <button class="modal-close" onclick="closeCharacterModal()">✕</button>
+            <div class="character-detail" id="characterDetailContent"></div>
         </div>
     </div>
 
@@ -703,8 +800,6 @@
         let currentSentenceIndex = -1;
         let currentCharIndex = -1;
         let updateInterval = null;
-        let videoStartTime = 0;
-        let videoPausedTime = 0;
         let subtitleMode = 'both';
 
         const transcriptArea = document.getElementById('transcriptArea');
@@ -713,34 +808,22 @@
         const videoPlayer = document.getElementById('videoPlayer');
 
         function extractYoutubeId(url) {
-            let videoId = '';
             const patterns = [
                 /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/,
                 /^([a-zA-Z0-9_-]{11})$/
             ];
-
             for (let pattern of patterns) {
                 const match = url.match(pattern);
-                if (match) {
-                    videoId = match[1];
-                    break;
-                }
+                if (match) return match[1];
             }
-
-            return videoId;
+            return '';
         }
 
         function loadYoutubeVideoAuto(url) {
             const videoId = extractYoutubeId(url);
+            if (!videoId) return;
 
-            if (!videoId) {
-                return;
-            }
-
-            videoPlayer.innerHTML = `
-                <div id="yt-player"></div>
-            `;
-
+            videoPlayer.innerHTML = '<div id="yt-player"></div>';
             setTimeout(() => {
                 player = new YT.Player('yt-player', {
                     height: '100%',
@@ -754,57 +837,35 @@
             }, 100);
         }
 
-        function onPlayerReady(event) {
-        }
+        function onPlayerReady(event) {}
 
         function onPlayerStateChange(event) {
             if (event.data === YT.PlayerState.PLAYING) {
-                videoStartTime = player.getCurrentTime();
-                playBtn.textContent = '⏸️';
+                playBtn.textContent = '⏸️ Pause';
                 startSync();
             } else if (event.data === YT.PlayerState.PAUSED) {
-                videoPausedTime = player.getCurrentTime();
-                playBtn.textContent = '▶️';
+                playBtn.textContent = '▶️ Play';
                 stopSync();
             } else if (event.data === YT.PlayerState.ENDED) {
-                playBtn.textContent = '▶️';
+                playBtn.textContent = '▶️ Play';
                 stopSync();
             }
         }
 
         function loadJsonFromPath(filePath) {
             fetch(filePath)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.json();
-                })
+                .then(response => response.json())
                 .then(data => {
                     transcriptData = data;
-                    
-                    if (!transcriptData.sentences || transcriptData.sentences.length === 0) {
-                        return;
-                    }
-                    
-                    const firstChar = transcriptData.sentences[0].characters?.[0];
-                    if (!firstChar || (!firstChar.chars && !firstChar.char)) {
-                        return;
-                    }
-
                     loadSentencesData();
                     loadImagesData();
-                })
-                .catch(error => {
                 });
         }
 
         function loadSentencesData() {
             fetch('data/boya-sentences.json')
                 .then(response => response.json())
-                .then(data => {
-                    sentencesData = data;
-                });
+                .then(data => { sentencesData = data; });
         }
 
         function loadImagesData() {
@@ -814,9 +875,7 @@
                     imagesData = data;
                     renderTranscript();
                 })
-                .catch(error => {
-                    renderTranscript();
-                });
+                .catch(() => renderTranscript());
         }
 
         function getCharacterInfo(charText) {
@@ -837,33 +896,28 @@
 
         function renderTranscript() {
             if (!transcriptData || transcriptData.sentences.length === 0) {
-                transcriptArea.innerHTML = '<div class="loading">No data</div>';
+                transcriptArea.innerHTML = '<div class="loading-text">No data</div>';
                 return;
             }
 
             let html = '';
             transcriptData.sentences.forEach((sentence, idx) => {
                 const translation = getSentenceTranslation(sentence.id);
-                
                 let translationHtml = '';
+
                 if (subtitleMode === 'vietnamese' && translation.vietnamese) {
                     translationHtml = `<div class="sentence-translation">🇻🇳 ${translation.vietnamese}</div>`;
                 } else if (subtitleMode === 'english' && translation.english) {
                     translationHtml = `<div class="sentence-translation">🇬🇧 ${translation.english}</div>`;
                 } else if (subtitleMode === 'both') {
-                    if (translation.vietnamese) {
-                        translationHtml = `<div class="sentence-translation">🇻🇳 ${translation.vietnamese}</div>`;
-                    }
-                    if (translation.english) {
-                        translationHtml += `<div class="sentence-translation">🇬🇧 ${translation.english}</div>`;
-                    }
+                    if (translation.vietnamese) translationHtml += `<div class="sentence-translation">🇻🇳 ${translation.vietnamese}</div>`;
+                    if (translation.english) translationHtml += `<div class="sentence-translation">🇬🇧 ${translation.english}</div>`;
                 }
 
                 const charGroupsHtml = sentence.characters
                     .map((char, charIdx) => {
                         const charText = char.chars || char.char;
                         const pinyin = char.pinyin || '';
-                        
                         return `
                             <span class="char" data-sentence="${idx}" data-char="${charIdx}" onclick="showCharacterDetail('${charText}', event)">
                                 <span class="pinyin">${pinyin}</span>
@@ -877,10 +931,7 @@
                     <div class="sentence" data-index="${idx}" onclick="seekToSentence(${idx})">
                         ${translationHtml}
                         <div class="character-line">${charGroupsHtml}</div>
-                        <div class="meta-info">
-                            ${formatTime(sentence.startTime)} - ${formatTime(sentence.endTime)} 
-                            (${sentence.duration.toFixed(1)}s)
-                        </div>
+                        <div class="meta-info">${formatTime(sentence.startTime)} – ${formatTime(sentence.endTime)} (${sentence.duration.toFixed(1)}s)</div>
                     </div>
                 `;
             });
@@ -895,19 +946,14 @@
 
         function startSync() {
             if (updateInterval) clearInterval(updateInterval);
-
             updateInterval = setInterval(() => {
                 if (!player || !transcriptData) return;
-
                 try {
-                    const state = player.getPlayerState();
-                    if (state !== YT.PlayerState.PLAYING) return;
-
+                    if (player.getPlayerState() !== YT.PlayerState.PLAYING) return;
                     const currentTime = player.getCurrentTime();
                     updateTranscriptHighlight(currentTime);
                     updateTimeDisplay(currentTime);
-                } catch (e) {
-                }
+                } catch (e) {}
             }, 50);
         }
 
@@ -928,11 +974,9 @@
                 const sentence = transcriptData.sentences[i];
                 if (currentTime >= sentence.startTime && currentTime <= sentence.endTime) {
                     newSentenceIndex = i;
-
                     for (let j = 0; j < sentence.characters.length; j++) {
                         const char = sentence.characters[j];
-                        const charEndTime = char.startTime + char.duration;
-                        if (currentTime >= char.startTime && currentTime <= charEndTime) {
+                        if (currentTime >= char.startTime && currentTime <= char.startTime + char.duration) {
                             newCharIndex = j;
                             break;
                         }
@@ -942,10 +986,7 @@
             }
 
             if (newSentenceIndex !== currentSentenceIndex) {
-                document.querySelectorAll('.sentence.active').forEach(el => {
-                    el.classList.remove('active');
-                });
-
+                document.querySelectorAll('.sentence.active').forEach(el => el.classList.remove('active'));
                 if (newSentenceIndex >= 0) {
                     const sentenceEl = document.querySelector(`[data-index="${newSentenceIndex}"]`);
                     if (sentenceEl) {
@@ -953,24 +994,18 @@
                         sentenceEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     }
                 }
-
                 currentSentenceIndex = newSentenceIndex;
             }
 
             document.querySelectorAll('.char').forEach(el => {
                 const sentenceIdx = parseInt(el.dataset.sentence);
                 const charIdx = parseInt(el.dataset.char);
-
                 el.classList.remove('active', 'passed', 'upcoming');
 
                 if (sentenceIdx === newSentenceIndex) {
-                    if (charIdx === newCharIndex) {
-                        el.classList.add('active');
-                    } else if (charIdx < newCharIndex) {
-                        el.classList.add('passed');
-                    } else {
-                        el.classList.add('upcoming');
-                    }
+                    if (charIdx === newCharIndex) el.classList.add('active');
+                    else if (charIdx < newCharIndex) el.classList.add('passed');
+                    else el.classList.add('upcoming');
                 } else if (sentenceIdx < newSentenceIndex) {
                     el.classList.add('passed');
                 }
@@ -982,35 +1017,19 @@
         function updateTimeDisplay(currentTime = null) {
             let time = currentTime || 0;
             if (!currentTime && player) {
-                try {
-                    time = player.getCurrentTime();
-                } catch (e) {
-                    time = 0;
-                }
+                try { time = player.getCurrentTime(); } catch (e) { time = 0; }
             }
-
-            let duration = 0;
-            if (transcriptData && transcriptData.sentences.length > 0) {
-                const lastSentence = transcriptData.sentences[transcriptData.sentences.length - 1];
-                duration = lastSentence.endTime;
-            }
+            let duration = transcriptData && transcriptData.sentences.length > 0
+                ? transcriptData.sentences[transcriptData.sentences.length - 1].endTime
+                : 0;
             timeDisplay.textContent = `${formatTime(time)} / ${formatTime(duration)}`;
         }
 
         function togglePlayPause() {
-            if (!player) {
-                return;
-            }
-
+            if (!player) return;
             try {
-                const state = player.getPlayerState();
-                if (state === YT.PlayerState.PLAYING) {
-                    player.pauseVideo();
-                } else {
-                    player.playVideo();
-                }
-            } catch (e) {
-            }
+                player.getPlayerState() === YT.PlayerState.PLAYING ? player.pauseVideo() : player.playVideo();
+            } catch (e) {}
         }
 
         function stopVideo() {
@@ -1019,18 +1038,15 @@
                 player.stopVideo();
                 updateTranscriptHighlight(0);
                 updateTimeDisplay(0);
-                playBtn.textContent = '▶️';
-            } catch (e) {
-            }
+                playBtn.textContent = '▶️ Play';
+            } catch (e) {}
         }
 
         function rewindVideo() {
             if (!player) return;
             try {
-                const current = player.getCurrentTime();
-                player.seekTo(Math.max(0, current - 10));
-            } catch (e) {
-            }
+                player.seekTo(Math.max(0, player.getCurrentTime() - 10));
+            } catch (e) {}
         }
 
         function forwardVideo() {
@@ -1039,18 +1055,15 @@
                 const current = player.getCurrentTime();
                 const duration = player.getDuration();
                 player.seekTo(Math.min(duration, current + 10));
-            } catch (e) {
-            }
+            } catch (e) {}
         }
 
         function seekToSentence(index) {
             if (!transcriptData || !player) return;
             try {
-                const sentence = transcriptData.sentences[index];
-                player.seekTo(sentence.startTime);
+                player.seekTo(transcriptData.sentences[index].startTime);
                 player.playVideo();
-            } catch (e) {
-            }
+            } catch (e) {}
         }
 
         function showCharacterDetail(charText, event) {
@@ -1062,27 +1075,25 @@
             }
 
             let html = `
-                <div class="character-detail-header">
+                <div class="character-detail">
                     <h2>${charInfo.character}</h2>
                     <div class="character-detail-pinyin">${charInfo.pinyin}</div>
-                </div>
-                <div class="character-detail-body">
-                    <div class="detail-column">
-                        ${charInfo.imageSrc ? `<img src="${charInfo.imageSrc}" alt="${charInfo.character}" class="character-detail-image">` : ''}
-                    </div>
-                    <div class="detail-column">
-                        <div class="info-item">
-                            <div class="info-label">Meaning</div>
-                            <div class="info-value">${charInfo.meaning || 'N/A'}</div>
+                    <div class="character-detail-body">
+                        <div class="detail-column">
+                            ${charInfo.imageSrc ? `<img src="${charInfo.imageSrc}" alt="${charInfo.character}">` : ''}
                         </div>
-                        ${charInfo.audioSrc ? `
-                            <div class="character-audio">
-                                <span class="speaker-icon">🔊</span>
-                                <audio controls>
-                                    <source src="${charInfo.audioSrc}" type="audio/mpeg">
-                                </audio>
+                        <div class="detail-column">
+                            <div class="info-item">
+                                <div class="info-label">Meaning</div>
+                                <div class="info-value">${charInfo.meaning || 'N/A'}</div>
                             </div>
-                        ` : ''}
+                            ${charInfo.audioSrc ? `
+                                <div class="character-audio">
+                                    <span>🔊</span>
+                                    <audio controls><source src="${charInfo.audioSrc}" type="audio/mpeg"></audio>
+                                </div>
+                            ` : ''}
+                        </div>
                     </div>
                 </div>
             `;
@@ -1095,47 +1106,21 @@
             document.getElementById('characterModal').classList.remove('show');
         }
 
-        document.addEventListener('click', (event) => {
-            const modal = document.getElementById('characterModal');
-            if (event.target === modal) {
-                closeCharacterModal();
-            }
+        document.addEventListener('click', (e) => {
+            if (e.target.id === 'characterModal') closeCharacterModal();
         }, false);
 
-        document.addEventListener('touchend', (event) => {
-            const modal = document.getElementById('characterModal');
-            if (event.target === modal) {
-                closeCharacterModal();
-            }
+        document.addEventListener('touchend', (e) => {
+            if (e.target.id === 'characterModal') closeCharacterModal();
         }, false);
-
-        function setupLayoutForDevice() {
-            const isMobile = window.innerWidth <= 1024;
-            const desktopControls = document.getElementById('desktopControls');
-            const desktopSubtitleSelector = document.getElementById('desktopSubtitleSelector');
-            const mobileControls = document.querySelector('.player-controls:last-of-type');
-            const mobileSubtitleSelector = document.querySelector('.subtitle-selector:not(#desktopSubtitleSelector)');
-
-            if (isMobile) {
-                if (desktopControls) desktopControls.style.display = 'none';
-                if (desktopSubtitleSelector) desktopSubtitleSelector.style.display = 'none';
-                if (mobileControls) mobileControls.style.display = 'flex';
-                if (mobileSubtitleSelector) mobileSubtitleSelector.style.display = 'flex';
-            } else {
-                if (desktopControls) desktopControls.style.display = 'flex';
-                if (desktopSubtitleSelector) desktopSubtitleSelector.style.display = 'block';
-                if (mobileControls) mobileControls.style.display = 'none';
-                if (mobileSubtitleSelector) mobileSubtitleSelector.style.display = 'none';
-            }
-        }
 
         window.addEventListener('load', () => {
-            setupLayoutForDevice();
             loadYoutubeVideoAuto('https://www.youtube.com/watch?v=yRhp-kQfD5g');
             loadJsonFromPath('data/boya-transcript.json');
+            document.querySelector('.menu-toggle').addEventListener('click', () => {
+                document.querySelector('nav').classList.toggle('show');
+            });
         });
-
-        window.addEventListener('resize', setupLayoutForDevice);
     </script>
 </body>
 </html>
