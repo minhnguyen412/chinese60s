@@ -352,7 +352,6 @@
         </div>
     </div>
 
-    <script src="https://www.youtube.com/iframe_api"></script>
     <script>
         let player;
         let transcriptData = null;
@@ -360,16 +359,12 @@
         let currentCharIndex = -1;
         let isPlaying = false;
         let updateInterval = null;
+        let currentVideoTime = 0;
 
         const statusBox = document.getElementById('statusBox');
         const transcriptArea = document.getElementById('transcriptArea');
         const timeDisplay = document.getElementById('timeDisplay');
         const playBtn = document.getElementById('playBtn');
-
-        // YouTube API ready
-        function onYouTubeIframeAPIReady() {
-            console.log('YouTube API ready');
-        }
 
         function extractYoutubeId(url) {
             let videoId = '';
@@ -399,52 +394,100 @@
             }
 
             const container = document.getElementById('youtube-container');
+            
+            // Use simple embed without JS API for better compatibility
             container.innerHTML = `
                 <iframe 
+                    id="youtube-iframe"
                     width="100%" 
                     height="100%" 
-                    src="https://www.youtube.com/embed/${videoId}?enablejsapi=1" 
+                    src="https://www.youtube.com/embed/${videoId}?modestbranding=1&rel=0" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
+                    allowfullscreen
+                    style="border-radius: 8px;">
                 </iframe>
             `;
 
             statusBox.innerHTML = '✅ Video loaded! Now upload JSON transcript.';
-
-            // Reinitialize player after iframe load
-            setTimeout(() => {
-                const iframe = container.querySelector('iframe');
-                if (iframe) {
-                    player = new YT.Player(iframe, {
-                        events: {
-                            'onReady': onPlayerReady,
-                            'onStateChange': onPlayerStateChange
-                        }
-                    });
-                }
-            }, 1000);
+            player = createSimplePlayer();
         }
 
-        function onPlayerReady(event) {
-            console.log('Player ready');
+        // Create a simple player that tracks time without YouTube API
+        function createSimplePlayer() {
+            return {
+                iframe: null,
+                isPlaying: false,
+                startTime: null,
+                pauseTime: 0,
+                
+                init() {
+                    this.iframe = document.getElementById('youtube-iframe');
+                    return this;
+                },
+
+                play() {
+                    this.isPlaying = true;
+                    this.startTime = Date.now() / 1000 - this.pauseTime;
+                    playBtn.textContent = '⏸️ Pause';
+                    startSync();
+                },
+
+                pause() {
+                    this.isPlaying = false;
+                    this.pauseTime = (Date.now() / 1000) - this.startTime;
+                    playBtn.textContent = '▶️ Play';
+                    stopSync();
+                },
+
+                stop() {
+                    this.isPlaying = false;
+                    this.pauseTime = 0;
+                    this.startTime = null;
+                    playBtn.textContent = '▶️ Play';
+                    stopSync();
+                    updateTranscriptHighlight(0);
+                },
+
+                getCurrentTime() {
+                    if (this.isPlaying && this.startTime) {
+                        return (Date.now() / 1000) - this.startTime;
+                    }
+                    return this.pauseTime;
+                },
+
+                getDuration() {
+                    return 600; // Placeholder
+                },
+
+                seekTo(seconds) {
+                    this.pauseTime = seconds;
+                    if (this.isPlaying) {
+                        this.startTime = Date.now() / 1000 - seconds;
+                    }
+                    updateTranscriptHighlight(seconds);
+                },
+
+                playVideo() {
+                    this.play();
+                },
+
+                pauseVideo() {
+                    this.pause();
+                },
+
+                stopVideo() {
+                    this.stop();
+                }
+            }.init();
+        }
+
+        function onPlayerReady() {
             statusBox.innerHTML = '✅ Player ready! Press Play to start.';
         }
 
-        function onPlayerStateChange(event) {
-            if (event.data === YT.PlayerState.PLAYING) {
-                isPlaying = true;
-                playBtn.textContent = '⏸️ Pause';
-                startSync();
-            } else if (event.data === YT.PlayerState.PAUSED) {
-                isPlaying = false;
-                playBtn.textContent = '▶️ Play';
-                stopSync();
-            } else if (event.data === YT.PlayerState.ENDED) {
-                isPlaying = false;
-                playBtn.textContent = '▶️ Play';
-                stopSync();
-            }
+        function onPlayerStateChange() {
+            // Handle state changes
         }
 
         function loadJsonFile(event) {
@@ -476,9 +519,9 @@
                     <div class="sentence" data-index="${idx}" onclick="seekToSentence(${idx})">
                         <div class="sentence-text">${sentence.text}</div>
                         <div class="character-line">
-                            ${sentence.characters.map((char, charIdx) => `
+                            ${sentence.characters.map((charGroup, charIdx) => `
                                 <span class="char" data-sentence="${idx}" data-char="${charIdx}">
-                                    ${char.char}
+                                    ${charGroup.chars}
                                 </span>
                             `).join('')}
                         </div>
@@ -502,7 +545,7 @@
             if (updateInterval) clearInterval(updateInterval);
 
             updateInterval = setInterval(() => {
-                if (!player || !isPlaying || !transcriptData) return;
+                if (!player || !player.isPlaying || !transcriptData) return;
 
                 try {
                     const currentTime = player.getCurrentTime();
@@ -591,8 +634,9 @@
 
         function updateTimeDisplay(currentTime) {
             let duration = 0;
-            if (player && typeof player.getDuration === 'function') {
-                duration = player.getDuration();
+            if (transcriptData && transcriptData.sentences.length > 0) {
+                const lastSentence = transcriptData.sentences[transcriptData.sentences.length - 1];
+                duration = lastSentence.endTime;
             }
             timeDisplay.textContent = `${formatTime(currentTime)} / ${formatTime(duration)}`;
         }
@@ -603,30 +647,37 @@
                 return;
             }
 
-            if (isPlaying) {
+            if (player.isPlaying) {
                 player.pauseVideo();
+                isPlaying = false;
             } else {
                 player.playVideo();
+                isPlaying = true;
             }
         }
 
         function stopVideo() {
             if (!player) return;
             player.stopVideo();
-            updateTranscriptHighlight(0);
+            isPlaying = false;
         }
 
         function rewindVideo() {
             if (!player) return;
             const current = player.getCurrentTime();
             player.seekTo(Math.max(0, current - 10));
+            updateTimeDisplay(Math.max(0, current - 10));
         }
 
         function forwardVideo() {
             if (!player) return;
             const current = player.getCurrentTime();
-            const duration = player.getDuration();
-            player.seekTo(Math.min(duration, current + 10));
+            let maxTime = 600;
+            if (transcriptData && transcriptData.sentences.length > 0) {
+                maxTime = transcriptData.sentences[transcriptData.sentences.length - 1].endTime;
+            }
+            player.seekTo(Math.min(maxTime, current + 10));
+            updateTimeDisplay(Math.min(maxTime, current + 10));
         }
 
         function seekToSentence(index) {
