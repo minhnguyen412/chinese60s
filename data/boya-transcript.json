@@ -1,0 +1,1495 @@
+{
+  "metadata": {
+    "totalSentences": 34,
+    "totalDuration": 106.86,
+    "convertedAt": "2026-08-16T07:16:54.552Z"
+  },
+  "sentences": [
+    {
+      "id": 1,
+      "startTime": 3.66,
+      "endTime": 6.42,
+      "duration": 2.76,
+      "text": "你好,你是老师吗?",
+      "characters": [
+        {
+          "chars": "你",
+          "startTime": 3.66,
+          "duration": 0.22
+        },
+        {
+          "chars": "好",
+          "startTime": 3.88,
+          "duration": 0.73
+        },
+        {
+          "chars": ",",
+          "startTime": 4.61,
+          "duration": 0.25
+        },
+        {
+          "chars": "你",
+          "startTime": 4.86,
+          "duration": 0.3
+        },
+        {
+          "chars": "是",
+          "startTime": 5.16,
+          "duration": 0.18
+        },
+        {
+          "chars": "老师",
+          "startTime": 5.34,
+          "duration": 0.46
+        },
+        {
+          "chars": "吗",
+          "startTime": 5.8,
+          "duration": 0.13
+        },
+        {
+          "chars": "?",
+          "startTime": 5.93,
+          "duration": 0.05
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "startTime": 6.88,
+      "endTime": 12.55,
+      "duration": 5.67,
+      "text": "不是,我不是老师,我是学生,她是老师。",
+      "characters": [
+        {
+          "chars": "不",
+          "startTime": 6.88,
+          "duration": 0.24
+        },
+        {
+          "chars": "是",
+          "startTime": 7.12,
+          "duration": 0.32
+        },
+        {
+          "chars": ",",
+          "startTime": 7.44,
+          "duration": 0.34
+        },
+        {
+          "chars": "我",
+          "startTime": 7.78,
+          "duration": 0.2
+        },
+        {
+          "chars": "不",
+          "startTime": 7.98,
+          "duration": 0.12
+        },
+        {
+          "chars": "是",
+          "startTime": 8.1,
+          "duration": 0.14
+        },
+        {
+          "chars": "老师",
+          "startTime": 8.24,
+          "duration": 0.9
+        },
+        {
+          "chars": ",",
+          "startTime": 9.14,
+          "duration": 0.18
+        },
+        {
+          "chars": "我",
+          "startTime": 9.32,
+          "duration": 0.36
+        },
+        {
+          "chars": "是",
+          "startTime": 9.68,
+          "duration": 0.2
+        },
+        {
+          "chars": "学生",
+          "startTime": 9.88,
+          "duration": 0.84
+        },
+        {
+          "chars": ",",
+          "startTime": 10.72,
+          "duration": 0.22
+        },
+        {
+          "chars": "她",
+          "startTime": 10.94,
+          "duration": 0.34
+        },
+        {
+          "chars": "是",
+          "startTime": 11.28,
+          "duration": 0.26
+        },
+        {
+          "chars": "老师",
+          "startTime": 11.54,
+          "duration": 0.42
+        },
+        {
+          "chars": "。",
+          "startTime": 11.96,
+          "duration": 0.19
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "startTime": 12.9,
+      "endTime": 13.85,
+      "duration": 0.95,
+      "text": "谢谢。",
+      "characters": [
+        {
+          "chars": "谢谢",
+          "startTime": 12.9,
+          "duration": 0.48
+        },
+        {
+          "chars": "。",
+          "startTime": 13.38,
+          "duration": 0.19
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "startTime": 13.86,
+      "endTime": 15.43,
+      "duration": 1.57,
+      "text": "不客气。",
+      "characters": [
+        {
+          "chars": "不客气",
+          "startTime": 13.86,
+          "duration": 0.94
+        },
+        {
+          "chars": "。",
+          "startTime": 14.8,
+          "duration": 0.17
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "startTime": 16.17,
+      "endTime": 18,
+      "duration": 1.83,
+      "text": "老师,你好。",
+      "characters": [
+        {
+          "chars": "老师",
+          "startTime": 16.17,
+          "duration": 0.88
+        },
+        {
+          "chars": ",",
+          "startTime": 17.05,
+          "duration": 0.18
+        },
+        {
+          "chars": "你",
+          "startTime": 17.23,
+          "duration": 0.26
+        },
+        {
+          "chars": "好",
+          "startTime": 17.49,
+          "duration": 0.2
+        },
+        {
+          "chars": "。",
+          "startTime": 17.69,
+          "duration": 0.1
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "startTime": 18.51,
+      "endTime": 21.56,
+      "duration": 3.05,
+      "text": "你好,你是留学生吗?",
+      "characters": [
+        {
+          "chars": "你",
+          "startTime": 18.51,
+          "duration": 0.26
+        },
+        {
+          "chars": "好",
+          "startTime": 18.77,
+          "duration": 0.36
+        },
+        {
+          "chars": ",",
+          "startTime": 19.13,
+          "duration": 0.68
+        },
+        {
+          "chars": "你",
+          "startTime": 19.81,
+          "duration": 0.24
+        },
+        {
+          "chars": "是",
+          "startTime": 20.05,
+          "duration": 0.14
+        },
+        {
+          "chars": "留学生",
+          "startTime": 20.19,
+          "duration": 0.76
+        },
+        {
+          "chars": "吗",
+          "startTime": 20.95,
+          "duration": 0.36
+        },
+        {
+          "chars": "?",
+          "startTime": 21.31,
+          "duration": 0.14
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "startTime": 21.75,
+      "endTime": 24.34,
+      "duration": 2.59,
+      "text": "是,我是留学生。",
+      "characters": [
+        {
+          "chars": "是",
+          "startTime": 21.75,
+          "duration": 0.42
+        },
+        {
+          "chars": ",",
+          "startTime": 22.17,
+          "duration": 0.4
+        },
+        {
+          "chars": "我",
+          "startTime": 22.57,
+          "duration": 0.18
+        },
+        {
+          "chars": "是",
+          "startTime": 22.75,
+          "duration": 0.12
+        },
+        {
+          "chars": "留学生",
+          "startTime": 22.87,
+          "duration": 0.84
+        },
+        {
+          "chars": "。",
+          "startTime": 23.71,
+          "duration": 0.2
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "startTime": 24.79,
+      "endTime": 26.52,
+      "duration": 1.73,
+      "text": "你叫什么名字?",
+      "characters": [
+        {
+          "chars": "你",
+          "startTime": 24.79,
+          "duration": 0.24
+        },
+        {
+          "chars": "叫",
+          "startTime": 25.03,
+          "duration": 0.22
+        },
+        {
+          "chars": "什么",
+          "startTime": 25.25,
+          "duration": 0.3
+        },
+        {
+          "chars": "名字",
+          "startTime": 25.55,
+          "duration": 0.71
+        },
+        {
+          "chars": "?",
+          "startTime": 26.26,
+          "duration": 0.09
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "startTime": 26.85,
+      "endTime": 28.24,
+      "duration": 1.39,
+      "text": "我叫大卫。",
+      "characters": [
+        {
+          "chars": "我",
+          "startTime": 26.85,
+          "duration": 0.22
+        },
+        {
+          "chars": "叫",
+          "startTime": 27.07,
+          "duration": 0.26
+        },
+        {
+          "chars": "大卫",
+          "startTime": 27.33,
+          "duration": 0.54
+        },
+        {
+          "chars": "。",
+          "startTime": 27.87,
+          "duration": 0.16
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "startTime": 30.92,
+      "endTime": 32.12,
+      "duration": 1.2,
+      "text": "同学们好!",
+      "characters": [
+        {
+          "chars": "同学",
+          "startTime": 30.92,
+          "duration": 0.42
+        },
+        {
+          "chars": "们",
+          "startTime": 31.34,
+          "duration": 0.22
+        },
+        {
+          "chars": "好",
+          "startTime": 31.56,
+          "duration": 0.28
+        },
+        {
+          "chars": "!",
+          "startTime": 31.84,
+          "duration": 0.44
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "startTime": 32.38,
+      "endTime": 33.78,
+      "duration": 1.4,
+      "text": "老师好!",
+      "characters": [
+        {
+          "chars": "老师",
+          "startTime": 32.38,
+          "duration": 0.58
+        },
+        {
+          "chars": "好",
+          "startTime": 32.96,
+          "duration": 0.36
+        },
+        {
+          "chars": "!",
+          "startTime": 33.32,
+          "duration": 0.34
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "startTime": 33.78,
+      "endTime": 35.57,
+      "duration": 1.79,
+      "text": "我来介绍一下儿。",
+      "characters": [
+        {
+          "chars": "我",
+          "startTime": 33.78,
+          "duration": 0.22
+        },
+        {
+          "chars": "来",
+          "startTime": 34,
+          "duration": 0.2
+        },
+        {
+          "chars": "介绍",
+          "startTime": 34.2,
+          "duration": 0.46
+        },
+        {
+          "chars": "一下儿",
+          "startTime": 34.66,
+          "duration": 0.32
+        },
+        {
+          "chars": "。",
+          "startTime": 34.98,
+          "duration": 0.17
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "startTime": 35.95,
+      "endTime": 40.11,
+      "duration": 4.16,
+      "text": "我姓刘，叫刘明，是你们的老师。",
+      "characters": [
+        {
+          "chars": "我",
+          "startTime": 35.95,
+          "duration": 0.2
+        },
+        {
+          "chars": "姓",
+          "startTime": 36.15,
+          "duration": 0.36
+        },
+        {
+          "chars": "刘",
+          "startTime": 36.51,
+          "duration": 0.44
+        },
+        {
+          "chars": "，",
+          "startTime": 36.95,
+          "duration": 0.26
+        },
+        {
+          "chars": "叫",
+          "startTime": 37.21,
+          "duration": 0.26
+        },
+        {
+          "chars": "刘明",
+          "startTime": 37.47,
+          "duration": 0.78
+        },
+        {
+          "chars": "，",
+          "startTime": 38.25,
+          "duration": 0.26
+        },
+        {
+          "chars": "是",
+          "startTime": 38.51,
+          "duration": 0.22
+        },
+        {
+          "chars": "你们",
+          "startTime": 38.73,
+          "duration": 0.2
+        },
+        {
+          "chars": "的",
+          "startTime": 38.93,
+          "duration": 0.12
+        },
+        {
+          "chars": "老师",
+          "startTime": 39.05,
+          "duration": 0.64
+        },
+        {
+          "chars": "。",
+          "startTime": 39.69,
+          "duration": 0.17
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "startTime": 40.38,
+      "endTime": 42.18,
+      "duration": 1.8,
+      "text": "你叫什么名字?",
+      "characters": [
+        {
+          "chars": "你",
+          "startTime": 40.38,
+          "duration": 0.3
+        },
+        {
+          "chars": "叫",
+          "startTime": 40.68,
+          "duration": 0.22
+        },
+        {
+          "chars": "什么",
+          "startTime": 40.9,
+          "duration": 0.32
+        },
+        {
+          "chars": "名字",
+          "startTime": 41.22,
+          "duration": 0.6
+        },
+        {
+          "chars": "?",
+          "startTime": 41.82,
+          "duration": 0.14
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "startTime": 42.18,
+      "endTime": 43.81,
+      "duration": 1.63,
+      "text": "我叫大卫。",
+      "characters": [
+        {
+          "chars": "我",
+          "startTime": 42.18,
+          "duration": 0.3
+        },
+        {
+          "chars": "叫",
+          "startTime": 42.48,
+          "duration": 0.28
+        },
+        {
+          "chars": "大卫",
+          "startTime": 42.76,
+          "duration": 0.56
+        },
+        {
+          "chars": "。",
+          "startTime": 43.32,
+          "duration": 0.19
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "startTime": 44.14,
+      "endTime": 45.9,
+      "duration": 1.76,
+      "text": "你是哪国人?",
+      "characters": [
+        {
+          "chars": "你",
+          "startTime": 44.14,
+          "duration": 0.2
+        },
+        {
+          "chars": "是",
+          "startTime": 44.34,
+          "duration": 0.18
+        },
+        {
+          "chars": "哪",
+          "startTime": 44.52,
+          "duration": 0.28
+        },
+        {
+          "chars": "国",
+          "startTime": 44.8,
+          "duration": 0.18
+        },
+        {
+          "chars": "人",
+          "startTime": 44.98,
+          "duration": 0.38
+        },
+        {
+          "chars": "?",
+          "startTime": 45.36,
+          "duration": 0.24
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "startTime": 46.15,
+      "endTime": 47.35,
+      "duration": 1.2,
+      "text": "我是美国人。",
+      "characters": [
+        {
+          "chars": "我",
+          "startTime": 46.15,
+          "duration": 0.2
+        },
+        {
+          "chars": "是",
+          "startTime": 46.35,
+          "duration": 0.18
+        },
+        {
+          "chars": "美",
+          "startTime": 46.53,
+          "duration": 0.2
+        },
+        {
+          "chars": "国",
+          "startTime": 46.73,
+          "duration": 0.18
+        },
+        {
+          "chars": "人",
+          "startTime": 46.91,
+          "duration": 0.24
+        },
+        {
+          "chars": "。",
+          "startTime": 47.15,
+          "duration": 0.13
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "startTime": 47.35,
+      "endTime": 53.01,
+      "duration": 5.66,
+      "text": "我来介绍一下,她叫玛丽,他叫李军。",
+      "characters": [
+        {
+          "chars": "我",
+          "startTime": 47.35,
+          "duration": 0.24
+        },
+        {
+          "chars": "来",
+          "startTime": 47.59,
+          "duration": 0.2
+        },
+        {
+          "chars": "介绍",
+          "startTime": 47.79,
+          "duration": 0.35
+        },
+        {
+          "chars": "一下",
+          "startTime": 48.14,
+          "duration": 0.89
+        },
+        {
+          "chars": ",",
+          "startTime": 49.03,
+          "duration": 0.3
+        },
+        {
+          "chars": "她",
+          "startTime": 49.33,
+          "duration": 0.24
+        },
+        {
+          "chars": "叫",
+          "startTime": 49.57,
+          "duration": 0.38
+        },
+        {
+          "chars": "玛丽",
+          "startTime": 49.95,
+          "duration": 0.74
+        },
+        {
+          "chars": ",",
+          "startTime": 50.69,
+          "duration": 0.24
+        },
+        {
+          "chars": "他",
+          "startTime": 50.93,
+          "duration": 0.26
+        },
+        {
+          "chars": "叫",
+          "startTime": 51.19,
+          "duration": 0.22
+        },
+        {
+          "chars": "李军",
+          "startTime": 51.41,
+          "duration": 0.78
+        },
+        {
+          "chars": "。",
+          "startTime": 52.19,
+          "duration": 0.17
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "startTime": 53.32,
+      "endTime": 55.55,
+      "duration": 2.23,
+      "text": "认识你很高兴。",
+      "characters": [
+        {
+          "chars": "认识",
+          "startTime": 53.32,
+          "duration": 0.48
+        },
+        {
+          "chars": "你",
+          "startTime": 53.8,
+          "duration": 0.24
+        },
+        {
+          "chars": "很",
+          "startTime": 54.04,
+          "duration": 0.32
+        },
+        {
+          "chars": "高兴",
+          "startTime": 54.36,
+          "duration": 0.7
+        },
+        {
+          "chars": "。",
+          "startTime": 55.06,
+          "duration": 0.25
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "startTime": 55.76,
+      "endTime": 59.43,
+      "duration": 3.67,
+      "text": "我也很高兴。你是美国人吗？",
+      "characters": [
+        {
+          "chars": "我",
+          "startTime": 55.76,
+          "duration": 0.22
+        },
+        {
+          "chars": "也",
+          "startTime": 55.98,
+          "duration": 0.2
+        },
+        {
+          "chars": "很",
+          "startTime": 56.18,
+          "duration": 0.2
+        },
+        {
+          "chars": "高兴",
+          "startTime": 56.38,
+          "duration": 0.88
+        },
+        {
+          "chars": "。",
+          "startTime": 57.26,
+          "duration": 0.4
+        },
+        {
+          "chars": "你",
+          "startTime": 57.66,
+          "duration": 0.28
+        },
+        {
+          "chars": "是",
+          "startTime": 57.94,
+          "duration": 0.22
+        },
+        {
+          "chars": "美国",
+          "startTime": 58.16,
+          "duration": 0.38
+        },
+        {
+          "chars": "人",
+          "startTime": 58.54,
+          "duration": 0.16
+        },
+        {
+          "chars": "吗",
+          "startTime": 58.7,
+          "duration": 0.26
+        },
+        {
+          "chars": "？",
+          "startTime": 58.96,
+          "duration": 0.19
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "startTime": 59.58,
+      "endTime": 66.35,
+      "duration": 6.77,
+      "text": "不，我不是美国人，我是加拿大人。你呢？",
+      "characters": [
+        {
+          "chars": "不",
+          "startTime": 59.58,
+          "duration": 1.04
+        },
+        {
+          "chars": "，",
+          "startTime": 60.62,
+          "duration": 0.38
+        },
+        {
+          "chars": "我",
+          "startTime": 61,
+          "duration": 0.26
+        },
+        {
+          "chars": "不",
+          "startTime": 61.26,
+          "duration": 0.12
+        },
+        {
+          "chars": "是",
+          "startTime": 61.38,
+          "duration": 0.16
+        },
+        {
+          "chars": "美国",
+          "startTime": 61.54,
+          "duration": 0.54
+        },
+        {
+          "chars": "人",
+          "startTime": 62.08,
+          "duration": 0.32
+        },
+        {
+          "chars": "，",
+          "startTime": 62.4,
+          "duration": 0.24
+        },
+        {
+          "chars": "我",
+          "startTime": 62.64,
+          "duration": 0.22
+        },
+        {
+          "chars": "是",
+          "startTime": 62.86,
+          "duration": 0.14
+        },
+        {
+          "chars": "加拿大",
+          "startTime": 63,
+          "duration": 0.5
+        },
+        {
+          "chars": "人",
+          "startTime": 63.5,
+          "duration": 0.66
+        },
+        {
+          "chars": "。",
+          "startTime": 64.16,
+          "duration": 0.72
+        },
+        {
+          "chars": "你",
+          "startTime": 64.88,
+          "duration": 0.32
+        },
+        {
+          "chars": "呢",
+          "startTime": 65.2,
+          "duration": 0.48
+        },
+        {
+          "chars": "？",
+          "startTime": 65.68,
+          "duration": 0.23
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "startTime": 67.1,
+      "endTime": 68.99,
+      "duration": 1.89,
+      "text": "我是中国人。",
+      "characters": [
+        {
+          "chars": "我",
+          "startTime": 67.1,
+          "duration": 0.3
+        },
+        {
+          "chars": "是",
+          "startTime": 67.4,
+          "duration": 0.48
+        },
+        {
+          "chars": "中国",
+          "startTime": 67.88,
+          "duration": 0.56
+        },
+        {
+          "chars": "人",
+          "startTime": 68.44,
+          "duration": 0.2
+        },
+        {
+          "chars": "。",
+          "startTime": 68.64,
+          "duration": 0.25
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "startTime": 71.27,
+      "endTime": 75.9,
+      "duration": 4.63,
+      "text": "玛丽,那是谁的书?是你的书吗?",
+      "characters": [
+        {
+          "chars": "玛丽",
+          "startTime": 71.27,
+          "duration": 0.76
+        },
+        {
+          "chars": ",",
+          "startTime": 72.03,
+          "duration": 0.4
+        },
+        {
+          "chars": "那",
+          "startTime": 72.43,
+          "duration": 0.34
+        },
+        {
+          "chars": "是",
+          "startTime": 72.77,
+          "duration": 0.18
+        },
+        {
+          "chars": "谁",
+          "startTime": 72.95,
+          "duration": 0.16
+        },
+        {
+          "chars": "的",
+          "startTime": 73.11,
+          "duration": 0.2
+        },
+        {
+          "chars": "书",
+          "startTime": 73.31,
+          "duration": 0.38
+        },
+        {
+          "chars": "?",
+          "startTime": 73.69,
+          "duration": 0.62
+        },
+        {
+          "chars": "是",
+          "startTime": 74.31,
+          "duration": 0.24
+        },
+        {
+          "chars": "你",
+          "startTime": 74.55,
+          "duration": 0.3
+        },
+        {
+          "chars": "的",
+          "startTime": 74.85,
+          "duration": 0.14
+        },
+        {
+          "chars": "书",
+          "startTime": 74.99,
+          "duration": 0.24
+        },
+        {
+          "chars": "吗",
+          "startTime": 75.23,
+          "duration": 0.24
+        },
+        {
+          "chars": "?",
+          "startTime": 75.47,
+          "duration": 0.14
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "startTime": 75.95,
+      "endTime": 78.92,
+      "duration": 2.97,
+      "text": "不是，那是我同屋的书。",
+      "characters": [
+        {
+          "chars": "不",
+          "startTime": 75.95,
+          "duration": 0.26
+        },
+        {
+          "chars": "是",
+          "startTime": 76.21,
+          "duration": 0.38
+        },
+        {
+          "chars": "，",
+          "startTime": 76.59,
+          "duration": 0.2
+        },
+        {
+          "chars": "那",
+          "startTime": 76.79,
+          "duration": 0.26
+        },
+        {
+          "chars": "是",
+          "startTime": 77.05,
+          "duration": 0.12
+        },
+        {
+          "chars": "我",
+          "startTime": 77.17,
+          "duration": 0.26
+        },
+        {
+          "chars": "同屋",
+          "startTime": 77.43,
+          "duration": 0.4
+        },
+        {
+          "chars": "的",
+          "startTime": 77.83,
+          "duration": 0.22
+        },
+        {
+          "chars": "书",
+          "startTime": 78.05,
+          "duration": 0.36
+        },
+        {
+          "chars": "。",
+          "startTime": 78.41,
+          "duration": 0.16
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "startTime": 79.03,
+      "endTime": 81.2,
+      "duration": 2.17,
+      "text": "是汉语课本吗?",
+      "characters": [
+        {
+          "chars": "是",
+          "startTime": 79.03,
+          "duration": 0.4
+        },
+        {
+          "chars": "汉语",
+          "startTime": 79.43,
+          "duration": 0.56
+        },
+        {
+          "chars": "课本",
+          "startTime": 79.99,
+          "duration": 0.36
+        },
+        {
+          "chars": "吗",
+          "startTime": 80.35,
+          "duration": 0.28
+        },
+        {
+          "chars": "?",
+          "startTime": 80.63,
+          "duration": 0.16
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "startTime": 81.79,
+      "endTime": 84.82,
+      "duration": 3.03,
+      "text": "不是,是汉日词典。",
+      "characters": [
+        {
+          "chars": "不",
+          "startTime": 81.79,
+          "duration": 0.32
+        },
+        {
+          "chars": "是",
+          "startTime": 82.11,
+          "duration": 0.38
+        },
+        {
+          "chars": ",",
+          "startTime": 82.49,
+          "duration": 0.16
+        },
+        {
+          "chars": "是",
+          "startTime": 82.65,
+          "duration": 0.54
+        },
+        {
+          "chars": "汉日",
+          "startTime": 83.19,
+          "duration": 0.46
+        },
+        {
+          "chars": "词典",
+          "startTime": 83.65,
+          "duration": 0.72
+        },
+        {
+          "chars": "。",
+          "startTime": 84.37,
+          "duration": 0.16
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "startTime": 85.13,
+      "endTime": 86.76,
+      "duration": 1.63,
+      "text": "什么词典?",
+      "characters": [
+        {
+          "chars": "什么",
+          "startTime": 85.13,
+          "duration": 0.6
+        },
+        {
+          "chars": "词典",
+          "startTime": 85.73,
+          "duration": 0.58
+        },
+        {
+          "chars": "?",
+          "startTime": 86.31,
+          "duration": 0.22
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "startTime": 87.33,
+      "endTime": 91.94,
+      "duration": 4.61,
+      "text": "汉日词典就是汉语、日语词典。",
+      "characters": [
+        {
+          "chars": "汉日",
+          "startTime": 87.33,
+          "duration": 0.54
+        },
+        {
+          "chars": "词典",
+          "startTime": 87.87,
+          "duration": 0.82
+        },
+        {
+          "chars": "就",
+          "startTime": 88.69,
+          "duration": 0.42
+        },
+        {
+          "chars": "是",
+          "startTime": 89.11,
+          "duration": 0.32
+        },
+        {
+          "chars": "汉语",
+          "startTime": 89.43,
+          "duration": 0.62
+        },
+        {
+          "chars": "、",
+          "startTime": 90.05,
+          "duration": 0.26
+        },
+        {
+          "chars": "日语",
+          "startTime": 90.31,
+          "duration": 0.48
+        },
+        {
+          "chars": "词典",
+          "startTime": 90.79,
+          "duration": 0.58
+        },
+        {
+          "chars": "。",
+          "startTime": 91.37,
+          "duration": 0.26
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "startTime": 92.07,
+      "endTime": 94.02,
+      "duration": 1.95,
+      "text": "这是什么杂志?",
+      "characters": [
+        {
+          "chars": "这",
+          "startTime": 92.07,
+          "duration": 0.28
+        },
+        {
+          "chars": "是",
+          "startTime": 92.35,
+          "duration": 0.16
+        },
+        {
+          "chars": "什么",
+          "startTime": 92.51,
+          "duration": 0.36
+        },
+        {
+          "chars": "杂志",
+          "startTime": 92.87,
+          "duration": 0.64
+        },
+        {
+          "chars": "?",
+          "startTime": 93.51,
+          "duration": 0.18
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "startTime": 94.29,
+      "endTime": 95.96,
+      "duration": 1.67,
+      "text": "音乐杂志。",
+      "characters": [
+        {
+          "chars": "音乐",
+          "startTime": 94.29,
+          "duration": 0.54
+        },
+        {
+          "chars": "杂志",
+          "startTime": 94.83,
+          "duration": 0.58
+        },
+        {
+          "chars": "。",
+          "startTime": 95.41,
+          "duration": 0.16
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "startTime": 96.18,
+      "endTime": 98.34,
+      "duration": 2.16,
+      "text": "是日本的杂志吗?",
+      "characters": [
+        {
+          "chars": "是",
+          "startTime": 96.18,
+          "duration": 0.24
+        },
+        {
+          "chars": "日本",
+          "startTime": 96.42,
+          "duration": 0.54
+        },
+        {
+          "chars": "的",
+          "startTime": 96.96,
+          "duration": 0.22
+        },
+        {
+          "chars": "杂志",
+          "startTime": 97.18,
+          "duration": 0.53
+        },
+        {
+          "chars": "吗",
+          "startTime": 97.71,
+          "duration": 0.29
+        },
+        {
+          "chars": "?",
+          "startTime": 98,
+          "duration": 0.1
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "startTime": 98.67,
+      "endTime": 101.44,
+      "duration": 2.77,
+      "text": "不是,是中国的杂志。",
+      "characters": [
+        {
+          "chars": "不",
+          "startTime": 98.67,
+          "duration": 0.4
+        },
+        {
+          "chars": "是",
+          "startTime": 99.07,
+          "duration": 0.38
+        },
+        {
+          "chars": ",",
+          "startTime": 99.45,
+          "duration": 0.1
+        },
+        {
+          "chars": "是",
+          "startTime": 99.55,
+          "duration": 0.24
+        },
+        {
+          "chars": "中国",
+          "startTime": 99.79,
+          "duration": 0.48
+        },
+        {
+          "chars": "的",
+          "startTime": 100.27,
+          "duration": 0.16
+        },
+        {
+          "chars": "杂志",
+          "startTime": 100.43,
+          "duration": 0.58
+        },
+        {
+          "chars": "。",
+          "startTime": 101.01,
+          "duration": 0.2
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "startTime": 101.65,
+      "endTime": 103.48,
+      "duration": 1.83,
+      "text": "是你的杂志吗?",
+      "characters": [
+        {
+          "chars": "是",
+          "startTime": 101.65,
+          "duration": 0.22
+        },
+        {
+          "chars": "你",
+          "startTime": 101.87,
+          "duration": 0.29
+        },
+        {
+          "chars": "的",
+          "startTime": 102.16,
+          "duration": 0.13
+        },
+        {
+          "chars": "杂志",
+          "startTime": 102.29,
+          "duration": 0.62
+        },
+        {
+          "chars": "吗",
+          "startTime": 102.91,
+          "duration": 0.4
+        },
+        {
+          "chars": "?",
+          "startTime": 103.31,
+          "duration": 0.1
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "startTime": 103.85,
+      "endTime": 106.86,
+      "duration": 3.01,
+      "text": "不是,是我朋友的杂志。",
+      "characters": [
+        {
+          "chars": "不",
+          "startTime": 103.85,
+          "duration": 0.34
+        },
+        {
+          "chars": "是",
+          "startTime": 104.19,
+          "duration": 0.32
+        },
+        {
+          "chars": ",",
+          "startTime": 104.51,
+          "duration": 0.22
+        },
+        {
+          "chars": "是",
+          "startTime": 104.73,
+          "duration": 0.2
+        },
+        {
+          "chars": "我",
+          "startTime": 104.93,
+          "duration": 0.22
+        },
+        {
+          "chars": "朋友",
+          "startTime": 105.15,
+          "duration": 0.46
+        },
+        {
+          "chars": "的",
+          "startTime": 105.61,
+          "duration": 0.16
+        },
+        {
+          "chars": "杂志",
+          "startTime": 105.77,
+          "duration": 0.64
+        },
+        {
+          "chars": "。",
+          "startTime": 106.41,
+          "duration": 0.16
+        }
+      ]
+    }
+  ]
+}
