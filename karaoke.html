@@ -866,15 +866,15 @@
                 
                 let translationHtml = '';
 if (subtitleMode === 'vietnamese' && translation.vietnamese) {
-    translationHtml = `<div class="sentence-translation">🇻🇳 ${translation.vietnamese}</div>`;
+    translationHtml = `<div class="sentence-translation"> ${translation.vietnamese}</div>`;
 } else if (subtitleMode === 'english' && translation.english) {
-    translationHtml = `<div class="sentence-translation">🇬🇧 ${translation.english}</div>`;
+    translationHtml = `<div class="sentence-translation"> ${translation.english}</div>`;
 } else if (subtitleMode === 'both') {
     if (translation.vietnamese) {
-        translationHtml = `<div class="sentence-translation">🇻🇳 ${translation.vietnamese}</div>`;
+        translationHtml = `<div class="sentence-translation"> ${translation.vietnamese}</div>`;
     }
     if (translation.english) {
-        translationHtml += `<div class="sentence-translation">🇬🇧 ${translation.english}</div>`;
+        translationHtml += `<div class="sentence-translation"> ${translation.english}</div>`;
     }
 }
 
