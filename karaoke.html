@@ -27,65 +27,6 @@
             display: none;
         }
 
-        @media (max-width: 1024px) {
-            .mobile-layout {
-                display: flex;
-                flex-direction: column;
-                height: 100vh;
-                padding: 0;
-            }
-
-            .mobile-layout .header {
-                padding: 10px 15px;
-                margin-bottom: 0;
-            }
-
-            .mobile-layout .video-fixed {
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                width: 100%;
-                height: auto;
-                aspect-ratio: 16 / 9;
-                z-index: 100;
-                background: #000;
-            }
-
-            .mobile-layout .video-section {
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                width: 100%;
-                height: auto;
-                aspect-ratio: 16 / 9;
-                border-radius: 0;
-                border: none;
-            }
-
-            .mobile-layout .transcript-section {
-                margin-top: calc(100vw * 9 / 16 + 120px);
-                flex: 1;
-                overflow-y: auto;
-            }
-
-            .mobile-layout .controls-bottom {
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                width: 100%;
-                background: #1a1a1a;
-                border-top: 1px solid #333;
-                z-index: 99;
-                padding: 10px 15px;
-                display: flex;
-                flex-direction: column;
-                gap: 8px;
-            }
-        }
-
         .header {
             text-align: center;
             margin-bottom: 30px;
@@ -487,6 +428,8 @@
 
             .header {
                 padding: 10px 15px;
+                position: relative;
+                z-index: 80;
             }
 
             .video-section {
@@ -501,13 +444,63 @@
                 aspect-ratio: 16 / 9;
                 z-index: 100;
                 margin: 0;
+                padding: 0;
             }
 
             .video-player {
                 aspect-ratio: 16 / 9;
+                margin: 0;
+                padding: 0;
             }
 
             .player-controls {
+                display: none;
+            }
+
+            .status {
+                display: none;
+            }
+
+            .transcript-section {
+                position: fixed;
+                top: calc(100vw * 9 / 16);
+                left: 0;
+                right: 0;
+                width: 100%;
+                height: calc(100vh - 100vw * 9 / 16 - 130px);
+                border: none;
+                border-radius: 0;
+                margin: 0;
+                padding: 0;
+                z-index: 90;
+            }
+
+            .transcript-header {
+                padding: 10px 15px;
+                font-size: 12px;
+            }
+
+            .transcript-area {
+                padding: 10px 15px;
+            }
+
+            .language-toggle {
+                position: fixed;
+                bottom: 65px;
+                left: 15px;
+                right: 15px;
+                width: auto;
+                background: #2a2a2a;
+                padding: 8px 12px;
+                border-radius: 6px;
+                z-index: 98;
+                margin: 0;
+                margin-top: 0;
+                flex-wrap: wrap;
+            }
+
+            .player-controls:last-of-type {
+                display: flex !important;
                 position: fixed;
                 bottom: 0;
                 left: 0;
@@ -519,41 +512,9 @@
                 gap: 8px;
                 z-index: 99;
                 background: #1a1a1a;
-            }
-
-            .button-group {
-                display: flex;
-                gap: 6px;
-            }
-
-            .time-display {
-                margin-left: auto;
-                min-width: 100px;
-            }
-
-            .transcript-section {
-                position: relative;
-                margin-top: calc(100vw * 9 / 16 + 110px);
-                height: calc(100vh - 100vw * 9 / 16 - 160px);
-                margin-bottom: 70px;
                 border: none;
-                border-radius: 0;
-            }
-
-            .language-toggle {
-                position: fixed;
-                bottom: 60px;
-                left: 15px;
-                right: 15px;
-                width: auto;
-                background: #2a2a2a;
-                padding: 8px 12px;
-                border-radius: 6px;
-                z-index: 98;
-            }
-
-            .status {
-                display: none;
+                border-top: 1px solid #333;
+                margin: 0;
             }
 
             .modal-content {
@@ -1152,32 +1113,11 @@
             document.getElementById('characterModal').classList.remove('show');
         }
 
-        // Modal closing
-        let touchStartY = 0;
-        let touchEndY = 0;
-
+        // Modal closing - click ngoài để đóng
         window.addEventListener('click', (event) => {
             const modal = document.getElementById('characterModal');
             if (event.target === modal) {
                 closeCharacterModal();
-            }
-        });
-
-        window.addEventListener('touchstart', (event) => {
-            const modal = document.getElementById('characterModal');
-            if (modal.classList.contains('show')) {
-                touchStartY = event.touches[0].clientY;
-            }
-        });
-
-        window.addEventListener('touchend', (event) => {
-            const modal = document.getElementById('characterModal');
-            if (modal.classList.contains('show')) {
-                touchEndY = event.changedTouches[0].clientY;
-                // Swipe down to close
-                if (touchEndY - touchStartY > 100) {
-                    closeCharacterModal();
-                }
             }
         });
 
