@@ -128,15 +128,18 @@
             margin-left: auto;
         }
 
-        .language-toggle {
+        .subtitle-selector {
             display: flex;
-            gap: 6px;
+            gap: 8px;
             align-items: center;
-            margin-top: 10px;
+            padding: 15px;
+            background: none;
+            border-top: 1px solid #333;
             flex-wrap: wrap;
+            margin: 0;
         }
 
-        .language-toggle label {
+        .subtitle-selector label {
             display: flex;
             align-items: center;
             gap: 6px;
@@ -144,7 +147,7 @@
             cursor: pointer;
         }
 
-        .language-toggle input[type="checkbox"] {
+        .subtitle-selector input[type="radio"] {
             cursor: pointer;
             width: 16px;
             height: 16px;
@@ -152,10 +155,7 @@
 
         /* Status */
         .status {
-            padding: 12px;
-            background: #1a1a1a;
-            border-top: 1px solid #333;
-            font-size: 12px;
+            display: none;
         }
 
         .info-box {
@@ -177,11 +177,7 @@
         }
 
         .transcript-header {
-            padding: 12px;
-            background: #2a2a2a;
-            border-bottom: 1px solid #333;
-            font-size: 13px;
-            font-weight: 600;
+            display: none;
         }
 
         .transcript-area {
@@ -307,6 +303,8 @@
             background-color: rgba(0, 0, 0, 0.8);
             animation: fadeIn 0.3s;
             touch-action: none;
+            -webkit-user-select: none;
+            user-select: none;
         }
 
         @keyframes fadeIn {
@@ -330,6 +328,7 @@
             animation: slideUp 0.3s;
             max-height: 80vh;
             overflow-y: auto;
+            pointer-events: auto;
         }
 
         @keyframes slideUp {
@@ -457,17 +456,14 @@
                 display: none;
             }
 
-            .status {
-                display: none;
-            }
-
             .transcript-section {
                 position: fixed;
                 top: calc(100vw * 9 / 16);
                 left: 0;
                 right: 0;
                 width: 100%;
-                height: calc(100vh - 100vw * 9 / 16 - 130px);
+                height: auto;
+                max-height: calc(100vh - 100vw * 9 / 16 - 100px);
                 border: none;
                 border-radius: 0;
                 margin: 0;
@@ -475,16 +471,7 @@
                 z-index: 90;
             }
 
-            .transcript-header {
-                padding: 10px 15px;
-                font-size: 12px;
-            }
-
-            .transcript-area {
-                padding: 10px 15px;
-            }
-
-            .language-toggle {
+            .subtitle-selector {
                 position: fixed;
                 bottom: 65px;
                 left: 15px;
@@ -495,7 +482,6 @@
                 border-radius: 6px;
                 z-index: 98;
                 margin: 0;
-                margin-top: 0;
                 flex-wrap: wrap;
             }
 
@@ -532,8 +518,6 @@
             }
         }
 
-
-
         @media (max-width: 600px) {
             body {
                 padding: 0;
@@ -561,10 +545,6 @@
 
             .video-player {
                 aspect-ratio: 16 / 9;
-            }
-
-            .transcript-section {
-                height: 350px;
             }
 
             .character-detail h2 {
@@ -626,27 +606,30 @@
                     </div>
                 </div>
 
-                <!-- Language Toggle (Desktop only) -->
-                <div class="language-toggle" id="desktopLanguageToggle" style="display: none; position: static; background: none; padding: 15px; border-top: 1px solid #333; margin: 0;">
+                <!-- Subtitle Selector (Desktop) -->
+                <div class="subtitle-selector" id="desktopSubtitleSelector" style="display: none; position: static; background: none; padding: 15px; border-top: 1px solid #333; margin: 0;">
+                    <span style="font-size: 12px; margin-right: 8px;">Phụ đề:</span>
                     <label>
-                        <input type="checkbox" id="showVietnamese" onchange="toggleLanguage()">
-                        <span>Show Vietnamese</span>
+                        <input type="radio" name="subtitle" value="none" onchange="changeSubtitle('none')">
+                        <span>Không</span>
                     </label>
-                </div>
-
-                <!-- Status -->
-                <div class="status">
-                    <div class="info-box" id="statusBox">
-                        ⏳ Đang tải video và transcript...
-                    </div>
+                    <label>
+                        <input type="radio" name="subtitle" value="vietnamese" onchange="changeSubtitle('vietnamese')">
+                        <span>Tiếng Việt</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="subtitle" value="english" onchange="changeSubtitle('english')">
+                        <span>English</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="subtitle" value="both" onchange="changeSubtitle('both')" checked>
+                        <span>Cả hai</span>
+                    </label>
                 </div>
             </div>
 
             <!-- Transcript Section -->
             <div class="transcript-section">
-                <div class="transcript-header">
-                    📝 Karaoke Transcript
-                </div>
                 <div class="transcript-area" id="transcriptArea">
                     <div class="loading">⏳ Đang tải transcript...</div>
                 </div>
@@ -654,10 +637,23 @@
         </div>
 
         <!-- Controls Bottom (Mobile) -->
-        <div class="language-toggle">
+        <div class="subtitle-selector">
+            <span style="font-size: 12px; margin-right: 8px;">Phụ đề:</span>
             <label>
-                <input type="checkbox" id="showVietnamese" onchange="toggleLanguage()">
-                <span>Show Vietnamese</span>
+                <input type="radio" name="subtitle" value="none" onchange="changeSubtitle('none')">
+                <span>Không</span>
+            </label>
+            <label>
+                <input type="radio" name="subtitle" value="vietnamese" onchange="changeSubtitle('vietnamese')">
+                <span>Tiếng Việt</span>
+            </label>
+            <label>
+                <input type="radio" name="subtitle" value="english" onchange="changeSubtitle('english')">
+                <span>English</span>
+            </label>
+            <label>
+                <input type="radio" name="subtitle" value="both" onchange="changeSubtitle('both')" checked>
+                <span>Cả hai</span>
             </label>
         </div>
 
@@ -676,7 +672,7 @@
 
     <!-- Character Detail Modal -->
     <div id="characterModal" class="modal">
-        <div class="modal-content">
+        <div class="modal-content" onclick="event.stopPropagation();">
             <div class="character-detail" id="characterDetailContent">
             </div>
         </div>
@@ -693,19 +689,12 @@
         let updateInterval = null;
         let videoStartTime = 0;
         let videoPausedTime = 0;
-        let showVietnameseText = false;
+        let subtitleMode = 'both';
 
-        const statusBox = document.getElementById('statusBox');
         const transcriptArea = document.getElementById('transcriptArea');
         const timeDisplay = document.getElementById('timeDisplay');
         const playBtn = document.getElementById('playBtn');
         const videoPlayer = document.getElementById('videoPlayer');
-        const showVietnamesesCheckbox = document.getElementById('showVietnamese');
-
-        // YouTube API ready
-        function onYouTubeIframeAPIReady() {
-            console.log('YouTube API ready');
-        }
 
         function extractYoutubeId(url) {
             let videoId = '';
@@ -729,16 +718,13 @@
             const videoId = extractYoutubeId(url);
 
             if (!videoId) {
-                statusBox.innerHTML = '❌ Invalid YouTube link';
                 return;
             }
 
-            // Create iframe with enablejsapi
             videoPlayer.innerHTML = `
                 <div id="yt-player"></div>
             `;
 
-            // Initialize player after short delay
             setTimeout(() => {
                 player = new YT.Player('yt-player', {
                     height: '100%',
@@ -753,8 +739,6 @@
         }
 
         function onPlayerReady(event) {
-            console.log('Player ready');
-            statusBox.innerHTML = '✅ Player ready! Transcript loading...';
         }
 
         function onPlayerStateChange(event) {
@@ -783,15 +767,12 @@
                 .then(data => {
                     transcriptData = data;
                     
-                    // Validate
                     if (!transcriptData.sentences || transcriptData.sentences.length === 0) {
-                        statusBox.innerHTML = '❌ JSON must have sentences array';
                         return;
                     }
                     
                     const firstChar = transcriptData.sentences[0].characters?.[0];
                     if (!firstChar || (!firstChar.chars && !firstChar.char)) {
-                        statusBox.innerHTML = '❌ Characters must have "chars" field';
                         return;
                     }
 
@@ -799,8 +780,6 @@
                     loadImagesData();
                 })
                 .catch(error => {
-                    statusBox.innerHTML = '❌ Error loading JSON: ' + error.message;
-                    console.error('JSON fetch error:', error);
                 });
         }
 
@@ -809,10 +788,6 @@
                 .then(response => response.json())
                 .then(data => {
                     sentencesData = data;
-                    console.log('Sentences data loaded:', sentencesData.length);
-                })
-                .catch(error => {
-                    console.error('Error loading sentences:', error);
                 });
         }
 
@@ -821,17 +796,10 @@
                 .then(response => response.json())
                 .then(data => {
                     imagesData = data;
-                    console.log('Images data loaded:', imagesData.length);
-                    
-                    // Render after all data loaded
                     renderTranscript();
-                    statusBox.innerHTML = `✅ Loaded ${transcriptData.sentences.length} sentences! Ready to play.`;
                 })
                 .catch(error => {
-                    console.error('Error loading images:', error);
-                    // Still render even if images fail
                     renderTranscript();
-                    statusBox.innerHTML = `✅ Loaded ${transcriptData.sentences.length} sentences! (Images may not load)`;
                 });
         }
 
@@ -846,8 +814,8 @@
             return sentence ? { english: sentence.english, vietnamese: sentence.vietnamese } : { english: '', vietnamese: '' };
         }
 
-        function toggleLanguage() {
-            showVietnameseText = showVietnamesesCheckbox.checked;
+        function changeSubtitle(mode) {
+            subtitleMode = mode;
             renderTranscript();
         }
 
@@ -862,18 +830,23 @@
                 const translation = getSentenceTranslation(sentence.id);
                 
                 let translationHtml = '';
-                if (showVietnameseText && translation.vietnamese) {
+                if (subtitleMode === 'vietnamese' && translation.vietnamese) {
                     translationHtml = `<div class="sentence-translation">🇻🇳 ${translation.vietnamese}</div>`;
-                }
-                if (translation.english) {
-                    translationHtml += `<div class="sentence-translation">🇬🇧 ${translation.english}</div>`;
+                } else if (subtitleMode === 'english' && translation.english) {
+                    translationHtml = `<div class="sentence-translation">🇬🇧 ${translation.english}</div>`;
+                } else if (subtitleMode === 'both') {
+                    if (translation.vietnamese) {
+                        translationHtml = `<div class="sentence-translation">🇻🇳 ${translation.vietnamese}</div>`;
+                    }
+                    if (translation.english) {
+                        translationHtml += `<div class="sentence-translation">🇬🇧 ${translation.english}</div>`;
+                    }
                 }
 
                 const charGroupsHtml = sentence.characters
                     .map((char, charIdx) => {
                         const charText = char.chars || char.char;
-                        const pinyin = char.pinyin || ''; // Lấy trực tiếp từ transcript
-                        const charInfo = getCharacterInfo(charText);
+                        const pinyin = char.pinyin || '';
                         
                         return `
                             <span class="char" data-sentence="${idx}" data-char="${charIdx}" onclick="showCharacterDetail('${charText}', event)">
@@ -918,7 +891,6 @@
                     updateTranscriptHighlight(currentTime);
                     updateTimeDisplay(currentTime);
                 } catch (e) {
-                    console.error('Sync error:', e);
                 }
             }, 50);
         }
@@ -1011,7 +983,6 @@
 
         function togglePlayPause() {
             if (!player) {
-                statusBox.innerHTML = '❌ Load video first!';
                 return;
             }
 
@@ -1023,7 +994,6 @@
                     player.playVideo();
                 }
             } catch (e) {
-                statusBox.innerHTML = '❌ Error: ' + e.message;
             }
         }
 
@@ -1035,7 +1005,6 @@
                 updateTimeDisplay(0);
                 playBtn.textContent = '▶️';
             } catch (e) {
-                console.error('Stop error:', e);
             }
         }
 
@@ -1045,7 +1014,6 @@
                 const current = player.getCurrentTime();
                 player.seekTo(Math.max(0, current - 10));
             } catch (e) {
-                console.error('Rewind error:', e);
             }
         }
 
@@ -1056,7 +1024,6 @@
                 const duration = player.getDuration();
                 player.seekTo(Math.min(duration, current + 10));
             } catch (e) {
-                console.error('Forward error:', e);
             }
         }
 
@@ -1067,7 +1034,6 @@
                 player.seekTo(sentence.startTime);
                 player.playVideo();
             } catch (e) {
-                console.error('Seek error:', e);
             }
         }
 
@@ -1113,7 +1079,6 @@
             document.getElementById('characterModal').classList.remove('show');
         }
 
-        // Modal closing - click ngoài để đóng
         window.addEventListener('click', (event) => {
             const modal = document.getElementById('characterModal');
             if (event.target === modal) {
@@ -1124,28 +1089,26 @@
         function setupLayoutForDevice() {
             const isMobile = window.innerWidth <= 1024;
             const desktopControls = document.getElementById('desktopControls');
-            const desktopLanguageToggle = document.getElementById('desktopLanguageToggle');
+            const desktopSubtitleSelector = document.getElementById('desktopSubtitleSelector');
             const mobileControls = document.querySelector('.player-controls:last-of-type');
-            const mobileLanguageToggle = document.querySelector('.language-toggle');
+            const mobileSubtitleSelector = document.querySelector('.subtitle-selector');
 
             if (isMobile) {
                 if (desktopControls) desktopControls.style.display = 'none';
-                if (desktopLanguageToggle) desktopLanguageToggle.style.display = 'none';
+                if (desktopSubtitleSelector) desktopSubtitleSelector.style.display = 'none';
                 if (mobileControls) mobileControls.style.display = 'flex';
-                if (mobileLanguageToggle) mobileLanguageToggle.style.display = 'flex';
+                if (mobileSubtitleSelector) mobileSubtitleSelector.style.display = 'flex';
             } else {
                 if (desktopControls) desktopControls.style.display = 'flex';
-                if (desktopLanguageToggle) desktopLanguageToggle.style.display = 'block';
+                if (desktopSubtitleSelector) desktopSubtitleSelector.style.display = 'block';
                 if (mobileControls) mobileControls.style.display = 'none';
-                if (mobileLanguageToggle) mobileLanguageToggle.style.display = 'none';
+                if (mobileSubtitleSelector) mobileSubtitleSelector.style.display = 'none';
             }
         }
 
         window.addEventListener('load', () => {
             setupLayoutForDevice();
-            // Auto-load YouTube video
             loadYoutubeVideoAuto('https://www.youtube.com/watch?v=yRhp-kQfD5g');
-            // Auto-load JSON transcript
             loadJsonFromPath('data/boya-transcript.json');
         });
 
