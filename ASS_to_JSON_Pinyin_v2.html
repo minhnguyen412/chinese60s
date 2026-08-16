@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASS to JSON Converter - Karaoke</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .panel {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .panel h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #333;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        textarea {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            resize: none;
+            line-height: 1.6;
+            transition: border-color 0.3s;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        .btn-success {
+            background: #4caf50;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #45a049;
+        }
+
+        .message {
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 13px;
+            display: none;
+        }
+
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+
+        .stats {
+            margin-top: 15px;
+            padding: 12px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .stats-item {
+            margin: 5px 0;
+        }
+
+        .stats-label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        @media (max-width: 900px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .preview-section {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .preview-section h3 {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .json-preview {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #666;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎵 ASS to JSON Converter</h1>
+            <p>Chuyển đổi file subtitle karaoke ASS sang JSON</p>
+        </div>
+
+        <div class="content">
+            <div class="panel">
+                <h2>📥 Input (ASS File)</h2>
+                <textarea id="inputText" placeholder="Dán nội dung file ASS ở đây...
+Ví dụ:
+Dialogue: 0,0:00:03.66,0:00:06.42,Default,,0,0,0,,{\k44}{\k22}你{\k73}好{\k25},{\k30}你{\k18}是{\k46}老师{\k13}吗{\k5}?"></textarea>
+                <div class="controls">
+                    <button class="btn-primary" onclick="convertToJson()">🔄 Chuyển đổi</button>
+                    <button class="btn-secondary" onclick="clearInput()">🗑️ Xóa</button>
+                </div>
+                <div id="inputMessage" class="message"></div>
+            </div>
+
+            <div class="panel">
+                <h2>📤 Output (JSON)</h2>
+                <textarea id="outputText" placeholder="Kết quả JSON sẽ hiển thị ở đây..." readonly></textarea>
+                <div class="controls">
+                    <button class="btn-success" onclick="downloadJSON()">⬇️ Tải JSON</button>
+                    <button class="btn-secondary" onclick="copyToClipboard()">📋 Copy</button>
+                </div>
+                <div id="outputMessage" class="message"></div>
+                <div id="stats" class="stats"></div>
+            </div>
+        </div>
+
+        <div class="preview-section" id="previewSection" style="display:none;">
+            <h3>👁️ Preview (First 3 items)</h3>
+            <div class="json-preview" id="previewJson"></div>
+        </div>
+    </div>
+
+    <script>
+        function timeToSeconds(timeStr) {
+            // Convert "0:00:03.66" to 3.66 seconds
+            const parts = timeStr.split(':');
+            return parseInt(parts[0]) * 3600 + parseInt(parts[1]) * 60 + parseFloat(parts[2]);
+        }
+
+        function parseKaraokeTiming(karaStr) {
+            // Parse "{\k44}{\k22}你{\k73}好{\k25},{\k30}你{\k18}是{\k46}老师{\k13}吗{\k5}?"
+            // IMPORTANT: Keep groups intact! {\k46}老师 = 1 group (not split)
+            const characters = [];
+            const regex = /{\\k(\d+)}([^{]*)/g;
+            let match;
+
+            while ((match = regex.exec(karaStr)) !== null) {
+                const duration = parseInt(match[1]) / 100; // Convert centiseconds to seconds
+                const chars = match[2]; // Can be multiple chars like "老师"
+
+                if (chars && chars.trim()) {
+                    // Keep entire group as one unit!
+                    characters.push({
+                        chars: chars,  // "老师" stays together, not split into 老 and 师
+                        duration: duration
+                    });
+                }
+            }
+
+            return characters;
+        }
+
+        // ==================== Chinese60s Pinyin Lookup ====================
+        const PINYIN_URL = 'https://raw.githubusercontent.com/minhnguyen412/chinese60s/refs/heads/main/data/imagesData.json';
+        let pinyinMap = null;
+
+        async function loadPinyinMap() {
+            if (pinyinMap) return pinyinMap;
+
+            const response = await fetch(PINYIN_URL, { cache: 'no-store' });
+            if (!response.ok) {
+                throw new Error(`Không tải được imagesData.json (HTTP ${response.status})`);
+            }
+
+            const data = await response.json();
+            if (!Array.isArray(data)) {
+                throw new Error('imagesData.json không có dạng array');
+            }
+
+            // Prefer single-character entries for character-level pinyin.
+            // Keep phrase entries separately as a fallback.
+            const chars = new Map();
+            const phrases = new Map();
+
+            for (const item of data) {
+                if (!item || typeof item.character !== 'string' || typeof item.pinyin !== 'string') continue;
+                const key = item.character.replace(/[¹²³⁴⁵⁶⁷⁸⁹⁰]+$/u, '').trim();
+                if (!key) continue;
+
+                if ([...key].length === 1) {
+                    if (!chars.has(key)) chars.set(key, item.pinyin.trim());
+                } else {
+                    phrases.set(key, item.pinyin.trim());
+                }
+            }
+
+            pinyinMap = { chars, phrases };
+            return pinyinMap;
+        }
+
+        function isChineseCharacter(ch) {
+            return /[\\u3400-\\u4DBF\\u4E00-\\u9FFF\\uF900-\\uFAFF]/u.test(ch);
+        }
+
+        function getPinyinForCharacter(ch, maps) {
+            return maps.chars.get(ch) || null;
+        }
+
+        function getPinyinForGroup(group, maps) {
+            // Return one pinyin value per Chinese character in the group.
+            // First try character-level entries, which is what the web player needs.
+            const result = [];
+            for (const ch of [...group]) {
+                if (isChineseCharacter(ch)) {
+                    result.push(getPinyinForCharacter(ch, maps));
+                } else {
+                    result.push(null);
+                }
+            }
+            return result;
+        }
+
+        async function convertToJson() {
+            const inputText = document.getElementById('inputText').value.trim();
+            const inputMsg = document.getElementById('inputMessage');
+            const outputText = document.getElementById('outputText');
+            const outputMsg = document.getElementById('outputMessage');
+            const statsDiv = document.getElementById('stats');
+            const previewSection = document.getElementById('previewSection');
+
+            inputMsg.className = 'message';
+            outputMsg.className = 'message';
+
+            if (!inputText) {
+                inputMsg.className = 'message error';
+                inputMsg.textContent = '❌ Vui lòng dán nội dung ASS';
+                return;
+            }
+
+            try {
+                inputMsg.className = 'message success';
+                inputMsg.textContent = '⏳ Đang tải dữ liệu pinyin từ Chinese60s...';
+                const maps = await loadPinyinMap();
+
+                const lines = inputText.split('\n').filter(line => line.trim().startsWith('Dialogue:'));
+
+                if (lines.length === 0) {
+                    inputMsg.className = 'message error';
+                    inputMsg.textContent = '❌ Không tìm thấy dòng Dialogue nào';
+                    return;
+                }
+
+                const sentences = [];
+                let currentTime = 0;
+
+                lines.forEach((line, index) => {
+                    try {
+                        // Parse: Dialogue: 0,0:00:03.66,0:00:06.42,Default,,0,0,0,,{\k44}...
+                        const parts = line.split(',,');
+                        if (parts.length < 2) return;
+
+                        const timePart = parts[0].replace('Dialogue: ', '').trim();
+                        const timings = timePart.split(',');
+                        
+                        if (timings.length < 2) return;
+
+                        const startTime = timeToSeconds(timings[1]);
+                        const endTime = timeToSeconds(timings[2]);
+                        const karaText = parts.slice(-1)[0];
+
+                        // Parse karaoke timing
+                        const characters = parseKaraokeTiming(karaText);
+
+                        // Calculate character start times
+                        let charStartTime = startTime;
+                        const charDetails = characters.map(ch => {
+                            const start = charStartTime;
+                            const end = charStartTime + ch.duration;
+                            const charPinyin = getPinyinForGroup(ch.chars, maps);
+
+                            const charObj = {
+                                chars: ch.chars,
+                                startTime: parseFloat(start.toFixed(2)),
+                                endTime: parseFloat(end.toFixed(2)),
+                                duration: parseFloat(ch.duration.toFixed(2)),
+                                pinyin: charPinyin
+                            };
+                            charStartTime = end;
+                            return charObj;
+                        });
+
+                        // Extract plain text (remove karaoke tags)
+                        const plainText = karaText
+                            .replace(/{\\k\d+}/g, '')
+                            .trim();
+
+                        sentences.push({
+                            id: index + 1,
+                            startTime: parseFloat(startTime.toFixed(2)),
+                            endTime: parseFloat(endTime.toFixed(2)),
+                            duration: parseFloat((endTime - startTime).toFixed(2)),
+                            text: plainText,
+                            characters: charDetails
+                        });
+                    } catch (e) {
+                        console.error('Error parsing line:', line, e);
+                    }
+                });
+
+                const output = {
+                    metadata: {
+                        totalSentences: sentences.length,
+                        totalDuration: sentences.length > 0 ? 
+                            parseFloat((sentences[sentences.length - 1].endTime).toFixed(2)) : 0,
+                        convertedAt: new Date().toISOString()
+                    },
+                    sentences: sentences
+                };
+
+                const jsonStr = JSON.stringify(output, null, 2);
+                outputText.value = jsonStr;
+
+                // Show stats
+                let totalCharacters = 0;
+                let chineseCharacters = 0;
+                let missingPinyin = 0;
+                sentences.forEach(s => {
+                    s.characters.forEach(group => {
+                        for (const ch of [...group.chars]) {
+                            if (isChineseCharacter(ch)) {
+                                chineseCharacters++;
+                                const idx = [...group.chars].indexOf(ch);
+                                if (!group.pinyin[idx]) missingPinyin++;
+                            }
+                        }
+                    });
+                    totalCharacters += s.characters.length;
+                });
+
+                statsDiv.innerHTML = `
+                    <div class="stats-item"><span class="stats-label">Tổng câu:</span> ${sentences.length}</div>
+                    <div class="stats-item"><span class="stats-label">Tổng nhóm karaoke:</span> ${totalCharacters}</div>
+                    <div class="stats-item"><span class="stats-label">Tổng chữ Hán:</span> ${chineseCharacters}</div>
+                    <div class="stats-item"><span class="stats-label">Thiếu pinyin:</span> ${missingPinyin}</div>
+                    <div class="stats-item"><span class="stats-label">Thời lượng:</span> ${output.metadata.totalDuration}s</div>
+                `;
+
+                // Show preview
+                const preview = sentences.slice(0, 3);
+                document.getElementById('previewJson').textContent = JSON.stringify(preview, null, 2);
+                previewSection.style.display = 'block';
+
+                outputMsg.className = 'message success';
+                outputMsg.textContent = `✅ Chuyển đổi thành công! ${sentences.length} câu`;
+
+            } catch (error) {
+                outputMsg.className = 'message error';
+                outputMsg.textContent = `❌ Lỗi: ${error.message}`;
+                console.error(error);
+            }
+        }
+
+        function clearInput() {
+            document.getElementById('inputText').value = '';
+            document.getElementById('outputText').value = '';
+            document.getElementById('inputMessage').className = 'message';
+            document.getElementById('outputMessage').className = 'message';
+            document.getElementById('stats').innerHTML = '';
+            document.getElementById('previewSection').style.display = 'none';
+        }
+
+        function copyToClipboard() {
+            const outputText = document.getElementById('outputText');
+            const msg = document.getElementById('outputMessage');
+
+            if (!outputText.value) {
+                msg.className = 'message error';
+                msg.textContent = '❌ Không có dữ liệu để copy';
+                return;
+            }
+
+            outputText.select();
+            document.execCommand('copy');
+
+            msg.className = 'message success';
+            msg.textContent = '✅ Đã copy vào clipboard!';
+            setTimeout(() => {
+                msg.className = 'message';
+            }, 2000);
+        }
+
+        function downloadJSON() {
+            const outputText = document.getElementById('outputText');
+            const msg = document.getElementById('outputMessage');
+
+            if (!outputText.value) {
+                msg.className = 'message error';
+                msg.textContent = '❌ Không có dữ liệu để tải';
+                return;
+            }
+
+            const blob = new Blob([outputText.value], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `karaoke-${new Date().getTime()}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            msg.className = 'message success';
+            msg.textContent = '✅ Đã tải file JSON!';
+        }
+
+        // Enter to convert
+        document.getElementById('inputText').addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                convertToJson();
+            }
+        });
+    </script>
+</body>
+</html>
