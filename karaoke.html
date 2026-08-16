@@ -197,7 +197,21 @@
             border-radius: 4px;
             font-size: 14px;
             transition: all 0.1s;
-            cursor: default;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .char .pinyin {
+            font-size: 10px;
+            color: #aaa;
+            line-height: 1;
+        }
+
+        .char .char-text {
+            font-size: 14px;
         }
 
         .char.active {
@@ -268,6 +282,115 @@
             min-width: 120px;
         }
 
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            animation: slideUp 0.3s;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #aaa;
+        }
+
+        .modal-close:hover {
+            color: #fff;
+        }
+
+        .character-detail {
+            text-align: center;
+        }
+
+        .character-detail-image {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 20px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .character-detail h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .character-detail-pinyin {
+            font-size: 18px;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .character-detail-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .info-item {
+            background: #2a2a2a;
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .info-label {
+            font-size: 12px;
+            color: #aaa;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-size: 14px;
+            color: #fff;
+        }
+
+        .character-audio {
+            margin-top: 20px;
+        }
+
+        .character-audio audio {
+            width: 100%;
+            margin-top: 10px;
+        }
+
         @media (max-width: 1024px) {
             .main-grid {
                 grid-template-columns: 1fr;
@@ -332,15 +455,29 @@
         </div>
     </div>
 
+    <!-- Character Detail Modal -->
+    <div id="characterModal" class="modal">
+        <div style="position: relative; width: 100%;">
+            <span class="modal-close" onclick="closeCharacterModal()">&times;</span>
+            <div class="modal-content">
+                <div class="character-detail" id="characterDetailContent">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://www.youtube.com/iframe_api"></script>
     <script>
         let player = null;
         let transcriptData = null;
+        let sentencesData = null;
+        let imagesData = null;
         let currentSentenceIndex = -1;
         let currentCharIndex = -1;
         let updateInterval = null;
         let videoStartTime = 0;
         let videoPausedTime = 0;
+        let currentLanguage = 'english'; // 'english' or 'vietnamese'
 
         const statusBox = document.getElementById('statusBox');
         const transcriptArea = document.getElementById('transcriptArea');
@@ -441,13 +578,55 @@
                         return;
                     }
 
-                    renderTranscript();
-                    statusBox.innerHTML = `✅ Loaded ${transcriptData.sentences.length} sentences! Ready to play.`;
+                    loadSentencesData();
+                    loadImagesData();
                 })
                 .catch(error => {
                     statusBox.innerHTML = '❌ Error loading JSON: ' + error.message;
                     console.error('JSON fetch error:', error);
                 });
+        }
+
+        function loadSentencesData() {
+            fetch('data/boya-sentences.json')
+                .then(response => response.json())
+                .then(data => {
+                    sentencesData = data;
+                    console.log('Sentences data loaded:', sentencesData.length);
+                })
+                .catch(error => {
+                    console.error('Error loading sentences:', error);
+                });
+        }
+
+        function loadImagesData() {
+            fetch('data/imagesData.json')
+                .then(response => response.json())
+                .then(data => {
+                    imagesData = data;
+                    console.log('Images data loaded:', imagesData.length);
+                    
+                    // Render after all data loaded
+                    renderTranscript();
+                    statusBox.innerHTML = `✅ Loaded ${transcriptData.sentences.length} sentences! Ready to play.`;
+                })
+                .catch(error => {
+                    console.error('Error loading images:', error);
+                    // Still render even if images fail
+                    renderTranscript();
+                    statusBox.innerHTML = `✅ Loaded ${transcriptData.sentences.length} sentences! (Images may not load)`;
+                });
+        }
+
+        function getCharacterInfo(charText) {
+            if (!imagesData) return null;
+            return imagesData.find(img => img.character === charText);
+        }
+
+        function getSentenceTranslation(sentenceId) {
+            if (!sentencesData) return { english: '', vietnamese: '' };
+            const sentence = sentencesData.find(s => s.id === sentenceId);
+            return sentence ? { english: sentence.english, vietnamese: sentence.vietnamese } : { english: '', vietnamese: '' };
         }
 
         function renderTranscript() {
@@ -458,12 +637,19 @@
 
             let html = '';
             transcriptData.sentences.forEach((sentence, idx) => {
+                const translation = getSentenceTranslation(sentence.id);
+                const displayText = currentLanguage === 'vietnamese' ? translation.vietnamese : translation.english;
+
                 const charGroupsHtml = sentence.characters
                     .map((char, charIdx) => {
                         const charText = char.chars || char.char;
+                        const charInfo = getCharacterInfo(charText);
+                        const pinyin = charInfo ? charInfo.pinyin : '';
+                        
                         return `
-                            <span class="char" data-sentence="${idx}" data-char="${charIdx}">
-                                ${charText}
+                            <span class="char" data-sentence="${idx}" data-char="${charIdx}" onclick="showCharacterDetail('${charText}', event)">
+                                <span class="pinyin">${pinyin}</span>
+                                <span class="char-text">${charText}</span>
                             </span>
                         `;
                     })
@@ -471,7 +657,7 @@
 
                 html += `
                     <div class="sentence" data-index="${idx}" onclick="seekToSentence(${idx})">
-                        <div class="sentence-text">${sentence.text}</div>
+                        <div class="sentence-text">${displayText || sentence.text}</div>
                         <div class="character-line">${charGroupsHtml}</div>
                         <div class="meta-info">
                             ${formatTime(sentence.startTime)} - ${formatTime(sentence.endTime)} 
@@ -655,6 +841,58 @@
                 console.error('Seek error:', e);
             }
         }
+
+        function showCharacterDetail(charText, event) {
+            event.stopPropagation();
+            const charInfo = getCharacterInfo(charText);
+            if (!charInfo) {
+                alert('Character info not found');
+                return;
+            }
+
+            let html = `
+                <h2>${charInfo.character}</h2>
+                <div class="character-detail-pinyin">${charInfo.pinyin}</div>
+            `;
+
+            if (charInfo.imageSrc) {
+                html += `<img src="${charInfo.imageSrc}" alt="${charInfo.character}" class="character-detail-image">`;
+            }
+
+            html += `
+                <div class="character-detail-info">
+                    <div class="info-item">
+                        <div class="info-label">Meaning</div>
+                        <div class="info-value">${charInfo.meaning}</div>
+                    </div>
+                </div>
+            `;
+
+            if (charInfo.audioSrc) {
+                html += `
+                    <div class="character-audio">
+                        <audio controls>
+                            <source src="${charInfo.audioSrc}" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                `;
+            }
+
+            document.getElementById('characterDetailContent').innerHTML = html;
+            document.getElementById('characterModal').classList.add('show');
+        }
+
+        function closeCharacterModal() {
+            document.getElementById('characterModal').classList.remove('show');
+        }
+
+        window.addEventListener('click', (event) => {
+            const modal = document.getElementById('characterModal');
+            if (event.target === modal) {
+                closeCharacterModal();
+            }
+        });
 
         window.addEventListener('load', () => {
             // Auto-load YouTube video
