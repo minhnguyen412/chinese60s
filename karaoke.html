@@ -70,6 +70,34 @@
             border-top: 1px solid #333;
         }
 
+        .input-group {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 12px;
+            color: #aaa;
+            margin-bottom: 5px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            background: #2a2a2a;
+            border: 1px solid #444;
+            border-radius: 6px;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            background: #333;
+        }
+
         .button-group {
             display: flex;
             gap: 8px;
@@ -121,23 +149,6 @@
             border-bottom: 1px solid #333;
             font-size: 14px;
             font-weight: 600;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .language-toggle {
-            display: flex;
-            gap: 8px;
-        }
-
-        .language-toggle button {
-            padding: 6px 12px;
-            font-size: 12px;
-        }
-
-        .language-toggle button.active {
-            background: #667eea;
         }
 
         .transcript-area {
@@ -167,12 +178,6 @@
             box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
         }
 
-        .sentence-id {
-            font-size: 12px;
-            color: #888;
-            margin-bottom: 6px;
-        }
-
         .sentence-text {
             font-size: 16px;
             font-weight: 500;
@@ -183,35 +188,16 @@
         .character-line {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 8px;
-        }
-
-        .char-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2px;
-        }
-
-        .char-pinyin {
-            font-size: 10px;
-            color: #999;
-            height: 14px;
-            text-align: center;
-            min-width: 30px;
+            gap: 4px;
         }
 
         .char {
-            padding: 8px 10px;
+            padding: 6px 8px;
             background: #333;
             border-radius: 4px;
-            font-size: 16px;
+            font-size: 14px;
             transition: all 0.1s;
-            cursor: pointer;
-            min-width: 40px;
-            text-align: center;
-            border: none;
+            cursor: default;
         }
 
         .char.active {
@@ -282,126 +268,6 @@
             min-width: 120px;
         }
 
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            animation: fadeIn 0.3s;
-        }
-
-        .modal.show {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .modal-content {
-            background-color: #1a1a1a;
-            padding: 30px;
-            border-radius: 12px;
-            max-width: 500px;
-            width: 90%;
-            border: 1px solid #333;
-            animation: slideUp 0.3s;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        @keyframes slideUp {
-            from { transform: translateY(30px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .close-btn {
-            background: none;
-            border: none;
-            color: #aaa;
-            font-size: 24px;
-            cursor: pointer;
-            padding: 0;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .close-btn:hover {
-            color: #fff;
-        }
-
-        .char-image {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto;
-            border-radius: 8px;
-            object-fit: contain;
-            background: #2a2a2a;
-            padding: 10px;
-        }
-
-        .char-info {
-            text-align: center;
-        }
-
-        .char-info-title {
-            font-size: 32px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .char-info-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            border-bottom: 1px solid #333;
-            font-size: 14px;
-        }
-
-        .char-info-row label {
-            color: #888;
-        }
-
-        .char-info-row span {
-            color: #fff;
-            font-weight: 500;
-        }
-
-        .audio-btn {
-            padding: 10px 20px;
-            background: #667eea;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
-            width: 100%;
-        }
-
-        .audio-btn:hover {
-            background: #5568d3;
-        }
-
         @media (max-width: 1024px) {
             .main-grid {
                 grid-template-columns: 1fr;
@@ -421,15 +287,17 @@
     <div class="container">
         <div class="header">
             <h1>🎵 Karaoke Player - YouTube</h1>
-            <p>YouTube video + Perfect karaoke sync</p>
+            <p>YouTube video + Perfect karaoke sync (Increases view count)</p>
         </div>
 
         <div class="main-grid">
             <!-- Video Player Section -->
             <div class="video-section">
                 <div class="video-player" id="videoPlayer">
-                    <div class="loading">📺 YouTube video will appear here</div>
+                    <div class="loading">📺 Đang tải video YouTube...</div>
                 </div>
+
+
 
                 <!-- Controls -->
                 <div class="player-controls">
@@ -447,7 +315,7 @@
                 <!-- Status -->
                 <div style="padding: 15px; background: #1a1a1a; border-top: 1px solid #333;">
                     <div class="info-box" id="statusBox">
-                        ℹ️ Đang tải video và dữ liệu...
+                        ⏳ Đang tải video và transcript...
                     </div>
                 </div>
             </div>
@@ -455,38 +323,11 @@
             <!-- Transcript Section -->
             <div class="transcript-section">
                 <div class="transcript-header">
-                    <div>📝 Karaoke Transcript</div>
-                    <div class="language-toggle">
-                        <button class="lang-btn active" onclick="setLanguage('english')">English</button>
-                        <button class="lang-btn" onclick="setLanguage('vietnamese')">Vietnamese</button>
-                    </div>
+                    📝 Karaoke Transcript
                 </div>
                 <div class="transcript-area" id="transcriptArea">
-                    <div class="loading">Đang tải dữ liệu...</div>
+                    <div class="loading">⏳ Đang tải transcript...</div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Character Detail Modal -->
-    <div class="modal" id="charModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div></div>
-                <button class="close-btn" onclick="closeCharModal()">×</button>
-            </div>
-            <img id="charImage" class="char-image" src="" alt="Character">
-            <div class="char-info">
-                <div class="char-info-title" id="charTitle"></div>
-                <div class="char-info-row">
-                    <label>Pinyin:</label>
-                    <span id="charPinyin"></span>
-                </div>
-                <div class="char-info-row">
-                    <label>Meaning:</label>
-                    <span id="charMeaning"></span>
-                </div>
-                <button class="audio-btn" id="audioBtn" onclick="playCharAudio()">🔊 Play Audio</button>
             </div>
         </div>
     </div>
@@ -495,59 +336,24 @@
     <script>
         let player = null;
         let transcriptData = null;
-        let sentencesData = null;
-        let imagesData = null;
         let currentSentenceIndex = -1;
         let currentCharIndex = -1;
         let updateInterval = null;
-        let currentLanguage = 'english';
-        let currentCharAudio = null;
+        let videoStartTime = 0;
+        let videoPausedTime = 0;
 
         const statusBox = document.getElementById('statusBox');
         const transcriptArea = document.getElementById('transcriptArea');
         const timeDisplay = document.getElementById('timeDisplay');
         const playBtn = document.getElementById('playBtn');
         const videoPlayer = document.getElementById('videoPlayer');
-        const charModal = document.getElementById('charModal');
 
-        // Auto-load on page load
-        window.addEventListener('load', async () => {
-            await loadAllData();
-            loadYoutubeVideo('yRhp-kQfD5g'); // Default video ID
-        });
-
-        // Close modal when clicking outside
-        charModal.addEventListener('click', (e) => {
-            if (e.target === charModal) {
-                closeCharModal();
-            }
-        });
-
-        async function loadAllData() {
-            try {
-                // Load transcript data
-                const transcriptRes = await fetch('data/boya-transcript.json');
-                transcriptData = await transcriptRes.json();
-
-                // Load sentences data
-                const sentencesRes = await fetch('data/boya-sentences.json');
-                sentencesData = await sentencesRes.json();
-
-                // Load images/characters data
-                const imagesRes = await fetch('data/imagesData.json');
-                imagesData = await imagesRes.json();
-
-                statusBox.innerHTML = '✅ Tất cả dữ liệu đã sẵn sàng! Nhấn Play để bắt đầu.';
-                renderTranscript();
-            } catch (error) {
-                statusBox.innerHTML = '❌ Lỗi tải dữ liệu: ' + error.message;
-                console.error('Load error:', error);
-            }
+        // YouTube API ready
+        function onYouTubeIframeAPIReady() {
+            console.log('YouTube API ready');
         }
 
         function extractYoutubeId(url) {
-            if (!url) return '';
-            
             let videoId = '';
             const patterns = [
                 /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/,
@@ -565,14 +371,20 @@
             return videoId;
         }
 
-        function loadYoutubeVideo(videoId) {
+        function loadYoutubeVideoAuto(url) {
+            const videoId = extractYoutubeId(url);
+
             if (!videoId) {
                 statusBox.innerHTML = '❌ Invalid YouTube link';
                 return;
             }
 
-            videoPlayer.innerHTML = `<div id="yt-player"></div>`;
+            // Create iframe with enablejsapi
+            videoPlayer.innerHTML = `
+                <div id="yt-player"></div>
+            `;
 
+            // Initialize player after short delay
             setTimeout(() => {
                 player = new YT.Player('yt-player', {
                     height: '400',
@@ -588,14 +400,16 @@
 
         function onPlayerReady(event) {
             console.log('Player ready');
-            statusBox.innerHTML = '✅ Sẵn sàng! Nhấn Play để bắt đầu.';
+            statusBox.innerHTML = '✅ Player ready! Transcript loading...';
         }
 
         function onPlayerStateChange(event) {
             if (event.data === YT.PlayerState.PLAYING) {
+                videoStartTime = player.getCurrentTime();
                 playBtn.textContent = '⏸️ Pause';
                 startSync();
             } else if (event.data === YT.PlayerState.PAUSED) {
+                videoPausedTime = player.getCurrentTime();
                 playBtn.textContent = '▶️ Play';
                 stopSync();
             } else if (event.data === YT.PlayerState.ENDED) {
@@ -604,83 +418,69 @@
             }
         }
 
+        function loadJsonFromPath(filePath) {
+            fetch(filePath)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    transcriptData = data;
+                    
+                    // Validate
+                    if (!transcriptData.sentences || transcriptData.sentences.length === 0) {
+                        statusBox.innerHTML = '❌ JSON must have sentences array';
+                        return;
+                    }
+                    
+                    const firstChar = transcriptData.sentences[0].characters?.[0];
+                    if (!firstChar || (!firstChar.chars && !firstChar.char)) {
+                        statusBox.innerHTML = '❌ Characters must have "chars" field';
+                        return;
+                    }
+
+                    renderTranscript();
+                    statusBox.innerHTML = `✅ Loaded ${transcriptData.sentences.length} sentences! Ready to play.`;
+                })
+                .catch(error => {
+                    statusBox.innerHTML = '❌ Error loading JSON: ' + error.message;
+                    console.error('JSON fetch error:', error);
+                });
+        }
+
         function renderTranscript() {
-            if (!transcriptData || transcriptData.length === 0) {
+            if (!transcriptData || transcriptData.sentences.length === 0) {
                 transcriptArea.innerHTML = '<div class="loading">No data</div>';
                 return;
             }
 
             let html = '';
-            transcriptData.forEach((item, idx) => {
-                const sentenceInfo = sentencesData.find(s => s.id === item.id);
-                const text = currentLanguage === 'vietnamese' 
-                    ? sentenceInfo?.vietnamese 
-                    : sentenceInfo?.english;
-
-                const charGroupsHtml = item.characters
+            transcriptData.sentences.forEach((sentence, idx) => {
+                const charGroupsHtml = sentence.characters
                     .map((char, charIdx) => {
-                        const charData = imagesData.find(img => img.character === char);
-                        const pinyin = charData ? charData.pinyin : '';
-                        
+                        const charText = char.chars || char.char;
                         return `
-                            <div class="char-container">
-                                <div class="char-pinyin">${pinyin}</div>
-                                <button class="char" data-sentence="${idx}" data-char="${charIdx}" data-char-text="${char}" onclick="showCharModal('${char}', event)">
-                                    ${char}
-                                </button>
-                            </div>
+                            <span class="char" data-sentence="${idx}" data-char="${charIdx}">
+                                ${charText}
+                            </span>
                         `;
                     })
                     .join('');
 
                 html += `
                     <div class="sentence" data-index="${idx}" onclick="seekToSentence(${idx})">
-                        <div class="sentence-id">ID: ${item.id}</div>
-                        <div class="sentence-text">${text || 'N/A'}</div>
+                        <div class="sentence-text">${sentence.text}</div>
                         <div class="character-line">${charGroupsHtml}</div>
                         <div class="meta-info">
-                            ${formatTime(item.startTime)} - ${formatTime(item.endTime)} 
-                            (${item.duration.toFixed(1)}s)
+                            ${formatTime(sentence.startTime)} - ${formatTime(sentence.endTime)} 
+                            (${sentence.duration.toFixed(1)}s)
                         </div>
                     </div>
                 `;
             });
             transcriptArea.innerHTML = html;
-        }
-
-        function setLanguage(lang) {
-            currentLanguage = lang;
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-            renderTranscript();
-        }
-
-        function showCharModal(char, event) {
-            event.stopPropagation();
-            
-            const charData = imagesData.find(img => img.character === char);
-            if (!charData) return;
-
-            document.getElementById('charImage').src = charData.imageSrc;
-            document.getElementById('charTitle').textContent = charData.character;
-            document.getElementById('charPinyin').textContent = charData.pinyin;
-            document.getElementById('charMeaning').textContent = charData.meaning;
-            currentCharAudio = charData.audioSrc;
-
-            charModal.classList.add('show');
-        }
-
-        function closeCharModal() {
-            charModal.classList.remove('show');
-        }
-
-        function playCharAudio() {
-            if (currentCharAudio) {
-                const audio = new Audio(currentCharAudio);
-                audio.play();
-            }
         }
 
         function formatTime(seconds) {
@@ -721,8 +521,8 @@
             let newSentenceIndex = -1;
             let newCharIndex = -1;
 
-            for (let i = 0; i < transcriptData.length; i++) {
-                const sentence = transcriptData[i];
+            for (let i = 0; i < transcriptData.sentences.length; i++) {
+                const sentence = transcriptData.sentences[i];
                 if (currentTime >= sentence.startTime && currentTime <= sentence.endTime) {
                     newSentenceIndex = i;
 
@@ -787,8 +587,8 @@
             }
 
             let duration = 0;
-            if (transcriptData && transcriptData.length > 0) {
-                const lastSentence = transcriptData[transcriptData.length - 1];
+            if (transcriptData && transcriptData.sentences.length > 0) {
+                const lastSentence = transcriptData.sentences[transcriptData.sentences.length - 1];
                 duration = lastSentence.endTime;
             }
             timeDisplay.textContent = `${formatTime(time)} / ${formatTime(duration)}`;
@@ -796,7 +596,7 @@
 
         function togglePlayPause() {
             if (!player) {
-                statusBox.innerHTML = '❌ Vui lòng tải video trước!';
+                statusBox.innerHTML = '❌ Load video first!';
                 return;
             }
 
@@ -808,7 +608,7 @@
                     player.playVideo();
                 }
             } catch (e) {
-                statusBox.innerHTML = '❌ Lỗi: ' + e.message;
+                statusBox.innerHTML = '❌ Error: ' + e.message;
             }
         }
 
@@ -848,7 +648,7 @@
         function seekToSentence(index) {
             if (!transcriptData || !player) return;
             try {
-                const sentence = transcriptData[index];
+                const sentence = transcriptData.sentences[index];
                 player.seekTo(sentence.startTime);
                 player.playVideo();
             } catch (e) {
@@ -856,9 +656,12 @@
             }
         }
 
-        function onYouTubeIframeAPIReady() {
-            console.log('YouTube API ready');
-        }
+        window.addEventListener('load', () => {
+            // Auto-load YouTube video
+            loadYoutubeVideoAuto('https://www.youtube.com/watch?v=yRhp-kQfD5g');
+            // Auto-load JSON transcript
+            loadJsonFromPath('data/boya-transcript.json');
+        });
     </script>
 </body>
 </html>
