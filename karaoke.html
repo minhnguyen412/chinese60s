@@ -210,8 +210,8 @@
         }
 
         .sentence {
-            margin-bottom: 15px;
-            padding: 10px;
+            margin-bottom: 20px;
+            padding: 16px;
             background: #f0f8e0;
             border-radius: 8px;
             border-left: 3px solid #7cb83e;
@@ -231,64 +231,84 @@
         }
 
         .sentence-translation {
-            font-size: 11px;
-            color: #666;
-            margin-bottom: 8px;
-            line-height: 1.3;
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 12px;
+            line-height: 1.5;
+            font-weight: 500;
         }
 
         .character-line {
             display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .pinyin-row {
+            display: flex;
             flex-wrap: wrap;
-            gap: 4px;
+            gap: 6px;
+        }
+
+        .pinyin-item {
+            font-size: 0.75rem;
+            color: #999;
+            min-width: 28px;
+            text-align: center;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chinese-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
         }
 
         .char {
-            padding: 8px 10px;
-            background: #f0f0f0;
-            border-radius: 4px;
-            transition: all 0.1s;
+            padding: 0;
+            background: transparent;
+            border-radius: 0;
             cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 3px;
-            border: 1px solid #ddd;
-        }
-
-        .char .pinyin {
-            font-size: 11px;
-            color: #999;
-            line-height: 1;
-        }
-
-        .char .char-text {
-            font-size: 18px;
+            display: inline-block;
+            transition: all 0.15s;
+            border: none;
+            text-align: center;
             font-weight: 600;
+            font-size: 1.1rem;
             color: #333;
+            min-width: 28px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .char:hover {
+            color: #7cb83e;
+            text-shadow: 0 0 8px rgba(124, 184, 62, 0.3);
         }
 
         .char.active {
             background: #7cb83e;
-            color: #fff;
-            transform: scale(1.15);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            transform: scale(1.1);
             box-shadow: 0 2px 8px rgba(124, 184, 62, 0.6);
-            font-weight: 600;
-            border-color: #5a8f27;
-        }
-
-        .char.active .pinyin {
-            color: rgba(255,255,255,0.9);
         }
 
         .char.upcoming {
-            background: #e8e8e8;
-            opacity: 0.6;
+            opacity: 0.5;
+            color: #ccc;
         }
 
         .char.passed {
-            background: #d8d8d8;
             opacity: 0.8;
+            color: #888;
         }
 
         .meta-info {
@@ -652,22 +672,22 @@
 
                 <!-- Subtitle Selector (Desktop) -->
                 <div class="subtitle-selector" id="desktopSubtitleSelector" style="display: none; position: static; background: none; padding: 15px; border-top: 1px solid #333; margin: 0;">
-                    <span style="font-size: 12px; margin-right: 8px;">Phụ đề:</span>
+                    <span style="font-size: 12px; margin-right: 8px; color: #333; font-weight: 600;">Subtitles:</span>
                     <label>
                         <input type="radio" name="subtitle" value="none" onchange="changeSubtitle('none')">
-                        <span>Không</span>
+                        <span>None</span>
                     </label>
                     <label>
                         <input type="radio" name="subtitle" value="vietnamese" onchange="changeSubtitle('vietnamese')">
-                        <span>Tiếng Việt</span>
+                        <span>Vietnamese</span>
                     </label>
                     <label>
-                        <input type="radio" name="subtitle" value="english" onchange="changeSubtitle('english')">
+                        <input type="radio" name="subtitle" value="english" onchange="changeSubtitle('english')" checked>
                         <span>English</span>
                     </label>
                     <label>
-                        <input type="radio" name="subtitle" value="both" onchange="changeSubtitle('both')" checked>
-                        <span>Cả hai</span>
+                        <input type="radio" name="subtitle" value="both" onchange="changeSubtitle('both')">
+                        <span>Both</span>
                     </label>
                 </div>
             </div>
@@ -682,22 +702,22 @@
 
         <!-- Subtitle Selector (Mobile) -->
         <div class="subtitle-selector">
-            <span style="font-size: 12px; margin-right: 8px;">Phụ đề:</span>
+            <span style="font-size: 12px; margin-right: 8px; color: #333; font-weight: 600;">Subtitles:</span>
             <label>
                 <input type="radio" name="subtitle" value="none" onchange="changeSubtitle('none')">
-                <span>Không</span>
+                <span>None</span>
             </label>
             <label>
                 <input type="radio" name="subtitle" value="vietnamese" onchange="changeSubtitle('vietnamese')">
-                <span>Tiếng Việt</span>
+                <span>Vietnamese</span>
             </label>
             <label>
-                <input type="radio" name="subtitle" value="english" onchange="changeSubtitle('english')">
+                <input type="radio" name="subtitle" value="english" onchange="changeSubtitle('english')" checked>
                 <span>English</span>
             </label>
             <label>
-                <input type="radio" name="subtitle" value="both" onchange="changeSubtitle('both')" checked>
-                <span>Cả hai</span>
+                <input type="radio" name="subtitle" value="both" onchange="changeSubtitle('both')">
+                <span>Both</span>
             </label>
         </div>
 
@@ -733,7 +753,7 @@
         let updateInterval = null;
         let videoStartTime = 0;
         let videoPausedTime = 0;
-        let subtitleMode = 'both';
+        let subtitleMode = 'english';
 
         const transcriptArea = document.getElementById('transcriptArea');
         const timeDisplay = document.getElementById('timeDisplay');
@@ -894,17 +914,26 @@
                         
                         return `
                             <span class="char" data-sentence="${idx}" data-char="${charIdx}" onclick="showCharacterDetail('${charText}', event)">
-                                <span class="pinyin">${pinyin}</span>
-                                <span class="char-text">${charText}</span>
+                                ${charText}
                             </span>
                         `;
+                    })
+                    .join('');
+
+                const pinyinRow = sentence.characters
+                    .map((char) => {
+                        const pinyin = char.pinyin || '';
+                        return `<div class="pinyin-item">${pinyin}</div>`;
                     })
                     .join('');
 
                 html += `
                     <div class="sentence" data-index="${idx}" onclick="seekToSentence(${idx})">
                         ${translationHtml}
-                        <div class="character-line">${charGroupsHtml}</div>
+                        <div class="character-line">
+                            <div class="pinyin-row">${pinyinRow}</div>
+                            <div class="chinese-row">${charGroupsHtml}</div>
+                        </div>
                         <div class="meta-info">
                             ${formatTime(sentence.startTime)} - ${formatTime(sentence.endTime)} 
                             (${sentence.duration.toFixed(1)}s)
