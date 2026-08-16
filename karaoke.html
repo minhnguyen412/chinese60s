@@ -605,7 +605,7 @@
             }
 
             .sentence-translation {
-                font-size: 10px;
+                font-size: 13px;
             }
 
             .meta-info {
@@ -617,8 +617,8 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Learn Basic Chinese Conversations</h1>
-            <p>Animated and Easy! | Boya 1 (Part1)</p>
+            <h1>Animated and Easy! | Boya Textbook 1 (Part1)</h1>
+            <p>Learn Basic Chinese Conversations</p>
         </div>
 
         <div class="main-grid">
@@ -865,43 +865,43 @@
                 const translation = getSentenceTranslation(sentence.id);
                 
                 let translationHtml = '';
-                if (subtitleMode === 'vietnamese' && translation.vietnamese) {
-                    translationHtml = `<div class="sentence-translation">🇻🇳 ${translation.vietnamese}</div>`;
-                } else if (subtitleMode === 'english' && translation.english) {
-                    translationHtml = `<div class="sentence-translation">🇬🇧 ${translation.english}</div>`;
-                } else if (subtitleMode === 'both') {
-                    if (translation.vietnamese) {
-                        translationHtml = `<div class="sentence-translation">🇻🇳 ${translation.vietnamese}</div>`;
-                    }
-                    if (translation.english) {
-                        translationHtml += `<div class="sentence-translation">🇬🇧 ${translation.english}</div>`;
-                    }
-                }
+if (subtitleMode === 'vietnamese' && translation.vietnamese) {
+    translationHtml = `<div class="sentence-translation">🇻🇳 ${translation.vietnamese}</div>`;
+} else if (subtitleMode === 'english' && translation.english) {
+    translationHtml = `<div class="sentence-translation">🇬🇧 ${translation.english}</div>`;
+} else if (subtitleMode === 'both') {
+    if (translation.english) {
+        translationHtml = `<div class="sentence-translation">🇬🇧 ${translation.english}</div>`;
+    }
+    if (translation.vietnamese) {
+        translationHtml += `<div class="sentence-translation">🇻🇳 ${translation.vietnamese}</div>`;
+    }
+}
 
-                const charGroupsHtml = sentence.characters
-                    .map((char, charIdx) => {
-                        const charText = char.chars || char.char;
-                        const pinyin = char.pinyin || '';
-                        
-                        return `
-                            <span class="char" data-sentence="${idx}" data-char="${charIdx}" onclick="showCharacterDetail('${charText}', event)">
-                                <span class="pinyin">${pinyin}</span>
-                                <span class="char-text">${charText}</span>
-                            </span>
-                        `;
-                    })
-                    .join('');
+const charGroupsHtml = sentence.characters
+    .map((char, charIdx) => {
+        const charText = char.chars || char.char;
+        const pinyin = char.pinyin || '';
+        
+        return `
+            <span class="char" data-sentence="${idx}" data-char="${charIdx}" onclick="showCharacterDetail('${charText}', event)">
+                <span class="pinyin">${pinyin}</span>
+                <span class="char-text">${charText}</span>
+            </span>
+        `;
+    })
+    .join('');
 
-                html += `
-                    <div class="sentence" data-index="${idx}" onclick="seekToSentence(${idx})">
-                        ${translationHtml}
-                        <div class="character-line">${charGroupsHtml}</div>
-                        <div class="meta-info">
-                            ${formatTime(sentence.startTime)} - ${formatTime(sentence.endTime)} 
-                            (${sentence.duration.toFixed(1)}s)
-                        </div>
-                    </div>
-                `;
+html += `
+    <div class="sentence" data-index="${idx}" onclick="seekToSentence(${idx})">
+        <div class="character-line">${charGroupsHtml}</div>
+        ${translationHtml}
+        <div class="meta-info">
+            ${formatTime(sentence.startTime)} - ${formatTime(sentence.endTime)} 
+            (${sentence.duration.toFixed(1)}s)
+        </div>
+    </div>
+`;
             });
             transcriptArea.innerHTML = html;
         }
