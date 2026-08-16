@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karaoke Player - Like StudyPhim</title>
+    <title>Karaoke Player - YouTube</title>
     <style>
         * {
             margin: 0;
@@ -50,9 +50,11 @@
             border-radius: 12px;
             overflow: hidden;
             border: 1px solid #333;
+            display: flex;
+            flex-direction: column;
         }
 
-        .youtube-frame {
+        .video-player {
             width: 100%;
             height: 400px;
             background: #000;
@@ -222,22 +224,6 @@
             margin-top: 6px;
         }
 
-        /* Mobile responsive */
-        @media (max-width: 1024px) {
-            .main-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .youtube-frame {
-                height: 300px;
-            }
-
-            .transcript-section {
-                height: 400px;
-            }
-        }
-
-        /* Scrollbar styling */
         .transcript-area::-webkit-scrollbar {
             width: 6px;
         }
@@ -279,23 +265,39 @@
             color: #888;
             text-align: center;
             font-family: 'Courier New', monospace;
+            min-width: 120px;
+        }
+
+        @media (max-width: 1024px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .video-player {
+                height: 300px;
+            }
+
+            .transcript-section {
+                height: 400px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🎵 Karaoke Player</h1>
-            <p>Play YouTube video + Karaoke transcript sync (like StudyPhim)</p>
+            <h1>🎵 Karaoke Player - YouTube</h1>
+            <p>YouTube video + Perfect karaoke sync (Increases view count)</p>
         </div>
 
         <div class="main-grid">
             <!-- Video Player Section -->
             <div class="video-section">
-                <div id="youtube-container" class="youtube-frame">
+                <div class="video-player" id="videoPlayer">
                     <div class="loading">📺 YouTube video will appear here</div>
                 </div>
 
+                <!-- YouTube Link Input -->
                 <div class="player-controls">
                     <div class="input-group" style="flex: 1; min-width: 300px;">
                         <label>YouTube Link</label>
@@ -311,6 +313,7 @@
                     </div>
                 </div>
 
+                <!-- JSON Upload -->
                 <div class="player-controls">
                     <div class="input-group" style="flex: 1; min-width: 300px;">
                         <label>JSON Transcript File</label>
@@ -321,9 +324,10 @@
                     </div>
                 </div>
 
+                <!-- Controls -->
                 <div class="player-controls">
                     <div class="button-group">
-                        <button onclick="playPause()" id="playBtn">▶️ Play</button>
+                        <button onclick="togglePlayPause()" id="playBtn">▶️ Play</button>
                         <button onclick="stopVideo()" class="secondary">⏹️ Stop</button>
                         <button onclick="rewindVideo()" class="secondary">⏮️ -10s</button>
                         <button onclick="forwardVideo()" class="secondary">⏭️ +10s</button>
@@ -333,9 +337,10 @@
                     </div>
                 </div>
 
+                <!-- Status -->
                 <div style="padding: 15px; background: #1a1a1a; border-top: 1px solid #333;">
                     <div class="info-box" id="statusBox">
-                        ℹ️ Paste YouTube link → Load Video → Upload JSON → Play
+                        ℹ️ Paste YouTube link → Load Video → Upload JSON → Click Play
                     </div>
                 </div>
             </div>
@@ -352,19 +357,26 @@
         </div>
     </div>
 
+    <script src="https://www.youtube.com/iframe_api"></script>
     <script>
-        let player;
+        let player = null;
         let transcriptData = null;
         let currentSentenceIndex = -1;
         let currentCharIndex = -1;
-        let isPlaying = false;
         let updateInterval = null;
-        let currentVideoTime = 0;
+        let videoStartTime = 0;
+        let videoPausedTime = 0;
 
         const statusBox = document.getElementById('statusBox');
         const transcriptArea = document.getElementById('transcriptArea');
         const timeDisplay = document.getElementById('timeDisplay');
         const playBtn = document.getElementById('playBtn');
+        const videoPlayer = document.getElementById('videoPlayer');
+
+        // YouTube API ready
+        function onYouTubeIframeAPIReady() {
+            console.log('YouTube API ready');
+        }
 
         function extractYoutubeId(url) {
             let videoId = '';
@@ -389,105 +401,49 @@
             const videoId = extractYoutubeId(url);
 
             if (!videoId) {
-                statusBox.innerHTML = '❌ Invalid YouTube link. Try: https://www.youtube.com/watch?v=...';
+                statusBox.innerHTML = '❌ Invalid YouTube link';
                 return;
             }
 
-            const container = document.getElementById('youtube-container');
-            
-            // Use simple embed without JS API for better compatibility
-            container.innerHTML = `
-                <iframe 
-                    id="youtube-iframe"
-                    width="100%" 
-                    height="100%" 
-                    src="https://www.youtube.com/embed/${videoId}?modestbranding=1&rel=0" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen
-                    style="border-radius: 8px;">
-                </iframe>
+            // Create iframe with enablejsapi
+            videoPlayer.innerHTML = `
+                <div id="yt-player"></div>
             `;
 
-            statusBox.innerHTML = '✅ Video loaded! Now upload JSON transcript.';
-            player = createSimplePlayer();
-        }
-
-        // Create a simple player that tracks time without YouTube API
-        function createSimplePlayer() {
-            return {
-                iframe: null,
-                isPlaying: false,
-                startTime: null,
-                pauseTime: 0,
-                
-                init() {
-                    this.iframe = document.getElementById('youtube-iframe');
-                    return this;
-                },
-
-                play() {
-                    this.isPlaying = true;
-                    this.startTime = Date.now() / 1000 - this.pauseTime;
-                    playBtn.textContent = '⏸️ Pause';
-                    startSync();
-                },
-
-                pause() {
-                    this.isPlaying = false;
-                    this.pauseTime = (Date.now() / 1000) - this.startTime;
-                    playBtn.textContent = '▶️ Play';
-                    stopSync();
-                },
-
-                stop() {
-                    this.isPlaying = false;
-                    this.pauseTime = 0;
-                    this.startTime = null;
-                    playBtn.textContent = '▶️ Play';
-                    stopSync();
-                    updateTranscriptHighlight(0);
-                },
-
-                getCurrentTime() {
-                    if (this.isPlaying && this.startTime) {
-                        return (Date.now() / 1000) - this.startTime;
+            // Initialize player after short delay
+            setTimeout(() => {
+                player = new YT.Player('yt-player', {
+                    height: '400',
+                    width: '100%',
+                    videoId: videoId,
+                    events: {
+                        'onReady': onPlayerReady,
+                        'onStateChange': onPlayerStateChange
                     }
-                    return this.pauseTime;
-                },
+                });
+            }, 100);
 
-                getDuration() {
-                    return 600; // Placeholder
-                },
-
-                seekTo(seconds) {
-                    this.pauseTime = seconds;
-                    if (this.isPlaying) {
-                        this.startTime = Date.now() / 1000 - seconds;
-                    }
-                    updateTranscriptHighlight(seconds);
-                },
-
-                playVideo() {
-                    this.play();
-                },
-
-                pauseVideo() {
-                    this.pause();
-                },
-
-                stopVideo() {
-                    this.stop();
-                }
-            }.init();
+            statusBox.innerHTML = '✅ Video loaded! Upload JSON transcript now.';
         }
 
-        function onPlayerReady() {
-            statusBox.innerHTML = '✅ Player ready! Press Play to start.';
+        function onPlayerReady(event) {
+            console.log('Player ready');
+            statusBox.innerHTML = '✅ Player ready! Upload JSON & click Play.';
         }
 
-        function onPlayerStateChange() {
-            // Handle state changes
+        function onPlayerStateChange(event) {
+            if (event.data === YT.PlayerState.PLAYING) {
+                videoStartTime = player.getCurrentTime();
+                playBtn.textContent = '⏸️ Pause';
+                startSync();
+            } else if (event.data === YT.PlayerState.PAUSED) {
+                videoPausedTime = player.getCurrentTime();
+                playBtn.textContent = '▶️ Play';
+                stopSync();
+            } else if (event.data === YT.PlayerState.ENDED) {
+                playBtn.textContent = '▶️ Play';
+                stopSync();
+            }
         }
 
         function loadJsonFile(event) {
@@ -498,10 +454,24 @@
             reader.onload = function(e) {
                 try {
                     transcriptData = JSON.parse(e.target.result);
+                    
+                    // Validate
+                    if (!transcriptData.sentences || transcriptData.sentences.length === 0) {
+                        statusBox.innerHTML = '❌ JSON must have sentences array';
+                        return;
+                    }
+                    
+                    const firstChar = transcriptData.sentences[0].characters?.[0];
+                    if (!firstChar || (!firstChar.chars && !firstChar.char)) {
+                        statusBox.innerHTML = '❌ Characters must have "chars" field';
+                        return;
+                    }
+
                     renderTranscript();
-                    statusBox.innerHTML = `✅ Loaded ${transcriptData.sentences.length} sentences!`;
+                    statusBox.innerHTML = `✅ Loaded ${transcriptData.sentences.length} sentences! Ready to play.`;
                 } catch (error) {
-                    statusBox.innerHTML = '❌ Invalid JSON file: ' + error.message;
+                    statusBox.innerHTML = '❌ Invalid JSON: ' + error.message;
+                    console.error('JSON error:', error);
                 }
             };
             reader.readAsText(file);
@@ -515,16 +485,21 @@
 
             let html = '';
             transcriptData.sentences.forEach((sentence, idx) => {
+                const charGroupsHtml = sentence.characters
+                    .map((char, charIdx) => {
+                        const charText = char.chars || char.char;
+                        return `
+                            <span class="char" data-sentence="${idx}" data-char="${charIdx}">
+                                ${charText}
+                            </span>
+                        `;
+                    })
+                    .join('');
+
                 html += `
                     <div class="sentence" data-index="${idx}" onclick="seekToSentence(${idx})">
                         <div class="sentence-text">${sentence.text}</div>
-                        <div class="character-line">
-                            ${sentence.characters.map((charGroup, charIdx) => `
-                                <span class="char" data-sentence="${idx}" data-char="${charIdx}">
-                                    ${charGroup.chars}
-                                </span>
-                            `).join('')}
-                        </div>
+                        <div class="character-line">${charGroupsHtml}</div>
                         <div class="meta-info">
                             ${formatTime(sentence.startTime)} - ${formatTime(sentence.endTime)} 
                             (${sentence.duration.toFixed(1)}s)
@@ -537,7 +512,7 @@
 
         function formatTime(seconds) {
             const mins = Math.floor(seconds / 60);
-            const secs = (seconds % 60).toFixed(0).padStart(2, '0');
+            const secs = Math.floor(seconds % 60).toString().padStart(2, '0');
             return `${mins}:${secs}`;
         }
 
@@ -545,16 +520,19 @@
             if (updateInterval) clearInterval(updateInterval);
 
             updateInterval = setInterval(() => {
-                if (!player || !player.isPlaying || !transcriptData) return;
+                if (!player || !transcriptData) return;
 
                 try {
+                    const state = player.getPlayerState();
+                    if (state !== YT.PlayerState.PLAYING) return;
+
                     const currentTime = player.getCurrentTime();
                     updateTranscriptHighlight(currentTime);
                     updateTimeDisplay(currentTime);
                 } catch (e) {
                     console.error('Sync error:', e);
                 }
-            }, 50); // Update every 50ms for smooth karaoke effect
+            }, 50);
         }
 
         function stopSync() {
@@ -570,13 +548,11 @@
             let newSentenceIndex = -1;
             let newCharIndex = -1;
 
-            // Find current sentence
             for (let i = 0; i < transcriptData.sentences.length; i++) {
                 const sentence = transcriptData.sentences[i];
                 if (currentTime >= sentence.startTime && currentTime <= sentence.endTime) {
                     newSentenceIndex = i;
 
-                    // Find current character in sentence
                     for (let j = 0; j < sentence.characters.length; j++) {
                         const char = sentence.characters[j];
                         const charEndTime = char.startTime + char.duration;
@@ -589,19 +565,15 @@
                 }
             }
 
-            // Update UI if changed
             if (newSentenceIndex !== currentSentenceIndex) {
-                // Remove old highlight
                 document.querySelectorAll('.sentence.active').forEach(el => {
                     el.classList.remove('active');
                 });
 
-                // Add new highlight
                 if (newSentenceIndex >= 0) {
                     const sentenceEl = document.querySelector(`[data-index="${newSentenceIndex}"]`);
                     if (sentenceEl) {
                         sentenceEl.classList.add('active');
-                        // Auto scroll to active sentence
                         sentenceEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     }
                 }
@@ -609,7 +581,6 @@
                 currentSentenceIndex = newSentenceIndex;
             }
 
-            // Update character highlighting
             document.querySelectorAll('.char').forEach(el => {
                 const sentenceIdx = parseInt(el.dataset.sentence);
                 const charIdx = parseInt(el.dataset.char);
@@ -632,62 +603,86 @@
             currentCharIndex = newCharIndex;
         }
 
-        function updateTimeDisplay(currentTime) {
+        function updateTimeDisplay(currentTime = null) {
+            let time = currentTime || 0;
+            if (!currentTime && player) {
+                try {
+                    time = player.getCurrentTime();
+                } catch (e) {
+                    time = 0;
+                }
+            }
+
             let duration = 0;
             if (transcriptData && transcriptData.sentences.length > 0) {
                 const lastSentence = transcriptData.sentences[transcriptData.sentences.length - 1];
                 duration = lastSentence.endTime;
             }
-            timeDisplay.textContent = `${formatTime(currentTime)} / ${formatTime(duration)}`;
+            timeDisplay.textContent = `${formatTime(time)} / ${formatTime(duration)}`;
         }
 
-        function playPause() {
+        function togglePlayPause() {
             if (!player) {
                 statusBox.innerHTML = '❌ Load video first!';
                 return;
             }
 
-            if (player.isPlaying) {
-                player.pauseVideo();
-                isPlaying = false;
-            } else {
-                player.playVideo();
-                isPlaying = true;
+            try {
+                const state = player.getPlayerState();
+                if (state === YT.PlayerState.PLAYING) {
+                    player.pauseVideo();
+                } else {
+                    player.playVideo();
+                }
+            } catch (e) {
+                statusBox.innerHTML = '❌ Error: ' + e.message;
             }
         }
 
         function stopVideo() {
             if (!player) return;
-            player.stopVideo();
-            isPlaying = false;
+            try {
+                player.stopVideo();
+                updateTranscriptHighlight(0);
+                updateTimeDisplay(0);
+                playBtn.textContent = '▶️ Play';
+            } catch (e) {
+                console.error('Stop error:', e);
+            }
         }
 
         function rewindVideo() {
             if (!player) return;
-            const current = player.getCurrentTime();
-            player.seekTo(Math.max(0, current - 10));
-            updateTimeDisplay(Math.max(0, current - 10));
+            try {
+                const current = player.getCurrentTime();
+                player.seekTo(Math.max(0, current - 10));
+            } catch (e) {
+                console.error('Rewind error:', e);
+            }
         }
 
         function forwardVideo() {
             if (!player) return;
-            const current = player.getCurrentTime();
-            let maxTime = 600;
-            if (transcriptData && transcriptData.sentences.length > 0) {
-                maxTime = transcriptData.sentences[transcriptData.sentences.length - 1].endTime;
+            try {
+                const current = player.getCurrentTime();
+                const duration = player.getDuration();
+                player.seekTo(Math.min(duration, current + 10));
+            } catch (e) {
+                console.error('Forward error:', e);
             }
-            player.seekTo(Math.min(maxTime, current + 10));
-            updateTimeDisplay(Math.min(maxTime, current + 10));
         }
 
         function seekToSentence(index) {
             if (!transcriptData || !player) return;
-            const sentence = transcriptData.sentences[index];
-            player.seekTo(sentence.startTime);
-            player.playVideo();
+            try {
+                const sentence = transcriptData.sentences[index];
+                player.seekTo(sentence.startTime);
+                player.playVideo();
+            } catch (e) {
+                console.error('Seek error:', e);
+            }
         }
 
-        // Initialize on load
         window.addEventListener('load', () => {
             statusBox.innerHTML = '✅ Ready! Paste YouTube link & upload JSON file.';
         });
