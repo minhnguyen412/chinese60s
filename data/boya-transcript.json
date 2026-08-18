@@ -1,17 +1,43 @@
 {
   "metadata": {
-    "totalSentences": 34,
-    "totalDuration": 106.86,
-    "convertedAt": "2026-08-16T10:34:15.826Z",
+    "totalSentences": 99,
+    "totalDuration": 306.33,
+    "convertedAt": "2026-08-18T15:10:27.066Z",
     "hasPinyin": true
   },
   "sentences": [
     {
       "id": 1,
+      "startTime": 2.25,
+      "endTime": 3.38,
+      "duration": 1.13,
+      "text": "你好!",
+      "characters": [
+        {
+          "chars": "你",
+          "startTime": 2.25,
+          "duration": 0.2,
+          "pinyin": "nǐ"
+        },
+        {
+          "chars": "好",
+          "startTime": 2.45,
+          "duration": 0.36,
+          "pinyin": "hǎo"
+        },
+        {
+          "chars": "!",
+          "startTime": 2.81,
+          "duration": 0.46
+        }
+      ]
+    },
+    {
+      "id": 2,
       "startTime": 3.66,
-      "endTime": 6.42,
-      "duration": 2.76,
-      "text": "你好,你是老师吗?",
+      "endTime": 4.72,
+      "duration": 1.06,
+      "text": "你好!",
       "characters": [
         {
           "chars": "你",
@@ -26,53 +52,62 @@
           "pinyin": "hǎo"
         },
         {
-          "chars": ",",
+          "chars": "!",
           "startTime": 4.61,
           "duration": 0.25
-        },
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "startTime": 4.72,
+      "endTime": 6.77,
+      "duration": 2.05,
+      "text": "你是老师吗?",
+      "characters": [
         {
           "chars": "你",
-          "startTime": 4.86,
-          "duration": 0.3,
+          "startTime": 4.72,
+          "duration": 0.18,
           "pinyin": "nǐ"
         },
         {
           "chars": "是",
-          "startTime": 5.16,
+          "startTime": 4.9,
           "duration": 0.18,
           "pinyin": "shì"
         },
         {
           "chars": "老师",
-          "startTime": 5.34,
-          "duration": 0.46,
+          "startTime": 5.08,
+          "duration": 0.54,
           "pinyin": "lǎoshī"
         },
         {
           "chars": "吗",
-          "startTime": 5.8,
-          "duration": 0.13,
+          "startTime": 5.62,
+          "duration": 0.34,
           "pinyin": "ma"
         },
         {
           "chars": "?",
-          "startTime": 5.93,
-          "duration": 0.05
+          "startTime": 5.96,
+          "duration": 0.17
         }
       ]
     },
     {
-      "id": 2,
+      "id": 4,
       "startTime": 6.88,
-      "endTime": 12.55,
-      "duration": 5.67,
-      "text": "不是,我不是老师,我是学生,她是老师。",
+      "endTime": 10.82,
+      "duration": 3.94,
+      "text": "不是,我不是老师,我是学生。",
       "characters": [
         {
           "chars": "不",
           "startTime": 6.88,
           "duration": 0.24,
-          "pinyin": "bú"
+          "pinyin": "bù"
         },
         {
           "chars": "是",
@@ -95,7 +130,7 @@
           "chars": "不",
           "startTime": 7.98,
           "duration": 0.12,
-          "pinyin": "bú"
+          "pinyin": "bù"
         },
         {
           "chars": "是",
@@ -117,53 +152,62 @@
         {
           "chars": "我",
           "startTime": 9.32,
-          "duration": 0.36,
+          "duration": 0.2,
           "pinyin": "wǒ"
         },
         {
           "chars": "是",
-          "startTime": 9.68,
-          "duration": 0.2,
+          "startTime": 9.52,
+          "duration": 0.22,
           "pinyin": "shì"
         },
         {
           "chars": "学生",
-          "startTime": 9.88,
-          "duration": 0.84,
+          "startTime": 9.74,
+          "duration": 0.5,
           "pinyin": "xuésheng"
         },
         {
-          "chars": ",",
-          "startTime": 10.72,
-          "duration": 0.22
-        },
+          "chars": "。",
+          "startTime": 10.24,
+          "duration": 0.18
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "startTime": 10.82,
+      "endTime": 12.55,
+      "duration": 1.73,
+      "text": "她是老师。",
+      "characters": [
         {
           "chars": "她",
-          "startTime": 10.94,
-          "duration": 0.34,
+          "startTime": 10.82,
+          "duration": 0.26,
           "pinyin": "tā"
         },
         {
           "chars": "是",
-          "startTime": 11.28,
+          "startTime": 11.08,
           "duration": 0.26,
           "pinyin": "shì"
         },
         {
           "chars": "老师",
-          "startTime": 11.54,
+          "startTime": 11.34,
           "duration": 0.42,
           "pinyin": "lǎoshī"
         },
         {
           "chars": "。",
-          "startTime": 11.96,
-          "duration": 0.19
+          "startTime": 11.76,
+          "duration": 0.21
         }
       ]
     },
     {
-      "id": 3,
+      "id": 6,
       "startTime": 12.9,
       "endTime": 13.85,
       "duration": 0.95,
@@ -183,16 +227,23 @@
       ]
     },
     {
-      "id": 4,
+      "id": 7,
       "startTime": 13.86,
       "endTime": 15.43,
       "duration": 1.57,
       "text": "不客气。",
       "characters": [
         {
-          "chars": "不客气",
+          "chars": "不",
           "startTime": 13.86,
-          "duration": 0.94
+          "duration": 0.31,
+          "pinyin": "bù"
+        },
+        {
+          "chars": "客气",
+          "startTime": 14.17,
+          "duration": 0.63,
+          "pinyin": "kèqi"
         },
         {
           "chars": "。",
@@ -202,11 +253,11 @@
       ]
     },
     {
-      "id": 5,
+      "id": 8,
       "startTime": 16.17,
       "endTime": 18,
       "duration": 1.83,
-      "text": "老师,你好。",
+      "text": "老师,你好!",
       "characters": [
         {
           "chars": "老师",
@@ -232,14 +283,14 @@
           "pinyin": "hǎo"
         },
         {
-          "chars": "。",
+          "chars": "!",
           "startTime": 17.69,
           "duration": 0.1
         }
       ]
     },
     {
-      "id": 6,
+      "id": 9,
       "startTime": 18.51,
       "endTime": 21.56,
       "duration": 3.05,
@@ -294,7 +345,7 @@
       ]
     },
     {
-      "id": 7,
+      "id": 10,
       "startTime": 21.75,
       "endTime": 24.34,
       "duration": 2.59,
@@ -337,7 +388,7 @@
       ]
     },
     {
-      "id": 8,
+      "id": 11,
       "startTime": 24.79,
       "endTime": 26.52,
       "duration": 1.73,
@@ -375,7 +426,7 @@
       ]
     },
     {
-      "id": 9,
+      "id": 12,
       "startTime": 26.85,
       "endTime": 28.24,
       "duration": 1.39,
@@ -406,7 +457,7 @@
       ]
     },
     {
-      "id": 10,
+      "id": 13,
       "startTime": 30.92,
       "endTime": 32.12,
       "duration": 1.2,
@@ -438,7 +489,7 @@
       ]
     },
     {
-      "id": 11,
+      "id": 14,
       "startTime": 32.38,
       "endTime": 33.78,
       "duration": 1.4,
@@ -464,7 +515,7 @@
       ]
     },
     {
-      "id": 12,
+      "id": 15,
       "startTime": 33.78,
       "endTime": 35.57,
       "duration": 1.79,
@@ -502,7 +553,7 @@
       ]
     },
     {
-      "id": 13,
+      "id": 16,
       "startTime": 35.95,
       "endTime": 40.11,
       "duration": 4.16,
@@ -578,7 +629,7 @@
       ]
     },
     {
-      "id": 14,
+      "id": 17,
       "startTime": 40.38,
       "endTime": 42.18,
       "duration": 1.8,
@@ -616,7 +667,7 @@
       ]
     },
     {
-      "id": 15,
+      "id": 18,
       "startTime": 42.18,
       "endTime": 43.81,
       "duration": 1.63,
@@ -647,7 +698,7 @@
       ]
     },
     {
-      "id": 16,
+      "id": 19,
       "startTime": 44.14,
       "endTime": 45.9,
       "duration": 1.76,
@@ -691,7 +742,7 @@
       ]
     },
     {
-      "id": 17,
+      "id": 20,
       "startTime": 46.15,
       "endTime": 47.35,
       "duration": 1.2,
@@ -710,35 +761,30 @@
           "pinyin": "shì"
         },
         {
-          "chars": "美",
+          "chars": "美国",
           "startTime": 46.53,
-          "duration": 0.2
-        },
-        {
-          "chars": "国",
-          "startTime": 46.73,
-          "duration": 0.18,
-          "pinyin": "guó"
+          "duration": 0.36,
+          "pinyin": "měiguó"
         },
         {
           "chars": "人",
-          "startTime": 46.91,
+          "startTime": 46.89,
           "duration": 0.24,
           "pinyin": "rén"
         },
         {
           "chars": "。",
-          "startTime": 47.15,
-          "duration": 0.13
+          "startTime": 47.13,
+          "duration": 0.15
         }
       ]
     },
     {
-      "id": 18,
+      "id": 21,
       "startTime": 47.35,
       "endTime": 53.01,
       "duration": 5.66,
-      "text": "我来介绍一下,她叫玛丽,他叫李军。",
+      "text": "我来介绍一下儿,她叫玛丽,他叫李军。",
       "characters": [
         {
           "chars": "我",
@@ -759,9 +805,10 @@
           "pinyin": "jièshào"
         },
         {
-          "chars": "一下",
+          "chars": "一下儿",
           "startTime": 48.14,
-          "duration": 0.89
+          "duration": 0.89,
+          "pinyin": "yíxiàr"
         },
         {
           "chars": ",",
@@ -815,7 +862,7 @@
       ]
     },
     {
-      "id": 19,
+      "id": 22,
       "startTime": 53.32,
       "endTime": 55.55,
       "duration": 2.23,
@@ -852,7 +899,7 @@
       ]
     },
     {
-      "id": 20,
+      "id": 23,
       "startTime": 55.76,
       "endTime": 59.43,
       "duration": 3.67,
@@ -925,7 +972,7 @@
       ]
     },
     {
-      "id": 21,
+      "id": 24,
       "startTime": 59.58,
       "endTime": 66.35,
       "duration": 6.77,
@@ -1025,7 +1072,7 @@
       ]
     },
     {
-      "id": 22,
+      "id": 25,
       "startTime": 67.1,
       "endTime": 68.99,
       "duration": 1.89,
@@ -1063,7 +1110,7 @@
       ]
     },
     {
-      "id": 23,
+      "id": 26,
       "startTime": 71.27,
       "endTime": 75.9,
       "duration": 4.63,
@@ -1152,7 +1199,7 @@
       ]
     },
     {
-      "id": 24,
+      "id": 27,
       "startTime": 75.95,
       "endTime": 78.92,
       "duration": 2.97,
@@ -1219,7 +1266,7 @@
       ]
     },
     {
-      "id": 25,
+      "id": 28,
       "startTime": 79.03,
       "endTime": 81.2,
       "duration": 2.17,
@@ -1256,7 +1303,7 @@
       ]
     },
     {
-      "id": 26,
+      "id": 29,
       "startTime": 81.79,
       "endTime": 84.82,
       "duration": 3.03,
@@ -1304,7 +1351,7 @@
       ]
     },
     {
-      "id": 27,
+      "id": 30,
       "startTime": 85.13,
       "endTime": 86.76,
       "duration": 1.63,
@@ -1330,7 +1377,7 @@
       ]
     },
     {
-      "id": 28,
+      "id": 31,
       "startTime": 87.33,
       "endTime": 91.94,
       "duration": 4.61,
@@ -1390,7 +1437,7 @@
       ]
     },
     {
-      "id": 29,
+      "id": 32,
       "startTime": 92.07,
       "endTime": 94.02,
       "duration": 1.95,
@@ -1428,7 +1475,7 @@
       ]
     },
     {
-      "id": 30,
+      "id": 33,
       "startTime": 94.29,
       "endTime": 95.96,
       "duration": 1.67,
@@ -1454,7 +1501,7 @@
       ]
     },
     {
-      "id": 31,
+      "id": 34,
       "startTime": 96.18,
       "endTime": 98.34,
       "duration": 2.16,
@@ -1497,7 +1544,7 @@
       ]
     },
     {
-      "id": 32,
+      "id": 35,
       "startTime": 98.67,
       "endTime": 101.44,
       "duration": 2.77,
@@ -1552,7 +1599,7 @@
       ]
     },
     {
-      "id": 33,
+      "id": 36,
       "startTime": 101.65,
       "endTime": 103.48,
       "duration": 1.83,
@@ -1596,7 +1643,7 @@
       ]
     },
     {
-      "id": 34,
+      "id": 37,
       "startTime": 103.85,
       "endTime": 106.86,
       "duration": 3.01,
@@ -1653,6 +1700,3244 @@
           "chars": "。",
           "startTime": 106.41,
           "duration": 0.16
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "startTime": 109.1,
+      "endTime": 112.55,
+      "duration": 3.45,
+      "text": "同学,请问,图书馆在哪儿?",
+      "characters": [
+        {
+          "chars": "同学",
+          "startTime": 109.1,
+          "duration": 0.72,
+          "pinyin": "tóngxué"
+        },
+        {
+          "chars": ",",
+          "startTime": 109.82,
+          "duration": 0.2
+        },
+        {
+          "chars": "请问",
+          "startTime": 110.02,
+          "duration": 0.74,
+          "pinyin": "qǐngwèn"
+        },
+        {
+          "chars": ",",
+          "startTime": 110.76,
+          "duration": 0.24
+        },
+        {
+          "chars": "图书馆",
+          "startTime": 111,
+          "duration": 0.6,
+          "pinyin": "túshūguǎn"
+        },
+        {
+          "chars": "在",
+          "startTime": 111.6,
+          "duration": 0.18,
+          "pinyin": "zài"
+        },
+        {
+          "chars": "哪儿",
+          "startTime": 111.78,
+          "duration": 0.32,
+          "pinyin": "nǎr"
+        },
+        {
+          "chars": "?",
+          "startTime": 112.1,
+          "duration": 0.11
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "startTime": 112.58,
+      "endTime": 117.58,
+      "duration": 5,
+      "text": "对不起,我不是这个学校的学生,不知道。",
+      "characters": [
+        {
+          "chars": "对不起",
+          "startTime": 112.58,
+          "duration": 0.92,
+          "pinyin": "duì bu qǐ"
+        },
+        {
+          "chars": ",",
+          "startTime": 113.5,
+          "duration": 0.2
+        },
+        {
+          "chars": "我",
+          "startTime": 113.7,
+          "duration": 0.22,
+          "pinyin": "wǒ"
+        },
+        {
+          "chars": "不",
+          "startTime": 113.92,
+          "duration": 0.16,
+          "pinyin": "bù"
+        },
+        {
+          "chars": "是",
+          "startTime": 114.08,
+          "duration": 0.18,
+          "pinyin": "shì"
+        },
+        {
+          "chars": "这",
+          "startTime": 114.26,
+          "duration": 0.22,
+          "pinyin": "zhè"
+        },
+        {
+          "chars": "个",
+          "startTime": 114.48,
+          "duration": 0.14,
+          "pinyin": "gè"
+        },
+        {
+          "chars": "学校",
+          "startTime": 114.62,
+          "duration": 0.54,
+          "pinyin": "xuéxiào"
+        },
+        {
+          "chars": "的",
+          "startTime": 115.16,
+          "duration": 0.16,
+          "pinyin": "de"
+        },
+        {
+          "chars": "学生",
+          "startTime": 115.32,
+          "duration": 0.7,
+          "pinyin": "xuésheng"
+        },
+        {
+          "chars": ",",
+          "startTime": 116.02,
+          "duration": 0.28
+        },
+        {
+          "chars": "不",
+          "startTime": 116.3,
+          "duration": 0.22,
+          "pinyin": "bù"
+        },
+        {
+          "chars": "知道",
+          "startTime": 116.52,
+          "duration": 0.58,
+          "pinyin": "zhīdào"
+        },
+        {
+          "chars": "。",
+          "startTime": 117.1,
+          "duration": 0.16
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "startTime": 117.88,
+      "endTime": 119.17,
+      "duration": 1.29,
+      "text": "没关系。",
+      "characters": [
+        {
+          "chars": "没关系",
+          "startTime": 117.88,
+          "duration": 0.96,
+          "pinyin": "méi guānxi"
+        },
+        {
+          "chars": "。",
+          "startTime": 118.84,
+          "duration": 0.19
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "startTime": 119.6,
+      "endTime": 122.19,
+      "duration": 2.59,
+      "text": "同学,这儿是图书馆吗?",
+      "characters": [
+        {
+          "chars": "同学",
+          "startTime": 119.6,
+          "duration": 0.82,
+          "pinyin": "tóngxué"
+        },
+        {
+          "chars": ",",
+          "startTime": 120.42,
+          "duration": 0.2
+        },
+        {
+          "chars": "这儿",
+          "startTime": 120.62,
+          "duration": 0.22,
+          "pinyin": "zhèr"
+        },
+        {
+          "chars": "是",
+          "startTime": 120.84,
+          "duration": 0.2,
+          "pinyin": "shì"
+        },
+        {
+          "chars": "图书馆",
+          "startTime": 121.04,
+          "duration": 0.62,
+          "pinyin": "túshūguǎn"
+        },
+        {
+          "chars": "吗",
+          "startTime": 121.66,
+          "duration": 0.24,
+          "pinyin": "ma"
+        },
+        {
+          "chars": "?",
+          "startTime": 121.9,
+          "duration": 0.17
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "startTime": 122.26,
+      "endTime": 127.51,
+      "duration": 5.25,
+      "text": "不是,这是教学楼,图书馆在那儿,宿舍楼的北边。",
+      "characters": [
+        {
+          "chars": "不",
+          "startTime": 122.26,
+          "duration": 0.26,
+          "pinyin": "bù"
+        },
+        {
+          "chars": "是",
+          "startTime": 122.52,
+          "duration": 0.32,
+          "pinyin": "shì"
+        },
+        {
+          "chars": ",",
+          "startTime": 122.84,
+          "duration": 0.22
+        },
+        {
+          "chars": "这",
+          "startTime": 123.06,
+          "duration": 0.16,
+          "pinyin": "zhè"
+        },
+        {
+          "chars": "是",
+          "startTime": 123.22,
+          "duration": 0.16,
+          "pinyin": "shì"
+        },
+        {
+          "chars": "教学",
+          "startTime": 123.38,
+          "duration": 0.46
+        },
+        {
+          "chars": "楼",
+          "startTime": 123.84,
+          "duration": 0.42,
+          "pinyin": "lóu"
+        },
+        {
+          "chars": ",",
+          "startTime": 124.26,
+          "duration": 0.28
+        },
+        {
+          "chars": "图书馆",
+          "startTime": 124.54,
+          "duration": 0.68,
+          "pinyin": "túshūguǎn"
+        },
+        {
+          "chars": "在",
+          "startTime": 125.22,
+          "duration": 0.2,
+          "pinyin": "zài"
+        },
+        {
+          "chars": "那儿",
+          "startTime": 125.42,
+          "duration": 0.22,
+          "pinyin": "nàr"
+        },
+        {
+          "chars": ",",
+          "startTime": 125.64,
+          "duration": 0.22
+        },
+        {
+          "chars": "宿舍",
+          "startTime": 125.86,
+          "duration": 0.38,
+          "pinyin": "sùshè"
+        },
+        {
+          "chars": "楼",
+          "startTime": 126.24,
+          "duration": 0.2,
+          "pinyin": "lóu"
+        },
+        {
+          "chars": "的",
+          "startTime": 126.44,
+          "duration": 0.08,
+          "pinyin": "de"
+        },
+        {
+          "chars": "北边",
+          "startTime": 126.52,
+          "duration": 0.58,
+          "pinyin": "běi bian"
+        },
+        {
+          "chars": "。",
+          "startTime": 127.1,
+          "duration": 0.17
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "startTime": 127.62,
+      "endTime": 129.65,
+      "duration": 2.03,
+      "text": "是左边的楼吗?",
+      "characters": [
+        {
+          "chars": "是",
+          "startTime": 127.62,
+          "duration": 0.38,
+          "pinyin": "shì"
+        },
+        {
+          "chars": "左边",
+          "startTime": 128,
+          "duration": 0.46,
+          "pinyin": "zuǒ bian"
+        },
+        {
+          "chars": "的",
+          "startTime": 128.46,
+          "duration": 0.16,
+          "pinyin": "de"
+        },
+        {
+          "chars": "楼",
+          "startTime": 128.62,
+          "duration": 0.26,
+          "pinyin": "lóu"
+        },
+        {
+          "chars": "吗",
+          "startTime": 128.88,
+          "duration": 0.28,
+          "pinyin": "ma"
+        },
+        {
+          "chars": "?",
+          "startTime": 129.16,
+          "duration": 0.13
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "startTime": 129.92,
+      "endTime": 132.21,
+      "duration": 2.29,
+      "text": "不,是右边的楼。",
+      "characters": [
+        {
+          "chars": "不",
+          "startTime": 129.92,
+          "duration": 0.34,
+          "pinyin": "bù"
+        },
+        {
+          "chars": ",",
+          "startTime": 130.26,
+          "duration": 0.24
+        },
+        {
+          "chars": "是",
+          "startTime": 130.5,
+          "duration": 0.26,
+          "pinyin": "shì"
+        },
+        {
+          "chars": "右边",
+          "startTime": 130.76,
+          "duration": 0.5,
+          "pinyin": "yòu bian"
+        },
+        {
+          "chars": "的",
+          "startTime": 131.26,
+          "duration": 0.16,
+          "pinyin": "de"
+        },
+        {
+          "chars": "楼",
+          "startTime": 131.42,
+          "duration": 0.26,
+          "pinyin": "lóu"
+        },
+        {
+          "chars": "。",
+          "startTime": 131.68,
+          "duration": 0.23
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "startTime": 132.58,
+      "endTime": 133.84,
+      "duration": 1.26,
+      "text": "谢谢。",
+      "characters": [
+        {
+          "chars": "谢谢",
+          "startTime": 132.58,
+          "duration": 0.84,
+          "pinyin": "xièxie"
+        },
+        {
+          "chars": "。",
+          "startTime": 133.42,
+          "duration": 0.28
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "startTime": 134.1,
+      "endTime": 135.35,
+      "duration": 1.25,
+      "text": "不用谢。",
+      "characters": [
+        {
+          "chars": "不用",
+          "startTime": 134.1,
+          "duration": 0.34,
+          "pinyin": "búyòng"
+        },
+        {
+          "chars": "谢",
+          "startTime": 134.44,
+          "duration": 0.46
+        },
+        {
+          "chars": "。",
+          "startTime": 134.9,
+          "duration": 0.13
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "startTime": 137.91,
+      "endTime": 140.98,
+      "duration": 3.07,
+      "text": "你好,你叫什么名字?",
+      "characters": [
+        {
+          "chars": "你好",
+          "startTime": 137.91,
+          "duration": 0.76,
+          "pinyin": "nǐ hǎo"
+        },
+        {
+          "chars": ",",
+          "startTime": 138.67,
+          "duration": 0.64
+        },
+        {
+          "chars": "你",
+          "startTime": 139.31,
+          "duration": 0.2,
+          "pinyin": "nǐ"
+        },
+        {
+          "chars": "叫",
+          "startTime": 139.51,
+          "duration": 0.26,
+          "pinyin": "jiào"
+        },
+        {
+          "chars": "什么",
+          "startTime": 139.77,
+          "duration": 0.28,
+          "pinyin": "shénme"
+        },
+        {
+          "chars": "名字",
+          "startTime": 140.05,
+          "duration": 0.66,
+          "pinyin": "míngzi"
+        },
+        {
+          "chars": "?",
+          "startTime": 140.71,
+          "duration": 0.22
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "startTime": 141.12,
+      "endTime": 143.84,
+      "duration": 2.72,
+      "text": "我叫张红,你呢?",
+      "characters": [
+        {
+          "chars": "我",
+          "startTime": 141.12,
+          "duration": 0.24,
+          "pinyin": "wǒ"
+        },
+        {
+          "chars": "叫",
+          "startTime": 141.36,
+          "duration": 0.14,
+          "pinyin": "jiào"
+        },
+        {
+          "chars": "张红",
+          "startTime": 141.5,
+          "duration": 0.84
+        },
+        {
+          "chars": ",",
+          "startTime": 142.34,
+          "duration": 0.54
+        },
+        {
+          "chars": "你",
+          "startTime": 142.88,
+          "duration": 0.28,
+          "pinyin": "nǐ"
+        },
+        {
+          "chars": "呢",
+          "startTime": 143.16,
+          "duration": 0.3,
+          "pinyin": "ne"
+        },
+        {
+          "chars": "?",
+          "startTime": 143.46,
+          "duration": 0.18
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "startTime": 144.07,
+      "endTime": 148.78,
+      "duration": 4.71,
+      "text": "我叫玛丽。我是北京大学的留学生。",
+      "characters": [
+        {
+          "chars": "我",
+          "startTime": 144.07,
+          "duration": 0.26,
+          "pinyin": "wǒ"
+        },
+        {
+          "chars": "叫",
+          "startTime": 144.33,
+          "duration": 0.28,
+          "pinyin": "jiào"
+        },
+        {
+          "chars": "玛丽",
+          "startTime": 144.61,
+          "duration": 0.68
+        },
+        {
+          "chars": "。",
+          "startTime": 145.29,
+          "duration": 0.7
+        },
+        {
+          "chars": "我",
+          "startTime": 145.99,
+          "duration": 0.16,
+          "pinyin": "wǒ"
+        },
+        {
+          "chars": "是",
+          "startTime": 146.15,
+          "duration": 0.2,
+          "pinyin": "shì"
+        },
+        {
+          "chars": "北京",
+          "startTime": 146.35,
+          "duration": 0.42
+        },
+        {
+          "chars": "大学",
+          "startTime": 146.77,
+          "duration": 0.5,
+          "pinyin": "dàxué"
+        },
+        {
+          "chars": "的",
+          "startTime": 147.27,
+          "duration": 0.14,
+          "pinyin": "de"
+        },
+        {
+          "chars": "留学生",
+          "startTime": 147.41,
+          "duration": 0.92,
+          "pinyin": "liúxuéshēng"
+        },
+        {
+          "chars": "。",
+          "startTime": 148.33,
+          "duration": 0.14
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "startTime": 149.12,
+      "endTime": 153.06,
+      "duration": 3.94,
+      "text": "我的专业是国际关系,你呢?",
+      "characters": [
+        {
+          "chars": "我",
+          "startTime": 149.12,
+          "duration": 0.18,
+          "pinyin": "wǒ"
+        },
+        {
+          "chars": "的",
+          "startTime": 149.3,
+          "duration": 0.14,
+          "pinyin": "de"
+        },
+        {
+          "chars": "专业",
+          "startTime": 149.44,
+          "duration": 0.6
+        },
+        {
+          "chars": "是",
+          "startTime": 150.04,
+          "duration": 0.24,
+          "pinyin": "shì"
+        },
+        {
+          "chars": "国际",
+          "startTime": 150.28,
+          "duration": 0.48
+        },
+        {
+          "chars": "关系",
+          "startTime": 150.76,
+          "duration": 0.66
+        },
+        {
+          "chars": ",",
+          "startTime": 151.42,
+          "duration": 0.67
+        },
+        {
+          "chars": "你",
+          "startTime": 152.09,
+          "duration": 0.34,
+          "pinyin": "nǐ"
+        },
+        {
+          "chars": "呢",
+          "startTime": 152.43,
+          "duration": 0.34,
+          "pinyin": "ne"
+        },
+        {
+          "chars": "?",
+          "startTime": 152.77,
+          "duration": 0.11
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "startTime": 153.39,
+      "endTime": 156.88,
+      "duration": 3.49,
+      "text": "我是清华大学中文系的研究生。",
+      "characters": [
+        {
+          "chars": "我",
+          "startTime": 153.39,
+          "duration": 0.22,
+          "pinyin": "wǒ"
+        },
+        {
+          "chars": "是",
+          "startTime": 153.61,
+          "duration": 0.2,
+          "pinyin": "shì"
+        },
+        {
+          "chars": "清华",
+          "startTime": 153.81,
+          "duration": 0.46
+        },
+        {
+          "chars": "大学",
+          "startTime": 154.27,
+          "duration": 0.52,
+          "pinyin": "dàxué"
+        },
+        {
+          "chars": "中文",
+          "startTime": 154.79,
+          "duration": 0.44,
+          "pinyin": "zhōngwén"
+        },
+        {
+          "chars": "系",
+          "startTime": 155.23,
+          "duration": 0.24
+        },
+        {
+          "chars": "的",
+          "startTime": 155.47,
+          "duration": 0.18,
+          "pinyin": "de"
+        },
+        {
+          "chars": "研究生",
+          "startTime": 155.65,
+          "duration": 0.78
+        },
+        {
+          "chars": "。",
+          "startTime": 156.43,
+          "duration": 0.14
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "startTime": 156.88,
+      "endTime": 159.86,
+      "duration": 2.98,
+      "text": "我的专业是现代文学。",
+      "characters": [
+        {
+          "chars": "我",
+          "startTime": 156.88,
+          "duration": 0.16,
+          "pinyin": "wǒ"
+        },
+        {
+          "chars": "的",
+          "startTime": 157.04,
+          "duration": 0.18,
+          "pinyin": "de"
+        },
+        {
+          "chars": "专业",
+          "startTime": 157.22,
+          "duration": 0.48
+        },
+        {
+          "chars": "是",
+          "startTime": 157.7,
+          "duration": 0.18,
+          "pinyin": "shì"
+        },
+        {
+          "chars": "现代",
+          "startTime": 157.88,
+          "duration": 0.56
+        },
+        {
+          "chars": "文学",
+          "startTime": 158.44,
+          "duration": 0.66
+        },
+        {
+          "chars": "。",
+          "startTime": 159.1,
+          "duration": 0.18
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "startTime": 159.89,
+      "endTime": 162.06,
+      "duration": 2.17,
+      "text": "清华大学在哪儿?",
+      "characters": [
+        {
+          "chars": "清华",
+          "startTime": 159.89,
+          "duration": 0.62
+        },
+        {
+          "chars": "大学",
+          "startTime": 160.51,
+          "duration": 0.48,
+          "pinyin": "dàxué"
+        },
+        {
+          "chars": "在",
+          "startTime": 160.99,
+          "duration": 0.22,
+          "pinyin": "zài"
+        },
+        {
+          "chars": "哪儿",
+          "startTime": 161.21,
+          "duration": 0.42,
+          "pinyin": "nǎr"
+        },
+        {
+          "chars": "?",
+          "startTime": 161.63,
+          "duration": 0.1
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "startTime": 162.32,
+      "endTime": 164.68,
+      "duration": 2.36,
+      "text": "在北京大学的东边。",
+      "characters": [
+        {
+          "chars": "在",
+          "startTime": 162.32,
+          "duration": 0.3,
+          "pinyin": "zài"
+        },
+        {
+          "chars": "北京",
+          "startTime": 162.62,
+          "duration": 0.48
+        },
+        {
+          "chars": "大学",
+          "startTime": 163.1,
+          "duration": 0.38,
+          "pinyin": "dàxué"
+        },
+        {
+          "chars": "的",
+          "startTime": 163.48,
+          "duration": 0.18,
+          "pinyin": "de"
+        },
+        {
+          "chars": "东边",
+          "startTime": 163.66,
+          "duration": 0.52,
+          "pinyin": "dōng bian"
+        },
+        {
+          "chars": "。",
+          "startTime": 164.18,
+          "duration": 0.26
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "startTime": 164.95,
+      "endTime": 168.18,
+      "duration": 3.23,
+      "text": "有空儿的时候，欢迎你去玩儿。",
+      "characters": [
+        {
+          "chars": "有",
+          "startTime": 164.95,
+          "duration": 0.28,
+          "pinyin": "yǒu"
+        },
+        {
+          "chars": "空儿",
+          "startTime": 165.23,
+          "duration": 0.34
+        },
+        {
+          "chars": "的",
+          "startTime": 165.57,
+          "duration": 0.14,
+          "pinyin": "de"
+        },
+        {
+          "chars": "时候",
+          "startTime": 165.71,
+          "duration": 0.45,
+          "pinyin": "shíhou"
+        },
+        {
+          "chars": "，",
+          "startTime": 166.16,
+          "duration": 0.23
+        },
+        {
+          "chars": "欢迎",
+          "startTime": 166.39,
+          "duration": 0.46,
+          "pinyin": "huānyíng"
+        },
+        {
+          "chars": "你",
+          "startTime": 166.85,
+          "duration": 0.23,
+          "pinyin": "nǐ"
+        },
+        {
+          "chars": "去",
+          "startTime": 167.08,
+          "duration": 0.23,
+          "pinyin": "qù"
+        },
+        {
+          "chars": "玩儿",
+          "startTime": 167.31,
+          "duration": 0.47
+        },
+        {
+          "chars": "。",
+          "startTime": 167.78,
+          "duration": 0.23
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "startTime": 168.55,
+      "endTime": 171.6,
+      "duration": 3.05,
+      "text": "请问，卫生间在哪儿？",
+      "characters": [
+        {
+          "chars": "请问",
+          "startTime": 168.55,
+          "duration": 0.82,
+          "pinyin": "qǐngwèn"
+        },
+        {
+          "chars": "，",
+          "startTime": 169.37,
+          "duration": 0.4
+        },
+        {
+          "chars": "卫生间",
+          "startTime": 169.77,
+          "duration": 0.78
+        },
+        {
+          "chars": "在",
+          "startTime": 170.55,
+          "duration": 0.2,
+          "pinyin": "zài"
+        },
+        {
+          "chars": "哪儿",
+          "startTime": 170.75,
+          "duration": 0.36,
+          "pinyin": "nǎr"
+        },
+        {
+          "chars": "？",
+          "startTime": 171.11,
+          "duration": 0.16
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "startTime": 171.62,
+      "endTime": 174.12,
+      "duration": 2.5,
+      "text": "在那儿，教室的旁边。",
+      "characters": [
+        {
+          "chars": "在",
+          "startTime": 171.62,
+          "duration": 0.26,
+          "pinyin": "zài"
+        },
+        {
+          "chars": "那儿",
+          "startTime": 171.88,
+          "duration": 0.28,
+          "pinyin": "nàr"
+        },
+        {
+          "chars": "，",
+          "startTime": 172.16,
+          "duration": 0.24
+        },
+        {
+          "chars": "教室",
+          "startTime": 172.4,
+          "duration": 0.42,
+          "pinyin": "jiào shì"
+        },
+        {
+          "chars": "的",
+          "startTime": 172.82,
+          "duration": 0.2,
+          "pinyin": "de"
+        },
+        {
+          "chars": "旁边",
+          "startTime": 173.02,
+          "duration": 0.46,
+          "pinyin": "páng biān"
+        },
+        {
+          "chars": "。",
+          "startTime": 173.48,
+          "duration": 0.24
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "startTime": 174.35,
+      "endTime": 176.42,
+      "duration": 2.07,
+      "text": "是西边的教室吗?",
+      "characters": [
+        {
+          "chars": "是",
+          "startTime": 174.35,
+          "duration": 0.28,
+          "pinyin": "shì"
+        },
+        {
+          "chars": "西边",
+          "startTime": 174.63,
+          "duration": 0.4,
+          "pinyin": "xī bian"
+        },
+        {
+          "chars": "的",
+          "startTime": 175.03,
+          "duration": 0.16,
+          "pinyin": "de"
+        },
+        {
+          "chars": "教室",
+          "startTime": 175.19,
+          "duration": 0.4,
+          "pinyin": "jiào shì"
+        },
+        {
+          "chars": "吗",
+          "startTime": 175.59,
+          "duration": 0.36,
+          "pinyin": "ma"
+        },
+        {
+          "chars": "?",
+          "startTime": 175.95,
+          "duration": 0.14
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "startTime": 176.45,
+      "endTime": 177.08,
+      "duration": 0.63,
+      "text": "对。",
+      "characters": [
+        {
+          "chars": "对",
+          "startTime": 176.45,
+          "duration": 0.36
+        },
+        {
+          "chars": "。",
+          "startTime": 176.81,
+          "duration": 0.12
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "startTime": 179.38,
+      "endTime": 183.6,
+      "duration": 4.22,
+      "text": "中村,日本的大学早上几点上课?",
+      "characters": [
+        {
+          "chars": "中村",
+          "startTime": 179.38,
+          "duration": 0.74
+        },
+        {
+          "chars": ",",
+          "startTime": 180.12,
+          "duration": 0.32
+        },
+        {
+          "chars": "日本",
+          "startTime": 180.44,
+          "duration": 0.36
+        },
+        {
+          "chars": "的",
+          "startTime": 180.8,
+          "duration": 0.14,
+          "pinyin": "de"
+        },
+        {
+          "chars": "大学",
+          "startTime": 180.94,
+          "duration": 0.8,
+          "pinyin": "dàxué"
+        },
+        {
+          "chars": "早上",
+          "startTime": 181.74,
+          "duration": 0.42,
+          "pinyin": "zǎo shang"
+        },
+        {
+          "chars": "几",
+          "startTime": 182.16,
+          "duration": 0.26,
+          "pinyin": "jǐ"
+        },
+        {
+          "chars": "点",
+          "startTime": 182.42,
+          "duration": 0.18,
+          "pinyin": "diǎn"
+        },
+        {
+          "chars": "上课",
+          "startTime": 182.6,
+          "duration": 0.74,
+          "pinyin": "shàng kè"
+        },
+        {
+          "chars": "?",
+          "startTime": 183.34,
+          "duration": 0.16
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "startTime": 183.75,
+      "endTime": 188.16,
+      "duration": 4.41,
+      "text": "大部分是九点,我们学校是八点五十分。",
+      "characters": [
+        {
+          "chars": "大部分",
+          "startTime": 183.75,
+          "duration": 0.61
+        },
+        {
+          "chars": "是",
+          "startTime": 184.36,
+          "duration": 0.23,
+          "pinyin": "shì"
+        },
+        {
+          "chars": "九",
+          "startTime": 184.59,
+          "duration": 0.23,
+          "pinyin": "jiǔ"
+        },
+        {
+          "chars": "点",
+          "startTime": 184.82,
+          "duration": 0.31,
+          "pinyin": "diǎn"
+        },
+        {
+          "chars": ",",
+          "startTime": 185.13,
+          "duration": 0.28
+        },
+        {
+          "chars": "我们",
+          "startTime": 185.41,
+          "duration": 0.32,
+          "pinyin": "wǒmen"
+        },
+        {
+          "chars": "学校",
+          "startTime": 185.73,
+          "duration": 0.56,
+          "pinyin": "xuéxiào"
+        },
+        {
+          "chars": "是",
+          "startTime": 186.29,
+          "duration": 0.4,
+          "pinyin": "shì"
+        },
+        {
+          "chars": "八",
+          "startTime": 186.69,
+          "duration": 0.28,
+          "pinyin": "bā"
+        },
+        {
+          "chars": "点",
+          "startTime": 186.97,
+          "duration": 0.14,
+          "pinyin": "diǎn"
+        },
+        {
+          "chars": "五",
+          "startTime": 187.11,
+          "duration": 0.22,
+          "pinyin": "wǔ"
+        },
+        {
+          "chars": "十",
+          "startTime": 187.33,
+          "duration": 0.26,
+          "pinyin": "shí"
+        },
+        {
+          "chars": "分",
+          "startTime": 187.59,
+          "duration": 0.3,
+          "pinyin": "fēn"
+        },
+        {
+          "chars": "。",
+          "startTime": 187.89,
+          "duration": 0.18
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "startTime": 188.31,
+      "endTime": 190,
+      "duration": 1.69,
+      "text": "几点下课?",
+      "characters": [
+        {
+          "chars": "几",
+          "startTime": 188.31,
+          "duration": 0.28,
+          "pinyin": "jǐ"
+        },
+        {
+          "chars": "点",
+          "startTime": 188.59,
+          "duration": 0.28,
+          "pinyin": "diǎn"
+        },
+        {
+          "chars": "下课",
+          "startTime": 188.87,
+          "duration": 0.64,
+          "pinyin": "xià kè"
+        },
+        {
+          "chars": "?",
+          "startTime": 189.51,
+          "duration": 0.2
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "startTime": 190.09,
+      "endTime": 191.4,
+      "duration": 1.31,
+      "text": "十点半。",
+      "characters": [
+        {
+          "chars": "十",
+          "startTime": 190.09,
+          "duration": 0.28,
+          "pinyin": "shí"
+        },
+        {
+          "chars": "点",
+          "startTime": 190.37,
+          "duration": 0.26,
+          "pinyin": "diǎn"
+        },
+        {
+          "chars": "半",
+          "startTime": 190.63,
+          "duration": 0.24,
+          "pinyin": "bàn"
+        },
+        {
+          "chars": "。",
+          "startTime": 190.87,
+          "duration": 0.24
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "startTime": 191.79,
+      "endTime": 195.9,
+      "duration": 4.11,
+      "text": "北京大学早上八点上课,太早了。",
+      "characters": [
+        {
+          "chars": "北京",
+          "startTime": 191.79,
+          "duration": 0.44
+        },
+        {
+          "chars": "大学",
+          "startTime": 192.23,
+          "duration": 0.6,
+          "pinyin": "dàxué"
+        },
+        {
+          "chars": "早上",
+          "startTime": 192.83,
+          "duration": 0.46,
+          "pinyin": "zǎo shang"
+        },
+        {
+          "chars": "八",
+          "startTime": 193.29,
+          "duration": 0.24,
+          "pinyin": "bā"
+        },
+        {
+          "chars": "点",
+          "startTime": 193.53,
+          "duration": 0.24,
+          "pinyin": "diǎn"
+        },
+        {
+          "chars": "上课",
+          "startTime": 193.77,
+          "duration": 0.64,
+          "pinyin": "shàng kè"
+        },
+        {
+          "chars": ",",
+          "startTime": 194.41,
+          "duration": 0.26
+        },
+        {
+          "chars": "太",
+          "startTime": 194.67,
+          "duration": 0.32,
+          "pinyin": "tài"
+        },
+        {
+          "chars": "早",
+          "startTime": 194.99,
+          "duration": 0.28,
+          "pinyin": "zǎo"
+        },
+        {
+          "chars": "了",
+          "startTime": 195.27,
+          "duration": 0.26,
+          "pinyin": "le"
+        },
+        {
+          "chars": "。",
+          "startTime": 195.53,
+          "duration": 0.22
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "startTime": 196.09,
+      "endTime": 198.98,
+      "duration": 2.89,
+      "text": "大卫,讲座几点开始?",
+      "characters": [
+        {
+          "chars": "大卫",
+          "startTime": 196.09,
+          "duration": 0.72
+        },
+        {
+          "chars": ",",
+          "startTime": 196.81,
+          "duration": 0.26
+        },
+        {
+          "chars": "讲座",
+          "startTime": 197.07,
+          "duration": 0.42
+        },
+        {
+          "chars": "几",
+          "startTime": 197.49,
+          "duration": 0.19,
+          "pinyin": "jǐ"
+        },
+        {
+          "chars": "点",
+          "startTime": 197.68,
+          "duration": 0.27,
+          "pinyin": "diǎn"
+        },
+        {
+          "chars": "开始",
+          "startTime": 197.95,
+          "duration": 0.73,
+          "pinyin": "kāi shǐ"
+        },
+        {
+          "chars": "?",
+          "startTime": 198.68,
+          "duration": 0.11
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "startTime": 199.07,
+      "endTime": 200.12,
+      "duration": 1.05,
+      "text": "六点。",
+      "characters": [
+        {
+          "chars": "六",
+          "startTime": 199.07,
+          "duration": 0.26,
+          "pinyin": "liù"
+        },
+        {
+          "chars": "点",
+          "startTime": 199.33,
+          "duration": 0.36,
+          "pinyin": "diǎn"
+        },
+        {
+          "chars": "。",
+          "startTime": 199.69,
+          "duration": 0.2
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "startTime": 200.21,
+      "endTime": 201.86,
+      "duration": 1.65,
+      "text": "现在几点?",
+      "characters": [
+        {
+          "chars": "现在",
+          "startTime": 200.21,
+          "duration": 0.64,
+          "pinyin": "xiànzài"
+        },
+        {
+          "chars": "几",
+          "startTime": 200.85,
+          "duration": 0.26,
+          "pinyin": "jǐ"
+        },
+        {
+          "chars": "点",
+          "startTime": 201.11,
+          "duration": 0.36,
+          "pinyin": "diǎn"
+        },
+        {
+          "chars": "?",
+          "startTime": 201.47,
+          "duration": 0.16
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "startTime": 201.89,
+      "endTime": 203.66,
+      "duration": 1.77,
+      "text": "差一刻六点。",
+      "characters": [
+        {
+          "chars": "差",
+          "startTime": 201.89,
+          "duration": 0.2,
+          "pinyin": "chà"
+        },
+        {
+          "chars": "一",
+          "startTime": 202.09,
+          "duration": 0.24,
+          "pinyin": "yī"
+        },
+        {
+          "chars": "刻",
+          "startTime": 202.33,
+          "duration": 0.24,
+          "pinyin": "kè"
+        },
+        {
+          "chars": "六",
+          "startTime": 202.57,
+          "duration": 0.16,
+          "pinyin": "liù"
+        },
+        {
+          "chars": "点",
+          "startTime": 202.73,
+          "duration": 0.4,
+          "pinyin": "diǎn"
+        },
+        {
+          "chars": "。",
+          "startTime": 203.13,
+          "duration": 0.18
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "startTime": 204.41,
+      "endTime": 206.96,
+      "duration": 2.55,
+      "text": "谢谢！一会儿见。",
+      "characters": [
+        {
+          "chars": "谢谢",
+          "startTime": 204.41,
+          "duration": 0.76,
+          "pinyin": "xièxie"
+        },
+        {
+          "chars": "！",
+          "startTime": 205.17,
+          "duration": 0.58
+        },
+        {
+          "chars": "一会儿",
+          "startTime": 205.75,
+          "duration": 0.6,
+          "pinyin": "yíhuìr"
+        },
+        {
+          "chars": "见",
+          "startTime": 206.35,
+          "duration": 0.3,
+          "pinyin": "jiàn"
+        },
+        {
+          "chars": "。",
+          "startTime": 206.65,
+          "duration": 0.12
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "startTime": 209.35,
+      "endTime": 212.28,
+      "duration": 2.93,
+      "text": "中村,明天你有课吗?",
+      "characters": [
+        {
+          "chars": "中村",
+          "startTime": 209.35,
+          "duration": 0.68
+        },
+        {
+          "chars": ",",
+          "startTime": 210.03,
+          "duration": 0.36
+        },
+        {
+          "chars": "明天",
+          "startTime": 210.39,
+          "duration": 0.4,
+          "pinyin": "míngtiān"
+        },
+        {
+          "chars": "你",
+          "startTime": 210.79,
+          "duration": 0.16,
+          "pinyin": "nǐ"
+        },
+        {
+          "chars": "有",
+          "startTime": 210.95,
+          "duration": 0.22,
+          "pinyin": "yǒu"
+        },
+        {
+          "chars": "课",
+          "startTime": 211.17,
+          "duration": 0.33,
+          "pinyin": "kè"
+        },
+        {
+          "chars": "吗",
+          "startTime": 211.5,
+          "duration": 0.25,
+          "pinyin": "ma"
+        },
+        {
+          "chars": "?",
+          "startTime": 211.75,
+          "duration": 0.2
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "startTime": 212.45,
+      "endTime": 215.18,
+      "duration": 2.73,
+      "text": "我上午有课,下午没有。",
+      "characters": [
+        {
+          "chars": "我",
+          "startTime": 212.45,
+          "duration": 0.21,
+          "pinyin": "wǒ"
+        },
+        {
+          "chars": "上午",
+          "startTime": 212.66,
+          "duration": 0.36,
+          "pinyin": "shàngwǔ"
+        },
+        {
+          "chars": "有",
+          "startTime": 213.02,
+          "duration": 0.34,
+          "pinyin": "yǒu"
+        },
+        {
+          "chars": "课",
+          "startTime": 213.36,
+          "duration": 0.44,
+          "pinyin": "kè"
+        },
+        {
+          "chars": ",",
+          "startTime": 213.8,
+          "duration": 0.16
+        },
+        {
+          "chars": "下午",
+          "startTime": 213.96,
+          "duration": 0.48,
+          "pinyin": "xiàwǔ"
+        },
+        {
+          "chars": "没有",
+          "startTime": 214.44,
+          "duration": 0.5,
+          "pinyin": "méiyǒu"
+        },
+        {
+          "chars": "。",
+          "startTime": 214.94,
+          "duration": 0.14
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "startTime": 215.35,
+      "endTime": 217.12,
+      "duration": 1.77,
+      "text": "你有自行车吧?",
+      "characters": [
+        {
+          "chars": "你",
+          "startTime": 215.35,
+          "duration": 0.22,
+          "pinyin": "nǐ"
+        },
+        {
+          "chars": "有",
+          "startTime": 215.57,
+          "duration": 0.24,
+          "pinyin": "yǒu"
+        },
+        {
+          "chars": "自行车",
+          "startTime": 215.81,
+          "duration": 0.74,
+          "pinyin": "zìxíngchē"
+        },
+        {
+          "chars": "吧",
+          "startTime": 216.55,
+          "duration": 0.3,
+          "pinyin": "ba"
+        },
+        {
+          "chars": "?",
+          "startTime": 216.85,
+          "duration": 0.14
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "startTime": 217.33,
+      "endTime": 219.6,
+      "duration": 2.27,
+      "text": "有,什么事?",
+      "characters": [
+        {
+          "chars": "有",
+          "startTime": 217.33,
+          "duration": 0.58,
+          "pinyin": "yǒu"
+        },
+        {
+          "chars": ",",
+          "startTime": 217.91,
+          "duration": 0.56
+        },
+        {
+          "chars": "什么",
+          "startTime": 218.47,
+          "duration": 0.4,
+          "pinyin": "shénme"
+        },
+        {
+          "chars": "事",
+          "startTime": 218.87,
+          "duration": 0.32,
+          "pinyin": "shì"
+        },
+        {
+          "chars": "?",
+          "startTime": 219.19,
+          "duration": 0.18
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "startTime": 219.69,
+      "endTime": 224.44,
+      "duration": 4.75,
+      "text": "我明天下午去见朋友,可是我没有自行车。",
+      "characters": [
+        {
+          "chars": "我",
+          "startTime": 219.69,
+          "duration": 0.22,
+          "pinyin": "wǒ"
+        },
+        {
+          "chars": "明天",
+          "startTime": 219.91,
+          "duration": 0.34,
+          "pinyin": "míngtiān"
+        },
+        {
+          "chars": "下午",
+          "startTime": 220.25,
+          "duration": 0.5,
+          "pinyin": "xiàwǔ"
+        },
+        {
+          "chars": "去",
+          "startTime": 220.75,
+          "duration": 0.22,
+          "pinyin": "qù"
+        },
+        {
+          "chars": "见",
+          "startTime": 220.97,
+          "duration": 0.26,
+          "pinyin": "jiàn"
+        },
+        {
+          "chars": "朋友",
+          "startTime": 221.23,
+          "duration": 0.6,
+          "pinyin": "péngyou"
+        },
+        {
+          "chars": ",",
+          "startTime": 221.83,
+          "duration": 0.3
+        },
+        {
+          "chars": "可是",
+          "startTime": 222.13,
+          "duration": 0.3
+        },
+        {
+          "chars": "我",
+          "startTime": 222.43,
+          "duration": 0.18,
+          "pinyin": "wǒ"
+        },
+        {
+          "chars": "没有",
+          "startTime": 222.61,
+          "duration": 0.38,
+          "pinyin": "méiyǒu"
+        },
+        {
+          "chars": "自行车",
+          "startTime": 222.99,
+          "duration": 0.82,
+          "pinyin": "zìxíngchē"
+        },
+        {
+          "chars": "。",
+          "startTime": 223.81,
+          "duration": 0.2
+        }
+      ]
+    },
+    {
+      "id": 75,
+      "startTime": 224.47,
+      "endTime": 230.65,
+      "duration": 6.18,
+      "text": "没问题，我有。这是钥匙，车在楼下车棚里。",
+      "characters": [
+        {
+          "chars": "没问题",
+          "startTime": 224.47,
+          "duration": 0.96,
+          "pinyin": "méi wèntí"
+        },
+        {
+          "chars": "，",
+          "startTime": 225.43,
+          "duration": 0.28
+        },
+        {
+          "chars": "我",
+          "startTime": 225.71,
+          "duration": 0.22,
+          "pinyin": "wǒ"
+        },
+        {
+          "chars": "有",
+          "startTime": 225.93,
+          "duration": 0.32,
+          "pinyin": "yǒu"
+        },
+        {
+          "chars": "。",
+          "startTime": 226.25,
+          "duration": 0.6
+        },
+        {
+          "chars": "这",
+          "startTime": 226.85,
+          "duration": 0.24,
+          "pinyin": "zhè"
+        },
+        {
+          "chars": "是",
+          "startTime": 227.09,
+          "duration": 0.18,
+          "pinyin": "shì"
+        },
+        {
+          "chars": "钥匙",
+          "startTime": 227.27,
+          "duration": 0.58
+        },
+        {
+          "chars": "，",
+          "startTime": 227.85,
+          "duration": 0.34
+        },
+        {
+          "chars": "车",
+          "startTime": 228.19,
+          "duration": 0.36,
+          "pinyin": "chē"
+        },
+        {
+          "chars": "在",
+          "startTime": 228.55,
+          "duration": 0.12,
+          "pinyin": "zài"
+        },
+        {
+          "chars": "楼",
+          "startTime": 228.67,
+          "duration": 0.32,
+          "pinyin": "lóu"
+        },
+        {
+          "chars": "下",
+          "startTime": 228.99,
+          "duration": 0.26,
+          "pinyin": "xià"
+        },
+        {
+          "chars": "车棚",
+          "startTime": 229.25,
+          "duration": 0.56
+        },
+        {
+          "chars": "里",
+          "startTime": 229.81,
+          "duration": 0.32,
+          "pinyin": "lǐ"
+        },
+        {
+          "chars": "。",
+          "startTime": 230.13,
+          "duration": 0.17
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "startTime": 230.78,
+      "endTime": 233.48,
+      "duration": 2.7,
+      "text": "是宿舍楼后边的车棚吗?",
+      "characters": [
+        {
+          "chars": "是",
+          "startTime": 230.78,
+          "duration": 0.26,
+          "pinyin": "shì"
+        },
+        {
+          "chars": "宿舍",
+          "startTime": 231.04,
+          "duration": 0.52,
+          "pinyin": "sùshè"
+        },
+        {
+          "chars": "楼",
+          "startTime": 231.56,
+          "duration": 0.32,
+          "pinyin": "lóu"
+        },
+        {
+          "chars": "后边",
+          "startTime": 231.88,
+          "duration": 0.38,
+          "pinyin": "hòu bian"
+        },
+        {
+          "chars": "的",
+          "startTime": 232.26,
+          "duration": 0.2,
+          "pinyin": "de"
+        },
+        {
+          "chars": "车棚",
+          "startTime": 232.46,
+          "duration": 0.46
+        },
+        {
+          "chars": "吗",
+          "startTime": 232.92,
+          "duration": 0.39,
+          "pinyin": "ma"
+        },
+        {
+          "chars": "?",
+          "startTime": 233.31,
+          "duration": 0.09
+        }
+      ]
+    },
+    {
+      "id": 77,
+      "startTime": 233.65,
+      "endTime": 234.44,
+      "duration": 0.79,
+      "text": "对。",
+      "characters": [
+        {
+          "chars": "对",
+          "startTime": 233.65,
+          "duration": 0.44
+        },
+        {
+          "chars": "。",
+          "startTime": 234.09,
+          "duration": 0.12
+        }
+      ]
+    },
+    {
+      "id": 78,
+      "startTime": 234.62,
+      "endTime": 237.92,
+      "duration": 3.3,
+      "text": "玛丽,今天晚上你有时间吗?",
+      "characters": [
+        {
+          "chars": "玛丽",
+          "startTime": 234.62,
+          "duration": 0.64
+        },
+        {
+          "chars": ",",
+          "startTime": 235.26,
+          "duration": 0.34
+        },
+        {
+          "chars": "今天",
+          "startTime": 235.6,
+          "duration": 0.4,
+          "pinyin": "jīntiān"
+        },
+        {
+          "chars": "晚上",
+          "startTime": 236,
+          "duration": 0.66,
+          "pinyin": "wǎnshang"
+        },
+        {
+          "chars": "你",
+          "startTime": 236.66,
+          "duration": 0.24,
+          "pinyin": "nǐ"
+        },
+        {
+          "chars": "有",
+          "startTime": 236.9,
+          "duration": 0.18,
+          "pinyin": "yǒu"
+        },
+        {
+          "chars": "时间",
+          "startTime": 237.08,
+          "duration": 0.34,
+          "pinyin": "shíjiān"
+        },
+        {
+          "chars": "吗",
+          "startTime": 237.42,
+          "duration": 0.28,
+          "pinyin": "ma"
+        },
+        {
+          "chars": "?",
+          "startTime": 237.7,
+          "duration": 0.1
+        }
+      ]
+    },
+    {
+      "id": 79,
+      "startTime": 238.15,
+      "endTime": 240.58,
+      "duration": 2.43,
+      "text": "有。有事吗？",
+      "characters": [
+        {
+          "chars": "有",
+          "startTime": 238.15,
+          "duration": 0.5,
+          "pinyin": "yǒu"
+        },
+        {
+          "chars": "。",
+          "startTime": 238.65,
+          "duration": 0.66
+        },
+        {
+          "chars": "有",
+          "startTime": 239.31,
+          "duration": 0.28,
+          "pinyin": "yǒu"
+        },
+        {
+          "chars": "事",
+          "startTime": 239.59,
+          "duration": 0.24,
+          "pinyin": "shì"
+        },
+        {
+          "chars": "吗",
+          "startTime": 239.83,
+          "duration": 0.4,
+          "pinyin": "ma"
+        },
+        {
+          "chars": "？",
+          "startTime": 240.23,
+          "duration": 0.26
+        }
+      ]
+    },
+    {
+      "id": 80,
+      "startTime": 240.79,
+      "endTime": 244.4,
+      "duration": 3.61,
+      "text": "学校电影院有电影,你去吗?",
+      "characters": [
+        {
+          "chars": "学校",
+          "startTime": 240.79,
+          "duration": 0.6,
+          "pinyin": "xuéxiào"
+        },
+        {
+          "chars": "电影院",
+          "startTime": 241.39,
+          "duration": 0.64
+        },
+        {
+          "chars": "有",
+          "startTime": 242.03,
+          "duration": 0.24,
+          "pinyin": "yǒu"
+        },
+        {
+          "chars": "电影",
+          "startTime": 242.27,
+          "duration": 0.41,
+          "pinyin": "diànyǐng"
+        },
+        {
+          "chars": ",",
+          "startTime": 242.68,
+          "duration": 0.55
+        },
+        {
+          "chars": "你",
+          "startTime": 243.23,
+          "duration": 0.2,
+          "pinyin": "nǐ"
+        },
+        {
+          "chars": "去",
+          "startTime": 243.43,
+          "duration": 0.16,
+          "pinyin": "qù"
+        },
+        {
+          "chars": "吗",
+          "startTime": 243.59,
+          "duration": 0.22,
+          "pinyin": "ma"
+        },
+        {
+          "chars": "?",
+          "startTime": 243.81,
+          "duration": 0.24
+        }
+      ]
+    },
+    {
+      "id": 81,
+      "startTime": 244.69,
+      "endTime": 246.16,
+      "duration": 1.47,
+      "text": "什么电影?",
+      "characters": [
+        {
+          "chars": "什么",
+          "startTime": 244.69,
+          "duration": 0.51,
+          "pinyin": "shénme"
+        },
+        {
+          "chars": "电影",
+          "startTime": 245.2,
+          "duration": 0.68,
+          "pinyin": "diànyǐng"
+        },
+        {
+          "chars": "?",
+          "startTime": 245.88,
+          "duration": 0.11
+        }
+      ]
+    },
+    {
+      "id": 82,
+      "startTime": 246.45,
+      "endTime": 250.3,
+      "duration": 3.85,
+      "text": "我不知道名字,可是听说很有名。",
+      "characters": [
+        {
+          "chars": "我",
+          "startTime": 246.45,
+          "duration": 0.3,
+          "pinyin": "wǒ"
+        },
+        {
+          "chars": "不",
+          "startTime": 246.75,
+          "duration": 0.14,
+          "pinyin": "bù"
+        },
+        {
+          "chars": "知道",
+          "startTime": 246.89,
+          "duration": 0.34,
+          "pinyin": "zhīdào"
+        },
+        {
+          "chars": "名字",
+          "startTime": 247.23,
+          "duration": 0.54,
+          "pinyin": "míngzi"
+        },
+        {
+          "chars": ",",
+          "startTime": 247.77,
+          "duration": 0.76
+        },
+        {
+          "chars": "可是",
+          "startTime": 248.53,
+          "duration": 0.34
+        },
+        {
+          "chars": "听说",
+          "startTime": 248.87,
+          "duration": 0.42,
+          "pinyin": "tīng shuō"
+        },
+        {
+          "chars": "很",
+          "startTime": 249.29,
+          "duration": 0.16,
+          "pinyin": "hěn"
+        },
+        {
+          "chars": "有名",
+          "startTime": 249.45,
+          "duration": 0.48
+        },
+        {
+          "chars": "。",
+          "startTime": 249.93,
+          "duration": 0.18
+        }
+      ]
+    },
+    {
+      "id": 83,
+      "startTime": 250.61,
+      "endTime": 252.26,
+      "duration": 1.65,
+      "text": "我当然去。",
+      "characters": [
+        {
+          "chars": "我",
+          "startTime": 250.61,
+          "duration": 0.26,
+          "pinyin": "wǒ"
+        },
+        {
+          "chars": "当然",
+          "startTime": 250.87,
+          "duration": 0.56,
+          "pinyin": "dāngrán"
+        },
+        {
+          "chars": "去",
+          "startTime": 251.43,
+          "duration": 0.3,
+          "pinyin": "qù"
+        },
+        {
+          "chars": "。",
+          "startTime": 251.73,
+          "duration": 0.14
+        }
+      ]
+    },
+    {
+      "id": 84,
+      "startTime": 254.7,
+      "endTime": 258.03,
+      "duration": 3.33,
+      "text": "玛丽,周末你有空儿吗?",
+      "characters": [
+        {
+          "chars": "玛丽",
+          "startTime": 254.7,
+          "duration": 0.62
+        },
+        {
+          "chars": ",",
+          "startTime": 255.32,
+          "duration": 0.72
+        },
+        {
+          "chars": "周末",
+          "startTime": 256.04,
+          "duration": 0.54
+        },
+        {
+          "chars": "你",
+          "startTime": 256.58,
+          "duration": 0.16,
+          "pinyin": "nǐ"
+        },
+        {
+          "chars": "有",
+          "startTime": 256.74,
+          "duration": 0.24,
+          "pinyin": "yǒu"
+        },
+        {
+          "chars": "空儿",
+          "startTime": 256.98,
+          "duration": 0.3
+        },
+        {
+          "chars": "吗",
+          "startTime": 257.28,
+          "duration": 0.37,
+          "pinyin": "ma"
+        },
+        {
+          "chars": "?",
+          "startTime": 257.65,
+          "duration": 0.12
+        }
+      ]
+    },
+    {
+      "id": 85,
+      "startTime": 258.18,
+      "endTime": 260.43,
+      "duration": 2.25,
+      "text": "有。什么事？",
+      "characters": [
+        {
+          "chars": "有",
+          "startTime": 258.18,
+          "duration": 0.52,
+          "pinyin": "yǒu"
+        },
+        {
+          "chars": "。",
+          "startTime": 258.7,
+          "duration": 0.64
+        },
+        {
+          "chars": "什么",
+          "startTime": 259.34,
+          "duration": 0.44,
+          "pinyin": "shénme"
+        },
+        {
+          "chars": "事",
+          "startTime": 259.78,
+          "duration": 0.38,
+          "pinyin": "shì"
+        },
+        {
+          "chars": "？",
+          "startTime": 260.16,
+          "duration": 0.17
+        }
+      ]
+    },
+    {
+      "id": 86,
+      "startTime": 260.76,
+      "endTime": 262.83,
+      "duration": 2.07,
+      "text": "来我们学校玩儿吧！",
+      "characters": [
+        {
+          "chars": "来",
+          "startTime": 260.76,
+          "duration": 0.28,
+          "pinyin": "lái"
+        },
+        {
+          "chars": "我们",
+          "startTime": 261.04,
+          "duration": 0.24,
+          "pinyin": "wǒmen"
+        },
+        {
+          "chars": "学校",
+          "startTime": 261.28,
+          "duration": 0.44,
+          "pinyin": "xuéxiào"
+        },
+        {
+          "chars": "玩儿",
+          "startTime": 261.72,
+          "duration": 0.29
+        },
+        {
+          "chars": "吧",
+          "startTime": 262.01,
+          "duration": 0.29,
+          "pinyin": "ba"
+        },
+        {
+          "chars": "！",
+          "startTime": 262.3,
+          "duration": 0.17
+        }
+      ]
+    },
+    {
+      "id": 87,
+      "startTime": 263.2,
+      "endTime": 267.67,
+      "duration": 4.47,
+      "text": "好啊！不过，去你们学校怎么走呢？",
+      "characters": [
+        {
+          "chars": "好",
+          "startTime": 263.2,
+          "duration": 0.24,
+          "pinyin": "hǎo"
+        },
+        {
+          "chars": "啊",
+          "startTime": 263.44,
+          "duration": 0.36,
+          "pinyin": "à"
+        },
+        {
+          "chars": "！",
+          "startTime": 263.8,
+          "duration": 0.66
+        },
+        {
+          "chars": "不过",
+          "startTime": 264.46,
+          "duration": 0.58
+        },
+        {
+          "chars": "，",
+          "startTime": 265.04,
+          "duration": 0.3
+        },
+        {
+          "chars": "去",
+          "startTime": 265.34,
+          "duration": 0.24,
+          "pinyin": "qù"
+        },
+        {
+          "chars": "你们",
+          "startTime": 265.58,
+          "duration": 0.24,
+          "pinyin": "nǐmen"
+        },
+        {
+          "chars": "学校",
+          "startTime": 265.82,
+          "duration": 0.52,
+          "pinyin": "xuéxiào"
+        },
+        {
+          "chars": "怎么",
+          "startTime": 266.34,
+          "duration": 0.26,
+          "pinyin": "zěnme"
+        },
+        {
+          "chars": "走",
+          "startTime": 266.6,
+          "duration": 0.28,
+          "pinyin": "zǒu"
+        },
+        {
+          "chars": "呢",
+          "startTime": 266.88,
+          "duration": 0.3,
+          "pinyin": "ne"
+        },
+        {
+          "chars": "？",
+          "startTime": 267.18,
+          "duration": 0.17
+        }
+      ]
+    },
+    {
+      "id": 88,
+      "startTime": 268,
+      "endTime": 271.18,
+      "duration": 3.18,
+      "text": "21路和106路公共汽车都到。",
+      "characters": [
+        {
+          "chars": "21",
+          "startTime": 268,
+          "duration": 0.54
+        },
+        {
+          "chars": "路",
+          "startTime": 268.54,
+          "duration": 0.24,
+          "pinyin": "lù"
+        },
+        {
+          "chars": "和",
+          "startTime": 268.78,
+          "duration": 0.2,
+          "pinyin": "hé"
+        },
+        {
+          "chars": "106",
+          "startTime": 268.98,
+          "duration": 0.52
+        },
+        {
+          "chars": "路",
+          "startTime": 269.5,
+          "duration": 0.2,
+          "pinyin": "lù"
+        },
+        {
+          "chars": "公共汽车",
+          "startTime": 269.7,
+          "duration": 0.82,
+          "pinyin": "gòng gòng qì chē"
+        },
+        {
+          "chars": "都",
+          "startTime": 270.52,
+          "duration": 0.2,
+          "pinyin": "dōu"
+        },
+        {
+          "chars": "到",
+          "startTime": 270.72,
+          "duration": 0.16,
+          "pinyin": "dào"
+        },
+        {
+          "chars": "。",
+          "startTime": 270.88,
+          "duration": 0.18
+        }
+      ]
+    },
+    {
+      "id": 89,
+      "startTime": 271.18,
+      "endTime": 274.77,
+      "duration": 3.59,
+      "text": "骑自行车也很快，十五分钟就到。",
+      "characters": [
+        {
+          "chars": "骑",
+          "startTime": 271.18,
+          "duration": 0.26,
+          "pinyin": "qí"
+        },
+        {
+          "chars": "自行车",
+          "startTime": 271.44,
+          "duration": 0.58,
+          "pinyin": "zìxíngchē"
+        },
+        {
+          "chars": "也",
+          "startTime": 272.02,
+          "duration": 0.2,
+          "pinyin": "yě"
+        },
+        {
+          "chars": "很",
+          "startTime": 272.22,
+          "duration": 0.22,
+          "pinyin": "hěn"
+        },
+        {
+          "chars": "快",
+          "startTime": 272.44,
+          "duration": 0.36,
+          "pinyin": "kuài"
+        },
+        {
+          "chars": "，",
+          "startTime": 272.8,
+          "duration": 0.18
+        },
+        {
+          "chars": "十",
+          "startTime": 272.98,
+          "duration": 0.26,
+          "pinyin": "shí"
+        },
+        {
+          "chars": "五",
+          "startTime": 273.24,
+          "duration": 0.2,
+          "pinyin": "wǔ"
+        },
+        {
+          "chars": "分钟",
+          "startTime": 273.44,
+          "duration": 0.34,
+          "pinyin": "fēn zhōng"
+        },
+        {
+          "chars": "就",
+          "startTime": 273.78,
+          "duration": 0.2,
+          "pinyin": "jiù"
+        },
+        {
+          "chars": "到",
+          "startTime": 273.98,
+          "duration": 0.24,
+          "pinyin": "dào"
+        },
+        {
+          "chars": "。",
+          "startTime": 274.22,
+          "duration": 0.11
+        }
+      ]
+    },
+    {
+      "id": 90,
+      "startTime": 274.92,
+      "endTime": 276.69,
+      "duration": 1.77,
+      "text": "你的宿舍在哪儿?",
+      "characters": [
+        {
+          "chars": "你",
+          "startTime": 274.92,
+          "duration": 0.24,
+          "pinyin": "nǐ"
+        },
+        {
+          "chars": "的",
+          "startTime": 275.16,
+          "duration": 0.2,
+          "pinyin": "de"
+        },
+        {
+          "chars": "宿舍",
+          "startTime": 275.36,
+          "duration": 0.46,
+          "pinyin": "sùshè"
+        },
+        {
+          "chars": "在",
+          "startTime": 275.82,
+          "duration": 0.18,
+          "pinyin": "zài"
+        },
+        {
+          "chars": "哪儿",
+          "startTime": 276,
+          "duration": 0.36,
+          "pinyin": "nǎr"
+        },
+        {
+          "chars": "?",
+          "startTime": 276.36,
+          "duration": 0.17
+        }
+      ]
+    },
+    {
+      "id": 91,
+      "startTime": 276.88,
+      "endTime": 280.11,
+      "duration": 3.23,
+      "text": "在校园的东南边，是东5号楼。",
+      "characters": [
+        {
+          "chars": "在",
+          "startTime": 276.88,
+          "duration": 0.26,
+          "pinyin": "zài"
+        },
+        {
+          "chars": "校园",
+          "startTime": 277.14,
+          "duration": 0.32
+        },
+        {
+          "chars": "的",
+          "startTime": 277.46,
+          "duration": 0.16,
+          "pinyin": "de"
+        },
+        {
+          "chars": "东南边",
+          "startTime": 277.62,
+          "duration": 0.66
+        },
+        {
+          "chars": "，",
+          "startTime": 278.28,
+          "duration": 0.26
+        },
+        {
+          "chars": "是",
+          "startTime": 278.54,
+          "duration": 0.2,
+          "pinyin": "shì"
+        },
+        {
+          "chars": "东",
+          "startTime": 278.74,
+          "duration": 0.14
+        },
+        {
+          "chars": "5",
+          "startTime": 278.88,
+          "duration": 0.2
+        },
+        {
+          "chars": "号",
+          "startTime": 279.08,
+          "duration": 0.22,
+          "pinyin": "hào"
+        },
+        {
+          "chars": "楼",
+          "startTime": 279.3,
+          "duration": 0.28,
+          "pinyin": "lóu"
+        },
+        {
+          "chars": "。",
+          "startTime": 279.58,
+          "duration": 0.21
+        }
+      ]
+    },
+    {
+      "id": 92,
+      "startTime": 280.32,
+      "endTime": 282.53,
+      "duration": 2.21,
+      "text": "你的房间号是多少?",
+      "characters": [
+        {
+          "chars": "你",
+          "startTime": 280.32,
+          "duration": 0.22,
+          "pinyin": "nǐ"
+        },
+        {
+          "chars": "的",
+          "startTime": 280.54,
+          "duration": 0.16,
+          "pinyin": "de"
+        },
+        {
+          "chars": "房间",
+          "startTime": 280.7,
+          "duration": 0.44,
+          "pinyin": "fángjiān"
+        },
+        {
+          "chars": "号",
+          "startTime": 281.14,
+          "duration": 0.16,
+          "pinyin": "hào"
+        },
+        {
+          "chars": "是",
+          "startTime": 281.3,
+          "duration": 0.34,
+          "pinyin": "shì"
+        },
+        {
+          "chars": "多少",
+          "startTime": 281.64,
+          "duration": 0.54,
+          "pinyin": "duōshao"
+        },
+        {
+          "chars": "?",
+          "startTime": 282.18,
+          "duration": 0.07
+        }
+      ]
+    },
+    {
+      "id": 93,
+      "startTime": 282.82,
+      "endTime": 287.55,
+      "duration": 4.73,
+      "text": "502号。我的宿舍是东五号楼五零二室。",
+      "characters": [
+        {
+          "chars": "502",
+          "startTime": 282.82,
+          "duration": 0.58
+        },
+        {
+          "chars": "号",
+          "startTime": 283.4,
+          "duration": 0.34,
+          "pinyin": "hào"
+        },
+        {
+          "chars": "。",
+          "startTime": 283.74,
+          "duration": 0.68
+        },
+        {
+          "chars": "我",
+          "startTime": 284.42,
+          "duration": 0.2,
+          "pinyin": "wǒ"
+        },
+        {
+          "chars": "的",
+          "startTime": 284.62,
+          "duration": 0.14,
+          "pinyin": "de"
+        },
+        {
+          "chars": "宿舍",
+          "startTime": 284.76,
+          "duration": 0.48,
+          "pinyin": "sùshè"
+        },
+        {
+          "chars": "是",
+          "startTime": 285.24,
+          "duration": 0.3,
+          "pinyin": "shì"
+        },
+        {
+          "chars": "东",
+          "startTime": 285.54,
+          "duration": 0.18
+        },
+        {
+          "chars": "五",
+          "startTime": 285.72,
+          "duration": 0.16,
+          "pinyin": "wǔ"
+        },
+        {
+          "chars": "号",
+          "startTime": 285.88,
+          "duration": 0.2,
+          "pinyin": "hào"
+        },
+        {
+          "chars": "楼",
+          "startTime": 286.08,
+          "duration": 0.18,
+          "pinyin": "lóu"
+        },
+        {
+          "chars": "五",
+          "startTime": 286.26,
+          "duration": 0.2,
+          "pinyin": "wǔ"
+        },
+        {
+          "chars": "零",
+          "startTime": 286.46,
+          "duration": 0.12,
+          "pinyin": "líng"
+        },
+        {
+          "chars": "二",
+          "startTime": 286.58,
+          "duration": 0.22,
+          "pinyin": "èr"
+        },
+        {
+          "chars": "室",
+          "startTime": 286.8,
+          "duration": 0.22
+        },
+        {
+          "chars": "。",
+          "startTime": 287.02,
+          "duration": 0.27
+        }
+      ]
+    },
+    {
+      "id": 94,
+      "startTime": 287.72,
+      "endTime": 290.3,
+      "duration": 2.58,
+      "text": "你的电话号码是多少?",
+      "characters": [
+        {
+          "chars": "你",
+          "startTime": 287.72,
+          "duration": 0.22,
+          "pinyin": "nǐ"
+        },
+        {
+          "chars": "的",
+          "startTime": 287.94,
+          "duration": 0.16,
+          "pinyin": "de"
+        },
+        {
+          "chars": "电话",
+          "startTime": 288.1,
+          "duration": 0.44,
+          "pinyin": "diànhuà"
+        },
+        {
+          "chars": "号码",
+          "startTime": 288.54,
+          "duration": 0.46,
+          "pinyin": "hàomǎ"
+        },
+        {
+          "chars": "是",
+          "startTime": 289,
+          "duration": 0.2,
+          "pinyin": "shì"
+        },
+        {
+          "chars": "多少",
+          "startTime": 289.2,
+          "duration": 0.64,
+          "pinyin": "duōshao"
+        },
+        {
+          "chars": "?",
+          "startTime": 289.84,
+          "duration": 0.28
+        }
+      ]
+    },
+    {
+      "id": 95,
+      "startTime": 290.36,
+      "endTime": 294.82,
+      "duration": 4.46,
+      "text": "63861023。你有手机吗?",
+      "characters": [
+        {
+          "chars": "6",
+          "startTime": 290.36,
+          "duration": 0.24
+        },
+        {
+          "chars": "3",
+          "startTime": 290.6,
+          "duration": 0.3
+        },
+        {
+          "chars": "8",
+          "startTime": 290.9,
+          "duration": 0.26
+        },
+        {
+          "chars": "6",
+          "startTime": 291.16,
+          "duration": 0.3
+        },
+        {
+          "chars": "1",
+          "startTime": 291.46,
+          "duration": 0.22
+        },
+        {
+          "chars": "0",
+          "startTime": 291.68,
+          "duration": 0.18
+        },
+        {
+          "chars": "2",
+          "startTime": 291.86,
+          "duration": 0.22
+        },
+        {
+          "chars": "3",
+          "startTime": 292.08,
+          "duration": 0.46
+        },
+        {
+          "chars": "。",
+          "startTime": 292.54,
+          "duration": 0.62
+        },
+        {
+          "chars": "你",
+          "startTime": 293.16,
+          "duration": 0.16,
+          "pinyin": "nǐ"
+        },
+        {
+          "chars": "有",
+          "startTime": 293.32,
+          "duration": 0.12,
+          "pinyin": "yǒu"
+        },
+        {
+          "chars": "手机",
+          "startTime": 293.44,
+          "duration": 0.56,
+          "pinyin": "shǒujī"
+        },
+        {
+          "chars": "吗",
+          "startTime": 294,
+          "duration": 0.33,
+          "pinyin": "ma"
+        },
+        {
+          "chars": "?",
+          "startTime": 294.33,
+          "duration": 0.17
+        }
+      ]
+    },
+    {
+      "id": 96,
+      "startTime": 295.22,
+      "endTime": 297.77,
+      "duration": 2.55,
+      "text": "没有,不过我朋友有。",
+      "characters": [
+        {
+          "chars": "没有",
+          "startTime": 295.22,
+          "duration": 0.72,
+          "pinyin": "méiyǒu"
+        },
+        {
+          "chars": ",",
+          "startTime": 295.94,
+          "duration": 0.28
+        },
+        {
+          "chars": "不过",
+          "startTime": 296.22,
+          "duration": 0.3
+        },
+        {
+          "chars": "我",
+          "startTime": 296.52,
+          "duration": 0.18,
+          "pinyin": "wǒ"
+        },
+        {
+          "chars": "朋友",
+          "startTime": 296.7,
+          "duration": 0.42,
+          "pinyin": "péngyou"
+        },
+        {
+          "chars": "有",
+          "startTime": 297.12,
+          "duration": 0.32,
+          "pinyin": "yǒu"
+        },
+        {
+          "chars": "。",
+          "startTime": 297.44,
+          "duration": 0.17
+        }
+      ]
+    },
+    {
+      "id": 97,
+      "startTime": 297.98,
+      "endTime": 299.98,
+      "duration": 2,
+      "text": "号码是多少?",
+      "characters": [
+        {
+          "chars": "号码",
+          "startTime": 297.98,
+          "duration": 0.46,
+          "pinyin": "hàomǎ"
+        },
+        {
+          "chars": "是",
+          "startTime": 298.44,
+          "duration": 0.3,
+          "pinyin": "shì"
+        },
+        {
+          "chars": "多少",
+          "startTime": 298.74,
+          "duration": 0.75,
+          "pinyin": "duōshao"
+        },
+        {
+          "chars": "?",
+          "startTime": 299.49,
+          "duration": 0.13
+        }
+      ]
+    },
+    {
+      "id": 98,
+      "startTime": 300.26,
+      "endTime": 304.19,
+      "duration": 3.93,
+      "text": "136-9567-0132。",
+      "characters": [
+        {
+          "chars": "1",
+          "startTime": 300.26,
+          "duration": 0.29
+        },
+        {
+          "chars": "3",
+          "startTime": 300.55,
+          "duration": 0.29
+        },
+        {
+          "chars": "6",
+          "startTime": 300.84,
+          "duration": 0.3
+        },
+        {
+          "chars": "-",
+          "startTime": 301.14,
+          "duration": 0.26
+        },
+        {
+          "chars": "9",
+          "startTime": 301.4,
+          "duration": 0.29
+        },
+        {
+          "chars": "5",
+          "startTime": 301.69,
+          "duration": 0.21
+        },
+        {
+          "chars": "6",
+          "startTime": 301.9,
+          "duration": 0.16
+        },
+        {
+          "chars": "7",
+          "startTime": 302.06,
+          "duration": 0.44
+        },
+        {
+          "chars": "-",
+          "startTime": 302.5,
+          "duration": 0.26
+        },
+        {
+          "chars": "0",
+          "startTime": 302.76,
+          "duration": 0.24
+        },
+        {
+          "chars": "1",
+          "startTime": 303,
+          "duration": 0.25
+        },
+        {
+          "chars": "3",
+          "startTime": 303.25,
+          "duration": 0.24
+        },
+        {
+          "chars": "2",
+          "startTime": 303.49,
+          "duration": 0.25
+        },
+        {
+          "chars": "。",
+          "startTime": 303.74,
+          "duration": 0.23
+        }
+      ]
+    },
+    {
+      "id": 99,
+      "startTime": 304.32,
+      "endTime": 306.33,
+      "duration": 2.01,
+      "text": "好,我等你。",
+      "characters": [
+        {
+          "chars": "好",
+          "startTime": 304.32,
+          "duration": 0.38,
+          "pinyin": "hǎo"
+        },
+        {
+          "chars": ",",
+          "startTime": 304.7,
+          "duration": 0.36
+        },
+        {
+          "chars": "我",
+          "startTime": 305.06,
+          "duration": 0.18,
+          "pinyin": "wǒ"
+        },
+        {
+          "chars": "等",
+          "startTime": 305.24,
+          "duration": 0.16,
+          "pinyin": "děng"
+        },
+        {
+          "chars": "你",
+          "startTime": 305.4,
+          "duration": 0.3,
+          "pinyin": "nǐ"
+        },
+        {
+          "chars": "。",
+          "startTime": 305.7,
+          "duration": 0.23
         }
       ]
     }
