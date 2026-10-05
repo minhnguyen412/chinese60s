@@ -6539,12 +6539,14 @@
         {
           "chars": "北京",
           "startTime": 399.39,
-          "duration": 0.46
+          "duration": 0.46,
+          "pinyin": "Běijīng"
         },
         {
           "chars": "秋天",
           "startTime": 399.85,
-          "duration": 0.42
+          "duration": 0.42,
+          "pinyin": "qiūtiān"
         },
         {
           "chars": "的",
@@ -6555,7 +6557,8 @@
         {
           "chars": "天气",
           "startTime": 400.43,
-          "duration": 0.54
+          "duration": 0.54,
+          "pinyin": "tiānqì"
         },
         {
           "chars": "怎么样",
@@ -6580,7 +6583,8 @@
         {
           "chars": "北京",
           "startTime": 402.43,
-          "duration": 0.38
+          "duration": 0.38,
+          "pinyin": "Běijīng"
         },
         {
           "chars": "的",
@@ -6591,7 +6595,8 @@
         {
           "chars": "秋天",
           "startTime": 403.01,
-          "duration": 0.6
+          "duration": 0.6,
+          "pinyin": "qiūtiān"
         },
         {
           "chars": "不",
@@ -6602,18 +6607,20 @@
         {
           "chars": "冷",
           "startTime": 403.77,
-          "duration": 0.26
+          "duration": 0.26,
+          "pinyin": "lěng"
         },
         {
           "chars": "不",
           "startTime": 404.03,
           "duration": 0.18,
-          "pinyin": "bù"
+          "pinyin": "bú"
         },
         {
           "chars": "热",
           "startTime": 404.21,
-          "duration": 0.32
+          "duration": 0.32,
+          "pinyin": "rè"
         },
         {
           "chars": ",",
@@ -6646,7 +6653,8 @@
         {
           "chars": "最",
           "startTime": 406.27,
-          "duration": 0.22
+          "duration": 0.22,
+          "pinyin": "zuì"
         },
         {
           "chars": "好",
@@ -6663,7 +6671,8 @@
         {
           "chars": "季节",
           "startTime": 406.87,
-          "duration": 0.58
+          "duration": 0.58,
+          "pinyin": "jìjié"
         },
         {
           "chars": "。",
@@ -6682,7 +6691,8 @@
         {
           "chars": "冬天",
           "startTime": 408.69,
-          "duration": 0.5
+          "duration": 0.5,
+          "pinyin": "dōngtiān"
         },
         {
           "chars": "呢",
@@ -6704,7 +6714,8 @@
         {
           "chars": "北京",
           "startTime": 410.65,
-          "duration": 0.38
+          "duration": 0.38,
+          "pinyin": "Běijīng"
         },
         {
           "chars": "的",
@@ -6715,7 +6726,8 @@
         {
           "chars": "冬天",
           "startTime": 411.27,
-          "duration": 0.4
+          "duration": 0.4,
+          "pinyin": "dōngtiān"
         },
         {
           "chars": "很",
@@ -6726,7 +6738,8 @@
         {
           "chars": "冷",
           "startTime": 411.83,
-          "duration": 0.31
+          "duration": 0.31,
+          "pinyin": "lěng"
         },
         {
           "chars": ",",
@@ -6762,7 +6775,8 @@
         {
           "chars": "对",
           "startTime": 413.65,
-          "duration": 0.46
+          "duration": 0.46,
+          "pinyin": "duì"
         },
         {
           "chars": ",",
@@ -6772,7 +6786,8 @@
         {
           "chars": "北京",
           "startTime": 414.39,
-          "duration": 0.5
+          "duration": 0.5,
+          "pinyin": "Běijīng"
         },
         {
           "chars": "的",
@@ -6783,7 +6798,8 @@
         {
           "chars": "冬天",
           "startTime": 415.11,
-          "duration": 0.56
+          "duration": 0.56,
+          "pinyin": "dōngtiān"
         },
         {
           "chars": "比较",
@@ -6794,7 +6810,8 @@
         {
           "chars": "冷",
           "startTime": 415.99,
-          "duration": 0.28
+          "duration": 0.28,
+          "pinyin": "lěng"
         },
         {
           "chars": ",",
@@ -6804,17 +6821,20 @@
         {
           "chars": "最",
           "startTime": 416.81,
-          "duration": 0.3
+          "duration": 0.3,
+          "pinyin": "zuì"
         },
         {
           "chars": "冷",
           "startTime": 417.11,
-          "duration": 0.22
+          "duration": 0.22,
+          "pinyin": "lěng"
         },
         {
           "chars": "差不多",
           "startTime": 417.33,
-          "duration": 0.62
+          "duration": 0.62,
+          "pinyin": "chàbùduō"
         },
         {
           "chars": "零",
@@ -6843,7 +6863,8 @@
         {
           "chars": "度",
           "startTime": 418.89,
-          "duration": 0.32
+          "duration": 0.32,
+          "pinyin": "dù"
         },
         {
           "chars": "。",
@@ -6874,7 +6895,8 @@
         {
           "chars": "雪",
           "startTime": 420.61,
-          "duration": 0.3
+          "duration": 0.3,
+          "pinyin": "xuě"
         },
         {
           "chars": "吗",
@@ -6917,7 +6939,8 @@
         {
           "chars": "雪",
           "startTime": 422.97,
-          "duration": 0.36
+          "duration": 0.36,
+          "pinyin": "xuě"
         },
         {
           "chars": "。",
@@ -6936,7 +6959,8 @@
         {
           "chars": "大卫",
           "startTime": 423.93,
-          "duration": 0.6
+          "duration": 0.6,
+          "pinyin": "dà wèi"
         },
         {
           "chars": ",",
@@ -6952,7 +6976,8 @@
         {
           "chars": "最",
           "startTime": 425.27,
-          "duration": 0.16
+          "duration": 0.16,
+          "pinyin": "zuì"
         },
         {
           "chars": "喜欢",
@@ -6975,7 +7000,8 @@
         {
           "chars": "季节",
           "startTime": 426.37,
-          "duration": 0.55
+          "duration": 0.55,
+          "pinyin": "jìjié"
         },
         {
           "chars": "?",
@@ -7006,7 +7032,8 @@
         {
           "chars": "夏天",
           "startTime": 428.12,
-          "duration": 0.52
+          "duration": 0.52,
+          "pinyin": "xiàtiān"
         },
         {
           "chars": "。",
@@ -7028,7 +7055,8 @@
         {
           "chars": "游泳",
           "startTime": 429.92,
-          "duration": 0.47
+          "duration": 0.47,
+          "pinyin": "yóuyǒng"
         },
         {
           "chars": "。",
@@ -7096,7 +7124,8 @@
         {
           "chars": "春天",
           "startTime": 434.12,
-          "duration": 0.64
+          "duration": 0.64,
+          "pinyin": "chūntiān"
         },
         {
           "chars": "。",
