@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boya 1 (Part1)</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -23,33 +19,18 @@
             padding: 20px;
         }
 
-        .mobile-layout {
-            display: none;
-        }
-
         .header {
             text-align: center;
             margin-bottom: 30px;
         }
-
-        .header h1 {
-            font-size: 28px;
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        .header p {
-            color: #888;
-            font-size: 14px;
-        }
+        .header h1 { font-size: 28px; margin-bottom: 10px; color: #333; }
+        .header p { color: #888; font-size: 14px; }
 
         .main-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
-            margin-bottom: 20px;
-            margin-top: 20px;
-            grid-template-areas: "video transcript";
+            margin: 20px 0;
         }
 
         .video-section {
@@ -60,16 +41,20 @@
             display: flex;
             flex-direction: column;
             height: fit-content;
-            grid-area: video;
         }
 
         .video-player {
             width: 100%;
             aspect-ratio: 16 / 9;
             background: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        }
+        .video-player iframe { width: 100%; height: 100%; border: 0; }
+
+        .loading {
+            text-align: center;
+            padding: 30px 15px;
+            color: #999;
+            font-size: 12px;
         }
 
         .player-controls {
@@ -80,7 +65,6 @@
             align-items: center;
             background: #f8f8f8;
             border-top: 2px solid #e0e0e0;
-            width: 100%;
         }
 
         .button-group {
@@ -98,30 +82,11 @@
             cursor: pointer;
             font-size: 13px;
             font-weight: 600;
-            transition: all 0.3s;
             white-space: nowrap;
         }
-
-        button:hover {
-            background: #e8d900;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(250, 241, 77, 0.3);
-        }
-
-        button:active {
-            transform: translateY(0);
-        }
-
-        button.secondary {
-            background: #e0e0e0;
-            color: #666;
-            border-color: #d0d0d0;
-        }
-
-        button.secondary:hover {
-            background: #d0d0d0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
+        button:hover { background: #e8d900; }
+        button.secondary { background: #e0e0e0; color: #666; border-color: #d0d0d0; }
+        button.secondary:hover { background: #d0d0d0; }
 
         .time-display {
             padding: 8px 12px;
@@ -138,17 +103,14 @@
 
         .subtitle-selector {
             display: flex;
-            gap: 8px;
+            gap: 10px;
             align-items: center;
             padding: 15px;
-            background: none;
             border-top: 2px solid #e0e0e0;
             flex-wrap: wrap;
-            margin: 0;
-            width: 100%;
-            order: 2;
+            background: #f8f8f8;
         }
-
+        .subtitle-selector .label { font-size: 12px; color: #333; margin-right: 4px; }
         .subtitle-selector label {
             display: flex;
             align-items: center;
@@ -157,25 +119,7 @@
             cursor: pointer;
             color: #333;
         }
-
-        .subtitle-selector input[type="radio"] {
-            cursor: pointer;
-            width: 16px;
-            height: 16px;
-        }
-
-        /* Status */
-        .status {
-            display: none;
-        }
-
-        .info-box {
-            background: #e8f4ff;
-            border-left: 3px solid #b2fa4d;
-            padding: 10px;
-            border-radius: 6px;
-            color: #666;
-        }
+        .subtitle-selector input[type="radio"] { cursor: pointer; width: 16px; height: 16px; }
 
         .transcript-section {
             background: #f8f8f8;
@@ -185,17 +129,14 @@
             display: flex;
             flex-direction: column;
             height: 550px;
-            grid-area: transcript;
-        }
-
-        .transcript-header {
-            display: none;
         }
 
         .transcript-area {
             flex: 1;
             overflow-y: auto;
             padding: 12px;
+            position: relative;
+            overscroll-behavior: contain;
         }
 
         .sentence {
@@ -205,19 +146,15 @@
             border-radius: 8px;
             border-left: 3px solid #ddd;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: background-color 0.2s, border-color 0.2s;
         }
-
         .sentence:hover {
             background: #fffbf0;
             border-left-color: #faf14d;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
-
         .sentence.active {
             background: #fffef5;
             border-left-color: #b2fa4d;
-            box-shadow: 0 0 12px rgba(178, 250, 77, 0.25);
         }
 
         .sentence-translation {
@@ -238,46 +175,18 @@
             background: #ffffff;
             border: 2px solid #e0e0e0;
             border-radius: 4px;
-            transition: all 0.1s;
             cursor: pointer;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 3px;
         }
-
-        .char .pinyin {
-            font-size: 11px;
-            color: #999;
-            line-height: 1;
-        }
-
-        .char .char-text {
-            font-size: 18px;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .char.active {
-            background: #fffef5;
-            border: 3px solid #faf14d;
-            color: #333;
-            transform: scale(1.12);
-            box-shadow: 0 4px 12px rgba(250, 241, 77, 0.4);
-            font-weight: 700;
-        }
-
-        .char.upcoming {
-            background: #ffffff;
-            opacity: 0.6;
-            border-color: #e8e8e8;
-        }
-
-        .char.passed {
-            background: #f5f5f5;
-            opacity: 0.9;
-            border-color: #d0d0d0;
-        }
+        .char .pinyin { font-size: 11px; color: #999; line-height: 1; }
+        .char .char-text { font-size: 18px; font-weight: 600; color: #333; }
+        .char.passed { background: #f5f5f5; border-color: #d0d0d0; }
+        .char.upcoming { opacity: 0.6; border-color: #e8e8e8; }
+        .char.active { background: #fffef5; border-color: #faf14d; }
+        .char.active .char-text { font-weight: 700; }
 
         .meta-info {
             font-size: 10px;
@@ -285,57 +194,24 @@
             margin-top: 6px;
         }
 
-        .transcript-area::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .transcript-area::-webkit-scrollbar-track {
-            background: #f0f0f0;
-        }
-
-        .transcript-area::-webkit-scrollbar-thumb {
-            background: #d0d0d0;
-            border-radius: 3px;
-        }
-
-        .transcript-area::-webkit-scrollbar-thumb:hover {
-            background: #faf14d;
-        }
-
-        .loading {
-            text-align: center;
-            padding: 30px 15px;
-            color: #999;
-            font-size: 12px;
-        }
+        .transcript-area::-webkit-scrollbar { width: 6px; }
+        .transcript-area::-webkit-scrollbar-track { background: #f0f0f0; }
+        .transcript-area::-webkit-scrollbar-thumb { background: #d0d0d0; border-radius: 3px; }
+        .transcript-area::-webkit-scrollbar-thumb:hover { background: #faf14d; }
 
         /* Modal */
         .modal {
             display: none;
             position: fixed;
             z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             background-color: rgba(0, 0, 0, 0.4);
-            animation: fadeIn 0.3s;
-            touch-action: none;
-            -webkit-user-select: none;
-            user-select: none;
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
         .modal.show {
             display: flex;
             align-items: center;
             justify-content: center;
         }
-
         .modal-content {
             background: #ffffff;
             border: 2px solid #e0e0e0;
@@ -343,51 +219,20 @@
             padding: 20px;
             max-width: 420px;
             width: 90%;
-            animation: slideUp 0.3s;
             max-height: 80vh;
             overflow-y: auto;
-            pointer-events: auto;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
         }
-
-        @keyframes slideUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .character-detail {
-            text-align: center;
-        }
-
-        .character-detail-header {
-            margin-bottom: 15px;
-        }
-
-        .character-detail h2 {
-            font-size: 36px;
-            margin-bottom: 6px;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .character-detail-pinyin {
-            font-size: 16px;
-            color: #b2fa4d;
-            font-style: italic;
-            font-weight: 600;
-        }
-
+        .character-detail { text-align: center; }
+        .character-detail h2 { font-size: 36px; margin-bottom: 6px; font-weight: 600; color: #333; }
+        .character-detail-pinyin { font-size: 16px; color: #7bb800; font-style: italic; font-weight: 600; }
         .character-detail-body {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 12px;
             margin-top: 15px;
-        }
-
-        .detail-column {
             text-align: left;
         }
-
         .character-detail-image {
             width: 100%;
             height: auto;
@@ -396,14 +241,12 @@
             object-fit: cover;
             border: 2px solid #e0e0e0;
         }
-
         .info-item {
             background: #f8f8f8;
             padding: 10px;
             border-radius: 6px;
             border: 1px solid #e0e0e0;
         }
-
         .info-label {
             font-size: 11px;
             color: #999;
@@ -411,206 +254,67 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
+        .info-value { font-size: 13px; color: #333; line-height: 1.4; }
+        .character-audio { margin-top: 8px; }
+        .character-audio audio { width: 100%; height: 28px; }
 
-        .info-value {
-            font-size: 13px;
-            color: #333;
-            line-height: 1.4;
-        }
+        /* Visibility helpers: desktop vs mobile layout */
+        .mob-only { display: none; }
 
-        .character-audio {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 8px;
-        }
-
-        .character-audio .speaker-icon {
-            font-size: 18px;
-        }
-
-        .character-audio audio {
-            flex: 1;
-            height: 28px;
-            max-width: 100%;
-        }
-
-        /* Mobile Responsive */
+        /* Mobile layout */
         @media (max-width: 1024px) {
-            .container {
-                padding: 0;
-                display: flex;
-                flex-direction: column;
-            }
+            .container { padding: 0; }
 
-            .header {
-                padding: 10px 15px;
-                position: relative;
-                z-index: 80;
-                order: 1;
-                margin-bottom: 0;
-            }
+            .header { padding: 10px 15px; margin-bottom: 0; }
 
             .main-grid {
                 grid-template-columns: 1fr;
-                grid-template-areas: 
-                    "video"
-                    "transcript";
                 gap: 0;
-                margin-bottom: 0;
-                padding: 0;
-                order: 2;
+                margin: 0;
             }
 
             .video-section {
                 border: none;
                 border-radius: 0;
                 height: auto;
-                aspect-ratio: 16 / 9;
-                margin: 0;
-                padding: 0;
-                grid-area: video;
-            }
-
-            .video-player {
-                aspect-ratio: 16 / 9;
-                margin: 0;
-                padding: 0;
-            }
-
-            .player-controls {
-                display: none;
             }
 
             .transcript-section {
-                width: 100%;
                 height: 300px;
                 border: none;
                 border-radius: 0;
-                margin: 0;
-                padding: 0;
-                grid-area: transcript;
             }
+
+            .mob-only { display: flex; }
+            .desk-only { display: none !important; }
 
             .subtitle-selector {
-                order: 3;
-                background: #f8f8f8;
-                padding: 8px 12px;
                 border-radius: 0;
-                margin: 0;
-                width: 100%;
-                border-top: 2px solid #e0e0e0;
                 border-bottom: 2px solid #e0e0e0;
+                padding: 8px 12px;
             }
-
-            .subtitle-selector span {
-                margin-right: 12px;
-            }
-
-            .subtitle-selector label {
-                margin-right: 12px;
-            }
-
-            .player-controls:last-of-type {
-                display: flex !important;
-                order: 4;
-                width: 100%;
-                padding: 10px 15px;
-                border-radius: 0;
+            .subtitle-selector label { margin-right: 8px; }
+            .player-controls.mob-only {
                 flex-direction: row;
-                gap: 8px;
-                background: #f8f8f8;
+                padding: 10px 15px;
                 border: none;
                 border-top: 2px solid #e0e0e0;
-                margin: 0;
-                position: static;
+                border-radius: 0;
             }
 
-            .modal-content {
-                max-width: 90%;
-                padding: 16px;
-                max-height: 70vh;
-            }
-
-            .character-detail h2 {
-                font-size: 32px;
-            }
-
-            .character-detail-body {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            #desktopControls {
-                display: none !important;
-            }
-
-            #desktopSubtitleSelector {
-                display: none !important;
-            }
-
-            .subtitle-selector:first-of-type {
-                display: none;
-            }
+            .modal-content { max-width: 90%; padding: 16px; max-height: 70vh; }
         }
 
         @media (max-width: 600px) {
-            body {
-                padding: 0;
-            }
-
-            .container {
-                padding: 0;
-            }
-
-            .header {
-                padding: 10px 15px;
-            }
-
-            .header h1 {
-                font-size: 22px;
-            }
-
-            .header p {
-                font-size: 12px;
-            }
-
-            .main-grid {
-                gap: 15px;
-            }
-
-            .video-player {
-                aspect-ratio: 16 / 9;
-            }
-
-            .character-detail h2 {
-                font-size: 28px;
-            }
-
-            .character-detail-pinyin {
-                font-size: 14px;
-            }
-
-            button {
-                padding: 7px 10px;
-                font-size: 12px;
-            }
-
-            .char .char-text {
-                font-size: 16px;
-            }
-
-            .sentence {
-                padding: 8px;
-                margin-bottom: 12px;
-            }
-
-            .sentence-translation {
-                font-size: 14px;
-            }
-
-            .meta-info {
-                font-size: 9px;
-            }
+            .header h1 { font-size: 22px; }
+            .header p { font-size: 12px; }
+            .main-grid { gap: 0; }
+            .character-detail h2 { font-size: 28px; }
+            button { padding: 7px 10px; font-size: 12px; }
+            .char .char-text { font-size: 16px; }
+            .sentence { padding: 8px; margin-bottom: 12px; }
+            .sentence-translation { font-size: 14px; }
+            .meta-info { font-size: 9px; }
         }
     </style>
 </head>
@@ -622,48 +326,34 @@
         </div>
 
         <div class="main-grid">
-            <!-- Video Player Section -->
+            <!-- Video -->
             <div class="video-section">
                 <div class="video-player" id="videoPlayer">
                     <div class="loading">📺 Loading YouTube video...</div>
                 </div>
 
-                <!-- Controls (Desktop only) -->
-                <div class="player-controls" id="desktopControls" style="display: none;">
+                <!-- Desktop controls -->
+                <div class="player-controls desk-only">
                     <div class="button-group">
-                        <button onclick="togglePlayPause()" id="playBtn">▶️</button>
-                        <button onclick="stopVideo()" class="secondary">⏹️</button>
-                        <button onclick="rewindVideo()" class="secondary">⏮️</button>
-                        <button onclick="forwardVideo()" class="secondary">⏭️</button>
+                        <button class="play-btn" onclick="togglePlay()">▶️</button>
+                        <button class="secondary" onclick="stopVideo()">⏹️</button>
+                        <button class="secondary" onclick="rewindVideo()">⏮️</button>
+                        <button class="secondary" onclick="forwardVideo()">⏭️</button>
                     </div>
-                    <div class="time-display">
-                        <div id="timeDisplay">0:00 / 0:00</div>
-                    </div>
+                    <div class="time-display"><span class="time-text">0:00 / 0:00</span></div>
                 </div>
 
-                <!-- Subtitle Selector (Desktop) -->
-                <div class="subtitle-selector" id="desktopSubtitleSelector" style="display: none; position: static; background: none; padding: 15px; border-top: 2px solid #e0e0e0; margin: 0;">
-                    <span style="font-size: 12px; margin-right: 8px; color: #333;">Subtitles:</span>
-                    <label>
-                        <input type="radio" name="subtitle" value="none" onchange="changeSubtitle('none')">
-                        <span>None</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="subtitle" value="english" onchange="changeSubtitle('english')"checked>
-                        <span>English</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="subtitle" value="vietnamese" onchange="changeSubtitle('vietnamese')">
-                        <span>Vietnamese</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="subtitle" value="both" onchange="changeSubtitle('both')">
-                        <span>Both</span>
-                    </label>
+                <!-- Desktop subtitle selector -->
+                <div class="subtitle-selector desk-only">
+                    <span class="label">Subtitles:</span>
+                    <label><input type="radio" name="subtitle" value="none" onchange="setSubtitle('none')"><span>None</span></label>
+                    <label><input type="radio" name="subtitle" value="english" onchange="setSubtitle('english')" checked><span>English</span></label>
+                    <label><input type="radio" name="subtitle" value="vietnamese" onchange="setSubtitle('vietnamese')"><span>Vietnamese</span></label>
+                    <label><input type="radio" name="subtitle" value="both" onchange="setSubtitle('both')"><span>Both</span></label>
                 </div>
             </div>
 
-            <!-- Transcript Section -->
+            <!-- Transcript -->
             <div class="transcript-section">
                 <div class="transcript-area" id="transcriptArea">
                     <div class="loading">⏳ Loading transcript...</div>
@@ -671,239 +361,71 @@
             </div>
         </div>
 
-        <!-- Subtitle Selector (Mobile) -->
-        <div class="subtitle-selector">
-            <span style="font-size: 12px; margin-right: 8px; color: #333;">Subtitles:</span>
-            <label>
-                <input type="radio" name="subtitle" value="none" onchange="changeSubtitle('none')">
-                <span>None</span>
-            </label>
-            <label>
-                <input type="radio" name="subtitle" value="english" onchange="changeSubtitle('english')"checked>
-                <span>English</span>
-            </label>
-            <label>
-                <input type="radio" name="subtitle" value="vietnamese" onchange="changeSubtitle('vietnamese')">
-                <span>Vietnamese</span>
-            </label>
-            <label>
-                <input type="radio" name="subtitle" value="both" onchange="changeSubtitle('both')">
-                <span>Both</span>
-            </label>
+        <!-- Mobile subtitle selector -->
+        <div class="subtitle-selector mob-only">
+            <span class="label">Subtitles:</span>
+            <label><input type="radio" name="subtitle" value="none" onchange="setSubtitle('none')"><span>None</span></label>
+            <label><input type="radio" name="subtitle" value="english" onchange="setSubtitle('english')" checked><span>English</span></label>
+            <label><input type="radio" name="subtitle" value="vietnamese" onchange="setSubtitle('vietnamese')"><span>Vietnamese</span></label>
+            <label><input type="radio" name="subtitle" value="both" onchange="setSubtitle('both')"><span>Both</span></label>
         </div>
 
-        <div class="player-controls">
+        <!-- Mobile controls -->
+        <div class="player-controls mob-only">
             <div class="button-group">
-                <button onclick="togglePlayPause()" id="playBtn">▶️</button>
-                <button onclick="stopVideo()" class="secondary">⏹️</button>
-                <button onclick="rewindVideo()" class="secondary">⏮️</button>
-                <button onclick="forwardVideo()" class="secondary">⏭️</button>
+                <button class="play-btn" onclick="togglePlay()">▶️</button>
+                <button class="secondary" onclick="stopVideo()">⏹️</button>
+                <button class="secondary" onclick="rewindVideo()">⏮️</button>
+                <button class="secondary" onclick="forwardVideo()">⏭️</button>
             </div>
-            <div class="time-display">
-                <div id="timeDisplay">0:00 / 0:00</div>
-            </div>
+            <div class="time-display"><span class="time-text">0:00 / 0:00</span></div>
         </div>
     </div>
 
-    <!-- Character Detail Modal -->
+    <!-- Character modal -->
     <div id="characterModal" class="modal">
-        <div class="modal-content" onclick="event.stopPropagation();">
-            <div class="character-detail" id="characterDetailContent">
-            </div>
+        <div class="modal-content">
+            <div class="character-detail" id="characterDetailContent"></div>
         </div>
     </div>
 
     <script src="https://www.youtube.com/iframe_api"></script>
     <script>
-        let player = null;
-        let transcriptData = null;
-        let sentencesData = null;
-        let imagesData = null;
-        let currentSentenceIndex = -1;
-        let currentCharIndex = -1;
-        let updateInterval = null;
-        let videoStartTime = 0;
-        let videoPausedTime = 0;
-        let subtitleMode = 'english';
+        const VIDEO_URL = 'https://www.youtube.com/watch?v=yRhp-kQfD5g';
+        const DATA_FILES = {
+            transcript: 'data/boya-transcript.json',
+            sentences: 'data/boya-sentences.json',
+            images: 'data/imagesData.json'
+        };
 
-        const transcriptArea = document.getElementById('transcriptArea');
-        const timeDisplay = document.getElementById('timeDisplay');
-        const playBtn = document.getElementById('playBtn');
-        const videoPlayer = document.getElementById('videoPlayer');
+        const $ = id => document.getElementById(id);
+        const transcriptArea = $('transcriptArea');
+        const videoPlayerEl = $('videoPlayer');
 
-        function extractYoutubeId(url) {
-            let videoId = '';
-            const patterns = [
-                /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/,
-                /^([a-zA-Z0-9_-]{11})$/
-            ];
+        const st = {
+            player: null,
+            playerReady: false,
+            transcript: null,
+            sentenceMap: new Map(),   // id -> {english, vietnamese}
+            imagesMap: new Map(),     // character -> info
+            subtitleMode: 'english',
+            sentenceEls: [],          // DOM cache: .sentence elements
+            charEls: [],              // DOM cache: .char elements per sentence
+            activeS: -1,
+            activeC: -1,
+            timer: null,
+            timeText: ''
+        };
 
-            for (let pattern of patterns) {
-                const match = url.match(pattern);
-                if (match) {
-                    videoId = match[1];
-                    break;
-                }
-            }
+        // ---------- Utilities ----------
 
-            return videoId;
-        }
-
-        function loadYoutubeVideoAuto(url) {
-            const videoId = extractYoutubeId(url);
-
-            if (!videoId) {
-                return;
-            }
-
-            videoPlayer.innerHTML = `
-                <div id="yt-player"></div>
-            `;
-
-            setTimeout(() => {
-                player = new YT.Player('yt-player', {
-                    height: '100%',
-                    width: '100%',
-                    videoId: videoId,
-                    events: {
-                        'onReady': onPlayerReady,
-                        'onStateChange': onPlayerStateChange
-                    }
-                });
-            }, 100);
-        }
-
-        function onPlayerReady(event) {
-        }
-
-        function onPlayerStateChange(event) {
-            if (event.data === YT.PlayerState.PLAYING) {
-                videoStartTime = player.getCurrentTime();
-                playBtn.textContent = '⏸️';
-                startSync();
-            } else if (event.data === YT.PlayerState.PAUSED) {
-                videoPausedTime = player.getCurrentTime();
-                playBtn.textContent = '▶️';
-                stopSync();
-            } else if (event.data === YT.PlayerState.ENDED) {
-                playBtn.textContent = '▶️';
-                stopSync();
-            }
-        }
-
-        function loadJsonFromPath(filePath) {
-            fetch(filePath)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    transcriptData = data;
-                    
-                    if (!transcriptData.sentences || transcriptData.sentences.length === 0) {
-                        return;
-                    }
-                    
-                    const firstChar = transcriptData.sentences[0].characters?.[0];
-                    if (!firstChar || (!firstChar.chars && !firstChar.char)) {
-                        return;
-                    }
-
-                    loadSentencesData();
-                    loadImagesData();
-                })
-                .catch(error => {
-                });
-        }
-
-        function loadSentencesData() {
-            fetch('data/boya-sentences.json')
-                .then(response => response.json())
-                .then(data => {
-                    sentencesData = data;
-                });
-        }
-
-        function loadImagesData() {
-            fetch('data/imagesData.json')
-                .then(response => response.json())
-                .then(data => {
-                    imagesData = data;
-                    renderTranscript();
-                })
-                .catch(error => {
-                    renderTranscript();
-                });
-        }
-
-        function getCharacterInfo(charText) {
-            if (!imagesData) return null;
-            return imagesData.find(img => img.character === charText);
-        }
-
-        function getSentenceTranslation(sentenceId) {
-            if (!sentencesData) return { english: '', vietnamese: '' };
-            const sentence = sentencesData.find(s => s.id === sentenceId);
-            return sentence ? { english: sentence.english, vietnamese: sentence.vietnamese } : { english: '', vietnamese: '' };
-        }
-
-        function changeSubtitle(mode) {
-            subtitleMode = mode;
-            renderTranscript();
-        }
-
-        function renderTranscript() {
-            if (!transcriptData || transcriptData.sentences.length === 0) {
-                transcriptArea.innerHTML = '<div class="loading">No data</div>';
-                return;
-            }
-
-            let html = '';
-            transcriptData.sentences.forEach((sentence, idx) => {
-                const translation = getSentenceTranslation(sentence.id);
-                
-                let translationHtml = '';
-if (subtitleMode === 'vietnamese' && translation.vietnamese) {
-    translationHtml = `<div class="sentence-translation"> ${translation.vietnamese}</div>`;
-} else if (subtitleMode === 'english' && translation.english) {
-    translationHtml = `<div class="sentence-translation"> ${translation.english}</div>`;
-} else if (subtitleMode === 'both') {
-    if (translation.vietnamese) {
-        translationHtml = `<div class="sentence-translation"> ${translation.vietnamese}</div>`;
-    }
-    if (translation.english) {
-        translationHtml += `<div class="sentence-translation"> ${translation.english}</div>`;
-    }
-}
-
-const charGroupsHtml = sentence.characters
-    .map((char, charIdx) => {
-        const charText = char.chars || char.char;
-        const pinyin = char.pinyin || '';
-        
-        return `
-            <span class="char" data-sentence="${idx}" data-char="${charIdx}" onclick="showCharacterDetail('${charText}', event)">
-                <span class="pinyin">${pinyin}</span>
-                <span class="char-text">${charText}</span>
-            </span>
-        `;
-    })
-    .join('');
-
-html += `
-    <div class="sentence" data-index="${idx}" onclick="seekToSentence(${idx})">
-        ${translationHtml}
-        <div class="character-line">${charGroupsHtml}</div>
-        <div class="meta-info">
-            ${formatTime(sentence.startTime)} - ${formatTime(sentence.endTime)} 
-            (${sentence.duration.toFixed(1)}s)
-        </div>
-    </div>
-`;
-            });
-            transcriptArea.innerHTML = html;
+        function escapeHtml(str) {
+            return String(str ?? '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
         }
 
         function formatTime(seconds) {
@@ -912,248 +434,354 @@ html += `
             return `${mins}:${secs}`;
         }
 
-        function startSync() {
-            if (updateInterval) clearInterval(updateInterval);
+        function charText(ch) {
+            return ch.chars || ch.char || '';
+        }
 
-            updateInterval = setInterval(() => {
-                if (!player || !transcriptData) return;
+        function extractYoutubeId(url) {
+            const m = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/)
+                   || url.match(/^([a-zA-Z0-9_-]{11})$/);
+            return m ? m[1] : '';
+        }
 
-                try {
-                    const state = player.getPlayerState();
-                    if (state !== YT.PlayerState.PLAYING) return;
+        async function fetchJson(path) {
+            const res = await fetch(path);
+            if (!res.ok) throw new Error(`HTTP ${res.status} for ${path}`);
+            return res.json();
+        }
 
-                    const currentTime = player.getCurrentTime();
-                    updateTranscriptHighlight(currentTime);
-                    updateTimeDisplay(currentTime);
-                } catch (e) {
+        // ---------- Video ----------
+
+        function initPlayer() {
+            if (st.player) return;
+            const id = extractYoutubeId(VIDEO_URL);
+            if (!id || !window.YT || !YT.Player) return;
+
+            videoPlayerEl.innerHTML = '<div id="yt-player"></div>';
+            st.player = new YT.Player('yt-player', {
+                width: '100%',
+                height: '100%',
+                videoId: id,
+                playerVars: { rel: 0 },
+                events: {
+                    onReady: () => { st.playerReady = true; },
+                    onStateChange: onPlayerStateChange
                 }
-            }, 50);
+            });
+        }
+
+        // YouTube calls this when its API finishes loading
+        window.onYouTubeIframeAPIReady = initPlayer;
+
+        function onPlayerStateChange(e) {
+            const playing = e.data === YT.PlayerState.PLAYING;
+            setPlayIcon(playing);
+            if (playing) startSync();
+            else stopSync();
+        }
+
+        function setPlayIcon(playing) {
+            const icon = playing ? '⏸️' : '▶️';
+            document.querySelectorAll('.play-btn').forEach(b => { b.textContent = icon; });
+        }
+
+        function startSync() {
+            if (st.timer) return;
+            st.timer = setInterval(tick, 100);
         }
 
         function stopSync() {
-            if (updateInterval) {
-                clearInterval(updateInterval);
-                updateInterval = null;
+            if (st.timer) {
+                clearInterval(st.timer);
+                st.timer = null;
             }
         }
 
-        function updateTranscriptHighlight(currentTime) {
-            if (!transcriptData) return;
-
-            let newSentenceIndex = -1;
-            let newCharIndex = -1;
-
-            for (let i = 0; i < transcriptData.sentences.length; i++) {
-                const sentence = transcriptData.sentences[i];
-                if (currentTime >= sentence.startTime && currentTime <= sentence.endTime) {
-                    newSentenceIndex = i;
-
-                    for (let j = 0; j < sentence.characters.length; j++) {
-                        const char = sentence.characters[j];
-                        const charEndTime = char.startTime + char.duration;
-                        if (currentTime >= char.startTime && currentTime <= charEndTime) {
-                            newCharIndex = j;
-                            break;
-                        }
-                    }
-                    break;
-                }
-            }
-
-            if (newSentenceIndex !== currentSentenceIndex) {
-                document.querySelectorAll('.sentence.active').forEach(el => {
-                    el.classList.remove('active');
-                });
-
-                if (newSentenceIndex >= 0) {
-                    const sentenceEl = document.querySelector(`[data-index="${newSentenceIndex}"]`);
-                    if (sentenceEl) {
-                        sentenceEl.classList.add('active');
-                        sentenceEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }
-                }
-
-                currentSentenceIndex = newSentenceIndex;
-            }
-
-            document.querySelectorAll('.char').forEach(el => {
-                const sentenceIdx = parseInt(el.dataset.sentence);
-                const charIdx = parseInt(el.dataset.char);
-
-                el.classList.remove('active', 'passed', 'upcoming');
-
-                if (sentenceIdx === newSentenceIndex) {
-                    if (charIdx === newCharIndex) {
-                        el.classList.add('active');
-                    } else if (charIdx < newCharIndex) {
-                        el.classList.add('passed');
-                    } else {
-                        el.classList.add('upcoming');
-                    }
-                } else if (sentenceIdx < newSentenceIndex) {
-                    el.classList.add('passed');
-                }
-            });
-
-            currentCharIndex = newCharIndex;
-        }
-
-        function updateTimeDisplay(currentTime = null) {
-            let time = currentTime || 0;
-            if (!currentTime && player) {
-                try {
-                    time = player.getCurrentTime();
-                } catch (e) {
-                    time = 0;
-                }
-            }
-
-            let duration = 0;
-            if (transcriptData && transcriptData.sentences.length > 0) {
-                const lastSentence = transcriptData.sentences[transcriptData.sentences.length - 1];
-                duration = lastSentence.endTime;
-            }
-            timeDisplay.textContent = `${formatTime(time)} / ${formatTime(duration)}`;
-        }
-
-        function togglePlayPause() {
-            if (!player) {
-                return;
-            }
-
+        function tick() {
+            if (!st.playerReady) return;
             try {
-                const state = player.getPlayerState();
-                if (state === YT.PlayerState.PLAYING) {
-                    player.pauseVideo();
-                } else {
-                    player.playVideo();
-                }
+                const t = st.player.getCurrentTime();
+                updateHighlight(t);
+                updateTime(t);
+            } catch (e) { /* player not ready */ }
+        }
+
+        function currentTimeSafe() {
+            try {
+                return st.playerReady ? st.player.getCurrentTime() : 0;
             } catch (e) {
+                return 0;
             }
+        }
+
+        // ---------- Controls ----------
+
+        function togglePlay() {
+            if (!st.playerReady) return;
+            if (st.player.getPlayerState() === YT.PlayerState.PLAYING) st.player.pauseVideo();
+            else st.player.playVideo();
         }
 
         function stopVideo() {
-            if (!player) return;
-            try {
-                player.stopVideo();
-                updateTranscriptHighlight(0);
-                updateTimeDisplay(0);
-                playBtn.textContent = '▶️';
-            } catch (e) {
-            }
+            if (!st.playerReady) return;
+            st.player.stopVideo();
+            stopSync();
+            setPlayIcon(false);
+            updateHighlight(0);
+            updateTime(0);
         }
 
         function rewindVideo() {
-            if (!player) return;
-            try {
-                const current = player.getCurrentTime();
-                player.seekTo(Math.max(0, current - 10));
-            } catch (e) {
-            }
+            if (!st.playerReady) return;
+            st.player.seekTo(Math.max(0, st.player.getCurrentTime() - 10), true);
+            setTimeout(() => updateHighlight(currentTimeSafe()), 300);
         }
 
         function forwardVideo() {
-            if (!player) return;
-            try {
-                const current = player.getCurrentTime();
-                const duration = player.getDuration();
-                player.seekTo(Math.min(duration, current + 10));
-            } catch (e) {
-            }
+            if (!st.playerReady) return;
+            const dur = st.player.getDuration();
+            st.player.seekTo(Math.min(dur, st.player.getCurrentTime() + 10), true);
+            setTimeout(() => updateHighlight(currentTimeSafe()), 300);
         }
 
         function seekToSentence(index) {
-            if (!transcriptData || !player) return;
-            try {
-                const sentence = transcriptData.sentences[index];
-                player.seekTo(sentence.startTime);
-                player.playVideo();
-            } catch (e) {
-            }
+            if (!st.transcript || !st.playerReady) return;
+            const s = st.transcript.sentences[index];
+            if (!s) return;
+            st.player.seekTo(s.startTime, true);
+            st.player.playVideo();
+            updateHighlight(s.startTime);
         }
 
-        function showCharacterDetail(charText, event) {
-            event.stopPropagation();
-            const charInfo = getCharacterInfo(charText);
-            if (!charInfo) {
-                alert('Character info not found');
+        // ---------- Data loading ----------
+
+        async function loadData() {
+            try {
+                st.transcript = await fetchJson(DATA_FILES.transcript);
+            } catch (err) {
+                transcriptArea.innerHTML = '<div class="loading">Không tải được transcript</div>';
                 return;
             }
 
-            let html = `
-                <div class="character-detail-header">
-                    <h2>${charInfo.character}</h2>
-                    <div class="character-detail-pinyin">${charInfo.pinyin}</div>
-                </div>
-                <div class="character-detail-body">
-                    <div class="detail-column">
-                        ${charInfo.imageSrc ? `<img src="${charInfo.imageSrc}" alt="${charInfo.character}" class="character-detail-image">` : ''}
-                    </div>
-                    <div class="detail-column">
-                        <div class="info-item">
-                            <div class="info-label">Meaning</div>
-                            <div class="info-value">${charInfo.meaning || 'N/A'}</div>
-                        </div>
-                        ${charInfo.audioSrc ? `
-                            <div class="character-audio">
-                                <audio controls>
-                                    <source src="${charInfo.audioSrc}" type="audio/mpeg">
-                                </audio>
-                            </div>
-                        ` : ''}
-                    </div>
-                </div>
-            `;
+            const [sent, imgs] = await Promise.allSettled([
+                fetchJson(DATA_FILES.sentences),
+                fetchJson(DATA_FILES.images)
+            ]);
 
-            document.getElementById('characterDetailContent').innerHTML = html;
-            document.getElementById('characterModal').classList.add('show');
+            if (sent.status === 'fulfilled' && Array.isArray(sent.value)) {
+                st.sentenceMap = new Map(sent.value.map(s => [s.id, s]));
+            }
+            if (imgs.status === 'fulfilled' && Array.isArray(imgs.value)) {
+                st.imagesMap = new Map(imgs.value.map(i => [i.character, i]));
+            }
+
+            renderTranscript();
+        }
+
+        // ---------- Rendering ----------
+
+        function renderTranscript() {
+            const sentences = st.transcript?.sentences || [];
+            if (!sentences.length) {
+                transcriptArea.innerHTML = '<div class="loading">No data</div>';
+                return;
+            }
+
+            const mode = st.subtitleMode;
+            const html = sentences.map((s, idx) => {
+                const tr = st.sentenceMap.get(s.id) || {};
+                const lines = [];
+                if (mode === 'vietnamese' && tr.vietnamese) lines.push(tr.vietnamese);
+                else if (mode === 'english' && tr.english) lines.push(tr.english);
+                else if (mode === 'both') {
+                    if (tr.vietnamese) lines.push(tr.vietnamese);
+                    if (tr.english) lines.push(tr.english);
+                }
+                const trHtml = lines
+                    .map(t => `<div class="sentence-translation">${escapeHtml(t)}</div>`)
+                    .join('');
+
+                const charsHtml = (s.characters || []).map(ch => {
+                    const t = charText(ch);
+                    return `<span class="char" data-char="${escapeHtml(t)}">` +
+                           `<span class="pinyin">${escapeHtml(ch.pinyin || '')}</span>` +
+                           `<span class="char-text">${escapeHtml(t)}</span></span>`;
+                }).join('');
+
+                return `
+                    <div class="sentence" data-index="${idx}">
+                        ${trHtml}
+                        <div class="character-line">${charsHtml}</div>
+                        <div class="meta-info">${formatTime(s.startTime)} - ${formatTime(s.endTime)} (${Number(s.duration).toFixed(1)}s)</div>
+                    </div>`;
+            }).join('');
+
+            transcriptArea.innerHTML = html;
+
+            // Cache DOM references once, instead of querying on every tick
+            st.sentenceEls = Array.from(transcriptArea.querySelectorAll('.sentence'));
+            st.charEls = st.sentenceEls.map(el => Array.from(el.querySelectorAll('.char')));
+            st.activeS = -1;
+            st.activeC = -1;
+
+            updateHighlight(currentTimeSafe());
+        }
+
+        function setSubtitle(mode) {
+            st.subtitleMode = mode;
+            document.querySelectorAll('input[name="subtitle"]').forEach(r => {
+                r.checked = r.value === mode;
+            });
+            renderTranscript();
+        }
+
+        // ---------- Highlighting ----------
+
+        // Only touches the DOM when a class actually needs to change
+        function setCharState(el, state) {
+            if (el._state === state) return;
+            if (el._state) el.classList.remove(el._state);
+            if (state) el.classList.add(state);
+            el._state = state;
+        }
+
+        function findPosition(t) {
+            const sents = st.transcript.sentences;
+            for (let i = 0; i < sents.length; i++) {
+                const s = sents[i];
+                if (t >= s.startTime && t <= s.endTime) {
+                    const chars = s.characters || [];
+                    let c = -1;
+                    for (let j = 0; j < chars.length; j++) {
+                        const ch = chars[j];
+                        if (t >= ch.startTime && t <= ch.startTime + ch.duration) {
+                            c = j;
+                            break;
+                        }
+                    }
+                    return { s: i, c };
+                }
+            }
+            return { s: -1, c: -1 };
+        }
+
+        function updateHighlight(t) {
+            if (!st.transcript) return;
+
+            const { s, c } = findPosition(t);
+            if (s === st.activeS && c === st.activeC) return;
+
+            if (s !== st.activeS) {
+                if (st.activeS >= 0 && st.sentenceEls[st.activeS]) {
+                    st.sentenceEls[st.activeS].classList.remove('active');
+                }
+                if (s >= 0 && st.sentenceEls[s]) {
+                    st.sentenceEls[s].classList.add('active');
+                    scrollToSentence(st.sentenceEls[s]);
+                }
+                // Sentences before the current one are "passed", the current one is "upcoming" by default,
+                // later sentences are unstyled. Runs only on sentence change.
+                st.charEls.forEach((list, i) => {
+                    const base = i < s ? 'passed' : (i === s ? 'upcoming' : '');
+                    list.forEach(el => setCharState(el, base));
+                });
+            }
+
+            if (s >= 0 && st.charEls[s]) {
+                st.charEls[s].forEach((el, j) => {
+                    setCharState(el, j === c ? 'active' : (j < c ? 'passed' : 'upcoming'));
+                });
+            }
+
+            st.activeS = s;
+            st.activeC = c;
+        }
+
+        // Scroll only the transcript box, never the whole page
+        function scrollToSentence(el) {
+            const target = el.offsetTop - transcriptArea.clientHeight / 2 + el.offsetHeight / 2;
+            transcriptArea.scrollTo({ top: Math.max(0, target), behavior: 'smooth' });
+        }
+
+        function updateTime(t) {
+            const sents = st.transcript?.sentences;
+            if (!sents || !sents.length) return;
+            const dur = sents[sents.length - 1].endTime;
+            const text = `${formatTime(t)} / ${formatTime(dur)}`;
+            if (text === st.timeText) return;
+            st.timeText = text;
+            document.querySelectorAll('.time-text').forEach(el => { el.textContent = text; });
+        }
+
+        // ---------- Character modal ----------
+
+        function showCharacter(ch) {
+            const info = st.imagesMap.get(ch);
+            const body = $('characterDetailContent');
+
+            if (!info) {
+                body.innerHTML = `
+                    <h2>${escapeHtml(ch)}</h2>
+                    <p class="info-value">Character info not found</p>`;
+            } else {
+                body.innerHTML = `
+                    <div class="character-detail-header">
+                        <h2>${escapeHtml(info.character)}</h2>
+                        <div class="character-detail-pinyin">${escapeHtml(info.pinyin)}</div>
+                    </div>
+                    <div class="character-detail-body">
+                        <div>
+                            ${info.imageSrc ? `<img src="${escapeHtml(info.imageSrc)}" alt="${escapeHtml(info.character)}" class="character-detail-image">` : ''}
+                        </div>
+                        <div>
+                            <div class="info-item">
+                                <div class="info-label">Meaning</div>
+                                <div class="info-value">${escapeHtml(info.meaning || 'N/A')}</div>
+                            </div>
+                            ${info.audioSrc ? `
+                                <div class="character-audio">
+                                    <audio controls preload="none" src="${escapeHtml(info.audioSrc)}"></audio>
+                                </div>` : ''}
+                        </div>
+                    </div>`;
+            }
+
+            $('characterModal').classList.add('show');
         }
 
         function closeCharacterModal() {
-            document.getElementById('characterModal').classList.remove('show');
+            $('characterModal').classList.remove('show');
+            // Stop any audio that is still playing
+            document.querySelectorAll('#characterDetailContent audio').forEach(a => a.pause());
         }
 
-        document.addEventListener('click', (event) => {
-            const modal = document.getElementById('characterModal');
-            if (event.target === modal) {
-                closeCharacterModal();
+        // ---------- Event wiring ----------
+
+        // One delegated listener instead of one inline handler per character
+        transcriptArea.addEventListener('click', e => {
+            const charEl = e.target.closest('.char');
+            if (charEl) {
+                showCharacter(charEl.dataset.char);
+                return;
             }
-        }, false);
-
-        document.addEventListener('touchend', (event) => {
-            const modal = document.getElementById('characterModal');
-            if (event.target === modal) {
-                closeCharacterModal();
-            }
-        }, false);
-
-        function setupLayoutForDevice() {
-            const isMobile = window.innerWidth <= 1024;
-            const desktopControls = document.getElementById('desktopControls');
-            const desktopSubtitleSelector = document.getElementById('desktopSubtitleSelector');
-            const mobileControls = document.querySelector('.player-controls:last-of-type');
-            const mobileSubtitleSelector = document.querySelector('.subtitle-selector:not(#desktopSubtitleSelector)');
-
-            if (isMobile) {
-                if (desktopControls) desktopControls.style.display = 'none';
-                if (desktopSubtitleSelector) desktopSubtitleSelector.style.display = 'none';
-                if (mobileControls) mobileControls.style.display = 'flex';
-                if (mobileSubtitleSelector) mobileSubtitleSelector.style.display = 'flex';
-            } else {
-                if (desktopControls) desktopControls.style.display = 'flex';
-                if (desktopSubtitleSelector) desktopSubtitleSelector.style.display = 'block';
-                if (mobileControls) mobileControls.style.display = 'none';
-                if (mobileSubtitleSelector) mobileSubtitleSelector.style.display = 'none';
-            }
-        }
-
-        window.addEventListener('load', () => {
-            setupLayoutForDevice();
-            loadYoutubeVideoAuto('https://www.youtube.com/watch?v=yRhp-kQfD5g&t=5s');
-            loadJsonFromPath('data/boya-transcript.json');
+            const sentenceEl = e.target.closest('.sentence');
+            if (sentenceEl) seekToSentence(Number(sentenceEl.dataset.index));
         });
 
-        window.addEventListener('resize', setupLayoutForDevice);
+        $('characterModal').addEventListener('click', e => {
+            if (e.target === e.currentTarget) closeCharacterModal();
+        });
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeCharacterModal();
+        });
+
+        window.addEventListener('load', () => {
+            // In case the YouTube API finished before this handler was attached
+            if (window.YT && YT.Player) initPlayer();
+        });
+
+        loadData();
     </script>
 </body>
 </html>
