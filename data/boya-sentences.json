@@ -1,1700 +1,1700 @@
 [
   {
     "id": 1,
-    "title": "你好,你是老师吗?",
-    "english": "Hello! Are you a teacher?",
-    "vietnamese": "Xin chào! Bạn là giáo viên phải không?"
+    "title": "你好!",
+    "english": "Hello!",
+    "vietnamese": "Xin chào!"
   },
   {
     "id": 2,
-    "title": "不是,我不是老师,我是学生,她是老师。",
-    "english": "No, I'm not a teacher. I'm a student, and she is a teacher.",
-    "vietnamese": "Không, tôi không phải giáo viên. Tôi là học sinh, và cô ấy là giáo viên."
+    "title": "你好!",
+    "english": "Hello!",
+    "vietnamese": "Xin chào!"
   },
   {
     "id": 3,
-    "title": "你好吗?",
-    "english": "How are you?",
-    "vietnamese": "Bạn khỏe không?"
+    "title": "你是老师吗?",
+    "english": "Are you a teacher?",
+    "vietnamese": "Bạn có phải là giáo viên không?"
   },
   {
     "id": 4,
-    "title": "我很好,谢谢你。",
-    "english": "I'm very well, thank you.",
-    "vietnamese": "Tôi rất khỏe, cảm ơn bạn."
+    "title": "不是,我不是老师,我是学生。",
+    "english": "No, I'm not a teacher; I'm a student.",
+    "vietnamese": "Không, tôi không phải là giáo viên; tôi là học sinh."
   },
   {
     "id": 5,
+    "title": "她是老师。",
+    "english": "She is a teacher.",
+    "vietnamese": "Cô ấy là một giáo viên."
+  },
+  {
+    "id": 6,
+    "title": "谢谢。",
+    "english": "Thank you.",
+    "vietnamese": "Cảm ơn."
+  },
+  {
+    "id": 7,
+    "title": "不客气。",
+    "english": "You're welcome.",
+    "vietnamese": "Không có gì."
+  },
+  {
+    "id": 8,
+    "title": "老师,你好!",
+    "english": "Hello, Teacher!",
+    "vietnamese": "Chào thầy/cô!"
+  },
+  {
+    "id": 9,
+    "title": "你好,你是留学生吗?",
+    "english": "Hello. Are you an international student?",
+    "vietnamese": "Chào bạn. Bạn có phải là sinh viên quốc tế không?"
+  },
+  {
+    "id": 10,
+    "title": "是,我是留学生。",
+    "english": "Yes, I am an international student.",
+    "vietnamese": "Vâng, tôi là sinh viên quốc tế."
+  },
+  {
+    "id": 11,
     "title": "你叫什么名字?",
     "english": "What is your name?",
     "vietnamese": "Tên bạn là gì?"
   },
   {
-    "id": 6,
-    "title": "我叫张伟。",
-    "english": "My name is Zhang Wei.",
-    "vietnamese": "Tên tôi là Trương Vĩ."
+    "id": 12,
+    "title": "我叫大卫。",
+    "english": "My name is David.",
+    "vietnamese": "Tôi tên là David."
   },
   {
-    "id": 7,
-    "title": "很高兴认识你。",
+    "id": 13,
+    "title": "同学们好!",
+    "english": "Hello, everyone!",
+    "vietnamese": "Xin chào tất cả mọi người!"
+  },
+  {
+    "id": 14,
+    "title": "老师好!",
+    "english": "Hello, Teacher!",
+    "vietnamese": "Chào thầy/cô!"
+  },
+  {
+    "id": 15,
+    "title": "我来介绍一下儿。",
+    "english": "Let me introduce myself.",
+    "vietnamese": "Cho phép tôi tự giới thiệu."
+  },
+  {
+    "id": 16,
+    "title": "我姓刘，叫刘明，是你们的老师。",
+    "english": "My surname is Liu; my name is Liu Ming, and I am your teacher.",
+    "vietnamese": "Tôi có họ là Lưu, tên là Lưu Minh, và tôi là giáo viên của các em."
+  },
+  {
+    "id": 17,
+    "title": "你叫什么名字?",
+    "english": "What is your name?",
+    "vietnamese": "Tên bạn là gì?"
+  },
+  {
+    "id": 18,
+    "title": "我叫大卫。",
+    "english": "My name is David.",
+    "vietnamese": "Tôi tên là David."
+  },
+  {
+    "id": 19,
+    "title": "你是哪国人?",
+    "english": "Which country are you from?",
+    "vietnamese": "Bạn đến từ quốc gia nào?"
+  },
+  {
+    "id": 20,
+    "title": "我是美国人。",
+    "english": "I am American.",
+    "vietnamese": "Tôi là người Mỹ."
+  },
+  {
+    "id": 21,
+    "title": "我来介绍一下儿,她叫玛丽,他叫李军。",
+    "english": "Let me make some introductions: her name is Mary, and his name is Li Jun.",
+    "vietnamese": "Tôi xin tự giới thiệu: cô ấy tên là Mary, còn anh ấy tên là Li Jun."
+  },
+  {
+    "id": 22,
+    "title": "认识你很高兴。",
     "english": "Nice to meet you.",
     "vietnamese": "Rất vui được gặp bạn."
   },
   {
-    "id": 8,
-    "title": "你从哪里来?",
-    "english": "Where are you from?",
-    "vietnamese": "Bạn đến từ đâu?"
-  },
-  {
-    "id": 9,
-    "title": "我来自中国。",
-    "english": "I'm from China.",
-    "vietnamese": "Tôi đến từ Trung Quốc."
-  },
-  {
-    "id": 10,
-    "title": "你住在哪里?",
-    "english": "Where do you live?",
-    "vietnamese": "Bạn sống ở đâu?"
-  },
-  {
-    "id": 11,
-    "title": "我住在北京。",
-    "english": "I live in Beijing.",
-    "vietnamese": "Tôi sống ở Bắc Kinh."
-  },
-  {
-    "id": 12,
-    "title": "你做什么工作?",
-    "english": "What do you do for work?",
-    "vietnamese": "Bạn làm nghề gì?"
-  },
-  {
-    "id": 13,
-    "title": "我是一个工程师。",
-    "english": "I'm an engineer.",
-    "vietnamese": "Tôi là một kỹ sư."
-  },
-  {
-    "id": 14,
-    "title": "你有兄弟姐妹吗?",
-    "english": "Do you have any siblings?",
-    "vietnamese": "Bạn có anh chị em không?"
-  },
-  {
-    "id": 15,
-    "title": "是的,我有两个姐姐。",
-    "english": "Yes, I have two older sisters.",
-    "vietnamese": "Có, tôi có hai chị gái."
-  },
-  {
-    "id": 16,
-    "title": "你喜欢做什么?",
-    "english": "What do you like to do?",
-    "vietnamese": "Bạn thích làm gì?"
-  },
-  {
-    "id": 17,
-    "title": "我喜欢读书和运动。",
-    "english": "I like reading and sports.",
-    "vietnamese": "Tôi thích đọc sách và thể thao."
-  },
-  {
-    "id": 18,
-    "title": "你最喜欢的书是什么?",
-    "english": "What is your favorite book?",
-    "vietnamese": "Cuốn sách yêu thích của bạn là gì?"
-  },
-  {
-    "id": 19,
-    "title": "我最喜欢三体。",
-    "english": "My favorite is The Three-Body Problem.",
-    "vietnamese": "Tôi thích nhất là Bộ ba thể."
-  },
-  {
-    "id": 20,
-    "title": "你会说英语吗?",
-    "english": "Can you speak English?",
-    "vietnamese": "Bạn có thể nói tiếng Anh không?"
-  },
-  {
-    "id": 21,
-    "title": "是的,我会说一些英语。",
-    "english": "Yes, I can speak some English.",
-    "vietnamese": "Có, tôi có thể nói một số tiếng Anh."
-  },
-  {
-    "id": 22,
-    "title": "你学过多久英语?",
-    "english": "How long have you been studying English?",
-    "vietnamese": "Bạn đã học tiếng Anh bao lâu?"
-  },
-  {
     "id": 23,
-    "title": "我学了五年英语。",
-    "english": "I have been studying English for five years.",
-    "vietnamese": "Tôi đã học tiếng Anh năm năm."
+    "title": "我也很高兴。你是美国人吗？",
+    "english": "Nice to meet you, too. Are you American?",
+    "vietnamese": "Rất vui được làm quen với bạn. Bạn là người Mỹ phải không?"
   },
   {
     "id": 24,
-    "title": "英语很难吗?",
-    "english": "Is English difficult?",
-    "vietnamese": "Tiếng Anh có khó không?"
+    "title": "不，我不是美国人，我是加拿大人。你呢？",
+    "english": "No, I'm not American; I'm Canadian. How about you?",
+    "vietnamese": "Không, tôi không phải người Mỹ; tôi là người Canada. Còn bạn thì sao?"
   },
   {
     "id": 25,
-    "title": "有点难,但很有趣。",
-    "english": "It's a bit difficult, but very interesting.",
-    "vietnamese": "Hơi khó, nhưng rất thú vị."
+    "title": "我是中国人。",
+    "english": "I am Chinese.",
+    "vietnamese": "Tôi là người Trung Quốc."
   },
   {
     "id": 26,
-    "title": "你喜欢学习语言吗?",
-    "english": "Do you like learning languages?",
-    "vietnamese": "Bạn có thích học ngôn ngữ không?"
+    "title": "玛丽,那是谁的书?是你的书吗?",
+    "english": "Mary, whose book is that? Is it yours?",
+    "vietnamese": "Mary, cuốn sách đó là của ai vậy? Có phải của bạn không?"
   },
   {
     "id": 27,
-    "title": "是的,我很喜欢。",
-    "english": "Yes, I like it very much.",
-    "vietnamese": "Có, tôi rất thích."
+    "title": "不是，那是我同屋的书。",
+    "english": "No, it's my roommate's book.",
+    "vietnamese": "Không, đó là sách của bạn cùng phòng tôi."
   },
   {
     "id": 28,
-    "title": "你想学越南语吗?",
-    "english": "Do you want to learn Vietnamese?",
-    "vietnamese": "Bạn có muốn học tiếng Việt không?"
+    "title": "是汉语课本吗?",
+    "english": "Is it a Chinese textbook?",
+    "vietnamese": "Đây có phải là sách giáo khoa tiếng Trung không?"
   },
   {
     "id": 29,
-    "title": "当然,我想学。",
-    "english": "Of course, I want to learn.",
-    "vietnamese": "Tất nhiên, tôi muốn học."
+    "title": "不是,是汉日词典。",
+    "english": "No, it's a Chinese-Japanese dictionary.",
+    "vietnamese": "Không, đó là từ điển Trung-Nhật."
   },
   {
     "id": 30,
-    "title": "你最喜欢的电影是什么?",
-    "english": "What is your favorite movie?",
-    "vietnamese": "Bộ phim yêu thích của bạn là gì?"
+    "title": "什么词典?",
+    "english": "What kind of dictionary?",
+    "vietnamese": "Từ điển loại nào?"
   },
   {
     "id": 31,
-    "title": "我最喜欢科幻电影。",
-    "english": "I like science fiction movies the most.",
-    "vietnamese": "Tôi thích phim khoa học viễn tưởng nhất."
+    "title": "汉日词典就是汉语、日语词典。",
+    "english": "A Chinese-Japanese dictionary—meaning a dictionary for Chinese and Japanese.",
+    "vietnamese": "Từ điển Trung-Nhật — nghĩa là từ điển dùng để diễn đạt ý nghĩa của tiếng Trung và tiếng Nhật."
   },
   {
     "id": 32,
-    "title": "你喜欢看足球吗?",
-    "english": "Do you like watching football?",
-    "vietnamese": "Bạn có thích xem bóng đá không?"
+    "title": "这是什么杂志?",
+    "english": "What magazine is this?",
+    "vietnamese": "Đây là tạp chí gì vậy?"
   },
   {
     "id": 33,
-    "title": "是的,我很喜欢。",
-    "english": "Yes, I like it very much.",
-    "vietnamese": "Có, tôi rất thích."
+    "title": "音乐杂志。",
+    "english": "A music magazine.",
+    "vietnamese": "Một tạp chí âm nhạc."
   },
   {
     "id": 34,
-    "title": "你支持哪个足球队?",
-    "english": "Which football team do you support?",
-    "vietnamese": "Bạn ủng hộ đội bóng đá nào?"
+    "title": "是日本的杂志吗?",
+    "english": "Is it a Japanese magazine?",
+    "vietnamese": "Đây có phải là tạp chí Nhật Bản không?"
   },
   {
     "id": 35,
-    "title": "我支持曼联。",
-    "english": "I support Manchester United.",
-    "vietnamese": "Tôi ủng hộ Manchester United."
+    "title": "不是,是中国的杂志。",
+    "english": "No, it's a Chinese magazine.",
+    "vietnamese": "Không, đó là một tạp chí Trung Quốc."
   },
   {
     "id": 36,
-    "title": "你有宠物吗?",
-    "english": "Do you have any pets?",
-    "vietnamese": "Bạn có thú cưng không?"
+    "title": "是你的杂志吗?",
+    "english": "Is it your magazine?",
+    "vietnamese": "Đây có phải là tạp chí của bạn không?"
   },
   {
     "id": 37,
-    "title": "是的,我有一只狗。",
-    "english": "Yes, I have a dog.",
-    "vietnamese": "Có, tôi có một con chó."
+    "title": "不是,是我朋友的杂志。",
+    "english": "No, it's my friend's magazine.",
+    "vietnamese": "Không, đó là tạp chí của bạn tôi."
   },
   {
     "id": 38,
-    "title": "你的狗叫什么名字?",
-    "english": "What is your dog's name?",
-    "vietnamese": "Tên con chó của bạn là gì?"
+    "title": "同学,请问,图书馆在哪儿?",
+    "english": "Excuse me, where is the library?",
+    "vietnamese": "Xin lỗi, thư viện ở đâu vậy?"
   },
   {
     "id": 39,
-    "title": "它叫小黑。",
-    "english": "Its name is Xiaohei.",
-    "vietnamese": "Nó tên là Tiểu Hắc."
+    "title": "对不起,我不是这个学校的学生,不知道。",
+    "english": "Sorry, I'm not a student at this school, so I don't know.",
+    "vietnamese": "Xin lỗi, tôi không phải là sinh viên của trường này nên tôi không biết."
   },
   {
     "id": 40,
-    "title": "你喜欢美食吗?",
-    "english": "Do you like good food?",
-    "vietnamese": "Bạn có thích ẩm thực tốt không?"
+    "title": "没关系。",
+    "english": "That's alright.",
+    "vietnamese": "Không sao cả."
   },
   {
     "id": 41,
-    "title": "当然,我很喜欢。",
-    "english": "Of course, I like it very much.",
-    "vietnamese": "Tất nhiên, tôi rất thích."
+    "title": "同学,这儿是图书馆吗?",
+    "english": "Excuse me, is this the library?",
+    "vietnamese": "Xin lỗi, đây có phải là thư viện không?"
   },
   {
     "id": 42,
-    "title": "你最喜欢的菜是什么?",
-    "english": "What is your favorite dish?",
-    "vietnamese": "Món ăn yêu thích của bạn là gì?"
+    "title": "不是,这是教学楼,图书馆在那儿,宿舍楼的北边。",
+    "english": "No, this is the teaching building. The library is over there, to the north of the dormitory building.",
+    "vietnamese": "Không, đây là tòa nhà giảng đường. Thư viện ở đằng kia, phía bắc của tòa nhà ký túc xá."
   },
   {
     "id": 43,
-    "title": "我最喜欢宫保鸡丁。",
-    "english": "My favorite is Kung Pao chicken.",
-    "vietnamese": "Tôi thích Gung Bao gà nhất."
+    "title": "是左边的楼吗?",
+    "english": "Is it the building on the left?",
+    "vietnamese": "Có phải là tòa nhà bên trái không?"
   },
   {
     "id": 44,
-    "title": "你会做饭吗?",
-    "english": "Can you cook?",
-    "vietnamese": "Bạn có thể nấu ăn không?"
+    "title": "不,是右边的楼。",
+    "english": "No, it's the building on the right.",
+    "vietnamese": "Không, đó là tòa nhà bên phải."
   },
   {
     "id": 45,
-    "title": "是的,我会做一些菜。",
-    "english": "Yes, I can cook some dishes.",
-    "vietnamese": "Có, tôi có thể nấu một số món ăn."
+    "title": "谢谢。",
+    "english": "Thank you.",
+    "vietnamese": "Cảm ơn."
   },
   {
     "id": 46,
-    "title": "你喜欢旅游吗?",
-    "english": "Do you like traveling?",
-    "vietnamese": "Bạn có thích du lịch không?"
+    "title": "不用谢。",
+    "english": "You're welcome.",
+    "vietnamese": "Không có gì."
   },
   {
     "id": 47,
-    "title": "是的,我喜欢去不同的地方。",
-    "english": "Yes, I like to go to different places.",
-    "vietnamese": "Có, tôi thích đi đến những nơi khác nhau."
+    "title": "你好,你叫什么名字?",
+    "english": "Hello, what is your name?",
+    "vietnamese": "Chào bạn, tên bạn là gì?"
   },
   {
     "id": 48,
-    "title": "你去过哪些国家?",
-    "english": "What countries have you been to?",
-    "vietnamese": "Bạn đã đi đến những nước nào?"
+    "title": "我叫张红,你呢?",
+    "english": "My name is Zhang Hong. How about you?",
+    "vietnamese": "Tôi tên là Trương Hồng. Còn bạn thì sao?"
   },
   {
     "id": 49,
-    "title": "我去过日本、泰国和越南。",
-    "english": "I have been to Japan, Thailand, and Vietnam.",
-    "vietnamese": "Tôi đã đi đến Nhật Bản, Thái Lan và Việt Nam."
+    "title": "我叫玛丽。我是北京大学的留学生。",
+    "english": "My name is Mary. I'm an international student at Peking University.",
+    "vietnamese": "Tôi tên là Mary. Tôi là sinh viên quốc tế tại Đại học Bắc Kinh."
   },
   {
     "id": 50,
-    "title": "你最喜欢的旅游地是哪里?",
-    "english": "What is your favorite travel destination?",
-    "vietnamese": "Điểm đến du lịch yêu thích của bạn là ở đâu?"
+    "title": "我的专业是国际关系,你呢?",
+    "english": "My major is International Relations. How about you?",
+    "vietnamese": "Chuyên ngành của tôi là Quan hệ Quốc tế. Còn bạn thì sao?"
   },
   {
     "id": 51,
-    "title": "我最喜欢日本。",
-    "english": "I like Japan the most.",
-    "vietnamese": "Tôi thích Nhật Bản nhất."
+    "title": "我是清华大学中文系的研究生。",
+    "english": "I'm a graduate student in the Chinese Department at Tsinghua University.",
+    "vietnamese": "Tôi là nghiên cứu sinh cao học ngành tiếng Trung tại Đại học Thanh Hoa."
   },
   {
     "id": 52,
-    "title": "你喜欢听音乐吗?",
-    "english": "Do you like listening to music?",
-    "vietnamese": "Bạn có thích nghe nhạc không?"
+    "title": "我的专业是现代文学。",
+    "english": "My major is Modern Literature.",
+    "vietnamese": "Chuyên ngành của tôi là Văn học hiện đại."
   },
   {
     "id": 53,
-    "title": "是的,我很喜欢。",
-    "english": "Yes, I like it very much.",
-    "vietnamese": "Có, tôi rất thích."
+    "title": "清华大学在哪儿?",
+    "english": "Where is Tsinghua University?",
+    "vietnamese": "Đại học Thanh Hoa nằm ở đâu?"
   },
   {
     "id": 54,
-    "title": "你最喜欢的音乐类型是什么?",
-    "english": "What is your favorite music genre?",
-    "vietnamese": "Thể loại nhạc yêu thích của bạn là gì?"
+    "title": "在北京大学的东边。",
+    "english": "It's to the east of Peking University.",
+    "vietnamese": "Nó nằm ở phía đông của Đại học Bắc Kinh."
   },
   {
     "id": 55,
-    "title": "我最喜欢摇滚乐。",
-    "english": "I like rock music the most.",
-    "vietnamese": "Tôi thích nhạc rock nhất."
+    "title": "有空儿的时候，欢迎你去玩儿。",
+    "english": "You're welcome to visit whenever you have free time.",
+    "vietnamese": "Bạn có thể đến thăm bất cứ khi nào có thời gian rảnh."
   },
   {
     "id": 56,
-    "title": "你有偶像吗?",
-    "english": "Do you have any idols?",
-    "vietnamese": "Bạn có thần tượng không?"
+    "title": "请问，卫生间在哪儿？",
+    "english": "Excuse me, where is the restroom?",
+    "vietnamese": "Xin lỗi, nhà vệ sinh ở đâu vậy?"
   },
   {
     "id": 57,
-    "title": "是的,我有很多偶像。",
-    "english": "Yes, I have many idols.",
-    "vietnamese": "Có, tôi có nhiều thần tượng."
+    "title": "在那儿，教室的旁边。",
+    "english": "It's over there, next to the classroom.",
+    "vietnamese": "Nó ở đằng kia, cạnh phòng học."
   },
   {
     "id": 58,
-    "title": "你最喜欢的歌手是谁?",
-    "english": "Who is your favorite singer?",
-    "vietnamese": "Ca sĩ yêu thích của bạn là ai?"
+    "title": "是西边的教室吗?",
+    "english": "Is it the classroom on the west side?",
+    "vietnamese": "Có phải là phòng học ở phía tây không?"
   },
   {
     "id": 59,
-    "title": "我最喜欢周杰伦。",
-    "english": "My favorite is Jay Chou.",
-    "vietnamese": "Tôi thích Châu Kiệt Luân nhất."
+    "title": "对。",
+    "english": "Yes, that's right.",
+    "vietnamese": "Đúng vậy."
   },
   {
     "id": 60,
-    "title": "你喜欢看电视吗?",
-    "english": "Do you like watching TV?",
-    "vietnamese": "Bạn có thích xem tivi không?"
+    "title": "中村,日本的大学早上几点上课?",
+    "english": "Nakamura, what time do classes start at Japanese universities?",
+    "vietnamese": "Nakamura, các lớp học ở các trường đại học Nhật Bản bắt đầu lúc mấy giờ vậy?"
   },
   {
     "id": 61,
-    "title": "有时候,我喜欢看电视剧。",
-    "english": "Sometimes, I like watching TV series.",
-    "vietnamese": "Đôi khi, tôi thích xem phim truyền hình."
+    "title": "大部分是九点,我们学校是八点五十分。",
+    "english": "Usually at nine o'clock; at my school, they start at 8:50.",
+    "vietnamese": "Thường thì vào lúc chín giờ; ở trường tôi, họ bắt đầu lúc 8 giờ 50."
   },
   {
     "id": 62,
-    "title": "你最喜欢的电视剧是什么?",
-    "english": "What is your favorite TV series?",
-    "vietnamese": "Phim truyền hình yêu thích của bạn là gì?"
+    "title": "几点下课?",
+    "english": "What time do they end?",
+    "vietnamese": "Chúng kết thúc lúc mấy giờ?"
   },
   {
     "id": 63,
-    "title": "我最喜欢权力的游戏。",
-    "english": "My favorite is Game of Thrones.",
-    "vietnamese": "Tôi thích Trò chơi vương quyền nhất."
+    "title": "十点半。",
+    "english": "At 10:30.",
+    "vietnamese": "Lúc 10:30."
   },
   {
     "id": 64,
-    "title": "你有驾照吗?",
-    "english": "Do you have a driver's license?",
-    "vietnamese": "Bạn có bằng lái xe không?"
+    "title": "北京大学早上八点上课,太早了。",
+    "english": "Classes at Peking University start at eight in the morning—that's too early.",
+    "vietnamese": "Các lớp học tại Đại học Bắc Kinh bắt đầu lúc tám giờ sáng — quá sớm."
   },
   {
     "id": 65,
-    "title": "是的,我有驾照。",
-    "english": "Yes, I have a driver's license.",
-    "vietnamese": "Có, tôi có bằng lái xe."
+    "title": "大卫,讲座几点开始?",
+    "english": "David, what time does the lecture start?",
+    "vietnamese": "David, buổi giảng bắt đầu lúc mấy giờ vậy?"
   },
   {
     "id": 66,
-    "title": "你有车吗?",
-    "english": "Do you have a car?",
-    "vietnamese": "Bạn có xe ô tô không?"
+    "title": "六点。",
+    "english": "At six o'clock.",
+    "vietnamese": "Lúc sáu giờ."
   },
   {
     "id": 67,
-    "title": "是的,我有一辆车。",
-    "english": "Yes, I have a car.",
-    "vietnamese": "Có, tôi có một chiếc xe."
+    "title": "现在几点?",
+    "english": "What time is it now?",
+    "vietnamese": "Bây giờ là mấy giờ rồi?"
   },
   {
     "id": 68,
-    "title": "你的车是什么品牌?",
-    "english": "What brand is your car?",
-    "vietnamese": "Thương hiệu xe của bạn là gì?"
+    "title": "差一刻六点。",
+    "english": "It's a quarter to six.",
+    "vietnamese": "Bây giờ là 6 giờ kém 45 phút."
   },
   {
     "id": 69,
-    "title": "我的车是丰田。",
-    "english": "My car is a Toyota.",
-    "vietnamese": "Xe của tôi là Toyota."
+    "title": "谢谢！一会儿见。",
+    "english": "Thanks! See you later.",
+    "vietnamese": "Cảm ơn! Hẹn gặp lại."
   },
   {
     "id": 70,
-    "title": "你喜欢运动吗?",
-    "english": "Do you like sports?",
-    "vietnamese": "Bạn có thích thể thao không?"
+    "title": "中村,明天你有课吗?",
+    "english": "Nakamura, do you have class tomorrow?",
+    "vietnamese": "Nakamura, ngày mai em có tiết học không?"
   },
   {
     "id": 71,
-    "title": "是的,我很喜欢。",
-    "english": "Yes, I like it very much.",
-    "vietnamese": "Có, tôi rất thích."
+    "title": "我上午有课,下午没有。",
+    "english": "I have class in the morning, but not in the afternoon.",
+    "vietnamese": "Tôi có tiết học vào buổi sáng, nhưng không có vào buổi chiều."
   },
   {
     "id": 72,
-    "title": "你最喜欢的运动是什么?",
-    "english": "What is your favorite sport?",
-    "vietnamese": "Môn thể thao yêu thích của bạn là gì?"
+    "title": "你有自行车吧?",
+    "english": "You have a bicycle, right?",
+    "vietnamese": "Bạn có xe đạp, đúng không?"
   },
   {
     "id": 73,
-    "title": "我最喜欢篮球。",
-    "english": "My favorite is basketball.",
-    "vietnamese": "Tôi thích bóng rổ nhất."
+    "title": "有,什么事?",
+    "english": "Yes, I do. What is it?",
+    "vietnamese": "Vâng, tôi có. Đó là gì vậy?"
   },
   {
     "id": 74,
-    "title": "你多久运动一次?",
-    "english": "How often do you exercise?",
-    "vietnamese": "Bạn tập thể dục bao lâu một lần?"
+    "title": "我明天下午去见朋友,可是我没有自行车。",
+    "english": "I'm meeting a friend tomorrow afternoon, but I don't have a bicycle.",
+    "vietnamese": "Tôi có hẹn gặp một người bạn vào chiều mai, nhưng tôi không có xe đạp."
   },
   {
     "id": 75,
-    "title": "我每周运动三次。",
-    "english": "I exercise three times a week.",
-    "vietnamese": "Tôi tập thể dục ba lần một tuần."
+    "title": "没问题，我有。这是钥匙，车在楼下车棚里。",
+    "english": "No problem, I have one. Here's the key; the bike is in the shed downstairs.",
+    "vietnamese": "Không vấn đề gì, tôi có một cái. Đây là chìa khóa; xe đạp ở trong nhà kho dưới tầng."
   },
   {
     "id": 76,
-    "title": "你有健身卡吗?",
-    "english": "Do you have a gym membership?",
-    "vietnamese": "Bạn có thẻ phòng tập không?"
+    "title": "是宿舍楼后边的车棚吗?",
+    "english": "Is it the shed behind the dormitory building?",
+    "vietnamese": "Có phải là nhà kho phía sau tòa nhà ký túc xá không?"
   },
   {
     "id": 77,
-    "title": "是的,我有。",
-    "english": "Yes, I do.",
-    "vietnamese": "Có, tôi có."
+    "title": "对。",
+    "english": "Yes.",
+    "vietnamese": "Đúng."
   },
   {
     "id": 78,
-    "title": "你的健身房在哪里?",
-    "english": "Where is your gym?",
-    "vietnamese": "Phòng tập của bạn ở đâu?"
+    "title": "玛丽,今天晚上你有时间吗?",
+    "english": "Mary, do you have time tonight?",
+    "vietnamese": "Mary, tối nay bạn có rảnh không?"
   },
   {
     "id": 79,
-    "title": "我的健身房在市中心。",
-    "english": "My gym is in the city center.",
-    "vietnamese": "Phòng tập của tôi ở trung tâm thành phố."
+    "title": "有。有事吗？",
+    "english": "Yes, I do. What's up?",
+    "vietnamese": "Vâng, tôi có. Có chuyện gì vậy?"
   },
   {
     "id": 80,
-    "title": "你喜欢喝什么?",
-    "english": "What do you like to drink?",
-    "vietnamese": "Bạn thích uống gì?"
+    "title": "学校电影院有电影,你去吗?",
+    "english": "There's a movie showing at the school cinema; are you going?",
+    "vietnamese": "Rạp chiếu phim của trường đang chiếu phim; bạn có đi không?"
   },
   {
     "id": 81,
-    "title": "我喜欢喝茶和咖啡。",
-    "english": "I like drinking tea and coffee.",
-    "vietnamese": "Tôi thích uống trà và cà phê."
+    "title": "什么电影?",
+    "english": "What movie is it?",
+    "vietnamese": "Đó là phim gì vậy?"
   },
   {
     "id": 82,
-    "title": "你每天喝多少水?",
-    "english": "How much water do you drink every day?",
-    "vietnamese": "Bạn uống bao nhiêu nước mỗi ngày?"
+    "title": "我不知道名字,可是听说很有名。",
+    "english": "I don't know the title, but I've heard it's very famous.",
+    "vietnamese": "Tôi không biết tên phim, nhưng tôi nghe nói nó rất nổi tiếng."
   },
   {
     "id": 83,
-    "title": "我每天喝八杯水。",
-    "english": "I drink eight glasses of water every day.",
-    "vietnamese": "Tôi uống tám cốc nước mỗi ngày."
+    "title": "我当然去。",
+    "english": "Of course I'll go.",
+    "vietnamese": "Tất nhiên là tôi sẽ đi rồi."
   },
   {
     "id": 84,
-    "title": "你有上网的习惯吗?",
-    "english": "Do you have a habit of using the internet?",
-    "vietnamese": "Bạn có thói quen sử dụng internet không?"
+    "title": "玛丽,周末你有空儿吗?",
+    "english": "Mary, are you free this weekend?",
+    "vietnamese": "Mary, cuối tuần này bạn rảnh không?"
   },
   {
     "id": 85,
-    "title": "是的,我每天都上网。",
-    "english": "Yes, I use the internet every day.",
-    "vietnamese": "Có, tôi sử dụng internet mỗi ngày."
+    "title": "有。什么事？",
+    "english": "Yes. What's up?",
+    "vietnamese": "Vâng. Có chuyện gì vậy?"
   },
   {
     "id": 86,
-    "title": "你最喜欢在网上做什么?",
-    "english": "What do you like to do most online?",
-    "vietnamese": "Bạn thích làm gì nhất trên mạng?"
+    "title": "来我们学校玩儿吧！",
+    "english": "Come visit our school!",
+    "vietnamese": "Hãy đến thăm trường chúng tôi!"
   },
   {
     "id": 87,
-    "title": "我喜欢看视频和社交媒体。",
-    "english": "I like watching videos and social media.",
-    "vietnamese": "Tôi thích xem video và phương tiện truyền thông xã hội."
+    "title": "好啊！不过，去你们学校怎么走呢？",
+    "english": "Sure! But how do I get there?",
+    "vietnamese": "Chắc chắn rồi! Nhưng làm sao tôi đến được đó?"
   },
   {
     "id": 88,
-    "title": "你用什么社交媒体?",
-    "english": "What social media do you use?",
-    "vietnamese": "Bạn sử dụng phương tiện truyền thông xã hội nào?"
+    "title": "21路和106路公共汽车都到。",
+    "english": "Buses No. 21 and No. 106 both go there.",
+    "vietnamese": "Cả xe buýt số 21 và số 106 đều đi đến đó."
   },
   {
     "id": 89,
-    "title": "我用微博和微信。",
-    "english": "I use Weibo and WeChat.",
-    "vietnamese": "Tôi sử dụng Weibo và WeChat."
+    "title": "骑自行车也很快，十五分钟就到。",
+    "english": "It's also quick by bicycle—only fifteen minutes.",
+    "vietnamese": "Đi bằng xe đạp cũng rất nhanh, chỉ mất mười lăm phút."
   },
   {
     "id": 90,
-    "title": "你有很多粉丝吗?",
-    "english": "Do you have many followers?",
-    "vietnamese": "Bạn có nhiều người theo dõi không?"
+    "title": "你的宿舍在哪儿?",
+    "english": "Where is your dormitory?",
+    "vietnamese": "Ký túc xá của bạn ở đâu?"
   },
   {
     "id": 91,
-    "title": "没有,我的粉丝不多。",
-    "english": "No, I don't have many followers.",
-    "vietnamese": "Không, tôi không có nhiều người theo dõi."
+    "title": "在校园的东南边，是东5号楼。",
+    "english": "It's in the southeast part of the campus—Building East 5.",
+    "vietnamese": "Nó nằm ở phía đông nam của khuôn viên trường—Tòa nhà số 5 phía Đông."
   },
   {
     "id": 92,
-    "title": "你喜欢拍照吗?",
-    "english": "Do you like taking photos?",
-    "vietnamese": "Bạn có thích chụp ảnh không?"
+    "title": "你的房间号是多少?",
+    "english": "What's your room number?",
+    "vietnamese": "Số phòng của bạn là bao nhiêu?"
   },
   {
     "id": 93,
-    "title": "是的,我很喜欢拍照。",
-    "english": "Yes, I like taking photos very much.",
-    "vietnamese": "Có, tôi rất thích chụp ảnh."
+    "title": "502号。我的宿舍是东五号楼五零二室。",
+    "english": "502. My dorm is Building East 5, Room 502.",
+    "vietnamese": "502. Ký túc xá của tôi là Tòa nhà phía Đông số 5, Phòng 502."
   },
   {
     "id": 94,
-    "title": "你用什么相机?",
-    "english": "What camera do you use?",
-    "vietnamese": "Bạn sử dụng máy ảnh nào?"
+    "title": "你的电话号码是多少?",
+    "english": "What's your phone number?",
+    "vietnamese": "Số điện thoại của bạn là gì?"
   },
   {
     "id": 95,
-    "title": "我用手机相机。",
-    "english": "I use a mobile phone camera.",
-    "vietnamese": "Tôi sử dụng máy ảnh điện thoại di động."
+    "title": "63861023。你有手机吗?",
+    "english": "63861023. Do you have a mobile phone?",
+    "vietnamese": "63861023. Bạn có điện thoại di động không?"
   },
   {
     "id": 96,
-    "title": "你有智能手机吗?",
-    "english": "Do you have a smartphone?",
-    "vietnamese": "Bạn có điện thoại thông minh không?"
+    "title": "没有,不过我朋友有。",
+    "english": "No, but my friend does.",
+    "vietnamese": "Không, nhưng bạn tôi thì có."
   },
   {
     "id": 97,
-    "title": "是的,我有一部苹果手机。",
-    "english": "Yes, I have an Apple phone.",
-    "vietnamese": "Có, tôi có một chiếc điện thoại Apple."
+    "title": "号码是多少?",
+    "english": "What's the number?",
+    "vietnamese": "Số điện thoại là bao nhiêu?"
   },
   {
     "id": 98,
-    "title": "你经常玩游戏吗?",
-    "english": "Do you play games often?",
-    "vietnamese": "Bạn có thường chơi trò chơi không?"
+    "title": "136-9567-0132。",
+    "english": "136-9567-0132.",
+    "vietnamese": "136-9567-0132."
   },
   {
     "id": 99,
-    "title": "有时候,我喜欢玩手机游戏。",
-    "english": "Sometimes, I like playing mobile games.",
-    "vietnamese": "Đôi khi, tôi thích chơi trò chơi di động."
+    "title": "好,我等你。",
+    "english": "Okay, I'll be waiting for you.",
+    "vietnamese": "Được rồi, tôi sẽ đợi bạn."
   },
   {
     "id": 100,
-    "title": "你最喜欢的游戏是什么?",
-    "english": "What is your favorite game?",
-    "vietnamese": "Trò chơi yêu thích của bạn là gì?"
+    "title": "师傅,我买啤酒。",
+    "english": "Excuse me, I'd like to buy some beer.",
+    "vietnamese": "Xin lỗi, tôi muốn mua bia."
   },
   {
     "id": 101,
-    "title": "我最喜欢王者荣耀。",
-    "english": "My favorite is Honor of Kings.",
-    "vietnamese": "Tôi thích Vương Giả Vinh Dự nhất."
+    "title": "你买几瓶?",
+    "english": "How many bottles?",
+    "vietnamese": "Bao nhiêu chai?"
   },
   {
     "id": 102,
-    "title": "你喜欢看漫画吗?",
-    "english": "Do you like reading manga?",
-    "vietnamese": "Bạn có thích đọc manga không?"
+    "title": "多少钱一瓶?",
+    "english": "How much is a bottle?",
+    "vietnamese": "Một chai giá bao nhiêu?"
   },
   {
     "id": 103,
-    "title": "是的,我很喜欢。",
-    "english": "Yes, I like it very much.",
-    "vietnamese": "Có, tôi rất thích."
+    "title": "三块五。",
+    "english": "3.50 yuan.",
+    "vietnamese": "3,50 nhân dân tệ."
   },
   {
     "id": 104,
-    "title": "你最喜欢的漫画是什么?",
-    "english": "What is your favorite manga?",
-    "vietnamese": "Manga yêu thích của bạn là gì?"
+    "title": "我买两瓶,再买两瓶水。",
+    "english": "I'll take two bottles, and two bottles of water as well.",
+    "vietnamese": "Tôi sẽ lấy hai chai rượu và hai chai nước nữa."
   },
   {
     "id": 105,
-    "title": "我最喜欢火影忍者。",
-    "english": "My favorite is Naruto.",
-    "vietnamese": "Tôi thích Naruto nhất."
+    "title": "两瓶啤酒七块,两瓶水两块四,一共是九块四毛钱。",
+    "english": "Two bottles of beer are 7 yuan, and two bottles of water are 2.40 yuan; that's 9.40 yuan in total.",
+    "vietnamese": "Hai chai bia giá 7 nhân dân tệ, hai chai nước giá 2,40 nhân dân tệ; tổng cộng là 9,40 nhân dân tệ."
   },
   {
     "id": 106,
-    "title": "你有学位吗?",
-    "english": "Do you have a degree?",
-    "vietnamese": "Bạn có bằng cấp không?"
+    "title": "给你钱。",
+    "english": "Here's the money.",
+    "vietnamese": "Đây là tiền."
   },
   {
     "id": 107,
-    "title": "是的,我有学士学位。",
-    "english": "Yes, I have a bachelor's degree.",
-    "vietnamese": "Có, tôi có bằng cử nhân."
+    "title": "小姐,有英汉词典吗?",
+    "english": "Miss, do you have an English-Chinese dictionary?",
+    "vietnamese": "Thưa cô, cô có từ điển Anh-Trung không ạ?"
   },
   {
     "id": 108,
-    "title": "你从哪所大学毕业?",
-    "english": "Which university did you graduate from?",
-    "vietnamese": "Bạn tốt nghiệp từ trường đại học nào?"
+    "title": "有。你看,这些都是,你要哪本呢?",
+    "english": "Yes, we do. Look, these are the ones; which one would you like?",
+    "vietnamese": "Vâng, chúng tôi có. Nhìn này, đây là những mẫu; bạn muốn chọn mẫu nào?"
   },
   {
     "id": 109,
-    "title": "我从清华大学毕业。",
-    "english": "I graduated from Tsinghua University.",
-    "vietnamese": "Tôi tốt nghiệp từ Đại học Thanh Hoa."
+    "title": "我要这本小词典。多少钱一本?",
+    "english": "I'd like this small dictionary. How much is it?",
+    "vietnamese": "Tôi muốn mua cuốn từ điển nhỏ này. Giá bao nhiêu vậy?"
   },
   {
     "id": 110,
-    "title": "你在大学里学了什么?",
-    "english": "What did you study at university?",
-    "vietnamese": "Bạn đã học gì ở đại học?"
+    "title": "二十二块。",
+    "english": "Twenty-two yuan.",
+    "vietnamese": "Hai mươi hai nhân dân tệ."
   },
   {
     "id": 111,
-    "title": "我学的是计算机科学。",
-    "english": "I studied computer science.",
-    "vietnamese": "Tôi học khoa học máy tính."
+    "title": "对不起,我没有零钱。",
+    "english": "I'm sorry, I don't have any small change.",
+    "vietnamese": "Tôi xin lỗi, tôi không có tiền lẻ."
   },
   {
     "id": 112,
-    "title": "你喜欢你的工作吗?",
-    "english": "Do you like your job?",
-    "vietnamese": "Bạn có thích công việc của mình không?"
+    "title": "没关系。",
+    "english": "That's all right.",
+    "vietnamese": "Không sao cả."
   },
   {
     "id": 113,
-    "title": "是的,我很喜欢。",
-    "english": "Yes, I like it very much.",
-    "vietnamese": "Có, tôi rất thích."
+    "title": "这是你的照片吗?",
+    "english": "Is this a photo of your family?",
+    "vietnamese": "Đây có phải là ảnh gia đình của bạn không?"
   },
   {
     "id": 114,
-    "title": "你的工作压力大吗?",
-    "english": "Is your job stressful?",
-    "vietnamese": "Công việc của bạn có áp lực không?"
+    "title": "对,是我家的照片。",
+    "english": "Yes, it is.",
+    "vietnamese": "Đúng vậy."
   },
   {
     "id": 115,
-    "title": "有一点,但我能处理。",
-    "english": "A bit, but I can handle it.",
-    "vietnamese": "Một chút, nhưng tôi có thể xử lý nó."
+    "title": "你家有几口人?",
+    "english": "How many people are in your family?",
+    "vietnamese": "Gia đình bạn có bao nhiêu người?"
   },
   {
     "id": 116,
-    "title": "你多久休息一次?",
-    "english": "How often do you take a break?",
-    "vietnamese": "Bạn nghỉ ngơi bao lâu một lần?"
+    "title": "我家有五口人。",
+    "english": "There are five people in my family.",
+    "vietnamese": "Gia đình tôi có năm người."
   },
   {
     "id": 117,
-    "title": "我每年有两周的假期。",
-    "english": "I have two weeks of vacation per year.",
-    "vietnamese": "Tôi có hai tuần nghỉ phép mỗi năm."
+    "title": "爷爷、奶奶、爸爸、妈妈和我。",
+    "english": "My grandfather, grandmother, father, mother, and me.",
+    "vietnamese": "Ông nội, bà nội, bố, mẹ và tôi."
   },
   {
     "id": 118,
-    "title": "你喜欢你的老板吗?",
-    "english": "Do you like your boss?",
-    "vietnamese": "Bạn có thích sếp của mình không?"
+    "title": "你没有哥哥姐姐吗?",
+    "english": "Don't you have any older brothers or sisters?",
+    "vietnamese": "Bạn không có anh chị em ruột nào lớn hơn à?"
   },
   {
     "id": 119,
-    "title": "是的,我的老板很好。",
-    "english": "Yes, my boss is very nice.",
-    "vietnamese": "Có, sếp của tôi rất tốt."
+    "title": "没有,现在中国家庭一般只有一个孩子。",
+    "english": "No; nowadays, Chinese families usually have only one child.",
+    "vietnamese": "Không; ngày nay, các gia đình Trung Quốc thường chỉ có một con."
   },
   {
     "id": 120,
-    "title": "你和同事关系好吗?",
-    "english": "Do you get along with your colleagues?",
-    "vietnamese": "Bạn có mối quan hệ tốt với đồng nghiệp không?"
+    "title": "玛丽,你家都有什么人?",
+    "english": "Mary, who is in your family?",
+    "vietnamese": "Mary, những ai trong gia đình bạn vậy?"
   },
   {
     "id": 121,
-    "title": "是的,我们相处得很好。",
-    "english": "Yes, we get along very well.",
-    "vietnamese": "Có, chúng tôi sống trong hòa hợp rất tốt."
+    "title": "我家有爸爸、妈妈、哥哥、弟弟、妹妹、还有一条狗。",
+    "english": "My family includes my father, mother, older brother, younger brother, younger sister, and a dog.",
+    "vietnamese": "Gia đình tôi gồm có bố, mẹ, anh trai, em trai, em gái và một con chó."
   },
   {
     "id": 122,
-    "title": "你赚的钱多吗?",
-    "english": "Do you earn a lot of money?",
-    "vietnamese": "Bạn kiếm được nhiều tiền không?"
+    "title": "一共六口人？",
+    "english": "Six people in total?",
+    "vietnamese": "Tổng cộng sáu người?"
   },
   {
     "id": 123,
-    "title": "还可以,够生活。",
-    "english": "It's okay, enough to live on.",
-    "vietnamese": "Được, đủ để sống."
+    "title": "不，七口。",
+    "english": "No, seven.",
+    "vietnamese": "Không, bảy."
   },
   {
     "id": 124,
-    "title": "你怎么花钱?",
-    "english": "How do you spend your money?",
-    "vietnamese": "Bạn dùng tiền như thế nào?"
+    "title": "爸爸,妈妈,一个哥哥,一个弟弟,一个妹妹和你,六口,对吧?",
+    "english": "Father, mother, an older brother, a younger brother, a younger sister, and you—that makes six, right?",
+    "vietnamese": "Bố, mẹ, một anh trai, một em trai, một em gái và bạn—tổng cộng là sáu người, đúng không?"
   },
   {
     "id": 125,
-    "title": "我花钱在房租、食物和娱乐。",
-    "english": "I spend money on rent, food, and entertainment.",
-    "vietnamese": "Tôi chi tiêu cho thuê nhà, thực phẩm và giải trí."
+    "title": "不对,还有一条狗。",
+    "english": "No, there's also the dog.",
+    "vietnamese": "Không, còn có cả con chó nữa."
   },
   {
     "id": 126,
-    "title": "你有房子吗?",
-    "english": "Do you have a house?",
-    "vietnamese": "Bạn có nhà không?"
+    "title": "是这样。",
+    "english": "I see.",
+    "vietnamese": "Tôi hiểu rồi."
   },
   {
     "id": 127,
     "title": "老师,北京秋天的天气怎么样?",
     "english": "Teacher, what is the weather like in Beijing in the autumn?",
-    "vietnamese": "Thầy ơi, thời tiết mùa thu ở Bắc Kinh như thế nào?"
+    "vietnamese": "Thưa thầy, thời tiết ở Bắc Kinh vào mùa thu như thế nào ạ?"
   },
   {
     "id": 128,
     "title": "北京的秋天不冷不热,很舒服,是最好的季节。",
-    "english": "Autumn in Beijing is neither cold nor hot; it is very pleasant and the best season of the year.",
-    "vietnamese": "Mùa thu ở Bắc Kinh không lạnh không nóng, rất dễ chịu, là mùa tuyệt nhất năm."
+    "english": "Autumn in Beijing is neither cold nor hot; it's very pleasant—the best season.",
+    "vietnamese": "Mùa thu ở Bắc Kinh không lạnh cũng không nóng; thời tiết rất dễ chịu - mùa đẹp nhất."
   },
   {
     "id": 129,
     "title": "冬天呢?听说北京的冬天很冷,是吗?",
-    "english": "What about winter? I've heard Beijing's winters are very cold—is that true?",
-    "vietnamese": "Còn mùa đông thì sao? Nghe nói mùa đông ở Bắc Kinh rất lạnh, đúng không?"
+    "english": "What about winter? I've heard Beijing's winters are very cold; is that true?",
+    "vietnamese": "Còn mùa đông thì sao? Tôi nghe nói mùa đông ở Bắc Kinh rất lạnh; điều đó có đúng không?"
   },
   {
     "id": 130,
     "title": "对,北京的冬天比较冷,最冷差不多零下十五度。",
-    "english": "Yes, winter in Beijing is quite cold; the lowest temperature is around minus 15 degrees.",
-    "vietnamese": "Đúng vậy, mùa đông ở Bắc Kinh khá lạnh, lạnh nhất là khoảng âm 15 độ."
+    "english": "Yes, winters in Beijing are quite cold; the lowest temperature is around minus fifteen degrees.",
+    "vietnamese": "Đúng vậy, mùa đông ở Bắc Kinh khá lạnh; nhiệt độ thấp nhất khoảng âm mười lăm độ."
   },
   {
     "id": 131,
     "title": "常常下雪吗?",
     "english": "Does it snow often?",
-    "vietnamese": "Có thường có tuyết rơi không?"
+    "vietnamese": "Trời có hay có tuyết rơi không?"
   },
   {
     "id": 132,
     "title": "不常下雪。",
     "english": "It doesn't snow often.",
-    "vietnamese": "Không thường có tuyết rơi."
+    "vietnamese": "Ở đây không thường xuyên có tuyết."
   },
   {
     "id": 133,
     "title": "大卫,你最喜欢哪个季节?",
     "english": "David, which season do you like best?",
-    "vietnamese": "David, trò thích mùa nào nhất?"
+    "vietnamese": "David, bạn thích mùa nào nhất?"
   },
   {
     "id": 134,
     "title": "我喜欢夏天。我喜欢游泳。",
     "english": "I like summer. I like swimming.",
-    "vietnamese": "Em thích mùa hè. Em thích bơi lội."
+    "vietnamese": "Tôi thích mùa hè. Tôi thích bơi lội."
   },
   {
     "id": 135,
     "title": "老师, 您呢?",
     "english": "Teacher, what about you?",
-    "vietnamese": "Thầy giáo, còn thầy thì sao?"
+    "vietnamese": "Thầy/Cô ơi, còn thầy/cô thì sao?"
   },
   {
     "id": 136,
     "title": "我喜欢春天。",
     "english": "I like spring.",
-    "vietnamese": "Thầy thích mùa xuân."
+    "vietnamese": "Tôi thích mùa xuân."
   },
   {
     "id": 137,
-    "title": "我的爱好是摄影和旅游。",
-    "english": "My hobbies are photography and traveling.",
-    "vietnamese": "Sở thích của tôi là nhiếp ảnh và du lịch."
+    "title": "喂,你好。",
+    "english": "Hello?",
+    "vietnamese": "Xin chào?"
   },
   {
     "id": 138,
-    "title": "你如何度过业余时间?",
-    "english": "How do you spend your free time?",
-    "vietnamese": "Bạn dành thời gian rảnh rỗi của mình như thế nào?"
+    "title": "喂,大卫,是我,玛丽。",
+    "english": "Hello, David? It's me, Mary.",
+    "vietnamese": "Chào David? Là Mary đây."
   },
   {
     "id": 139,
-    "title": "我通常阅读或看电影。",
-    "english": "I usually read or watch movies.",
-    "vietnamese": "Tôi thường đọc hoặc xem phim."
+    "title": "啊,玛丽,你好!",
+    "english": "Oh, Mary, hello!",
+    "vietnamese": "Chào Mary!"
   },
   {
     "id": 140,
-    "title": "你是早起的人吗?",
-    "english": "Are you an early riser?",
-    "vietnamese": "Bạn có phải là người dậy sớm không?"
+    "title": "大卫,你在干什么呢?",
+    "english": "David, what are you doing?",
+    "vietnamese": "David, cậu đang làm gì vậy?"
   },
   {
     "id": 141,
-    "title": "是的,我每天早上六点起床。",
-    "english": "Yes, I wake up at six in the morning every day.",
-    "vietnamese": "Có, tôi thức dậy lúc sáu giờ sáng mỗi ngày."
+    "title": "做作业呢。",
+    "english": "I'm doing my homework.",
+    "vietnamese": "Tôi đang làm bài tập về nhà."
   },
   {
     "id": 142,
-    "title": "你每天睡多久?",
-    "english": "How long do you sleep every day?",
-    "vietnamese": "Bạn ngủ bao lâu mỗi ngày?"
+    "title": "是吗?你每天都有很多作业吗?",
+    "english": "Really? Do you have a lot of homework every day?",
+    "vietnamese": "Thật sao? Mỗi ngày bạn đều có rất nhiều bài tập về nhà à?"
   },
   {
     "id": 143,
-    "title": "我每天睡八小时。",
-    "english": "I sleep eight hours every day.",
-    "vietnamese": "Tôi ngủ tám giờ mỗi ngày."
+    "title": "不是,今天是星期三,",
+    "english": "No. Today is Wednesday;",
+    "vietnamese": "Không. Hôm nay là thứ Tư;"
   },
   {
     "id": 144,
-    "title": "你有健康的生活方式吗?",
-    "english": "Do you have a healthy lifestyle?",
-    "vietnamese": "Bạn có lối sống lành mạnh không?"
+    "title": "从早上八点到中午十二点, 我有四节课",
+    "english": "I have four classes from eight in the morning until noon,",
+    "vietnamese": "Tôi có bốn tiết học, từ tám giờ sáng đến trưa."
   },
   {
     "id": 145,
-    "title": "是的,我尽力保持健康。",
-    "english": "Yes, I try to stay healthy.",
-    "vietnamese": "Có, tôi cố gắng giữ sức khỏe."
+    "title": "明天还有听写,",
+    "english": "and there's a dictation test tomorrow,",
+    "vietnamese": "Và ngày mai có bài kiểm tra chính tả."
   },
   {
     "id": 146,
-    "title": "你有焦虑症吗?",
-    "english": "Do you have anxiety?",
-    "vietnamese": "Bạn có lo âu không?"
+    "title": "所以作业很多。",
+    "english": "so I have a lot of homework.",
+    "vietnamese": "Vì vậy, tôi có rất nhiều bài tập về nhà."
   },
   {
     "id": 147,
-    "title": "有时候,但我能管理。",
-    "english": "Sometimes, but I can manage it.",
-    "vietnamese": "Đôi khi, nhưng tôi có thể kiểm soát nó."
+    "title": "你呢? 在干什么呢?",
+    "english": "What about you? What are you doing?",
+    "vietnamese": "Còn bạn thì sao? Bạn đang làm gì?"
   },
   {
     "id": 148,
-    "title": "你去过心理医生吗?",
-    "english": "Have you ever seen a psychologist?",
-    "vietnamese": "Bạn đã từng gặp bác sĩ tâm lý không?"
+    "title": "我在酒吧喝咖啡呢。",
+    "english": "I'm having coffee at a bar.",
+    "vietnamese": "Tôi đang uống cà phê tại một quán bar."
   },
   {
     "id": 149,
-    "title": "没有,我没有去过。",
-    "english": "No, I haven't.",
-    "vietnamese": "Không, tôi chưa từng."
+    "title": "哪个酒吧?",
+    "english": "Which bar?",
+    "vietnamese": "Quán bar nào?"
   },
   {
     "id": 150,
-    "title": "你相信什么?",
-    "english": "What do you believe in?",
-    "vietnamese": "Bạn tin vào cái gì?"
+    "title": "学校书店对面的那个。",
+    "english": "The one across from the school bookstore.",
+    "vietnamese": "Cửa hàng đối diện với hiệu sách của trường."
   },
   {
     "id": 151,
-    "title": "我相信努力和坚持。",
-    "english": "I believe in hard work and perseverance.",
-    "vietnamese": "Tôi tin vào làm việc chăm chỉ và kiên trì."
+    "title": "你自己吗?",
+    "english": "Are you by yourself?",
+    "vietnamese": "Bạn đi một mình à?"
   },
   {
     "id": 152,
-    "title": "你有宗教信仰吗?",
-    "english": "Do you have religious beliefs?",
-    "vietnamese": "Bạn có niềm tin tôn giáo không?"
+    "title": "不,还有我的同屋和她的朋友",
+    "english": "No, my roommate and her friend are with me.",
+    "vietnamese": "Không, bạn cùng phòng và bạn của cô ấy đang ở cùng tôi."
   },
   {
     "id": 153,
-    "title": "没有,我是无神论者。",
-    "english": "No, I'm an atheist.",
-    "vietnamese": "Không, tôi là người vô thần."
+    "title": "他们正在唱歌呢。",
+    "english": "They're singing right now.",
+    "vietnamese": "Họ đang hát ngay bây giờ."
   },
   {
     "id": 154,
-    "title": "你尊重不同的观点吗?",
-    "english": "Do you respect different viewpoints?",
-    "vietnamese": "Bạn có tôn trọng các quan điểm khác nhau không?"
+    "title": "明天你们没有课吗?",
+    "english": "Don't you have classes tomorrow?",
+    "vietnamese": "Ngày mai bạn không có tiết học à?"
   },
   {
     "id": 155,
-    "title": "当然,我尊重每个人的想法。",
-    "english": "Of course, I respect everyone's thoughts.",
-    "vietnamese": "Tất nhiên, tôi tôn trọng suy nghĩ của mọi người."
+    "title": "有,我们十点就回宿舍。",
+    "english": "We do; we're going back to the dorm at ten o'clock.",
+    "vietnamese": "Có chứ; chúng mình sẽ quay lại ký túc xá lúc mười giờ."
   },
   {
     "id": 156,
-    "title": "你对未来有什么期望?",
-    "english": "What are your expectations for the future?",
-    "vietnamese": "Bạn mong đợi gì từ tương lai?"
+    "title": "你好,李军,你去哪儿?",
+    "english": "Hello, Li Jun, where are you going?",
+    "vietnamese": "Chào Li Jun, cậu đi đâu vậy?"
   },
   {
     "id": 157,
-    "title": "我期望有一个美好的未来。",
-    "english": "I expect to have a bright future.",
-    "vietnamese": "Tôi mong đợi có một tương lai tươi sáng."
+    "title": "我去图书馆借书,你呢?",
+    "english": "I'm going to the library to borrow some books. How about you?",
+    "vietnamese": "Tôi sẽ đến thư viện để mượn vài cuốn sách. Còn bạn thì sao?"
   },
   {
     "id": 158,
-    "title": "你害怕失败吗?",
-    "english": "Are you afraid of failure?",
-    "vietnamese": "Bạn có sợ thất bại không?"
+    "title": "我先去银行换钱,然后去商店买东西。",
+    "english": "I'm going to the bank to exchange money first, then to the shops to buy some things.",
+    "vietnamese": "Trước tiên tôi sẽ đến ngân hàng để đổi tiền, sau đó sẽ đến cửa hàng để mua một vài thứ."
   },
   {
     "id": 159,
-    "title": "是的,但我不让它阻止我。",
-    "english": "Yes, but I don't let it stop me.",
-    "vietnamese": "Có, nhưng tôi không để nó ngăn cản tôi."
+    "title": "我也要去银行,咱们一起去吧!",
+    "english": "I'm going to the bank too—let's go together!",
+    "vietnamese": "Tôi cũng đi ngân hàng — chúng ta đi cùng nhau nhé!"
   },
   {
     "id": 160,
-    "title": "你是一个乐观的人吗?",
-    "english": "Are you an optimistic person?",
-    "vietnamese": "Bạn có phải là người lạc观không?"
+    "title": "你不去图书馆吗?",
+    "english": "Aren't you going to the library?",
+    "vietnamese": "Bạn không định đến thư viện à?"
   },
   {
     "id": 161,
-    "title": "是的,我总是很乐观。",
-    "english": "Yes, I'm always optimistic.",
-    "vietnamese": "Có, tôi luôn lạc quan."
+    "title": "没关系,图书馆不关门。",
+    "english": "It doesn't matter; the library won't close.",
+    "vietnamese": "Không sao cả; thư viện sẽ không đóng cửa."
   },
   {
     "id": 162,
-    "title": "你如何处理压力?",
-    "english": "How do you deal with stress?",
-    "vietnamese": "Bạn xử lý căng thẳng như thế nào?"
+    "title": "中村,明天是星期天,你打算干什么?",
+    "english": "Nakamura, tomorrow is Sunday; what do you plan to do?",
+    "vietnamese": "Nakamura, ngày mai là Chủ nhật; cậu định làm gì?"
   },
   {
     "id": 163,
-    "title": "我通常去运动或冥想。",
-    "english": "I usually exercise or meditate.",
-    "vietnamese": "Tôi thường tập thể dục hoặc thiền định."
+    "title": "我打算去商店买东西。",
+    "english": "I plan to go shopping.",
+    "vietnamese": "Tôi dự định đi mua sắm."
   },
   {
     "id": 164,
-    "title": "你喜欢冥想吗?",
-    "english": "Do you like meditation?",
-    "vietnamese": "Bạn có thích thiền định không?"
+    "title": "是学校的商店吗?",
+    "english": "At the school shop?",
+    "vietnamese": "Tại cửa hàng của trường?"
   },
   {
     "id": 165,
-    "title": "是的,冥想让我感到平静。",
-    "english": "Yes, meditation makes me feel calm.",
-    "vietnamese": "Có, thiền định làm tôi cảm thấy bình tĩnh."
+    "title": "不,是购物中心。",
+    "english": "No, at the shopping mall.",
+    "vietnamese": "Không, ở trung tâm mua sắm."
   },
   {
     "id": 166,
-    "title": "你多久冥想一次?",
-    "english": "How often do you meditate?",
-    "vietnamese": "Bạn thiền định bao lâu một lần?"
+    "title": "那儿的东西贵不贵?",
+    "english": "Are things expensive there?",
+    "vietnamese": "Mọi thứ ở đó có đắt đỏ không?"
   },
   {
     "id": 167,
-    "title": "我每周冥想两次。",
-    "english": "I meditate twice a week.",
-    "vietnamese": "Tôi thiền định hai lần một tuần."
+    "title": "还可以",
+    "english": "They're reasonable.",
+    "vietnamese": "Họ rất hợp lý."
   },
   {
     "id": 168,
-    "title": "你相信平衡生活吗?",
-    "english": "Do you believe in work-life balance?",
-    "vietnamese": "Bạn có tin vào cân bằng công việc và cuộc sống không?"
+    "title": "那儿的东西很多,质量也不错。",
+    "english": "They have a wide selection, and the quality is good, too.",
+    "vietnamese": "Họ có rất nhiều lựa chọn, và chất lượng cũng rất tốt."
   },
   {
     "id": 169,
-    "title": "是的,我认为这很重要。",
-    "english": "Yes, I think it's important.",
-    "vietnamese": "Có, tôi nghĩ điều đó rất quan trọng."
+    "title": "我正打算买衣服呢",
+    "english": "I was actually planning to buy some clothes.",
+    "vietnamese": "Thực ra tôi đang định mua một vài bộ quần áo."
   },
   {
     "id": 170,
-    "title": "你有足够的时间陪家人吗?",
-    "english": "Do you have enough time to spend with family?",
-    "vietnamese": "Bạn có đủ thời gian để ở bên gia đình không?"
+    "title": "明天和你一起去,好不好?",
+    "english": "How about I go with you tomorrow?",
+    "vietnamese": "Ngày mai mình đi cùng cậu nhé?"
   },
   {
     "id": 171,
-    "title": "是的,我经常和家人一起度过时间。",
-    "english": "Yes, I spend time with my family regularly.",
-    "vietnamese": "Có, tôi thường xuyên dành thời gian với gia đình."
+    "title": "好啊!",
+    "english": "Sounds good!",
+    "vietnamese": "Nghe hay đấy!"
   },
   {
     "id": 172,
-    "title": "你的家庭关系如何?",
-    "english": "How are your family relationships?",
-    "vietnamese": "Mối quan hệ gia đình của bạn như thế nào?"
+    "title": "咱们几点去?",
+    "english": "What time shall we go?",
+    "vietnamese": "Chúng ta sẽ đi lúc mấy giờ?"
   },
   {
     "id": 173,
-    "title": "很好,我们很亲密。",
-    "english": "Very good, we are very close.",
-    "vietnamese": "Rất tốt, chúng tôi rất gần gũi."
+    "title": "购物中心九点开门,咱们十点去吧!",
+    "english": "The mall opens at nine; let's go at ten.",
+    "vietnamese": "Trung tâm thương mại mở cửa lúc chín giờ; chúng ta đi lúc mười giờ nhé."
   },
   {
     "id": 174,
-    "title": "你经常和朋友聚会吗?",
-    "english": "Do you often hang out with friends?",
-    "vietnamese": "Bạn có thường xuyên gặp gỡ bạn bè không?"
+    "title": "中村,你看,那件白毛衣怎么样?",
+    "english": "Nakamura, look—what do you think of that white sweater?",
+    "vietnamese": "Nakamura, nhìn này—cậu nghĩ sao về chiếc áo len trắng đó?"
   },
   {
     "id": 175,
-    "title": "是的,我喜欢和朋友在一起。",
-    "english": "Yes, I like spending time with friends.",
-    "vietnamese": "Có, tôi thích ở bên bạn bè."
+    "title": "挺好看的,不过白的容易脏。",
+    "english": "It looks nice, but white ones get dirty easily.",
+    "vietnamese": "Trông thì đẹp, nhưng màu trắng dễ bị bẩn."
   },
   {
     "id": 176,
-    "title": "你有最好的朋友吗?",
-    "english": "Do you have a best friend?",
-    "vietnamese": "Bạn có bạn thân nhất không?"
+    "title": "这件蓝的怎么样?",
+    "english": "How about this blue one?",
+    "vietnamese": "Bạn thấy chiếc màu xanh này thế nào?"
   },
   {
     "id": 177,
-    "title": "是的,我有一个最好的朋友。",
-    "english": "Yes, I have a best friend.",
-    "vietnamese": "Có, tôi có một bạn thân nhất."
+    "title": "这件的颜色有点儿深,我喜欢浅颜色的。",
+    "english": "The color is a bit dark; I prefer lighter colors.",
+    "vietnamese": "Màu này hơi tối; tôi thích màu sáng hơn."
   },
   {
     "id": 178,
-    "title": "你们认识多久了?",
-    "english": "How long have you known each other?",
-    "vietnamese": "Các bạn đã biết nhau bao lâu?"
+    "title": "那件黄的呢?",
+    "english": "What about that yellow one?",
+    "vietnamese": "Còn chiếc màu vàng kia thì sao?"
   },
   {
     "id": 179,
-    "title": "我们认识了十年。",
-    "english": "We have known each other for ten years.",
-    "vietnamese": "Chúng tôi đã biết nhau trong mười năm."
+    "title": "不错,挺漂亮的,就买它吧。",
+    "english": "That's nice—quite pretty. Let's get that one.",
+    "vietnamese": "Đẹp đấy—khá đẹp. Lấy cái đó đi."
   },
   {
     "id": 180,
-    "title": "友谊对你来说重要吗?",
-    "english": "Is friendship important to you?",
-    "vietnamese": "Tình bạn có quan trọng với bạn không?"
+    "title": "玛丽,这是你的自行车吗?",
+    "english": "Mary, is this your bicycle?",
+    "vietnamese": "Mary, đây có phải là xe đạp của bạn không?"
   },
   {
     "id": 181,
-    "title": "是的,友谊非常重要。",
-    "english": "Yes, friendship is very important.",
-    "vietnamese": "Có, tình bạn rất quan trọng."
+    "title": "对,这是我昨天买的,怎么样?",
+    "english": "Yes, I bought it yesterday. What do you think?",
+    "vietnamese": "Vâng, tôi đã mua nó hôm qua. Bạn thấy sao?"
   },
   {
     "id": 182,
-    "title": "你如何维持友谊?",
-    "english": "How do you maintain friendship?",
-    "vietnamese": "Bạn duy trì tình bạn như thế nào?"
+    "title": "挺漂亮的,不是新的吧?",
+    "english": "It's very pretty. It's not new, is it?",
+    "vietnamese": "Nó rất đẹp. Nó không phải là đồ mới, phải không?"
   },
   {
     "id": 183,
-    "title": "我经常联系他们和见面。",
-    "english": "I stay in contact with them regularly and meet up.",
-    "vietnamese": "Tôi thường xuyên liên lạc và gặp gỡ họ."
+    "title": "对,我买的是一辆旧的,",
+    "english": "Right, I bought a used one.",
+    "vietnamese": "Đúng vậy, tôi đã mua một chiếc đã qua sử dụng."
   },
   {
     "id": 184,
-    "title": "你有恋爱经历吗?",
-    "english": "Do you have dating experience?",
-    "vietnamese": "Bạn có kinh nghiệm hẹn hò không?"
+    "title": "旧的比较便宜,也不容易丢。",
+    "english": "Used ones are cheaper, and they're less likely to get stolen.",
+    "vietnamese": "Xe cũ thì rẻ hơn và ít có khả năng bị mất trộm hơn."
   },
   {
     "id": 185,
-    "title": "是的,我有。",
-    "english": "Yes, I do.",
-    "vietnamese": "Có, tôi có."
+    "title": "有别的颜色吗?",
+    "english": "Are there other colors?",
+    "vietnamese": "Còn màu nào khác nữa không?"
   },
   {
     "id": 186,
-    "title": "你现在有伴侣吗?",
-    "english": "Do you have a partner now?",
-    "vietnamese": "Bạn hiện có bạn đời không?"
+    "title": "有,有黑的,蓝的,还有灰的,黄的。",
+    "english": "Yes—black, blue, gray, and yellow.",
+    "vietnamese": "Đúng vậy—đen, xanh dương, xám và vàng."
   },
   {
     "id": 187,
-    "title": "是的,我有一个伴侣。",
-    "english": "Yes, I have a partner.",
-    "vietnamese": "Có, tôi có một bạn đời."
+    "title": "你喜欢什么颜色的?",
+    "english": "Which color do you like?",
+    "vietnamese": "Bạn thích màu nào?"
   },
   {
     "id": 188,
-    "title": "你的伴侣做什么工作?",
-    "english": "What does your partner do for work?",
-    "vietnamese": "Bạn đời của bạn làm công việc gì?"
+    "title": "我喜欢绿的。",
+    "english": "I like green.",
+    "vietnamese": "Tôi thích màu xanh lá cây."
   },
   {
     "id": 189,
-    "title": "他/她是一个医生。",
-    "english": "He/She is a doctor.",
-    "vietnamese": "Anh ấy/Cô ấy là bác sĩ."
+    "title": "中村,从晚饭以后到现在,你一直在忙,忙什么呢?",
+    "english": "Nakamura, you've been busy ever since dinner. What have you been doing?",
+    "vietnamese": "Nakamura, cậu bận rộn từ lúc ăn tối đến giờ. Cậu đã làm gì vậy?"
   },
   {
     "id": 190,
-    "title": "你们在一起多久了?",
-    "english": "How long have you been together?",
-    "vietnamese": "Các bạn đã ở bên nhau bao lâu?"
+    "title": "我在准备礼物呢。",
+    "english": "I've been preparing a gift.",
+    "vietnamese": "Tôi đã chuẩn bị một món quà."
   },
   {
     "id": 191,
-    "title": "我们在一起三年了。",
-    "english": "We have been together for three years.",
-    "vietnamese": "Chúng tôi đã ở bên nhau ba năm."
+    "title": "准备礼物?",
+    "english": "Preparing a gift?",
+    "vietnamese": "Bạn đang chuẩn bị một món quà?"
   },
   {
     "id": 192,
-    "title": "你想结婚吗?",
-    "english": "Do you want to get married?",
-    "vietnamese": "Bạn có muốn kết hôn không?"
+    "title": "对,明天是我朋友的生日",
+    "english": "Yes, tomorrow is a friend's birthday.",
+    "vietnamese": "Đúng vậy, ngày mai là sinh nhật của một người bạn."
   },
   {
     "id": 193,
-    "title": "是的,我想在未来结婚。",
-    "english": "Yes, I want to get married in the future.",
-    "vietnamese": "Có, tôi muốn kết hôn trong tương lai."
+    "title": "我做一个蛋糕送给她",
+    "english": "I'm making a cake to give to her.",
+    "vietnamese": "Tôi đang làm một chiếc bánh để tặng cô ấy."
   },
   {
     "id": 194,
-    "title": "你想要孩子吗?",
-    "english": "Do you want children?",
-    "vietnamese": "Bạn có muốn có con không?"
+    "title": "你说好不好?",
+    "english": "What do you think?",
+    "vietnamese": "Bạn nghĩ sao?"
   },
   {
     "id": 195,
-    "title": "是的,我想要两个孩子。",
-    "english": "Yes, I want to have two children.",
-    "vietnamese": "Có, tôi muốn có hai đứa con."
+    "title": "你自己做?",
+    "english": "You're making it yourself?",
+    "vietnamese": "Bạn tự làm à?"
   },
   {
     "id": 196,
-    "title": "你认为养育孩子容易吗?",
-    "english": "Do you think raising children is easy?",
-    "vietnamese": "Bạn có nghĩ nuôi dạy con cái dễ dàng không?"
+    "title": "对啊,自己做的比较特别。",
+    "english": "Yes, something homemade is more special.",
+    "vietnamese": "Đúng vậy, đồ tự làm sẽ đặc biệt hơn."
   },
   {
     "id": 197,
-    "title": "不,我认为这很困难。",
-    "english": "No, I think it's very difficult.",
-    "vietnamese": "Không, tôi nghĩ điều đó rất khó khăn."
+    "title": "大卫,你说,送生日礼物,什么东西比较好?",
+    "english": "David, what do you think is a good birthday gift?",
+    "vietnamese": "David, cậu nghĩ món quà sinh nhật nào là phù hợp?"
   },
   {
     "id": 198,
-    "title": "你对自己的未来充满信心吗?",
-    "english": "Are you confident about your future?",
-    "vietnamese": "Bạn có tự tin về tương lai của mình không?"
+    "title": "你打算送给谁?",
+    "english": "Who do you plan to give it to?",
+    "vietnamese": "Bạn định tặng nó cho ai?"
   },
   {
     "id": 199,
-    "title": "是的,我很有信心。",
-    "english": "Yes, I'm very confident.",
-    "vietnamese": "Có, tôi rất tự tin."
+    "title": "男的还是女的?",
+    "english": "A man or a woman?",
+    "vietnamese": "Là đàn ông hay phụ nữ?"
   },
   {
     "id": 200,
-    "title": "你对这个世界有什么看法?",
-    "english": "What do you think about the world?",
-    "vietnamese": "Bạn nghĩ gì về thế giới?"
+    "title": "女的。",
+    "english": "A woman.",
+    "vietnamese": "Một người phụ nữ."
   },
   {
     "id": 201,
-    "title": "我认为世界充满机遇和挑战。",
-    "english": "I think the world is full of opportunities and challenges.",
-    "vietnamese": "Tôi nghĩ thế giới đầy những cơ hội và thách thức."
+    "title": "可送的很多啊,比如巧克力。",
+    "english": "There are plenty of options—chocolate, for example.",
+    "vietnamese": "Có rất nhiều lựa chọn, ví dụ như sô cô la."
   },
   {
     "id": 202,
-    "title": "你关心环境问题吗?",
-    "english": "Do you care about environmental issues?",
-    "vietnamese": "Bạn có quan tâm đến các vấn đề môi trường không?"
+    "title": "巧克力有点儿甜,她不喜欢甜的。",
+    "english": "Chocolate is a bit too sweet; she doesn't like sweet things.",
+    "vietnamese": "Sô cô la hơi quá ngọt; cô ấy không thích đồ ngọt."
   },
   {
     "id": 203,
-    "title": "是的,我很关心。",
-    "english": "Yes, I care very much.",
-    "vietnamese": "Có, tôi rất quan tâm."
+    "title": "衣服呢?",
+    "english": "How about clothes?",
+    "vietnamese": "Còn quần áo thì sao?"
   },
   {
     "id": 204,
-    "title": "你做过什么来保护环境?",
-    "english": "What have you done to protect the environment?",
-    "vietnamese": "Bạn đã làm gì để bảo vệ môi trường?"
+    "title": "她的衣服号我不知道,",
+    "english": "I don't know her size,",
+    "vietnamese": "Tôi không biết kích thước của cô ấy."
   },
   {
     "id": 205,
-    "title": "我回收垃圾和节约水。",
-    "english": "I recycle trash and save water.",
-    "vietnamese": "Tôi tái chế rác thải và tiết kiệm nước."
+    "title": "也不知道她喜欢什么颜色。",
+    "english": "and I don't know what colors she likes either.",
+    "vietnamese": "Và tôi cũng không biết cô ấy thích màu gì."
   },
   {
     "id": 206,
-    "title": "你相信气候变化吗?",
-    "english": "Do you believe in climate change?",
-    "vietnamese": "Bạn có tin vào biến đổi khí hậu không?"
+    "title": "那么送一束花吧",
+    "english": "How about sending a bouquet of flowers?",
+    "vietnamese": "Bạn nghĩ sao về việc gửi một bó hoa?"
   },
   {
     "id": 207,
-    "title": "是的,我完全相信。",
-    "english": "Yes, I completely believe in it.",
-    "vietnamese": "Có, tôi hoàn toàn tin tưởng."
+    "title": "每个女孩子都喜欢花",
+    "english": "Every girl likes flowers.",
+    "vietnamese": "Cô gái nào cũng thích hoa."
   },
   {
     "id": 208,
-    "title": "你支持可再生能源吗?",
-    "english": "Do you support renewable energy?",
-    "vietnamese": "Bạn có ủng hộ năng lượng tái tạo không?"
+    "title": "这个主意挺不错的。",
+    "english": "That’s a great idea.",
+    "vietnamese": "Đó là một ý tưởng tuyệt vời."
   },
   {
     "id": 209,
-    "title": "是的,我支持。",
-    "english": "Yes, I support it.",
-    "vietnamese": "Có, tôi ủng hộ."
+    "title": "明天又是周末,太高兴了",
+    "english": "Tomorrow is the weekend again—I'm so happy!",
+    "vietnamese": "Ngày mai lại là cuối tuần rồi—mình vui quá!"
   },
   {
     "id": 210,
-    "title": "你的家乡是哪里?",
-    "english": "Where is your hometown?",
-    "vietnamese": "Quê hương của bạn là ở đâu?"
+    "title": "看起来你很喜欢周末。",
+    "english": "It looks like you really enjoy weekends.",
+    "vietnamese": "Có vẻ như bạn rất thích những ngày cuối tuần."
   },
   {
     "id": 211,
-    "title": "我的家乡是上海。",
-    "english": "My hometown is Shanghai.",
-    "vietnamese": "Quê hương của tôi là Thượng Hải."
+    "title": "当然喜欢啦!",
+    "english": "Of course I do!",
+    "vietnamese": "Tất nhiên là tôi có!"
   },
   {
     "id": 212,
-    "title": "你经常回家乡吗?",
-    "english": "Do you go back to your hometown often?",
-    "vietnamese": "Bạn có thường xuyên về quê hương không?"
+    "title": "周末可以好好儿玩儿玩儿",
+    "english": "You can really have fun on weekends.",
+    "vietnamese": "Bạn có thể thực sự vui chơi vào cuối tuần."
   },
   {
     "id": 213,
-    "title": "是的,我每年都回去。",
-    "english": "Yes, I go back every year.",
-    "vietnamese": "Có, tôi về mỗi năm."
+    "title": "你不喜欢吗?",
+    "english": "Don't you like them?",
+    "vietnamese": "Bạn không thích chúng sao?"
   },
   {
     "id": 214,
-    "title": "你喜欢你的家乡吗?",
-    "english": "Do you like your hometown?",
-    "vietnamese": "Bạn có thích quê hương của mình không?"
+    "title": "我不喜欢。",
+    "english": "I don't.",
+    "vietnamese": "Tôi không."
   },
   {
     "id": 215,
-    "title": "是的,我很喜欢。",
-    "english": "Yes, I like it very much.",
-    "vietnamese": "Có, tôi rất thích."
+    "title": "每个周末我都觉得没意思。",
+    "english": "I find every weekend boring.",
+    "vietnamese": "Tôi thấy cuối tuần nào cũng nhàm chán."
   },
   {
     "id": 216,
-    "title": "你的家乡有什么特色?",
-    "english": "What are the characteristics of your hometown?",
-    "vietnamese": "Quê hương của bạn có những đặc điểm gì?"
+    "title": "你周末都干什么呢?",
+    "english": "What do you usually do on weekends?",
+    "vietnamese": "Bạn thường làm gì vào cuối tuần?"
   },
   {
     "id": 217,
-    "title": "我的家乡以其建筑和文化而闻名。",
-    "english": "My hometown is known for its architecture and culture.",
-    "vietnamese": "Quê hương của tôi nổi tiếng với kiến trúc và văn hóa."
+    "title": "在宿舍里看看电视,洗洗衣服,做做作业,睡睡懒觉。",
+    "english": "I stay in the dorm, watch TV, do laundry, do homework, and sleep in.",
+    "vietnamese": "Tôi ở trong ký túc xá, xem tivi, giặt quần áo, làm bài tập về nhà và ngủ nướng."
   },
   {
     "id": 218,
-    "title": "你会把家乡推荐给别人吗?",
-    "english": "Would you recommend your hometown to others?",
-    "vietnamese": "Bạn có sẽ giới thiệu quê hương của mình cho người khác không?"
+    "title": "你不和朋友一起出去玩儿吗?",
+    "english": "Don't you go out with friends?",
+    "vietnamese": "Bạn không đi chơi với bạn bè à?"
   },
   {
     "id": 219,
-    "title": "当然,我会推荐。",
-    "english": "Of course, I would recommend it.",
-    "vietnamese": "Tất nhiên, tôi sẽ giới thiệu."
+    "title": "有时候和朋友一起逛逛商店,",
+    "english": "Sometimes I go shopping with friends,",
+    "vietnamese": "Thỉnh thoảng tôi đi mua sắm với bạn bè."
   },
   {
     "id": 220,
-    "title": "你对自己的国家感到骄傲吗?",
-    "english": "Are you proud of your country?",
-    "vietnamese": "Bạn có tự hào về đất nước của mình không?"
+    "title": "有时候去图书馆学习学习。",
+    "english": "and sometimes I go to the library to study.",
+    "vietnamese": "Và thỉnh thoảng tôi đến thư viện để học bài."
   },
   {
     "id": 221,
-    "title": "是的,我很自豪。",
-    "english": "Yes, I'm very proud.",
-    "vietnamese": "Có, tôi rất tự hào."
+    "title": "你周末都干什么呢?",
+    "english": "What do you do on weekends?",
+    "vietnamese": "Bạn thường làm gì vào cuối tuần?"
   },
   {
     "id": 222,
-    "title": "你喜欢民族文化吗?",
-    "english": "Do you like traditional culture?",
-    "vietnamese": "Bạn có thích văn hóa truyền thống không?"
+    "title": "我每个周末都有不同的安排。",
+    "english": "I have different plans every weekend.",
+    "vietnamese": "Tôi có những kế hoạch khác nhau mỗi cuối tuần."
   },
   {
     "id": 223,
-    "title": "是的,我很喜欢。",
-    "english": "Yes, I like it very much.",
-    "vietnamese": "Có, tôi rất thích."
+    "title": "上个周末到朋友家包饺子,",
+    "english": "Last weekend, I went to a friend's place to make dumplings,",
+    "vietnamese": "Cuối tuần trước, tôi đến nhà một người bạn để làm bánh bao."
   },
   {
     "id": 224,
-    "title": "你参加过传统节日吗?",
-    "english": "Have you participated in traditional festivals?",
-    "vietnamese": "Bạn có tham gia các lễ hội truyền thống không?"
+    "title": "上上个周末去笛厅跳舞。",
+    "english": "and the weekend before that, I went dancing at a disco.",
+    "vietnamese": "Và cuối tuần trước đó, tôi đã đi nhảy ở một vũ trường."
   },
   {
     "id": 225,
-    "title": "是的,我参加过很多。",
-    "english": "Yes, I have participated in many.",
-    "vietnamese": "Có, tôi đã tham gia rất nhiều."
+    "title": "这个周末你干什么?",
+    "english": "What are you doing this weekend?",
+    "vietnamese": "Bạn dự định làm gì vào cuối tuần này?"
   },
   {
     "id": 226,
-    "title": "你最喜欢的传统节日是什么?",
-    "english": "What is your favorite traditional festival?",
-    "vietnamese": "Lễ hội truyền thống yêu thích của bạn là gì?"
+    "title": "我去听音乐会。",
+    "english": "I'm going to a concert.",
+    "vietnamese": "Tôi sắp đi xem hòa nhạc."
   },
   {
     "id": 227,
-    "title": "我最喜欢春节。",
-    "english": "My favorite is the Spring Festival.",
-    "vietnamese": "Tôi thích Tết Nguyên Đán nhất."
+    "title": "好啊,太好了!",
+    "english": "That sounds great!",
+    "vietnamese": "Nghe tuyệt vời đấy!"
   },
   {
     "id": 228,
-    "title": "你会做传统食物吗?",
-    "english": "Can you make traditional food?",
-    "vietnamese": "Bạn có thể làm thức ăn truyền thống không?"
+    "title": "请进!请进!",
+    "english": "Come in, please!",
+    "vietnamese": "Mời vào!"
   },
   {
     "id": 229,
-    "title": "是的,我会做一些。",
-    "english": "Yes, I can make some.",
-    "vietnamese": "Có, tôi có thể làm một số."
+    "title": "老师,您的家真干净啊。",
+    "english": "Teacher, your home is so clean.",
+    "vietnamese": "Cô giáo ơi, nhà cô sạch sẽ quá."
   },
   {
     "id": 230,
-    "title": "你最喜欢的传统菜肴是什么?",
-    "english": "What is your favorite traditional dish?",
-    "vietnamese": "Mon ăn truyền thống yêu thích của bạn là gì?"
+    "title": "是吗?来,坐这儿吧。",
+    "english": "Really? Here, have a seat.",
+    "vietnamese": "Thật sao? Mời ngồi."
   },
   {
     "id": 231,
-    "title": "我最喜欢饺子。",
-    "english": "My favorite is dumplings.",
-    "vietnamese": "Tôi thích bánh chưng nhất."
+    "title": "这是给您的礼物。",
+    "english": "This is a gift for you.",
+    "vietnamese": "Đây là món quà dành cho bạn."
   },
   {
     "id": 232,
-    "title": "你喜欢学习新东西吗?",
-    "english": "Do you like learning new things?",
-    "vietnamese": "Bạn có thích học những điều mới không?"
+    "title": "哎呀,你们太客气了。",
+    "english": "Oh my, you're too kind.",
+    "vietnamese": "Ôi, bạn tốt bụng quá."
   },
   {
     "id": 233,
-    "title": "是的,我很喜欢。",
-    "english": "Yes, I like it very much.",
-    "vietnamese": "Có, tôi rất thích."
+    "title": "一点儿心意,请收下。",
+    "english": "It's just a small token of appreciation; please accept it.",
+    "vietnamese": "Đây chỉ là một món quà nhỏ thể hiện lòng biết ơn; xin vui lòng nhận lấy."
   },
   {
     "id": 234,
-    "title": "你正在学什么新东西?",
-    "english": "What new thing are you learning?",
-    "vietnamese": "Bạn đang học điều mới nào?"
+    "title": "谢谢。",
+    "english": "Thank you.",
+    "vietnamese": "Cảm ơn."
   },
   {
     "id": 235,
-    "title": "我正在学习绘画。",
-    "english": "I'm learning painting.",
-    "vietnamese": "Tôi đang học vẽ tranh."
+    "title": "你们喝什么?",
+    "english": "What would you like to drink?",
+    "vietnamese": "Bạn muốn uống gì?"
   },
   {
     "id": 236,
-    "title": "你对艺术感兴趣吗?",
-    "english": "Are you interested in art?",
-    "vietnamese": "Bạn có quan tâm đến nghệ thuật không?"
+    "title": "茶还是果汁?",
+    "english": "Tea or fruit juice?",
+    "vietnamese": "Trà hay nước ép trái cây?"
   },
   {
     "id": 237,
-    "title": "是的,我很感兴趣。",
-    "english": "Yes, I'm very interested.",
-    "vietnamese": "Có, tôi rất quan tâm."
+    "title": "随便,什么都行。",
+    "english": "Anything is fine.",
+    "vietnamese": "Mọi thứ đều ổn."
   },
   {
     "id": 238,
-    "title": "你去过美术馆吗?",
-    "english": "Have you been to an art gallery?",
-    "vietnamese": "Bạn đã từng đến phòng trưng bày nghệ thuật không?"
+    "title": "我喝茶。",
+    "english": "I'll have tea.",
+    "vietnamese": "Tôi sẽ uống trà."
   },
   {
     "id": 239,
-    "title": "是的,我去过。",
-    "english": "Yes, I have.",
-    "vietnamese": "Có, tôi đã từng."
+    "title": "路上顺利吗?",
+    "english": "Was the journey here smooth?",
+    "vietnamese": "Chuyến đi đến đây có suôn sẻ không?"
   },
   {
     "id": 240,
-    "title": "你最喜欢的画家是谁?",
-    "english": "Who is your favorite painter?",
-    "vietnamese": "Họa sĩ yêu thích của bạn là ai?"
+    "title": "不太顺利,车上有点儿挤。",
+    "english": "Not really; the bus was a bit crowded.",
+    "vietnamese": "Không hẳn; xe buýt hơi đông người."
   },
   {
     "id": 241,
-    "title": "我最喜欢梵高。",
-    "english": "My favorite is Van Gogh.",
-    "vietnamese": "Tôi thích Van Gogh nhất."
+    "title": "你们一般坐公共汽车还是打车?",
+    "english": "Do you usually take the bus or a taxi?",
+    "vietnamese": "Bạn thường đi xe buýt hay taxi?"
   },
   {
     "id": 242,
-    "title": "你喜欢古典音乐吗?",
-    "english": "Do you like classical music?",
-    "vietnamese": "Bạn có thích nhạc cổ điển không?"
+    "title": "我喜欢坐公共汽车,空调大巴很舒服。",
+    "english": "I like taking the bus; the air-conditioned buses are very comfortable.",
+    "vietnamese": "Tôi thích đi xe buýt; xe buýt có máy lạnh rất thoải mái."
   },
   {
     "id": 243,
-    "title": "是的,有时候我喜欢。",
-    "english": "Yes, sometimes I like it.",
-    "vietnamese": "Có, đôi khi tôi thích."
+    "title": "我喜欢坐地铁。",
+    "english": "I prefer the subway.",
+    "vietnamese": "Tôi thích đi tàu điện ngầm hơn."
   },
   {
     "id": 244,
-    "title": "你去过音乐会吗?",
-    "english": "Have you been to a concert?",
-    "vietnamese": "Bạn đã từng đi concert không?"
+    "title": "你们饿不饿?中午在我家吃饺子,怎么样?",
+    "english": "Are you hungry? How about having dumplings at my place for lunch?",
+    "vietnamese": "Bạn có đói không? Hay là mình đến nhà ăn há cảo trưa nhé?"
   },
   {
     "id": 245,
-    "title": "是的,我去过很多音乐会。",
-    "english": "Yes, I have been to many concerts.",
-    "vietnamese": "Có, tôi đã đi rất nhiều concert."
+    "title": "太好了,我最喜欢吃的就是饺子。",
+    "english": "That's wonderful! Dumplings are my favorite food.",
+    "vietnamese": "Tuyệt vời! Bánh bao là món ăn tôi thích nhất."
   },
   {
     "id": 246,
-    "title": "你最喜欢的音乐会是哪个?",
-    "english": "What is your favorite concert?",
-    "vietnamese": "Concert yêu thích của bạn là gì?"
+    "title": "你们会包吗?",
+    "english": "Do you know how to make them?",
+    "vietnamese": "Bạn có biết cách làm chúng không?"
   },
   {
     "id": 247,
-    "title": "我最喜欢摇滚音乐会。",
-    "english": "My favorite is rock concerts.",
-    "vietnamese": "Tôi thích concert rock nhất."
+    "title": "不太会,我们试试吧。",
+    "english": "Not really, but let's give it a try.",
+    "vietnamese": "Không hẳn, nhưng hãy thử xem sao."
   },
   {
     "id": 248,
-    "title": "你会弹乐器吗?",
-    "english": "Can you play any musical instruments?",
-    "vietnamese": "Bạn có thể chơi nhạc cụ không?"
+    "title": "老师,今天的饺子真好吃。",
+    "english": "Teacher, today's dumplings are delicious.",
+    "vietnamese": "Thưa thầy, bánh bao hôm nay ngon quá."
   },
   {
     "id": 249,
-    "title": "是的,我会弹吉他。",
-    "english": "Yes, I can play guitar.",
-    "vietnamese": "Có, tôi có thể chơi guitar."
+    "title": "是啊,味道挺不错的。",
+    "english": "Yes, they taste really good.",
+    "vietnamese": "Vâng, chúng rất ngon."
   },
   {
     "id": 250,
-    "title": "你学了多久吉他?",
-    "english": "How long have you been studying guitar?",
-    "vietnamese": "Bạn đã học guitar bao lâu?"
+    "title": "老师,中国人都喜欢吃饺子吗?",
+    "english": "Teacher, do all Chinese people like dumplings?",
+    "vietnamese": "Thưa thầy, tất cả người Trung Quốc đều thích bánh bao phải không ạ?"
   },
   {
     "id": 251,
-    "title": "我学了五年。",
-    "english": "I have been studying for five years.",
-    "vietnamese": "Tôi đã học năm năm."
+    "title": "大部分北方人都喜欢吃饺子。",
+    "english": "Most people from the North like dumplings.",
+    "vietnamese": "Đa số người dân miền Bắc thích bánh bao."
   },
   {
     "id": 252,
-    "title": "你对体育感兴趣吗?",
-    "english": "Are you interested in sports?",
-    "vietnamese": "Bạn có quan tâm đến thể thao không?"
+    "title": "过生日啦,过节啦,来客人啦,一般都包饺子吃。",
+    "english": "People usually make them for birthdays, holidays, or when guests visit.",
+    "vietnamese": "Mọi người thường làm chúng vào dịp sinh nhật, ngày lễ hoặc khi có khách đến nhà."
   },
   {
     "id": 253,
-    "title": "是的,我很感兴趣。",
-    "english": "Yes, I'm very interested.",
-    "vietnamese": "Có, tôi rất quan tâm."
+    "title": "南方人不吃饺子吗?",
+    "english": "Don't people from the South eat dumplings?",
+    "vietnamese": "Người miền Nam không ăn bánh bao sao?"
   },
   {
     "id": 254,
-    "title": "你参加过运动队吗?",
-    "english": "Have you been on a sports team?",
-    "vietnamese": "Bạn đã từng tham gia đội thể thao không?"
+    "title": "不常吃。",
+    "english": "Not often.",
+    "vietnamese": "Không thường xuyên."
   },
   {
     "id": 255,
-    "title": "是的,我参加过。",
-    "english": "Yes, I have.",
-    "vietnamese": "Có, tôi đã từng."
+    "title": "南方人喜欢吃米饭,不太喜欢吃面食。",
+    "english": "Southerners prefer rice and aren't as fond of wheat-based foods.",
+    "vietnamese": "Người miền Nam thích ăn cơm hơn và không mấy ưa chuộng các món ăn làm từ lúa mì."
   },
   {
     "id": 256,
-    "title": "你参加的是什么运动队?",
-    "english": "What sports team were you on?",
-    "vietnamese": "Bạn tham gia đội thể thao nào?"
+    "title": "是这样啊!",
+    "english": "I see!",
+    "vietnamese": "Tôi hiểu rồi!"
   },
   {
     "id": 257,
-    "title": "我参加的是足球队。",
-    "english": "I was on a soccer team.",
-    "vietnamese": "Tôi tham gia đội bóng đá."
+    "title": "对北方人来说,饺子是很重要的一种食品吧。",
+    "english": "For people from the north, dumplings are a very important food, aren't they?",
+    "vietnamese": "Đối với người dân miền Bắc, bánh bao là một món ăn rất quan trọng, phải không?"
   },
   {
     "id": 258,
-    "title": "你赢过什么奖项吗?",
-    "english": "Have you won any awards?",
-    "vietnamese": "Bạn đã từng thắng giải thưởng không?"
+    "title": "是啊!",
+    "english": "Yes, they are!",
+    "vietnamese": "Đúng vậy!"
   },
   {
     "id": 259,
-    "title": "是的,我赢过一些。",
-    "english": "Yes, I have won some.",
-    "vietnamese": "Có, tôi đã thắng một số."
+    "title": "不过,包饺子比较麻烦,特别是人少的时候。",
+    "english": "But making them is a bit of a hassle, especially when there are only a few people.",
+    "vietnamese": "Nhưng việc làm ra chúng khá rắc rối, đặc biệt là khi chỉ có một vài người."
   },
   {
     "id": 260,
-    "title": "你赢过什么类型的奖?",
-    "english": "What type of awards have you won?",
-    "vietnamese": "Bạn đã thắng những loại giải thưởng nào?"
+    "title": "对,做馅儿就得花很多时间呢。",
+    "english": "Right, preparing the filling takes a lot of time.",
+    "vietnamese": "Đúng vậy, việc chuẩn bị phần nhân tốn rất nhiều thời gian."
   },
   {
     "id": 261,
-    "title": "我赢过体育和学术奖。",
-    "english": "I have won sports and academic awards.",
-    "vietnamese": "Tôi đã thắng giải thưởng thể thao và học tập."
+    "title": "超市不是有速冻饺子吗?",
+    "english": "Don't supermarkets sell frozen dumplings?",
+    "vietnamese": "Siêu thị không bán há cảo đông lạnh sao?"
   },
   {
     "id": 262,
-    "title": "你对科学感兴趣吗?",
-    "english": "Are you interested in science?",
-    "vietnamese": "Bạn có quan tâm đến khoa học không?"
+    "title": "如果想吃的话,就去买一袋。",
+    "english": "If you want some, you can just buy a bag.",
+    "vietnamese": "Nếu bạn muốn, bạn chỉ cần mua một túi."
   },
   {
     "id": 263,
-    "title": "是的,我很感兴趣。",
-    "english": "Yes, I'm very interested.",
-    "vietnamese": "Có, tôi rất quan tâm."
+    "title": "你真会偷懒!",
+    "english": "You really know how to take the easy way out!",
+    "vietnamese": "Bạn đúng là biết cách chọn con đường dễ dàng nhất!"
   },
   {
     "id": 264,
-    "title": "你最感兴趣的科学领域是什么?",
-    "english": "What field of science interests you most?",
-    "vietnamese": "Lĩnh vực khoa học nào khiến bạn quan tâm nhất?"
+    "title": "不过大家一起包饺子,热闹,也挺有意思的。",
+    "english": "Still, making dumplings together is lively and quite fun.",
+    "vietnamese": "Tuy vậy, việc cùng nhau làm bánh bao vẫn rất sôi nổi và thú vị."
   },
   {
     "id": 265,
-    "title": "我最感兴趣的是物理学。",
-    "english": "I'm most interested in physics.",
-    "vietnamese": "Tôi quan tâm nhất đến vật lý."
+    "title": "速冻饺子的味道怎么样?",
+    "english": "How do frozen dumplings taste?",
+    "vietnamese": "Bánh bao đông lạnh có vị như thế nào?"
   },
   {
     "id": 266,
-    "title": "你读过科学书籍吗?",
-    "english": "Have you read science books?",
-    "vietnamese": "Bạn đã từng đọc sách khoa học không?"
+    "title": "好吃吗?",
+    "english": "Are they good?",
+    "vietnamese": "Chúng có tốt không?"
   },
   {
     "id": 267,
-    "title": "是的,我读过。",
-    "english": "Yes, I have.",
-    "vietnamese": "Có, tôi đã từng."
+    "title": "也很好吃。",
+    "english": "They're pretty good, too.",
+    "vietnamese": "Chúng cũng khá ngon đấy."
   },
   {
     "id": 268,
-    "title": "你最喜欢的科学书是什么?",
-    "english": "What is your favorite science book?",
-    "vietnamese": "Cuốn sách khoa học yêu thích của bạn là gì?"
+    "title": "大卫,你来北京多长时间了?",
+    "english": "David, how long have you been in Beijing?",
+    "vietnamese": "David, anh đã ở Bắc Kinh bao lâu rồi?"
   },
   {
     "id": 269,
-    "title": "我最喜欢宇宙简史。",
-    "english": "My favorite is A Brief History of Time.",
-    "vietnamese": "Tôi thích Lịch sử vắn tắt của Thời gian nhất."
+    "title": "差不多半年了。",
+    "english": "Almost six months.",
+    "vietnamese": "Gần sáu tháng."
   },
   {
     "id": 270,
-    "title": "你相信外星生命吗?",
-    "english": "Do you believe in extraterrestrial life?",
-    "vietnamese": "Bạn có tin vào sự sống ngoài trái đất không?"
+    "title": "习惯北京的生活了吧?",
+    "english": "You've gotten used to life in Beijing by now, right?",
+    "vietnamese": "Bạn đã quen với cuộc sống ở Bắc Kinh rồi chứ?"
   },
   {
     "id": 271,
-    "title": "是的,我相信。",
-    "english": "Yes, I do.",
-    "vietnamese": "Có, tôi tin."
+    "title": "刚来的时候不习惯,现在已经习惯了。",
+    "english": "I wasn't used to it at first, but I am now.",
+    "vietnamese": "Lúc đầu tôi chưa quen, nhưng giờ thì đã quen rồi."
   },
   {
     "id": 272,
-    "title": "你对宇宙感兴趣吗?",
-    "english": "Are you interested in the universe?",
-    "vietnamese": "Bạn có quan tâm đến vũ trụ không?"
+    "title": "早上八点上课也习惯了吗?",
+    "english": "Have you gotten used to having class at eight in the morning, too?",
+    "vietnamese": "Bạn cũng đã quen với việc có lớp học lúc tám giờ sáng chưa?"
   },
   {
     "id": 273,
-    "title": "是的,我很感兴趣。",
-    "english": "Yes, I'm very interested.",
-    "vietnamese": "Có, tôi rất quan tâm."
+    "title": "不好意思,这还没习惯。",
+    "english": "To be honest, I haven't quite gotten used to that yet.",
+    "vietnamese": "Thành thật mà nói, tôi vẫn chưa hoàn toàn quen với điều đó."
   },
   {
     "id": 274,
-    "title": "你看过纪录片吗?",
-    "english": "Have you watched documentaries?",
-    "vietnamese": "Bạn đã từng xem phim tài liệu không?"
+    "title": "在美国,我一般早上八点才起床。",
+    "english": "Back in the States, I usually didn't even get up until eight.",
+    "vietnamese": "Ở Mỹ, tôi thường thậm chí còn chưa dậy cho đến tám giờ tối."
   },
   {
     "id": 275,
-    "title": "是的,我看过。",
-    "english": "Yes, I have.",
-    "vietnamese": "Có, tôi đã từng."
+    "title": "是吗?现在晚上几点睡觉?",
+    "english": "Really? What time do you go to bed these days?",
+    "vietnamese": "Thật sao? Dạo này bạn đi ngủ lúc mấy giờ?"
   },
   {
     "id": 276,
-    "title": "你最喜欢的纪录片是什么?",
-    "english": "What is your favorite documentary?",
-    "vietnamese": "Phim tài liệu yêu thích của bạn là gì?"
+    "title": "一般十二点睡,有时候夜里两点钟才睡。",
+    "english": "Usually at midnight, though sometimes not until two in the morning.",
+    "vietnamese": "Thường là vào nửa đêm, nhưng đôi khi phải đến hai giờ sáng."
   },
   {
     "id": 277,
-    "title": "我最喜欢大蓝鲸。",
-    "english": "My favorite is The Blue Planet.",
-    "vietnamese": "Tôi thích The Blue Planet nhất."
+    "title": "不过早上八点有课的话就早一点儿睡。",
+    "english": "But if I have an eight o'clock class, I go to bed a bit earlier.",
+    "vietnamese": "Nhưng nếu tôi có tiết học lúc tám giờ, tôi sẽ đi ngủ sớm hơn một chút."
   },
   {
     "id": 278,
-    "title": "你有任何遗憾吗?",
-    "english": "Do you have any regrets?",
-    "vietnamese": "Bạn có hối tiếc gì không?"
+    "title": "早睡早起比较好啊!",
+    "english": "It's better to go to bed early and get up early!",
+    "vietnamese": "Đi ngủ sớm và dậy sớm thì tốt hơn!"
   },
   {
     "id": 279,
-    "title": "有一些,但我从中学到了东西。",
-    "english": "Some, but I learned from them.",
-    "vietnamese": "Có một số, nhưng tôi đã học được từ chúng."
+    "title": "我是学生的时候也喜欢睡懒觉。",
+    "english": "I liked sleeping in when I was a student, too.",
+    "vietnamese": "Hồi còn là sinh viên, tôi cũng thích ngủ nướng."
   },
   {
     "id": 280,
-    "title": "你认为人生最重要的是什么?",
-    "english": "What do you think is the most important in life?",
-    "vietnamese": "Bạn nghĩ điều gì quan trọng nhất trong cuộc sống?"
+    "title": "工作以后这个毛病就改了。",
+    "english": "But I broke that habit after I started working.",
+    "vietnamese": "Nhưng tôi đã bỏ được thói quen đó sau khi bắt đầu đi làm."
   },
   {
     "id": 281,
-    "title": "我认为家庭和朋友最重要。",
-    "english": "I think family and friends are most important.",
-    "vietnamese": "Tôi nghĩ gia đình và bạn bè là quan trọng nhất."
+    "title": "是吗?",
+    "english": "Really?",
+    "vietnamese": "Thật sự?"
   },
   {
     "id": 282,
-    "title": "你对生活满意吗?",
-    "english": "Are you satisfied with life?",
-    "vietnamese": "Bạn có hài lòng với cuộc sống không?"
+    "title": "那时候您多大年纪?",
+    "english": "How old were you then?",
+    "vietnamese": "Khi đó bạn bao nhiêu tuổi?"
   },
   {
     "id": 283,
-    "title": "是的,我很满意。",
-    "english": "Yes, I'm very satisfied.",
-    "vietnamese": "Có, tôi rất hài lòng."
+    "title": "大概二十五岁吧。",
+    "english": "About twenty-five, I suppose.",
+    "vietnamese": "Tôi đoán khoảng hai mươi lăm."
   }
 ]
