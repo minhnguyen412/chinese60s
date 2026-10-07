@@ -261,61 +261,103 @@
         /* Visibility helpers: desktop vs mobile layout */
         .mob-only { display: none; }
 
-        /* Mobile layout */
-        @media (max-width: 1024px) {
-            .container { padding: 0; }
+        /* Mobile compact layout: đặt cuối thẻ <style> */
+@media (max-width: 1024px) {
+    html, body { height: 100%; }
 
-            .header { padding: 10px 15px; margin-bottom: 0; }
+    .container {
+        height: 100vh;
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
 
-            .main-grid {
-                grid-template-columns: 1fr;
-                gap: 0;
-                margin: 0;
-            }
+    .header {
+        padding: 8px 12px;
+        margin: 0;
+    }
+    .header h1 { font-size: 18px; margin-bottom: 0; }
+    .header p { display: none; }
 
-            .video-section {
-                border: none;
-                border-radius: 0;
-                height: auto;
-            }
+    .main-grid {
+        flex: 1;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        gap: 0;
+    }
 
-            .transcript-section {
-                height: 300px;
-                border: none;
-                border-radius: 0;
-            }
+    .video-section {
+        flex-shrink: 0;
+    }
 
-            .mob-only { display: flex; }
-            .desk-only { display: none !important; }
+    .transcript-section {
+        flex: 1;
+        min-height: 0;
+        height: auto;
+    }
 
-            .subtitle-selector {
-                border-radius: 0;
-                border-bottom: 2px solid #e0e0e0;
-                padding: 8px 12px;
-            }
-            .subtitle-selector label { margin-right: 8px; }
-            .player-controls.mob-only {
-                flex-direction: row;
-                padding: 10px 15px;
-                border: none;
-                border-top: 2px solid #e0e0e0;
-                border-radius: 0;
-            }
+    .transcript-area {
+        padding: 8px;
+    }
 
-            .modal-content { max-width: 90%; padding: 16px; max-height: 70vh; }
-        }
+    .sentence {
+        padding: 6px 8px;
+        margin-bottom: 8px;
+    }
 
-        @media (max-width: 600px) {
-            .header h1 { font-size: 22px; }
-            .header p { font-size: 12px; }
-            .main-grid { gap: 0; }
-            .character-detail h2 { font-size: 28px; }
-            button { padding: 7px 10px; font-size: 12px; }
-            .char .char-text { font-size: 16px; }
-            .sentence { padding: 8px; margin-bottom: 12px; }
-            .sentence-translation { font-size: 14px; }
-            .meta-info { font-size: 9px; }
-        }
+    /* Subtitle: một hàng nút nhỏ */
+    .subtitle-selector.mob-only {
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 6px;
+        padding: 6px 8px;
+    }
+    .subtitle-selector.mob-only .label { display: none; }
+    .subtitle-selector.mob-only label {
+        margin: 0;
+        padding: 4px 8px;
+        gap: 4px;
+        font-size: 12px;
+        background: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 14px;
+        white-space: nowrap;
+    }
+    .subtitle-selector.mob-only label:has(input:checked) {
+        background: #faf14d;
+        border-color: #e8d900;
+        font-weight: 600;
+    }
+    .subtitle-selector.mob-only input[type="radio"] {
+        width: 12px;
+        height: 12px;
+    }
+
+    /* Điều khiển: một hàng */
+    .player-controls.mob-only {
+        flex-wrap: nowrap;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 8px;
+        border-top: 2px solid #e0e0e0;
+    }
+    .player-controls.mob-only .button-group {
+        flex-wrap: nowrap;
+        gap: 4px;
+    }
+    .player-controls.mob-only button {
+        padding: 4px 8px;
+        font-size: 14px;
+    }
+    .player-controls.mob-only .time-display {
+        min-width: auto;
+        padding: 4px 8px;
+        font-size: 11px;
+    }
+}
     </style>
 </head>
 <body>
