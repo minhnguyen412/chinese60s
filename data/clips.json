@@ -1,0 +1,40 @@
+{
+  "clips": [
+    {
+      "no": 1,
+      "title": "Boya Lesson 1",
+      "videoUrl": "https://drive.google.com/file/d/1h5weQgxfoHTQbo_gTViU9hKfTyjveNnN/view",
+      "stt": "",
+      "sentences": [
+        {
+          "id": 1,
+          "startTime": 2.25,
+          "endTime": 3.38,
+          "duration": 1.13,
+          "text": "你好!",
+          "english": "Hello!",
+          "vietnamese": "Xin chào!",
+          "characters": [
+            {
+              "chars": "你",
+              "startTime": 2.25,
+              "duration": 0.2,
+              "pinyin": "nǐ"
+            },
+            {
+              "chars": "好",
+              "startTime": 2.45,
+              "duration": 0.36,
+              "pinyin": "hǎo"
+            },
+            {
+              "chars": "!",
+              "startTime": 2.81,
+              "duration": 0.46
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
