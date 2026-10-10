@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>📚 Learn Chinese the Fun Way! 🎬</title>
+    <title>Boya 1 (Part1)</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -130,6 +130,34 @@
             flex-direction: column;
             height: 550px;
         }
+
+        /* Lesson group dropdown bar */
+        .group-toolbar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            background: #f8f8f8;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        .group-label {
+            font-size: 12px;
+            color: #333;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .group-select {
+            flex: 1;
+            min-width: 0;
+            padding: 8px 10px;
+            font-size: 13px;
+            color: #333;
+            background: #ffffff;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .group-select:focus { outline: none; border-color: #faf14d; }
 
         .transcript-area {
             flex: 1;
@@ -261,7 +289,7 @@
         /* Visibility helpers: desktop vs mobile layout */
         .mob-only { display: none; }
 
-        /* Mobile compact layout: đặt cuối thẻ <style> */
+        /* Mobile compact layout: placed at the end of the <style> block */
 @media (max-width: 1024px) {
     html, body { height: 100%; }
 
@@ -308,7 +336,7 @@
         margin-bottom: 8px;
     }
 
-    /* Subtitle: một hàng nút nhỏ */
+    /* Subtitle: single row of small buttons */
     .subtitle-selector.mob-only {
         flex-wrap: nowrap;
         justify-content: center;
@@ -336,7 +364,7 @@
         height: 12px;
     }
 
-    /* Điều khiển: một hàng */
+    /* Controls: single row */
     .player-controls.mob-only {
         flex-wrap: nowrap;
         align-items: center;
@@ -358,53 +386,20 @@
         font-size: 11px;
     }
 }
-
-        .clip-picker {
-            display: flex; align-items: center; justify-content: center; gap: 10px;
-            flex-wrap: wrap; margin: 0 0 18px; padding: 12px 14px;
-            background: #f8f8f8; border: 1px solid #e0e0e0; border-radius: 10px;
-        }
-        .clip-picker label { font-size: 14px; font-weight: 600; }
-        .clip-picker select {
-            max-width: 100%; min-width: 220px; padding: 9px 34px 9px 12px;
-            border: 1px solid #ccc; border-radius: 7px; background: #fff;
-            color: #333; font-size: 14px;
-        }
-        #clipStatus { color: #777; font-size: 12px; }
-        .stt-text { padding: 10px; margin-bottom: 10px; background: #fff;
-            border: 1px solid #e5e5e5; border-radius: 8px; white-space: pre-wrap;
-            font-size: 13px; line-height: 1.5; color: #555; }
-        .stt-label { font-size: 10px; color: #999; text-transform: uppercase;
-            letter-spacing: .5px; margin-bottom: 4px; }
-        @media (max-width: 1024px) {
-            .clip-picker { margin: 0; padding: 7px 10px; border-radius: 0; gap: 7px; }
-            .clip-picker label { font-size: 12px; }
-            .clip-picker select { flex: 1; min-width: 0; padding: 7px 8px; font-size: 13px; }
-            #clipStatus { display: none; }
-        }
-
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🐼 Animated Conversations for Everyday Mandarin 💬🌱</h1>
+            <h1>Boya Textbook 1 (Part1)</h1>
             <p>Learn Basic Chinese Conversations | Animated and Easy!</p>
-        </div>
-
-        <div class="clip-picker">
-            <label for="clipSelect">Choose a clip:</label>
-            <select id="clipSelect" aria-label="Choose a clip">
-                <option value="">Loading clips...</option>
-            </select>
-            <span id="clipStatus" role="status"></span>
         </div>
 
         <div class="main-grid">
             <!-- Video -->
             <div class="video-section">
                 <div class="video-player" id="videoPlayer">
-                    <video id="drive-video" playsinline preload="metadata" style="width:100%;height:100%;display:block;background:#000;"></video>
+                    <div class="loading">📺 Loading YouTube video...</div>
                 </div>
 
                 <!-- Desktop controls -->
@@ -430,6 +425,12 @@
 
             <!-- Transcript -->
             <div class="transcript-section">
+                <!-- Lesson group dropdown (options are built from the GROUPS list in the script) -->
+                <div class="group-toolbar">
+                    <label class="group-label" for="groupSelect">Lesson:</label>
+                    <select id="groupSelect" class="group-select"></select>
+                </div>
+
                 <div class="transcript-area" id="transcriptArea">
                     <div class="loading">⏳ Loading transcript...</div>
                 </div>
@@ -464,12 +465,23 @@
         </div>
     </div>
 
+    <script src="https://www.youtube.com/iframe_api"></script>
     <script>
-        // All clips are managed in one file. Add/edit clips in data/clips.json.
+        const VIDEO_URL = 'https://www.youtube.com/watch?v=yRhp-kQfD5g';
         const DATA_FILES = {
-            clips: 'data/clips.json',
+            transcript: 'data/boya-transcript.json',
+            sentences: 'data/boya-sentences.json',
             images: 'data/imagesData.json'
         };
+
+        // ---------- Lesson groups (edit titles and id ranges here) ----------
+        // "from" and "to" are sentence ids from data/boya-transcript.json.
+        // The group plays from the startTime of "from" to the endTime of "to".
+        const GROUPS = [
+            { title: 'Greetings (ids 1 - 2)', from: 1, to: 2 },
+            // { title: 'Your second group title', from: 3, to: 5 },
+            // { title: 'Your third group title', from: 6, to: 9 },
+        ];
 
         const $ = id => document.getElementById(id);
         const transcriptArea = $('transcriptArea');
@@ -478,14 +490,14 @@
         const st = {
             player: null,
             playerReady: false,
-            clips: [],
-            currentClip: null,
             transcript: null,
-            sentenceMap: new Map(),   // legacy fallback: id -> {english, vietnamese}
+            sentenceMap: new Map(),   // id -> {english, vietnamese}
             imagesMap: new Map(),     // character -> info
             subtitleMode: 'english',
-            sentenceEls: [],          // DOM cache: .sentence elements
-            charEls: [],              // DOM cache: .char elements per sentence
+            groupIndex: -1,           // -1 = all sentences, otherwise index into GROUPS
+            groupRange: null,         // {start, end} in seconds for the selected group
+            sentenceEls: [],          // DOM cache: sentence elements, indexed by sentence index
+            charEls: [],              // DOM cache: char elements per sentence, indexed by sentence index
             activeS: -1,
             activeC: -1,
             timer: null,
@@ -513,20 +525,10 @@
             return ch.chars || ch.char || '';
         }
 
-        function extractDriveFileId(url) {
-            const text = String(url || '').trim();
-            const patterns = [
-                /drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/,
-                /drive\.google\.com\/open\?id=([a-zA-Z0-9_-]+)/,
-                /[?&]id=([a-zA-Z0-9_-]+)/
-            ];
-            for (const pattern of patterns) {
-                const match = text.match(pattern);
-                if (match) return match[1];
-            }
-            // Also accept a raw Google Drive file ID.
-            if (/^[a-zA-Z0-9_-]{10,}$/.test(text)) return text;
-            return '';
+        function extractYoutubeId(url) {
+            const m = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([^&\n?#]+)/)
+                   || url.match(/^([a-zA-Z0-9_-]{11})$/);
+            return m ? m[1] : '';
         }
 
         async function fetchJson(path) {
@@ -535,46 +537,34 @@
             return res.json();
         }
 
-        // ---------- HTML5 video ----------
+        // ---------- Video ----------
 
         function initPlayer() {
-            if (st.player) return st.player;
-            const video = document.createElement('video');
-            video.id = 'drive-video';
-            video.playsInline = true;
-            video.preload = 'metadata';
-            video.controls = false;
-            video.style.width = '100%';
-            video.style.height = '100%';
-            video.style.display = 'block';
-            video.style.background = '#000';
-            videoPlayerEl.replaceChildren(video);
-            st.player = video;
+            if (st.player) return;
+            const id = extractYoutubeId(VIDEO_URL);
+            if (!id || !window.YT || !YT.Player) return;
 
-            video.addEventListener('loadedmetadata', () => {
-                st.playerReady = true;
-                updateTime(video.currentTime || 0);
-                updateHighlight(video.currentTime || 0);
+            videoPlayerEl.innerHTML = '<div id="yt-player"></div>';
+            st.player = new YT.Player('yt-player', {
+                width: '100%',
+                height: '100%',
+                videoId: id,
+                playerVars: { rel: 0 },
+                events: {
+                    onReady: () => { st.playerReady = true; },
+                    onStateChange: onPlayerStateChange
+                }
             });
-            video.addEventListener('play', () => { setPlayIcon(true); startSync(); });
-            video.addEventListener('pause', () => { setPlayIcon(false); stopSync(); tick(); });
-            video.addEventListener('ended', () => { setPlayIcon(false); stopSync(); tick(); });
-            video.addEventListener('timeupdate', tick);
-            video.addEventListener('error', () => {
-                $('clipStatus').textContent = 'Video không tải được. Kiểm tra quyền chia sẻ/link MP4.';
-                st.playerReady = false;
-            });
-            return video;
         }
 
-        function getVideoUrl(url) {
-            const raw = String(url || '').trim();
-            if (!raw) return '';
-            // Google Drive share link -> attempted direct download/stream URL.
-            const id = extractDriveFileId(raw);
-            if (id) return `https://drive.google.com/uc?export=download&id=${encodeURIComponent(id)}`;
-            // Also accept direct MP4 URLs from a host that supports streaming.
-            return raw;
+        // YouTube calls this when its API finishes loading
+        window.onYouTubeIframeAPIReady = initPlayer;
+
+        function onPlayerStateChange(e) {
+            const playing = e.data === YT.PlayerState.PLAYING;
+            setPlayIcon(playing);
+            if (playing) startSync();
+            else stopSync();
         }
 
         function setPlayIcon(playing) {
@@ -595,17 +585,28 @@
         }
 
         function tick() {
-            if (!st.playerReady || !st.player) return;
+            if (!st.playerReady) return;
             try {
-                const t = st.player.currentTime || 0;
+                const t = st.player.getCurrentTime();
+
+                // When a lesson group is selected, stop at its end and jump back to its start
+                if (st.groupRange &&
+                    t >= st.groupRange.end &&
+                    st.player.getPlayerState() === YT.PlayerState.PLAYING) {
+                    st.player.pauseVideo();
+                    st.player.seekTo(st.groupRange.start, true);
+                    updateHighlight(st.groupRange.start);
+                    return;
+                }
+
                 updateHighlight(t);
                 updateTime(t);
-            } catch (e) { /* video not ready */ }
+            } catch (e) { /* player not ready */ }
         }
 
         function currentTimeSafe() {
             try {
-                return st.playerReady && st.player ? (st.player.currentTime || 0) : 0;
+                return st.playerReady ? st.player.getCurrentTime() : 0;
             } catch (e) {
                 return 0;
             }
@@ -614,20 +615,14 @@
         // ---------- Controls ----------
 
         function togglePlay() {
-            if (!st.playerReady || !st.player) return;
-            if (st.player.paused) {
-                st.player.play().catch(() => {
-                    setPlayIcon(false);
-                });
-            } else {
-                st.player.pause();
-            }
+            if (!st.playerReady) return;
+            if (st.player.getPlayerState() === YT.PlayerState.PLAYING) st.player.pauseVideo();
+            else st.player.playVideo();
         }
 
         function stopVideo() {
-            if (!st.player) return;
-            st.player.pause();
-            try { st.player.currentTime = 0; } catch (e) {}
+            if (!st.playerReady) return;
+            st.player.stopVideo();
             stopSync();
             setPlayIcon(false);
             updateHighlight(0);
@@ -635,104 +630,87 @@
         }
 
         function rewindVideo() {
-            if (!st.playerReady || !st.player) return;
-            st.player.currentTime = Math.max(0, st.player.currentTime - 10);
-            updateHighlight(currentTimeSafe());
+            if (!st.playerReady) return;
+            st.player.seekTo(Math.max(0, st.player.getCurrentTime() - 10), true);
+            setTimeout(() => updateHighlight(currentTimeSafe()), 300);
         }
 
         function forwardVideo() {
-            if (!st.playerReady || !st.player) return;
-            const dur = Number.isFinite(st.player.duration) ? st.player.duration : currentTimeSafe() + 10;
-            st.player.currentTime = Math.min(dur, st.player.currentTime + 10);
-            updateHighlight(currentTimeSafe());
+            if (!st.playerReady) return;
+            const dur = st.player.getDuration();
+            st.player.seekTo(Math.min(dur, st.player.getCurrentTime() + 10), true);
+            setTimeout(() => updateHighlight(currentTimeSafe()), 300);
         }
 
         function seekToSentence(index) {
-            if (!st.transcript || !st.playerReady || !st.player) return;
+            if (!st.transcript || !st.playerReady) return;
             const s = st.transcript.sentences[index];
             if (!s) return;
-            st.player.currentTime = s.startTime;
-            st.player.play().catch(() => {});
+            st.player.seekTo(s.startTime, true);
+            st.player.playVideo();
             updateHighlight(s.startTime);
         }
 
-        // ---------- Data loading / clip switching ----------
+        // ---------- Lesson group selection ----------
 
-        async function loadData() {
-            const select = $('clipSelect');
-            try {
-                const data = await fetchJson(DATA_FILES.clips);
-                st.clips = Array.isArray(data) ? data : (data.clips || []);
-                if (!st.clips.length) throw new Error('clips.json không có clips');
-            } catch (err) {
-                select.innerHTML = '<option value="">Không tải được clips.json</option>';
-                transcriptArea.innerHTML = '<div class="loading">Không tải được data/clips.json. Kiểm tra đường dẫn và JSON.</div>';
-                $('clipStatus').textContent = err.message || 'Load error';
+        function populateGroupSelect() {
+            const sel = $('groupSelect');
+            sel.innerHTML =
+                '<option value="-1">All sentences</option>' +
+                GROUPS.map((g, i) => `<option value="${i}">${escapeHtml(g.title)}</option>`).join('');
+            sel.addEventListener('change', e => selectGroup(Number(e.target.value)));
+        }
+
+        function selectGroup(index) {
+            st.groupIndex = index;
+            $('groupSelect').value = String(index);
+
+            const group = GROUPS[index];
+            const sents = st.transcript?.sentences || [];
+            const first = group ? sents.find(s => s.id === group.from) : null;
+            const last = group ? sents.find(s => s.id === group.to) : null;
+
+            // "All sentences" or an invalid group: no range limit
+            if (!first || !last) {
+                st.groupIndex = -1;
+                $('groupSelect').value = '-1';
+                st.groupRange = null;
+                renderTranscript();
                 return;
             }
 
-            try {
-                const imgs = await fetchJson(DATA_FILES.images);
-                if (Array.isArray(imgs)) st.imagesMap = new Map(imgs.map(i => [i.character, i]));
-            } catch (_) { /* character images are optional */ }
+            st.groupRange = { start: first.startTime, end: last.endTime };
+            renderTranscript();
 
-            select.innerHTML = st.clips.map((clip, index) => {
-                const no = clip.no ?? index + 1;
-                const title = clip.title || clip.name || `Clip ${no}`;
-                return `<option value="${escapeHtml(no)}">${escapeHtml(`Clip ${no} — ${title}`)}</option>`;
-            }).join('');
-            select.addEventListener('change', () => {
-                const no = select.value;
-                const clip = st.clips.find((item, index) => String(item.no ?? index + 1) === String(no));
-                if (clip) loadClip(clip);
-            });
-            await loadClip(st.clips[0]);
+            if (st.playerReady) {
+                st.player.seekTo(st.groupRange.start, true);
+                st.player.playVideo();
+            }
         }
 
-        async function loadClip(clip) {
-            if (!clip) return;
-            stopSync();
-            st.currentClip = clip;
-            st.transcript = { sentences: Array.isArray(clip.sentences) ? clip.sentences : [] };
-            // Inline translations in each sentence take priority. Legacy separate
-            // sentence-map files are no longer required.
-            st.sentenceMap = new Map();
-            const video = initPlayer();
-            st.playerReady = false;
-            if (video) {
-                video.pause();
-                video.removeAttribute('src');
-                video.load();
-                const videoUrl = getVideoUrl(clip.videoUrl || clip.video || '');
-                if (videoUrl) {
-                    video.src = videoUrl;
-                    video.load();
-                    $('clipStatus').textContent = '';
-                } else {
-                    $('clipStatus').textContent = 'Clip này chưa có videoUrl.';
-                }
+        // ---------- Data loading ----------
+
+        async function loadData() {
+            try {
+                st.transcript = await fetchJson(DATA_FILES.transcript);
+            } catch (err) {
+                transcriptArea.innerHTML = '<div class="loading">Failed to load transcript</div>';
+                return;
             }
-            document.querySelectorAll('.time-text').forEach(el => { el.textContent = '0:00 / 0:00'; });
-            st.timeText = '';
-            setPlayIcon(false);
-            transcriptArea.scrollTop = 0;
-            const heading = document.querySelector('.header h1');
-            if (heading) heading.textContent = clip.title || clip.name || `Clip ${clip.no ?? ''}`;
+
+            const [sent, imgs] = await Promise.allSettled([
+                fetchJson(DATA_FILES.sentences),
+                fetchJson(DATA_FILES.images)
+            ]);
+
+            if (sent.status === 'fulfilled' && Array.isArray(sent.value)) {
+                st.sentenceMap = new Map(sent.value.map(s => [s.id, s]));
+            }
+            if (imgs.status === 'fulfilled' && Array.isArray(imgs.value)) {
+                st.imagesMap = new Map(imgs.value.map(i => [i.character, i]));
+            }
+
             renderTranscript();
-            const select = $('clipSelect');
-            const index = st.clips.indexOf(clip);
-            select.value = String(clip.no ?? index + 1);
-            if (clip.stt) {
-                // Optional raw STT text appears above the timed sentence list.
-                // It can be a string or an object with text/content.
-                const sttText = typeof clip.stt === 'string' ? clip.stt : (clip.stt.text || clip.stt.content || '');
-                if (sttText) {
-                    const block = document.createElement('div');
-                    block.className = 'stt-text';
-                    block.innerHTML = `<div class="stt-label">STT</div><div>${escapeHtml(sttText)}</div>`;
-                    transcriptArea.prepend(block);
-                }
-            }
         }
 
         // ---------- Rendering ----------
@@ -744,41 +722,50 @@
                 return;
             }
 
+            const group = st.groupIndex >= 0 ? GROUPS[st.groupIndex] : null;
+            const isVisible = s => !group || (s.id >= group.from && s.id <= group.to);
+
             const mode = st.subtitleMode;
             const html = sentences.map((s, idx) => {
-                const tr = st.sentenceMap.get(s.id) || s;
+                if (!isVisible(s)) return '';
+
+                const tr = st.sentenceMap.get(s.id) || {};
                 const lines = [];
-                if (mode === 'vietnamese' && (tr.vietnamese || tr.vi)) lines.push(tr.vietnamese || tr.vi);
-                else if (mode === 'english' && (tr.english || tr.en)) lines.push(tr.english || tr.en);
+                if (mode === 'vietnamese' && tr.vietnamese) lines.push(tr.vietnamese);
+                else if (mode === 'english' && tr.english) lines.push(tr.english);
                 else if (mode === 'both') {
-                    if (tr.vietnamese || tr.vi) lines.push(tr.vietnamese || tr.vi);
-                    if (tr.english || tr.en) lines.push(tr.english || tr.en);
+                    if (tr.vietnamese) lines.push(tr.vietnamese);
+                    if (tr.english) lines.push(tr.english);
                 }
                 const trHtml = lines
                     .map(t => `<div class="sentence-translation">${escapeHtml(t)}</div>`)
                     .join('');
 
-                const chars = Array.isArray(s.characters) ? s.characters : [];
-                const charsHtml = chars.length ? chars.map(ch => {
+                const charsHtml = (s.characters || []).map(ch => {
                     const t = charText(ch);
                     return `<span class="char" data-char="${escapeHtml(t)}">` +
                            `<span class="pinyin">${escapeHtml(ch.pinyin || '')}</span>` +
                            `<span class="char-text">${escapeHtml(t)}</span></span>`;
-                }).join('') : `<span class="char-text" style="padding:8px 2px">${escapeHtml(s.text || '')}</span>`;
+                }).join('');
 
                 return `
                     <div class="sentence" data-index="${idx}">
                         ${trHtml}
                         <div class="character-line">${charsHtml}</div>
-                        <div class="meta-info">${formatTime(s.startTime || 0)} - ${formatTime(s.endTime || 0)} (${Number(s.duration || ((s.endTime || 0) - (s.startTime || 0))).toFixed(1)}s)</div>
+                        <div class="meta-info">${formatTime(s.startTime)} - ${formatTime(s.endTime)} (${Number(s.duration).toFixed(1)}s)</div>
                     </div>`;
             }).join('');
 
             transcriptArea.innerHTML = html;
 
-            // Cache DOM references once, instead of querying on every tick
-            st.sentenceEls = Array.from(transcriptArea.querySelectorAll('.sentence'));
-            st.charEls = st.sentenceEls.map(el => Array.from(el.querySelectorAll('.char')));
+            // Cache DOM references indexed by sentence index (hidden sentences stay empty)
+            st.sentenceEls = [];
+            st.charEls = [];
+            transcriptArea.querySelectorAll('.sentence').forEach(el => {
+                const i = Number(el.dataset.index);
+                st.sentenceEls[i] = el;
+                st.charEls[i] = Array.from(el.querySelectorAll('.char'));
+            });
             st.activeS = -1;
             st.activeC = -1;
 
@@ -804,7 +791,7 @@
         }
 
         function findPosition(t) {
-            const sents = st.transcript?.sentences || [];
+            const sents = st.transcript.sentences;
             for (let i = 0; i < sents.length; i++) {
                 const s = sents[i];
                 if (t >= s.startTime && t <= s.endTime) {
@@ -864,10 +851,7 @@
         function updateTime(t) {
             const sents = st.transcript?.sentences;
             if (!sents || !sents.length) return;
-            const mediaDuration = st.player && Number.isFinite(st.player.duration) ? st.player.duration : NaN;
-            const dur = Number.isFinite(mediaDuration) && mediaDuration > 0
-                ? mediaDuration
-                : sents[sents.length - 1].endTime;
+            const dur = sents[sents.length - 1].endTime;
             const text = `${formatTime(t)} / ${formatTime(dur)}`;
             if (text === st.timeText) return;
             st.timeText = text;
@@ -937,8 +921,12 @@
             if (e.key === 'Escape') closeCharacterModal();
         });
 
-        window.addEventListener('load', initPlayer);
+        window.addEventListener('load', () => {
+            // In case the YouTube API finished before this handler was attached
+            if (window.YT && YT.Player) initPlayer();
+        });
 
+        populateGroupSelect();
         loadData();
     </script>
 </body>
