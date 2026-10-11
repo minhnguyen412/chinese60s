@@ -377,34 +377,78 @@
 
     .section-divider { border: none; border-top: var(--border-thick); margin: 48px 40px 0; max-width: 1160px; }
 
-    /* ── LESSON CARDS (thay video slider) ── */
-    .lesson-section { margin-top: 28px; }
-    .lesson-section + .lesson-section { margin-top: 24px; }
-    .lesson-row-label {
-      display: inline-block;
-      background: var(--sky); border: var(--border); border-radius: 50px;
-      padding: 6px 18px; font-weight: 600; font-size: 0.95rem;
-      box-shadow: var(--shadow-sm); margin-bottom: 14px;
-    }
-    .lesson-cards {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 14px;
-    }
-    .lesson-card {
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 4px; text-align: center; text-decoration: none; color: var(--black);
-      background: var(--white); border: var(--border-thick); border-radius: 18px;
-      padding: 18px 12px; min-height: 130px;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.12s, box-shadow 0.12s;
-    }
-    .lesson-card:hover { transform: translate(-2px,-3px); box-shadow: 6px 6px 0 var(--black); }
-    .lesson-card .lc-emoji { font-size: 2rem; line-height: 1; }
-    .lesson-card .lc-title { font-weight: 700; font-size: 1rem; line-height: 1.3; }
-    .lesson-card .lc-sub   { font-size: 0.8rem; color: #666; }
-    .lesson-card.anchor { background: var(--yellow); }
-    .lesson-card.quiz   { background: var(--sky-pale); }
+    /* ── LESSON SECTIONS ── */
+.lesson-section { margin-top: 28px; }
+.lesson-section + .lesson-section { margin-top: 40px; }
+.lesson-row-label {
+  display: inline-block;
+  background: var(--sky); border: var(--border); border-radius: 50px;
+  padding: 6px 18px; font-weight: 600; font-size: 0.95rem;
+  box-shadow: var(--shadow-sm); margin-bottom: 14px;
+}
+.lesson-cards {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 14px;
+}
+.lesson-card {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 4px; text-align: center; text-decoration: none; color: var(--black);
+  background: var(--white); border: var(--border-thick); border-radius: 18px;
+  padding: 18px 12px; min-height: 130px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+.lesson-card:hover { transform: translate(-2px,-3px); box-shadow: 6px 6px 0 var(--black); }
+.lesson-card .lc-emoji { font-size: 2rem; line-height: 1; }
+.lesson-card .lc-title { font-weight: 700; font-size: 1rem; line-height: 1.3; }
+.lesson-card .lc-sub   { font-size: 0.8rem; color: #666; }
+.lesson-card.quiz { background: var(--sky-pale); }
 
-    #textbook-thumbnails { scroll-margin-top: 90px; }
+#textbook-thumbnails { scroll-margin-top: 90px; }
+
+/* ── VIDEO SLIDER (lesson thumbnails) ── */
+.slider-wrap { position: relative; margin-top: 28px; }
+.video-slider-container {
+  position: relative; width: 100%; overflow: hidden;
+  border: var(--border-thick); border-radius: 20px; box-shadow: var(--shadow-lg);
+}
+.video-slider { display: flex; transition: transform 0.4s cubic-bezier(.4,0,.2,1); }
+.video-item { min-width: 33.33%; padding: 12px; box-sizing: border-box; }
+.lesson-thumb {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 6px; height: 210px; padding: 12px;
+  text-align: center; text-decoration: none; color: var(--black);
+  background: var(--white); border: var(--border); border-radius: 12px;
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+.lesson-thumb:hover { transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--black); }
+.lesson-thumb.anchor { background: var(--yellow); }
+.lesson-thumb .lt-emoji { font-size: 3rem; line-height: 1; }
+.lesson-thumb .lt-title { font-weight: 700; font-size: 1.05rem; line-height: 1.3; }
+.lesson-thumb .lt-sub   { font-size: 0.8rem; color: #666; }
+
+.slider-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: var(--yellow); color: var(--black);
+  border: var(--border-thick); border-radius: 50%;
+  width: 44px; height: 44px; font-size: 16px;
+  cursor: pointer; z-index: 5; box-shadow: var(--shadow-sm);
+  transition: transform 0.12s, box-shadow 0.12s;
+  display: flex; align-items: center; justify-content: center;
+}
+.slider-btn:hover { transform: translateY(-50%) translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+.slider-btn.prev { left: -22px; }
+.slider-btn.next { right: -22px; }
+
+@media (max-width: 768px) {
+  .video-item { min-width: 50%; }
+  .slider-btn.prev { left: -14px; }
+  .slider-btn.next { right: -14px; }
+  .lesson-cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .video-item { min-width: 100%; }
+  .lesson-thumb { height: 180px; }
+}
 
     /* ── AMAZON BOOKS ── */
     .books-block { margin-top: 32px; }
@@ -763,74 +807,58 @@
         <span class="section-sub">Start here if you're new to Mandarin</span>
       </div>
 
-      <!-- Lesson cards: hàng 1 -->
-      <div class="lesson-section">
-        <span class="lesson-row-label">🎬 Bài học · Lessons</span>
-        <div class="lesson-cards">
-          <a class="lesson-card anchor" href="#textbook-thumbnails">
-            <span class="lc-emoji">📘</span>
-            <span class="lc-title">Hanyu Jiaocheng 1+2</span>
-            <span class="lc-sub">Xem danh sách bài ↓</span>
-          </a>
-          <a class="lesson-card" href="boya-1.html">
-            <span class="lc-emoji">📗</span>
-            <span class="lc-title">Boya 1</span>
-            <span class="lc-sub">Lessons</span>
-          </a>
-          <a class="lesson-card" href="msutong-1.html">
-            <span class="lc-emoji">📙</span>
-            <span class="lc-title">Msutong 1</span>
-            <span class="lc-sub">Lessons</span>
-          </a>
-          <a class="lesson-card" href="msutong-2.html">
-            <span class="lc-emoji">📕</span>
-            <span class="lc-title">Msutong 2</span>
-            <span class="lc-sub">Lessons</span>
-          </a>
-          <a class="lesson-card" href="greatwall-1.html">
-            <span class="lc-emoji">🏯</span>
-            <span class="lc-title">Great Wall 1</span>
-            <span class="lc-sub">Lessons</span>
-          </a>
-          <a class="lesson-card" href="greatwall-2.html">
-            <span class="lc-emoji">🧱</span>
-            <span class="lc-title">Great Wall 2</span>
-            <span class="lc-sub">Lessons</span>
-          </a>
-        </div>
+      <!-- Video slider: lesson thumbnails -->
+<div class="slider-wrap">
+  <div class="video-slider-container">
+    <button class="slider-btn prev">&#10094;</button>
+    <div class="video-slider">
+      <div class="video-item">
+        <a class="lesson-thumb anchor" href="#textbook-thumbnails">
+          <span class="lt-emoji">📘</span>
+          <span class="lt-title">Hanyu Jiaocheng 1+2</span>
+          <span class="lt-sub">View lesson list ↓</span>
+        </a>
       </div>
-
-      <!-- Lesson cards: hàng 2 (quiz & speaking) -->
-      <div class="lesson-section">
-        <span class="lesson-row-label">📝 Quiz &amp; Speaking · 句子排序 · 口语</span>
-        <div class="lesson-cards">
-          <a class="lesson-card quiz" href="quiz-boya-1.html">
-            <span class="lc-emoji">🧩</span>
-            <span class="lc-title">Boya 1</span>
-            <span class="lc-sub">Sentence order &amp; speaking</span>
-          </a>
-          <a class="lesson-card quiz" href="quiz-msutong-1.html">
-            <span class="lc-emoji">🧩</span>
-            <span class="lc-title">Msutong 1</span>
-            <span class="lc-sub">Sentence order &amp; speaking</span>
-          </a>
-          <a class="lesson-card quiz" href="quiz-msutong-2.html">
-            <span class="lc-emoji">🧩</span>
-            <span class="lc-title">Msutong 2</span>
-            <span class="lc-sub">Sentence order &amp; speaking</span>
-          </a>
-          <a class="lesson-card quiz" href="quiz-greatwall-1.html">
-            <span class="lc-emoji">🧩</span>
-            <span class="lc-title">Great Wall 1</span>
-            <span class="lc-sub">Sentence order &amp; speaking</span>
-          </a>
-          <a class="lesson-card quiz" href="quiz-greatwall-2.html">
-            <span class="lc-emoji">🧩</span>
-            <span class="lc-title">Great Wall 2</span>
-            <span class="lc-sub">Sentence order &amp; speaking</span>
-          </a>
-        </div>
+      <div class="video-item">
+        <a class="lesson-thumb" href="boya-1.html">
+          <span class="lt-emoji">📗</span>
+          <span class="lt-title">Boya 1</span>
+          <span class="lt-sub">Lessons</span>
+        </a>
       </div>
+      <div class="video-item">
+        <a class="lesson-thumb" href="msutong-1.html">
+          <span class="lt-emoji">📙</span>
+          <span class="lt-title">Msutong 1</span>
+          <span class="lt-sub">Lessons</span>
+        </a>
+      </div>
+      <div class="video-item">
+        <a class="lesson-thumb" href="msutong-2.html">
+          <span class="lt-emoji">📕</span>
+          <span class="lt-title">Msutong 2</span>
+          <span class="lt-sub">Lessons</span>
+        </a>
+      </div>
+      <div class="video-item">
+        <a class="lesson-thumb" href="greatwall-1.html">
+          <span class="lt-emoji">🏯</span>
+          <span class="lt-title">Great Wall 1</span>
+          <span class="lt-sub">Lessons</span>
+        </a>
+      </div>
+      <div class="video-item">
+        <a class="lesson-thumb" href="greatwall-2.html">
+          <span class="lt-emoji">🧱</span>
+          <span class="lt-title">Great Wall 2</span>
+          <span class="lt-sub">Lessons</span>
+        </a>
+      </div>
+    </div>
+    <button class="slider-btn next">&#10095;</button>
+  </div>
+</div>
+      
 
       <!-- Recommended Books -->
       <div class="books-block">
@@ -860,6 +888,37 @@
     </div>
 
     <hr class="section-divider" style="margin-top: 48px;">
+    <!-- Quiz & Speaking -->
+<div class="lesson-section">
+  <span class="lesson-row-label">📝 Quiz &amp; Speaking · Sentence Order · Speaking</span>
+  <div class="lesson-cards">
+    <a class="lesson-card quiz" href="quiz-boya-1.html">
+      <span class="lc-emoji">🧩</span>
+      <span class="lc-title">Boya 1</span>
+      <span class="lc-sub">Sentence order &amp; speaking</span>
+    </a>
+    <a class="lesson-card quiz" href="quiz-msutong-1.html">
+      <span class="lc-emoji">🧩</span>
+      <span class="lc-title">Msutong 1</span>
+      <span class="lc-sub">Sentence order &amp; speaking</span>
+    </a>
+    <a class="lesson-card quiz" href="quiz-msutong-2.html">
+      <span class="lc-emoji">🧩</span>
+      <span class="lc-title">Msutong 2</span>
+      <span class="lc-sub">Sentence order &amp; speaking</span>
+    </a>
+    <a class="lesson-card quiz" href="quiz-greatwall-1.html">
+      <span class="lc-emoji">🧩</span>
+      <span class="lc-title">Great Wall 1</span>
+      <span class="lc-sub">Sentence order &amp; speaking</span>
+    </a>
+    <a class="lesson-card quiz" href="quiz-greatwall-2.html">
+      <span class="lc-emoji">🧩</span>
+      <span class="lc-title">Great Wall 2</span>
+      <span class="lc-sub">Sentence order &amp; speaking</span>
+    </a>
+  </div>
+</div>
 
     <!-- REAL-LIFE CHINESE -->
     <div class="reallife-section">
@@ -1399,6 +1458,35 @@
       }
     });
   </script>
+<!-- Video slider -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const slider  = document.querySelector('.video-slider');
+    const prevBtn = document.querySelector('.slider-btn.prev');
+    const nextBtn = document.querySelector('.slider-btn.next');
+    const items   = document.querySelectorAll('.video-item');
+    let currentIndex = 0;
 
+    function getVisible() {
+      if (window.innerWidth <= 480) return 1;
+      if (window.innerWidth <= 768) return 2;
+      return 3;
+    }
+    function updateSlider() {
+      slider.style.transform = `translateX(${-(currentIndex * (100 / getVisible()))}%)`;
+    }
+    nextBtn.addEventListener('click', () => {
+      const v = getVisible();
+      currentIndex = currentIndex < items.length - v ? currentIndex + 1 : 0;
+      updateSlider();
+    });
+    prevBtn.addEventListener('click', () => {
+      const v = getVisible();
+      currentIndex = currentIndex > 0 ? currentIndex - 1 : items.length - v;
+      updateSlider();
+    });
+    window.addEventListener('resize', updateSlider);
+  });
+</script>
 </body>
 </html>
