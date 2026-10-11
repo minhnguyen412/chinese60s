@@ -257,6 +257,32 @@
       margin-bottom: 7px; display: flex; flex-direction: column; gap: 2px;
     }
     .product-option .upgrade-btn { padding: 8px 12px; font-size: 0.84rem; }
+    /* ── Upgrade modal: 1 cột mobile, 2 cột desktop ── */
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+.products-grid .product-option { margin-bottom: 0; }
+
+.upgrade-key-panel { max-width: 340px; margin: 0 auto; }
+
+@media (min-width: 769px) {
+  #upgrade-modal .modal {
+    width: 640px;
+    padding: 22px 24px 18px;
+  }
+  .products-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 10px;
+  }
+  .products-grid .product-option { margin-bottom: 0; }
+  .products-grid .po-perks { font-size: 0.8rem; }
+  .products-grid .po-name  { font-size: 0.95rem; }
+  .products-grid .po-price { font-size: 1.3rem; }
+  .products-grid .upgrade-btn { font-size: 0.95rem; padding: 10px 14px; }
+}
 
     .upgrade-btn {
       display: inline-flex; align-items: center; gap: 8px; justify-content: center;
@@ -712,7 +738,7 @@
      UPGRADE / PREMIUM PACKS MODAL
   ══════════════════════════════ -->
   <div class="modal-overlay" id="upgrade-modal">
-    <div class="modal" style="width:320px;max-width:92vw;padding:18px 18px 16px;overflow:hidden;">
+    <div class="modal">
       <button class="modal-close" onclick="closeUpgradeModal()" style="top:10px;right:14px;font-size:1.1rem;">✕</button>
       <div class="modal-icon" style="font-size:1.8rem;margin-bottom:3px;">⭐</div>
       <div style="text-align:center;margin-bottom:6px;"><span class="upgrade-badge">✨ Lifetime Access — One-time</span></div>
@@ -726,39 +752,41 @@
       </div>
 
       <!-- PANEL: BUY -->
-      <div class="upgrade-panel active" id="upgrade-panel-buy">
-        <div class="product-option">
-          <div class="po-head">
-            <span class="po-name">HSK 1 + 2 Full Pack</span>
-            <span class="po-price">$9</span>
-          </div>
-          <ul class="po-perks">
-            <li>💬 Dialogue Lessons HSK 1 &amp; 2</li>
-            <li>📖 Grammar · 📚 Vocabulary · 🎙️ Speaking</li>
-            <li>✏️ Writing · 🧠 Interactive Quizzes</li>
-          </ul>
-          <button class="upgrade-btn" onclick="goToGumroad('hsk12')">🛍️ Buy on Gumroad</button>
-        </div>
-
-        <div class="product-option transcript">
-          <div class="po-head">
-            <span class="po-name">HSK 1 + 2 Transcript</span>
-            <span class="po-price">$20</span>
-          </div>
-          <ul class="po-perks">
-            <li>📝 Transcripts: Boya 1, Msutong 1 &amp; 2, Great Wall 1 &amp; 2</li>
-            <li>✅ Quizzes for every lesson</li>
-          </ul>
-          <button class="upgrade-btn" onclick="goToGumroad('transcript')">🛍️ Buy on Gumroad</button>
-        </div>
-
-        <p class="upgrade-email-note" style="font-size:0.62rem;margin-top:3px;">
-          📩 <a href="https://instagram.com/chinese60s" target="_blank">Message us on Instagram (@chinese60s)</a>
-        </p>
+      <!-- PANEL: BUY -->
+<div class="upgrade-panel active" id="upgrade-panel-buy">
+  <div class="products-grid">
+    <div class="product-option">
+      <div class="po-head">
+        <span class="po-name">HSK 1 + 2 Full Pack</span>
+        <span class="po-price">$9</span>
       </div>
+      <ul class="po-perks">
+        <li>💬 Dialogue Lessons HSK 1 &amp; 2</li>
+        <li>📖 Grammar · 📚 Vocabulary · 🎙️ Speaking</li>
+        <li>✏️ Writing · 🧠 Interactive Quizzes</li>
+      </ul>
+      <button class="upgrade-btn" onclick="goToGumroad('hsk12')">🛍️ Buy on Gumroad</button>
+    </div>
 
+    <div class="product-option transcript">
+      <div class="po-head">
+        <span class="po-name">HSK 1 + 2 Transcript</span>
+        <span class="po-price">$20</span>
+      </div>
+      <ul class="po-perks">
+        <li>📝 Transcripts: Boya 1, Msutong 1 &amp; 2, Great Wall 1 &amp; 2</li>
+        <li>✅ Quizzes for every lesson</li>
+      </ul>
+      <button class="upgrade-btn" onclick="goToGumroad('transcript')">🛍️ Buy on Gumroad</button>
+    </div>
+  </div>
+
+  <p class="upgrade-email-note" style="font-size:0.62rem;margin-top:3px;">
+    📩 <a href="https://instagram.com/chinese60s" target="_blank">Message us on Instagram (@chinese60s)</a>
+  </p>
+</div>
       <!-- PANEL: KEY -->
-      <div class="upgrade-panel" id="upgrade-panel-key">
+      <div class="upgrade-panel upgrade-key-panel" id="upgrade-panel-key">
         <p class="key-label">Product:</p>
         <select class="key-input" id="gumroad-product-select">
           <option value="hsk12">HSK 1 + 2 Full Pack</option>
