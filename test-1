@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chinese 60s — Learn Mandarin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3235921032748480" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --black: #222;
+      --green: #7cb83e;
+      --green-dark: #5a8f27;
+      --green-light: #d8f0a0;
+      --green-pale: #f2fde0;
+      --yellow: #ffd84d;
+      --yellow-dark: #e6c200;
+      --yellow-pale: #fffbe6;
+      --peach: #ffb89a;
+      --peach-pale: #fff3ee;
+      --sky: #72c8f0;
+      --sky-pale: #eaf8ff;
+      --lavender: #c5b0f8;
+      --lavender-pale: #f3f0ff;
+      --pink: #ffadc5;
+      --pink-pale: #fff2f6;
+      --orange: #ff8c42;
+      --orange-pale: #fff0e6;
+      --red-pale: #fff0f0;
+      --white: #fff;
+      --bg: #fffef5;
+      --shadow-sm: 3px 3px 0 var(--black);
+      --shadow-md: 4px 4px 0 var(--black);
+      --shadow-lg: 6px 6px 0 var(--black);
+      --border: 2.5px solid var(--black);
+      --border-thick: 3px solid var(--black);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Fredoka', sans-serif;
+      font-weight: 500;
+      background: var(--bg);
+      color: var(--black);
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: radial-gradient(circle, rgba(0,0,0,0.045) 1px, transparent 1px);
+      background-size: 22px 22px;
+      pointer-events: none; z-index: 0;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--green);
+      border-bottom: var(--border-thick);
+      padding: 0 50px; height: 66px;
+      display: flex; justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 2px 0 var(--black);
+    }
+    header h1 {
+      font-family: 'Fredoka', sans-serif; font-weight: 700;
+      font-size: 1.7rem; color: white;
+      letter-spacing: 0.04em;
+      text-shadow: 2px 2px 0 rgba(0,0,0,0.25);
+    }
+    .homepage-link { text-decoration: none; color: inherit; }
+    .menu-toggle { display: none; font-size: 24px; background: none; border: none; color: white; cursor: pointer; }
+    nav ul { list-style: none; display: flex; gap: 8px; }
+    nav ul li a {
+      text-decoration: none; color: var(--black);
+      font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 1rem;
+      background: var(--white); border: var(--border); border-radius: 50px;
+      padding: 6px 18px; display: inline-block;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    nav ul li a:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+
+    .auth-pill {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--white); border: var(--border); border-radius: 50px;
+      padding: 5px 14px 5px 6px;
+      box-shadow: var(--shadow-sm);
+      cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s;
+      font-weight: 600; font-size: 0.9rem; color: var(--black);
+      text-decoration: none; white-space: nowrap;
+    }
+    .auth-pill:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+    .auth-pill .avatar {
+      width: 28px; height: 28px; border-radius: 50%;
+      border: 2px solid var(--black); object-fit: cover;
+      background: var(--green-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem; font-weight: 700; overflow: hidden;
+      flex-shrink: 0;
+    }
+    .auth-pill .avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+    #sign-in-btn {
+      background: var(--yellow); border: var(--border); border-radius: 50px;
+      padding: 6px 18px; font-weight: 700; font-size: 0.9rem;
+      box-shadow: var(--shadow-sm); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s;
+      display: flex; align-items: center; gap: 6px;
+      font-family: 'Fredoka', sans-serif;
+    }
+    #sign-in-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+
+    .user-menu-wrap { position: relative; }
+    .user-dropdown {
+      display: none;
+      position: absolute; top: calc(100% + 10px); right: 0;
+      background: var(--white); border: var(--border-thick); border-radius: 18px;
+      box-shadow: var(--shadow-lg); padding: 8px;
+      min-width: 180px; z-index: 200;
+    }
+    .user-menu-wrap:hover .user-dropdown,
+    .user-menu-wrap.open .user-dropdown { display: flex; flex-direction: column; gap: 4px; }
+    .user-dropdown a, .user-dropdown button {
+      display: block; width: 100%;
+      padding: 9px 14px; border-radius: 12px;
+      font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 0.92rem;
+      text-decoration: none; color: var(--black); text-align: left;
+      background: none; border: none; cursor: pointer;
+      transition: background 0.1s;
+    }
+    .user-dropdown a:hover, .user-dropdown button:hover { background: var(--yellow-pale); }
+    .user-dropdown .sign-out { color: #c0392b; }
+    .user-dropdown .sep { border: none; border-top: var(--border); margin: 4px 0; }
+
+    @media (max-width: 768px) {
+      header { padding: 0 16px; position: relative; height: auto; min-height: 66px; flex-wrap: wrap; gap: 8px; padding: 8px 16px; }
+      .menu-toggle { display: block; }
+      nav {
+        display: none; position: absolute; top: 66px; left: 0; right: 0;
+        background: var(--green); border-bottom: var(--border);
+        padding: 12px 0; flex-direction: column;
+      }
+      nav.show { display: flex; }
+      nav ul { flex-direction: column; align-items: center; gap: 8px; padding: 6px 0; }
+      .user-dropdown { right: auto; left: 0; }
+    }
+
+    /* ══════════════════════════════
+       LOGIN MODAL
+    ══════════════════════════════ */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 500; display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+    .modal {
+      background: var(--white);
+      border: var(--border-thick); border-radius: 24px;
+      box-shadow: var(--shadow-lg);
+      padding: 36px 32px; width: 360px; max-width: 90vw;
+      text-align: center; position: relative;
+    }
+    .modal-close {
+      position: absolute; top: 14px; right: 18px;
+      font-size: 1.5rem; cursor: pointer; color: #aaa; line-height: 1;
+      background: none; border: none; font-family: inherit;
+    }
+    .modal-close:hover { color: var(--black); }
+    .modal .modal-icon { font-size: 3rem; margin-bottom: 10px; }
+    .modal h2 { font-weight: 700; font-size: 1.5rem; margin-bottom: 8px; }
+    .modal p  { font-size: 0.97rem; color: #666; margin-bottom: 24px; line-height: 1.6; }
+
+    .google-btn {
+      display: inline-flex; align-items: center; gap: 10px; justify-content: center;
+      width: 100%; padding: 13px 20px;
+      background: var(--white); border: var(--border-thick); border-radius: 50px;
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem;
+      box-shadow: var(--shadow-md); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    .google-btn:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 var(--black); }
+    .google-btn svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+    /* ══════════════════════════════
+       UPGRADE MODAL (PREMIUM)
+    ══════════════════════════════ */
+    #upgrade-modal .modal {
+      width: 340px;
+      max-width: 90vw;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 18px 18px 16px;
+    }
+    #upgrade-modal .modal-close {
+      top: 10px; right: 14px; font-size: 1.2rem;
+    }
+    #upgrade-modal .modal-icon {
+      font-size: 2rem; margin-bottom: 4px;
+    }
+    #upgrade-modal h2 {
+      font-size: 1.25rem; margin-bottom: 3px;
+    }
+    #upgrade-modal > .modal > p {
+      font-size: 0.83rem; margin-bottom: 12px;
+    }
+
+    .upgrade-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--lavender); border: var(--border); border-radius: 50px;
+      padding: 3px 12px; font-size: 0.78rem; font-weight: 700;
+      box-shadow: 2px 2px 0 var(--black); margin-bottom: 8px;
+    }
+
+    /* ── Tabs ── */
+    .upgrade-tabs {
+      display: flex; gap: 6px; margin-bottom: 14px;
+    }
+    .upgrade-tab {
+      flex: 1; padding: 7px 6px; border-radius: 50px;
+      border: 2px solid var(--black); font-size: 0.82rem; font-weight: 700;
+      cursor: pointer; font-family: 'Fredoka', sans-serif;
+      transition: background 0.15s, box-shadow 0.15s;
+      background: var(--yellow-pale); color: #888;
+    }
+    .upgrade-tab.active {
+      background: var(--yellow); color: var(--black);
+      box-shadow: 3px 3px 0 var(--black);
+    }
+
+    .upgrade-panel { display: none; }
+    .upgrade-panel.active { display: block; }
+
+    /* ── Product options ── */
+    .product-option {
+      border: 2px solid var(--black); border-radius: 14px;
+      padding: 9px 11px; margin-bottom: 8px;
+      background: var(--yellow-pale); text-align: left;
+    }
+    .product-option.transcript { background: var(--lavender-pale); }
+    .po-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+    .po-name  { font-weight: 700; font-size: 0.85rem; }
+    .po-price { font-weight: 700; font-size: 1.1rem; }
+    .po-perks {
+      list-style: none; font-size: 0.73rem; font-weight: 600;
+      margin-bottom: 7px; display: flex; flex-direction: column; gap: 2px;
+    }
+    .product-option .upgrade-btn { padding: 8px 12px; font-size: 0.84rem; }
+
+    .upgrade-btn {
+      display: inline-flex; align-items: center; gap: 8px; justify-content: center;
+      width: 100%; padding: 11px 16px;
+      background: var(--green); color: white;
+      border: var(--border-thick); border-radius: 50px;
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 0.95rem;
+      box-shadow: 3px 3px 0 var(--black); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s;
+      text-decoration: none;
+    }
+    .upgrade-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); background: var(--green-dark); }
+    .upgrade-btn:disabled { opacity: 0.5; cursor: default; transform: none; }
+
+    .upgrade-email-note {
+      font-size: 0.65rem; color: #bbb; margin-top: 4px; text-align: center;
+    }
+    .upgrade-email-note a { color: #aaa; }
+
+    /* ── Key panel ── */
+    .key-label { font-size: 0.82rem; font-weight: 600; color: #888; margin-bottom: 6px; text-align: left; }
+    .key-input {
+      width: 100%; padding: 10px 14px;
+      border: 2px solid var(--black); border-radius: 12px;
+      font-family: 'Fredoka', sans-serif; font-size: 0.88rem;
+      background: var(--bg); color: var(--black);
+      margin-bottom: 10px; box-sizing: border-box;
+    }
+    .key-input:focus { outline: none; border-color: var(--green); }
+    .key-unlock-btn {
+      width: 100%; padding: 11px;
+      background: var(--yellow); color: var(--black);
+      border: 2.5px solid var(--black); border-radius: 50px;
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 0.92rem;
+      box-shadow: 3px 3px 0 var(--black); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    .key-unlock-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+    .key-feedback {
+      font-size: 0.82rem; text-align: center; margin-top: 8px;
+      font-weight: 600; min-height: 20px;
+    }
+    .key-feedback.ok  { color: #3a6a00; }
+    .key-feedback.err { color: #c0392b; }
+    .key-note {
+      font-size: 0.75rem; color: #aaa; margin-top: 10px;
+      text-align: center; line-height: 1.5;
+    }
+
+    /* ══════════════════════════════
+       SUCCESS TOAST
+    ══════════════════════════════ */
+    #premium-toast {
+      position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(80px);
+      background: var(--green); color: white;
+      border: var(--border-thick); border-radius: 50px;
+      padding: 12px 28px; font-weight: 700; font-size: 1rem;
+      box-shadow: var(--shadow-md); z-index: 999;
+      transition: transform 0.35s cubic-bezier(.4,0,.2,1), opacity 0.35s;
+      opacity: 0; pointer-events: none;
+      display: flex; align-items: center; gap: 8px; white-space: nowrap;
+    }
+    #premium-toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* ── HERO BANNER ── */
+    .hero-banner {
+      background: var(--green-pale);
+      border-bottom: var(--border-thick);
+      display: flex; justify-content: center; align-items: flex-end;
+      position: relative; z-index: 1;
+      overflow: hidden;
+    }
+    .hero-banner .logo {
+      width: 100%; height: auto; max-height: 320px; object-fit: contain; display: block;
+    }
+
+    /* ── TOOL BUTTONS ── */
+    .tools-section {
+      background: var(--white);
+      border-bottom: var(--border-thick);
+      padding: 20px 24px;
+      position: relative; z-index: 1;
+      display: flex; flex-direction: column; gap: 12px; align-items: center;
+    }
+    .button-container {
+      display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+    }
+    .button-container button {
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem;
+      background: var(--yellow); color: var(--black);
+      padding: 10px 24px; border: var(--border-thick); border-radius: 50px;
+      box-shadow: var(--shadow-sm); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    .button-container button:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+
+    @media (max-width: 480px) {
+      .button-container button { font-size: 0.88rem; padding: 8px 16px; }
+    }
+
+    /* ── MAIN CONTENT ── */
+    main { flex: 1; padding: 0 0 80px; position: relative; z-index: 1; }
+    .content-section { padding: 40px 40px 0; max-width: 1240px; margin: 0 auto; }
+
+    .section-header { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 24px; }
+    .section-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--peach); border: var(--border-thick); border-radius: 50px;
+      padding: 10px 24px; font-weight: 700; font-size: 1.1rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .section-badge.teal   { background: #b2f0e8; }
+    .section-badge.orange { background: #ffd6b0; }
+    .section-sub { font-size: 0.95rem; color: #888; font-weight: 500; }
+
+    .section-divider { border: none; border-top: var(--border-thick); margin: 48px 40px 0; max-width: 1160px; }
+
+    /* ── LESSON CARDS (thay video slider) ── */
+    .lesson-section { margin-top: 28px; }
+    .lesson-section + .lesson-section { margin-top: 24px; }
+    .lesson-row-label {
+      display: inline-block;
+      background: var(--sky); border: var(--border); border-radius: 50px;
+      padding: 6px 18px; font-weight: 600; font-size: 0.95rem;
+      box-shadow: var(--shadow-sm); margin-bottom: 14px;
+    }
+    .lesson-cards {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 14px;
+    }
+    .lesson-card {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 4px; text-align: center; text-decoration: none; color: var(--black);
+      background: var(--white); border: var(--border-thick); border-radius: 18px;
+      padding: 18px 12px; min-height: 130px;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    .lesson-card:hover { transform: translate(-2px,-3px); box-shadow: 6px 6px 0 var(--black); }
+    .lesson-card .lc-emoji { font-size: 2rem; line-height: 1; }
+    .lesson-card .lc-title { font-weight: 700; font-size: 1rem; line-height: 1.3; }
+    .lesson-card .lc-sub   { font-size: 0.8rem; color: #666; }
+    .lesson-card.anchor { background: var(--yellow); }
+    .lesson-card.quiz   { background: var(--sky-pale); }
+
+    #textbook-thumbnails { scroll-margin-top: 90px; }
+
+    /* ── AMAZON BOOKS ── */
+    .books-block { margin-top: 32px; }
+    .books-label {
+      display: inline-block;
+      background: var(--sky); border: var(--border); border-radius: 50px;
+      padding: 6px 18px; font-weight: 600; font-size: 0.95rem;
+      box-shadow: var(--shadow-sm); margin-bottom: 16px;
+    }
+    .amazon-images { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; }
+    .amazon-images a {
+      border: var(--border); border-radius: 12px; overflow: hidden; display: block;
+      box-shadow: var(--shadow-sm); transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .amazon-images a:hover { transform: translate(-2px,-3px); box-shadow: 5px 5px 0 var(--black); }
+    .amazon-images img { width: 100%; height: auto; display: block; }
+
+    @media (max-width: 768px) { .amazon-images { grid-template-columns: repeat(4, 1fr); } }
+    @media (max-width: 480px) { .amazon-images { grid-template-columns: repeat(3, 1fr); } }
+
+    /* ── TEXTBOOK THUMBNAILS ── */
+    .thumbnails-block { margin-top: 32px; }
+    .thumbnails-header {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px; margin-bottom: 16px;
+    }
+    .thumbnails-label {
+      display: inline-block;
+      background: var(--lavender); border: var(--border); border-radius: 50px;
+      padding: 6px 18px; font-weight: 600; font-size: 0.95rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .thumbnails { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
+
+    .thumbnail {
+      border: var(--border-thick); border-radius: 18px;
+      overflow: hidden; box-shadow: var(--shadow-sm);
+      background: var(--white);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .thumbnail:hover { transform: translate(-2px,-3px); box-shadow: 6px 6px 0 var(--black); }
+    .thumbnail a { text-decoration: none; color: inherit; display: block; }
+    .thumbnail img { width: 100%; height: auto; display: block; }
+    .thumbnail .info { padding: 12px 14px; background: var(--green-pale); border-top: var(--border); }
+    .thumbnail .info h4 { margin-bottom: 4px; font-size: 1rem; font-weight: 700; }
+    .thumbnail .info p { font-size: 0.875rem; color: #666; line-height: 1.5; }
+    .thumb-topic-tag {
+      display: inline-block;
+      background: var(--yellow); border: 1.5px solid var(--black); border-radius: 50px;
+      padding: 2px 12px; font-size: 0.75rem; font-weight: 700;
+      box-shadow: 2px 2px 0 var(--black); margin-bottom: 6px;
+    }
+
+    .thumbnail.locked { cursor: pointer; }
+    .thumbnail.locked:hover { transform: translate(-2px,-3px); box-shadow: 6px 6px 0 var(--black); }
+
+    .thumb-img-wrap { position: relative; overflow: hidden; }
+    .thumb-img-wrap img { width: 100%; height: auto; display: block; }
+
+    .thumb-lock-overlay {
+      position: absolute; inset: 0;
+      background: rgba(30,20,60,0.55);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 8px;
+      backdrop-filter: blur(3px);
+    }
+    .thumb-lock-icon { font-size: 2.2rem; line-height: 1; }
+    .thumb-lock-label {
+      background: var(--lavender); border: 2px solid var(--black); border-radius: 50px;
+      padding: 4px 16px; font-size: 0.8rem; font-weight: 700;
+      box-shadow: 2px 2px 0 var(--black); color: var(--black);
+    }
+    .thumb-premium-tag {
+      display: inline-block;
+      background: var(--lavender); border: 1.5px solid var(--black); border-radius: 50px;
+      padding: 2px 12px; font-size: 0.75rem; font-weight: 700;
+      box-shadow: 2px 2px 0 var(--black); margin-bottom: 6px;
+    }
+
+    /* ══════════════════════════════════════
+       REAL-LIFE CHINESE SECTION
+    ══════════════════════════════════════ */
+    .reallife-section { padding: 40px 40px 0; max-width: 1240px; margin: 0 auto; }
+    .reallife-header {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px; margin-bottom: 28px;
+    }
+    .reallife-header-left { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+
+    .view-all-btn {
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 0.95rem;
+      background: var(--black); color: white;
+      padding: 8px 22px; border: var(--border-thick); border-radius: 50px;
+      box-shadow: var(--shadow-sm); cursor: pointer; text-decoration: none;
+      transition: transform 0.12s, box-shadow 0.12s;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .view-all-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); background: var(--green-dark); }
+
+    .scripts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; }
+
+    .script-card {
+      background: var(--white); border: var(--border-thick); border-radius: 18px;
+      overflow: hidden; box-shadow: var(--shadow-sm);
+      text-decoration: none; color: var(--black);
+      display: flex; flex-direction: column;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .script-card:hover { transform: translate(-2px,-3px); box-shadow: 6px 6px 0 var(--black); }
+    .script-card-thumb {
+      width: 100%; aspect-ratio: 16/9; overflow: hidden;
+      border-bottom: var(--border-thick);
+      display: flex; align-items: center; justify-content: center; position: relative;
+    }
+    .script-card-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+    .script-card:hover .script-card-thumb img { transform: scale(1.05); }
+
+    .script-ph { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
+    .script-ph .ph-emoji { font-size: 2.6rem; }
+    .script-ph .ph-label { font-size: 0.78rem; font-weight: 600; }
+
+    .ph-teal    { background: #d0f5ef; color: #1a6a5c; }
+    .ph-coral   { background: #fde8e0; color: #a03020; }
+    .ph-amber   { background: #fff3cc; color: #7a5500; }
+    .ph-violet  { background: #ede8fd; color: #4a2a9a; }
+    .ph-rose    { background: #fde8f0; color: #9a2050; }
+    .ph-lime    { background: #e8facc; color: #3a6a00; }
+    .ph-sky2    { background: #ddf0fa; color: #1a5a8a; }
+    .ph-peach2  { background: #feecd8; color: #8a3a00; }
+    .ph-mint    { background: #d8f5e8; color: #1a6a40; }
+    .ph-grape   { background: #e8d8f5; color: #5a1a8a; }
+
+    .play-badge {
+      position: absolute; bottom: 8px; right: 8px;
+      background: rgba(0,0,0,0.7); color: white;
+      border-radius: 50px; padding: 3px 10px;
+      font-size: 0.72rem; font-weight: 700;
+      border: 1.5px solid rgba(255,255,255,0.25);
+      backdrop-filter: blur(4px);
+    }
+
+    .script-card-body { padding: 12px 14px 16px; display: flex; flex-direction: column; flex: 1; }
+    .script-tag {
+      display: inline-flex; align-items: center; gap: 4px;
+      background: #ffd6b0; border: 1.5px solid var(--black); border-radius: 50px;
+      padding: 3px 12px; font-size: 0.75rem; font-weight: 700;
+      box-shadow: 2px 2px 0 var(--black);
+      align-self: flex-start; margin-bottom: 8px;
+    }
+    .script-card-body h4 { font-weight: 700; font-size: 0.97rem; line-height: 1.4; flex: 1; }
+    .script-card-num { font-size: 0.78rem; color: #bbb; font-weight: 600; margin-top: 8px; }
+
+    .scripts-load-row { display: flex; justify-content: center; margin-top: 28px; }
+    .load-more-btn {
+      font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 1rem;
+      background: var(--yellow); color: var(--black);
+      padding: 10px 32px; border: var(--border-thick); border-radius: 50px;
+      box-shadow: var(--shadow-sm); cursor: pointer;
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    .load-more-btn:hover { transform: translate(-2px,-2px); box-shadow: 5px 5px 0 var(--black); }
+    .load-more-btn:disabled { opacity: 0.4; cursor: default; transform: none; }
+
+    .new-words {
+      position: fixed; top: 50%; right: 0;
+      transform: translateY(-50%);
+      background: var(--yellow); border: var(--border-thick);
+      border-radius: 20px 0 0 20px; padding: 14px 10px;
+      box-shadow: var(--shadow-md); font-weight: 700; font-size: 0.95rem; z-index: 50;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      letter-spacing: 0.05em;
+    }
+    .new-words a { text-decoration: none; color: var(--black); }
+    .new-words a:hover { color: var(--green-dark); }
+
+    footer {
+      background: #222; color: rgba(255,255,255,0.65);
+      padding: 28px 50px; text-align: center; position: relative; z-index: 1;
+    }
+    footer .brand { font-weight: 700; color: var(--green-light); font-size: 1.3rem; margin-bottom: 6px; }
+    footer p { font-size: 0.95rem; font-weight: 500; margin-bottom: 3px; }
+    .social-icons { margin-top: 14px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .social-icons a {
+      text-decoration: none; color: var(--black);
+      font-weight: 600; font-size: 0.9rem;
+      background: var(--green-light); border: var(--border); border-radius: 50px;
+      padding: 5px 16px; box-shadow: var(--shadow-sm); transition: transform 0.12s;
+    }
+    .social-icons a:hover { transform: translate(-1px,-2px); }
+
+    @media (max-width: 768px) {
+      .content-section, .reallife-section { padding-left: 20px; padding-right: 20px; }
+      .section-divider { margin-left: 20px; margin-right: 20px; }
+      footer { padding: 28px 20px; }
+      .new-words { right: 10px; padding: 8px; font-size: 0.85rem; }
+      .scripts-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+    }
+    @media (max-width: 480px) {
+      .scripts-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    }
+    @media (max-width: 768px) {
+      .lesson-cards { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1><a href="index.html" class="homepage-link">CHINESE 60s</a></h1>
+    <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+    <nav>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="shop.html" target="_blank">Shop</a></li>
+        <li id="auth-nav-item">
+          <button id="sign-in-btn" onclick="openLoginModal()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" fill="#333"/></svg>
+            Sign In
+          </button>
+          <div class="user-menu-wrap" id="user-menu-wrap" style="display:none;">
+            <div class="auth-pill" id="user-pill" onclick="toggleUserMenu()">
+              <div class="avatar" id="nav-avatar">👤</div>
+              <span id="nav-username">User</span>
+            </div>
+            <div class="user-dropdown" id="user-dropdown">
+              <a href="profile.html">👤 My Profile</a>
+              <hr class="sep">
+              <button class="sign-out" onclick="signOut()">🚪 Sign Out</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- LOGIN MODAL -->
+  <div class="modal-overlay" id="login-modal">
+    <div class="modal">
+      <button class="modal-close" onclick="closeLoginModal()">✕</button>
+      <div class="modal-icon">🔐</div>
+      <h2>Sign in to continue</h2>
+      <p>Sign in with your Google account to access the practice quiz and track your progress.</p>
+      <button class="google-btn" id="google-signin-btn" onclick="doGoogleSignIn()">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84z" fill="#EA4335"/>
+        </svg>
+        <span id="signin-btn-text">Continue with Google</span>
+      </button>
+      <div class="modal-error" id="modal-error" style="display:none;color:#c0392b;font-size:0.9rem;margin-top:12px;"></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════
+     UPGRADE / PREMIUM PACKS MODAL
+  ══════════════════════════════ -->
+  <div class="modal-overlay" id="upgrade-modal">
+    <div class="modal" style="width:320px;max-width:92vw;padding:18px 18px 16px;overflow:hidden;">
+      <button class="modal-close" onclick="closeUpgradeModal()" style="top:10px;right:14px;font-size:1.1rem;">✕</button>
+      <div class="modal-icon" style="font-size:1.8rem;margin-bottom:3px;">⭐</div>
+      <div style="text-align:center;margin-bottom:6px;"><span class="upgrade-badge">✨ Lifetime Access — One-time</span></div>
+      <h2 style="font-size:1.15rem;margin-bottom:2px;text-align:center;">Premium Packs</h2>
+      <p style="font-size:0.78rem;color:#777;text-align:center;margin-bottom:10px;line-height:1.4;">Pay once. Yours forever.<br>No subscription, no renewals.</p>
+
+      <!-- TABS -->
+      <div class="upgrade-tabs" style="gap:5px;margin-bottom:11px;">
+        <button class="upgrade-tab active" id="tab-buy-btn" onclick="switchUpgradeTab('buy')" style="font-size:0.78rem;padding:6px 4px;">☕ Buy Access</button>
+        <button class="upgrade-tab" id="tab-key-btn" onclick="switchUpgradeTab('key')" style="font-size:0.78rem;padding:6px 4px;">🔑 I have a key</button>
+      </div>
+
+      <!-- PANEL: BUY -->
+      <div class="upgrade-panel active" id="upgrade-panel-buy">
+        <div class="product-option">
+          <div class="po-head">
+            <span class="po-name">HSK 1 + 2 Full Pack</span>
+            <span class="po-price">$9</span>
+          </div>
+          <ul class="po-perks">
+            <li>💬 Dialogue Lessons HSK 1 &amp; 2</li>
+            <li>📖 Grammar · 📚 Vocabulary · 🎙️ Speaking</li>
+            <li>✏️ Writing · 🧠 Interactive Quizzes</li>
+          </ul>
+          <button class="upgrade-btn" onclick="goToGumroad('hsk12')">🛍️ Buy on Gumroad</button>
+        </div>
+
+        <div class="product-option transcript">
+          <div class="po-head">
+            <span class="po-name">HSK 1 + 2 Transcript</span>
+            <span class="po-price">$20</span>
+          </div>
+          <ul class="po-perks">
+            <li>📝 Transcripts: Boya 1, Msutong 1 &amp; 2, Great Wall 1 &amp; 2</li>
+            <li>✅ Quizzes for every lesson</li>
+          </ul>
+          <button class="upgrade-btn" onclick="goToGumroad('transcript')">🛍️ Buy on Gumroad</button>
+        </div>
+
+        <p class="upgrade-email-note" style="font-size:0.62rem;margin-top:3px;">
+          📩 <a href="https://instagram.com/chinese60s" target="_blank">Message us on Instagram (@chinese60s)</a>
+        </p>
+      </div>
+
+      <!-- PANEL: KEY -->
+      <div class="upgrade-panel" id="upgrade-panel-key">
+        <p class="key-label">Product:</p>
+        <select class="key-input" id="gumroad-product-select">
+          <option value="hsk12">HSK 1 + 2 Full Pack</option>
+          <option value="transcript">HSK 1 + 2 Transcript</option>
+        </select>
+        <p class="key-label">Paste your Gumroad license key:</p>
+        <input class="key-input" id="gumroad-key-input" type="text"
+          placeholder="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX">
+        <button class="key-unlock-btn" onclick="redeemGumroadKey()">🔓 Unlock Now</button>
+        <div class="key-feedback" id="key-feedback"></div>
+        <p class="key-note">
+          After purchase on Gumroad, you'll receive a license key via email.<br>
+          Paste it here to unlock your account instantly.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PREMIUM SUCCESS TOAST -->
+  <div id="premium-toast">🎉 Welcome to Premium! Enjoy all lessons.</div>
+
+  <!-- Hero Banner -->
+  <div class="hero-banner">
+    <img src="assets/banner-home.png" alt="Chinese 60s" class="logo">
+  </div>
+
+  <!-- Tool Buttons -->
+  <div class="tools-section">
+    <div class="button-container">
+      <button onclick="location.href='pronunciation.html'">🔊 Pronunciation</button>
+      <button onclick="location.href='word-canvas.html'">📚 New Words</button>
+      <button onclick="location.href='write.html'">✏️ Learn to Write</button>
+    </div>
+    <div class="button-container">
+      <button onclick="location.href='grammar.html'">📖 Grammar</button>
+      <button onclick="location.href='collocations.html'">🔗 Collocations</button>
+      <button onclick="location.href='speaking-practice.html'">🗣️ Speaking</button>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <div class="content-section">
+      <div class="section-header">
+        <span class="section-badge">🎓 初级 · BEGINNER · HSK 1–2</span>
+        <span class="section-sub">Start here if you're new to Mandarin</span>
+      </div>
+
+      <!-- Lesson cards: hàng 1 -->
+      <div class="lesson-section">
+        <span class="lesson-row-label">🎬 Bài học · Lessons</span>
+        <div class="lesson-cards">
+          <a class="lesson-card anchor" href="#textbook-thumbnails">
+            <span class="lc-emoji">📘</span>
+            <span class="lc-title">Hanyu Jiaocheng 1+2</span>
+            <span class="lc-sub">Xem danh sách bài ↓</span>
+          </a>
+          <a class="lesson-card" href="boya-1.html">
+            <span class="lc-emoji">📗</span>
+            <span class="lc-title">Boya 1</span>
+            <span class="lc-sub">Lessons</span>
+          </a>
+          <a class="lesson-card" href="msutong-1.html">
+            <span class="lc-emoji">📙</span>
+            <span class="lc-title">Msutong 1</span>
+            <span class="lc-sub">Lessons</span>
+          </a>
+          <a class="lesson-card" href="msutong-2.html">
+            <span class="lc-emoji">📕</span>
+            <span class="lc-title">Msutong 2</span>
+            <span class="lc-sub">Lessons</span>
+          </a>
+          <a class="lesson-card" href="greatwall-1.html">
+            <span class="lc-emoji">🏯</span>
+            <span class="lc-title">Great Wall 1</span>
+            <span class="lc-sub">Lessons</span>
+          </a>
+          <a class="lesson-card" href="greatwall-2.html">
+            <span class="lc-emoji">🧱</span>
+            <span class="lc-title">Great Wall 2</span>
+            <span class="lc-sub">Lessons</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Lesson cards: hàng 2 (quiz & speaking) -->
+      <div class="lesson-section">
+        <span class="lesson-row-label">📝 Quiz &amp; Speaking · 句子排序 · 口语</span>
+        <div class="lesson-cards">
+          <a class="lesson-card quiz" href="quiz-boya-1.html">
+            <span class="lc-emoji">🧩</span>
+            <span class="lc-title">Boya 1</span>
+            <span class="lc-sub">Sentence order &amp; speaking</span>
+          </a>
+          <a class="lesson-card quiz" href="quiz-msutong-1.html">
+            <span class="lc-emoji">🧩</span>
+            <span class="lc-title">Msutong 1</span>
+            <span class="lc-sub">Sentence order &amp; speaking</span>
+          </a>
+          <a class="lesson-card quiz" href="quiz-msutong-2.html">
+            <span class="lc-emoji">🧩</span>
+            <span class="lc-title">Msutong 2</span>
+            <span class="lc-sub">Sentence order &amp; speaking</span>
+          </a>
+          <a class="lesson-card quiz" href="quiz-greatwall-1.html">
+            <span class="lc-emoji">🧩</span>
+            <span class="lc-title">Great Wall 1</span>
+            <span class="lc-sub">Sentence order &amp; speaking</span>
+          </a>
+          <a class="lesson-card quiz" href="quiz-greatwall-2.html">
+            <span class="lc-emoji">🧩</span>
+            <span class="lc-title">Great Wall 2</span>
+            <span class="lc-sub">Sentence order &amp; speaking</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Recommended Books -->
+      <div class="books-block">
+        <span class="books-label">📦 Recommended Textbooks</span>
+        <div class="amazon-images">
+          <a href="https://amzn.to/458N8Q2" target="_blank"><img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1754799160/hyjc-1_waystv.png" alt="Hanyu-Jiaocheng-1A"></a>
+          <a href="https://amzn.to/45aBnZn" target="_blank"><img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1754799156/hyjc-2_tan7ou.png" alt="Hanyu-Jiaocheng-1B"></a>
+          <a href="https://amzn.to/3HnBGXF" target="_blank"><img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1754799159/boyachinese_kfccp5.png" alt="Boya-1"></a>
+          <a href="https://amzn.to/45I9DLQ" target="_blank"><img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1754799156/msutong_vgdjwf.png" alt="Msutong-1"></a>
+          <a href="https://amzn.to/3HnBNm3" target="_blank"><img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1754800464/msutong-2_y51aus.png" alt="Msutong-2"></a>
+          <a href="https://amzn.to/3UlUI3v" target="_blank"><img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1754799158/sutong-3_uhjady.png" alt="Msutong-3"></a>
+          <a href="https://amzn.to/41lxGhh" target="_blank"><img src="https://res.cloudinary.com/dndwvsqib/image/upload/v1754799158/sutong-4_ewgkav.png" alt="Msutong-4"></a>
+        </div>
+      </div>
+
+      <!-- Textbook Thumbnails -->
+      <div class="thumbnails-block" id="textbook-thumbnails">
+        <div class="thumbnails-header">
+          <span class="thumbnails-label">🎬 HANYU JIAOCHENG · 汉语教程</span>
+          <a href="courses.html" class="view-all-btn" id="thumb-view-all" style="display:none">View All Lessons →</a>
+        </div>
+        <div class="thumbnails" id="thumbnails-container"></div>
+        <div class="scripts-load-row">
+          <button class="load-more-btn" id="thumb-load-more-btn" style="display:none">Load More ↓</button>
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider" style="margin-top: 48px;">
+
+    <!-- REAL-LIFE CHINESE -->
+    <div class="reallife-section">
+      <div class="reallife-header">
+        <div class="reallife-header-left">
+          <span class="section-badge orange">🎬 Real-Life Chinese · 真实汉语</span>
+          <span class="section-sub">Authentic Douyin dialogues for everyday situations</span>
+        </div>
+        <a href="blog.html#scripts" class="view-all-btn">View All Scripts →</a>
+      </div>
+      <div class="scripts-grid" id="scripts-grid"></div>
+      <div class="scripts-load-row">
+        <button class="load-more-btn" id="load-more-btn">Load More ↓</button>
+      </div>
+    </div>
+  </main>
+
+  <div class="new-words">
+    <a href="https://buymeacoffee.com/chinese60s" target="_blank">☕ Donate</a>
+  </div>
+
+  <footer>
+    <p class="brand">CHINESE 60s</p>
+    <p>Learn Mandarin through images and videos</p>
+    <div class="social-icons">
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+      <a href="#">TikTok</a>
+      <a href="#">Instagram</a>
+    </div>
+  </footer>
+
+  <!-- ══════════════════════════════════════════════════════════
+       HAMBURGER MENU
+  ══════════════════════════════════════════════════════════ -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const menuToggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('nav');
+      menuToggle.addEventListener('click', function () {
+        nav.classList.toggle('show');
+        menuToggle.innerHTML = nav.classList.contains('show') ? '&#10005;' : '&#9776;';
+      });
+    });
+  </script>
+
+  <!-- ══════════════════════════════════════════════════════════
+       GLOBAL STATE & MODAL HELPERS
+  ══════════════════════════════════════════════════════════ -->
+  <script>
+    window.__currentUser   = null;
+    window.__userIsPremium = false;
+    window.__hasTranscript = false;
+    window.__premiumLoaded = false;
+
+    /* ── Login modal ── */
+    window.openLoginModal = function () {
+      document.getElementById('login-modal').classList.add('open');
+      const err = document.getElementById('modal-error');
+      const txt = document.getElementById('signin-btn-text');
+      if (err) { err.style.display = 'none'; err.textContent = ''; }
+      if (txt) txt.textContent = 'Continue with Google';
+      const btn = document.getElementById('google-signin-btn');
+      if (btn) btn.disabled = false;
+    };
+    window.closeLoginModal = function () {
+      document.getElementById('login-modal').classList.remove('open');
+    };
+
+    /* ── Upgrade modal ── */
+    window.openUpgradeModal = function () {
+      document.getElementById('upgrade-modal').classList.add('open');
+    };
+    window.closeUpgradeModal = function () {
+      document.getElementById('upgrade-modal').classList.remove('open');
+    };
+
+    /* ── Premium toast ── */
+    window.showPremiumToast = function () {
+      const t = document.getElementById('premium-toast');
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 4000);
+    };
+
+    /* ── User dropdown ── */
+    window.toggleUserMenu = function () {
+      document.getElementById('user-menu-wrap').classList.toggle('open');
+    };
+
+    /* Close modals / dropdown on outside click */
+    document.addEventListener('click', function (e) {
+      const loginModal   = document.getElementById('login-modal');
+      const upgradeModal = document.getElementById('upgrade-modal');
+      if (e.target === loginModal)   closeLoginModal();
+      if (e.target === upgradeModal) closeUpgradeModal();
+      const wrap = document.getElementById('user-menu-wrap');
+      if (wrap && !wrap.contains(e.target) && !e.target.closest('#auth-nav-item')) {
+        wrap.classList.remove('open');
+      }
+    });
+
+    window.doGoogleSignIn = function () { openLoginModal(); };
+    window.signOut        = function () {};
+  </script>
+
+  <!-- ══════════════════════════════════════════════════════════
+       UPGRADE MODAL — TAB SWITCHING
+  ══════════════════════════════════════════════════════════ -->
+  <script>
+    window.switchUpgradeTab = function (tab) {
+      const isBuy = tab === 'buy';
+
+      document.getElementById('upgrade-panel-buy').classList.toggle('active', isBuy);
+      document.getElementById('upgrade-panel-key').classList.toggle('active', !isBuy);
+
+      document.getElementById('tab-buy-btn').classList.toggle('active', isBuy);
+      document.getElementById('tab-key-btn').classList.toggle('active', !isBuy);
+
+      if (isBuy) {
+        const fb = document.getElementById('key-feedback');
+        if (fb) { fb.textContent = ''; fb.className = 'key-feedback'; }
+      }
+    };
+  </script>
+
+  <!-- ══════════════════════════════════════════════════════════
+       LESSON TRACKING HELPER
+  ══════════════════════════════════════════════════════════ -->
+  <script>
+    window.trackLesson = async function (item) {
+      if (!window.__currentUser) return;
+      try {
+        const { getFirestore, collection, addDoc, serverTimestamp } =
+          await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
+        const db = getFirestore();
+        await addDoc(collection(db, 'lesson_views'), {
+          uid:       window.__currentUser.uid,
+          postId:    String(item.id || item.htmlLink || ''),
+          postTitle: item.title  || '',
+          postLink:  item.htmlLink || '',
+          timestamp: serverTimestamp()
+        });
+      } catch (e) {
+        console.warn('[tracking] lesson_views write failed:', e);
+      }
+    };
+  </script>
+
+  <!-- ══════════════════════════════════════════════════════════
+       GUMROAD PURCHASE + LICENSE REDEMPTION
+       Việc xác minh key và ghi quyền được thực hiện ở Cloud Function
+       (redeemGumroadLicense), client không ghi isPremium/hasTranscript.
+  ══════════════════════════════════════════════════════════ -->
+  <script>
+    const GUMROAD_PRODUCTS = {
+      hsk12: {
+        name: 'HSK 1 + 2 Full Pack',
+        link: 'https://gumroad.com/l/hsk1_2_pack' // 👈 link thật
+      },
+      transcript: {
+        name: 'HSK 1 + 2 Transcript',
+        link: 'https://gumroad.com/l/hsk12_transcript' // 👈 đổi thành link thật
+      }
+    };
+
+    window.goToGumroad = function (productKey) {
+      if (!window.__currentUser) {
+        window.__afterLoginAction = openUpgradeModal;
+        closeUpgradeModal();
+        openLoginModal();
+        return;
+      }
+      window.open(GUMROAD_PRODUCTS[productKey].link, '_blank');
+    };
+
+    window.redeemGumroadKey = async function () {
+      const key        = document.getElementById('gumroad-key-input').value.trim();
+      const productKey = document.getElementById('gumroad-product-select').value;
+      const fb         = document.getElementById('key-feedback');
+
+      if (!key) {
+        fb.className = 'key-feedback err';
+        fb.textContent = 'Please enter your license key.';
+        return;
+      }
+      if (!window.__currentUser) {
+        window.__afterLoginAction = openUpgradeModal;
+        closeUpgradeModal();
+        openLoginModal();
+        return;
+      }
+
+      fb.className = 'key-feedback';
+      fb.textContent = 'Checking key…';
+
+      try {
+        const { getFunctions, httpsCallable } =
+          await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-functions.js');
+        const redeem = httpsCallable(getFunctions(), 'redeemGumroadLicense');
+        await redeem({ productKey, licenseKey: key });
+
+        await window.refreshPremiumStatus();
+        closeUpgradeModal();
+        showPremiumToast();
+        if (typeof window.rerenderThumbnails === 'function') window.rerenderThumbnails();
+      } catch (e) {
+        fb.className = 'key-feedback err';
+        fb.textContent = e.message || 'Network error. Please try again.';
+      }
+    };
+  </script>
+
+  <!-- ══════════════════════════════════════════════════════════
+       PREMIUM CHECK (Firestore)
+  ══════════════════════════════════════════════════════════ -->
+  <script>
+    window.refreshPremiumStatus = async function () {
+      if (!window.__currentUser) {
+        window.__userIsPremium = false;
+        window.__hasTranscript = false;
+        window.__premiumLoaded = true;
+        return;
+      }
+      try {
+        const { getFirestore, doc, getDoc } =
+          await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
+        const snap = await getDoc(doc(getFirestore(), 'users', window.__currentUser.uid));
+        if (snap.exists()) {
+          const data     = snap.data();
+          const forever  = data.isPremium === true;
+          const hasUntil = data.premiumUntil && data.premiumUntil.toDate() > new Date();
+          window.__userIsPremium = forever || hasUntil;
+          window.__hasTranscript = data.hasTranscript === true;
+        } else {
+          window.__userIsPremium = false;
+          window.__hasTranscript = false;
+        }
+      } catch (e) {
+        console.warn('[premium] Firestore check failed:', e);
+        window.__userIsPremium = false;
+        window.__hasTranscript = false;
+      }
+      window.__premiumLoaded = true;
+    };
+  </script>
+
+  <!-- ══════════════════════════════════════════════════════════
+       TEXTBOOK THUMBNAILS — paywall-aware render
+  ══════════════════════════════════════════════════════════ -->
+  <script>
+    const PER_PAGE_THUMB = 9;
+    let thumbData = [];
+    let thumbPage = 0;
+
+    function renderOneThumb(item) {
+      const isPremiumLocked = item.premium && !window.__userIsPremium;
+
+      const el = document.createElement('div');
+      el.className = 'thumbnail' + (isPremiumLocked ? ' locked' : '');
+
+      if (isPremiumLocked) {
+        el.innerHTML = `
+          <div class="thumb-img-wrap">
+            <img src="${item.thumbnail}" alt="${item.title}" loading="lazy"
+                 style="filter:blur(2px) brightness(0.65)">
+            <div class="thumb-lock-overlay">
+              <span class="thumb-lock-icon">🔒</span>
+              <span class="thumb-lock-label">⭐ Premium</span>
+            </div>
+          </div>
+          <div class="info">
+            ${item.topic ? `<span class="thumb-topic-tag">${item.topic}</span>` : ''}
+            <span class="thumb-premium-tag">⭐ Lifetime</span>
+            <h4>${item.title}</h4>
+            <p>${item.description}</p>
+          </div>`;
+
+        el.addEventListener('click', () => {
+          if (window.__currentUser) {
+            openUpgradeModal();
+          } else {
+            window.__afterLoginAction = openUpgradeModal;
+            openLoginModal();
+          }
+        });
+      } else {
+        el.innerHTML = `
+          <a href="${item.htmlLink}" data-track="lesson">
+            <div class="thumb-img-wrap">
+              <img src="${item.thumbnail}" alt="${item.title}" loading="lazy">
+            </div>
+            <div class="info">
+              ${item.topic   ? `<span class="thumb-topic-tag">${item.topic}</span>` : ''}
+              ${item.premium ? `<span class="thumb-premium-tag">⭐ Unlocked</span>` : ''}
+              <h4>${item.title}</h4>
+              <p>${item.description}</p>
+            </div>
+          </a>`;
+
+        el.querySelector('a').addEventListener('click', () => {
+          window.trackLesson(item);
+        });
+      }
+
+      return el;
+    }
+
+    function renderThumbCards(start, count) {
+      const container = document.getElementById('thumbnails-container');
+      const slice     = thumbData.slice(start, start + count);
+      slice.forEach(item => container.appendChild(renderOneThumb(item)));
+    }
+
+    window.rerenderThumbnails = function () {
+      const container = document.getElementById('thumbnails-container');
+      container.innerHTML = '';
+      thumbPage = 0;
+      loadThumbs();
+    };
+
+    function loadThumbs() {
+      const btn   = document.getElementById('thumb-load-more-btn');
+      const start = thumbPage * PER_PAGE_THUMB;
+      if (start >= thumbData.length) { btn.style.display = 'none'; return; }
+      renderThumbCards(start, PER_PAGE_THUMB);
+      thumbPage++;
+      btn.style.display = thumbPage * PER_PAGE_THUMB >= thumbData.length ? 'none' : 'inline-block';
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      const btn     = document.getElementById('thumb-load-more-btn');
+      const viewAll = document.getElementById('thumb-view-all');
+
+      try {
+        const response = await fetch('data/thumbnail.json');
+        thumbData = await response.json();
+        if (thumbData.length > PER_PAGE_THUMB) {
+          viewAll.style.display = 'inline-flex';
+          btn.style.display     = 'inline-block';
+          btn.addEventListener('click', loadThumbs);
+        }
+        const waitAndRender = () => {
+          if (window.__premiumLoaded || !thumbData.some(t => t.premium)) {
+            loadThumbs();
+          } else {
+            setTimeout(waitAndRender, 60);
+          }
+        };
+        waitAndRender();
+      } catch (error) {
+        console.error('Error loading thumbnails:', error);
+        document.getElementById('thumbnails-container').innerHTML =
+          '<p style="color:#999">Failed to load thumbnails.</p>';
+      }
+    });
+  </script>
+
+  <!-- REAL-LIFE CHINESE Script cards -->
+  <script>
+    const PH_PALETTES = ['ph-teal','ph-coral','ph-amber','ph-violet','ph-rose','ph-lime','ph-sky2','ph-peach2','ph-mint','ph-grape'];
+    const PER_PAGE_SCRIPTS = 8;
+    let SCRIPTS     = [];
+    let scriptsPage = 0;
+    const grid      = document.getElementById('scripts-grid');
+    const loadMoreBtn = document.getElementById('load-more-btn');
+
+    function renderScriptCards(start, count) {
+      const slice = SCRIPTS.slice(start, start + count);
+      slice.forEach((s, i) => {
+        const globalIdx = start + i;
+        const palette   = PH_PALETTES[globalIdx % PH_PALETTES.length];
+        const card      = document.createElement('a');
+        card.className  = 'script-card';
+        card.href       = s.url;
+        card.innerHTML  = `
+          <div class="script-card-thumb">
+            ${s.img
+              ? `<img src="${s.img}" alt="${s.title}">`
+              : `<div class="script-ph ${palette}">
+                   <span class="ph-emoji">${s.emoji}</span>
+                   <span class="ph-label">Douyin · 抖音</span>
+                 </div>`}
+            <span class="play-badge">▶ Script</span>
+          </div>
+          <div class="script-card-body">
+            <span class="script-tag">🎬 Douyin</span>
+            <h4>${s.title}<br><span style="font-weight:500;font-size:0.85em;color:#777">${s.subtitle}</span></h4>
+            <span class="script-card-num">#${s.num}</span>
+          </div>`;
+        card.addEventListener('click', () => {
+          window.trackLesson({ id: 'script-' + s.num, title: s.title, htmlLink: s.url });
+        });
+        grid.appendChild(card);
+      });
+    }
+
+    function loadScripts() {
+      const start = scriptsPage * PER_PAGE_SCRIPTS;
+      if (start >= SCRIPTS.length) { loadMoreBtn.disabled = true; return; }
+      renderScriptCards(start, PER_PAGE_SCRIPTS);
+      scriptsPage++;
+      if (scriptsPage * PER_PAGE_SCRIPTS >= SCRIPTS.length) {
+        loadMoreBtn.disabled    = true;
+        loadMoreBtn.textContent = 'All scripts loaded ✓';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        const res = await fetch('data/scripts.json');
+        SCRIPTS   = await res.json();
+      } catch(e) {
+        console.error('Failed to load scripts.json:', e);
+      }
+      loadScripts();
+      loadMoreBtn.addEventListener('click', loadScripts);
+    });
+  </script>
+
+  <!-- ══════════════════════════════════════════════════════════
+       FIREBASE AUTH + FIRESTORE
+  ══════════════════════════════════════════════════════════ -->
+  <script type="module">
+    import { initializeApp }  from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+    import {
+      getAuth,
+      GoogleAuthProvider,
+      signInWithPopup,
+      signOut as fbSignOut,
+      onAuthStateChanged
+    } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
+
+    const firebaseConfig = {
+      apiKey:            'AIzaSyAm-qQrpXKNdqFLITRAGCug7rkskGzyAkg',
+      authDomain:        'chinese60s.firebaseapp.com',
+      projectId:         'chinese60s',
+      storageBucket:     'chinese60s.firebasestorage.app',
+      messagingSenderId: '835657861121',
+      appId:             '1:835657861121:web:f31727eb7ea3b876a5d800',
+      measurementId:     'G-70NQ4PFTSN'
+    };
+
+    const app      = initializeApp(firebaseConfig);
+    const auth     = getAuth(app);
+    const provider = new GoogleAuthProvider();
+    provider.setCustomParameters({ prompt: 'select_account' });
+
+    function showModalError(msg) {
+      const el = document.getElementById('modal-error');
+      if (!el) return;
+      el.textContent   = msg;
+      el.style.display = 'block';
+      const btn = document.getElementById('google-signin-btn');
+      const txt = document.getElementById('signin-btn-text');
+      if (btn) btn.disabled = false;
+      if (txt) txt.textContent = 'Continue with Google';
+    }
+
+    function setSignInLoading(loading) {
+      const btn = document.getElementById('google-signin-btn');
+      const txt = document.getElementById('signin-btn-text');
+      if (!btn || !txt) return;
+      btn.disabled    = loading;
+      txt.textContent = loading ? 'Opening Google…' : 'Continue with Google';
+    }
+
+    window.doGoogleSignIn = async function () {
+      const errEl = document.getElementById('modal-error');
+      if (errEl) { errEl.style.display = 'none'; errEl.textContent = ''; }
+      setSignInLoading(true);
+      try {
+        await signInWithPopup(auth, provider);
+        closeLoginModal();
+        if (typeof window.__afterLoginAction === 'function') {
+          window.__afterLoginAction();
+          window.__afterLoginAction = null;
+        }
+      } catch (err) {
+        setSignInLoading(false);
+        console.error('Sign-in error:', err.code, err.message);
+        const msgs = {
+          'auth/popup-blocked':           '🚫 Popup was blocked. Please allow popups for this site.',
+          'auth/popup-closed-by-user':    '❌ Sign-in window was closed. Please try again.',
+          'auth/cancelled-popup-request': '❌ Sign-in was cancelled. Please try again.',
+          'auth/network-request-failed':  '🌐 Network error. Check your connection.',
+          'auth/unauthorized-domain':     '⚙️ Domain not authorised. Contact admin.',
+          'auth/user-disabled':           '🚫 This account has been disabled.',
+        };
+        showModalError(msgs[err.code] || `Sign-in failed: ${err.message}`);
+      }
+    };
+
+    window.signOut = async function () {
+      try { await fbSignOut(auth); } catch(e) { console.error(e); }
+    };
+
+    onAuthStateChanged(auth, async function (user) {
+      const signInBtn    = document.getElementById('sign-in-btn');
+      const userMenuWrap = document.getElementById('user-menu-wrap');
+      const navUsername  = document.getElementById('nav-username');
+      const navAvatar    = document.getElementById('nav-avatar');
+
+      if (user) {
+        window.__currentUser = user;
+        const { getFirestore, doc, setDoc, serverTimestamp } =
+          await import('https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js');
+        // Chỉ ghi thông tin hồ sơ, không chạm vào các field quyền (isPremium, hasTranscript...)
+        await setDoc(doc(getFirestore(), 'users', user.uid), {
+          email:       user.email,
+          displayName: user.displayName,
+          photoURL:    user.photoURL,
+          lastLogin:   serverTimestamp(),
+        }, { merge: true });
+
+        if (signInBtn)    signInBtn.style.display    = 'none';
+        if (userMenuWrap) userMenuWrap.style.display = 'block';
+        if (navUsername)  navUsername.textContent    = user.displayName?.split(' ')[0] || 'User';
+        if (navAvatar)    navAvatar.innerHTML        = user.photoURL
+          ? `<img src="${user.photoURL}" alt="avatar" referrerpolicy="no-referrer">`
+          : `<span>${(user.displayName?.[0] || '?').toUpperCase()}</span>`;
+
+        await window.refreshPremiumStatus();
+
+        if (window.__onAuthReadyCbs) {
+          for (const cb of window.__onAuthReadyCbs) await cb();
+          window.__onAuthReadyCbs = [];
+        }
+
+      } else {
+        window.__currentUser   = null;
+        window.__userIsPremium = false;
+        window.__hasTranscript = false;
+        window.__premiumLoaded = true;
+
+        if (signInBtn)    signInBtn.style.display    = 'inline-flex';
+        if (userMenuWrap) userMenuWrap.style.display = 'none';
+      }
+    });
+  </script>
+
+</body>
+</html>
