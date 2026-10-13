@@ -124,12 +124,12 @@
       #customCursor { display: none !important; }
     }
 
+    /* One card = one word. Its characters sit side by side in columns. */
     .hanzi-card {
       position: absolute;
       background-color: white;
       border: 2px solid #007bff;
       border-radius: 8px;
-      padding: 10px;
       z-index: 1000;
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
       user-select: none;
@@ -141,19 +141,48 @@
       z-index: 6000;
     }
 
-    .hanzi-card-header {
+    /* Drag handle at the top of the card */
+    .hanzi-card-bar {
+      height: 22px;
+      background: #e8f1fb;
+      border-bottom: 1px solid #cfe2f7;
+      border-radius: 6px 6px 0 0;
+      cursor: move;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #6b8aa8;
+      letter-spacing: 2px;
+    }
+
+    .hanzi-row {
+      display: flex;
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .hanzi-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hanzi-col-pinyin {
       font-size: 16px;
       font-weight: bold;
       color: #c0392b;
       text-align: center;
       margin-bottom: 5px;
-      cursor: move;
-      padding-right: 18px;
+      min-height: 20px;
     }
 
     .hanzi-target {
-      touch-action: none;   /* let the stroke-practice canvas receive touch/pen input */
+      touch-action: none;
       cursor: crosshair;
+      border: 1px dashed #ddd;
+      border-radius: 4px;
+      background: white;
     }
 
     .hanzi-target svg {
@@ -162,22 +191,23 @@
 
     .hanzi-actions {
       display: flex;
-      gap: 6px;
+      gap: 4px;
       margin-top: 6px;
+      width: 100%;
     }
 
     .hanzi-actions button {
       flex: 1;
-      padding: 5px 6px;
-      font-size: 12px;
+      padding: 4px 4px;
+      font-size: 11px;
     }
 
     .hanzi-card-close {
       position: absolute;
-      top: 5px;
-      right: 5px;
-      width: 20px;
-      height: 20px;
+      top: 1px;
+      right: 4px;
+      width: 18px;
+      height: 18px;
       background-color: #ff4444;
       color: white;
       border: none;
@@ -203,10 +233,10 @@
       <button id="submitText">OK</button>
     </div>
 
-    <!-- Hanzi + Pinyin Input -->
+    <!-- Hanzi + Pinyin Input: all characters go into ONE card, one column per character -->
     <div class="control-group">
-      <input type="text" id="hanziInput" placeholder="Chinese character (e.g., 你好)">
-      <input type="text" id="pinyinInput" placeholder="Pinyin (e.g., nǐ hǎo)" style="display:none; width:150px;">
+      <input type="text" id="hanziInput" placeholder="Chinese (e.g., 你好)">
+      <input type="text" id="pinyinInput" placeholder="Pinyin (e.g., nǐ hǎo)" style="display:none; width:170px;">
       <button id="addHanziBtn">Add Hanzi</button>
     </div>
 
@@ -238,7 +268,7 @@
       <span class="slider-value"><span id="textOpacityValue">20</span>%</span>
     </div>
 
-    <!-- Hanzi Size Control -->
+    <!-- Hanzi Size Control (applies to every column in every card) -->
     <div class="slider-container">
       <label class="slider-label">Hanzi Size:</label>
       <input type="range" id="hanziSizeSlider" min="80" max="200" value="150">
@@ -283,6 +313,10 @@
     const hanziSizeSlider = document.getElementById('hanziSizeSlider');
     const hanziSizeValue = document.getElementById('hanziSizeValue');
 
+    // Stroke colours
+    const FAINT_STROKE = 'rgba(0, 0, 0, 0.4)'; // faint guide character
+    const PRACTICE_RED = '#e53935';             // strokes drawn by the user in practice mode
+
     function setCanvasDimensions() {
       textCanvas.width = textCanvas.clientWidth;
       textCanvas.height = textCanvas.clientHeight;
@@ -305,7 +339,7 @@
     let currentTextSize = 200;
     let currentTextOpacity = 20;
     let text = '';
-    let hanziCards = [];
+    let hanziCards = [];   // each item: { element, columns: [col, ...] }
     let draggedCard = null;
     let dragOffsetX = 0;
     let dragOffsetY = 0;
@@ -318,8 +352,7 @@
 
       let fontSize = currentTextSize;
       ctxText.font = `${fontSize}px Arial`;
-      const opacityValue = currentTextOpacity / 100;
-      ctxText.fillStyle = `rgba(0, 0, 0, ${opacityValue})`;
+      ctxText.fillStyle = `rgba(0, 0, 0, ${currentTextOpacity / 100})`;
       ctxText.textAlign = 'center';
       ctxText.textBaseline = 'middle';
 
@@ -355,9 +388,11 @@
       if (text) renderTextOnCanvas();
     });
 
+    // Resizes every column of every existing card
     hanziSizeSlider.addEventListener('input', (e) => {
       currentHanziSize = parseInt(e.target.value);
       hanziSizeValue.textContent = currentHanziSize;
+      hanziCards.forEach(card => card.columns.forEach(resizeColumn));
     });
 
     // ========================================
@@ -376,8 +411,9 @@
     });
 
     // ========================================
-    // HANZI + PINYIN INPUT FLOW
-    // Pinyin box appears once a character is typed.
+    // HANZI + PINYIN INPUT
+    // Everything typed goes into ONE card. Each character is one column.
+    // Pinyin is split by spaces, one syllable per character (e.g., "nǐ hǎo" for 你好).
     // ========================================
     hanziInput.addEventListener('input', () => {
       pinyinInput.style.display = hanziInput.value.trim() ? 'inline-block' : 'none';
@@ -395,17 +431,17 @@
     });
 
     addHanziBtn.addEventListener('click', () => {
-      const character = hanziInput.value.trim();
-      const pinyin = pinyinInput.value.trim();
-      if (!character) return;
+      const chars = [...hanziInput.value.trim()].filter(c => c.trim());
+      if (!chars.length) return;
 
-      if (!pinyin) {
+      const syllables = pinyinInput.value.trim().split(/\s+/).filter(Boolean);
+      if (!syllables.length) {
         pinyinInput.style.display = 'inline-block';
         pinyinInput.focus();
         return;
       }
 
-      addHanziCard(character, pinyin, 100 + Math.random() * 200, 100 + Math.random() * 200);
+      addHanziCard(chars, syllables, 100 + Math.random() * 150, 100 + Math.random() * 100);
 
       hanziInput.value = '';
       pinyinInput.value = '';
@@ -414,22 +450,52 @@
     });
 
     // ========================================
-    // ADD HANZI CARD
-    // Header shows PINYIN. Faint character is the guide.
-    // Two modes: "Animate" (watch stroke order) and "Practice" (draw strokes with mouse/touch).
+    // COLUMN SIZE / WRITER HELPERS
+    // A column = one character with its pinyin, stroke area and buttons.
     // ========================================
-    function addHanziCard(character, pinyin, x = 100, y = 100) {
-      const size = currentHanziSize;
+    function applyColumnSize(col) {
+      col.target.style.width = (currentHanziSize - 10) + 'px';
+      col.target.style.height = (currentHanziSize - 10) + 'px';
+    }
 
+    // HanziWriter cannot be resized in place, so it is recreated with the current size and colour.
+    function buildWriter(col, strokeColor) {
+      col.target.innerHTML = '';
+      col.writer = HanziWriter.create(col.target, col.character, {
+        width: currentHanziSize - 10,
+        height: currentHanziSize - 10,
+        padding: 5,
+        showOutline: true,
+        showCharacter: true,
+        strokeColor: strokeColor,
+        outlineColor: 'rgba(0, 0, 0, 0.35)',
+        strokeAnimationSpeed: 1,
+        delayBetweenStrokes: 200,
+        onLoadCharDataError: function (reason) {
+          console.error('HanziWriter: failed to load data for "' + col.character + '"', reason);
+          col.pinyinEl.textContent = (col.pinyin || col.character) + ' (lỗi tải nét)';
+          col.pinyinEl.style.color = '#cc0000';
+        },
+      });
+    }
+
+    function resizeColumn(col) {
+      applyColumnSize(col);
+      buildWriter(col, FAINT_STROKE);
+    }
+
+    // ========================================
+    // ADD CARD (one card holding several character columns)
+    // ========================================
+    function addHanziCard(chars, syllables, x = 100, y = 100) {
       const card = document.createElement('div');
       card.className = 'hanzi-card';
       card.style.left = x + 'px';
       card.style.top = y + 'px';
-      card.style.width = (size + 10) + 'px';
 
-      const header = document.createElement('div');
-      header.className = 'hanzi-card-header';
-      header.textContent = pinyin;
+      const bar = document.createElement('div');
+      bar.className = 'hanzi-card-bar';
+      bar.textContent = '⋮⋮ drag ⋮⋮';
 
       const closeBtn = document.createElement('button');
       closeBtn.className = 'hanzi-card-close';
@@ -439,117 +505,121 @@
         removeCard(card);
       };
 
-      // HanziWriter renders SVG, so mount it on a <div>, not a <canvas>.
-      const hanziTarget = document.createElement('div');
-      hanziTarget.className = 'hanzi-target';
-      hanziTarget.style.width = (size - 10) + 'px';
-      hanziTarget.style.height = (size - 10) + 'px';
+      const row = document.createElement('div');
+      row.className = 'hanzi-row';
 
-      const actions = document.createElement('div');
-      actions.className = 'hanzi-actions';
-      actions.innerHTML = `
-        <button class="btn-animate">▶</button>
-        <button class="btn-practice">✍</button>
-      `;
-
-      card.appendChild(header);
+      card.appendChild(bar);
       card.appendChild(closeBtn);
-      card.appendChild(hanziTarget);
-      card.appendChild(actions);
+      card.appendChild(row);
       canvasContainer.appendChild(card);
 
-      const writer = HanziWriter.create(hanziTarget, character, {
-        width: size - 10,
-        height: size - 10,
-        padding: 5,
-        showOutline: true,
-        showCharacter: true,
-        strokeColor: 'rgba(0, 0, 0, 0.4)',
-        outlineColor: 'rgba(0, 0, 0, 0.35)',
-        strokeAnimationSpeed: 1,
-        delayBetweenStrokes: 200,
-        onLoadCharDataError: function (reason) {
-          console.error('HanziWriter: failed to load data for "' + character + '"', reason);
-          header.textContent = pinyin + ' (lỗi tải nét chữ)';
-          header.style.color = '#cc0000';
-        },
+      const cardData = { element: card, columns: [] };
+
+      chars.forEach((ch, i) => {
+        const pinyin = syllables[i] || '';
+
+        const colEl = document.createElement('div');
+        colEl.className = 'hanzi-col';
+
+        const pinyinEl = document.createElement('div');
+        pinyinEl.className = 'hanzi-col-pinyin';
+        pinyinEl.textContent = pinyin || ch;
+
+        const target = document.createElement('div');
+        target.className = 'hanzi-target';
+
+        const actions = document.createElement('div');
+        actions.className = 'hanzi-actions';
+        actions.innerHTML = `
+          <button class="btn-animate">▶</button>
+          <button class="btn-practice">✍</button>
+        `;
+
+        colEl.appendChild(pinyinEl);
+        colEl.appendChild(target);
+        colEl.appendChild(actions);
+        row.appendChild(colEl);
+
+        const col = {
+          character: ch,
+          pinyin: pinyin,
+          pinyinEl: pinyinEl,
+          target: target,
+          writer: null,
+          isAnimating: false
+        };
+        cardData.columns.push(col);
+
+        applyColumnSize(col);
+        buildWriter(col, FAINT_STROKE);
+
+        // ---- Animate stroke order ----
+        actions.querySelector('.btn-animate').addEventListener('click', () => {
+          if (col.isAnimating) return;
+          col.isAnimating = true;
+          buildWriter(col, FAINT_STROKE);
+          const w = col.writer;
+          w.hideCharacter({ duration: 0 });
+          w.animateCharacter({
+            strokeColor: '#1a1a1a',
+            onComplete: () => {
+              setTimeout(() => {
+                w.hideCharacter({
+                  duration: 300,
+                  onComplete: () => {
+                    w.showCharacter({ duration: 0 });
+                    col.isAnimating = false;
+                  }
+                });
+              }, 600);
+            }
+          });
+        });
+
+        // ---- Practice: user draws strokes; they appear in red ----
+        actions.querySelector('.btn-practice').addEventListener('click', () => {
+          buildWriter(col, PRACTICE_RED);
+          col.writer.quiz({
+            showHintAfterMisses: 3,
+            leniency: 1,
+            onMistake: () => {
+              pinyinEl.style.color = '#cc0000';
+            },
+            onCorrectStroke: () => {
+              pinyinEl.style.color = '#c0392b';
+            },
+            onComplete: () => {
+              pinyinEl.textContent = (pinyin || ch) + ' ✅';
+              pinyinEl.style.color = '#2e7d32';
+              setTimeout(() => {
+                pinyinEl.textContent = pinyin || ch;
+                pinyinEl.style.color = '#c0392b';
+              }, 2000);
+            }
+          });
+        });
       });
 
-      const cardData = {
-        element: card,
-        writer: writer,
-        character: character,
-        pinyin: pinyin,
-        isDragging: false
-      };
       hanziCards.push(cardData);
-
-      // ---- Animate stroke order ----
-      let isAnimating = false;
-      actions.querySelector('.btn-animate').addEventListener('click', () => {
-        if (isAnimating) return;
-        isAnimating = true;
-        writer.cancelQuiz();
-        writer.hideCharacter({ duration: 0 });
-        writer.animateCharacter({
-          strokeColor: '#1a1a1a',
-          onComplete: () => {
-            setTimeout(() => {
-              writer.hideCharacter({
-                duration: 300,
-                onComplete: () => {
-                  writer.showCharacter({ duration: 0 });
-                  isAnimating = false;
-                }
-              });
-            }, 600);
-          }
-        });
-      });
-
-      // ---- Practice: user draws strokes on the character with mouse/touch ----
-      actions.querySelector('.btn-practice').addEventListener('click', () => {
-        writer.cancelQuiz();
-        writer.quiz({
-          showHintAfterMisses: 3,      // after 3 wrong tries, show the correct stroke
-          leniency: 1,
-          onMistake: () => {
-            header.style.color = '#cc0000';
-          },
-          onCorrectStroke: () => {
-            header.style.color = '#c0392b';
-          },
-          onComplete: (summary) => {
-            header.textContent = pinyin + ' ✅';
-            header.style.color = '#2e7d32';
-            setTimeout(() => { header.textContent = pinyin; header.style.color = '#c0392b'; }, 2000);
-          }
-        });
-      });
-
-      setupCardDrag(card, header, cardData);
+      setupCardDrag(card, bar, cardData);
     }
 
     // ========================================
-    // DRAG: only from the header, so the practice area stays free for drawing
+    // DRAG: only from the top bar, so the practice areas stay free for drawing
     // ========================================
-    function setupCardDrag(card, header, cardData) {
-      header.addEventListener('mousedown', (e) => {
+    function setupCardDrag(card, bar, cardData) {
+      bar.addEventListener('mousedown', (e) => {
         draggedCard = cardData;
-        cardData.isDragging = true;
         card.classList.add('dragging');
-
         const rect = card.getBoundingClientRect();
         dragOffsetX = e.clientX - rect.left;
         dragOffsetY = e.clientY - rect.top;
         isDrawing = false;
       });
 
-      header.addEventListener('touchstart', (e) => {
+      bar.addEventListener('touchstart', (e) => {
         draggedCard = cardData;
-        cardData.isDragging = true;
         card.classList.add('dragging');
-
         const rect = card.getBoundingClientRect();
         const touch = e.touches[0];
         dragOffsetX = touch.clientX - rect.left;
@@ -599,7 +669,6 @@
     function endDrag() {
       if (draggedCard) {
         draggedCard.element.classList.remove('dragging');
-        draggedCard.isDragging = false;
         draggedCard = null;
       }
       isDrawing = false;
