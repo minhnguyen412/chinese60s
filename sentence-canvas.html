@@ -43,9 +43,7 @@
       transition: all 0.3s;
     }
 
-    button:hover {
-      background-color: #e0e0e0;
-    }
+    button:hover { background-color: #e0e0e0; }
 
     button.active {
       background-color: #4CAF50;
@@ -90,7 +88,7 @@
       height: 70vh;
       border: 2px solid #333;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      background-image: 
+      background-image:
         linear-gradient(0deg, transparent 24%, rgba(200, 200, 200, 0.3) 25%, rgba(200, 200, 200, 0.3) 26%, transparent 27%, transparent 74%, rgba(200, 200, 200, 0.3) 75%, rgba(200, 200, 200, 0.3) 76%, transparent 77%, transparent),
         linear-gradient(90deg, transparent 24%, rgba(200, 200, 200, 0.3) 25%, rgba(200, 200, 200, 0.3) 26%, transparent 27%, transparent 74%, rgba(200, 200, 200, 0.3) 75%, rgba(200, 200, 200, 0.3) 76%, transparent 77%, transparent);
       background-size: 30px 30px;
@@ -108,32 +106,30 @@
       touch-action: none;
       cursor: none;
       background-color: transparent;
-
     }
 
     #customCursor {
-  position: absolute;
-  pointer-events: none;
-  z-index: 5000;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  transform: translate(-50%, -50%);
-}
+      position: absolute;
+      pointer-events: none;
+      z-index: 5000;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      transform: translate(-50%, -50%);
+    }
+
     @media (pointer: coarse) {
-  #customCursor {
-    display: none !important;
-  }
-}
+      #customCursor { display: none !important; }
+    }
+
     .hanzi-card {
       position: absolute;
       background-color: white;
       border: 2px solid #007bff;
       border-radius: 8px;
       padding: 10px;
-      cursor: grab;
       z-index: 1000;
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
       user-select: none;
@@ -141,22 +137,39 @@
     }
 
     .hanzi-card.dragging {
-      cursor: grabbing;
       box-shadow: 0 4px 12px rgba(0,0,0,0.4);
       z-index: 6000;
     }
 
-    .hanzi-card canvas {
-      display: block;
-      cursor: pointer;
-    }
-
     .hanzi-card-header {
-      font-size: 12px;
-      color: #666;
+      font-size: 16px;
+      font-weight: bold;
+      color: #c0392b;
       text-align: center;
       margin-bottom: 5px;
       cursor: move;
+      padding-right: 18px;
+    }
+
+    .hanzi-target {
+      touch-action: none;   /* let the stroke-practice canvas receive touch/pen input */
+      cursor: crosshair;
+    }
+
+    .hanzi-target svg {
+      touch-action: none;
+    }
+
+    .hanzi-actions {
+      display: flex;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .hanzi-actions button {
+      flex: 1;
+      padding: 5px 6px;
+      font-size: 12px;
     }
 
     .hanzi-card-close {
@@ -179,9 +192,7 @@
       z-index: 7000;
     }
 
-    .hanzi-card-close:hover {
-      background-color: #cc0000;
-    }
+    .hanzi-card-close:hover { background-color: #cc0000; }
   </style>
 </head>
 <body>
@@ -192,9 +203,10 @@
       <button id="submitText">OK</button>
     </div>
 
-    <!-- Hanzi Input -->
+    <!-- Hanzi + Pinyin Input -->
     <div class="control-group">
-      <input type="text" id="hanziInput" placeholder="Enter Chinese character (e.g., 你好)">
+      <input type="text" id="hanziInput" placeholder="Chinese character (e.g., 你好)">
+      <input type="text" id="pinyinInput" placeholder="Pinyin (e.g., nǐ hǎo)" style="display:none; width:150px;">
       <button id="addHanziBtn">Add Hanzi</button>
     </div>
 
@@ -252,6 +264,7 @@
     const textInput = document.getElementById('textInput');
     const submitText = document.getElementById('submitText');
     const hanziInput = document.getElementById('hanziInput');
+    const pinyinInput = document.getElementById('pinyinInput');
     const addHanziBtn = document.getElementById('addHanziBtn');
     const drawButton = document.getElementById('drawButton');
     const lineButton = document.getElementById('lineButton');
@@ -259,7 +272,7 @@
     const clearButton = document.getElementById('clearButton');
     const customCursor = document.getElementById('customCursor');
     const canvasContainer = document.getElementById('canvasContainer');
-    
+
     // Sliders
     const lineWidthSlider = document.getElementById('lineWidthSlider');
     const lineWidthValue = document.getElementById('lineWidthValue');
@@ -302,71 +315,53 @@
     // ========================================
     function renderTextOnCanvas() {
       ctxText.clearRect(0, 0, textCanvas.width, textCanvas.height);
-      
-      // Set font
+
       let fontSize = currentTextSize;
       ctxText.font = `${fontSize}px Arial`;
-      // Convert opacity from 0-100 to 0-1
       const opacityValue = currentTextOpacity / 100;
       ctxText.fillStyle = `rgba(0, 0, 0, ${opacityValue})`;
       ctxText.textAlign = 'center';
       ctxText.textBaseline = 'middle';
 
-      // Check if text is too wide, auto shrink font
-      const maxWidth = textCanvas.width * 0.9; // 90% canvas width
+      const maxWidth = textCanvas.width * 0.9;
       let measuredWidth = ctxText.measureText(text).width;
 
-      // If text is too wide, decrease font size
       while (measuredWidth > maxWidth && fontSize > 20) {
         fontSize -= 10;
         ctxText.font = `${fontSize}px Arial`;
         measuredWidth = ctxText.measureText(text).width;
       }
 
-      // Draw text at center
       ctxText.fillText(text, textCanvas.width / 2, textCanvas.height / 2);
     }
 
     // ========================================
-    // LINE WIDTH SLIDER EVENT
+    // SLIDERS
     // ========================================
     lineWidthSlider.addEventListener('input', (e) => {
       currentLineWidth = parseInt(e.target.value);
       lineWidthValue.textContent = currentLineWidth;
     });
 
-    // ========================================
-    // TEXT SIZE SLIDER EVENT
-    // ========================================
     textSizeSlider.addEventListener('input', (e) => {
       currentTextSize = parseInt(e.target.value);
       textSizeValue.textContent = currentTextSize;
-      if (text) {
-        renderTextOnCanvas(); // Update text when size changes
-      }
+      if (text) renderTextOnCanvas();
     });
 
-    // ========================================
-    // TEXT OPACITY SLIDER EVENT
-    // ========================================
     textOpacitySlider.addEventListener('input', (e) => {
       currentTextOpacity = parseInt(e.target.value);
       textOpacityValue.textContent = currentTextOpacity;
-      if (text) {
-        renderTextOnCanvas(); // Update text when opacity changes
-      }
+      if (text) renderTextOnCanvas();
     });
 
-    // ========================================
-    // HANZI SIZE SLIDER EVENT
-    // ========================================
     hanziSizeSlider.addEventListener('input', (e) => {
       currentHanziSize = parseInt(e.target.value);
       hanziSizeValue.textContent = currentHanziSize;
     });
 
     // ========================================
-    // SUBMIT TEXT BUTTON EVENT
+    // SUBMIT TEXT
     // ========================================
     submitText.addEventListener('click', () => {
       const inputText = textInput.value.trim();
@@ -377,25 +372,64 @@
     });
 
     textInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        submitText.click();
-      }
+      if (e.key === 'Enter') submitText.click();
     });
 
     // ========================================
-    // ADD HANZI CARD FUNCTION
+    // HANZI + PINYIN INPUT FLOW
+    // Pinyin box appears once a character is typed.
     // ========================================
-    function addHanziCard(character, x = 100, y = 100) {
+    hanziInput.addEventListener('input', () => {
+      pinyinInput.style.display = hanziInput.value.trim() ? 'inline-block' : 'none';
+    });
+
+    hanziInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        pinyinInput.style.display = 'inline-block';
+        pinyinInput.focus();
+      }
+    });
+
+    pinyinInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') addHanziBtn.click();
+    });
+
+    addHanziBtn.addEventListener('click', () => {
+      const character = hanziInput.value.trim();
+      const pinyin = pinyinInput.value.trim();
+      if (!character) return;
+
+      if (!pinyin) {
+        pinyinInput.style.display = 'inline-block';
+        pinyinInput.focus();
+        return;
+      }
+
+      addHanziCard(character, pinyin, 100 + Math.random() * 200, 100 + Math.random() * 200);
+
+      hanziInput.value = '';
+      pinyinInput.value = '';
+      pinyinInput.style.display = 'none';
+      hanziInput.focus();
+    });
+
+    // ========================================
+    // ADD HANZI CARD
+    // Header shows PINYIN. Faint character is the guide.
+    // Two modes: "Animate" (watch stroke order) and "Practice" (draw strokes with mouse/touch).
+    // ========================================
+    function addHanziCard(character, pinyin, x = 100, y = 100) {
+      const size = currentHanziSize;
+
       const card = document.createElement('div');
       card.className = 'hanzi-card';
       card.style.left = x + 'px';
       card.style.top = y + 'px';
-      card.style.width = currentHanziSize + 'px';
-      card.style.height = currentHanziSize + 'px';
+      card.style.width = (size + 10) + 'px';
 
       const header = document.createElement('div');
       header.className = 'hanzi-card-header';
-      header.textContent = character;
+      header.textContent = pinyin;
 
       const closeBtn = document.createElement('button');
       closeBtn.className = 'hanzi-card-close';
@@ -405,69 +439,61 @@
         removeCard(card);
       };
 
-      // IMPORTANT: HanziWriter renders SVG by default. A <canvas> element
-      // never displays its DOM children (only non-rendered fallback
-      // content), so mounting HanziWriter on a <canvas> silently shows
-      // nothing with no console error. Use a <div> target instead.
+      // HanziWriter renders SVG, so mount it on a <div>, not a <canvas>.
       const hanziTarget = document.createElement('div');
-      hanziTarget.style.width = (currentHanziSize - 10) + 'px';
-      hanziTarget.style.height = (currentHanziSize - 20) + 'px';
-      hanziTarget.style.cursor = 'pointer';
+      hanziTarget.className = 'hanzi-target';
+      hanziTarget.style.width = (size - 10) + 'px';
+      hanziTarget.style.height = (size - 10) + 'px';
+
+      const actions = document.createElement('div');
+      actions.className = 'hanzi-actions';
+      actions.innerHTML = `
+        <button class="btn-animate">▶</button>
+        <button class="btn-practice">✍</button>
+      `;
 
       card.appendChild(header);
       card.appendChild(closeBtn);
       card.appendChild(hanziTarget);
+      card.appendChild(actions);
       canvasContainer.appendChild(card);
 
-      // Create Hanzi Writer
-      // showCharacter: true + a light strokeColor gives a faint character
-      // sitting in the middle of the card at all times ("chữ mờ").
-      // Clicking it then plays the stroke-order animation on top of it.
       const writer = HanziWriter.create(hanziTarget, character, {
-        width: currentHanziSize - 10,
-        height: currentHanziSize - 20,
+        width: size - 10,
+        height: size - 10,
         padding: 5,
         showOutline: true,
         showCharacter: true,
-        strokeColor: 'rgba(0, 0, 0, 0.4)',   // faint character fill
-        outlineColor: 'rgba(0, 0, 0, 0.35)',  // faint outline guide
+        strokeColor: 'rgba(0, 0, 0, 0.4)',
+        outlineColor: 'rgba(0, 0, 0, 0.35)',
         strokeAnimationSpeed: 1,
         delayBetweenStrokes: 200,
         onLoadCharDataError: function (reason) {
-          // This fires when the stroke-data JSON fails to load
-          // (e.g. blocked CORS/tracking prevention on file:// pages,
-          // or no internet connection).
           console.error('HanziWriter: failed to load data for "' + character + '"', reason);
-          header.textContent = character + ' (lỗi tải dữ liệu nét chữ)';
+          header.textContent = pinyin + ' (lỗi tải nét chữ)';
           header.style.color = '#cc0000';
         },
       });
 
-      let isAnimating = false;
-
-      // Store card data
       const cardData = {
         element: card,
         writer: writer,
         character: character,
+        pinyin: pinyin,
         isDragging: false
       };
-
       hanziCards.push(cardData);
 
-      // Click to play the stroke order animation
-      hanziTarget.addEventListener('click', () => {
+      // ---- Animate stroke order ----
+      let isAnimating = false;
+      actions.querySelector('.btn-animate').addEventListener('click', () => {
         if (isAnimating) return;
         isAnimating = true;
-
-        // Hide the faint static character instantly, then animate the
-        // strokes being drawn in the correct order over the outline.
+        writer.cancelQuiz();
         writer.hideCharacter({ duration: 0 });
         writer.animateCharacter({
           strokeColor: '#1a1a1a',
           onComplete: () => {
-            // Briefly show the fully-drawn character in dark ink, then
-            // fade back to the faint version so it can be replayed.
             setTimeout(() => {
               writer.hideCharacter({
                 duration: 300,
@@ -481,32 +507,45 @@
         });
       });
 
-      // Drag functionality
-      setupCardDrag(card, cardData);
+      // ---- Practice: user draws strokes on the character with mouse/touch ----
+      actions.querySelector('.btn-practice').addEventListener('click', () => {
+        writer.cancelQuiz();
+        writer.quiz({
+          showHintAfterMisses: 3,      // after 3 wrong tries, show the correct stroke
+          leniency: 1,
+          onMistake: () => {
+            header.style.color = '#cc0000';
+          },
+          onCorrectStroke: () => {
+            header.style.color = '#c0392b';
+          },
+          onComplete: (summary) => {
+            header.textContent = pinyin + ' ✅';
+            header.style.color = '#2e7d32';
+            setTimeout(() => { header.textContent = pinyin; header.style.color = '#c0392b'; }, 2000);
+          }
+        });
+      });
+
+      setupCardDrag(card, header, cardData);
     }
 
     // ========================================
-    // DRAG FUNCTIONALITY
+    // DRAG: only from the header, so the practice area stays free for drawing
     // ========================================
-    function setupCardDrag(card, cardData) {
-      card.addEventListener('mousedown', (e) => {
-        if (e.target.tagName === 'BUTTON') return;
-        
+    function setupCardDrag(card, header, cardData) {
+      header.addEventListener('mousedown', (e) => {
         draggedCard = cardData;
         cardData.isDragging = true;
         card.classList.add('dragging');
 
         const rect = card.getBoundingClientRect();
-        const containerRect = canvasContainer.getBoundingClientRect();
         dragOffsetX = e.clientX - rect.left;
         dragOffsetY = e.clientY - rect.top;
-
         isDrawing = false;
       });
 
-      card.addEventListener('touchstart', (e) => {
-        if (e.target.tagName === 'BUTTON') return;
-        
+      header.addEventListener('touchstart', (e) => {
         draggedCard = cardData;
         cardData.isDragging = true;
         card.classList.add('dragging');
@@ -515,9 +554,17 @@
         const touch = e.touches[0];
         dragOffsetX = touch.clientX - rect.left;
         dragOffsetY = touch.clientY - rect.top;
-
         isDrawing = false;
-      });
+      }, { passive: true });
+    }
+
+    function clampCard(x, y, el) {
+      const containerRect = canvasContainer.getBoundingClientRect();
+      const w = el.offsetWidth, h = el.offsetHeight;
+      return {
+        x: Math.max(0, Math.min(x, containerRect.width - w)),
+        y: Math.max(0, Math.min(y, containerRect.height - h))
+      };
     }
 
     document.addEventListener('mousemove', (e) => {
@@ -526,86 +573,51 @@
 
       if (draggedCard) {
         const containerRect = canvasContainer.getBoundingClientRect();
-        let x = e.clientX - containerRect.left - dragOffsetX;
-        let y = e.clientY - containerRect.top - dragOffsetY;
-
-        // Constrain within container
-        x = Math.max(0, Math.min(x, containerRect.width - currentHanziSize));
-        y = Math.max(0, Math.min(y, containerRect.height - currentHanziSize));
-
-        draggedCard.element.style.left = x + 'px';
-        draggedCard.element.style.top = y + 'px';
+        const p = clampCard(e.clientX - containerRect.left - dragOffsetX,
+                            e.clientY - containerRect.top - dragOffsetY,
+                            draggedCard.element);
+        draggedCard.element.style.left = p.x + 'px';
+        draggedCard.element.style.top = p.y + 'px';
       }
     });
 
     document.addEventListener('touchmove', (e) => {
       const touch = e.touches[0];
-      const containerRect = canvasContainer.getBoundingClientRect();
-      
       customCursor.style.left = `${touch.clientX}px`;
       customCursor.style.top = `${touch.clientY}px`;
 
       if (draggedCard) {
-        let x = touch.clientX - containerRect.left - dragOffsetX;
-        let y = touch.clientY - containerRect.top - dragOffsetY;
-
-        x = Math.max(0, Math.min(x, containerRect.width - currentHanziSize));
-        y = Math.max(0, Math.min(y, containerRect.height - currentHanziSize));
-
-        draggedCard.element.style.left = x + 'px';
-        draggedCard.element.style.top = y + 'px';
+        const containerRect = canvasContainer.getBoundingClientRect();
+        const p = clampCard(touch.clientX - containerRect.left - dragOffsetX,
+                            touch.clientY - containerRect.top - dragOffsetY,
+                            draggedCard.element);
+        draggedCard.element.style.left = p.x + 'px';
+        draggedCard.element.style.top = p.y + 'px';
       }
-    });
+    }, { passive: true });
 
-    document.addEventListener('mouseup', () => {
+    function endDrag() {
       if (draggedCard) {
         draggedCard.element.classList.remove('dragging');
         draggedCard.isDragging = false;
         draggedCard = null;
       }
       isDrawing = false;
-    });
-
-    document.addEventListener('touchend', () => {
-      if (draggedCard) {
-        draggedCard.element.classList.remove('dragging');
-        draggedCard.isDragging = false;
-        draggedCard = null;
-      }
-      isDrawing = false;
-    });
+    }
+    document.addEventListener('mouseup', endDrag);
+    document.addEventListener('touchend', endDrag);
 
     // ========================================
-    // REMOVE CARD FUNCTION
+    // REMOVE CARD
     // ========================================
     function removeCard(cardElement) {
       const index = hanziCards.findIndex(c => c.element === cardElement);
-      if (index > -1) {
-        hanziCards.splice(index, 1);
-      }
+      if (index > -1) hanziCards.splice(index, 1);
       cardElement.remove();
     }
 
     // ========================================
-    // ADD HANZI BUTTON EVENT
-    // ========================================
-    addHanziBtn.addEventListener('click', () => {
-      const input = hanziInput.value.trim();
-      if (input) {
-        addHanziCard(input, 100 + Math.random() * 200, 100 + Math.random() * 200);
-        hanziInput.value = '';
-        hanziInput.focus();
-      }
-    });
-
-    hanziInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') {
-        addHanziBtn.click();
-      }
-    });
-
-    // ========================================
-    // DRAW BUTTON EVENTS
+    // DRAW / LINE / ERASE BUTTONS
     // ========================================
     drawButton.addEventListener('click', () => {
       isErasing = false;
@@ -613,7 +625,6 @@
       drawButton.classList.add('active');
       lineButton.classList.remove('active');
       eraseButton.classList.remove('active');
-      customCursor.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
     });
 
     lineButton.addEventListener('click', () => {
@@ -622,7 +633,6 @@
       lineButton.classList.add('active');
       drawButton.classList.remove('active');
       eraseButton.classList.remove('active');
-      customCursor.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
     });
 
     eraseButton.addEventListener('click', () => {
@@ -631,39 +641,20 @@
       eraseButton.classList.add('active');
       drawButton.classList.remove('active');
       lineButton.classList.remove('active');
-      customCursor.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
     });
 
     clearButton.addEventListener('click', () => {
       ctxDraw.clearRect(0, 0, drawingCanvas.width, drawingCanvas.height);
     });
 
-    // Hide custom cursor over input and buttons
-    textInput.addEventListener('mouseenter', () => {
-      customCursor.style.display = 'none';
-    });
-    textInput.addEventListener('mouseleave', () => {
-      customCursor.style.display = 'block';
-    });
-
-    hanziInput.addEventListener('mouseenter', () => {
-      customCursor.style.display = 'none';
-    });
-    hanziInput.addEventListener('mouseleave', () => {
-      customCursor.style.display = 'block';
-    });
-
-    document.querySelectorAll('#controls button').forEach(button => {
-      button.addEventListener('mouseenter', () => {
-        customCursor.style.display = 'none';
-      });
-      button.addEventListener('mouseleave', () => {
-        customCursor.style.display = 'block';
-      });
+    // Hide custom cursor over inputs and buttons
+    document.querySelectorAll('#controls input, #controls button').forEach(el => {
+      el.addEventListener('mouseenter', () => { customCursor.style.display = 'none'; });
+      el.addEventListener('mouseleave', () => { customCursor.style.display = 'block'; });
     });
 
     // ========================================
-    // CALCULATE DYNAMIC LINE WIDTH
+    // DYNAMIC LINE WIDTH
     // ========================================
     function calculateLineWidth(distance, timeDiff) {
       const velocity = distance / timeDiff;
@@ -673,7 +664,9 @@
       return Math.max(minLineWidth, Math.min(maxLineWidth, maxLineWidth - velocity * speedFactor));
     }
 
-    // Drawing functionality - Mouse
+    // ========================================
+    // FREE DRAWING ON CANVAS (mouse)
+    // ========================================
     drawingCanvas.addEventListener('mousedown', (e) => {
       if (draggedCard) return;
 
@@ -701,8 +694,6 @@
       const currentTime = Date.now();
 
       if (isLineMode) {
-        // Restore canvas to state before this line started, then draw
-        // a fresh straight-line preview from start point to current point.
         ctxDraw.putImageData(lineSnapshot, 0, 0);
         ctxDraw.beginPath();
         ctxDraw.moveTo(lineStartX, lineStartY);
@@ -716,9 +707,7 @@
 
       const distance = Math.sqrt((currentX - lastX) ** 2 + (currentY - lastY) ** 2);
       const timeDiff = currentTime - lastTime;
-
-      const lineWidth = calculateLineWidth(distance, timeDiff);
-      ctxDraw.lineWidth = lineWidth;
+      ctxDraw.lineWidth = calculateLineWidth(distance, timeDiff);
 
       if (isErasing) {
         eraseLine(currentX, currentY);
@@ -745,22 +734,23 @@
       isDrawing = false;
     });
 
-    // Function to erase lines
     function eraseLine(x, y) {
       const eraseRadius = currentLineWidth * 1.5;
       ctxDraw.clearRect(x - eraseRadius, y - eraseRadius, eraseRadius * 2, eraseRadius * 2);
     }
 
-    // Touch events for mobile devices
+    // ========================================
+    // FREE DRAWING ON CANVAS (touch)
+    // ========================================
     drawingCanvas.addEventListener('touchstart', (e) => {
       if (draggedCard) return;
-      
+
       e.preventDefault();
       const rect = drawingCanvas.getBoundingClientRect();
       const touch = e.touches[0];
       const x = touch.clientX - rect.left;
       const y = touch.clientY - rect.top;
-      
+
       isDrawing = true;
       lastX = x;
       lastY = y;
@@ -803,9 +793,7 @@
       const currentTime = Date.now();
       const distance = Math.sqrt((x - lastX) ** 2 + (y - lastY) ** 2);
       const timeDiff = currentTime - lastTime;
-
-      const lineWidth = calculateLineWidth(distance, timeDiff);
-      ctxDraw.lineWidth = lineWidth;
+      ctxDraw.lineWidth = calculateLineWidth(distance, timeDiff);
 
       if (isErasing) {
         eraseLine(x, y);
@@ -828,7 +816,6 @@
       ctxDraw.closePath();
     });
 
-    // Resize canvases on window resize
     window.addEventListener('resize', setCanvasDimensions);
   </script>
 </body>
