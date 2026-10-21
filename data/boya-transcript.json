@@ -2,7 +2,7 @@
   "metadata": {
     "totalSentences": 283,
     "totalDuration": 909.61,
-    "convertedAt": "2026-10-21T21:51:08.520Z",
+    "convertedAt": "2026-10-21T22:17:35.795Z",
     "hasPinyin": true
   },
   "sentences": [
@@ -11249,8 +11249,7 @@
         {
           "chars": "儿",
           "startTime": 666.74,
-          "duration": 0.08，
-          "pinyin": "er"
+          "duration": 0.08
         },
         {
           "chars": "玩儿",
@@ -11426,8 +11425,7 @@
         {
           "chars": "干",
           "startTime": 675.85,
-          "duration": 0.22,
-          "pinyin": "gàn"
+          "duration": 0.22
         },
         {
           "chars": "什么",
@@ -11534,8 +11532,7 @@
         {
           "chars": "作业",
           "startTime": 681.57,
-          "duration": 0.44，
-          "pinyin": "zuò yè"
+          "duration": 0.44
         },
         {
           "chars": ",",
@@ -11763,8 +11760,7 @@
         {
           "chars": "干",
           "startTime": 695.46,
-          "duration": 0.24，
-          "pinyin": "gàn"
+          "duration": 0.24
         },
         {
           "chars": "什么",
@@ -11955,7 +11951,7 @@
         {
           "chars": "迪厅",
           "startTime": 705.61,
-          "duration": 0.58，
+          "duration": 0.58,
           "pinyin": "dí tīng"
         },
         {
@@ -12005,8 +12001,7 @@
         {
           "chars": "干",
           "startTime": 708.43,
-          "duration": 0.26,
-          "pinyin": "gàn"
+          "duration": 0.26
         },
         {
           "chars": "什么",
