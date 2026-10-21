@@ -387,15 +387,27 @@
 
     .section-divider { border: none; border-top: var(--border-thick); margin: 48px 40px 0; max-width: 1160px; }
 
-    /* ── VIDEO SLIDER ── */
-    .slider-wrap { position: relative; }
+    /* ── VIDEO SLIDER (lesson thumbnails) ── */
+    .slider-wrap { position: relative; margin-top: 28px; }
     .video-slider-container {
       position: relative; width: 100%; overflow: hidden;
       border: var(--border-thick); border-radius: 20px; box-shadow: var(--shadow-lg);
     }
     .video-slider { display: flex; transition: transform 0.4s cubic-bezier(.4,0,.2,1); }
     .video-item { min-width: 33.33%; padding: 12px; box-sizing: border-box; }
-    .video-item iframe { width: 100%; height: 210px; border-radius: 12px; border: var(--border); display: block; }
+    .lesson-thumb {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 6px; height: 210px; padding: 12px;
+      text-align: center; text-decoration: none; color: var(--black);
+      background: var(--white); border: var(--border); border-radius: 12px;
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+    .lesson-thumb:hover { transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--black); }
+    .lesson-thumb.anchor { background: var(--yellow); }
+    .lesson-thumb .lt-emoji { font-size: 3rem; line-height: 1; }
+    .lesson-thumb .lt-title { font-weight: 700; font-size: 1.05rem; line-height: 1.3; }
+    .lesson-thumb .lt-sub   { font-size: 0.8rem; color: #666; }
+
     .slider-btn {
       position: absolute; top: 50%; transform: translateY(-50%);
       background: var(--yellow); color: var(--black);
@@ -416,7 +428,7 @@
     }
     @media (max-width: 480px) {
       .video-item { min-width: 100%; }
-      .video-item iframe { height: 180px; }
+      .lesson-thumb { height: 180px; }
     }
 
     /* ── AMAZON BOOKS ── */
@@ -439,6 +451,7 @@
     @media (max-width: 480px) { .amazon-images { grid-template-columns: repeat(3, 1fr); } }
 
     /* ── TEXTBOOK THUMBNAILS ── */
+    #textbook-thumbnails { scroll-margin-top: 90px; }
     .thumbnails-block { margin-top: 32px; }
     .thumbnails-header {
       display: flex; align-items: center; justify-content: space-between;
@@ -758,19 +771,53 @@
         <span class="section-sub">Start here if you're new to Mandarin</span>
       </div>
 
-      <!-- Video Slider -->
+      <!-- Video slider: lesson thumbnails -->
       <div class="slider-wrap">
         <div class="video-slider-container">
           <button class="slider-btn prev">&#10094;</button>
           <div class="video-slider">
-            <div class="video-item"><iframe src="https://www.youtube.com/embed/ng-E83Dg-KU?si=5E5ZZ4GMMHq4IL2c" frameborder="0" allowfullscreen></iframe></div>
-            <div class="video-item"><iframe src="https://www.youtube.com/embed/s0QazUhB3v4?si=jnrnk4ZI_cv2DKEM" frameborder="0" allowfullscreen></iframe></div>
-            <div class="video-item"><iframe src="https://www.youtube.com/embed/yRhp-kQfD5g?si=Ic3jqmuqds3_zvzi" frameborder="0" allowfullscreen></iframe></div>
-            <div class="video-item"><iframe src="https://www.youtube.com/embed/-G-w67htf1Y?si=3TTH1XEQ9AZxP2Z6" frameborder="0" allowfullscreen></iframe></div>
-            <div class="video-item"><iframe src="https://www.youtube.com/embed/ZQtSMctxOxo?si=HHhIXEH5TA8et2Av" frameborder="0" allowfullscreen></iframe></div>
-            <div class="video-item"><iframe src="https://www.youtube.com/embed/gi4_0KntJ7g?si=ruFJB91Rt9mc1xcD" frameborder="0" allowfullscreen></iframe></div>
-            <div class="video-item"><iframe src="https://www.youtube.com/embed/nHTOSnWUrl8?si=0BzOLafwKePU575a" frameborder="0" allowfullscreen></iframe></div>
-            <div class="video-item"><iframe src="https://www.youtube.com/embed/7oZUEDsbMCQ?si=SmieVOqDCXXLGLYE" frameborder="0" allowfullscreen></iframe></div>
+            <div class="video-item">
+              <a class="lesson-thumb anchor" href="#textbook-thumbnails">
+                <span class="lt-emoji">📘</span>
+                <span class="lt-title">Hanyu Jiaocheng 1+2</span>
+                <span class="lt-sub">View lesson list ↓</span>
+              </a>
+            </div>
+            <div class="video-item">
+              <a class="lesson-thumb" href="boya-1.html">
+                <span class="lt-emoji">📗</span>
+                <span class="lt-title">Boya 1</span>
+                <span class="lt-sub">Lessons</span>
+              </a>
+            </div>
+            <div class="video-item">
+              <a class="lesson-thumb" href="msutong-1.html">
+                <span class="lt-emoji">📙</span>
+                <span class="lt-title">Msutong 1</span>
+                <span class="lt-sub">Lessons</span>
+              </a>
+            </div>
+            <div class="video-item">
+              <a class="lesson-thumb" href="msutong-2.html">
+                <span class="lt-emoji">📕</span>
+                <span class="lt-title">Msutong 2</span>
+                <span class="lt-sub">Lessons</span>
+              </a>
+            </div>
+            <div class="video-item">
+              <a class="lesson-thumb" href="greatwall-1.html">
+                <span class="lt-emoji">🏯</span>
+                <span class="lt-title">Great Wall 1</span>
+                <span class="lt-sub">Lessons</span>
+              </a>
+            </div>
+            <div class="video-item">
+              <a class="lesson-thumb" href="greatwall-2.html">
+                <span class="lt-emoji">🧱</span>
+                <span class="lt-title">Great Wall 2</span>
+                <span class="lt-sub">Lessons</span>
+              </a>
+            </div>
           </div>
           <button class="slider-btn next">&#10095;</button>
         </div>
@@ -791,7 +838,7 @@
       </div>
 
       <!-- Textbook Thumbnails -->
-      <div class="thumbnails-block">
+      <div class="thumbnails-block" id="textbook-thumbnails">
         <div class="thumbnails-header">
           <span class="thumbnails-label">🎬 HANYU JIAOCHENG · 汉语教程</span>
           <a href="courses.html" class="view-all-btn" id="thumb-view-all" style="display:none">View All Lessons →</a>
