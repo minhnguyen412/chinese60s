@@ -2,7 +2,7 @@
   "metadata": {
     "totalSentences": 283,
     "totalDuration": 909.61,
-    "convertedAt": "2026-10-21T21:44:10.351Z",
+    "convertedAt": "2026-10-21T21:51:08.520Z",
     "hasPinyin": true
   },
   "sentences": [
@@ -1287,7 +1287,8 @@
         {
           "chars": "课本",
           "startTime": 79.99,
-          "duration": 0.36
+          "duration": 0.36,
+          "pinyin": "kè běn"
         },
         {
           "chars": "吗",
@@ -2350,7 +2351,8 @@
         {
           "chars": "专业",
           "startTime": 149.44,
-          "duration": 0.6
+          "duration": 0.6,
+          "pinyin": "zhuān yè"
         },
         {
           "chars": "是",
@@ -2361,12 +2363,14 @@
         {
           "chars": "国际",
           "startTime": 150.28,
-          "duration": 0.48
+          "duration": 0.48,
+          "pinyin": "guó jì"
         },
         {
           "chars": "关系",
           "startTime": 150.76,
-          "duration": 0.66
+          "duration": 0.66,
+          "pinyin": "guān xì"
         },
         {
           "chars": ",",
@@ -2431,7 +2435,8 @@
         {
           "chars": "系",
           "startTime": 155.23,
-          "duration": 0.24
+          "duration": 0.24,
+          "pinyin": "xì"
         },
         {
           "chars": "的",
@@ -2442,7 +2447,8 @@
         {
           "chars": "研究生",
           "startTime": 155.65,
-          "duration": 0.78
+          "duration": 0.78,
+          "pinyin": "yán jiū shēng"
         },
         {
           "chars": "。",
@@ -2473,7 +2479,8 @@
         {
           "chars": "专业",
           "startTime": 157.22,
-          "duration": 0.48
+          "duration": 0.48,
+          "pinyin": "zhuān yè"
         },
         {
           "chars": "是",
@@ -2484,12 +2491,14 @@
         {
           "chars": "现代",
           "startTime": 157.88,
-          "duration": 0.56
+          "duration": 0.56,
+          "pinyin": "xiàn dài"
         },
         {
           "chars": "文学",
           "startTime": 158.44,
-          "duration": 0.66
+          "duration": 0.66,
+          "pinyin": "wén xué"
         },
         {
           "chars": "。",
@@ -2594,7 +2603,8 @@
         {
           "chars": "空儿",
           "startTime": 165.23,
-          "duration": 0.34
+          "duration": 0.34,
+          "pinyin": "kòngr"
         },
         {
           "chars": "的",
@@ -2634,7 +2644,8 @@
         {
           "chars": "玩儿",
           "startTime": 167.31,
-          "duration": 0.47
+          "duration": 0.47,
+          "pinyin": "wánr"
         },
         {
           "chars": "。",
@@ -2664,7 +2675,8 @@
         {
           "chars": "卫生间",
           "startTime": 169.77,
-          "duration": 0.78
+          "duration": 0.78,
+          "pinyin": "wèi shēng jiān"
         },
         {
           "chars": "在",
@@ -2872,7 +2884,8 @@
         {
           "chars": "大部分",
           "startTime": 183.75,
-          "duration": 0.61
+          "duration": 0.61,
+          "pinyin": "dà bù fèn"
         },
         {
           "chars": "是",
@@ -3108,7 +3121,8 @@
         {
           "chars": "讲座",
           "startTime": 197.07,
-          "duration": 0.42
+          "duration": 0.42,
+          "pinyin": "jiǎng zuò"
         },
         {
           "chars": "几",
@@ -3509,7 +3523,8 @@
         {
           "chars": "可是",
           "startTime": 222.13,
-          "duration": 0.3
+          "duration": 0.3,
+          "pinyin": "kě shì"
         },
         {
           "chars": "我",
@@ -3586,7 +3601,8 @@
         {
           "chars": "钥匙",
           "startTime": 227.27,
-          "duration": 0.58
+          "duration": 0.58,
+          "pinyin": "yào shi"
         },
         {
           "chars": "，",
@@ -3620,7 +3636,8 @@
         {
           "chars": "车棚",
           "startTime": 229.25,
-          "duration": 0.56
+          "duration": 0.56,
+          "pinyin": "chē péng"
         },
         {
           "chars": "里",
@@ -3675,7 +3692,8 @@
         {
           "chars": "车棚",
           "startTime": 232.46,
-          "duration": 0.46
+          "duration": 0.46,
+          "pinyin": "chē péng"
         },
         {
           "chars": "吗",
@@ -3828,7 +3846,8 @@
         {
           "chars": "电影院",
           "startTime": 241.39,
-          "duration": 0.64
+          "duration": 0.64,
+          "pinyin": "diàn yǐng yuàn"
         },
         {
           "chars": "有",
@@ -3937,7 +3956,8 @@
         {
           "chars": "可是",
           "startTime": 248.53,
-          "duration": 0.34
+          "duration": 0.34,
+          "pinyin": "kě shì"
         },
         {
           "chars": "听说",
@@ -3954,7 +3974,8 @@
         {
           "chars": "有名",
           "startTime": 249.45,
-          "duration": 0.48
+          "duration": 0.48,
+          "pinyin": "yǒu míng"
         },
         {
           "chars": "。",
@@ -4015,7 +4036,8 @@
         {
           "chars": "周末",
           "startTime": 256.04,
-          "duration": 0.54
+          "duration": 0.54,
+          "pinyin": "zhōu mò"
         },
         {
           "chars": "你",
@@ -4032,7 +4054,8 @@
         {
           "chars": "空儿",
           "startTime": 256.98,
-          "duration": 0.3
+          "duration": 0.3,
+          "pinyin": "kòngr"
         },
         {
           "chars": "吗",
@@ -4112,7 +4135,8 @@
         {
           "chars": "玩儿",
           "startTime": 261.72,
-          "duration": 0.29
+          "duration": 0.29,
+          "pinyin": "wánr"
         },
         {
           "chars": "吧",
@@ -4414,7 +4438,8 @@
         {
           "chars": "东南边",
           "startTime": 277.62,
-          "duration": 0.66
+          "duration": 0.66,
+          "pinyin": "dōng nán bian"
         },
         {
           "chars": "，",
@@ -4597,7 +4622,8 @@
         {
           "chars": "室",
           "startTime": 286.8,
-          "duration": 0.22
+          "duration": 0.22,
+          "pinyin": "shì"
         },
         {
           "chars": "。",
@@ -4951,7 +4977,8 @@
         {
           "chars": "师傅",
           "startTime": 309.15,
-          "duration": 0.62
+          "duration": 0.62,
+          "pinyin": "shī fù"
         },
         {
           "chars": ",",
@@ -5620,7 +5647,8 @@
         {
           "chars": "零钱",
           "startTime": 345.38,
-          "duration": 0.7
+          "duration": 0.7,
+          "pinyin": "líng qián"
         },
         {
           "chars": "。",
@@ -5993,7 +6021,8 @@
         {
           "chars": "家庭",
           "startTime": 368.22,
-          "duration": 0.62
+          "duration": 0.62,
+          "pinyin": "jiā tíng"
         },
         {
           "chars": "一般",
@@ -6027,7 +6056,8 @@
         {
           "chars": "孩子",
           "startTime": 370.12,
-          "duration": 0.4
+          "duration": 0.4,
+          "pinyin": "hái zi"
         },
         {
           "chars": "。",
@@ -6509,7 +6539,8 @@
         {
           "chars": "这样",
           "startTime": 395.12,
-          "duration": 0.52
+          "duration": 0.52,
+          "pinyin": "zhè yàng"
         },
         {
           "chars": "。",
@@ -6544,7 +6575,8 @@
         {
           "chars": "秋天",
           "startTime": 399.85,
-          "duration": 0.42
+          "duration": 0.42,
+          "pinyin": "qiū tiān"
         },
         {
           "chars": "的",
@@ -6555,7 +6587,8 @@
         {
           "chars": "天气",
           "startTime": 400.43,
-          "duration": 0.54
+          "duration": 0.54,
+          "pinyin": "tiān qì"
         },
         {
           "chars": "怎么样",
@@ -6591,7 +6624,8 @@
         {
           "chars": "秋天",
           "startTime": 403.01,
-          "duration": 0.6
+          "duration": 0.6,
+          "pinyin": "qiū tiān"
         },
         {
           "chars": "不",
@@ -6602,7 +6636,8 @@
         {
           "chars": "冷",
           "startTime": 403.77,
-          "duration": 0.26
+          "duration": 0.26,
+          "pinyin": "lěng"
         },
         {
           "chars": "不",
@@ -6613,7 +6648,8 @@
         {
           "chars": "热",
           "startTime": 404.21,
-          "duration": 0.32
+          "duration": 0.32,
+          "pinyin": "rè"
         },
         {
           "chars": ",",
@@ -6646,7 +6682,8 @@
         {
           "chars": "最",
           "startTime": 406.27,
-          "duration": 0.22
+          "duration": 0.22,
+          "pinyin": "zuì"
         },
         {
           "chars": "好",
@@ -6663,7 +6700,8 @@
         {
           "chars": "季节",
           "startTime": 406.87,
-          "duration": 0.58
+          "duration": 0.58,
+          "pinyin": "jì jié"
         },
         {
           "chars": "。",
@@ -6682,7 +6720,8 @@
         {
           "chars": "冬天",
           "startTime": 408.69,
-          "duration": 0.5
+          "duration": 0.5,
+          "pinyin": "dōng tiān"
         },
         {
           "chars": "呢",
@@ -6715,7 +6754,8 @@
         {
           "chars": "冬天",
           "startTime": 411.27,
-          "duration": 0.4
+          "duration": 0.4,
+          "pinyin": "dōng tiān"
         },
         {
           "chars": "很",
@@ -6726,7 +6766,8 @@
         {
           "chars": "冷",
           "startTime": 411.83,
-          "duration": 0.31
+          "duration": 0.31,
+          "pinyin": "lěng"
         },
         {
           "chars": ",",
@@ -6783,7 +6824,8 @@
         {
           "chars": "冬天",
           "startTime": 415.11,
-          "duration": 0.56
+          "duration": 0.56,
+          "pinyin": "dōng tiān"
         },
         {
           "chars": "比较",
@@ -6794,7 +6836,8 @@
         {
           "chars": "冷",
           "startTime": 415.99,
-          "duration": 0.28
+          "duration": 0.28,
+          "pinyin": "lěng"
         },
         {
           "chars": ",",
@@ -6804,12 +6847,14 @@
         {
           "chars": "最",
           "startTime": 416.81,
-          "duration": 0.3
+          "duration": 0.3,
+          "pinyin": "zuì"
         },
         {
           "chars": "冷",
           "startTime": 417.11,
-          "duration": 0.22
+          "duration": 0.22,
+          "pinyin": "lěng"
         },
         {
           "chars": "差不多",
@@ -6843,7 +6888,8 @@
         {
           "chars": "度",
           "startTime": 418.89,
-          "duration": 0.32
+          "duration": 0.32,
+          "pinyin": "dù"
         },
         {
           "chars": "。",
@@ -6874,7 +6920,8 @@
         {
           "chars": "雪",
           "startTime": 420.61,
-          "duration": 0.3
+          "duration": 0.3,
+          "pinyin": "xuě"
         },
         {
           "chars": "吗",
@@ -6917,7 +6964,8 @@
         {
           "chars": "雪",
           "startTime": 422.97,
-          "duration": 0.36
+          "duration": 0.36,
+          "pinyin": "xuě"
         },
         {
           "chars": "。",
@@ -6952,7 +7000,8 @@
         {
           "chars": "最",
           "startTime": 425.27,
-          "duration": 0.16
+          "duration": 0.16,
+          "pinyin": "zuì"
         },
         {
           "chars": "喜欢",
@@ -6975,7 +7024,8 @@
         {
           "chars": "季节",
           "startTime": 426.37,
-          "duration": 0.55
+          "duration": 0.55,
+          "pinyin": "jì jié"
         },
         {
           "chars": "?",
@@ -7006,7 +7056,8 @@
         {
           "chars": "夏天",
           "startTime": 428.12,
-          "duration": 0.52
+          "duration": 0.52,
+          "pinyin": "xià tiān"
         },
         {
           "chars": "。",
@@ -7096,7 +7147,8 @@
         {
           "chars": "春天",
           "startTime": 434.12,
-          "duration": 0.64
+          "duration": 0.64,
+          "pinyin": "chūn tiān"
         },
         {
           "chars": "。",
@@ -7575,7 +7627,8 @@
         {
           "chars": "听写",
           "startTime": 463.16,
-          "duration": 0.54
+          "duration": 0.54,
+          "pinyin": "tīng xiě"
         },
         {
           "chars": ", ",
@@ -7696,7 +7749,8 @@
         {
           "chars": "酒吧",
           "startTime": 469.48,
-          "duration": 0.52
+          "duration": 0.52,
+          "pinyin": "jiǔ bā"
         },
         {
           "chars": "喝",
@@ -7745,7 +7799,8 @@
         {
           "chars": "酒吧",
           "startTime": 472.18,
-          "duration": 0.63
+          "duration": 0.63,
+          "pinyin": "jiǔ bā"
         },
         {
           "chars": "?",
@@ -7776,7 +7831,8 @@
         {
           "chars": "对面",
           "startTime": 474.6,
-          "duration": 0.46
+          "duration": 0.46,
+          "pinyin": "duì miàn"
         },
         {
           "chars": "的",
@@ -7931,7 +7987,8 @@
         {
           "chars": "唱歌",
           "startTime": 482.45,
-          "duration": 0.56
+          "duration": 0.56,
+          "pinyin": "chàng gē"
         },
         {
           "chars": "呢",
@@ -8607,12 +8664,14 @@
         {
           "chars": "购物",
           "startTime": 523.82,
-          "duration": 0.46
+          "duration": 0.46,
+          "pinyin": "gòu wù"
         },
         {
           "chars": "中心",
           "startTime": 524.28,
-          "duration": 0.72
+          "duration": 0.72,
+          "pinyin": "zhōng xīn"
         },
         {
           "chars": "。",
@@ -8736,7 +8795,8 @@
         {
           "chars": "质量",
           "startTime": 531.14,
-          "duration": 0.34
+          "duration": 0.34,
+          "pinyin": "zhì liàng"
         },
         {
           "chars": "也",
@@ -8943,12 +9003,14 @@
         {
           "chars": "购物",
           "startTime": 541.98,
-          "duration": 0.38
+          "duration": 0.38,
+          "pinyin": "gòu wù"
         },
         {
           "chars": "中心",
           "startTime": 542.36,
-          "duration": 0.43
+          "duration": 0.43,
+          "pinyin": "zhōng xīn"
         },
         {
           "chars": "九",
@@ -9071,7 +9133,8 @@
         {
           "chars": "毛衣",
           "startTime": 550.46,
-          "duration": 0.44
+          "duration": 0.44,
+          "pinyin": "máo yī"
         },
         {
           "chars": "怎么样",
@@ -9141,7 +9204,8 @@
         {
           "chars": "脏",
           "startTime": 555.49,
-          "duration": 0.28
+          "duration": 0.28,
+          "pinyin": "zàng"
         },
         {
           "chars": "。",
@@ -9307,7 +9371,8 @@
         {
           "chars": "黄",
           "startTime": 563.82,
-          "duration": 0.36
+          "duration": 0.36,
+          "pinyin": "huáng"
         },
         {
           "chars": "的",
@@ -9354,7 +9419,8 @@
         {
           "chars": "漂亮",
           "startTime": 566.8,
-          "duration": 0.44
+          "duration": 0.44,
+          "pinyin": "piào liang"
         },
         {
           "chars": "的",
@@ -9543,7 +9609,8 @@
         {
           "chars": "漂亮",
           "startTime": 577.36,
-          "duration": 0.44
+          "duration": 0.44,
+          "pinyin": "piào liang"
         },
         {
           "chars": "的",
@@ -9722,7 +9789,8 @@
         {
           "chars": "丢",
           "startTime": 585.8,
-          "duration": 0.38
+          "duration": 0.38,
+          "pinyin": "diū"
         },
         {
           "chars": "。",
@@ -9842,7 +9910,8 @@
         {
           "chars": "灰",
           "startTime": 592.08,
-          "duration": 0.2
+          "duration": 0.2,
+          "pinyin": "huī"
         },
         {
           "chars": "的",
@@ -9858,7 +9927,8 @@
         {
           "chars": "黄",
           "startTime": 592.84,
-          "duration": 0.38
+          "duration": 0.38,
+          "pinyin": "huáng"
         },
         {
           "chars": "的",
@@ -10089,7 +10159,8 @@
         {
           "chars": "礼物",
           "startTime": 607.94,
-          "duration": 0.5
+          "duration": 0.5,
+          "pinyin": "lǐ wù"
         },
         {
           "chars": "呢",
@@ -10120,7 +10191,8 @@
         {
           "chars": "礼物",
           "startTime": 609.84,
-          "duration": 0.54
+          "duration": 0.54,
+          "pinyin": "lǐ wù"
         },
         {
           "chars": "?",
@@ -10218,12 +10290,14 @@
         {
           "chars": "蛋糕",
           "startTime": 614.94,
-          "duration": 0.42
+          "duration": 0.42,
+          "pinyin": "dàn gāo"
         },
         {
           "chars": "送",
           "startTime": 615.36,
-          "duration": 0.2
+          "duration": 0.2,
+          "pinyin": "sòng"
         },
         {
           "chars": "给",
@@ -10411,7 +10485,8 @@
         {
           "chars": "送",
           "startTime": 624.86,
-          "duration": 0.36
+          "duration": 0.36,
+          "pinyin": "sòng"
         },
         {
           "chars": "生日",
@@ -10422,7 +10497,8 @@
         {
           "chars": "礼物",
           "startTime": 625.64,
-          "duration": 0.46
+          "duration": 0.46,
+          "pinyin": "lǐ wù"
         },
         {
           "chars": ",",
@@ -10482,7 +10558,8 @@
         {
           "chars": "送",
           "startTime": 628.82,
-          "duration": 0.18
+          "duration": 0.18,
+          "pinyin": "sòng"
         },
         {
           "chars": "给",
@@ -10582,12 +10659,14 @@
         {
           "chars": "可",
           "startTime": 633.15,
-          "duration": 0.2
+          "duration": 0.2,
+          "pinyin": "kě"
         },
         {
           "chars": "送",
           "startTime": 633.35,
-          "duration": 0.16
+          "duration": 0.16,
+          "pinyin": "sòng"
         },
         {
           "chars": "的",
@@ -10620,12 +10699,14 @@
         {
           "chars": "比如",
           "startTime": 634.95,
-          "duration": 0.38
+          "duration": 0.38,
+          "pinyin": "bǐ rú"
         },
         {
           "chars": "巧克力",
           "startTime": 635.33,
-          "duration": 0.68
+          "duration": 0.68,
+          "pinyin": "qiǎo kè lì"
         },
         {
           "chars": "。",
@@ -10644,7 +10725,8 @@
         {
           "chars": "巧克力",
           "startTime": 636.62,
-          "duration": 0.82
+          "duration": 0.82,
+          "pinyin": "qiǎo kè lì"
         },
         {
           "chars": "有",
@@ -10661,7 +10743,8 @@
         {
           "chars": "甜",
           "startTime": 637.96,
-          "duration": 0.28
+          "duration": 0.28,
+          "pinyin": "tián"
         },
         {
           "chars": ",",
@@ -10689,7 +10772,8 @@
         {
           "chars": "甜",
           "startTime": 639.44,
-          "duration": 0.34
+          "duration": 0.34,
+          "pinyin": "tián"
         },
         {
           "chars": "的",
@@ -10858,7 +10942,8 @@
         {
           "chars": "送",
           "startTime": 648.03,
-          "duration": 0.27
+          "duration": 0.27,
+          "pinyin": "sòng"
         },
         {
           "chars": "一",
@@ -10869,7 +10954,8 @@
         {
           "chars": "束",
           "startTime": 648.46,
-          "duration": 0.18
+          "duration": 0.18,
+          "pinyin": "shù"
         },
         {
           "chars": "花",
@@ -10913,7 +10999,8 @@
         {
           "chars": "孩子",
           "startTime": 650.12,
-          "duration": 0.42
+          "duration": 0.42,
+          "pinyin": "hái zi"
         },
         {
           "chars": "都",
@@ -10957,7 +11044,8 @@
         {
           "chars": "主意",
           "startTime": 652.5,
-          "duration": 0.38
+          "duration": 0.38,
+          "pinyin": "zhǔ yì"
         },
         {
           "chars": "挺",
@@ -11011,7 +11099,8 @@
         {
           "chars": "周末",
           "startTime": 657.59,
-          "duration": 0.64
+          "duration": 0.64,
+          "pinyin": "zhōu mò"
         },
         {
           "chars": ",",
@@ -11084,7 +11173,8 @@
         {
           "chars": "周末",
           "startTime": 661.94,
-          "duration": 0.46
+          "duration": 0.46,
+          "pinyin": "zhōu mò"
         },
         {
           "chars": "。",
@@ -11115,7 +11205,8 @@
         {
           "chars": "啦",
           "startTime": 664.67,
-          "duration": 0.26
+          "duration": 0.26,
+          "pinyin": "la"
         },
         {
           "chars": "!",
@@ -11134,7 +11225,8 @@
         {
           "chars": "周末",
           "startTime": 665.58,
-          "duration": 0.48
+          "duration": 0.48,
+          "pinyin": "zhōu mò"
         },
         {
           "chars": "可以",
@@ -11162,12 +11254,14 @@
         {
           "chars": "玩儿",
           "startTime": 666.82,
-          "duration": 0.2
+          "duration": 0.2,
+          "pinyin": "wánr"
         },
         {
           "chars": "玩儿",
           "startTime": 667.02,
-          "duration": 0.49
+          "duration": 0.49,
+          "pinyin": "wánr"
         }
       ]
     },
@@ -11263,7 +11357,8 @@
         {
           "chars": "周末",
           "startTime": 671.53,
-          "duration": 0.82
+          "duration": 0.82,
+          "pinyin": "zhōu mò"
         },
         {
           "chars": "我",
@@ -11318,7 +11413,8 @@
         {
           "chars": "周末",
           "startTime": 675.09,
-          "duration": 0.58
+          "duration": 0.58,
+          "pinyin": "zhōu mò"
         },
         {
           "chars": "都",
@@ -11458,7 +11554,8 @@
         {
           "chars": "懒觉",
           "startTime": 682.99,
-          "duration": 0.74
+          "duration": 0.74,
+          "pinyin": "lǎn jiào"
         },
         {
           "chars": "。",
@@ -11519,7 +11616,8 @@
         {
           "chars": "玩儿",
           "startTime": 686.5,
-          "duration": 0.24
+          "duration": 0.24,
+          "pinyin": "wánr"
         },
         {
           "chars": "吗",
@@ -11568,12 +11666,14 @@
         {
           "chars": "逛",
           "startTime": 689.53,
-          "duration": 0.28
+          "duration": 0.28,
+          "pinyin": "guàng"
         },
         {
           "chars": "逛",
           "startTime": 689.81,
-          "duration": 0.24
+          "duration": 0.24,
+          "pinyin": "guàng"
         },
         {
           "chars": "商店",
@@ -11648,7 +11748,8 @@
         {
           "chars": "周末",
           "startTime": 694.8,
-          "duration": 0.5
+          "duration": 0.5,
+          "pinyin": "zhōu mò"
         },
         {
           "chars": "都",
@@ -11708,7 +11809,8 @@
         {
           "chars": "周末",
           "startTime": 697.55,
-          "duration": 0.5
+          "duration": 0.5,
+          "pinyin": "zhōu mò"
         },
         {
           "chars": "都",
@@ -11725,7 +11827,8 @@
         {
           "chars": "不同",
           "startTime": 698.73,
-          "duration": 0.44
+          "duration": 0.44,
+          "pinyin": "bù tóng"
         },
         {
           "chars": "的",
@@ -11736,7 +11839,8 @@
         {
           "chars": "安排",
           "startTime": 699.37,
-          "duration": 0.37
+          "duration": 0.37,
+          "pinyin": "ān pái"
         },
         {
           "chars": "。",
@@ -11767,7 +11871,8 @@
         {
           "chars": "周末",
           "startTime": 701.25,
-          "duration": 0.54
+          "duration": 0.54,
+          "pinyin": "zhōu mò"
         },
         {
           "chars": "到",
@@ -11790,7 +11895,8 @@
         {
           "chars": "包",
           "startTime": 702.67,
-          "duration": 0.18
+          "duration": 0.18,
+          "pinyin": "bāo"
         },
         {
           "chars": "饺子",
@@ -11833,7 +11939,8 @@
         {
           "chars": "周末",
           "startTime": 704.57,
-          "duration": 0.72
+          "duration": 0.72,
+          "pinyin": "zhōu mò"
         },
         {
           "chars": "去",
@@ -11881,7 +11988,8 @@
         {
           "chars": "周末",
           "startTime": 707.85,
-          "duration": 0.4
+          "duration": 0.4,
+          "pinyin": "zhōu mò"
         },
         {
           "chars": "你",
@@ -11935,7 +12043,8 @@
         {
           "chars": "音乐会",
           "startTime": 710.53,
-          "duration": 0.74
+          "duration": 0.74,
+          "pinyin": "yīn yuè huì"
         },
         {
           "chars": "。",
@@ -12195,7 +12304,8 @@
         {
           "chars": "礼物",
           "startTime": 729.15,
-          "duration": 0.48
+          "duration": 0.48,
+          "pinyin": "lǐ wù"
         },
         {
           "chars": "。",
@@ -12268,7 +12378,8 @@
         {
           "chars": "心意",
           "startTime": 733.63,
-          "duration": 0.54
+          "duration": 0.54,
+          "pinyin": "xīn yì"
         },
         {
           "chars": ",",
@@ -12374,7 +12485,8 @@
         {
           "chars": "果汁",
           "startTime": 739.55,
-          "duration": 0.5
+          "duration": 0.5,
+          "pinyin": "guǒ zhī"
         },
         {
           "chars": "?",
@@ -12393,7 +12505,8 @@
         {
           "chars": "随便",
           "startTime": 740.79,
-          "duration": 0.74
+          "duration": 0.74,
+          "pinyin": "suí biàn"
         },
         {
           "chars": ",",
@@ -12472,7 +12585,8 @@
         {
           "chars": "顺利",
           "startTime": 745.47,
-          "duration": 0.5
+          "duration": 0.5,
+          "pinyin": "shùn lì"
         },
         {
           "chars": "吗",
@@ -12509,7 +12623,8 @@
         {
           "chars": "顺利",
           "startTime": 747.29,
-          "duration": 0.62
+          "duration": 0.62,
+          "pinyin": "shùn lì"
         },
         {
           "chars": ",",
@@ -12592,7 +12707,8 @@
         {
           "chars": "打车",
           "startTime": 752.55,
-          "duration": 0.58
+          "duration": 0.58,
+          "pinyin": "dǎ chē"
         },
         {
           "chars": "?",
@@ -12645,7 +12761,8 @@
         {
           "chars": "大巴",
           "startTime": 756.9,
-          "duration": 0.78
+          "duration": 0.78,
+          "pinyin": "dà bā"
         },
         {
           "chars": "很",
@@ -12831,7 +12948,8 @@
         {
           "chars": "最",
           "startTime": 767.83,
-          "duration": 0.2
+          "duration": 0.2,
+          "pinyin": "zuì"
         },
         {
           "chars": "喜欢",
@@ -12898,7 +13016,8 @@
         {
           "chars": "包",
           "startTime": 771.21,
-          "duration": 0.25
+          "duration": 0.25,
+          "pinyin": "bāo"
         },
         {
           "chars": "吗",
@@ -13019,7 +13138,8 @@
         {
           "chars": "好吃",
           "startTime": 780.13,
-          "duration": 0.62
+          "duration": 0.62,
+          "pinyin": "hǎo chī"
         },
         {
           "chars": "。",
@@ -13055,7 +13175,8 @@
         {
           "chars": "味道",
           "startTime": 782.43,
-          "duration": 0.38
+          "duration": 0.38,
+          "pinyin": "wèi dào"
         },
         {
           "chars": "挺",
@@ -13158,12 +13279,14 @@
         {
           "chars": "大部分",
           "startTime": 788.88,
-          "duration": 0.7
+          "duration": 0.7,
+          "pinyin": "dà bù fèn"
         },
         {
           "chars": "北方",
           "startTime": 789.58,
-          "duration": 0.44
+          "duration": 0.44,
+          "pinyin": "běi fāng"
         },
         {
           "chars": "人",
@@ -13224,7 +13347,8 @@
         {
           "chars": "啦",
           "startTime": 793.12,
-          "duration": 0.28
+          "duration": 0.28,
+          "pinyin": "la"
         },
         {
           "chars": ",",
@@ -13246,7 +13370,8 @@
         {
           "chars": "啦",
           "startTime": 794.12,
-          "duration": 0.32
+          "duration": 0.32,
+          "pinyin": "la"
         },
         {
           "chars": ",",
@@ -13267,7 +13392,8 @@
         {
           "chars": "啦",
           "startTime": 795.4,
-          "duration": 0.32
+          "duration": 0.32,
+          "pinyin": "la"
         },
         {
           "chars": ",",
@@ -13288,7 +13414,8 @@
         {
           "chars": "包",
           "startTime": 796.72,
-          "duration": 0.26
+          "duration": 0.26,
+          "pinyin": "bāo"
         },
         {
           "chars": "饺子",
@@ -13319,7 +13446,8 @@
         {
           "chars": "南方",
           "startTime": 798.34,
-          "duration": 0.54
+          "duration": 0.54,
+          "pinyin": "nán fāng"
         },
         {
           "chars": "人",
@@ -13400,7 +13528,8 @@
         {
           "chars": "南方",
           "startTime": 802.62,
-          "duration": 0.42
+          "duration": 0.42,
+          "pinyin": "nán fāng"
         },
         {
           "chars": "人",
@@ -13458,7 +13587,8 @@
         {
           "chars": "面食",
           "startTime": 805.84,
-          "duration": 0.58
+          "duration": 0.58,
+          "pinyin": "miàn shí"
         },
         {
           "chars": "。",
@@ -13483,7 +13613,8 @@
         {
           "chars": "这样",
           "startTime": 807.48,
-          "duration": 0.4
+          "duration": 0.4,
+          "pinyin": "zhè yàng"
         },
         {
           "chars": "啊",
@@ -13513,7 +13644,8 @@
         {
           "chars": "北方",
           "startTime": 809.14,
-          "duration": 0.34
+          "duration": 0.34,
+          "pinyin": "běi fāng"
         },
         {
           "chars": "人",
@@ -13559,7 +13691,8 @@
         {
           "chars": "重要",
           "startTime": 811.54,
-          "duration": 0.4
+          "duration": 0.4,
+          "pinyin": "zhòng yào"
         },
         {
           "chars": "的",
@@ -13582,7 +13715,8 @@
         {
           "chars": "食品",
           "startTime": 812.42,
-          "duration": 0.54
+          "duration": 0.54,
+          "pinyin": "shí pǐn"
         },
         {
           "chars": "吧",
@@ -13643,7 +13777,8 @@
         {
           "chars": "包",
           "startTime": 816.42,
-          "duration": 0.16
+          "duration": 0.16,
+          "pinyin": "bāo"
         },
         {
           "chars": "饺子",
@@ -13660,7 +13795,8 @@
         {
           "chars": "麻烦",
           "startTime": 817.52,
-          "duration": 0.52
+          "duration": 0.52,
+          "pinyin": "má fan"
         },
         {
           "chars": ",",
@@ -13736,7 +13872,8 @@
         {
           "chars": "馅儿",
           "startTime": 821.82,
-          "duration": 0.38
+          "duration": 0.38,
+          "pinyin": "xiànr"
         },
         {
           "chars": "就",
@@ -13820,7 +13957,8 @@
         {
           "chars": "速冻",
           "startTime": 825.92,
-          "duration": 0.42
+          "duration": 0.42,
+          "pinyin": "sù dòng"
         },
         {
           "chars": "饺子",
@@ -13851,7 +13989,8 @@
         {
           "chars": "如果",
           "startTime": 827.65,
-          "duration": 0.34
+          "duration": 0.34,
+          "pinyin": "rú guǒ"
         },
         {
           "chars": "想",
@@ -13868,7 +14007,8 @@
         {
           "chars": "的话",
           "startTime": 828.47,
-          "duration": 0.48
+          "duration": 0.48,
+          "pinyin": "de huà"
         },
         {
           "chars": ",",
@@ -13902,7 +14042,8 @@
         {
           "chars": "袋",
           "startTime": 829.99,
-          "duration": 0.2
+          "duration": 0.2,
+          "pinyin": "dài"
         },
         {
           "chars": "。",
@@ -13939,7 +14080,8 @@
         {
           "chars": "偷懒",
           "startTime": 832.14,
-          "duration": 0.52
+          "duration": 0.52,
+          "pinyin": "tōu lǎn"
         },
         {
           "chars": "!",
@@ -13975,7 +14117,8 @@
         {
           "chars": "包",
           "startTime": 834.89,
-          "duration": 0.24
+          "duration": 0.24,
+          "pinyin": "bāo"
         },
         {
           "chars": "饺子",
@@ -13991,7 +14134,8 @@
         {
           "chars": "热闹",
           "startTime": 835.99,
-          "duration": 0.58
+          "duration": 0.58,
+          "pinyin": "rè nào"
         },
         {
           "chars": ",",
@@ -14037,7 +14181,8 @@
         {
           "chars": "速冻",
           "startTime": 839.81,
-          "duration": 0.56
+          "duration": 0.56,
+          "pinyin": "sù dòng"
         },
         {
           "chars": "饺子",
@@ -14054,7 +14199,8 @@
         {
           "chars": "味道",
           "startTime": 840.97,
-          "duration": 0.5
+          "duration": 0.5,
+          "pinyin": "wèi dào"
         },
         {
           "chars": "怎么样",
@@ -14079,7 +14225,8 @@
         {
           "chars": "好吃",
           "startTime": 842.72,
-          "duration": 0.58
+          "duration": 0.58,
+          "pinyin": "hǎo chī"
         },
         {
           "chars": "吗",
@@ -14116,7 +14263,8 @@
         {
           "chars": "好吃",
           "startTime": 845.21,
-          "duration": 0.62
+          "duration": 0.62,
+          "pinyin": "hǎo chī"
         },
         {
           "chars": "。",
@@ -14648,7 +14796,8 @@
         {
           "chars": "夜",
           "startTime": 883.71,
-          "duration": 0.18
+          "duration": 0.18,
+          "pinyin": "yè"
         },
         {
           "chars": "里",
@@ -14737,7 +14886,8 @@
         {
           "chars": "的话",
           "startTime": 888.66,
-          "duration": 0.64
+          "duration": 0.64,
+          "pinyin": "de huà"
         },
         {
           "chars": "就",
@@ -14884,7 +15034,8 @@
         {
           "chars": "懒觉",
           "startTime": 896.7,
-          "duration": 0.46
+          "duration": 0.46,
+          "pinyin": "lǎn jiào"
         },
         {
           "chars": "。",
@@ -14927,7 +15078,8 @@
         {
           "chars": "毛病",
           "startTime": 899.77,
-          "duration": 0.5
+          "duration": 0.5,
+          "pinyin": "máo bìng"
         },
         {
           "chars": "就",
@@ -14938,7 +15090,8 @@
         {
           "chars": "改",
           "startTime": 900.51,
-          "duration": 0.38
+          "duration": 0.38,
+          "pinyin": "gǎi"
         },
         {
           "chars": "了",
