@@ -11249,7 +11249,8 @@
         {
           "chars": "儿",
           "startTime": 666.74,
-          "duration": 0.08
+          "duration": 0.08，
+          "pinyin": "er"
         },
         {
           "chars": "玩儿",
@@ -11425,7 +11426,8 @@
         {
           "chars": "干",
           "startTime": 675.85,
-          "duration": 0.22
+          "duration": 0.22,
+          "pinyin": "gàn"
         },
         {
           "chars": "什么",
@@ -11532,7 +11534,8 @@
         {
           "chars": "作业",
           "startTime": 681.57,
-          "duration": 0.44
+          "duration": 0.44，
+          "pinyin": "zuò yè"
         },
         {
           "chars": ",",
@@ -11760,7 +11763,8 @@
         {
           "chars": "干",
           "startTime": 695.46,
-          "duration": 0.24
+          "duration": 0.24，
+          "pinyin": "gàn"
         },
         {
           "chars": "什么",
@@ -11916,7 +11920,7 @@
       "startTime": 703.75,
       "endTime": 707.24,
       "duration": 3.49,
-      "text": "上上个周末去笛厅跳舞。",
+      "text": "上上个周末去迪厅跳舞。",
       "characters": [
         {
           "chars": "上",
@@ -11949,9 +11953,10 @@
           "pinyin": "qù"
         },
         {
-          "chars": "笛厅",
+          "chars": "迪厅",
           "startTime": 705.61,
-          "duration": 0.58
+          "duration": 0.58，
+          "pinyin": "dí tīng"
         },
         {
           "chars": "跳舞",
@@ -12000,7 +12005,8 @@
         {
           "chars": "干",
           "startTime": 708.43,
-          "duration": 0.26
+          "duration": 0.26,
+          "pinyin": "gàn"
         },
         {
           "chars": "什么",
