@@ -1,0 +1,786 @@
+[
+  {
+    "id": "1",
+    "imageSrc": "",
+    "character": "课本",
+    "meaning": "Textbook",
+    "pinyin": "kè běn",
+    "audioSrc": ""
+  },
+  {
+    "id": "2",
+    "imageSrc": "",
+    "character": "教学楼",
+    "meaning": "Academic building",
+    "pinyin": "jiào xué lóu",
+    "audioSrc": ""
+  },
+  {
+    "id": "3",
+    "imageSrc": "",
+    "character": "专业",
+    "meaning": "Major",
+    "pinyin": "zhuān yè",
+    "audioSrc": ""
+  },
+  {
+    "id": "4",
+    "imageSrc": "",
+    "character": "国际",
+    "meaning": "International",
+    "pinyin": "guó jì",
+    "audioSrc": ""
+  },
+  {
+    "id": "5",
+    "imageSrc": "",
+    "character": "关系",
+    "meaning": "Relations",
+    "pinyin": "guān xì",
+    "audioSrc": ""
+  },
+  {
+    "id": "6",
+    "imageSrc": "",
+    "character": "系",
+    "meaning": "Department",
+    "pinyin": "xì",
+    "audioSrc": ""
+  },
+  {
+    "id": "7",
+    "imageSrc": "",
+    "character": "研究生",
+    "meaning": "Graduate student",
+    "pinyin": "yán jiū shēng",
+    "audioSrc": ""
+  },
+  {
+    "id": "8",
+    "imageSrc": "",
+    "character": "现代",
+    "meaning": "Modern",
+    "pinyin": "xiàn dài",
+    "audioSrc": ""
+  },
+  {
+    "id": "9",
+    "imageSrc": "",
+    "character": "文学",
+    "meaning": "Literature",
+    "pinyin": "wén xué",
+    "audioSrc": ""
+  },
+  {
+    "id": "10",
+    "imageSrc": "",
+    "character": "空儿",
+    "meaning": "Free time",
+    "pinyin": "kòngr",
+    "audioSrc": ""
+  },
+  {
+    "id": "11",
+    "imageSrc": "",
+    "character": "玩儿",
+    "meaning": "To have fun / hang out",
+    "pinyin": "wánr",
+    "audioSrc": ""
+  },
+  {
+    "id": "12",
+    "imageSrc": "",
+    "character": "卫生间",
+    "meaning": "Restroom",
+    "pinyin": "wèi shēng jiān",
+    "audioSrc": ""
+  },
+  {
+    "id": "13",
+    "imageSrc": "",
+    "character": "讲座",
+    "meaning": "Lecture",
+    "pinyin": "jiǎng zuò",
+    "audioSrc": ""
+  },
+  {
+    "id": "14",
+    "imageSrc": "",
+    "character": "可是",
+    "meaning": "But",
+    "pinyin": "kě shì",
+    "audioSrc": ""
+  },
+  {
+    "id": "15",
+    "imageSrc": "",
+    "character": "钥匙",
+    "meaning": "Key",
+    "pinyin": "yào shi",
+    "audioSrc": ""
+  },
+  {
+    "id": "16",
+    "imageSrc": "",
+    "character": "车棚",
+    "meaning": "Bicycle shed",
+    "pinyin": "chē péng",
+    "audioSrc": ""
+  },
+  {
+    "id": "17",
+    "imageSrc": "",
+    "character": "电影院",
+    "meaning": "Cinema",
+    "pinyin": "diàn yǐng yuàn",
+    "audioSrc": ""
+  },
+  {
+    "id": "18",
+    "imageSrc": "",
+    "character": "有名",
+    "meaning": "Famous",
+    "pinyin": "yǒu míng",
+    "audioSrc": ""
+  },
+  {
+    "id": "19",
+    "imageSrc": "",
+    "character": "周末",
+    "meaning": "Weekend",
+    "pinyin": "zhōu mò",
+    "audioSrc": ""
+  },
+  {
+    "id": "20",
+    "imageSrc": "",
+    "character": "东南边",
+    "meaning": "Southeast",
+    "pinyin": "dōng nán bian",
+    "audioSrc": ""
+  },
+  {
+    "id": "21",
+    "imageSrc": "",
+    "character": "室",
+    "meaning": "Room",
+    "pinyin": "shì",
+    "audioSrc": ""
+  },
+  {
+    "id": "22",
+    "imageSrc": "",
+    "character": "师傅",
+    "meaning": "Master (skilled worker/driver)",
+    "pinyin": "shī fù",
+    "audioSrc": ""
+  },
+  {
+    "id": "23",
+    "imageSrc": "",
+    "character": "零钱",
+    "meaning": "Small change",
+    "pinyin": "líng qián",
+    "audioSrc": ""
+  },
+  {
+    "id": "24",
+    "imageSrc": "",
+    "character": "家庭",
+    "meaning": "Family",
+    "pinyin": "jiā tíng",
+    "audioSrc": ""
+  },
+  {
+    "id": "25",
+    "imageSrc": "",
+    "character": "孩子",
+    "meaning": "Child",
+    "pinyin": "hái zi",
+    "audioSrc": ""
+  },
+  {
+    "id": "26",
+    "imageSrc": "",
+    "character": "这样",
+    "meaning": "Like this",
+    "pinyin": "zhè yàng",
+    "audioSrc": ""
+  },
+  {
+    "id": "27",
+    "imageSrc": "",
+    "character": "风",
+    "meaning": "Wind",
+    "pinyin": "fēng",
+    "audioSrc": ""
+  },
+  {
+    "id": "28",
+    "imageSrc": "",
+    "character": "冷",
+    "meaning": "Cold",
+    "pinyin": "lěng",
+    "audioSrc": ""
+  },
+  {
+    "id": "29",
+    "imageSrc": "",
+    "character": "度",
+    "meaning": "Degree",
+    "pinyin": "dù",
+    "audioSrc": ""
+  },
+  {
+    "id": "30",
+    "imageSrc": "",
+    "character": "晴天",
+    "meaning": "Sunny day",
+    "pinyin": "qíng tiān",
+    "audioSrc": ""
+  },
+  {
+    "id": "31",
+    "imageSrc": "",
+    "character": "秋天",
+    "meaning": "Autumn",
+    "pinyin": "qiū tiān",
+    "audioSrc": ""
+  },
+  {
+    "id": "32",
+    "imageSrc": "",
+    "character": "天气",
+    "meaning": "Weather",
+    "pinyin": "tiān qì",
+    "audioSrc": ""
+  },
+  {
+    "id": "33",
+    "imageSrc": "",
+    "character": "热",
+    "meaning": "Hot",
+    "pinyin": "rè",
+    "audioSrc": ""
+  },
+  {
+    "id": "34",
+    "imageSrc": "",
+    "character": "季节",
+    "meaning": "Season",
+    "pinyin": "jì jié",
+    "audioSrc": ""
+  },
+  {
+    "id": "35",
+    "imageSrc": "",
+    "character": "冬天",
+    "meaning": "Winter",
+    "pinyin": "dōng tiān",
+    "audioSrc": ""
+  },
+  {
+    "id": "36",
+    "imageSrc": "",
+    "character": "最",
+    "meaning": "Most",
+    "pinyin": "zuì",
+    "audioSrc": ""
+  },
+  {
+    "id": "37",
+    "imageSrc": "",
+    "character": "雪",
+    "meaning": "Snow",
+    "pinyin": "xuě",
+    "audioSrc": ""
+  },
+  {
+    "id": "38",
+    "imageSrc": "",
+    "character": "夏天",
+    "meaning": "Summer",
+    "pinyin": "xià tiān",
+    "audioSrc": ""
+  },
+  {
+    "id": "39",
+    "imageSrc": "",
+    "character": "春天",
+    "meaning": "Spring",
+    "pinyin": "chūn tiān",
+    "audioSrc": ""
+  },
+  {
+    "id": "40",
+    "imageSrc": "",
+    "character": "听写",
+    "meaning": "Dictation",
+    "pinyin": "tīng xiě",
+    "audioSrc": ""
+  },
+  {
+    "id": "41",
+    "imageSrc": "",
+    "character": "酒吧",
+    "meaning": "Bar",
+    "pinyin": "jiǔ bā",
+    "audioSrc": ""
+  },
+  {
+    "id": "42",
+    "imageSrc": "",
+    "character": "对面",
+    "meaning": "Opposite side",
+    "pinyin": "duì miàn",
+    "audioSrc": ""
+  },
+  {
+    "id": "43",
+    "imageSrc": "",
+    "character": "唱歌",
+    "meaning": "Singing",
+    "pinyin": "chàng gē",
+    "audioSrc": ""
+  },
+  {
+    "id": "44",
+    "imageSrc": "",
+    "character": "购物",
+    "meaning": "Shopping",
+    "pinyin": "gòu wù",
+    "audioSrc": ""
+  },
+  {
+    "id": "45",
+    "imageSrc": "",
+    "character": "中心",
+    "meaning": "Center",
+    "pinyin": "zhōng xīn",
+    "audioSrc": ""
+  },
+  {
+    "id": "46",
+    "imageSrc": "",
+    "character": "质量",
+    "meaning": "Quality",
+    "pinyin": "zhì liàng",
+    "audioSrc": ""
+  },
+  {
+    "id": "47",
+    "imageSrc": "",
+    "character": "毛衣",
+    "meaning": "Sweater",
+    "pinyin": "máo yī",
+    "audioSrc": ""
+  },
+  {
+    "id": "48",
+    "imageSrc": "",
+    "character": "脏",
+    "meaning": "Dirty",
+    "pinyin": "zàng",
+    "audioSrc": ""
+  },
+  {
+    "id": "49",
+    "imageSrc": "",
+    "character": "漂亮",
+    "meaning": "Pretty / beautiful",
+    "pinyin": "piào liang",
+    "audioSrc": ""
+  },
+  {
+    "id": "50",
+    "imageSrc": "",
+    "character": "丢",
+    "meaning": "To lose",
+    "pinyin": "diū",
+    "audioSrc": ""
+  },
+  {
+    "id": "51",
+    "imageSrc": "",
+    "character": "灰",
+    "meaning": "Grey",
+    "pinyin": "huī",
+    "audioSrc": ""
+  },
+  {
+    "id": "52",
+    "imageSrc": "",
+    "character": "黄",
+    "meaning": "Yellow",
+    "pinyin": "huáng",
+    "audioSrc": ""
+  },
+  {
+    "id": "53",
+    "imageSrc": "",
+    "character": "礼物",
+    "meaning": "Gift",
+    "pinyin": "lǐ wù",
+    "audioSrc": ""
+  },
+  {
+    "id": "54",
+    "imageSrc": "",
+    "character": "蛋糕",
+    "meaning": "Cake",
+    "pinyin": "dàn gāo",
+    "audioSrc": ""
+  },
+  {
+    "id": "55",
+    "imageSrc": "",
+    "character": "可",
+    "meaning": "Can / may",
+    "pinyin": "kě",
+    "audioSrc": ""
+  },
+  {
+    "id": "56",
+    "imageSrc": "",
+    "character": "送",
+    "meaning": "To give / deliver",
+    "pinyin": "sòng",
+    "audioSrc": ""
+  },
+  {
+    "id": "57",
+    "imageSrc": "",
+    "character": "比如",
+    "meaning": "For example",
+    "pinyin": "bǐ rú",
+    "audioSrc": ""
+  },
+  {
+    "id": "58",
+    "imageSrc": "",
+    "character": "巧克力",
+    "meaning": "Chocolate",
+    "pinyin": "qiǎo kè lì",
+    "audioSrc": ""
+  },
+  {
+    "id": "59",
+    "imageSrc": "",
+    "character": "甜",
+    "meaning": "Sweet",
+    "pinyin": "tián",
+    "audioSrc": ""
+  },
+  {
+    "id": "60",
+    "imageSrc": "",
+    "character": "束",
+    "meaning": "Bunch / bouquet",
+    "pinyin": "shù",
+    "audioSrc": ""
+  },
+  {
+    "id": "61",
+    "imageSrc": "",
+    "character": "主意",
+    "meaning": "Idea",
+    "pinyin": "zhǔ yì",
+    "audioSrc": ""
+  },
+  {
+    "id": "62",
+    "imageSrc": "",
+    "character": "睡",
+    "meaning": "To sleep",
+    "pinyin": "shuì",
+    "audioSrc": ""
+  },
+  {
+    "id": "63",
+    "imageSrc": "",
+    "character": "懒觉",
+    "meaning": "To sleep in",
+    "pinyin": "lǎn jiào",
+    "audioSrc": ""
+  },
+  {
+    "id": "64",
+    "imageSrc": "",
+    "character": "逛",
+    "meaning": "To stroll / wander",
+    "pinyin": "guàng",
+    "audioSrc": ""
+  },
+  {
+    "id": "65",
+    "imageSrc": "",
+    "character": "不同",
+    "meaning": "Different",
+    "pinyin": "bù tóng",
+    "audioSrc": ""
+  },
+  {
+    "id": "66",
+    "imageSrc": "",
+    "character": "安排",
+    "meaning": "Arrangement",
+    "pinyin": "ān pái",
+    "audioSrc": ""
+  },
+  {
+    "id": "67",
+    "imageSrc": "",
+    "character": "包",
+    "meaning": "Bag",
+    "pinyin": "bāo",
+    "audioSrc": ""
+  },
+  {
+    "id": "68",
+    "imageSrc": "",
+    "character": "迪厅",
+    "meaning": "Disco / club",
+    "pinyin": "dí tīng",
+    "audioSrc": ""
+  },
+  {
+    "id": "69",
+    "imageSrc": "",
+    "character": "音乐会",
+    "meaning": "Concert",
+    "pinyin": "yīn yuè huì",
+    "audioSrc": ""
+  },
+  {
+    "id": "70",
+    "imageSrc": "",
+    "character": "心意",
+    "meaning": "Thoughtfulness / sentiment",
+    "pinyin": "xīn yì",
+    "audioSrc": ""
+  },
+  {
+    "id": "71",
+    "imageSrc": "",
+    "character": "果汁",
+    "meaning": "Fruit juice",
+    "pinyin": "guǒ zhī",
+    "audioSrc": ""
+  },
+  {
+    "id": "72",
+    "imageSrc": "",
+    "character": "随便",
+    "meaning": "As one pleases / casual",
+    "pinyin": "suí biàn",
+    "audioSrc": ""
+  },
+  {
+    "id": "73",
+    "imageSrc": "",
+    "character": "顺利",
+    "meaning": "Smoothly",
+    "pinyin": "shùn lì",
+    "audioSrc": ""
+  },
+  {
+    "id": "74",
+    "imageSrc": "",
+    "character": "打车",
+    "meaning": "To take a taxi",
+    "pinyin": "dǎ chē",
+    "audioSrc": ""
+  },
+  {
+    "id": "75",
+    "imageSrc": "",
+    "character": "大巴",
+    "meaning": "Coach / bus",
+    "pinyin": "dà bā",
+    "audioSrc": ""
+  },
+  {
+    "id": "76",
+    "imageSrc": "",
+    "character": "好吃",
+    "meaning": "Delicious",
+    "pinyin": "hǎo chī",
+    "audioSrc": ""
+  },
+  {
+    "id": "77",
+    "imageSrc": "",
+    "character": "味道",
+    "meaning": "Taste / flavor",
+    "pinyin": "wèi dào",
+    "audioSrc": ""
+  },
+  {
+    "id": "78",
+    "imageSrc": "",
+    "character": "大部分",
+    "meaning": "Most / majority",
+    "pinyin": "dà bù fèn",
+    "audioSrc": ""
+  },
+  {
+    "id": "79",
+    "imageSrc": "",
+    "character": "北方",
+    "meaning": "The North",
+    "pinyin": "běi fāng",
+    "audioSrc": ""
+  },
+  {
+    "id": "80",
+    "imageSrc": "",
+    "character": "节",
+    "meaning": "Festival",
+    "pinyin": "jié",
+    "audioSrc": ""
+  },
+  {
+    "id": "81",
+    "imageSrc": "",
+    "character": "啦",
+    "meaning": "(Particle indicating change/state)",
+    "pinyin": "la",
+    "audioSrc": ""
+  },
+  {
+    "id": "82",
+    "imageSrc": "",
+    "character": "南方",
+    "meaning": "The South",
+    "pinyin": "nán fāng",
+    "audioSrc": ""
+  },
+  {
+    "id": "83",
+    "imageSrc": "",
+    "character": "面食",
+    "meaning": "Wheat-based food",
+    "pinyin": "miàn shí",
+    "audioSrc": ""
+  },
+  {
+    "id": "84",
+    "imageSrc": "",
+    "character": "这样",
+    "meaning": "Like this",
+    "pinyin": "zhè yàng",
+    "audioSrc": ""
+  },
+  {
+    "id": "85",
+    "imageSrc": "",
+    "character": "重要",
+    "meaning": "Important",
+    "pinyin": "zhòng yào",
+    "audioSrc": ""
+  },
+  {
+    "id": "86",
+    "imageSrc": "",
+    "character": "食品",
+    "meaning": "Food",
+    "pinyin": "shí pǐn",
+    "audioSrc": ""
+  },
+  {
+    "id": "87",
+    "imageSrc": "",
+    "character": "麻烦",
+    "meaning": "Trouble / hassle",
+    "pinyin": "má fan",
+    "audioSrc": ""
+  },
+  {
+    "id": "88",
+    "imageSrc": "",
+    "character": "馅儿",
+    "meaning": "Filling",
+    "pinyin": "xiànr",
+    "audioSrc": ""
+  },
+  {
+    "id": "89",
+    "imageSrc": "",
+    "character": "速冻",
+    "meaning": "Quick-frozen",
+    "pinyin": "sù dòng",
+    "audioSrc": ""
+  },
+  {
+    "id": "90",
+    "imageSrc": "",
+    "character": "如果",
+    "meaning": "If",
+    "pinyin": "rú guǒ",
+    "audioSrc": ""
+  },
+  {
+    "id": "91",
+    "imageSrc": "",
+    "character": "的话",
+    "meaning": "(Conditional marker)",
+    "pinyin": "de huà",
+    "audioSrc": ""
+  },
+  {
+    "id": "92",
+    "imageSrc": "",
+    "character": "袋",
+    "meaning": "Bag",
+    "pinyin": "dài",
+    "audioSrc": ""
+  },
+  {
+    "id": "93",
+    "imageSrc": "",
+    "character": "偷懒",
+    "meaning": "To slack off",
+    "pinyin": "tōu lǎn",
+    "audioSrc": ""
+  },
+  {
+    "id": "94",
+    "imageSrc": "",
+    "character": "热闹",
+    "meaning": "Lively / bustling",
+    "pinyin": "rè nào",
+    "audioSrc": ""
+  },
+  {
+    "id": "95",
+    "imageSrc": "",
+    "character": "夜",
+    "meaning": "Night",
+    "pinyin": "yè",
+    "audioSrc": ""
+  },
+  {
+    "id": "96",
+    "imageSrc": "",
+    "character": "起",
+    "meaning": "To get up",
+    "pinyin": "qǐ",
+    "audioSrc": ""
+  },
+  {
+    "id": "97",
+    "imageSrc": "",
+    "character": "毛病",
+    "meaning": "Problem / fault",
+    "pinyin": "máo bìng",
+    "audioSrc": ""
+  },
+  {
+    "id": "98",
+    "imageSrc": "",
+    "character": "改",
+    "meaning": "To correct / change",
+    "pinyin": "gǎi",
+    "audioSrc": ""
+  }
+]
