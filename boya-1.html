@@ -471,7 +471,8 @@
         const DATA_FILES = {
             transcript: 'data/boya-transcript.json',
             sentences: 'data/boya-sentences.json',
-            images: 'data/imagesData.json'
+            images: 'data/imagesData.json',
+            newWords: 'data/newword-plus.json'
         };
 
         // ---------- Lesson groups (edit titles and id ranges here) ----------
@@ -719,17 +720,27 @@
                 return;
             }
 
-            const [sent, imgs] = await Promise.allSettled([
-                fetchJson(DATA_FILES.sentences),
-                fetchJson(DATA_FILES.images)
-            ]);
+            const [sent, imgs, nw] = await Promise.allSettled([
+    fetchJson(DATA_FILES.sentences),
+    fetchJson(DATA_FILES.images),
+    fetchJson(DATA_FILES.newWords)
+]);
 
-            if (sent.status === 'fulfilled' && Array.isArray(sent.value)) {
-                st.sentenceMap = new Map(sent.value.map(s => [s.id, s]));
-            }
-            if (imgs.status === 'fulfilled' && Array.isArray(imgs.value)) {
-                st.imagesMap = new Map(imgs.value.map(i => [i.character, i]));
-            }
+if (sent.status === 'fulfilled' && Array.isArray(sent.value)) {
+    st.sentenceMap = new Map(sent.value.map(s => [s.id, s]));
+}
+
+// Gộp cả hai nguồn vào một Map. Nếu một chữ có ở cả hai file,
+// thông tin từ imagesData.json sẽ ghi đè lên newword-plus.json cùng trường.
+const merged = new Map();
+[nw, imgs].forEach(result => {
+    if (result.status === 'fulfilled' && Array.isArray(result.value)) {
+        result.value.forEach(item => {
+            merged.set(item.character, { ...merged.get(item.character), ...item });
+        });
+    }
+});
+st.imagesMap = merged;
 
             renderTranscript();
         }
