@@ -782,5 +782,29 @@
     "meaning": "To correct / change",
     "pinyin": "gǎi",
     "audioSrc": ""
+  },
+  {
+    "id": "99",
+    "imageSrc": "",
+    "character": "儿",
+    "meaning": "Auxiliary verb",
+    "pinyin": "er",
+    "audioSrc": ""
+  },
+  {
+    "id": "100",
+    "imageSrc": "",
+    "character": "干",
+    "meaning": "do, work, dry...",
+    "pinyin": "Gàn",
+    "audioSrc": ""
+  },
+  {
+    "id": "101",
+    "imageSrc": "",
+    "character": "作业",
+    "meaning": "homework, school assignment,task,...",
+    "pinyin": "zuò yè",
+    "audioSrc": ""
   }
 ]
