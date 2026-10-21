@@ -2,7 +2,7 @@
   "metadata": {
     "totalSentences": 283,
     "totalDuration": 909.61,
-    "convertedAt": "2026-10-21T22:17:35.795Z",
+    "convertedAt": "2026-10-21T22:19:36.212Z",
     "hasPinyin": true
   },
   "sentences": [
@@ -7324,7 +7324,8 @@
         {
           "chars": "干",
           "startTime": 447.2,
-          "duration": 0.12
+          "duration": 0.12,
+          "pinyin": "Gàn"
         },
         {
           "chars": "什么",
@@ -7361,7 +7362,8 @@
         {
           "chars": "作业",
           "startTime": 449.16,
-          "duration": 0.36
+          "duration": 0.36,
+          "pinyin": "zuò yè"
         },
         {
           "chars": "呢",
@@ -7437,7 +7439,8 @@
         {
           "chars": "作业",
           "startTime": 453.48,
-          "duration": 0.5
+          "duration": 0.5,
+          "pinyin": "zuò yè"
         },
         {
           "chars": "吗",
@@ -7653,7 +7656,8 @@
         {
           "chars": "作业",
           "startTime": 464.43,
-          "duration": 0.47
+          "duration": 0.47,
+          "pinyin": "zuò yè"
         },
         {
           "chars": "很",
@@ -7706,7 +7710,8 @@
         {
           "chars": "干",
           "startTime": 467.7,
-          "duration": 0.16
+          "duration": 0.16,
+          "pinyin": "Gàn"
         },
         {
           "chars": "什么",
@@ -8528,7 +8533,8 @@
         {
           "chars": "干",
           "startTime": 516.09,
-          "duration": 0.24
+          "duration": 0.24,
+          "pinyin": "Gàn"
         },
         {
           "chars": "什么",
@@ -11249,7 +11255,8 @@
         {
           "chars": "儿",
           "startTime": 666.74,
-          "duration": 0.08
+          "duration": 0.08,
+          "pinyin": "er"
         },
         {
           "chars": "玩儿",
@@ -11425,7 +11432,8 @@
         {
           "chars": "干",
           "startTime": 675.85,
-          "duration": 0.22
+          "duration": 0.22,
+          "pinyin": "Gàn"
         },
         {
           "chars": "什么",
@@ -11532,7 +11540,8 @@
         {
           "chars": "作业",
           "startTime": 681.57,
-          "duration": 0.44
+          "duration": 0.44,
+          "pinyin": "zuò yè"
         },
         {
           "chars": ",",
@@ -11760,7 +11769,8 @@
         {
           "chars": "干",
           "startTime": 695.46,
-          "duration": 0.24
+          "duration": 0.24,
+          "pinyin": "Gàn"
         },
         {
           "chars": "什么",
@@ -12001,7 +12011,8 @@
         {
           "chars": "干",
           "startTime": 708.43,
-          "duration": 0.26
+          "duration": 0.26,
+          "pinyin": "Gàn"
         },
         {
           "chars": "什么",
