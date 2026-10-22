@@ -796,7 +796,7 @@
     "imageSrc": "",
     "character": "干",
     "meaning": "do, work, dry...",
-    "pinyin": "Gàn",
+    "pinyin": "gàn",
     "audioSrc": ""
   },
   {
@@ -805,6 +805,62 @@
     "character": "作业",
     "meaning": "homework, school assignment,task,...",
     "pinyin": "zuò yè",
+    "audioSrc": ""
+  },
+  {
+    "id": "102",
+    "imageSrc": "",
+    "character": "干净",
+    "meaning": "clean, neat",
+    "pinyin": "gān jìng",
+    "audioSrc": ""
+  },
+  {
+    "id": "103",
+    "imageSrc": "",
+    "character": "给",
+    "meaning": "to give, for",
+    "pinyin": "gěi",
+    "audioSrc": ""
+  },
+  {
+    "id": "104",
+    "imageSrc": "",
+    "character": "哎呀",
+    "meaning": "Oops",
+    "pinyin": "āi yā",
+    "audioSrc": ""
+  },
+  {
+    "id": "105",
+    "imageSrc": "",
+    "character": "路上",
+    "meaning": "on the road",
+    "pinyin": "lù shàng",
+    "audioSrc": ""
+  },
+  {
+    "id": "106",
+    "imageSrc": "",
+    "character": "一般",
+    "meaning": "generally",
+    "pinyin": "yī bān",
+    "audioSrc": ""
+  },
+  {
+    "id": "107",
+    "imageSrc": "",
+    "character": "空调",
+    "meaning": "air conditioner",
+    "pinyin": "kòng tiáo",
+    "audioSrc": ""
+  },
+  {
+    "id": "108",
+    "imageSrc": "",
+    "character": "饿",
+    "meaning": "hungry",
+    "pinyin": "è",
     "audioSrc": ""
   }
 ]
