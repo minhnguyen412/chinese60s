@@ -2,7 +2,7 @@
   "metadata": {
     "totalSentences": 283,
     "totalDuration": 909.61,
-    "convertedAt": "2026-10-21T22:19:36.212Z",
+    "convertedAt": "2026-10-22T21:28:24.995Z",
     "hasPinyin": true
   },
   "sentences": [
@@ -5333,7 +5333,8 @@
         {
           "chars": "给",
           "startTime": 326.47,
-          "duration": 0.26
+          "duration": 0.26,
+          "pinyin": "gěi"
         },
         {
           "chars": "你",
@@ -6027,7 +6028,8 @@
         {
           "chars": "一般",
           "startTime": 368.84,
-          "duration": 0.56
+          "duration": 0.56,
+          "pinyin": "yī bān"
         },
         {
           "chars": "只",
@@ -7325,7 +7327,7 @@
           "chars": "干",
           "startTime": 447.2,
           "duration": 0.12,
-          "pinyin": "Gàn"
+          "pinyin": "gàn"
         },
         {
           "chars": "什么",
@@ -7711,7 +7713,7 @@
           "chars": "干",
           "startTime": 467.7,
           "duration": 0.16,
-          "pinyin": "Gàn"
+          "pinyin": "gàn"
         },
         {
           "chars": "什么",
@@ -8534,7 +8536,7 @@
           "chars": "干",
           "startTime": 516.09,
           "duration": 0.24,
-          "pinyin": "Gàn"
+          "pinyin": "gàn"
         },
         {
           "chars": "什么",
@@ -10308,7 +10310,8 @@
         {
           "chars": "给",
           "startTime": 615.56,
-          "duration": 0.16
+          "duration": 0.16,
+          "pinyin": "gěi"
         },
         {
           "chars": "她",
@@ -10570,7 +10573,8 @@
         {
           "chars": "给",
           "startTime": 629,
-          "duration": 0.22
+          "duration": 0.22,
+          "pinyin": "gěi"
         },
         {
           "chars": "谁",
@@ -11433,7 +11437,7 @@
           "chars": "干",
           "startTime": 675.85,
           "duration": 0.22,
-          "pinyin": "Gàn"
+          "pinyin": "gàn"
         },
         {
           "chars": "什么",
@@ -11770,7 +11774,7 @@
           "chars": "干",
           "startTime": 695.46,
           "duration": 0.24,
-          "pinyin": "Gàn"
+          "pinyin": "gàn"
         },
         {
           "chars": "什么",
@@ -12012,7 +12016,7 @@
           "chars": "干",
           "startTime": 708.43,
           "duration": 0.26,
-          "pinyin": "Gàn"
+          "pinyin": "gàn"
         },
         {
           "chars": "什么",
@@ -12202,7 +12206,8 @@
         {
           "chars": "干净",
           "startTime": 723.65,
-          "duration": 0.42
+          "duration": 0.42,
+          "pinyin": "gān jìng"
         },
         {
           "chars": "啊",
@@ -12299,7 +12304,8 @@
         {
           "chars": "给",
           "startTime": 728.51,
-          "duration": 0.24
+          "duration": 0.24,
+          "pinyin": "gěi"
         },
         {
           "chars": "您",
@@ -12336,7 +12342,8 @@
         {
           "chars": "哎呀",
           "startTime": 730.27,
-          "duration": 0.46
+          "duration": 0.46,
+          "pinyin": "āi yā"
         },
         {
           "chars": ",",
@@ -12592,7 +12599,8 @@
         {
           "chars": "路上",
           "startTime": 745.03,
-          "duration": 0.44
+          "duration": 0.44,
+          "pinyin": "lù shàng"
         },
         {
           "chars": "顺利",
@@ -12696,7 +12704,8 @@
         {
           "chars": "一般",
           "startTime": 750.41,
-          "duration": 0.36
+          "duration": 0.36,
+          "pinyin": "yī bān"
         },
         {
           "chars": "坐",
@@ -12768,7 +12777,8 @@
         {
           "chars": "空调",
           "startTime": 756.38,
-          "duration": 0.52
+          "duration": 0.52,
+          "pinyin": "kòng tiáo"
         },
         {
           "chars": "大巴",
@@ -12849,7 +12859,8 @@
         {
           "chars": "饿",
           "startTime": 761.63,
-          "duration": 0.22
+          "duration": 0.22,
+          "pinyin": "è"
         },
         {
           "chars": "不",
@@ -12860,7 +12871,8 @@
         {
           "chars": "饿",
           "startTime": 762.07,
-          "duration": 0.28
+          "duration": 0.28,
+          "pinyin": "è"
         },
         {
           "chars": "?",
@@ -13415,7 +13427,8 @@
         {
           "chars": "一般",
           "startTime": 795.98,
-          "duration": 0.48
+          "duration": 0.48,
+          "pinyin": "yī bān"
         },
         {
           "chars": "都",
@@ -14658,7 +14671,8 @@
         {
           "chars": "一般",
           "startTime": 873.1,
-          "duration": 0.44
+          "duration": 0.44,
+          "pinyin": "yī bān"
         },
         {
           "chars": "早上",
@@ -14768,7 +14782,8 @@
         {
           "chars": "一般",
           "startTime": 880.97,
-          "duration": 0.46
+          "duration": 0.46,
+          "pinyin": "yī bān"
         },
         {
           "chars": "十",
