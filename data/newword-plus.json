@@ -862,5 +862,717 @@
     "meaning": "hungry",
     "pinyin": "è",
     "audioSrc": ""
+  },
+  {
+    "id": "109",
+    "imageSrc": "",
+    "character": "差不多",
+    "meaning": "almost; nearly; approximately",
+    "pinyin": "chàbuduō",
+    "audioSrc": ""
+  },
+  {
+    "id": "110",
+    "imageSrc": "",
+    "character": "不好意思",
+    "meaning": "embarrassed; excuse me",
+    "pinyin": "bù hǎo yìsi",
+    "audioSrc": ""
+  },
+  {
+    "id": "111",
+    "imageSrc": "",
+    "character": "夜里",
+    "meaning": "at night; during the night",
+    "pinyin": "yèli",
+    "audioSrc": ""
+  },
+  {
+    "id": "112",
+    "imageSrc": "",
+    "character": "年纪",
+    "meaning": "age",
+    "pinyin": "niánjì",
+    "audioSrc": ""
+  },
+  {
+    "id": "113",
+    "imageSrc": "",
+    "character": "生气",
+    "meaning": "to get angry",
+    "pinyin": "shēngqì",
+    "audioSrc": ""
+  },
+  {
+    "id": "114",
+    "imageSrc": "",
+    "character": "好像",
+    "meaning": "seem; look like; as if",
+    "pinyin": "hǎoxiàng",
+    "audioSrc": ""
+  },
+  {
+    "id": "115",
+    "imageSrc": "",
+    "character": "脸色",
+    "meaning": "facial expression; complexion",
+    "pinyin": "liǎnsè",
+    "audioSrc": ""
+  },
+  {
+    "id": "116",
+    "imageSrc": "",
+    "character": "熬夜",
+    "meaning": "to stay up late",
+    "pinyin": "áoyè",
+    "audioSrc": ""
+  },
+  {
+    "id": "117",
+    "imageSrc": "",
+    "character": "白酒",
+    "meaning": "Chinese distilled liquor",
+    "pinyin": "báijiǔ",
+    "audioSrc": ""
+  },
+  {
+    "id": "118",
+    "imageSrc": "",
+    "character": "疯",
+    "meaning": "crazy; mad",
+    "pinyin": "fēng",
+    "audioSrc": ""
+  },
+  {
+    "id": "119",
+    "imageSrc": "",
+    "character": "醉",
+    "meaning": "drunk; intoxicated",
+    "pinyin": "zuì",
+    "audioSrc": ""
+  },
+  {
+    "id": "120",
+    "imageSrc": "",
+    "character": "吐",
+    "meaning": "to vomit; to throw up",
+    "pinyin": "tù",
+    "audioSrc": ""
+  },
+  {
+    "id": "121",
+    "imageSrc": "",
+    "character": "热情",
+    "meaning": "enthusiastic; warm; hospitality",
+    "pinyin": "rèqíng",
+    "audioSrc": ""
+  },
+  {
+    "id": "122",
+    "imageSrc": "",
+    "character": "地",
+    "meaning": "adverbial particle",
+    "pinyin": "de",
+    "audioSrc": ""
+  },
+  {
+    "id": "123",
+    "imageSrc": "",
+    "character": "倒",
+    "meaning": "to pour; to tip over",
+    "pinyin": "dào",
+    "audioSrc": ""
+  },
+  {
+    "id": "124",
+    "imageSrc": "",
+    "character": "请客",
+    "meaning": "to treat someone; to pay for a meal",
+    "pinyin": "qǐngkè",
+    "audioSrc": ""
+  },
+  {
+    "id": "125",
+    "imageSrc": "",
+    "character": "有的",
+    "meaning": "some; some of them",
+    "pinyin": "yǒude",
+    "audioSrc": ""
+  },
+  {
+    "id": "126",
+    "imageSrc": "",
+    "character": "劝酒",
+    "meaning": "to urge someone to drink alcohol",
+    "pinyin": "quànjiǔ",
+    "audioSrc": ""
+  },
+  {
+    "id": "127",
+    "imageSrc": "",
+    "character": "困",
+    "meaning": "sleepy; tired",
+    "pinyin": "kùn",
+    "audioSrc": ""
+  },
+  {
+    "id": "128",
+    "imageSrc": "",
+    "character": "继续",
+    "meaning": "to continue; to keep going",
+    "pinyin": "jìxù",
+    "audioSrc": ""
+  },
+  {
+    "id": "129",
+    "imageSrc": "",
+    "character": "下雨",
+    "meaning": "to rain",
+    "pinyin": "xiàyǔ",
+    "audioSrc": ""
+  },
+  {
+    "id": "130",
+    "imageSrc": "",
+    "character": "伞",
+    "meaning": "umbrella",
+    "pinyin": "sǎn",
+    "audioSrc": ""
+  },
+  {
+    "id": "131",
+    "imageSrc": "",
+    "character": "针",
+    "meaning": "needle",
+    "pinyin": "zhēn",
+    "audioSrc": ""
+  },
+  {
+    "id": "132",
+    "imageSrc": "",
+    "character": "最好",
+    "meaning": "best; had better",
+    "pinyin": "zuìhǎo",
+    "audioSrc": ""
+  },
+  {
+    "id": "133",
+    "imageSrc": "",
+    "character": "请假条",
+    "meaning": "leave request note; written absence request",
+    "pinyin": "qǐngjiàtiáo",
+    "audioSrc": ""
+  },
+  {
+    "id": "134",
+    "imageSrc": "",
+    "character": "好的",
+    "meaning": "okay; all right",
+    "pinyin": "hǎo de",
+    "audioSrc": ""
+  },
+  {
+    "id": "135",
+    "imageSrc": "",
+    "character": "假",
+    "meaning": "leave; holiday; vacation",
+    "pinyin": "jià",
+    "audioSrc": ""
+  },
+  {
+    "id": "136",
+    "imageSrc": "",
+    "character": "希望",
+    "meaning": "to hope; hope",
+    "pinyin": "xīwàng",
+    "audioSrc": ""
+  },
+  {
+    "id": "137",
+    "imageSrc": "",
+    "character": "批准",
+    "meaning": "to approve; to grant permission",
+    "pinyin": "pīzhǔn",
+    "audioSrc": ""
+  },
+  {
+    "id": "138",
+    "imageSrc": "",
+    "character": "迟到",
+    "meaning": "to be late",
+    "pinyin": "chídào",
+    "audioSrc": ""
+  },
+  {
+    "id": "139",
+    "imageSrc": "",
+    "character": "坏",
+    "meaning": "bad; broken; spoiled",
+    "pinyin": "huài",
+    "audioSrc": ""
+  },
+  {
+    "id": "140",
+    "imageSrc": "",
+    "character": "轮胎",
+    "meaning": "tyre; tire",
+    "pinyin": "lúntāi",
+    "audioSrc": ""
+  },
+  {
+    "id": "141",
+    "imageSrc": "",
+    "character": "破",
+    "meaning": "broken; damaged; to break",
+    "pinyin": "pò",
+    "audioSrc": ""
+  },
+  {
+    "id": "142",
+    "imageSrc": "",
+    "character": "倒霉",
+    "meaning": "unlucky; to have bad luck",
+    "pinyin": "dǎoméi",
+    "audioSrc": ""
+  },
+  {
+    "id": "143",
+    "imageSrc": "",
+    "character": "多长",
+    "meaning": "how long",
+    "pinyin": "duō cháng",
+    "audioSrc": ""
+  },
+  {
+    "id": "144",
+    "imageSrc": "",
+    "character": "平时",
+    "meaning": "usually; ordinarily; normally",
+    "pinyin": "píngshí",
+    "audioSrc": ""
+  },
+  {
+    "id": "145",
+    "imageSrc": "",
+    "character": "着急",
+    "meaning": "anxious; worried; to be in a hurry",
+    "pinyin": "zháojí",
+    "audioSrc": ""
+  },
+  {
+    "id": "146",
+    "imageSrc": "",
+    "character": "没事",
+    "meaning": "it's okay; nothing is wrong",
+    "pinyin": "méi shì",
+    "audioSrc": ""
+  },
+  {
+    "id": "147",
+    "imageSrc": "",
+    "character": "认识",
+    "meaning": "to know; to recognize; to meet",
+    "pinyin": "rènshi",
+    "audioSrc": ""
+  },
+  {
+    "id": "148",
+    "imageSrc": "",
+    "character": "谢",
+    "meaning": "to thank",
+    "pinyin": "xiè",
+    "audioSrc": ""
+  },
+  {
+    "id": "149",
+    "imageSrc": "",
+    "character": "对",
+    "meaning": "correct; right; towards",
+    "pinyin": "duì",
+    "audioSrc": ""
+  },
+  {
+    "id": "150",
+    "imageSrc": "",
+    "character": "不过",
+    "meaning": "but; however",
+    "pinyin": "búguò",
+    "audioSrc": ""
+  },
+  {
+    "id": "151",
+    "imageSrc": "",
+    "character": "校园",
+    "meaning": "campus; school grounds",
+    "pinyin": "xiàoyuán",
+    "audioSrc": ""
+  },
+  {
+    "id": "152",
+    "imageSrc": "",
+    "character": "东",
+    "meaning": "east",
+    "pinyin": "dōng",
+    "audioSrc": ""
+  },
+  {
+    "id": "153",
+    "imageSrc": "",
+    "character": "幺",
+    "meaning": "one (used when pronouncing digits)",
+    "pinyin": "yāo",
+    "audioSrc": ""
+  },
+  {
+    "id": "154",
+    "imageSrc": "",
+    "character": "爷爷",
+    "meaning": "grandfather (paternal)",
+    "pinyin": "yéye",
+    "audioSrc": ""
+  },
+  {
+    "id": "155",
+    "imageSrc": "",
+    "character": "奶奶",
+    "meaning": "grandmother (paternal)",
+    "pinyin": "nǎinai",
+    "audioSrc": ""
+  },
+  {
+    "id": "156",
+    "imageSrc": "",
+    "character": "游泳",
+    "meaning": "to swim; swimming",
+    "pinyin": "yóuyǒng",
+    "audioSrc": ""
+  },
+  {
+    "id": "157",
+    "imageSrc": "",
+    "character": "每天",
+    "meaning": "every day",
+    "pinyin": "měitiān",
+    "audioSrc": ""
+  },
+  {
+    "id": "158",
+    "imageSrc": "",
+    "character": "帽衣",
+    "meaning": "hat and clothing",
+    "pinyin": "màoyī",
+    "audioSrc": ""
+  },
+  {
+    "id": "159",
+    "imageSrc": "",
+    "character": "挺",
+    "meaning": "quite; rather; very",
+    "pinyin": "tǐng",
+    "audioSrc": ""
+  },
+  {
+    "id": "160",
+    "imageSrc": "",
+    "character": "它",
+    "meaning": "it (for animals or things)",
+    "pinyin": "tā",
+    "audioSrc": ""
+  },
+  {
+    "id": "161",
+    "imageSrc": "",
+    "character": "多",
+    "meaning": "many; much; more",
+    "pinyin": "duō",
+    "audioSrc": ""
+  },
+  {
+    "id": "162",
+    "imageSrc": "",
+    "character": "同",
+    "meaning": "same; together; with",
+    "pinyin": "tóng",
+    "audioSrc": ""
+  },
+  {
+    "id": "163",
+    "imageSrc": "",
+    "character": "客人",
+    "meaning": "guest; visitor; customer",
+    "pinyin": "kèrén",
+    "audioSrc": ""
+  },
+  {
+    "id": "164",
+    "imageSrc": "",
+    "character": "有意思",
+    "meaning": "interesting; enjoyable",
+    "pinyin": "yǒu yìsi",
+    "audioSrc": ""
+  },
+  {
+    "id": "165",
+    "imageSrc": "",
+    "character": "习惯",
+    "meaning": "habit; to be accustomed to",
+    "pinyin": "xíguàn",
+    "audioSrc": ""
+  },
+  {
+    "id": "166",
+    "imageSrc": "",
+    "character": "生活",
+    "meaning": "life; to live",
+    "pinyin": "shēnghuó",
+    "audioSrc": ""
+  },
+  {
+    "id": "167",
+    "imageSrc": "",
+    "character": "刚来",
+    "meaning": "just arrived; just came",
+    "pinyin": "gāng lái",
+    "audioSrc": ""
+  },
+  {
+    "id": "168",
+    "imageSrc": "",
+    "character": "无聊",
+    "meaning": "boring; bored",
+    "pinyin": "wúliáo",
+    "audioSrc": ""
+  },
+  {
+    "id": "169",
+    "imageSrc": "",
+    "character": "做梦",
+    "meaning": "to dream; to have a dream",
+    "pinyin": "zuòmèng",
+    "audioSrc": ""
+  },
+  {
+    "id": "170",
+    "imageSrc": "",
+    "character": "幸福",
+    "meaning": "happiness; happy",
+    "pinyin": "xìngfú",
+    "audioSrc": ""
+  },
+  {
+    "id": "171",
+    "imageSrc": "",
+    "character": "被",
+    "meaning": "passive marker; to be affected by",
+    "pinyin": "bèi",
+    "audioSrc": ""
+  },
+  {
+    "id": "172",
+    "imageSrc": "",
+    "character": "考试",
+    "meaning": "exam; examination; to take an exam",
+    "pinyin": "kǎoshì",
+    "audioSrc": ""
+  },
+  {
+    "id": "173",
+    "imageSrc": "",
+    "character": "累",
+    "meaning": "tired; exhausted",
+    "pinyin": "lèi",
+    "audioSrc": ""
+  },
+  {
+    "id": "174",
+    "imageSrc": "",
+    "character": "死",
+    "meaning": "to die; death",
+    "pinyin": "sǐ",
+    "audioSrc": ""
+  },
+  {
+    "id": "175",
+    "imageSrc": "",
+    "character": "医生",
+    "meaning": "doctor; physician",
+    "pinyin": "yīshēng",
+    "audioSrc": ""
+  },
+  {
+    "id": "176",
+    "imageSrc": "",
+    "character": "同意",
+    "meaning": "to agree; to consent",
+    "pinyin": "tóngyì",
+    "audioSrc": ""
+  },
+  {
+    "id": "177",
+    "imageSrc": "",
+    "character": "炒菜",
+    "meaning": "to stir-fry; stir-fried dish",
+    "pinyin": "chǎocài",
+    "audioSrc": ""
+  },
+  {
+    "id": "178",
+    "imageSrc": "",
+    "character": "得",
+    "meaning": "must; have to",
+    "pinyin": "děi",
+    "audioSrc": ""
+  },
+  {
+    "id": "179",
+    "imageSrc": "",
+    "character": "停",
+    "meaning": "to stop; to park",
+    "pinyin": "tíng",
+    "audioSrc": ""
+  },
+  {
+    "id": "180",
+    "imageSrc": "",
+    "character": "渴",
+    "meaning": "thirsty",
+    "pinyin": "kě",
+    "audioSrc": ""
+  },
+  {
+    "id": "181",
+    "imageSrc": "",
+    "character": "前天",
+    "meaning": "the day before yesterday",
+    "pinyin": "qiántiān",
+    "audioSrc": ""
+  },
+  {
+    "id": "182",
+    "imageSrc": "",
+    "character": "场",
+    "meaning": "field; place; measure word for events",
+    "pinyin": "chǎng",
+    "audioSrc": ""
+  },
+  {
+    "id": "183",
+    "imageSrc": "",
+    "character": "钟头",
+    "meaning": "hour",
+    "pinyin": "zhōngtóu",
+    "audioSrc": ""
+  },
+  {
+    "id": "184",
+    "imageSrc": "",
+    "character": "大卫",
+    "meaning": "David",
+    "pinyin": "Dàwèi",
+    "audioSrc": ""
+  },
+  {
+    "id": "185",
+    "imageSrc": "",
+    "character": "刘",
+    "meaning": "Liu (Chinese surname)",
+    "pinyin": "Liú",
+    "audioSrc": ""
+  },
+  {
+    "id": "186",
+    "imageSrc": "",
+    "character": "刘明",
+    "meaning": "Liu Ming (person's name)",
+    "pinyin": "Liú Míng",
+    "audioSrc": ""
+  },
+  {
+    "id": "187",
+    "imageSrc": "",
+    "character": "玛丽",
+    "meaning": "Mary",
+    "pinyin": "Mǎlì",
+    "audioSrc": ""
+  },
+  {
+    "id": "188",
+    "imageSrc": "",
+    "character": "李军",
+    "meaning": "Li Jun (person's name)",
+    "pinyin": "Lǐ Jūn",
+    "audioSrc": ""
+  },
+  {
+    "id": "189",
+    "imageSrc": "",
+    "character": "加拿大",
+    "meaning": "Canada",
+    "pinyin": "Jiānádà",
+    "audioSrc": ""
+  },
+  {
+    "id": "190",
+    "imageSrc": "",
+    "character": "汉日",
+    "meaning": "Chinese-Japanese",
+    "pinyin": "Hàn-Rì",
+    "audioSrc": ""
+  },
+  {
+    "id": "191",
+    "imageSrc": "",
+    "character": "日本",
+    "meaning": "Japan",
+    "pinyin": "Rìběn",
+    "audioSrc": ""
+  },
+  {
+    "id": "192",
+    "imageSrc": "",
+    "character": "张红",
+    "meaning": "Zhang Hong (person's name)",
+    "pinyin": "Zhāng Hóng",
+    "audioSrc": ""
+  },
+  {
+    "id": "193",
+    "imageSrc": "",
+    "character": "北京",
+    "meaning": "Beijing",
+    "pinyin": "Běijīng",
+    "audioSrc": ""
+  },
+  {
+    "id": "194",
+    "imageSrc": "",
+    "character": "清华",
+    "meaning": "Tsinghua University",
+    "pinyin": "Qīnghuá",
+    "audioSrc": ""
+  },
+  {
+    "id": "195",
+    "imageSrc": "",
+    "character": "中村",
+    "meaning": "Nakamura (Japanese surname)",
+    "pinyin": "Zhōngcūn",
+    "audioSrc": ""
+  },
+  {
+    "id": "196",
+    "imageSrc": "",
+    "character": "英汉",
+    "meaning": "English-Chinese",
+    "pinyin": "Yīng-Hàn",
+    "audioSrc": ""
+  },
+  {
+    "id": "197",
+    "imageSrc": "",
+    "character": "麦当劳",
+    "meaning": "McDonald's",
+    "pinyin": "Màidāngláo",
+    "audioSrc": ""
   }
 ]
