@@ -2,7 +2,7 @@
   "metadata": {
     "totalSentences": 352,
     "totalDuration": 1187.3,
-    "convertedAt": "2026-11-10T22:20:58.731Z",
+    "convertedAt": "2026-11-10T22:45:36.833Z",
     "hasPinyin": true
   },
   "sentences": [
@@ -18829,7 +18829,7 @@
       "startTime": 1138.23,
       "endTime": 1142.78,
       "duration": 4.55,
-      "text": "大卫,二零二4四年九月1十k22}九日。",
+      "text": "大卫,二零二四年九月十{k22}九日。",
       "characters": [
         {
           "chars": "大卫",
@@ -18861,9 +18861,10 @@
           "pinyin": "èr"
         },
         {
-          "chars": "4四",
+          "chars": "四",
           "startTime": 1140.17,
-          "duration": 0.22
+          "duration": 0.22,
+          "pinyin": "sì"
         },
         {
           "chars": "年",
@@ -18884,9 +18885,10 @@
           "pinyin": "yuè"
         },
         {
-          "chars": "1十k22}九",
+          "chars": "十",
           "startTime": 1141.55,
-          "duration": 0.28
+          "duration": 0.28,
+          "pinyin": "shí"
         },
         {
           "chars": "日",
