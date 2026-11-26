@@ -2110,5 +2110,89 @@
     "title": "没事",
     "english": "It's okay.",
     "vietnamese": "Không sao."
+  },
+  {
+    "id": 353,
+    "title": "你用英语写的作文真不错",
+    "english": "The essay you wrote in English is really good.",
+    "vietnamese": "Bài luận bạn viết bằng tiếng Anh thực sự rất tốt."
+  },
+  {
+    "id": 354,
+    "title": "谢谢",
+    "english": "Thanks.",
+    "vietnamese": "Cảm ơn bạn."
+  },
+  {
+    "id": 355,
+    "title": "不过我的口语还不行",
+    "english": "But my spoken English still isn't very good.",
+    "vietnamese": "Nhưng khả năng nói tiếng Anh của tôi vẫn chưa được tốt lắm."
+  },
+  {
+    "id": 356,
+    "title": "我看挺好的",
+    "english": "I think it’s actually quite good.",
+    "vietnamese": "Tôi lại thấy nó khá ổn đấy chứ."
+  },
+  {
+    "id": 357,
+    "title": "你学了多长时间英语？",
+    "english": "How long have you been studying English?",
+    "vietnamese": "Bạn đã học tiếng Anh được bao lâu rồi?"
+  },
+  {
+    "id": 358,
+    "title": "我从初中开始学习，已经学了十年了。",
+    "english": "I started in junior high school—I’ve been studying it for ten years now.",
+    "vietnamese": "Tôi bắt đầu học từ hồi cấp hai—tính đến nay đã được mười năm rồi."
+  },
+  {
+    "id": 359,
+    "title": "十年？那么长时间？",
+    "english": "Ten years? That’s a long time!",
+    "vietnamese": "Mười năm ư? Lâu thật đấy!"
+  },
+  {
+    "id": 360,
+    "title": "是啊，我的语法还可以",
+    "english": "Yeah, my grammar is alright.",
+    "vietnamese": "Vâng, ngữ pháp của tôi thì tạm ổn."
+  },
+  {
+    "id": 361,
+    "title": "简单的翻译还没问题",
+    "english": "I can handle simple translations,",
+    "vietnamese": "Tôi có thể đảm đương được các phần dịch thuật đơn giản,"
+  },
+  {
+    "id": 362,
+    "title": "可是不太会说",
+    "english": "but I’m not very good at speaking.",
+    "vietnamese": "nhưng lại không giỏi nói lắm."
+  },
+  {
+    "id": 363,
+    "title": "你学了多长时间汉语？",
+    "english": "How long have you been studying Chinese?",
+    "vietnamese": "Còn tiếng Trung thì sao, bạn đã học được bao lâu rồi?"
+  },
+  {
+    "id": 364,
+    "title": "我学了半年了",
+    "english": "I’ve been studying it for half a year.",
+    "vietnamese": "Tôi mới học được nửa năm thôi."
+  },
+  {
+    "id": 365,
+    "title": "下学期，你还在北京学习吗？",
+    "english": "Will you still be studying in Beijing next semester?",
+    "vietnamese": "Học kỳ tới bạn vẫn sẽ tiếp tục học ở Bắc Kinh chứ?"
+  },
+  {
+    "id": 366,
+    "title": "当然啦，我打算在中国学习两年了。",
+    "english": "Of course! I plan to study in China for two years.",
+    "vietnamese": "Tất nhiên rồi! Tôi dự định sẽ học ở Trung Quốc hai năm."
   }
 ]
