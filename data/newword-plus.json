@@ -1574,5 +1574,37 @@
     "meaning": "McDonald's",
     "pinyin": "Màidāngláo",
     "audioSrc": ""
+  },
+  {
+    "id": "198",
+    "imageSrc": "",
+    "character": "作文",
+    "meaning": "Essay",
+    "pinyin": "zuò wén",
+    "audioSrc": ""
+  },
+  {
+    "id": "199",
+    "imageSrc": "",
+    "character": "初中",
+    "meaning": "Middle School",
+    "pinyin": "chū zhōng",
+    "audioSrc": ""
+  },
+  {
+    "id": "200",
+    "imageSrc": "",
+    "character": "简单",
+    "meaning": "Simple",
+    "pinyin": "jiǎn dān",
+    "audioSrc": ""
+  },
+  {
+    "id": "201",
+    "imageSrc": "",
+    "character": "学期",
+    "meaning": "Semester",
+    "pinyin": "xué qi",
+    "audioSrc": ""
   }
 ]
