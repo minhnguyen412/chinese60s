@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "totalSentences": 352,
-    "totalDuration": 1187.3,
-    "convertedAt": "2026-11-10T22:45:36.833Z",
+    "totalSentences": 366,
+    "totalDuration": 1232.22,
+    "convertedAt": "2026-11-26T17:40:46.879Z",
     "hasPinyin": true
   },
   "sentences": [
@@ -19483,6 +19483,728 @@
           "startTime": 1186.08,
           "duration": 1.04,
           "pinyin": "méi shì"
+        }
+      ]
+    },
+    {
+      "id": 353,
+      "startTime": 1187.52,
+      "endTime": 1190.65,
+      "duration": 3.13,
+      "text": "你用英语写的作文真不错",
+      "characters": [
+        {
+          "chars": "你",
+          "startTime": 1187.52,
+          "duration": 0.18,
+          "pinyin": "nǐ"
+        },
+        {
+          "chars": "用",
+          "startTime": 1187.7,
+          "duration": 0.2,
+          "pinyin": "yòng"
+        },
+        {
+          "chars": "英语",
+          "startTime": 1187.9,
+          "duration": 0.48,
+          "pinyin": "Yīngyǔ"
+        },
+        {
+          "chars": "写",
+          "startTime": 1188.38,
+          "duration": 0.14,
+          "pinyin": "xiě"
+        },
+        {
+          "chars": "的",
+          "startTime": 1188.52,
+          "duration": 0.16,
+          "pinyin": "de"
+        },
+        {
+          "chars": "作文",
+          "startTime": 1188.68,
+          "duration": 0.5
+        },
+        {
+          "chars": "真",
+          "startTime": 1189.18,
+          "duration": 0.18,
+          "pinyin": "zhēn"
+        },
+        {
+          "chars": "不错",
+          "startTime": 1189.36,
+          "duration": 0.81,
+          "pinyin": "bú cuò"
+        }
+      ]
+    },
+    {
+      "id": 354,
+      "startTime": 1190.98,
+      "endTime": 1192.45,
+      "duration": 1.47,
+      "text": "谢谢!",
+      "characters": [
+        {
+          "chars": "谢谢",
+          "startTime": 1190.98,
+          "duration": 0.98,
+          "pinyin": "xièxie"
+        },
+        {
+          "chars": "!",
+          "startTime": 1191.96,
+          "duration": 0.21
+        }
+      ]
+    },
+    {
+      "id": 355,
+      "startTime": 1192.45,
+      "endTime": 1195.72,
+      "duration": 3.27,
+      "text": "不过我的口语还不行",
+      "characters": [
+        {
+          "chars": "不过",
+          "startTime": 1192.45,
+          "duration": 0.7,
+          "pinyin": "búguò"
+        },
+        {
+          "chars": "我",
+          "startTime": 1193.15,
+          "duration": 0.46,
+          "pinyin": "wǒ"
+        },
+        {
+          "chars": "的",
+          "startTime": 1193.61,
+          "duration": 0.14,
+          "pinyin": "de"
+        },
+        {
+          "chars": "口语",
+          "startTime": 1193.75,
+          "duration": 0.49,
+          "pinyin": "kǒuyǔ"
+        },
+        {
+          "chars": "还",
+          "startTime": 1194.24,
+          "duration": 0.23,
+          "pinyin": "hái"
+        },
+        {
+          "chars": "不",
+          "startTime": 1194.47,
+          "duration": 0.22,
+          "pinyin": "bù"
+        },
+        {
+          "chars": "行",
+          "startTime": 1194.69,
+          "duration": 0.64,
+          "pinyin": "xíng"
+        }
+      ]
+    },
+    {
+      "id": 356,
+      "startTime": 1196.18,
+      "endTime": 1197.92,
+      "duration": 1.74,
+      "text": "我看挺好的",
+      "characters": [
+        {
+          "chars": "我",
+          "startTime": 1196.18,
+          "duration": 0.12,
+          "pinyin": "wǒ"
+        },
+        {
+          "chars": "看",
+          "startTime": 1196.3,
+          "duration": 0.3,
+          "pinyin": "kàn"
+        },
+        {
+          "chars": "挺",
+          "startTime": 1196.6,
+          "duration": 0.22,
+          "pinyin": "tǐng"
+        },
+        {
+          "chars": "好",
+          "startTime": 1196.82,
+          "duration": 0.3,
+          "pinyin": "hǎo"
+        },
+        {
+          "chars": "的",
+          "startTime": 1197.12,
+          "duration": 0.6,
+          "pinyin": "de"
+        }
+      ]
+    },
+    {
+      "id": 357,
+      "startTime": 1197.92,
+      "endTime": 1200.55,
+      "duration": 2.63,
+      "text": "你学了多长时间英语?",
+      "characters": [
+        {
+          "chars": "你",
+          "startTime": 1197.92,
+          "duration": 0.2,
+          "pinyin": "nǐ"
+        },
+        {
+          "chars": "学",
+          "startTime": 1198.12,
+          "duration": 0.16,
+          "pinyin": "xué"
+        },
+        {
+          "chars": "了",
+          "startTime": 1198.28,
+          "duration": 0.18,
+          "pinyin": "le"
+        },
+        {
+          "chars": "多长",
+          "startTime": 1198.46,
+          "duration": 0.56,
+          "pinyin": "duō cháng"
+        },
+        {
+          "chars": "时间",
+          "startTime": 1199.02,
+          "duration": 0.38,
+          "pinyin": "shíjiān"
+        },
+        {
+          "chars": "英语",
+          "startTime": 1199.4,
+          "duration": 0.66,
+          "pinyin": "Yīngyǔ"
+        },
+        {
+          "chars": "?",
+          "startTime": 1200.06,
+          "duration": 0.13
+        }
+      ]
+    },
+    {
+      "id": 358,
+      "startTime": 1201.26,
+      "endTime": 1205.51,
+      "duration": 4.25,
+      "text": "我从初中开始学习,已经学了十年了",
+      "characters": [
+        {
+          "chars": "我",
+          "startTime": 1201.26,
+          "duration": 0.22,
+          "pinyin": "wǒ"
+        },
+        {
+          "chars": "从",
+          "startTime": 1201.48,
+          "duration": 0.22,
+          "pinyin": "cóng"
+        },
+        {
+          "chars": "初中",
+          "startTime": 1201.7,
+          "duration": 0.52
+        },
+        {
+          "chars": "开始",
+          "startTime": 1202.22,
+          "duration": 0.44,
+          "pinyin": "kāi shǐ"
+        },
+        {
+          "chars": "学习",
+          "startTime": 1202.66,
+          "duration": 0.59,
+          "pinyin": "xuéxí"
+        },
+        {
+          "chars": ",",
+          "startTime": 1203.25,
+          "duration": 0.25
+        },
+        {
+          "chars": "已经",
+          "startTime": 1203.5,
+          "duration": 0.42,
+          "pinyin": "yǐ jīng"
+        },
+        {
+          "chars": "学",
+          "startTime": 1203.92,
+          "duration": 0.2,
+          "pinyin": "xué"
+        },
+        {
+          "chars": "了",
+          "startTime": 1204.12,
+          "duration": 0.14,
+          "pinyin": "le"
+        },
+        {
+          "chars": "十",
+          "startTime": 1204.26,
+          "duration": 0.2,
+          "pinyin": "shí"
+        },
+        {
+          "chars": "年",
+          "startTime": 1204.46,
+          "duration": 0.16,
+          "pinyin": "nián"
+        },
+        {
+          "chars": "了",
+          "startTime": 1204.62,
+          "duration": 0.67,
+          "pinyin": "le"
+        }
+      ]
+    },
+    {
+      "id": 359,
+      "startTime": 1205.96,
+      "endTime": 1209.32,
+      "duration": 3.36,
+      "text": "十年?那么长时间?",
+      "characters": [
+        {
+          "chars": "十",
+          "startTime": 1205.96,
+          "duration": 0.46,
+          "pinyin": "shí"
+        },
+        {
+          "chars": "年",
+          "startTime": 1206.42,
+          "duration": 0.36,
+          "pinyin": "nián"
+        },
+        {
+          "chars": "?",
+          "startTime": 1206.78,
+          "duration": 0.76
+        },
+        {
+          "chars": "那么",
+          "startTime": 1207.54,
+          "duration": 0.38,
+          "pinyin": "nà me"
+        },
+        {
+          "chars": "长",
+          "startTime": 1207.92,
+          "duration": 0.26,
+          "pinyin": "cháng"
+        },
+        {
+          "chars": "时间",
+          "startTime": 1208.18,
+          "duration": 0.6,
+          "pinyin": "shíjiān"
+        },
+        {
+          "chars": "?",
+          "startTime": 1208.78,
+          "duration": 0.26
+        }
+      ]
+    },
+    {
+      "id": 360,
+      "startTime": 1209.96,
+      "endTime": 1213.35,
+      "duration": 3.39,
+      "text": "是啊,我的语法还可以",
+      "characters": [
+        {
+          "chars": "是",
+          "startTime": 1209.96,
+          "duration": 0.32,
+          "pinyin": "shì"
+        },
+        {
+          "chars": "啊",
+          "startTime": 1210.28,
+          "duration": 0.28,
+          "pinyin": "à"
+        },
+        {
+          "chars": ",",
+          "startTime": 1210.56,
+          "duration": 0.94
+        },
+        {
+          "chars": "我",
+          "startTime": 1211.5,
+          "duration": 0.2,
+          "pinyin": "wǒ"
+        },
+        {
+          "chars": "的",
+          "startTime": 1211.7,
+          "duration": 0.16,
+          "pinyin": "de"
+        },
+        {
+          "chars": "语法",
+          "startTime": 1211.86,
+          "duration": 0.4,
+          "pinyin": "yǔfǎ"
+        },
+        {
+          "chars": "还",
+          "startTime": 1212.26,
+          "duration": 0.28,
+          "pinyin": "hái"
+        },
+        {
+          "chars": "可以",
+          "startTime": 1212.54,
+          "duration": 0.61,
+          "pinyin": "kě yǐ"
+        }
+      ]
+    },
+    {
+      "id": 361,
+      "startTime": 1213.35,
+      "endTime": 1215.79,
+      "duration": 2.44,
+      "text": "简单的翻译也没问题",
+      "characters": [
+        {
+          "chars": "简单",
+          "startTime": 1213.35,
+          "duration": 0.46
+        },
+        {
+          "chars": "的",
+          "startTime": 1213.81,
+          "duration": 0.24,
+          "pinyin": "de"
+        },
+        {
+          "chars": "翻译",
+          "startTime": 1214.05,
+          "duration": 0.48,
+          "pinyin": "fānyì"
+        },
+        {
+          "chars": "也",
+          "startTime": 1214.53,
+          "duration": 0.18,
+          "pinyin": "yě"
+        },
+        {
+          "chars": "没问题",
+          "startTime": 1214.71,
+          "duration": 0.83,
+          "pinyin": "méi wèntí"
+        }
+      ]
+    },
+    {
+      "id": 362,
+      "startTime": 1215.95,
+      "endTime": 1217.49,
+      "duration": 1.54,
+      "text": "可是不太会说",
+      "characters": [
+        {
+          "chars": "可是",
+          "startTime": 1215.95,
+          "duration": 0.36,
+          "pinyin": "kě shì"
+        },
+        {
+          "chars": "不",
+          "startTime": 1216.31,
+          "duration": 0.16,
+          "pinyin": "bù"
+        },
+        {
+          "chars": "太",
+          "startTime": 1216.47,
+          "duration": 0.2,
+          "pinyin": "tài"
+        },
+        {
+          "chars": "会",
+          "startTime": 1216.67,
+          "duration": 0.18,
+          "pinyin": "huì"
+        },
+        {
+          "chars": "说",
+          "startTime": 1216.85,
+          "duration": 0.49,
+          "pinyin": "shuō"
+        }
+      ]
+    },
+    {
+      "id": 363,
+      "startTime": 1217.95,
+      "endTime": 1220.49,
+      "duration": 2.54,
+      "text": "你学了多长时间汉语?",
+      "characters": [
+        {
+          "chars": "你",
+          "startTime": 1217.95,
+          "duration": 0.22,
+          "pinyin": "nǐ"
+        },
+        {
+          "chars": "学",
+          "startTime": 1218.17,
+          "duration": 0.2,
+          "pinyin": "xué"
+        },
+        {
+          "chars": "了",
+          "startTime": 1218.37,
+          "duration": 0.26,
+          "pinyin": "le"
+        },
+        {
+          "chars": "多长",
+          "startTime": 1218.63,
+          "duration": 0.48,
+          "pinyin": "duō cháng"
+        },
+        {
+          "chars": "时间",
+          "startTime": 1219.11,
+          "duration": 0.42,
+          "pinyin": "shíjiān"
+        },
+        {
+          "chars": "汉语",
+          "startTime": 1219.53,
+          "duration": 0.56,
+          "pinyin": "hànyǔ"
+        },
+        {
+          "chars": "?",
+          "startTime": 1220.09,
+          "duration": 0.17
+        }
+      ]
+    },
+    {
+      "id": 364,
+      "startTime": 1221.03,
+      "endTime": 1223.04,
+      "duration": 2.01,
+      "text": "我学了半年了。",
+      "characters": [
+        {
+          "chars": "我",
+          "startTime": 1221.03,
+          "duration": 0.28,
+          "pinyin": "wǒ"
+        },
+        {
+          "chars": "学",
+          "startTime": 1221.31,
+          "duration": 0.16,
+          "pinyin": "xué"
+        },
+        {
+          "chars": "了",
+          "startTime": 1221.47,
+          "duration": 0.14,
+          "pinyin": "le"
+        },
+        {
+          "chars": "半",
+          "startTime": 1221.61,
+          "duration": 0.2,
+          "pinyin": "bàn"
+        },
+        {
+          "chars": "年",
+          "startTime": 1221.81,
+          "duration": 0.34,
+          "pinyin": "nián"
+        },
+        {
+          "chars": "了",
+          "startTime": 1222.15,
+          "duration": 0.32,
+          "pinyin": "le"
+        },
+        {
+          "chars": "。",
+          "startTime": 1222.47,
+          "duration": 0.2
+        }
+      ]
+    },
+    {
+      "id": 365,
+      "startTime": 1223.67,
+      "endTime": 1227,
+      "duration": 3.33,
+      "text": "下学期,你还在北京学习吗?",
+      "characters": [
+        {
+          "chars": "下",
+          "startTime": 1223.67,
+          "duration": 0.3,
+          "pinyin": "xià"
+        },
+        {
+          "chars": "学期",
+          "startTime": 1223.97,
+          "duration": 0.66
+        },
+        {
+          "chars": ",",
+          "startTime": 1224.63,
+          "duration": 0.18
+        },
+        {
+          "chars": "你",
+          "startTime": 1224.81,
+          "duration": 0.2,
+          "pinyin": "nǐ"
+        },
+        {
+          "chars": "还",
+          "startTime": 1225.01,
+          "duration": 0.18,
+          "pinyin": "hái"
+        },
+        {
+          "chars": "在",
+          "startTime": 1225.19,
+          "duration": 0.18,
+          "pinyin": "zài"
+        },
+        {
+          "chars": "北京",
+          "startTime": 1225.37,
+          "duration": 0.5,
+          "pinyin": "Běijīng"
+        },
+        {
+          "chars": "学习",
+          "startTime": 1225.87,
+          "duration": 0.34,
+          "pinyin": "xuéxí"
+        },
+        {
+          "chars": "吗",
+          "startTime": 1226.21,
+          "duration": 0.22,
+          "pinyin": "ma"
+        },
+        {
+          "chars": "?",
+          "startTime": 1226.43,
+          "duration": 0.2
+        }
+      ]
+    },
+    {
+      "id": 366,
+      "startTime": 1228.11,
+      "endTime": 1232.22,
+      "duration": 4.11,
+      "text": "当然啦,我打算在中国学习两年呢。",
+      "characters": [
+        {
+          "chars": "当然",
+          "startTime": 1228.11,
+          "duration": 0.5,
+          "pinyin": "dāngrán"
+        },
+        {
+          "chars": "啦",
+          "startTime": 1228.61,
+          "duration": 0.28,
+          "pinyin": "la"
+        },
+        {
+          "chars": ",",
+          "startTime": 1228.89,
+          "duration": 0.42
+        },
+        {
+          "chars": "我",
+          "startTime": 1229.31,
+          "duration": 0.16,
+          "pinyin": "wǒ"
+        },
+        {
+          "chars": "打算",
+          "startTime": 1229.47,
+          "duration": 0.54,
+          "pinyin": "dǎsuan"
+        },
+        {
+          "chars": "在",
+          "startTime": 1230.01,
+          "duration": 0.24,
+          "pinyin": "zài"
+        },
+        {
+          "chars": "中国",
+          "startTime": 1230.25,
+          "duration": 0.42,
+          "pinyin": "zhōngguó"
+        },
+        {
+          "chars": "学习",
+          "startTime": 1230.67,
+          "duration": 0.4,
+          "pinyin": "xuéxí"
+        },
+        {
+          "chars": "两",
+          "startTime": 1231.07,
+          "duration": 0.3,
+          "pinyin": "liǎng"
+        },
+        {
+          "chars": "年",
+          "startTime": 1231.37,
+          "duration": 0.26,
+          "pinyin": "nián"
+        },
+        {
+          "chars": "呢",
+          "startTime": 1231.63,
+          "duration": 0.22,
+          "pinyin": "ne"
+        },
+        {
+          "chars": "。",
+          "startTime": 1231.85,
+          "duration": 0.12
         }
       ]
     }
