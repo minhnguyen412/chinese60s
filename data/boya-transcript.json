@@ -2,7 +2,7 @@
   "metadata": {
     "totalSentences": 366,
     "totalDuration": 1232.22,
-    "convertedAt": "2026-11-26T17:40:46.879Z",
+    "convertedAt": "2026-11-26T18:54:42.079Z",
     "hasPinyin": true
   },
   "sentences": [
@@ -19526,7 +19526,8 @@
         {
           "chars": "作文",
           "startTime": 1188.68,
-          "duration": 0.5
+          "duration": 0.5,
+          "pinyin": "zuò wén"
         },
         {
           "chars": "真",
@@ -19724,7 +19725,8 @@
         {
           "chars": "初中",
           "startTime": 1201.7,
-          "duration": 0.52
+          "duration": 0.52,
+          "pinyin": "chū zhōng"
         },
         {
           "chars": "开始",
@@ -19896,7 +19898,8 @@
         {
           "chars": "简单",
           "startTime": 1213.35,
-          "duration": 0.46
+          "duration": 0.46,
+          "pinyin": "jiǎn dān"
         },
         {
           "chars": "的",
@@ -20079,7 +20082,8 @@
         {
           "chars": "学期",
           "startTime": 1223.97,
-          "duration": 0.66
+          "duration": 0.66,
+          "pinyin": "xué qi"
         },
         {
           "chars": ",",
